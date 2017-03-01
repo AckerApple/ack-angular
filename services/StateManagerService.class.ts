@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core"
+import { StateService } from "ui-router-ng2";
 
 /** A stateful connection to ui-router history
  - .stateChange() with arguments MUST be called at every state change
@@ -12,7 +12,11 @@ export class StateManagerService{
   public isNextBackHistory : boolean
   public isBackMode : boolean
   public isOsAction : boolean
+  public stateService : StateService
 
+  static parameters = [[StateService]]
+
+  //constructor($state, $window){
   constructor($state, $window){
     this.$state = $state
     this.$window = $window || window

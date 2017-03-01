@@ -1,15 +1,17 @@
-import { Injectable } from "@angular/core"
+//import { Injectable } from "@angular/core"
 import { StateManagerService } from "../services/StateManagerService.class"
 //import injector from "../injector"
 //const deps = ['StateManagerService','$state','$rootScope','$document', '$scope', '$timeout']
 
-@Injectable() export class StateDocWatcher{
+export class StateDocWatcher{
   public $document
   public isMouseOut : boolean
   public StateManagerService : StateManagerService
+  static parameters = [[StateManagerService]]
 
   constructor(public StateManagerService:StateManagerService){
     //inject(arguments, this)
+    this.StateManagerService = StateManagerService
     this.$document = document
 
     const isBackButton = ()=>{

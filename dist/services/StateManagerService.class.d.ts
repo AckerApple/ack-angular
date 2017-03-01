@@ -1,3 +1,4 @@
+import { StateService } from "ui-router-ng2";
 /** A stateful connection to ui-router history
  - .stateChange() with arguments MUST be called at every state change
 */
@@ -10,6 +11,8 @@ export declare class StateManagerService {
     isNextBackHistory: boolean;
     isBackMode: boolean;
     isOsAction: boolean;
+    stateService: StateService;
+    static parameters: typeof StateService[][];
     constructor($state: any, $window: any);
     isBackHistory(toState: any, toParams: any): boolean;
     isForwardHistory(toState: any, toParams: any): boolean;
