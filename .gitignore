@@ -1,3 +1,7 @@
+jspm_packages
+.DS_Store
+updaters
+
 # Logs
 logs
 *.log
