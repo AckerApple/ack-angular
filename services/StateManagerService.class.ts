@@ -1,3 +1,5 @@
+import { Injectable } from "@angular/core"
+
 /** A stateful connection to ui-router history
  - .stateChange() with arguments MUST be called at every state change
 */

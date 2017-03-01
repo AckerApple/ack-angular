@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "inlineSources": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noEmitHelpers": false,
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "types": ["core-js"]
+  },
+  "exclude": [
+    "node_modules",
+    "example",
+    "src/specs"
+  ]
+}
