@@ -4,19 +4,14 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
-    "inlineSources": true,
     "emitDecoratorMetadata": true,
+    "baseUrl": ".",
     "experimentalDecorators": true,
     "noEmitHelpers": false,
-    "lib": [
-      "es6",
-      "dom"
-    ],
-    "types": ["core-js"]
+    "allowJs": true
   },
-  "exclude": [
-    "node_modules",
-    "example",
-    "src/specs"
+  "exclude": [],
+  "files": [
+    "./index.ts"
   ]
 }

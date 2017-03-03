@@ -86,4 +86,5 @@ var StateManagerService = (function () {
 }());
 StateManagerService.parameters = [[ui_router_ng2_1.StateService]];
 exports.StateManagerService = StateManagerService;
+//# sourceMappingURL=StateManagerService.class.js.map 
 //# sourceMappingURL=StateManagerService.class.js.map

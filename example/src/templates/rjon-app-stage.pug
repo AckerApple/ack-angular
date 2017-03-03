@@ -1,0 +1,51 @@
+state-doc-watcher
+
+.pad-xxs
+  h2.margin-0
+    span.text-xs 🔗
+    |&nbsp;Rjon Interactive App
+  .pad-left-lg.text-grey-2x.text-sm
+    |Choose an interface below - {{date}}
+
+.flex-evenly.bg-info.child-pad-sm.text-center.text-2x.strong.child-hover-bg-warning
+  a.no-a-style.flex-1.border-right.border-white([ngClass]="{'bg-energized text-white':stateService.current.name=='building'}" href="#/building")
+    |Building
+  a.no-a-style.flex-1.border-right.border-white([ngClass]="{'bg-energized text-white':stateService.current.name=='reviewing'}" href="#/reviewing")
+    |Reviewing
+  a.no-a-style.flex-1([ngClass]="{'bg-energized text-white':stateService.current.name=='testing'}" href="#/testing")
+    |Testing
+
+button("(click)"="checkState()") check
+|forAnimate:{{forAnimate}}
+div(style="position:relative;")
+  div("*ngIf"="stateService.current.name=='building'" "[@stage]"="'slideInLeft'")
+    h2(style="margin:0") Building
+    |This is my component ANIMATED content
+
+    p stateService.test : {{stateService.test}}
+    p stateService.current.name : {{stateService.current.name}}
+    p stateService.current.name : {{stateService.current|json}}
+    p stateService : {{stateService}}
+    br
+
+  div("*ngIf"="stateService.current.name=='reviewing'" "[@stage]"="'slideInLeft'")
+    h2(style="margin:0") Reviewing
+    ul.test
+      li.test("*ngFor"="let item of list;let i = index;" "[@animate]"="'slideInLeft'")
+          |{{item}} - {{i}}
+          button("(click)"="list.splice(i,1)") X
+    br
+
+  div("*ngIf"="stateService.current.name=='testing'" "[@stage]"="'slideInLeft'")
+    h2(style="margin:0") Testing
+    
+    |This is my component ANIMATED content
+
+    p stateService.test : {{stateService.test}}
+    p stateService.current.name : {{stateService.current.name}}
+    p stateService.current.name : {{stateService.current|json}}
+    p stateService : {{stateService}}
+    br
+
+
+  //-ui-view No Template
