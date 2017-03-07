@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var StateManagerService_class_1 = require("./services/StateManagerService.class");
-exports.StateManagerService = StateManagerService_class_1.StateManagerService;
-var StateDocWatcher_class_1 = require("./components/StateDocWatcher.class");
-exports.StateDocWatcher = StateDocWatcher_class_1.StateDocWatcher;
+var RouteDocWatcher_component_1 = require("./RouteDocWatcher.component");
+exports.RouteDocWatcher = RouteDocWatcher_component_1.RouteDocWatcher;
+var RouteWatcher_class_1 = require("./RouteWatcher.class");
+exports.RouteWatcher = RouteWatcher_class_1.RouteWatcher;
 //# sourceMappingURL=index.js.map

@@ -1,2 +1,2 @@
-export { StateManagerService } from "./services/StateManagerService.class";
-export { StateDocWatcher } from "./components/StateDocWatcher.class";
+export { RouteDocWatcher } from "./RouteDocWatcher.component";
+export { RouteWatcher } from "./RouteWatcher.class";
