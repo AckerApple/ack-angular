@@ -1,0 +1,103 @@
+route-doc-watcher("[(ref)]"="routeDocWatcher" "(beforeChange)"="panelAnim=$event.isBackMode?'slideInRight':'slideInLeft';isBackMode=$event.isBackMode;" "(onChange)"="stateName=$event.$state().current.name")
+
+.pad-xs.flex-valign-center.flex-wrap
+  h2.margin-0
+    span.text-xs 🚴
+    |&nbsp;ack-angular
+  span.text-right.flex-1.text-grey-3x
+    |v{{ version }}
+
+.flex-wrap.flex-evenly.bg-info.child-pad-sm.text-center.text-2x.strong.child-hover-bg-warning
+  a.no-a-style.flex-1.border-right.border-white([ngClass]="{'bg-energized':stateName=='overview'}" href="#/overview")
+    |Overview
+  a.no-a-style.flex-1.border-right.border-white([ngClass]="{'bg-energized':stateName=='components'}" href="#/components")
+    |Components
+  a.no-a-style.flex-1.border-right.border-white([ngClass]="{'bg-energized':stateName=='pipes'}" href="#/pipes")
+    |Pipes
+  a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='services'}" href="#/services")
+    |Services
+  a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='animations'}" href="#/animations")
+    |Animations
+
+.pad-h(style="position:relative;")
+  div("*ngIf"="stateName=='overview'" "[@stage]"="panelAnim")
+    h2 Overview
+
+    p
+      strong ack-angular
+      |,&nbsp;is a continuation of successful directives, services, and filters that were established for AngularJs during the building of #[a(href="https://github.com/AckerApple/ack-angularjs") ack-angularjs]
+
+    p #[a(href="https://github.com/AckerApple/ack-angular") repository]
+
+  div("*ngIf"="stateName=='components'" "[@stage]"="panelAnim")
+    h2 Components
+
+    fieldset.border-dotted.border-grey-2x.border
+      legend.pad-h
+        h3.margin-0 route-doc-watcher
+      p.text-grey-2x Get in tune with your document route states
+      .pad Requirements
+        ul
+          li ui-router-ng2
+      h4 Usage Example
+      pre.code-sample
+        |&lt;route-doc-watcher [(ref)]="" (beforeChange)="" (onChange)=""&gt;
+      h4 ref example
+      pre.code-sample.max-height-500
+        |&lt;route-doc-watcher [(ref)]="routeState" &gt;
+        |-----------------------------------------
+        |routeState:{{ routeDocWatcher|json }}
+
+  div("*ngIf"="stateName=='pipes'" "[@stage]"="panelAnim")
+    h2 Pipes
+    p.text-grey-2x Decorate and filter output via Pipes
+    .flex-wrap
+      fieldset.flex1.border-dotted.border-grey-2x.border
+        legend.pad-h
+          h3 typeof
+        p.text-grey-2x Output result of native javascript typeof() function
+        h4 Usage Example
+        pre.code-sample
+          |{{ 0 | typeof }<!---->}
+
+      fieldset.flex1.border-dotted.border-grey-2x.border
+        legend.pad-h
+          h3 console
+        p.text-grey-2x console log result of native console.log() function
+        h4 Usage Example
+        pre.code-sample
+          |{{ 'message1' | console : 'message2' }<!---->}
+    
+
+  div("*ngIf"="stateName=='services'" "[@stage]"="panelAnim")
+    h2 Services
+    .flex-wrap
+      fieldset.flex-1.border-dotted.border-grey-2x.border
+        legend.pad-h
+          h3.margin-0 RouteWatcher
+        p.text-grey-2x Get history and additional state information from ui-router-ng2
+        .pad Requirements
+          ul
+            li ui-router-ng2
+        h4 Import Examples
+        |Short-hand Import
+        pre.code-sample
+          |import { RouteWatcher } from "ack-angular"
+        |Long-hand Import
+        pre.code-sample
+          |import * as RouteWatcher from "ack-angular/dist/services/RouteWatcher.class"
+
+
+  div("*ngIf"="stateName=='animations'" "[@stage]"="panelAnim")
+    h2 Animations
+    p.text-grey-2x Make an app far more beautiful when changing scenery
+
+    |Currently, all animations are provided by a #[a(href="https://github.com/yuyang041060120/ng2-animate/pull/4") pull request] of #[a(href="https://github.com/AckerApple/ng2-animate") ng2-animate]
+
+    h3 Supporting Example
+    p.text-grey-2x The following list should be animated
+    ul
+      li("*ngFor"="let item of list;let i = index;" "[@animate]"="'slideInLeft'")
+          |{{item}} - {{i}}
+          button("(click)"="list.splice(i,1)") X
+    br
