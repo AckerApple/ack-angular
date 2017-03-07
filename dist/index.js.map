@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../src/index.ts"],"names":[],"mappings":";;AAAA,yEAA8D;AAArD,sDAAA,eAAe,CAAA;AACxB,2DAAoD;AAA3C,4CAAA,YAAY,CAAA","sourcesContent":["export { RouteDocWatcher } from \"./RouteDocWatcher.component\";\nexport { RouteWatcher } from \"./RouteWatcher.class\";"]}
