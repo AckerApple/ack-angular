@@ -54515,7 +54515,160 @@ exports.isObject = isObject;
 //# sourceMappingURL=isObject.js.map
 
 /***/ }),
-/* 246 */,
+/* 246 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var ui_router_ng2_1 = __webpack_require__(104);
+/** A stateful connection to ui-router history
+ - .stateChange() with arguments MUST be called at every state change
+ - Has 99% accuracy of knowing if OS back or forward button has been used
+   - Their is no web event for knowing if OS button is used.
+*/
+var RouteWatcher = (function () {
+    //constructor($state, $window){
+    function RouteWatcher($state, TransitionService, $window) {
+        var _this = this;
+        this.historyPos = 0;
+        this.isNextBackMode = false;
+        this.isNextBackHistory = false;
+        this.isBackMode = false;
+        this.isOsAction = false;
+        var stateHistory = [];
+        this.$state = function () { return $state; };
+        this.$window = function () { return $window; };
+        //this.$history = ()=>stateHistory
+        this.$history = stateHistory;
+        TransitionService.onStart({ to: '*' }, function (transition) {
+            _this.recordStateChange(transition._targetState._definition, transition._targetState._params);
+        });
+    }
+    RouteWatcher.prototype.isTrapHistory = function (toState, toParams) {
+        return this.isBackHistory(toState, toParams) && this.isForwardHistory(toState, toParams);
+    };
+    RouteWatcher.prototype.isBackHistory = function (toState, toParams) {
+        //const $history = this.$history()
+        var $history = this.$history;
+        var isEven = $history.length > this.historyPos + 1;
+        var isNameMatch = isEven && toState && toState.name == $history[this.historyPos + 1].name;
+        return isNameMatch && this.isParamsMatch(toParams, $history[this.historyPos + 1].params);
+    };
+    RouteWatcher.prototype.isForwardHistory = function (toState, toParams) {
+        //const $history = this.$history()
+        var $history = this.$history;
+        var isEven = !this.isNextBackMode && this.historyPos && $history.length > this.historyPos;
+        var isNameMatch = isEven && toState && toState.name == $history[this.historyPos - 1].name;
+        return isNameMatch && this.isParamsMatch(toParams, $history[this.historyPos - 1].params);
+    };
+    RouteWatcher.prototype.isParamsMatch = function (toParams, otherParams) {
+        for (var x in toParams) {
+            if (toParams[x] != otherParams[x]) {
+                return false;
+            }
+        }
+        return true;
+    };
+    /**
+      @event Object - not used
+      @toState Object{name} - required
+      @toParams Object{} - only recorded to history, not used otherwise
+      @fromState Object{name} - not used
+      @fromParams Object{} - not used
+    */
+    /*
+    stateChange(event, toState, toParams, fromState, fromParams){
+      this.recordStateChange(toState, toParams)
+    }*/
+    RouteWatcher.prototype.recordStateChange = function (toState, toParams) {
+        var isForward = this.isForwardHistory(toState, toParams);
+        var isBackHistory = this.isNextBackHistory || this.isBackHistory(toState, toParams);
+        if (this.isOsAction && this.isTrapHistory(toState, toParams)) {
+            if (this.isBackMode) {
+                isForward = false;
+            }
+            else {
+                isBackHistory = false;
+            }
+        }
+        else {
+            this.isBackMode = this.isNextBackMode || (this.isOsAction && isBackHistory);
+        }
+        //console.log('this.isOsAction',this.isNextBackMode,isBackHistory,this.isOsAction,this.isBackMode)
+        //const $history = this.$history()
+        var $history = this.$history;
+        //if($history.length)this.last = $history[this.historyPos]
+        if (isForward) {
+            --this.historyPos;
+        }
+        else if (this.isBackMode) {
+            ++this.historyPos;
+        }
+        else {
+            var $state = this.$state();
+            this.historyPos = 0;
+            var hist = { name: toState.name, params: toParams };
+            if (!Object.keys(toParams).length) {
+                delete hist.params;
+            }
+            $history.unshift(hist);
+        }
+        /*if($history.length > this.historyPos+1){
+          this.back = $history[this.historyPos+1]
+        }*/
+        this.isNextBackHistory = false;
+        //console.log('this.isOsAction',isBackHistory,this.isOsAction,this.isBackMode)
+    };
+    RouteWatcher.prototype.goBackTo = function (name, params) {
+        this.isNextBackMode = true;
+        this.isNextBackHistory = true;
+        this.$state().go(name, params);
+    };
+    RouteWatcher.prototype.tryBack = function (name, params) {
+        if (this.$history.length) {
+            this.isNextBackMode = true;
+            this.isNextBackHistory = true;
+            this.$window().history.back();
+            /*
+            console.log('go back', this.historyPos, this.stateHistory.length, this.stateHistory)
+            this.$state.go(this.stateHistory[this.historyPos].name, this.stateHistory[this.historyPos].params)
+            */
+        }
+        else {
+            this.goBackTo(name, params);
+        }
+    };
+    RouteWatcher.prototype.watchDocument = function ($document) {
+        this.watchDocByCallbacks($document, this.getDocumentCallbacks());
+    };
+    RouteWatcher.prototype.getDocumentCallbacks = function () {
+        var _this = this;
+        var isBackButton = function () {
+            _this.isOsAction = true;
+        };
+        var isNotBackButton = function () {
+            _this.isOsAction = false;
+        };
+        return { isBackButton: isBackButton, isNotBackButton: isNotBackButton };
+    };
+    RouteWatcher.prototype.watchDocByCallbacks = function ($document, callbacks) {
+        $document.addEventListener('mouseout', callbacks.isBackButton);
+        //$document.addEventListener('mouseover', callbacks.mouseover)
+        $document.addEventListener('mousedown', callbacks.isNotBackButton);
+    };
+    RouteWatcher.prototype.unwatchDocByCallbacks = function ($document, callbacks) {
+        $document.removeEventListener('mouseout', callbacks.isBackButton);
+        $document.removeEventListener('mouseover', callbacks.isNotBackButton);
+        $document.removeEventListener('mousedown', callbacks.isNotBackButton);
+    };
+    return RouteWatcher;
+}());
+RouteWatcher.parameters = [[ui_router_ng2_1.StateService], [ui_router_ng2_1.TransitionService]];
+exports.RouteWatcher = RouteWatcher;
+
+
+/***/ }),
 /* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -59378,78 +59531,58 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var ui_router_ng2_1 = __webpack_require__(104);
 var core_1 = __webpack_require__(0);
 var platform_browser_1 = __webpack_require__(226);
 var states = __webpack_require__(418);
-var StateManagerService_class_1 = __webpack_require__(450);
-var StateDocWatcher_class_1 = __webpack_require__(452);
-//import * as pack from "../package.json"
-//console.log('pack', pack)
-var rjonAppStageTemplate = __webpack_require__(451);
+var RouteWatcher_class_1 = __webpack_require__(246);
+var RouteDocWatcher_component_1 = __webpack_require__(419);
+var package_json_1 = __webpack_require__(447);
+var ackAppStageTemplate = __webpack_require__(384);
 var ng2_animate_1 = __webpack_require__(383);
 ng2_animate_1.animateDefaults.igniter = 'void';
+var pipes = __webpack_require__(420);
 var AppComponent = (function () {
-    function AppComponent(stateService, transitionService, stateManagerService
-        /*
-        @Inject(forwardRef(() => StateService)) public stateService: StateService
-        ,@Inject(forwardRef(() => TransitionService)) public transitionService: TransitionService
-        */
-    ) {
-        var _this = this;
-        this.stateService = stateService;
-        this.transitionService = transitionService;
-        this.stateManagerService = stateManagerService;
-        this.date = Date.now();
+    function AppComponent() {
+        this.version = package_json_1.version;
         this.list = ['abc', 'defg', 'hij', 'klm', 'opq', 'rst', 'uvx', 'yz'];
-        //this.stateManagerService = new StateManagerService(stateService, window)
-        this.stateManagerService.test0 = 22;
-        transitionService.onSuccess({ to: '*' }, function (transition) {
-            _this.stateManagerService.recordStateChange(transition._targetState._definition, transition._targetState._params);
-        });
     }
-    AppComponent.prototype.checkState = function () {
-        console.log('this.stateService', this.stateService);
-        //console.log('this.stateRegistry', )
-    };
     return AppComponent;
 }());
-AppComponent.parameters = [[ui_router_ng2_1.StateService], [ui_router_ng2_1.TransitionService], [StateManagerService_class_1.StateManagerService]];
 AppComponent = __decorate([
     core_1.Component({
-        selector: 'rjon-app-stage',
-        template: rjonAppStageTemplate(),
+        selector: 'ack-app-stage',
+        template: ackAppStageTemplate(),
         animations: [
             ng2_animate_1.animateConfig({ duration: 100, easing: 'ease-in' }),
             ng2_animate_1.animateConfig({
                 easing: 'linear', name: 'stage',
-                whileStyle: { position: 'absolute', width: '100%' }
+                whileStyle: {
+                    position: 'absolute', width: '100%', 'overflow': 'hidden'
+                }
             })
         ]
-    }),
-    __metadata("design:paramtypes", [Object, Object, Object])
+    })
 ], AppComponent);
 var declarations = [
-    StateDocWatcher_class_1.StateDocWatcher, AppComponent
-    //  ,StateDocWatcher
+    RouteDocWatcher_component_1.RouteDocWatcher, AppComponent
+    //  ,RouteDocWatcher
 ];
 declarations.push.apply(declarations, states.declarations);
+declarations.push.apply(declarations, pipes.declarations);
 var ngModule = {
     imports: [
         platform_browser_1.BrowserModule,
         ui_router_ng2_1.UIRouterModule.forRoot({
             states: states.states,
             useHash: true,
-            otherwise: '/building'
+            otherwise: '/overview'
         })
     ],
     declarations: declarations,
     providers: [
-        StateManagerService_class_1.StateManagerService
+        RouteWatcher_class_1.RouteWatcher
     ],
     bootstrap: [AppComponent]
 };
@@ -76433,7 +76566,15 @@ exports.animateConfig = function (config) {
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 384 */,
+/* 384 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var pug = __webpack_require__(385);
+
+function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Croute-doc-watcher [(ref)]=\"routeDocWatcher\" (beforeChange)=\"panelAnim=$event.isBackMode?'slideInRight':'slideInLeft';isBackMode=$event.isBackMode;\" (onChange)=\"stateName=$event.$state().current.name\"\u003E\u003C\u002Froute-doc-watcher\u003E\u003Cdiv class=\"pad-xs flex-valign-center flex-wrap\"\u003E\u003Ch2 class=\"margin-0\"\u003E\u003Cspan class=\"text-xs\"\u003E🚴\u003C\u002Fspan\u003E&nbsp;ack-angular\u003C\u002Fh2\u003E\u003Cspan class=\"text-right flex-1 text-grey-3x\"\u003Ev{{ version }}\u003C\u002Fspan\u003E\u003C\u002Fdiv\u003E\u003Cdiv class=\"flex-wrap flex-evenly bg-info child-pad-sm text-center text-2x strong child-hover-bg-warning\"\u003E\u003Ca class=\"no-a-style flex-1 border-right border-white\" [ngClass]=\"{'bg-energized':stateName=='overview'}\" href=\"#\u002Foverview\"\u003EOverview\u003C\u002Fa\u003E\u003Ca class=\"no-a-style flex-1 border-right border-white\" [ngClass]=\"{'bg-energized':stateName=='components'}\" href=\"#\u002Fcomponents\"\u003EComponents\u003C\u002Fa\u003E\u003Ca class=\"no-a-style flex-1 border-right border-white\" [ngClass]=\"{'bg-energized':stateName=='pipes'}\" href=\"#\u002Fpipes\"\u003EPipes\u003C\u002Fa\u003E\u003Ca class=\"no-a-style flex-1\" [ngClass]=\"{'bg-energized':stateName=='services'}\" href=\"#\u002Fservices\"\u003EServices\u003C\u002Fa\u003E\u003Ca class=\"no-a-style flex-1\" [ngClass]=\"{'bg-energized':stateName=='animations'}\" href=\"#\u002Fanimations\"\u003EAnimations\u003C\u002Fa\u003E\u003C\u002Fdiv\u003E\u003Cdiv class=\"pad-h\" style=\"position:relative;\"\u003E\u003Cdiv *ngIf=\"stateName=='overview'\" [@stage]=\"panelAnim\"\u003E\u003Ch2\u003EOverview\u003C\u002Fh2\u003E\u003Cp\u003E\u003Cstrong\u003Eack-angular\u003C\u002Fstrong\u003E,&nbsp;is a continuation of successful directives, services, and filters that were established for AngularJs during the building of \u003Ca href=\"https:\u002F\u002Fgithub.com\u002FAckerApple\u002Fack-angularjs\"\u003Eack-angularjs\u003C\u002Fa\u003E\u003C\u002Fp\u003E\u003Cp\u003E\u003Ca href=\"https:\u002F\u002Fgithub.com\u002FAckerApple\u002Fack-angular\"\u003Erepository\u003C\u002Fa\u003E\u003C\u002Fp\u003E\u003C\u002Fdiv\u003E\u003Cdiv *ngIf=\"stateName=='components'\" [@stage]=\"panelAnim\"\u003E\u003Ch2\u003EComponents\u003C\u002Fh2\u003E\u003Cfieldset class=\"border-dotted border-grey-2x border\"\u003E\u003Clegend class=\"pad-h\"\u003E\u003Ch3 class=\"margin-0\"\u003Eroute-doc-watcher\u003C\u002Fh3\u003E\u003C\u002Flegend\u003E\u003Cp class=\"text-grey-2x\"\u003EGet in tune with your document route states\u003C\u002Fp\u003E\u003Cdiv class=\"pad\"\u003ERequirements\u003Cul\u003E\u003Cli\u003Eui-router-ng2\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003C\u002Fdiv\u003E\u003Ch4\u003EUsage Example\u003C\u002Fh4\u003E\u003Cpre class=\"code-sample\"\u003E&lt;route-doc-watcher [(ref)]=\"\" (beforeChange)=\"\" (onChange)=\"\"&gt;\u003C\u002Fpre\u003E\u003Ch4\u003Eref example\u003C\u002Fh4\u003E\u003Cpre class=\"code-sample max-height-500\"\u003E&lt;route-doc-watcher [(ref)]=\"routeState\" &gt;\n-----------------------------------------\nrouteState:{{ routeDocWatcher|json }}\u003C\u002Fpre\u003E\u003C\u002Ffieldset\u003E\u003C\u002Fdiv\u003E\u003Cdiv *ngIf=\"stateName=='pipes'\" [@stage]=\"panelAnim\"\u003E\u003Ch2\u003EPipes\u003C\u002Fh2\u003E\u003Cp class=\"text-grey-2x\"\u003EDecorate and filter output via Pipes\u003C\u002Fp\u003E\u003Cdiv class=\"flex-wrap\"\u003E\u003Cfieldset class=\"flex1 border-dotted border-grey-2x border\"\u003E\u003Clegend class=\"pad-h\"\u003E\u003Ch3\u003Etypeof\u003C\u002Fh3\u003E\u003C\u002Flegend\u003E\u003Cp class=\"text-grey-2x\"\u003EOutput result of native javascript typeof() function\u003C\u002Fp\u003E\u003Ch4\u003EUsage Example\u003C\u002Fh4\u003E\u003Cpre class=\"code-sample\"\u003E{{ 0 | typeof }\u003C!----\u003E}\u003C\u002Fpre\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset class=\"flex1 border-dotted border-grey-2x border\"\u003E\u003Clegend class=\"pad-h\"\u003E\u003Ch3\u003Econsole\u003C\u002Fh3\u003E\u003C\u002Flegend\u003E\u003Cp class=\"text-grey-2x\"\u003Econsole log result of native console.log() function\u003C\u002Fp\u003E\u003Ch4\u003EUsage Example\u003C\u002Fh4\u003E\u003Cpre class=\"code-sample\"\u003E{{ 'message1' | console : 'message2' }\u003C!----\u003E}\u003C\u002Fpre\u003E\u003C\u002Ffieldset\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E\u003Cdiv *ngIf=\"stateName=='services'\" [@stage]=\"panelAnim\"\u003E\u003Ch2\u003EServices\u003C\u002Fh2\u003E\u003Cdiv class=\"flex-wrap\"\u003E\u003Cfieldset class=\"flex-1 border-dotted border-grey-2x border\"\u003E\u003Clegend class=\"pad-h\"\u003E\u003Ch3 class=\"margin-0\"\u003ERouteWatcher\u003C\u002Fh3\u003E\u003C\u002Flegend\u003E\u003Cp class=\"text-grey-2x\"\u003EGet history and additional state information from ui-router-ng2\u003C\u002Fp\u003E\u003Cdiv class=\"pad\"\u003ERequirements\u003Cul\u003E\u003Cli\u003Eui-router-ng2\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003C\u002Fdiv\u003E\u003Ch4\u003EImport Examples\u003C\u002Fh4\u003EShort-hand Import\u003Cpre class=\"code-sample\"\u003Eimport { RouteWatcher } from \"ack-angular\"\u003C\u002Fpre\u003ELong-hand Import\u003Cpre class=\"code-sample\"\u003Eimport * as RouteWatcher from \"ack-angular\u002Fdist\u002Fservices\u002FRouteWatcher.class\"\u003C\u002Fpre\u003E\u003C\u002Ffieldset\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E\u003Cdiv *ngIf=\"stateName=='animations'\" [@stage]=\"panelAnim\"\u003E\u003Ch2\u003EAnimations\u003C\u002Fh2\u003E\u003Cp class=\"text-grey-2x\"\u003EMake an app far more beautiful when changing scenery\u003C\u002Fp\u003ECurrently, all animations are provided by a \u003Ca href=\"https:\u002F\u002Fgithub.com\u002Fyuyang041060120\u002Fng2-animate\u002Fpull\u002F4\"\u003Epull request\u003C\u002Fa\u003E of \u003Ca href=\"https:\u002F\u002Fgithub.com\u002FAckerApple\u002Fng2-animate\"\u003Eng2-animate\u003C\u002Fa\u003E\u003Ch3\u003ESupporting Example\u003C\u002Fh3\u003E\u003Cp class=\"text-grey-2x\"\u003EThe following list should be animated\u003C\u002Fp\u003E\u003Cul\u003E\u003Cli *ngFor=\"let item of list;let i = index;\" [@animate]=\"'slideInLeft'\"\u003E{{item}} - {{i}}\u003Cbutton (click)=\"list.splice(i,1)\"\u003EX\u003C\u002Fbutton\u003E\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003Cbr\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E";;return pug_html;};
+module.exports = template;
+
+/***/ }),
 /* 385 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -78828,44 +78969,177 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var ui_router_ng2_1 = __webpack_require__(104);
 var core_1 = __webpack_require__(0);
 exports.declarations = [];
 function state(name) {
-    var building = (function () {
-        function building(stateService) {
+    var StateDef = (function () {
+        function StateDef(stateService) {
             this.stateService = stateService;
+            this.parameters = [[ui_router_ng2_1.StateService]];
             this.routerState = stateService;
             this.routerState.current = { name: name };
         }
-        return building;
+        return StateDef;
     }());
-    building = __decorate([
+    StateDef = __decorate([
         core_1.Component({
-            template: '<h3>Hello {{routerState.current.name}} world!</h3>'
+            template: '' //<h3>Hello {{routerState.current.name}} world!</h3>' 
         }),
-        __param(0, core_1.Inject(core_1.forwardRef(function () { return ui_router_ng2_1.StateService; }))),
         __metadata("design:paramtypes", [ui_router_ng2_1.StateService])
-    ], building);
-    exports.declarations.push(building);
+    ], StateDef);
+    exports.declarations.push(StateDef);
     return {
-        name: name, url: '/' + name, component: building
+        name: name, url: '/' + name, component: StateDef
     };
 }
 exports.states = [
-    state('building'),
-    state('reviewing'),
-    state('testing')
+    state('overview'),
+    state('components'),
+    state('pipes'),
+    state('services'),
+    state('animations')
 ];
 
 
 /***/ }),
-/* 419 */,
-/* 420 */,
+/* 419 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var ui_router_ng2_1 = __webpack_require__(104);
+var core_1 = __webpack_require__(0);
+var RouteWatcher_class_1 = __webpack_require__(246);
+var RouteDocWatcher = (function () {
+    function RouteDocWatcher(RouteWatcher, transitionService) {
+        var _this = this;
+        this.RouteWatcher = RouteWatcher;
+        this.transitionService = transitionService;
+        //public isBackButton
+        //public isNotBackButton
+        //public mouseover
+        this.stateChanger = new core_1.EventEmitter();
+        this.beforeChanger = new core_1.EventEmitter();
+        this.refChange = new core_1.EventEmitter();
+        this.$document = document;
+        this.docCallbacks = RouteWatcher.getDocumentCallbacks();
+        transitionService.onStart({ to: '*' }, function (transition) {
+            _this.beforeChanger.emit(_this.RouteWatcher);
+        });
+        transitionService.onSuccess({ to: '*' }, function (transition) {
+            //ensure smallest gap in digest occurs for things like animation swapping
+            setTimeout(function () { return _this.stateChanger.emit(_this.RouteWatcher); }, 0);
+        });
+        RouteWatcher.watchDocByCallbacks(this.$document, this.docCallbacks);
+    }
+    RouteDocWatcher.prototype.ngOnDestroy = function () {
+        this.RouteWatcher.unwatchDocByCallbacks(this.$document, this.docCallbacks);
+    };
+    RouteDocWatcher.prototype.ngOnInit = function () {
+        var _this = this;
+        this.ref = this.RouteWatcher;
+        setTimeout(function () { return _this.refChange.emit(_this.ref); }, 0);
+        if (this.onLoad) {
+            this.onLoad({
+                state: this.RouteWatcher.$state.current,
+                params: this.RouteWatcher.$state.params,
+                current: this.RouteWatcher.$state.current
+            });
+        }
+    };
+    RouteDocWatcher.prototype.goBackTo = function (name, params) {
+        this.RouteWatcher.goBackTo(name, params);
+    };
+    RouteDocWatcher.prototype.tryBack = function (name, params) {
+        this.RouteWatcher.tryBack(name, params);
+    };
+    return RouteDocWatcher;
+}());
+//public RouteWatcher : RouteWatcher
+RouteDocWatcher.parameters = [[RouteWatcher_class_1.RouteWatcher], [ui_router_ng2_1.TransitionService]];
+__decorate([
+    core_1.Output("onChange"),
+    __metadata("design:type", Object)
+], RouteDocWatcher.prototype, "stateChanger", void 0);
+__decorate([
+    core_1.Output("beforeChange"),
+    __metadata("design:type", Object)
+], RouteDocWatcher.prototype, "beforeChanger", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], RouteDocWatcher.prototype, "onLoad", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], RouteDocWatcher.prototype, "ref", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], RouteDocWatcher.prototype, "refChange", void 0);
+RouteDocWatcher = __decorate([
+    core_1.Component({
+        //inputs:['ref'],
+        selector: 'route-doc-watcher',
+        template: ''
+    }),
+    __metadata("design:paramtypes", [Object, Object])
+], RouteDocWatcher);
+exports.RouteDocWatcher = RouteDocWatcher;
+
+
+/***/ }),
+/* 420 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(0);
+var TypeofPipe = (function () {
+    function TypeofPipe() {
+    }
+    TypeofPipe.prototype.transform = function (value) {
+        return typeof (value);
+    };
+    return TypeofPipe;
+}());
+TypeofPipe = __decorate([
+    core_1.Pipe({ name: 'typeof' })
+], TypeofPipe);
+var ConsolePipe = (function () {
+    function ConsolePipe() {
+    }
+    ConsolePipe.prototype.transform = function () {
+        return console.log.apply(console, arguments);
+    };
+    return ConsolePipe;
+}());
+ConsolePipe = __decorate([
+    core_1.Pipe({ name: 'console' })
+], ConsolePipe);
+exports.declarations = [TypeofPipe, ConsolePipe];
+
+
+/***/ }),
 /* 421 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -79649,7 +79923,73 @@ var UIRouterRx = (function () {
 //# sourceMappingURL=ui-router-rx.js.map
 
 /***/ }),
-/* 447 */,
+/* 447 */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"name": "ack-angular",
+	"version": "0.0.0",
+	"description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
+	"main": "dist/index.js",
+	"typings": "dist/index.d.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build:dist": "tsc --rootDir src --outDir dist --project src/tsconfig.json",
+		"build:example": "npm run build:example:js && npm run build:example:index && npm run build:example:css",
+		"build:example:js": "ack-webpack example/src/index.ts example/www/index.js --project example/src/tsconfig.json",
+		"watch:example:js": "ack-webpack example/src/index.ts example/www/index.js --watch --browser --project example/src/tsconfig.json",
+		"build:example:index": "pug example/src/index.pug --out example/www/",
+		"build:example:css": "ack-sass example/src/styles.scss example/www/styles.css --production",
+		"watch:example:css": "ack-sass example/src/styles.scss example/www/styles.css --watch",
+		"build": "npm run build:dist && npm run build:example",
+		"ack-webpack": "ack-webpack"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AckerApple/ack-angular.git"
+	},
+	"keywords": [
+		"ng2",
+		"angular2",
+		"angular",
+		"directives",
+		"components",
+		"pipes",
+		"providers"
+	],
+	"author": "Acker Dawn Apple",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/AckerApple/ack-angular/issues"
+	},
+	"homepage": "https://github.com/AckerApple/ack-angular#readme",
+	"devDependencies": {
+		"@angular/common": "^2.4.9",
+		"@angular/compiler": "^2.4.9",
+		"@angular/core": "^2.4.9",
+		"@angular/platform-browser": "^2.4.9",
+		"@angular/platform-browser-dynamic": "^2.4.9",
+		"@angular/router": "^3.4.8",
+		"@types/core-js": "^0.9.35",
+		"ack-css-boot": "^1.2.27",
+		"ack-sass": "^1.0.13",
+		"ack-webpack": "github:ackerapple/ack-webpack",
+		"core-js": "^2.4.1",
+		"ng2-animate": "github:ackerapple/ng2-animate",
+		"pug": "^2.0.0-beta11",
+		"pug-cli": "^1.0.0-alpha6",
+		"pug-loader": "^2.3.0",
+		"reflect-metadata": "^0.1.10",
+		"rxjs": "^5.2.0",
+		"ts-loader": "^2.0.1",
+		"typescript": "^2.2.1",
+		"ui-router-ng2": "^1.0.0-beta.4",
+		"webpack": "^2.2.1",
+		"zone.js": "^0.7.7"
+	}
+};
+
+/***/ }),
 /* 448 */
 /***/ (function(module, exports) {
 
@@ -79667,230 +80007,6 @@ __webpack_require__(277);
 var platform_browser_dynamic_1 = __webpack_require__(276);
 var app_module_1 = __webpack_require__(278);
 platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule);
-
-
-/***/ }),
-/* 450 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var ui_router_ng2_1 = __webpack_require__(104);
-/** A stateful connection to ui-router history
- - .stateChange() with arguments MUST be called at every state change
-*/
-var StateManagerService = (function () {
-    //constructor($state, $window){
-    function StateManagerService($state, $window) {
-        this.$state = $state;
-        this.$window = $window || window;
-        //inject(arguments, this)
-        this.stateHistory = [];
-        this.hisPos = 0;
-    }
-    StateManagerService.prototype.isBackHistory = function (toState, toParams) {
-        var isEven = this.stateHistory.length > this.hisPos;
-        var isNameMatch = isEven && toState && toState.name == this.stateHistory[this.hisPos].name;
-        return isNameMatch && this.isParamsMatch(toParams, this.stateHistory[this.hisPos].params);
-    };
-    StateManagerService.prototype.isForwardHistory = function (toState, toParams) {
-        var isEven = !this.isNextBackMode && this.hisPos && this.stateHistory.length > this.hisPos;
-        var isNameMatch = isEven && toState && toState.name == this.stateHistory[this.hisPos - 1].name;
-        return isNameMatch && this.isParamsMatch(toParams, this.stateHistory[this.hisPos - 1].params);
-    };
-    StateManagerService.prototype.isParamsMatch = function (toParams, otherParams) {
-        for (var x in toParams) {
-            if (toParams[x] != otherParams[x]) {
-                return false;
-            }
-        }
-        return true;
-    };
-    /**
-      @event Object - not used
-      @toState Object{name} - required
-      @toParams Object{} - only recorded to history, not used otherwise
-      @fromState Object{name} - not used
-      @fromParams Object{} - not used
-    */
-    StateManagerService.prototype.stateChange = function (event, toState, toParams, fromState, fromParams) {
-        this.recordStateChange(toState, toParams);
-    };
-    StateManagerService.prototype.recordStateChange = function (toState, toParams) {
-        var isFowardHistory = this.isForwardHistory(toState, toParams);
-        var isBackHistory = this.isNextBackHistory || this.isBackHistory(toState, toParams);
-        this.isBackMode = this.isNextBackMode || (this.isOsAction && isBackHistory);
-        if (isFowardHistory) {
-            this.isBackMode = false;
-            --this.hisPos;
-        }
-        else if (this.isBackMode) {
-            ++this.hisPos;
-        }
-        else {
-            this.hisPos = 0;
-            this.stateHistory.unshift({
-                name: this.$state.current.name,
-                state: this.$state.current,
-                params: this.$state.params
-                //params:fromParams
-            });
-        }
-        this.isNextBackHistory = false;
-    };
-    StateManagerService.prototype.goBackTo = function (name, params) {
-        this.isNextBackMode = true;
-        this.isNextBackHistory = true;
-        this.$state.go(name, params);
-    };
-    StateManagerService.prototype.tryBack = function (name, params) {
-        if (this.stateHistory.length) {
-            this.isNextBackMode = true;
-            this.isNextBackHistory = true;
-            this.$window.history.back();
-            /*
-            console.log('go back', this.hisPos, this.stateHistory.length, this.stateHistory)
-            this.$state.go(this.stateHistory[this.hisPos].name, this.stateHistory[this.hisPos].params)
-            */
-        }
-        else {
-            this.goBackTo(name, params);
-        }
-    };
-    return StateManagerService;
-}());
-StateManagerService.parameters = [[ui_router_ng2_1.StateService]];
-exports.StateManagerService = StateManagerService;
-
-
-/***/ }),
-/* 451 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var pug = __webpack_require__(385);
-
-function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cstate-doc-watcher\u003E\u003C\u002Fstate-doc-watcher\u003E\u003Cdiv class=\"pad-xxs\"\u003E\u003Ch2 class=\"margin-0\"\u003E\u003Cspan class=\"text-xs\"\u003E🔗\u003C\u002Fspan\u003E&nbsp;Rjon Interactive App\u003C\u002Fh2\u003E\u003Cdiv class=\"pad-left-lg text-grey-2x text-sm\"\u003EChoose an interface below - {{date}}\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E\u003Cdiv class=\"flex-evenly bg-info child-pad-sm text-center text-2x strong child-hover-bg-warning\"\u003E\u003Ca class=\"no-a-style flex-1 border-right border-white\" [ngClass]=\"{'bg-energized text-white':stateService.current.name=='building'}\" href=\"#\u002Fbuilding\"\u003EBuilding\u003C\u002Fa\u003E\u003Ca class=\"no-a-style flex-1 border-right border-white\" [ngClass]=\"{'bg-energized text-white':stateService.current.name=='reviewing'}\" href=\"#\u002Freviewing\"\u003EReviewing\u003C\u002Fa\u003E\u003Ca class=\"no-a-style flex-1\" [ngClass]=\"{'bg-energized text-white':stateService.current.name=='testing'}\" href=\"#\u002Ftesting\"\u003ETesting\u003C\u002Fa\u003E\u003C\u002Fdiv\u003E\u003Cbutton (click)=\"checkState()\"\u003Echeck\u003C\u002Fbutton\u003EforAnimate:{{forAnimate}}\u003Cdiv style=\"position:relative;\"\u003E\u003Cdiv *ngIf=\"stateService.current.name=='building'\" [@stage]=\"'slideInLeft'\"\u003E\u003Ch2 style=\"margin:0;\"\u003EBuilding\u003C\u002Fh2\u003EThis is my component ANIMATED content\u003Cp\u003EstateService.test : {{stateService.test}}\u003C\u002Fp\u003E\u003Cp\u003EstateService.current.name : {{stateService.current.name}}\u003C\u002Fp\u003E\u003Cp\u003EstateService.current.name : {{stateService.current|json}}\u003C\u002Fp\u003E\u003Cp\u003EstateService : {{stateService}}\u003C\u002Fp\u003E\u003Cbr\u003E\u003C\u002Fdiv\u003E\u003Cdiv *ngIf=\"stateService.current.name=='reviewing'\" [@stage]=\"'slideInLeft'\"\u003E\u003Ch2 style=\"margin:0;\"\u003EReviewing\u003C\u002Fh2\u003E\u003Cul class=\"test\"\u003E\u003Cli class=\"test\" *ngFor=\"let item of list;let i = index;\" [@animate]=\"'slideInLeft'\"\u003E{{item}} - {{i}}\u003Cbutton (click)=\"list.splice(i,1)\"\u003EX\u003C\u002Fbutton\u003E\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003Cbr\u003E\u003C\u002Fdiv\u003E\u003Cdiv *ngIf=\"stateService.current.name=='testing'\" [@stage]=\"'slideInLeft'\"\u003E\u003Ch2 style=\"margin:0;\"\u003ETesting\u003C\u002Fh2\u003EThis is my component ANIMATED content\u003Cp\u003EstateService.test : {{stateService.test}}\u003C\u002Fp\u003E\u003Cp\u003EstateService.current.name : {{stateService.current.name}}\u003C\u002Fp\u003E\u003Cp\u003EstateService.current.name : {{stateService.current|json}}\u003C\u002Fp\u003E\u003Cp\u003EstateService : {{stateService}}\u003C\u002Fp\u003E\u003Cbr\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E";;return pug_html;};
-module.exports = template;
-
-/***/ }),
-/* 452 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var ui_router_ng2_1 = __webpack_require__(104);
-var core_1 = __webpack_require__(0);
-var StateManagerService_class_1 = __webpack_require__(450);
-//import injector from "../injector"
-//const deps = ['StateManagerService','$state','$rootScope','$document', '$scope', '$timeout']
-var StateDocWatcher = (function () {
-    function StateDocWatcher(stateManagerService, transitionService) {
-        var _this = this;
-        this.stateManagerService = stateManagerService;
-        this.transitionService = transitionService;
-        //inject(arguments, this)
-        //this.stateManagerService = stateManagerService
-        console.log('stateManagerService', this.stateManagerService);
-        this.$document = document;
-        console.log('transitionService', this.transitionService, transitionService);
-        this.isBackButton = function () {
-            _this.isMouseOut = true;
-            _this.stateManagerService.isOsAction = true;
-        };
-        this.isNotBackButton = function () {
-            _this.stateManagerService.isOsAction = false;
-        };
-        this.mouseover = function () {
-            _this.isMouseOut = false;
-        };
-        transitionService.onSuccess({ to: '*' }, function (transition) {
-            _this.stateManagerService.recordStateChange(transition._targetState._definition, transition._targetState._params);
-            console.log('x334', _this.stateManagerService);
-        });
-        /*
-            this.$rootScope.$on('$stateChangeStart', ()=>this.stateManagerService.stateChange())
-        
-            this.$rootScope.$on('$stateChangeSuccess', (event, toState, toParams)=>{
-              this.$timeout(()=>{
-                if(!this.isMouseOut){
-                  this.stateManagerService.isNextBackMode = false
-                  this.stateManagerService.isOsAction=true
-                }
-        
-                this.onStateChange({
-                  state:toState,
-                  toState:toState,
-                  params:toParams,
-                  current:this.stateManagerService.$state.current
-                })
-              },1)//allow a digest to occur to ng-model population
-            })
-        */
-        this.$document.addEventListener('mouseout', this.isBackButton);
-        this.$document.addEventListener('mouseover', this.mouseover);
-        this.$document.addEventListener('mousedown', this.isNotBackButton);
-    }
-    StateDocWatcher.prototype.ngOnDestroy = function () {
-        this.$document.removeEventListener('mouseout', this.isBackButton);
-        this.$document.removeEventListener('mouseover', this.isNotBackButton);
-        this.$document.removeEventListener('mousedown', this.isNotBackButton);
-    };
-    StateDocWatcher.prototype.ngOnInit = function () {
-        this.ref = this.stateManagerService;
-        if (this.onLoad) {
-            this.onLoad({
-                state: this.stateManagerService.$state.current,
-                params: this.stateManagerService.$state.params,
-                current: this.stateManagerService.$state.current
-            });
-        }
-    };
-    StateDocWatcher.prototype.goBackTo = function (name, params) {
-        this.stateManagerService.goBackTo(name, params);
-    };
-    StateDocWatcher.prototype.tryBack = function (name, params) {
-        this.stateManagerService.tryBack(name, params);
-    };
-    return StateDocWatcher;
-}());
-StateDocWatcher.parameters = [[StateManagerService_class_1.StateManagerService], [ui_router_ng2_1.TransitionService]];
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], StateDocWatcher.prototype, "ref", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], StateDocWatcher.prototype, "onStateChange", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], StateDocWatcher.prototype, "onLoad", void 0);
-StateDocWatcher = __decorate([
-    core_1.Component({
-        selector: 'state-doc-watcher', template: ''
-    }),
-    __metadata("design:paramtypes", [Object, Object])
-], StateDocWatcher);
-exports.StateDocWatcher = StateDocWatcher;
-/*
-const inject = injector(StateDocWatcher, deps)
-
-export default {
-  bindings:{as:'=?', onStateChange:'&', onLoad:'&'}
-  ,controller:StateDocWatcher
-}*/ 
 
 
 /***/ })
