@@ -45,7 +45,7 @@
     "@types/core-js": "^0.9.35",
     "ack-css-boot": "^1.2.27",
     "ack-sass": "^1.0.13",
-    "ack-webpack": "github:ackerapple/ack-webpack",
+    "ack-webpack": "^1.1.12",
     "core-js": "^2.4.1",
     "ng2-animate": "github:ackerapple/ng2-animate",
     "pug": "^2.0.0-beta11",
