@@ -79935,7 +79935,7 @@ module.exports = {
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build:dist": "tsc --rootDir src --outDir dist --project src/tsconfig.json",
-		"build:example": "build:example:dist && npm run build:example:js && npm run build:example:index",
+		"build:example": "npm run build:example:js && npm run build:example:index && npm run build:example:css",
 		"build:example:js": "ack-webpack example/src/index.ts example/www/index.js --project example/src/tsconfig.json",
 		"watch:example:js": "ack-webpack example/src/index.ts example/www/index.js --watch --browser --project example/src/tsconfig.json",
 		"build:example:index": "pug example/src/index.pug --out example/www/",
