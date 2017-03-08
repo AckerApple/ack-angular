@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -39,6 +39,7 @@
     "@angular/common": "^2.4.9",
     "@angular/compiler": "^2.4.9",
     "@angular/core": "^2.4.9",
+    "@angular/forms": "^2.4.9",
     "@angular/platform-browser": "^2.4.9",
     "@angular/platform-browser-dynamic": "^2.4.9",
     "@angular/router": "^3.4.8",
@@ -48,6 +49,7 @@
     "ack-webpack": "^1.1.12",
     "core-js": "^2.4.1",
     "ng2-animate": "github:ackerapple/ng2-animate",
+    "ng2-page-scroll": "^4.0.0-beta.4",
     "pug": "^2.0.0-beta11",
     "pug-cli": "^1.0.0-alpha6",
     "pug-loader": "^2.3.0",

@@ -1,42 +1,45 @@
 import { UIRouter, UIRouterModule, StateService, TransitionService } from "ui-router-ng2";
 import { Input, Component, NgModule } from '@angular/core';
-
+import { FormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import * as states from "./states.object";
-import rState from "./routerState.object";
 
 import { RouteWatcher } from "../../src/RouteWatcher.class"
 import { RouteDocWatcher } from "../../src/RouteDocWatcher.component"
+import { ackAnimations, delayArray, upgradeComponents } from '../../src/ackAnimations'
+import * as pipes from "../../src/pipes.array"
 
 import {version} from "../../package.json"
+import rState from "./routerState.object";
+import * as states from "./states.object";
 import * as ackAppStageTemplate from './templates/ack-app-stage.pug'
+import * as animationExamples from './templates/animation-examples.pug'
 
-import { animateDefaults, animateConfig } from 'ng2-animate';
-animateDefaults.igniter = 'void';
-
-import * as pipes from "../../src/pipes.array"
+import { Ng2PageScrollModule } from 'ng2-page-scroll';
 
 @Component({
   selector: 'ack-app-stage'
   ,template: ackAppStageTemplate()
-  ,animations:[
-    animateConfig({duration:100, easing:'ease-in'}),
-    animateConfig({
-      easing:'linear', name:'stage',
-      whileStyle:{
-        position: 'absolute', width:'100%', 'overflow':'hidden'
-      }
-    })
-  ]
+//  ,animations: ackAnimations
 }) class AppComponent {
   public version = version
-  public list = ['abc','defg','hij','klm','opq','rst','uvx','yz']
 }
 
+@Component({
+  selector: 'animation-examples'
+  ,template: animationExamples()
+}) class AnimationExamples {
+  public list = ['abc','defg','hij','klm','opq','rst','uvx','yz']
+  public delayArray = delayArray
+}
+
+
 const declarations = [
-  RouteDocWatcher,AppComponent
-//  ,RouteDocWatcher
+  RouteDocWatcher,
+  AppComponent,
+  AnimationExamples
 ]
+
+upgradeComponents(declarations)
 
 declarations.push.apply(declarations, states.declarations)
 declarations.push.apply(declarations, pipes.declarations)
@@ -44,11 +47,13 @@ declarations.push.apply(declarations, pipes.declarations)
 const ngModule = {
   imports:[
     BrowserModule
+    ,FormsModule
     ,UIRouterModule.forRoot({
       states: states.states,
       useHash:true
       ,otherwise:'/overview'
     })
+    ,Ng2PageScrollModule.forRoot()
   ],
   declarations: declarations,
   providers:[
