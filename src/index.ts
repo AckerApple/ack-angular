@@ -1,2 +1,1 @@
-export { RouteDocWatcher } from "./RouteDocWatcher.component";
-export { RouteWatcher } from "./RouteWatcher.class";
+export const indexMessage = 'ack-angular is a file target based framework. Import files other than index'

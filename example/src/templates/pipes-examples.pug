@@ -1,0 +1,17 @@
+p.text-grey-2x Decorate and filter output via Pipes
+.flex-wrap
+  fieldset.flex1.border-dotted.border-grey-2x.border
+    legend.pad-h
+      h3 typeof
+    p.text-grey-2x Output result of native javascript typeof() function
+    h4 Usage Example
+    pre.code-sample.
+      {{ 0 | typeof }<!---->}
+
+  fieldset.flex1.border-dotted.border-grey-2x.border
+    legend.pad-h
+      h3 console
+    p.text-grey-2x console log result of native console.log() function
+    h4 Usage Example
+    pre.code-sample.
+      {{ 'message1' | console : 'message2' }<!---->}

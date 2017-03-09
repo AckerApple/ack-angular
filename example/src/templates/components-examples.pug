@@ -1,0 +1,19 @@
+fieldset.border-dotted.border-grey-2x.border
+  legend.pad-h
+    h3.margin-0 route-doc-watcher
+  p.text-grey-2x Get in tune with your document route states
+  .text-center
+    .border.border-info.pad-xs("(click)"="viewRouteDocWatcher=!viewRouteDocWatcher" "[ngClass]"="{'border-energized bg-energized':viewRouteDocWatcher}")
+      |view details
+  div("*ngIf"="viewRouteDocWatcher" "[@1000]"="'fadeInUp'")
+    .pad Requirements
+      ul
+        li ui-router-ng2
+    h4 Usage Example
+    pre.code-sample.
+      &lt;route-doc-watcher [(ref)]="" (beforeChange)="" (onChange)=""&gt;
+    h4 ref example
+    pre.code-sample.max-height-500.
+      &lt;route-doc-watcher [(ref)]="routeState" &gt;
+      -----------------------------------------
+      routeState:{{ routeDocWatcher|json }}

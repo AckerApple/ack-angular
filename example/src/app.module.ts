@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { RouteWatcher } from "../../src/RouteWatcher.class"
 import { RouteDocWatcher } from "../../src/RouteDocWatcher.component"
-import { ackAnimations, delayArray, upgradeComponents } from '../../src/ackAnimations'
+import * as ackFx from 'ack-angular-fx'
 import * as pipes from "../../src/pipes.array"
 
 import {version} from "../../package.json"
@@ -13,13 +13,16 @@ import rState from "./routerState.object";
 import * as states from "./states.object";
 import * as ackAppStageTemplate from './templates/ack-app-stage.pug'
 import * as animationExamples from './templates/animation-examples.pug'
+import * as overviewExamples from './templates/overview-examples.pug'
+import * as componentsExamples from './templates/components-examples.pug'
+import * as pipesExamples from './templates/pipes-examples.pug'
+import * as servicesExamples from './templates/services-examples.pug'
 
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
 
 @Component({
   selector: 'ack-app-stage'
   ,template: ackAppStageTemplate()
-//  ,animations: ackAnimations
 }) class AppComponent {
   public version = version
 }
@@ -29,17 +32,40 @@ import { Ng2PageScrollModule } from 'ng2-page-scroll';
   ,template: animationExamples()
 }) class AnimationExamples {
   public list = ['abc','defg','hij','klm','opq','rst','uvx','yz']
-  public delayArray = delayArray
+  public delayArray = ackFx.delayArray
 }
 
+@Component({
+  selector: 'overview-examples'
+  ,template: overviewExamples()
+}) class OverviewExamples {}
+
+@Component({
+  selector: 'components-examples'
+  ,template: componentsExamples()
+}) class ComponentsExamples {}
+
+@Component({
+  selector: 'pipes-examples'
+  ,template: pipesExamples()
+}) class PipesExamples {}
+
+@Component({
+  selector: 'services-examples'
+  ,template: servicesExamples()
+}) class ServicesExamples {}
 
 const declarations = [
   RouteDocWatcher,
   AppComponent,
-  AnimationExamples
+  AnimationExamples,
+  OverviewExamples,
+  ComponentsExamples,
+  PipesExamples,
+  ServicesExamples
 ]
 
-upgradeComponents(declarations)
+ackFx.upgradeComponents(declarations)
 
 declarations.push.apply(declarations, states.declarations)
 declarations.push.apply(declarations, pipes.declarations)
