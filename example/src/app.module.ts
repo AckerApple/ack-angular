@@ -6,7 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteWatcher } from "../../src/RouteWatcher.class"
 import { RouteDocWatcher } from "../../src/RouteDocWatcher.component"
 import * as ackFx from 'ack-angular-fx'
-import * as pipes from "../../src/pipes.array"
+import * as pipes from "../../src/pipes"
 
 import {version} from "../../package.json"
 import rState from "./routerState.object";
@@ -55,7 +55,7 @@ import { Ng2PageScrollModule } from 'ng2-page-scroll';
   ,template: servicesExamples()
 }) class ServicesExamples {}
 
-const declarations = [
+let declarations = [
   RouteDocWatcher,
   AppComponent,
   AnimationExamples,
@@ -67,8 +67,8 @@ const declarations = [
 
 ackFx.upgradeComponents(declarations)
 
-declarations.push.apply(declarations, states.declarations)
-declarations.push.apply(declarations, pipes.declarations)
+declarations = declarations.concat(states.declarations)
+declarations = declarations.concat(pipes.declarations)
 
 const ngModule = {
   imports:[

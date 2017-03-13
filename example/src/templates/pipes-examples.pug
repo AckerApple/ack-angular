@@ -1,4 +1,24 @@
 p.text-grey-2x Decorate and filter output via Pipes
+
+h3(id="Import Example") Import Example
+p How to make all ack-angular pipes available
+pre.code-sample.
+  import &#123; NgModule &#125; from '@angular/core'
+  import &#123; AppComponent &#125; from './SomeRandomComponent'
+  
+  import * as ackPipes from 'ack-angular/pipes'
+
+  let decs = [ AppComponent ]
+
+  decs = decs.concat( ackPipes.declarations )
+
+  @NgModule(&#123;
+    declarations:decs
+  &#125;) export class AppModule &#123;&#125;
+  
+br
+
+h3(id="Documentation") Documentation
 .flex-wrap
   fieldset.flex1.border-dotted.border-grey-2x.border
     legend.pad-h
@@ -15,3 +35,51 @@ p.text-grey-2x Decorate and filter output via Pipes
     h4 Usage Example
     pre.code-sample.
       {{ 'message1' | console : 'message2' }<!---->}
+
+  fieldset.flex1.border-dotted.border-grey-2x.border
+    legend.pad-h
+      h3 capitalize
+    p.text-grey-2x Each sentence leading word is capitalized
+    h4 Usage Example
+    pre.code-sample.
+      {{ 'how do you do?' | capitalize }<!---->} == How do you do?
+
+  fieldset.flex1.border-dotted.border-grey-2x.border
+    legend.pad-h
+      h3 capitalizeWords
+    p.text-grey-2x Every word is capitalized
+    h4 Usage Example
+    pre.code-sample.
+      {{ 'how do you do?' | capitalizeWords }<!---->} == How Do You Do?
+
+  fieldset.flex1.border-dotted.border-grey-2x.border
+    legend.pad-h
+      h3 yesno
+    p.text-grey-2x Truthy value converts to: yes. Otherwise: no
+    h4 Usage Example
+    pre.code-sample.
+      {{ 'true' | yesno }<!---->} == yes
+
+  fieldset.flex1.border-dotted.border-grey-2x.border
+    legend.pad-h
+      h3 YesNo
+    p.text-grey-2x Truthy value converts to: Yes. Otherwise: No
+    h4 Usage Example
+    pre.code-sample.
+      {{ 1 | YesNo }<!---->} == Yes
+
+  fieldset.flex1.border-dotted.border-grey-2x.border
+    legend.pad-h
+      h3 numbers
+    p.text-grey-2x Removes anything not a number from a string
+    h4 Usage Example
+    pre.code-sample.
+      {{ 'sam123acb456xyz' | numbers }<!---->} == 123456
+
+  fieldset.flex1.border-dotted.border-grey-2x.border
+    legend.pad-h
+      h3 keys
+    p.text-grey-2x List of keys for an Object
+    h4 Usage Example
+    pre.code-sample.
+      {{ {x:1,y:2,z:3} | keys }<!---->} == ["x","y","z"]

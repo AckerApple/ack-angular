@@ -73890,8 +73890,8 @@ var declarations = [
     ServicesExamples
 ];
 ackFx.upgradeComponents(declarations);
-declarations.push.apply(declarations, states.declarations);
-declarations.push.apply(declarations, pipes.declarations);
+declarations = declarations.concat(states.declarations);
+declarations = declarations.concat(pipes.declarations);
 var ngModule = {
     imports: [
         platform_browser_1.BrowserModule,
@@ -73932,9 +73932,9 @@ exports.AppModule = AppModule;
 * found in the LICENSE file at https://angular.io/license
 */
 (function (global, factory) {
-     true ? factory() :
-    typeof define === 'function' && define.amd ? define(factory) :
-    (factory());
+	 true ? factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(factory());
 }(this, (function () { 'use strict';
 
 /**
@@ -74099,7 +74099,11 @@ var Zone$1 = (function (global) {
             }
             finally {
                 if (task.type == eventTask || (task.data && task.data.isPeriodic)) {
-                    reEntryGuard && task._transitionTo(scheduled, running, notScheduled);
+                    // if the task's state is notScheduled, then it has already been cancelled
+                    // we should not reset the state to scheduled
+                    if (task.state !== notScheduled) {
+                        reEntryGuard && task._transitionTo(scheduled, running);
+                    }
                 }
                 else {
                     task.runCount = 0;
@@ -74367,7 +74371,6 @@ var Zone$1 = (function (global) {
                 }
             }
             else {
-                debugger;
                 throw new Error(this.type + " '" + this.source + "': can not transition to '" + toState + "', expecting state '" + fromState1 + "'" + (fromState2 ?
                     ' or \'' + fromState2 + '\'' :
                     '') + ", was '" + this._state + "'.");
@@ -74437,11 +74440,25 @@ var Zone$1 = (function (global) {
         _microTaskQueue.push(task);
     }
     function consoleError(e) {
+        if (Zone[__symbol__('ignoreConsoleErrorUncaughtError')]) {
+            return;
+        }
         var rejection = e && e.rejection;
         if (rejection) {
             console.error('Unhandled Promise rejection:', rejection instanceof Error ? rejection.message : rejection, '; Zone:', e.zone.name, '; Task:', e.task && e.task.source, '; Value:', rejection, rejection instanceof Error ? rejection.stack : undefined);
         }
         console.error(e);
+    }
+    function handleUnhandledRejection(e) {
+        consoleError(e);
+        try {
+            var handler = Zone[__symbol__('unhandledPromiseRejectionHandler')];
+            if (handler && typeof handler === 'function') {
+                handler.apply(this, [e]);
+            }
+        }
+        catch (err) {
+        }
     }
     function drainMicroTaskQueue() {
         if (!_isDrainingMicrotaskQueue) {
@@ -74468,7 +74485,7 @@ var Zone$1 = (function (global) {
                         });
                     }
                     catch (error) {
-                        consoleError(error);
+                        handleUnhandledRejection(error);
                     }
                 };
                 while (_uncaughtPromiseErrors.length) {
@@ -74560,6 +74577,11 @@ var Zone$1 = (function (global) {
                 promise[symbolState] = state;
                 var queue = promise[symbolValue];
                 promise[symbolValue] = value;
+                // record task information in value when error occurs, so we can
+                // do some additional work such as render longStackTrace
+                if (state === REJECTED && value instanceof Error) {
+                    value[__symbol__('currentTask')] = Zone.currentTask;
+                }
                 for (var i = 0; i < queue.length;) {
                     scheduleResolveOrReject(promise, queue[i++], queue[i++], queue[i++], queue[i++]);
                 }
@@ -74586,11 +74608,23 @@ var Zone$1 = (function (global) {
     }
     function clearRejectedNoCatch(promise) {
         if (promise[symbolState] === REJECTED_NO_CATCH) {
+            // if the promise is rejected no catch status
+            // and queue.length > 0, means there is a error handler
+            // here to handle the rejected promise, we should trigger
+            // windows.rejectionhandled eventHandler or nodejs rejectionHandled
+            // eventHandler
+            try {
+                var handler = Zone[__symbol__('rejectionHandledHandler')];
+                if (handler && typeof handler === 'function') {
+                    handler.apply(this, [{ rejection: promise[symbolValue], promise: promise }]);
+                }
+            }
+            catch (err) {
+            }
             promise[symbolState] = REJECTED;
             for (var i = 0; i < _uncaughtPromiseErrors.length; i++) {
                 if (promise === _uncaughtPromiseErrors[i].promise) {
                     _uncaughtPromiseErrors.splice(i, 1);
-                    break;
                 }
             }
         }
@@ -74928,6 +74962,24 @@ var Zone$1 = (function (global) {
     ZoneAwareError.prototype = NativeError.prototype;
     ZoneAwareError[Zone.__symbol__('blacklistedStackFrames')] = blackListedStackFrames;
     ZoneAwareError[stackRewrite] = false;
+    // those properties need special handling
+    var specialPropertyNames = ['stackTraceLimit', 'captureStackTrace', 'prepareStackTrace'];
+    // those properties of NativeError should be set to ZoneAwareError
+    var nativeErrorProperties = Object.keys(NativeError);
+    if (nativeErrorProperties) {
+        nativeErrorProperties.forEach(function (prop) {
+            if (specialPropertyNames.filter(function (sp) { return sp === prop; }).length === 0) {
+                Object.defineProperty(ZoneAwareError, prop, {
+                    get: function () {
+                        return NativeError[prop];
+                    },
+                    set: function (value) {
+                        NativeError[prop] = value;
+                    }
+                });
+            }
+        });
+    }
     if (NativeError.hasOwnProperty('stackTraceLimit')) {
         // Extend default stack limit as we will be removing few frames.
         NativeError.stackTraceLimit = Math.max(NativeError.stackTraceLimit, 15);
@@ -75053,7 +75105,7 @@ var Zone$1 = (function (global) {
 /**
  * Suppress closure compiler errors about unknown 'Zone' variable
  * @fileoverview
- * @suppress {undefinedVars}
+ * @suppress {undefinedVars,globalThis}
  */
 var zoneSymbol = function (n) { return ("__zone_symbol__" + n); };
 var _global$1 = typeof window === 'object' && window || typeof self === 'object' && self || global;
@@ -75105,7 +75157,7 @@ function patchProperty(obj, prop) {
     delete desc.value;
     // substr(2) cuz 'onclick' -> 'click', etc
     var eventName = prop.substr(2);
-    var _prop = '_' + prop;
+    var _prop = zoneSymbol('_' + prop);
     desc.set = function (fn) {
         if (this[_prop]) {
             this.removeEventListener(eventName, this[_prop]);
@@ -75186,24 +75238,6 @@ function findExistingRegisteredTask(target, handler, name, capture, remove) {
                 return eventTask;
             }
         }
-    }
-    return null;
-}
-function findAllExistingRegisteredTasks(target, name, capture, remove) {
-    var eventTasks = target[EVENT_TASKS];
-    if (eventTasks) {
-        var result = [];
-        for (var i = eventTasks.length - 1; i >= 0; i--) {
-            var eventTask = eventTasks[i];
-            var data = eventTask.data;
-            if (data.eventName === name && data.useCapturing === capture) {
-                result.push(eventTask);
-                if (remove) {
-                    eventTasks.splice(i, 1);
-                }
-            }
-        }
-        return result;
     }
     return null;
 }
@@ -75434,6 +75468,25 @@ function patchMethod(target, name, patchFn) {
 }
 // TODO: @JiaLiPassion, support cancel task later if necessary
 
+
+function findEventTask(target, evtName) {
+    var eventTasks = target[zoneSymbol('eventTasks')];
+    var result = [];
+    if (eventTasks) {
+        for (var i = 0; i < eventTasks.length; i++) {
+            var eventTask = eventTasks[i];
+            var data = eventTask.data;
+            var eventName = data && data.eventName;
+            if (eventName === evtName) {
+                result.push(eventTask);
+            }
+        }
+    }
+    return result;
+}
+Zone[zoneSymbol('patchEventTargetMethods')] = patchEventTargetMethods;
+Zone[zoneSymbol('patchOnProperties')] = patchOnProperties;
+
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -75450,8 +75503,12 @@ function patchTimer(window, setName, cancelName, nameSuffix) {
     function scheduleTask(task) {
         var data = task.data;
         data.args[0] = function () {
-            task.invoke.apply(this, arguments);
-            delete tasksByHandleId[data.handleId];
+            try {
+                task.invoke.apply(this, arguments);
+            }
+            finally {
+                delete tasksByHandleId[data.handleId];
+            }
         };
         data.handleId = setNative.apply(window, data.args);
         tasksByHandleId[data.handleId] = task;
@@ -75873,7 +75930,9 @@ function patchXHR(window) {
         }
         var newListener = data.target[XHR_LISTENER] = function () {
             if (data.target.readyState === data.target.DONE) {
-                if (!data.aborted && self[XHR_SCHEDULED]) {
+                // sometimes on some browsers XMLHttpRequest will fire onreadystatechange with
+                // readyState=4 multiple times, so we need to check task state here
+                if (!data.aborted && self[XHR_SCHEDULED] && task.state === 'scheduled') {
                     task.invoke();
                 }
             }
@@ -75929,6 +75988,26 @@ function patchXHR(window) {
 /// GEO_LOCATION
 if (_global['navigator'] && _global['navigator'].geolocation) {
     patchPrototype(_global['navigator'].geolocation, ['getCurrentPosition', 'watchPosition']);
+}
+// handle unhandled promise rejection
+function findPromiseRejectionHandler(evtName) {
+    return function (e) {
+        var eventTasks = findEventTask(_global, evtName);
+        eventTasks.forEach(function (eventTask) {
+            // windows has added unhandledrejection event listener
+            // trigger the event listener
+            var PromiseRejectionEvent = _global['PromiseRejectionEvent'];
+            if (PromiseRejectionEvent) {
+                var evt = new PromiseRejectionEvent(evtName, { promise: e.promise, reason: e.rejection });
+                eventTask.invoke(evt);
+            }
+        });
+    };
+}
+if (_global['PromiseRejectionEvent']) {
+    Zone[zoneSymbol('unhandledPromiseRejectionHandler')] =
+        findPromiseRejectionHandler('unhandledrejection');
+    Zone[zoneSymbol('rejectionHandledHandler')] = findPromiseRejectionHandler('rejectionhandled');
 }
 
 /**
@@ -92991,7 +93070,7 @@ var pug = __webpack_require__(60);
 
 function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_mixins["top"] = pug_interp = function(){
 var block = (this && this.block), attributes = (this && this.attributes) || {};
-pug_html = pug_html + "\u003Cdiv class=\"text-right\"\u003E\u003Ca class=\"text-xs\" href=\"#top\" pageScroll\u003Etop\u003C\u002Fa\u003E\u003C\u002Fdiv\u003E";
+pug_html = pug_html + "\u003Cdiv class=\"text-center\"\u003E\u003Cbr\u003E\u003Ca class=\"text-xs\" href=\"#top\" pageScroll\u003Etop\u003C\u002Fa\u003E\u003C\u002Fdiv\u003E";
 };
 pug_html = pug_html + "\u003Croute-doc-watcher [(ref)]=\"routeDocWatcher\" (beforeChange)=\"panelAnim=$event.isBackMode?'slideInRight':'slideInLeft';isBackMode=$event.isBackMode;\" (onChange)=\"stateName=$event.$state().current.name\"\u003E\u003C\u002Froute-doc-watcher\u003E\u003Cdiv style=\"font-size:16px;\" id=\"top\"\u003E\u003Cdiv class=\"pad flex-valign-center flex-wrap bg-energized\"\u003E\u003Ch1 class=\"margin-0\"\u003E\u003Cspan class=\"text-xs\"\u003E🚴\u003C\u002Fspan\u003E&nbsp;ack-angular\u003C\u002Fh1\u003E\u003Cspan class=\"text-right flex-1 text-white\"\u003Ev{{ version }}\u003C\u002Fspan\u003E\u003C\u002Fdiv\u003E\u003Cdiv class=\"flex-wrap flex-evenly bg-info child-pad-sm text-center text-2x strong child-hover-bg-warning\"\u003E\u003Ca class=\"no-a-style flex-1 border-right border-white\" [ngClass]=\"{'bg-energized':stateName=='overview'}\" href=\"#\u002Foverview\"\u003EOverview\u003C\u002Fa\u003E\u003Ca class=\"no-a-style flex-1 border-right border-white\" [ngClass]=\"{'bg-energized':stateName=='components'}\" href=\"#\u002Fcomponents\"\u003EComponents\u003C\u002Fa\u003E\u003Ca class=\"no-a-style flex-1 border-right border-white\" [ngClass]=\"{'bg-energized':stateName=='pipes'}\" href=\"#\u002Fpipes\"\u003EPipes\u003C\u002Fa\u003E\u003Ca class=\"no-a-style flex-1\" [ngClass]=\"{'bg-energized':stateName=='services'}\" href=\"#\u002Fservices\"\u003EServices\u003C\u002Fa\u003E\u003Ca class=\"no-a-style flex-1\" [ngClass]=\"{'bg-energized':stateName=='animations'}\" href=\"#\u002Fanimations\"\u003EAnimations\u003C\u002Fa\u003E\u003C\u002Fdiv\u003E\u003Cdiv class=\"text-center flex-center\"\u003E\u003Cdiv class=\"max-width-1000 line-height-2x text-left width-full\" style=\"position:relative;\"\u003E\u003Cdiv class=\"pad-h\" *ngIf=\"stateName=='overview'\" [@absoluteSwap500]=\"panelAnim\"\u003E\u003Ch2\u003EOverview\u003C\u002Fh2\u003E\u003Coverview-examples\u003E\u003C\u002Foverview-examples\u003E";
 pug_mixins["top"]();
@@ -93012,7 +93091,7 @@ module.exports = template;
 
 var pug = __webpack_require__(60);
 
-function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cp class=\"text-grey-2x\"\u003EMake an app far more beautiful when changing scenery\u003C\u002Fp\u003ECurrently, all animations are provided by \u003Ca href=\"https:\u002F\u002Fnpmjs.org\u002Fack-angular-fx\"\u003Eack-angular-fx\u003C\u002Fa\u003E\u003Cul\u003E\u003Cli\u003E\u003Ca href=\"https:\u002F\u002Fackerapple.github.io\u002Fack-angular-fx\u002F\"\u003Eexamples\u003C\u002Fa\u003E\u003C\u002Fli\u003E\u003Cli\u003E\u003Ca href=\"https:\u002F\u002Fgithub.com\u002FAckerApple\u002Fack-angular-fx\"\u003Erepository\u003C\u002Fa\u003E\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003Ch4\u003ETable of Contents\u003C\u002Fh4\u003E\u003Cul class=\"child-pad-xxs\"\u003E\u003Cli\u003E\u003Ca href=\"#Import Example\" pageScroll\u003EImport Example\u003C\u002Fa\u003E\u003C\u002Fli\u003E\u003Cli\u003E\u003Ca href=\"#Usage Example\" pageScroll\u003EUsage Example\u003C\u002Fa\u003E\u003C\u002Fli\u003E\u003Cli\u003E\u003Ca href=\"#Swap Example\" pageScroll\u003ESwap Example\u003C\u002Fa\u003E\u003C\u002Fli\u003E\u003Cli\u003E\u003Ca href=\"#Supported Definitions\" pageScroll\u003ESupported Definitions\u003C\u002Fa\u003E\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003Ch3 id=\"Import Example\"\u003EImport Example\u003C\u002Fh3\u003E\u003Cpre class=\"code-sample\"\u003Eimport &#123; Component &#125; from '@angular\u002Fcore'\nimport &#123; ackAnimations &#125; from 'ack-angular\u002Fdist\u002FackAnimations'\n\n@Component(&#123;\n  selector: 'app-tag'\n  ,template: 'Hello Template'\n  ,animations: ackAnimations\n&#125;) class AppComponent &#123;&#125;\n\u003C\u002Fpre\u003E\u003Ch3 id=\"Usage Example\"\u003EUsage Example\u003C\u002Fh3\u003E\u003Cpre class=\"code-sample\"\u003E&lt;button \"(click)\"=\"viewDets=!viewDets\")&gt; view details &lt;\u002Fbutton&gt;\n\n&lt;div [*ngIf]=\"viewDets\" [@200]=\"'slideInLeft'\"&gt;\n  &lt;p&gt;This is some goooooood animated content right here&lt;\u002Fp&gt;\n  &lt;p&gt;You should try it.&lt;\u002Fp&gt;\n&lt;\u002Fdiv&gt;\u003C\u002Fpre\u003E\u003Cbr\u003E\u003Ch3 id=\"Swap Example\"\u003ESwap Example\u003C\u002Fh3\u003E\u003Cp class=\"text-grey-2x\"\u003EAnimate swapping elements using @absoluteSwap. Behind the scene, during animation, the following is styles are applied position:absolute;width:100%;overflow:hidden;\u003C\u002Fp\u003E\u003Cpre class=\"code-sample\"\u003E&lt;button \"(click)\"=\"viewDets='default'\")&gt; view default &lt;\u002Fbutton&gt;\n&lt;button \"(click)\"=\"viewDets='other'\")&gt; view other &lt;\u002Fbutton&gt;\n\n&lt;div style=\"position:relative;\"&gt;\n  &lt;div [*ngIf]=\"!viewDets || viewDets=='default'\" [@absoluteSwap]=\"'slideInLeft'\"&gt;\n    &lt;p&gt;This is some goooooood animated content right here&lt;\u002Fp&gt;\n    &lt;p&gt;You should try it.&lt;\u002Fp&gt;\n  &lt;\u002Fdiv&gt;\n\n  &lt;div [*ngIf]=\"!viewDets || viewDets=='other'\" [@absoluteSwap]=\"'slideInLeft'\"&gt;\n    &lt;p&gt;This is some goooooood animated content right here&lt;\u002Fp&gt;\n    &lt;p&gt;You should try it.&lt;\u002Fp&gt;\n  &lt;\u002Fdiv&gt;\n&lt;\u002Fdiv&gt;\u003C\u002Fpre\u003E\u003Cbr\u003E\u003Ch3 id=\"Supported Definitions\"\u003ESupported Definitions\u003C\u002Fh3\u003E\u003Cdiv class=\"flex-wrap\"\u003E\u003Cdiv class=\"pad\"\u003E\u003Cul\u003E\u003Cli *ngFor=\"let item of delayArray\"\u003E{{ item }}\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003C\u002Fdiv\u003E\u003Cdiv class=\"pad\"\u003E\u003Cul\u003E\u003Cli\u003EabsoluteSwap\u003C\u002Fli\u003E\u003Cli *ngFor=\"let item of delayArray\"\u003EabsoluteSwap{{ item }}\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E\u003Cbr\u003E\u003Ch3\u003ESupporting Examples\u003C\u002Fh3\u003E\u003Cdiv class=\"flex-wrap\"\u003E\u003Cfieldset\u003E\u003Clabel class=\"pad-h\"\u003E*ngFor\u003C\u002Flabel\u003E\u003Cul\u003E\u003Cli *ngFor=\"let item of list;let i = index;\" [@200]=\"'fadeInLeft'\"\u003E{{item}} - {{i}}\u003Cbutton (click)=\"list.splice(i,1)\"\u003EX\u003C\u002Fbutton\u003E\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003Cdiv class=\"flex\"\u003E\u003Cinput class=\"flex-1\" [(ngModel)]=\"supportExampleAddItem\"\u003E\u003Cbutton (click)=\"list.push(supportExampleAddItem)\"\u003Eadd\u003C\u002Fbutton\u003E\u003C\u002Fdiv\u003E\u003C\u002Ffieldset\u003E\u003C\u002Fdiv\u003E\u003Cbr\u003E";;return pug_html;};
+function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cp class=\"text-grey-2x\"\u003EMake an app far more beautiful when changing scenery\u003C\u002Fp\u003ECurrently, all animations are provided by \u003Ca href=\"https:\u002F\u002Fnpmjs.org\u002Fack-angular-fx\"\u003Eack-angular-fx\u003C\u002Fa\u003E\u003Cul\u003E\u003Cli\u003E\u003Ca href=\"https:\u002F\u002Fackerapple.github.io\u002Fack-angular-fx\u002F\"\u003Eexamples\u003C\u002Fa\u003E\u003C\u002Fli\u003E\u003Cli\u003E\u003Ca href=\"https:\u002F\u002Fgithub.com\u002FAckerApple\u002Fack-angular-fx\"\u003Erepository\u003C\u002Fa\u003E\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003Ch4\u003ETable of Contents\u003C\u002Fh4\u003E\u003Cul class=\"child-pad-xxs\"\u003E\u003Cli\u003E\u003Ca href=\"#Import Example\" pageScroll\u003EImport Example\u003C\u002Fa\u003E\u003C\u002Fli\u003E\u003Cli\u003E\u003Ca href=\"#Usage Example\" pageScroll\u003EUsage Example\u003C\u002Fa\u003E\u003C\u002Fli\u003E\u003Cli\u003E\u003Ca href=\"#Swap Example\" pageScroll\u003ESwap Example\u003C\u002Fa\u003E\u003C\u002Fli\u003E\u003Cli\u003E\u003Ca href=\"#Supported Definitions\" pageScroll\u003ESupported Definitions\u003C\u002Fa\u003E\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003Ch3 id=\"Import Example\"\u003EImport Example\u003C\u002Fh3\u003E\u003Cpre class=\"code-sample\"\u003Eimport &#123; Component &#125; from '@angular\u002Fcore'\nimport &#123; ackAnimations &#125; from 'ack-angular\u002Ffx'\n\n@Component(&#123;\n  selector: 'app-tag'\n  ,template: 'Hello Template'\n  ,animations: ackAnimations\n&#125;) class AppComponent &#123;&#125;\n\u003C\u002Fpre\u003E\u003Ch3 id=\"Usage Example\"\u003EUsage Example\u003C\u002Fh3\u003E\u003Cpre class=\"code-sample\"\u003E&lt;button \"(click)\"=\"viewDets=!viewDets\")&gt; view details &lt;\u002Fbutton&gt;\n\n&lt;div [*ngIf]=\"viewDets\" [@200]=\"'slideInLeft'\"&gt;\n  &lt;p&gt;This is some goooooood animated content right here&lt;\u002Fp&gt;\n  &lt;p&gt;You should try it.&lt;\u002Fp&gt;\n&lt;\u002Fdiv&gt;\u003C\u002Fpre\u003E\u003Cbr\u003E\u003Ch3 id=\"Swap Example\"\u003ESwap Example\u003C\u002Fh3\u003E\u003Cp class=\"text-grey-2x\"\u003EAnimate swapping elements using @absoluteSwap. Behind the scene, during animation, the following is styles are applied position:absolute;width:100%;overflow:hidden;\u003C\u002Fp\u003E\u003Cpre class=\"code-sample\"\u003E&lt;button \"(click)\"=\"viewDets='default'\")&gt; view default &lt;\u002Fbutton&gt;\n&lt;button \"(click)\"=\"viewDets='other'\")&gt; view other &lt;\u002Fbutton&gt;\n\n&lt;div style=\"position:relative;\"&gt;\n  &lt;div [*ngIf]=\"!viewDets || viewDets=='default'\" [@absoluteSwap]=\"'slideInLeft'\"&gt;\n    &lt;p&gt;This is some goooooood animated content right here&lt;\u002Fp&gt;\n    &lt;p&gt;You should try it.&lt;\u002Fp&gt;\n  &lt;\u002Fdiv&gt;\n\n  &lt;div [*ngIf]=\"!viewDets || viewDets=='other'\" [@absoluteSwap]=\"'slideInLeft'\"&gt;\n    &lt;p&gt;This is some goooooood animated content right here&lt;\u002Fp&gt;\n    &lt;p&gt;You should try it.&lt;\u002Fp&gt;\n  &lt;\u002Fdiv&gt;\n&lt;\u002Fdiv&gt;\u003C\u002Fpre\u003E\u003Cbr\u003E\u003Ch3 id=\"Supported Definitions\"\u003ESupported Definitions\u003C\u002Fh3\u003E\u003Cdiv class=\"flex-wrap\"\u003E\u003Cdiv class=\"pad\"\u003E\u003Cul\u003E\u003Cli *ngFor=\"let item of delayArray\"\u003E{{ item }}\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003C\u002Fdiv\u003E\u003Cdiv class=\"pad\"\u003E\u003Cul\u003E\u003Cli\u003EabsoluteSwap\u003C\u002Fli\u003E\u003Cli *ngFor=\"let item of delayArray\"\u003EabsoluteSwap{{ item }}\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E\u003Cbr\u003E\u003Ch3\u003ESupporting Examples\u003C\u002Fh3\u003E\u003Cdiv class=\"flex-wrap\"\u003E\u003Cfieldset\u003E\u003Clabel class=\"pad-h\"\u003E*ngFor\u003C\u002Flabel\u003E\u003Cul\u003E\u003Cli *ngFor=\"let item of list;let i = index;\" [@200]=\"'fadeInLeft'\"\u003E{{item}} - {{i}}\u003Cbutton (click)=\"list.splice(i,1)\"\u003EX\u003C\u002Fbutton\u003E\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003Cdiv class=\"flex\"\u003E\u003Cinput class=\"flex-1\" [(ngModel)]=\"supportExampleAddItem\"\u003E\u003Cbutton (click)=\"list.push(supportExampleAddItem)\"\u003Eadd\u003C\u002Fbutton\u003E\u003C\u002Fdiv\u003E\u003C\u002Ffieldset\u003E\u003C\u002Fdiv\u003E\u003Cbr\u003E";;return pug_html;};
 module.exports = template;
 
 /***/ }),
@@ -93021,7 +93100,7 @@ module.exports = template;
 
 var pug = __webpack_require__(60);
 
-function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cfieldset class=\"border-dotted border-grey-2x border\"\u003E\u003Clegend class=\"pad-h\"\u003E\u003Ch3 class=\"margin-0\"\u003Eroute-doc-watcher\u003C\u002Fh3\u003E\u003C\u002Flegend\u003E\u003Cp class=\"text-grey-2x\"\u003EGet in tune with your document route states\u003C\u002Fp\u003E\u003Cdiv class=\"text-center\"\u003E\u003Cdiv class=\"border border-info pad-xs\" (click)=\"viewRouteDocWatcher=!viewRouteDocWatcher\" [ngClass]=\"{'border-energized bg-energized':viewRouteDocWatcher}\"\u003Eview details\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E\u003Cdiv *ngIf=\"viewRouteDocWatcher\" [@1000]=\"'fadeInUp'\"\u003E\u003Cdiv class=\"pad\"\u003ERequirements\u003Cul\u003E\u003Cli\u003Eui-router-ng2\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003C\u002Fdiv\u003E\u003Ch4\u003EUsage Example\u003C\u002Fh4\u003E\u003Cpre class=\"code-sample\"\u003E&lt;route-doc-watcher [(ref)]=\"\" (beforeChange)=\"\" (onChange)=\"\"&gt;\u003C\u002Fpre\u003E\u003Ch4\u003Eref example\u003C\u002Fh4\u003E\u003Cpre class=\"code-sample max-height-500\"\u003E&lt;route-doc-watcher [(ref)]=\"routeState\" &gt;\n-----------------------------------------\nrouteState:{{ routeDocWatcher|json }}\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003C\u002Ffieldset\u003E";;return pug_html;};
+function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cfieldset class=\"border-dotted border-grey-2x border\"\u003E\u003Clegend class=\"pad-h\"\u003E\u003Ch3 class=\"margin-0\"\u003Eroute-doc-watcher\u003C\u002Fh3\u003E\u003C\u002Flegend\u003E\u003Cp class=\"text-grey-2x\"\u003EGet in tune with your document route states\u003C\u002Fp\u003E\u003Cdiv class=\"text-center\"\u003E\u003Cdiv class=\"border border-info pad-xs\" (click)=\"viewRouteDocWatcher=!viewRouteDocWatcher\" [ngClass]=\"{'border-energized bg-energized':viewRouteDocWatcher}\"\u003Eview details\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E\u003Cdiv *ngIf=\"viewRouteDocWatcher\" [@500]=\"'fadeInUp'\"\u003E\u003Cdiv class=\"pad\"\u003ERequirements\u003Cul\u003E\u003Cli\u003Eui-router-ng2\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003C\u002Fdiv\u003E\u003Ch4\u003EUsage Example\u003C\u002Fh4\u003E\u003Cpre class=\"code-sample\"\u003E&lt;route-doc-watcher [(ref)]=\"\" (beforeChange)=\"\" (onChange)=\"\"&gt;\u003C\u002Fpre\u003E\u003Ch4\u003Eref example\u003C\u002Fh4\u003E\u003Cpre class=\"code-sample max-height-500\"\u003E&lt;route-doc-watcher [(ref)]=\"routeState\" &gt;\n-----------------------------------------\nrouteState:{{ routeDocWatcher|json }}\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003C\u002Ffieldset\u003E";;return pug_html;};
 module.exports = template;
 
 /***/ }),
@@ -93039,7 +93118,7 @@ module.exports = template;
 
 var pug = __webpack_require__(60);
 
-function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cp class=\"text-grey-2x\"\u003EDecorate and filter output via Pipes\u003C\u002Fp\u003E\u003Cdiv class=\"flex-wrap\"\u003E\u003Cfieldset class=\"flex1 border-dotted border-grey-2x border\"\u003E\u003Clegend class=\"pad-h\"\u003E\u003Ch3\u003Etypeof\u003C\u002Fh3\u003E\u003C\u002Flegend\u003E\u003Cp class=\"text-grey-2x\"\u003EOutput result of native javascript typeof() function\u003C\u002Fp\u003E\u003Ch4\u003EUsage Example\u003C\u002Fh4\u003E\u003Cpre class=\"code-sample\"\u003E{{ 0 | typeof }\u003C!----\u003E}\n\u003C\u002Fpre\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset class=\"flex1 border-dotted border-grey-2x border\"\u003E\u003Clegend class=\"pad-h\"\u003E\u003Ch3\u003Econsole\u003C\u002Fh3\u003E\u003C\u002Flegend\u003E\u003Cp class=\"text-grey-2x\"\u003Econsole log result of native console.log() function\u003C\u002Fp\u003E\u003Ch4\u003EUsage Example\u003C\u002Fh4\u003E\u003Cpre class=\"code-sample\"\u003E{{ 'message1' | console : 'message2' }\u003C!----\u003E}\u003C\u002Fpre\u003E\u003C\u002Ffieldset\u003E\u003C\u002Fdiv\u003E";;return pug_html;};
+function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cp class=\"text-grey-2x\"\u003EDecorate and filter output via Pipes\u003C\u002Fp\u003E\u003Ch3 id=\"Import Example\"\u003EImport Example\u003C\u002Fh3\u003E\u003Cp\u003EHow to make all ack-angular pipes available\u003C\u002Fp\u003E\u003Cpre class=\"code-sample\"\u003Eimport &#123; NgModule &#125; from '@angular\u002Fcore'\nimport &#123; AppComponent &#125; from '.\u002FSomeRandomComponent'\n\nimport * as ackPipes from 'ack-angular\u002Fpipes'\n\nlet decs = [ AppComponent ]\n\ndecs = decs.concat( ackPipes.declarations )\n\n@NgModule(&#123;\n  declarations:decs\n&#125;) export class AppModule &#123;&#125;\n\u003C\u002Fpre\u003E\u003Cbr\u003E\u003Ch3 id=\"Documentation\"\u003EDocumentation\u003C\u002Fh3\u003E\u003Cdiv class=\"flex-wrap\"\u003E\u003Cfieldset class=\"flex1 border-dotted border-grey-2x border\"\u003E\u003Clegend class=\"pad-h\"\u003E\u003Ch3\u003Etypeof\u003C\u002Fh3\u003E\u003C\u002Flegend\u003E\u003Cp class=\"text-grey-2x\"\u003EOutput result of native javascript typeof() function\u003C\u002Fp\u003E\u003Ch4\u003EUsage Example\u003C\u002Fh4\u003E\u003Cpre class=\"code-sample\"\u003E{{ 0 | typeof }\u003C!----\u003E}\n\u003C\u002Fpre\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset class=\"flex1 border-dotted border-grey-2x border\"\u003E\u003Clegend class=\"pad-h\"\u003E\u003Ch3\u003Econsole\u003C\u002Fh3\u003E\u003C\u002Flegend\u003E\u003Cp class=\"text-grey-2x\"\u003Econsole log result of native console.log() function\u003C\u002Fp\u003E\u003Ch4\u003EUsage Example\u003C\u002Fh4\u003E\u003Cpre class=\"code-sample\"\u003E{{ 'message1' | console : 'message2' }\u003C!----\u003E}\n\u003C\u002Fpre\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset class=\"flex1 border-dotted border-grey-2x border\"\u003E\u003Clegend class=\"pad-h\"\u003E\u003Ch3\u003Ecapitalize\u003C\u002Fh3\u003E\u003C\u002Flegend\u003E\u003Cp class=\"text-grey-2x\"\u003EEach sentence leading word is capitalized\u003C\u002Fp\u003E\u003Ch4\u003EUsage Example\u003C\u002Fh4\u003E\u003Cpre class=\"code-sample\"\u003E{{ 'how do you do?' | capitalize }\u003C!----\u003E} == How do you do?\n\u003C\u002Fpre\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset class=\"flex1 border-dotted border-grey-2x border\"\u003E\u003Clegend class=\"pad-h\"\u003E\u003Ch3\u003EcapitalizeWords\u003C\u002Fh3\u003E\u003C\u002Flegend\u003E\u003Cp class=\"text-grey-2x\"\u003EEvery word is capitalized\u003C\u002Fp\u003E\u003Ch4\u003EUsage Example\u003C\u002Fh4\u003E\u003Cpre class=\"code-sample\"\u003E{{ 'how do you do?' | capitalizeWords }\u003C!----\u003E} == How Do You Do?\n\u003C\u002Fpre\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset class=\"flex1 border-dotted border-grey-2x border\"\u003E\u003Clegend class=\"pad-h\"\u003E\u003Ch3\u003Eyesno\u003C\u002Fh3\u003E\u003C\u002Flegend\u003E\u003Cp class=\"text-grey-2x\"\u003ETruthy value converts to: yes. Otherwise: no\u003C\u002Fp\u003E\u003Ch4\u003EUsage Example\u003C\u002Fh4\u003E\u003Cpre class=\"code-sample\"\u003E{{ 'true' | yesno }\u003C!----\u003E} == yes\n\u003C\u002Fpre\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset class=\"flex1 border-dotted border-grey-2x border\"\u003E\u003Clegend class=\"pad-h\"\u003E\u003Ch3\u003EYesNo\u003C\u002Fh3\u003E\u003C\u002Flegend\u003E\u003Cp class=\"text-grey-2x\"\u003ETruthy value converts to: Yes. Otherwise: No\u003C\u002Fp\u003E\u003Ch4\u003EUsage Example\u003C\u002Fh4\u003E\u003Cpre class=\"code-sample\"\u003E{{ 1 | YesNo }\u003C!----\u003E} == Yes\n\u003C\u002Fpre\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset class=\"flex1 border-dotted border-grey-2x border\"\u003E\u003Clegend class=\"pad-h\"\u003E\u003Ch3\u003Enumbers\u003C\u002Fh3\u003E\u003C\u002Flegend\u003E\u003Cp class=\"text-grey-2x\"\u003ERemoves anything not a number from a string\u003C\u002Fp\u003E\u003Ch4\u003EUsage Example\u003C\u002Fh4\u003E\u003Cpre class=\"code-sample\"\u003E{{ 'sam123acb456xyz' | numbers }\u003C!----\u003E} == 123456\n\u003C\u002Fpre\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset class=\"flex1 border-dotted border-grey-2x border\"\u003E\u003Clegend class=\"pad-h\"\u003E\u003Ch3\u003Ekeys\u003C\u002Fh3\u003E\u003C\u002Flegend\u003E\u003Cp class=\"text-grey-2x\"\u003EList of keys for an Object\u003C\u002Fp\u003E\u003Ch4\u003EUsage Example\u003C\u002Fh4\u003E\u003Cpre class=\"code-sample\"\u003E{{ {x:1,y:2,z:3} | keys }\u003C!----\u003E} == [\"x\",\"y\",\"z\"]\u003C\u002Fpre\u003E\u003C\u002Ffieldset\u003E\u003C\u002Fdiv\u003E";;return pug_html;};
 module.exports = template;
 
 /***/ }),
@@ -95415,17 +95494,127 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
+function yesno(input) {
+    if (input == null)
+        return input;
+    return input ? 'yes' : 'no';
+}
+exports.yesno = yesno;
+function yesNo(input) {
+    if (input == null)
+        return input;
+    return input ? 'Yes' : 'No';
+}
+exports.yesNo = yesNo;
+function numbers(input) {
+    return input ? String(input).replace(/[^0-9]/g, '') : input;
+}
+exports.numbers = numbers;
+function capitalizeWords(input) {
+    var reg = /[^\W_]+[^\s-]* */g;
+    return (!!input) ? input.replace(reg, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); }) : '';
+}
+exports.capitalizeWords = capitalizeWords;
+/** each sentence word is capitalized */
+function capitalize(input) {
+    input = capitalizeOne(input);
+    var reg = /[.?!][\s\r\t]+\w/g;
+    return (!!input) ? input.replace(reg, capitalizeAfterSentence) : '';
+}
+exports.capitalize = capitalize;
+function capitalizeAfterSentence(input) {
+    var reg = /[\s\r\t]\w/g;
+    return (!!input) ? input.replace(reg, function (txt) { return txt.charAt(0) + txt.charAt(1).toUpperCase() + txt.substr(2).toLowerCase(); }) : '';
+}
+function capitalizeOne(input) {
+    var reg = /[^\W_]+[^\s-]*/;
+    return (!!input) ? input.replace(reg, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); }) : '';
+}
+var Capitalize = (function () {
+    function Capitalize() {
+    }
+    Capitalize.prototype.transform = function (input) {
+        return capitalize(input);
+    };
+    return Capitalize;
+}());
+Capitalize = __decorate([
+    core_1.Pipe({ name: 'capitalize' })
+], Capitalize);
+exports.Capitalize = Capitalize;
+var CapitalizeWords = (function () {
+    function CapitalizeWords() {
+    }
+    CapitalizeWords.prototype.transform = function (input) {
+        return capitalizeWords(input);
+    };
+    return CapitalizeWords;
+}());
+CapitalizeWords = __decorate([
+    core_1.Pipe({ name: 'capitalizeWords' })
+], CapitalizeWords);
+exports.CapitalizeWords = CapitalizeWords;
+var Yesno = (function () {
+    function Yesno() {
+    }
+    Yesno.prototype.transform = function (input) {
+        return yesno(input);
+    };
+    return Yesno;
+}());
+Yesno = __decorate([
+    core_1.Pipe({ name: 'yesno' })
+], Yesno);
+exports.Yesno = Yesno;
+var YesNo = (function () {
+    function YesNo() {
+    }
+    YesNo.prototype.transform = function (input) {
+        return yesNo(input);
+    };
+    return YesNo;
+}());
+YesNo = __decorate([
+    core_1.Pipe({ name: 'YesNo' })
+], YesNo);
+exports.YesNo = YesNo;
+var Numbers = (function () {
+    function Numbers() {
+    }
+    Numbers.prototype.transform = function (input) {
+        return numbers(input);
+    };
+    return Numbers;
+}());
+Numbers = __decorate([
+    core_1.Pipe({ name: 'numbers' })
+], Numbers);
+exports.Numbers = Numbers;
+var Keys = (function () {
+    function Keys() {
+    }
+    Keys.prototype.transform = function (input) {
+        if (input)
+            return Object.keys(input);
+    };
+    return Keys;
+}());
+Keys = __decorate([
+    core_1.Pipe({ name: 'keys' })
+], Keys);
+exports.Keys = Keys;
 var TypeofPipe = (function () {
     function TypeofPipe() {
     }
-    TypeofPipe.prototype.transform = function (value) {
-        return typeof (value);
+    TypeofPipe.prototype.transform = function (input) {
+        return typeof (input);
     };
     return TypeofPipe;
 }());
 TypeofPipe = __decorate([
     core_1.Pipe({ name: 'typeof' })
 ], TypeofPipe);
+exports.TypeofPipe = TypeofPipe;
 var ConsolePipe = (function () {
     function ConsolePipe() {
     }
@@ -95437,7 +95626,17 @@ var ConsolePipe = (function () {
 ConsolePipe = __decorate([
     core_1.Pipe({ name: 'console' })
 ], ConsolePipe);
-exports.declarations = [TypeofPipe, ConsolePipe];
+exports.ConsolePipe = ConsolePipe;
+exports.declarations = [
+    Capitalize,
+    CapitalizeWords,
+    Yesno,
+    YesNo,
+    Numbers,
+    Keys,
+    TypeofPipe,
+    ConsolePipe
+];
 
 
 /***/ }),
@@ -96251,7 +96450,7 @@ var UIRouterRx = (function () {
 
 module.exports = {
 	"name": "ack-angular",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
 	"main": "index.js",
 	"typings": "index.d.ts",
@@ -96264,6 +96463,7 @@ module.exports = {
 		"build:example:index": "pug example/src/index.pug --out example/www/",
 		"build:example:css": "ack-sass example/src/styles.scss example/www/styles.css --production",
 		"watch:example:css": "ack-sass example/src/styles.scss example/www/styles.css --watch",
+		"watch": "npm run watch:example:js && npm run watch:example:css",
 		"build": "npm run build:dist && npm run build:example",
 		"ack-webpack": "ack-webpack"
 	},
@@ -96293,7 +96493,6 @@ module.exports = {
 		"@angular/forms": "^2.4.9",
 		"@angular/platform-browser": "^2.4.9",
 		"@angular/platform-browser-dynamic": "^2.4.9",
-		"@angular/router": "^3.4.8",
 		"@types/core-js": "^0.9.35",
 		"ack-css-boot": "^1.2.27",
 		"ack-sass": "^1.0.13",
@@ -96308,9 +96507,13 @@ module.exports = {
 		"ts-loader": "^2.0.1",
 		"typescript": "^2.2.1",
 		"webpack": "^2.2.1",
-		"zone.js": "^0.7.7"
+		"zone.js": "^0.7.7",
+		"@angular/router": "^3.4.8",
+		"ack-angular-fx": "^1.0.3",
+		"ui-router-ng2": "^1.0.0-beta.4"
 	},
 	"jsDependencies": {
+		"@angular/router": "^3.4.8",
 		"ack-angular-fx": "^1.0.3",
 		"ui-router-ng2": "^1.0.0-beta.4"
 	}

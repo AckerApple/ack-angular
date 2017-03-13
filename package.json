@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -13,6 +13,7 @@
     "build:example:index": "pug example/src/index.pug --out example/www/",
     "build:example:css": "ack-sass example/src/styles.scss example/www/styles.css --production",
     "watch:example:css": "ack-sass example/src/styles.scss example/www/styles.css --watch",
+    "watch": "npm run watch:example:js && npm run watch:example:css",
     "build": "npm run build:dist && npm run build:example",
     "ack-webpack": "ack-webpack"
   },
@@ -42,7 +43,6 @@
     "@angular/forms": "^2.4.9",
     "@angular/platform-browser": "^2.4.9",
     "@angular/platform-browser-dynamic": "^2.4.9",
-    "@angular/router": "^3.4.8",
     "@types/core-js": "^0.9.35",
     "ack-css-boot": "^1.2.27",
     "ack-sass": "^1.0.13",
@@ -57,9 +57,13 @@
     "ts-loader": "^2.0.1",
     "typescript": "^2.2.1",
     "webpack": "^2.2.1",
-    "zone.js": "^0.7.7"
+    "zone.js": "^0.7.7",
+    "@angular/router": "^3.4.8",
+    "ack-angular-fx": "^1.0.3",
+    "ui-router-ng2": "^1.0.0-beta.4"
   },
   "jsDependencies": {
+    "@angular/router": "^3.4.8",
     "ack-angular-fx": "^1.0.3",
     "ui-router-ng2": "^1.0.0-beta.4"
   }
