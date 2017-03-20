@@ -7,47 +7,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-function yesno(input) {
-    if (input == null)
-        return input;
-    return input ? 'yes' : 'no';
-}
-exports.yesno = yesno;
-function yesNo(input) {
-    if (input == null)
-        return input;
-    return input ? 'Yes' : 'No';
-}
-exports.yesNo = yesNo;
-function numbers(input) {
-    return input ? String(input).replace(/[^0-9]/g, '') : input;
-}
-exports.numbers = numbers;
-function capitalizeWords(input) {
-    var reg = /[^\W_]+[^\s-]* */g;
-    return (!!input) ? input.replace(reg, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); }) : '';
-}
-exports.capitalizeWords = capitalizeWords;
-/** each sentence word is capitalized */
-function capitalize(input) {
-    input = capitalizeOne(input);
-    var reg = /[.?!][\s\r\t]+\w/g;
-    return (!!input) ? input.replace(reg, capitalizeAfterSentence) : '';
-}
-exports.capitalize = capitalize;
-function capitalizeAfterSentence(input) {
-    var reg = /[\s\r\t]\w/g;
-    return (!!input) ? input.replace(reg, function (txt) { return txt.charAt(0) + txt.charAt(1).toUpperCase() + txt.substr(2).toLowerCase(); }) : '';
-}
-function capitalizeOne(input) {
-    var reg = /[^\W_]+[^\s-]*/;
-    return (!!input) ? input.replace(reg, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); }) : '';
-}
+var pipes_class_1 = require("./pipes.class");
 var Capitalize = (function () {
     function Capitalize() {
     }
     Capitalize.prototype.transform = function (input) {
-        return capitalize(input);
+        return pipes_class_1.pipes.capitalize(input);
     };
     return Capitalize;
 }());
@@ -59,7 +24,7 @@ var CapitalizeWords = (function () {
     function CapitalizeWords() {
     }
     CapitalizeWords.prototype.transform = function (input) {
-        return capitalizeWords(input);
+        return pipes_class_1.pipes.capitalizeWords(input);
     };
     return CapitalizeWords;
 }());
@@ -71,7 +36,7 @@ var Yesno = (function () {
     function Yesno() {
     }
     Yesno.prototype.transform = function (input) {
-        return yesno(input);
+        return pipes_class_1.pipes.yesno(input);
     };
     return Yesno;
 }());
@@ -83,7 +48,7 @@ var YesNo = (function () {
     function YesNo() {
     }
     YesNo.prototype.transform = function (input) {
-        return yesNo(input);
+        return pipes_class_1.pipes.yesNo(input);
     };
     return YesNo;
 }());
@@ -95,7 +60,7 @@ var Numbers = (function () {
     function Numbers() {
     }
     Numbers.prototype.transform = function (input) {
-        return numbers(input);
+        return pipes_class_1.pipes.numbers(input);
     };
     return Numbers;
 }());
@@ -150,4 +115,8 @@ exports.declarations = [
     TypeofPipe,
     ConsolePipe
 ];
+function getDeclarations() {
+    return exports.declarations;
+}
+exports.getDeclarations = getDeclarations;
 //# sourceMappingURL=pipes.js.map

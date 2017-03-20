@@ -7,21 +7,23 @@ var ui_router_ng2_1 = require("ui-router-ng2");
    - Their is no web event for knowing if OS button is used.
 */
 var RouteWatcher = (function () {
-    //constructor($state, $window){
-    function RouteWatcher($state, TransitionService, $window) {
+    function RouteWatcher(StateService, TransitionService) {
         var _this = this;
+        this.StateService = StateService;
+        this.TransitionService = TransitionService;
         this.historyPos = 0;
         this.isNextBackMode = false;
         this.isNextBackHistory = false;
         this.isBackMode = false;
         this.isOsAction = false;
         var stateHistory = [];
-        this.$state = function () { return $state; };
-        this.$window = function () { return $window; };
+        this.$state = function () { return StateService; };
+        this.$window = function () { return window; };
         //this.$history = ()=>stateHistory
         this.$history = stateHistory;
         TransitionService.onStart({ to: '*' }, function (transition) {
-            _this.recordStateChange(transition._targetState._definition, transition._targetState._params);
+            _this.recordStateChange(transition.targetState().$state(), transition.targetState().params());
+            //this.recordStateChange(transition._targetState._definition, transition._targetState._params)
         });
     }
     RouteWatcher.prototype.isTrapHistory = function (toState, toParams) {

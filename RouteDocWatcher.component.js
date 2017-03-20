@@ -13,10 +13,10 @@ var ui_router_ng2_1 = require("ui-router-ng2");
 var core_1 = require("@angular/core");
 var RouteWatcher_class_1 = require("./RouteWatcher.class");
 var RouteDocWatcher = (function () {
-    function RouteDocWatcher(RouteWatcher, transitionService) {
+    function RouteDocWatcher(RouteWatcher, TransitionService) {
         var _this = this;
         this.RouteWatcher = RouteWatcher;
-        this.transitionService = transitionService;
+        this.TransitionService = TransitionService;
         //public isBackButton
         //public isNotBackButton
         //public mouseover
@@ -25,10 +25,10 @@ var RouteDocWatcher = (function () {
         this.refChange = new core_1.EventEmitter();
         this.$document = document;
         this.docCallbacks = RouteWatcher.getDocumentCallbacks();
-        transitionService.onStart({ to: '*' }, function (transition) {
+        TransitionService.onStart({ to: '*' }, function (transition) {
             _this.beforeChanger.emit(_this.RouteWatcher);
         });
-        transitionService.onSuccess({ to: '*' }, function (transition) {
+        TransitionService.onSuccess({ to: '*' }, function (transition) {
             //ensure smallest gap in digest occurs for things like animation swapping
             setTimeout(function () { return _this.stateChanger.emit(_this.RouteWatcher); }, 0);
         });
@@ -85,7 +85,7 @@ RouteDocWatcher = __decorate([
         selector: 'route-doc-watcher',
         template: ''
     }),
-    __metadata("design:paramtypes", [Object, Object])
+    __metadata("design:paramtypes", [RouteWatcher_class_1.RouteWatcher, ui_router_ng2_1.TransitionService])
 ], RouteDocWatcher);
 exports.RouteDocWatcher = RouteDocWatcher;
 //# sourceMappingURL=RouteDocWatcher.component.js.map

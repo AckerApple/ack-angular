@@ -9,7 +9,8 @@
     "baseUrl": ".",
     "experimentalDecorators": true,
     "noEmitHelpers": false,
-    "allowJs": true
+    "allowJs": true,
+    "lib": ["es2015", "dom"]
   },
   "exclude": [
     "node_modules"

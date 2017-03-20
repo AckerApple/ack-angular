@@ -1,0 +1,87 @@
+p.pad-h
+  strong ack-angular
+  |, Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2
+
+h4 Table of Contents
+ul.margin-top-0
+  li
+    a(href="#Requirements" pageScroll) Requirements
+  li
+    a(href="#This Demo Area" pageScroll) This Demo Area
+  li
+    a(href="#Resources" pageScroll) Resources
+  li
+    a(href="#My Personal TypeScript Opinion" pageScroll) My Personal TypeScript Opinion
+  li
+    a(href="#ack-angularjs" pageScroll) ack-angularjs
+
+h3(id="Requirements") Requirements
+p It is very important to understand what connects where
+ul
+  li core angular components are expected to have already been installed
+  ul
+    li reflect-metadata
+    li @angular/core
+  li jsDependencies
+  ul
+    li
+      a(href="https://www.npmjs.com/package/ack-angular-fx") ack-angular-fx
+    ul
+      li only required for animation implementing
+      li The following code would depend on ack-angular-fx installation
+        pre.code-sample.
+          import * as fx from "ack-angular/fx"
+    li
+      a(href="https://www.npmjs.com/package/ui-router-ng2") ui-router-ng2
+    ul
+      li only required for router based ack-angular component and services
+      li The following code would depend on ack-angular-fx installation
+        pre.code-sample.
+          import * as RouteDocWatcher from "ack-angular/RouteDocWatcher.component"
+          import * as RouteWatcher from "ack-angular/RouteWatcher.class"
+
+h3(id="This Demo Area") This Demo Area
+ul
+  li Uses hash routing to support github's gh-pages servers which do not support html5 non-hash routing
+  li Pagescrolling, which is not a jsDependency of ack-angular, is provided by #[a(href="https://www.npmjs.com/package/ng2-page-scroll") ng2-page-scroll]
+
+h3(id="Resources") Resources
+ul
+  li #[a(href="https://github.com/AckerApple/ack-angular") Repository]
+  li #[a(href="https://angular.io/docs/ts/latest/guide/cheatsheet.html") Angular2 Cheatsheet]
+
+h3(id="My Personal TypeScript Opinion") My Personal TypeScript Opinion
+.pad-h
+  .border-left-5.border-grey-5x.bg-stable.pad
+    i "TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.""
+    .text-sm.pad-top
+      a(href="https://www.typescriptlang.org/") typescriptlang.org
+  p The above statement is just not 100% true, it's more like 96.5%
+  ul
+    li ISSUE : #[a(href="https://github.com/Microsoft/TypeScript/issues/6373") TS2339]
+    ul
+      li Error Message : Property 'name' does not exist on type '&#123;&#125;'
+      li Cannot create object and then add properties to it that were not already defined
+      li
+        pre.code-sample.
+          let obj = &#123;&#125;
+          obj.name = "name prop"
+        div.text-grey-2x.text-sm The above code, under most ts configurations, will fail
+    li ISSUE : #[a(href="https://github.com/Microsoft/TypeScript/issues/6373") TS2346]
+    ul
+      li Error Message : Supplied parameters do not match any signature of call target.
+      li You have to call a function with exact number of arguments OR put a question mark in your argument definition
+      li
+        pre.code-sample.
+          function myFunc(a,b,c)&#123;&#125;
+
+          myFunc(1)
+        div.text-grey-2x.text-sm The above code, under most ts configurations, will fail
+      li Fix
+        pre.code-sample.
+          function myFunc(a,b?,c?)&#123;&#125;
+
+          myFunc(1)
+
+h3(id="ack-angularjs") ack-angularjs
+p ack-angular is a continuation of successful directives, services, and filters that were established for AngularJs during the building of #[a(href="https://github.com/AckerApple/ack-angularjs") ack-angularjs]

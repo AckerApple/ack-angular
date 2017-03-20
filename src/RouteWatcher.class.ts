@@ -1,4 +1,4 @@
-import { StateService,TransitionService } from "ui-router-ng2";
+import { StateService,TransitionService,Transition } from "ui-router-ng2";
 
 /** A stateful connection to ui-router history
  - .stateChange() with arguments MUST be called at every state change
@@ -6,9 +6,9 @@ import { StateService,TransitionService } from "ui-router-ng2";
    - Their is no web event for knowing if OS button is used. 
 */
 export class RouteWatcher{
-  private $history;
-  private $state;
-  private $window;
+  public $history : any
+  public $state : any
+  public $window : any
   
   public historyPos : number = 0
   public isNextBackMode : boolean = false
@@ -19,16 +19,16 @@ export class RouteWatcher{
 
   static parameters = [[StateService],[TransitionService]]
 
-  //constructor($state, $window){
-  constructor($state, TransitionService, $window){
+  constructor(public StateService:StateService, public TransitionService:TransitionService){
     const stateHistory = []
-    this.$state = ()=>$state
-    this.$window = ()=>$window
+    this.$state = ()=>StateService
+    this.$window = ()=>window
     //this.$history = ()=>stateHistory
     this.$history = stateHistory
 
-    TransitionService.onStart({to:'*'}, transition=>{
-      this.recordStateChange(transition._targetState._definition, transition._targetState._params)
+    TransitionService.onStart({to:'*'}, (transition:Transition)=>{
+      this.recordStateChange(transition.targetState().$state(), transition.targetState().params())
+      //this.recordStateChange(transition._targetState._definition, transition._targetState._params)
     })
   }
 

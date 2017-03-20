@@ -16,22 +16,22 @@ import { RouteWatcher } from "./RouteWatcher.class"
   //public isNotBackButton
   //public mouseover
 
-  @Output("onChange") stateChanger = new EventEmitter()
-  @Output("beforeChange") beforeChanger = new EventEmitter()
+  @Output("onChange") public stateChanger = new EventEmitter()
+  @Output("beforeChange") public beforeChanger = new EventEmitter()
   @Input() public onLoad
   @Input() public ref//variable reference
-  @Output() refChange = new EventEmitter()
+  @Output() public refChange = new EventEmitter()
 
-  constructor(public RouteWatcher, public transitionService){
+  constructor(public RouteWatcher:RouteWatcher, public TransitionService:TransitionService){
     this.$document = document
 
     this.docCallbacks = RouteWatcher.getDocumentCallbacks()
     
-    transitionService.onStart({to:'*'}, transition=>{
+    TransitionService.onStart({to:'*'}, transition=>{
       this.beforeChanger.emit( this.RouteWatcher )
     })
 
-    transitionService.onSuccess({to:'*'}, transition=>{
+    TransitionService.onSuccess({to:'*'}, transition=>{
       //ensure smallest gap in digest occurs for things like animation swapping
       setTimeout(()=>this.stateChanger.emit( this.RouteWatcher ), 0)
     })
