@@ -1,3 +1,4 @@
+export { pipes } from "./pipes.class";
 export declare class Capitalize {
     transform(input: any): any;
 }

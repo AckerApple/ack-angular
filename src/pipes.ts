@@ -1,4 +1,5 @@
-import { Pipe, Input, Component, NgModule } from '@angular/core';
+import { Pipe } from '@angular/core';
+export { pipes } from "./pipes.class"
 import { pipes } from "./pipes.class"
 
 @Pipe({name: 'capitalize'}) export class Capitalize {

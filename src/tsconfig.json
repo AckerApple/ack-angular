@@ -6,19 +6,13 @@
     "sourceMap": true,
     "inlineSources": true,
     "emitDecoratorMetadata": true,
+    "baseUrl": ".",
     "experimentalDecorators": true,
     "noEmitHelpers": false,
-    "lib": [
-      "es6",
-      "dom"
-    ],
-    "types": [
-      "node"
-    ]
+    "allowJs": false,
+    "lib": ["es2015", "dom"]
   },
   "exclude": [
-    "node_modules",
-    "example",
-    "src/specs"
+    "node_modules"
   ]
 }
