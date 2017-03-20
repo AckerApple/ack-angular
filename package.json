@@ -6,7 +6,7 @@
   "typings": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:dist": "tsc --rootDir src --outDir . --project src/tsconfig.json",
+    "build:dist": "tsc --rootDir src --outDir . --declaration --project src/tsconfig.json",
     "build:example:dist": "ncp ./src/ ./example/src/ack-angular/ --stopOnErr",
     "build:example": "npm run build:example:dist && npm run build:example:js && npm run build:example:index && npm run build:example:css",
     "compile:example:prefx": "ack-angular-fx --select absoluteSwap500,200,500 --effects slide,fade --out ./example/src/prefx.ts",
