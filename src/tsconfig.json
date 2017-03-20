@@ -1,18 +1,19 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
+    "module": "es6",
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "inlineSources": true,
     "emitDecoratorMetadata": true,
-    "baseUrl": ".",
     "experimentalDecorators": true,
     "noEmitHelpers": false,
     "allowJs": false,
-    "lib": ["es2015", "dom"]
+    "lib": ["es6", "dom"]
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "angularCompilerOptions": {
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true
+  }
 }

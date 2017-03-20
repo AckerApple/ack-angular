@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,10 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var ui_router_ng2_1 = require("ui-router-ng2");
-var core_1 = require("@angular/core");
-var RouteWatcher_class_1 = require("./RouteWatcher.class");
+import { TransitionService } from "ui-router-ng2";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { RouteWatcher } from "./RouteWatcher.class";
 var RouteDocWatcher = (function () {
     function RouteDocWatcher(RouteWatcher, TransitionService) {
         var _this = this;
@@ -20,9 +18,9 @@ var RouteDocWatcher = (function () {
         //public isBackButton
         //public isNotBackButton
         //public mouseover
-        this.stateChanger = new core_1.EventEmitter();
-        this.beforeChanger = new core_1.EventEmitter();
-        this.refChange = new core_1.EventEmitter();
+        this.stateChanger = new EventEmitter();
+        this.beforeChanger = new EventEmitter();
+        this.refChange = new EventEmitter();
         this.$document = document;
         this.docCallbacks = RouteWatcher.getDocumentCallbacks();
         TransitionService.onStart({ to: '*' }, function (transition) {
@@ -58,34 +56,34 @@ var RouteDocWatcher = (function () {
     return RouteDocWatcher;
 }());
 //public RouteWatcher : RouteWatcher
-RouteDocWatcher.parameters = [[RouteWatcher_class_1.RouteWatcher], [ui_router_ng2_1.TransitionService]];
+RouteDocWatcher.parameters = [[RouteWatcher], [TransitionService]];
 __decorate([
-    core_1.Output("onChange"),
+    Output("onChange"),
     __metadata("design:type", Object)
 ], RouteDocWatcher.prototype, "stateChanger", void 0);
 __decorate([
-    core_1.Output("beforeChange"),
+    Output("beforeChange"),
     __metadata("design:type", Object)
 ], RouteDocWatcher.prototype, "beforeChanger", void 0);
 __decorate([
-    core_1.Input(),
+    Input(),
     __metadata("design:type", Object)
 ], RouteDocWatcher.prototype, "onLoad", void 0);
 __decorate([
-    core_1.Input(),
+    Input(),
     __metadata("design:type", Object)
 ], RouteDocWatcher.prototype, "ref", void 0);
 __decorate([
-    core_1.Output(),
+    Output(),
     __metadata("design:type", Object)
 ], RouteDocWatcher.prototype, "refChange", void 0);
 RouteDocWatcher = __decorate([
-    core_1.Component({
+    Component({
         //inputs:['ref'],
         selector: 'route-doc-watcher',
         template: ''
     }),
-    __metadata("design:paramtypes", [RouteWatcher_class_1.RouteWatcher, ui_router_ng2_1.TransitionService])
+    __metadata("design:paramtypes", [RouteWatcher, TransitionService])
 ], RouteDocWatcher);
-exports.RouteDocWatcher = RouteDocWatcher;
+export { RouteDocWatcher };
 //# sourceMappingURL=RouteDocWatcher.component.js.map

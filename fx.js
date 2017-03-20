@@ -1,7 +1,2 @@
-"use strict";
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-Object.defineProperty(exports, "__esModule", { value: true });
-__export(require("ack-angular-fx"));
+export * from "ack-angular-fx";
 //# sourceMappingURL=fx.js.map

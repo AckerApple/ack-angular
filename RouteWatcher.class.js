@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var ui_router_ng2_1 = require("ui-router-ng2");
+import { StateService, TransitionService } from "ui-router-ng2";
 /** A stateful connection to ui-router history
  - .stateChange() with arguments MUST be called at every state change
  - Has 99% accuracy of knowing if OS back or forward button has been used
@@ -145,6 +143,6 @@ var RouteWatcher = (function () {
     };
     return RouteWatcher;
 }());
-RouteWatcher.parameters = [[ui_router_ng2_1.StateService], [ui_router_ng2_1.TransitionService]];
-exports.RouteWatcher = RouteWatcher;
+export { RouteWatcher };
+RouteWatcher.parameters = [[StateService], [TransitionService]];
 //# sourceMappingURL=RouteWatcher.class.js.map

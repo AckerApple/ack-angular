@@ -1,75 +1,72 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var pipes_class_1 = require("./pipes.class");
-exports.pipes = pipes_class_1.pipes;
-var pipes_class_2 = require("./pipes.class");
+import { Pipe } from '@angular/core';
+export { pipes } from "./pipes.class";
+import { pipes } from "./pipes.class";
 var Capitalize = (function () {
     function Capitalize() {
     }
     Capitalize.prototype.transform = function (input) {
-        return pipes_class_2.pipes.capitalize(input);
+        return pipes.capitalize(input);
     };
     return Capitalize;
 }());
 Capitalize = __decorate([
-    core_1.Pipe({ name: 'capitalize' })
+    Pipe({ name: 'capitalize' })
 ], Capitalize);
-exports.Capitalize = Capitalize;
+export { Capitalize };
 var CapitalizeWords = (function () {
     function CapitalizeWords() {
     }
     CapitalizeWords.prototype.transform = function (input) {
-        return pipes_class_2.pipes.capitalizeWords(input);
+        return pipes.capitalizeWords(input);
     };
     return CapitalizeWords;
 }());
 CapitalizeWords = __decorate([
-    core_1.Pipe({ name: 'capitalizeWords' })
+    Pipe({ name: 'capitalizeWords' })
 ], CapitalizeWords);
-exports.CapitalizeWords = CapitalizeWords;
+export { CapitalizeWords };
 var Yesno = (function () {
     function Yesno() {
     }
     Yesno.prototype.transform = function (input) {
-        return pipes_class_2.pipes.yesno(input);
+        return pipes.yesno(input);
     };
     return Yesno;
 }());
 Yesno = __decorate([
-    core_1.Pipe({ name: 'yesno' })
+    Pipe({ name: 'yesno' })
 ], Yesno);
-exports.Yesno = Yesno;
+export { Yesno };
 var YesNo = (function () {
     function YesNo() {
     }
     YesNo.prototype.transform = function (input) {
-        return pipes_class_2.pipes.yesNo(input);
+        return pipes.yesNo(input);
     };
     return YesNo;
 }());
 YesNo = __decorate([
-    core_1.Pipe({ name: 'YesNo' })
+    Pipe({ name: 'YesNo' })
 ], YesNo);
-exports.YesNo = YesNo;
+export { YesNo };
 var Numbers = (function () {
     function Numbers() {
     }
     Numbers.prototype.transform = function (input) {
-        return pipes_class_2.pipes.numbers(input);
+        return pipes.numbers(input);
     };
     return Numbers;
 }());
 Numbers = __decorate([
-    core_1.Pipe({ name: 'numbers' })
+    Pipe({ name: 'numbers' })
 ], Numbers);
-exports.Numbers = Numbers;
+export { Numbers };
 var Keys = (function () {
     function Keys() {
     }
@@ -80,9 +77,9 @@ var Keys = (function () {
     return Keys;
 }());
 Keys = __decorate([
-    core_1.Pipe({ name: 'keys' })
+    Pipe({ name: 'keys' })
 ], Keys);
-exports.Keys = Keys;
+export { Keys };
 var TypeofPipe = (function () {
     function TypeofPipe() {
     }
@@ -92,9 +89,9 @@ var TypeofPipe = (function () {
     return TypeofPipe;
 }());
 TypeofPipe = __decorate([
-    core_1.Pipe({ name: 'typeof' })
+    Pipe({ name: 'typeof' })
 ], TypeofPipe);
-exports.TypeofPipe = TypeofPipe;
+export { TypeofPipe };
 var ConsolePipe = (function () {
     function ConsolePipe() {
     }
@@ -104,10 +101,10 @@ var ConsolePipe = (function () {
     return ConsolePipe;
 }());
 ConsolePipe = __decorate([
-    core_1.Pipe({ name: 'console' })
+    Pipe({ name: 'console' })
 ], ConsolePipe);
-exports.ConsolePipe = ConsolePipe;
-exports.declarations = [
+export { ConsolePipe };
+export var declarations = [
     Capitalize,
     CapitalizeWords,
     Yesno,
@@ -117,8 +114,7 @@ exports.declarations = [
     TypeofPipe,
     ConsolePipe
 ];
-function getDeclarations() {
-    return exports.declarations;
+export function getDeclarations() {
+    return declarations;
 }
-exports.getDeclarations = getDeclarations;
 //# sourceMappingURL=pipes.js.map

@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.pipes = {
+export var pipes = {
     yesno: function yesno(input) {
         if (input == null)
             return input;
@@ -20,9 +18,9 @@ exports.pipes = {
     },
     /** each sentence word is capitalized */
     capitalize: function capitalize(input) {
-        input = exports.pipes.capitalizeOne(input);
+        input = pipes.capitalizeOne(input);
         var reg = /[.?!][\s\r\t]+\w/g;
-        return (!!input) ? input.replace(reg, exports.pipes.capitalizeAfterSentence) : '';
+        return (!!input) ? input.replace(reg, pipes.capitalizeAfterSentence) : '';
     },
     capitalizeAfterSentence: function capitalizeAfterSentence(input) {
         var reg = /[\s\r\t]\w/g;
