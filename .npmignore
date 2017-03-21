@@ -1,7 +1,7 @@
+aot/
 updaters/
 example/
 test/
 .gitignore
 tsconfig.json
-src/
 .npmignore

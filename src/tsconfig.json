@@ -13,7 +13,6 @@
     "lib": ["es6", "dom"],
     "outDir":"../dist"
   },
-  "files":["./RouteDocWatcher.module.ts"],
   "angularCompilerOptions": {
     "genDir": "../aot",
     "skipMetadataEmit" : false,

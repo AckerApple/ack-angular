@@ -2,7 +2,7 @@
   "name": "ack-angular",
   "version": "0.0.4",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
-  "main": "index.js",
+  "main": "dist/index.js",
   "typings": "index.d.ts",
   "scripts": {
     "compile:example:prefx": "ack-angular-fx --select absoluteSwap500,200,500 --effects slide,fade --out ./example/src/prefx.ts",
@@ -11,7 +11,7 @@
     "build:example": "npm run build:example:dist && npm run build:example:js && npm run build:example:index && npm run build:example:css",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dist:tsc": "tsc --rootDir src --outDir dist/ --declaration --project src/tsconfig.json",
-    "build:dist": "ngc --rootDir src --outDir dist/ --declaration --project src/tsconfig.json",
+    "build:dist": "tsc --rootDir src --outDir dist/ --declaration --project src/tsconfig.json",
     "build:example:dist": "ncp ./src/ ./example/src/ack-angular/ --stopOnErr",
     "build:example:aot2": "ack-webpack example/src/app.module.ts example/aot/src/app.module.ngfactory.ts --project example/tsconfig.aot.json --aot",
     "watch:example:js": "ack-webpack example/index.aot.ts example/www/index.js --watch --browser --project example/tsconfig.json",

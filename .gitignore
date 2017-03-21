@@ -1,5 +1,4 @@
-*.ngFactory.ts
-*.metadata.json
+aot/
 .DS_Store
 updaters
 
