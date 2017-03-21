@@ -13,8 +13,12 @@
     "lib": ["es6", "dom"],
     "outDir":"../dist"
   },
+  "files":["./RouteDocWatcher.module.ts"],
   "angularCompilerOptions": {
-    "skipTemplateCodegen": true,
-    "strictMetadataEmit": true
+    "genDir": "../aot",
+    "skipMetadataEmit" : true,
+    "_skipTemplateCodegen": true,
+    "_strictMetadataEmit": true,
+    "entryModule": "RouteDocWatcher.module#RouteDocWatcherClass"
   }
 }
