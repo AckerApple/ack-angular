@@ -1,4 +1,4 @@
-export var pipes = {
+export const pipes = {
     yesno: function yesno(input) {
         if (input == null)
             return input;

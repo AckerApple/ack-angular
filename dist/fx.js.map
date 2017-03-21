@@ -1,0 +1,1 @@
+{"version":3,"file":"fx.js","sourceRoot":"","sources":["../src/fx.ts"],"names":[],"mappings":"AAAA,cAAc,gBAAgB,CAAA","sourcesContent":["export * from \"ack-angular-fx\"\ninterface DecoratorInvocation {\n  type: Function;\n  args?: any[];\n}\n"]}

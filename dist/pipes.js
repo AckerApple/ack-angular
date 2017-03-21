@@ -7,104 +7,80 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { Pipe } from '@angular/core';
 export { pipes } from "./pipes.class";
 import { pipes } from "./pipes.class";
-var Capitalize = (function () {
-    function Capitalize() {
-    }
-    Capitalize.prototype.transform = function (input) {
+let Capitalize = class Capitalize {
+    transform(input) {
         return pipes.capitalize(input);
-    };
-    return Capitalize;
-}());
+    }
+};
 Capitalize = __decorate([
     Pipe({ name: 'capitalize' })
 ], Capitalize);
 export { Capitalize };
-var CapitalizeWords = (function () {
-    function CapitalizeWords() {
-    }
-    CapitalizeWords.prototype.transform = function (input) {
+let CapitalizeWords = class CapitalizeWords {
+    transform(input) {
         return pipes.capitalizeWords(input);
-    };
-    return CapitalizeWords;
-}());
+    }
+};
 CapitalizeWords = __decorate([
     Pipe({ name: 'capitalizeWords' })
 ], CapitalizeWords);
 export { CapitalizeWords };
-var Yesno = (function () {
-    function Yesno() {
-    }
-    Yesno.prototype.transform = function (input) {
+let Yesno = class Yesno {
+    transform(input) {
         return pipes.yesno(input);
-    };
-    return Yesno;
-}());
+    }
+};
 Yesno = __decorate([
     Pipe({ name: 'yesno' })
 ], Yesno);
 export { Yesno };
-var YesNo = (function () {
-    function YesNo() {
-    }
-    YesNo.prototype.transform = function (input) {
+let YesNo = class YesNo {
+    transform(input) {
         return pipes.yesNo(input);
-    };
-    return YesNo;
-}());
+    }
+};
 YesNo = __decorate([
     Pipe({ name: 'YesNo' })
 ], YesNo);
 export { YesNo };
-var Numbers = (function () {
-    function Numbers() {
-    }
-    Numbers.prototype.transform = function (input) {
+let Numbers = class Numbers {
+    transform(input) {
         return pipes.numbers(input);
-    };
-    return Numbers;
-}());
+    }
+};
 Numbers = __decorate([
     Pipe({ name: 'numbers' })
 ], Numbers);
 export { Numbers };
-var Keys = (function () {
-    function Keys() {
-    }
-    Keys.prototype.transform = function (input) {
+let Keys = class Keys {
+    transform(input) {
         if (input)
             return Object.keys(input);
-    };
-    return Keys;
-}());
+    }
+};
 Keys = __decorate([
     Pipe({ name: 'keys' })
 ], Keys);
 export { Keys };
-var TypeofPipe = (function () {
-    function TypeofPipe() {
-    }
-    TypeofPipe.prototype.transform = function (input) {
+let TypeofPipe = class TypeofPipe {
+    transform(input) {
         return typeof (input);
-    };
-    return TypeofPipe;
-}());
+    }
+};
 TypeofPipe = __decorate([
     Pipe({ name: 'typeof' })
 ], TypeofPipe);
 export { TypeofPipe };
-var ConsolePipe = (function () {
-    function ConsolePipe() {
-    }
-    ConsolePipe.prototype.transform = function () {
+let ConsolePipe = class ConsolePipe {
+    transform() {
         return console.log.apply(console, arguments);
-    };
-    return ConsolePipe;
-}());
+    }
+};
 ConsolePipe = __decorate([
     Pipe({ name: 'console' })
 ], ConsolePipe);
 export { ConsolePipe };
-export var declarations = [
+export const declarations = [
     Capitalize,
     CapitalizeWords,
     Yesno,
