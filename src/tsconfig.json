@@ -16,8 +16,8 @@
   "files":["./RouteDocWatcher.module.ts"],
   "angularCompilerOptions": {
     "genDir": "../aot",
-    "skipMetadataEmit" : true,
-    "skipTemplateCodegen": true,
+    "skipMetadataEmit" : false,
+    "_skipTemplateCodegen": true,
     "strictMetadataEmit": true,
     "entryModule": "RouteDocWatcher.module#RouteDocWatcherClass"
   }
