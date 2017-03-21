@@ -10,8 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { TransitionService } from "ui-router-ng2";
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { RouteWatcher } from "./RouteWatcher.class";
-let RouteDocWatcher = class RouteDocWatcher {
-    constructor(RouteWatcher, TransitionService) {
+var RouteDocWatcher = (function () {
+    function RouteDocWatcher(RouteWatcher, TransitionService) {
+        var _this = this;
         this.RouteWatcher = RouteWatcher;
         this.TransitionService = TransitionService;
         //public isBackButton
@@ -22,21 +23,22 @@ let RouteDocWatcher = class RouteDocWatcher {
         this.refChange = new EventEmitter();
         this.$document = document;
         this.docCallbacks = RouteWatcher.getDocumentCallbacks();
-        TransitionService.onStart({ to: '*' }, transition => {
-            this.beforeChanger.emit(this.RouteWatcher);
+        TransitionService.onStart({ to: '*' }, function (transition) {
+            _this.beforeChanger.emit(_this.RouteWatcher);
         });
-        TransitionService.onSuccess({ to: '*' }, transition => {
+        TransitionService.onSuccess({ to: '*' }, function (transition) {
             //ensure smallest gap in digest occurs for things like animation swapping
-            setTimeout(() => this.stateChanger.emit(this.RouteWatcher), 0);
+            setTimeout(function () { return _this.stateChanger.emit(_this.RouteWatcher); }, 0);
         });
         RouteWatcher.watchDocByCallbacks(this.$document, this.docCallbacks);
     }
-    ngOnDestroy() {
+    RouteDocWatcher.prototype.ngOnDestroy = function () {
         this.RouteWatcher.unwatchDocByCallbacks(this.$document, this.docCallbacks);
-    }
-    ngOnInit() {
+    };
+    RouteDocWatcher.prototype.ngOnInit = function () {
+        var _this = this;
         this.ref = this.RouteWatcher;
-        setTimeout(() => this.refChange.emit(this.ref), 0);
+        setTimeout(function () { return _this.refChange.emit(_this.ref); }, 0);
         if (this.onLoad) {
             this.onLoad({
                 state: this.RouteWatcher.$state.current,
@@ -44,14 +46,15 @@ let RouteDocWatcher = class RouteDocWatcher {
                 current: this.RouteWatcher.$state.current
             });
         }
-    }
-    goBackTo(name, params) {
+    };
+    RouteDocWatcher.prototype.goBackTo = function (name, params) {
         this.RouteWatcher.goBackTo(name, params);
-    }
-    tryBack(name, params) {
+    };
+    RouteDocWatcher.prototype.tryBack = function (name, params) {
         this.RouteWatcher.tryBack(name, params);
-    }
-};
+    };
+    return RouteDocWatcher;
+}());
 //public RouteWatcher : RouteWatcher
 RouteDocWatcher.parameters = [[RouteWatcher], [TransitionService]];
 __decorate([

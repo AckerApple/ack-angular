@@ -8,11 +8,14 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from '@angular/core';
 import { RouteDocWatcher } from './RouteDocWatcher.component';
 import { RouteWatcher } from './RouteWatcher.class';
-let RouteDocWatcherClass = RouteDocWatcherClass_1 = class RouteDocWatcherClass {
-    static forRoot() {
-        return { ngModule: RouteDocWatcherClass_1, providers: [RouteWatcher] };
+var RouteDocWatcherClass = RouteDocWatcherClass_1 = (function () {
+    function RouteDocWatcherClass() {
     }
-};
+    RouteDocWatcherClass.forRoot = function () {
+        return { ngModule: RouteDocWatcherClass_1, providers: [RouteWatcher] };
+    };
+    return RouteDocWatcherClass;
+}());
 RouteDocWatcherClass = RouteDocWatcherClass_1 = __decorate([
     NgModule({
         imports: [CommonModule],

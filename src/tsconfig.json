@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
     "module": "es6",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -17,8 +17,8 @@
   "angularCompilerOptions": {
     "genDir": "../aot",
     "skipMetadataEmit" : true,
-    "_skipTemplateCodegen": true,
-    "_strictMetadataEmit": true,
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
     "entryModule": "RouteDocWatcher.module#RouteDocWatcherClass"
   }
 }
