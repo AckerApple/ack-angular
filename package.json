@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "typings": "index.d.ts",
   "scripts": {
-    "install:example:js": "ack-webpack install github:ackerapple/ack-angular --out example/src/js_modules",
+    "install:example:js": "ack-webpack install github:ackerapple/ack-angular --out example/src/js_modules --no-save",
     "compile:example:prefx": "ack-angular-fx --select absoluteSwap500,200,500 --effects slide,fade --out ./example/src/prefx.ts",
     "compile:example:aot": "ngc -p ./example/tsconfig.aot.json",
     "build:example:js": "ack-webpack example/index.aot.ts example/www/index.js --production --project example/tsconfig.json",
@@ -76,7 +76,6 @@
   "jsDependencies": {
     "@angular/router": "^3.4.8",
     "ack-angular-fx": "^1.0.3",
-    "ui-router-ng2": "^1.0.0-beta.4",
-    "ack-angular": "github:ackerapple/ack-angular"
+    "ui-router-ng2": "^1.0.0-beta.4"
   }
 }
