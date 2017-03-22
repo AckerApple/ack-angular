@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "typings": "index.d.ts",
   "scripts": {
+    "install:example:js": "ack-webpack install github:ackerapple/ack-angular --out example/src/js_modules",
     "compile:example:prefx": "ack-angular-fx --select absoluteSwap500,200,500 --effects slide,fade --out ./example/src/prefx.ts",
     "compile:example:aot": "ngc -p ./example/tsconfig.aot.json",
     "build:example:js": "ack-webpack example/index.aot.ts example/www/index.js --production --project example/tsconfig.json",
