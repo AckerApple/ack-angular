@@ -1,0 +1,102 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "ui-router-rx@=0.2.1",
+        "scope": null,
+        "escapedName": "ui-router-rx",
+        "name": "ui-router-rx",
+        "rawSpec": "=0.2.1",
+        "spec": "0.2.1",
+        "type": "version"
+      },
+      "/Users/ackerapple/projects/Ack/browser/Angular/ack-angular/.ack-webpack-temp/node_modules/ui-router-ng2"
+    ]
+  ],
+  "_from": "ui-router-rx@0.2.1",
+  "_id": "ui-router-rx@0.2.1",
+  "_inCache": true,
+  "_location": "/ui-router-rx",
+  "_nodeVersion": "6.6.0",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/ui-router-rx-0.2.1.tgz_1485120201530_0.18613013136200607"
+  },
+  "_npmUser": {
+    "name": "christopherthielen",
+    "email": "christopherthielen@ikkyikkyikkypikangzoopboing.com"
+  },
+  "_npmVersion": "3.10.7",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "ui-router-rx@=0.2.1",
+    "scope": null,
+    "escapedName": "ui-router-rx",
+    "name": "ui-router-rx",
+    "rawSpec": "=0.2.1",
+    "spec": "0.2.1",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/ui-router-ng2"
+  ],
+  "_resolved": "https://registry.npmjs.org/ui-router-rx/-/ui-router-rx-0.2.1.tgz",
+  "_shasum": "d54acdc7b7584e7d3feea3c0b0fa084bcfbdee67",
+  "_shrinkwrap": null,
+  "_spec": "ui-router-rx@=0.2.1",
+  "_where": "/Users/ackerapple/projects/Ack/browser/Angular/ack-angular/.ack-webpack-temp/node_modules/ui-router-ng2",
+  "author": {
+    "name": "Chris Thielen"
+  },
+  "bugs": {
+    "url": "https://github.com/ui-router/rx/issues"
+  },
+  "dependencies": {},
+  "description": "Reactive extensions for UI-Router",
+  "devDependencies": {
+    "conventional-changelog": "^1.1.0",
+    "conventional-changelog-cli": "^1.2.0",
+    "readline-sync": "^1.4.5",
+    "rxjs": "^5.0.3",
+    "shx": "^0.2.2",
+    "ui-router-core": "3.1.1"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "d54acdc7b7584e7d3feea3c0b0fa084bcfbdee67",
+    "tarball": "https://registry.npmjs.org/ui-router-rx/-/ui-router-rx-0.2.1.tgz"
+  },
+  "gitHead": "732cfc7bca62be3659f15ae3efbc8cff025c4662",
+  "homepage": "https://github.com/ui-router/rx#readme",
+  "keywords": [
+    "ui-router",
+    "reactive",
+    "rxjs"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "name": "christopherthielen",
+      "email": "christopherthielen@ikkyikkyikkypikangzoopboing.com"
+    }
+  ],
+  "module": "lib-esm/index.js",
+  "name": "ui-router-rx",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "rxjs": "^5.0.3",
+    "ui-router-core": ">=3.1.1"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ui-router/rx.git"
+  },
+  "scripts": {
+    "build": "tsc && tsc -outDir lib-esm -m es6",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "typings": "lib/index.d.ts",
+  "version": "0.2.1"
+}

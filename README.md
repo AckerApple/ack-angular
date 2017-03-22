@@ -10,6 +10,7 @@ Demos and Examples : [tap here](https://ackerapple.github.io/ack-angular/)
   - [Requirements](#requirements)
   - [ack-webpack install jsDependencies](#ack-webpack-install-jsdependencies)
   - [Manually Install jsDependencies](#manually-install-jsdependencies)
+- [AoT Compatibility](#aot-compatiblity)
 - [Include in Project](#include-in-project)
 - [Dependency Map](#dependency-map)
 - [Components](#components)
@@ -30,25 +31,62 @@ Two ways to install:
 - Use ack-webpack to install jsDependencies
 - Manually install jsDependencies
 
+> AoT Compatiblity a concern? [READ HERE FIRST](#aot-compatiblity)
+
 ### ack-webpack install jsDependencies
 
-> NOTE : ack-webpack auto adds a script entry to your package.json file to make CLI commands easier
+> NOTE : [ack-webpack](https://www.npmjs.com/package/ack-webpack) auto adds a script entry to your package.json file to make CLI commands easier
 
 Step 1
 ```bash
 npm install ack-webpack --save-dev
 ```
 
-Step 2
+Step 2 : **NOT** AoT Compatible
 ```bash
 npm run ack-webpack -- install
 ```
 
+Step 2 : Aot Compatible
+```bash
+npm run ack-webpack -- install:js
+```
+
+
 ### Manually Install jsDependencies
+If you don't use [ack-webpack](https://www.npmjs.com/package/ack-webpack) to install your dependencies, you can do it... but it may not be AoT compatible and you may not always include future undocumented dependencies
 
 ```bash
 npm install --save-dev web-animations-js ack-angular-fx ui-router-ng2 ack-angular
 ```
+
+### AoT Compatiblity
+I, Acker Dawn Apple, have busted my tail to get a grip on Ahead-of-Time compiling. I've come up with a few custom measures to handle this beast:
+
+**Biggest Note**: Your import modules for ack-angular, will need to be the source Typescript files, and they **cannot** live in the node_modules folder
+
+First, a lot was learned here about AoT's requirements:
+- https://medium.com/@isaacplmann/getting-your-angular-2-library-ready-for-aot-90d1347bcad
+- https://medium.com/@isaacplmann/making-your-angular-2-library-statically-analyzable-for-aot-e1c6f3ebedd5
+
+Second, for your code to include my code and to be AoT compatible:
+- Your going to need to import my Typesscript source files
+  - `import * as pipes from "ack-angular/pipes"`
+  - `import { RouteDocWatcher } from "ack-angular/RouteDocWatcher.component"`
+  - `import { RouteWatcher } from "ack-angular/RouteWatcher.class"`
+  - And so on...
+- This project uses a js_modules folder as a node_modules alternative, to be compatible with .ts source file import bundling
+- The package [ack-webpack](https://www.npmjs.com/package/ack-webpack) and its CLI commands makes installing and targeting the js_modules folder, much easier
+  - It reads jsDependencies of a packages.json file
+  - Easy to use
+    - Install one package : `ack-webpack install:js ack-angular-fx`
+    - Install all jsDependencies : `ack-webpack install:js`
+    - And so on...
+- It is far easier to compile AoT with Typescript source files (.ts)
+  - **IF** you include .ts source files from the **node_modules** folder, you'll run into errors
+  - I created the js_modules folder concept
+    - Took away the concept from [jspm](https://www.npmjs.com/package/jspm) which puts js files into non-node_modules folder
+    - This allows .ts source file imports to occur without error
 
 ## Include in Project
 ack-angular uses file based imports, importing the index does nothing.

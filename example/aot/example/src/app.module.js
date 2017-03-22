@@ -11,13 +11,15 @@ var core_1 = require("@angular/core");
 var ui_router_ng2_1 = require("ui-router-ng2");
 var forms_1 = require("@angular/forms");
 var platform_browser_1 = require("@angular/platform-browser");
-//import { RouteDocWatcher } from "../../src/RouteDocWatcher.component"
-var RouteDocWatcher_component_1 = require("./ack-angular/RouteDocWatcher.component");
-var pipes = require("../../src/pipes");
-//import {version} from "../../package.json"
-//import { RouteWatcher } from "../../src/RouteWatcher.class"
-var RouteWatcher_class_1 = require("./ack-angular/RouteWatcher.class");
-//import {version} from "../../package.json"
+var pipes = require("pipes");
+//import { RouteDocWatcher } from "src/RouteDocWatcher.component"
+var RouteDocWatcher_component_1 = require("RouteDocWatcher.component");
+//import { RouteDocWatcher } from "./RouteDocWatcher.component"
+//import { RouteWatcher } from "src/RouteWatcher.class"
+var RouteWatcher_class_1 = require("RouteWatcher.class");
+//import { RouteWatcher } from "./RouteWatcher.class"
+//import {version} from "package.json"
+//import {version} from "package.json"
 exports.version = '0.0.4';
 //import * as ackFx from './prefx'
 var prefx_1 = require("./prefx");

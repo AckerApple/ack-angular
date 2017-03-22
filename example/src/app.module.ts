@@ -5,17 +5,20 @@ import { UIRouterModule } from "ui-router-ng2";
 import { FormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-//import { RouteDocWatcher } from "../../src/RouteDocWatcher.component"
-import { RouteDocWatcher } from "./ack-angular/RouteDocWatcher.component"
-//import { RouteWatcher } from "../../src/RouteWatcher.class"
-import { RouteWatcher } from "./ack-angular/RouteWatcher.class"
+import * as pipes from "ack-angular/pipes"
 
-import * as pipes from "../../src/pipes"
-//import {version} from "../../package.json"
+//import { RouteDocWatcher } from "src/RouteDocWatcher.component"
+import { RouteDocWatcher } from "ack-angular/RouteDocWatcher.component"
+//import { RouteDocWatcher } from "./RouteDocWatcher.component"
+//import { RouteWatcher } from "src/RouteWatcher.class"
+import { RouteWatcher } from "ack-angular/RouteWatcher.class"
+//import { RouteWatcher } from "./RouteWatcher.class"
+
+//import {version} from "package.json"
 
 
 
-//import {version} from "../../package.json"
+//import {version} from "package.json"
 export const version = '0.0.4'
 
 import * as ackFx from 'ack-angular-fx'

@@ -13,7 +13,7 @@ import * as import4 from '@angular/core/src/metadata/view';
 import * as import5 from '@angular/core/src/linker/view_type';
 import * as import6 from '@angular/core/src/change_detection/constants';
 import * as import7 from '@angular/core/src/linker/component_factory';
-import * as import8 from 'ui-router-core/lib/state/stateService';
+import * as import8 from '../../src/js_modules/ui-router-core/lib/state/stateService';
 export class Wrapper_Overview {
   /*private*/ _eventHandler:Function;
   context:import0.Overview;

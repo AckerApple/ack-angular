@@ -1,0 +1,123 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "ack-angular-fx@^1.0.3",
+        "scope": null,
+        "escapedName": "ack-angular-fx",
+        "name": "ack-angular-fx",
+        "rawSpec": "^1.0.3",
+        "spec": ">=1.0.3 <2.0.0",
+        "type": "range"
+      },
+      "/Users/ackerapple/projects/Ack/browser/Angular/ack-angular"
+    ]
+  ],
+  "_from": "ack-angular-fx@>=1.0.3 <2.0.0",
+  "_id": "ack-angular-fx@1.0.11",
+  "_inCache": true,
+  "_location": "/ack-angular-fx",
+  "_nodeVersion": "7.6.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/ack-angular-fx-1.0.11.tgz_1490032703784_0.7938277232460678"
+  },
+  "_npmUser": {
+    "name": "ackerapple",
+    "email": "acker.dawn.apple@gmail.com"
+  },
+  "_npmVersion": "4.4.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "ack-angular-fx@^1.0.3",
+    "scope": null,
+    "escapedName": "ack-angular-fx",
+    "name": "ack-angular-fx",
+    "rawSpec": "^1.0.3",
+    "spec": ">=1.0.3 <2.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/ack-angular-fx/-/ack-angular-fx-1.0.11.tgz",
+  "_shasum": "81d6b50300bc69aada750295c57442f1fda93ac4",
+  "_shrinkwrap": null,
+  "_spec": "ack-angular-fx@^1.0.3",
+  "_where": "/Users/ackerapple/projects/Ack/browser/Angular/ack-angular",
+  "author": {
+    "name": "Acker Dawn Apple"
+  },
+  "bin": {
+    "ack-angular-fx": "./bin/cli.js"
+  },
+  "bugs": {
+    "url": "https://github.com/ackerapple/ack-angular-fx/issues"
+  },
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "ts-node": "^2.1.0"
+  },
+  "description": "Angular2 animations made easier",
+  "devDependencies": {
+    "@angular/common": "^2.4.9",
+    "@angular/compiler": "^2.4.9",
+    "@angular/compiler-cli": "^2.4.9",
+    "@angular/core": "^2.4.9",
+    "@angular/forms": "^2.4.9",
+    "@angular/http": "^2.4.9",
+    "@angular/platform-browser": "^2.4.9",
+    "@angular/platform-browser-dynamic": "^2.4.9",
+    "@types/jasmine": "^2.5.43",
+    "@types/node": "^7.0.5",
+    "raw-loader": "^0.5.1",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "5.2.0",
+    "ts-loader": "^2.0.1",
+    "typescript": "^2.2.1",
+    "web-animations-js": "^2.2.2",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1",
+    "zone.js": "^0.7.7"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "81d6b50300bc69aada750295c57442f1fda93ac4",
+    "tarball": "https://registry.npmjs.org/ack-angular-fx/-/ack-angular-fx-1.0.11.tgz"
+  },
+  "gitHead": "16ecd1fbc52dea236c279ca624f34185abec75b6",
+  "homepage": "https://github.com/ackerapple/ack-angular-fx#readme",
+  "jsDependencies": {
+    "web-animations-js": "^2.2.2"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "maintainers": [
+    {
+      "name": "ackerapple",
+      "email": "acker.dawn.apple@gmail.com"
+    }
+  ],
+  "name": "ack-angular-fx",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ackerapple/ack-angular-fx.git"
+  },
+  "scripts": {
+    "build": "npm run compile:example:prefx && npm run compile:example:aot && npm run build:example && npm run build",
+    "build:dist": "tsc --rootDir src --outDir dist --declaration --project src",
+    "build:example": "webpack --config ./webpack.aot.config.js --progress --profile --colors --display-error-details --display-cached",
+    "build:example:jit": "webpack --config ./webpack.config.js --progress --profile --colors --display-error-details --display-cached",
+    "compile:example:aot": "ngc -p ./example/tsconfig.aot.json",
+    "compile:example:prefx": "node ./bin/real-cli.js --select absoluteSwap,100,200,300,400,500,600,700,800,900,1000,1500,2000 --out example/src/app/prefx.ts",
+    "test:prefx": "node ./bin/real-cli.js --select absoluteSwap,100 --effects slide --out test/results/prefx.ts",
+    "ts-node": "ts-node",
+    "tsc:prefx": "tsc --rootDir scripts/prefx --outDir . --declaration --project scripts/prefx",
+    "watch:example": "webpack-dev-server --config ./webpack.aot.config.js --progress --profile --colors --watch --open",
+    "watch:example:jit": "webpack-dev-server --config ./webpack.config.js --progress --profile --colors --watch --open"
+  },
+  "typings": "dist/index.d.ts",
+  "version": "1.0.11"
+}

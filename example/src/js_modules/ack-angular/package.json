@@ -1,0 +1,141 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "ack-angular@github:ackerapple/ack-angular",
+        "scope": null,
+        "escapedName": "ack-angular",
+        "name": "ack-angular",
+        "rawSpec": "github:ackerapple/ack-angular",
+        "spec": "github:ackerapple/ack-angular",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:ackerapple/ack-angular.git",
+          "sshUrl": "git+ssh://git@github.com/ackerapple/ack-angular.git",
+          "httpsUrl": "git+https://github.com/ackerapple/ack-angular.git",
+          "gitUrl": "git://github.com/ackerapple/ack-angular.git",
+          "shortcut": "github:ackerapple/ack-angular",
+          "directUrl": "https://raw.githubusercontent.com/ackerapple/ack-angular/master/package.json"
+        }
+      },
+      "/Users/ackerapple/projects/Ack/browser/Angular/ack-angular"
+    ]
+  ],
+  "_from": "ackerapple/ack-angular",
+  "_id": "ack-angular@0.0.5",
+  "_inCache": true,
+  "_location": "/ack-angular",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "ack-angular@github:ackerapple/ack-angular",
+    "scope": null,
+    "escapedName": "ack-angular",
+    "name": "ack-angular",
+    "rawSpec": "github:ackerapple/ack-angular",
+    "spec": "github:ackerapple/ack-angular",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:ackerapple/ack-angular.git",
+      "sshUrl": "git+ssh://git@github.com/ackerapple/ack-angular.git",
+      "httpsUrl": "git+https://github.com/ackerapple/ack-angular.git",
+      "gitUrl": "git://github.com/ackerapple/ack-angular.git",
+      "shortcut": "github:ackerapple/ack-angular",
+      "directUrl": "https://raw.githubusercontent.com/ackerapple/ack-angular/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "git://github.com/ackerapple/ack-angular.git#c0cd3957a273ba5b1a25d88619cd89254a9ba5cb",
+  "_shasum": "cec748ff606dc507fe2ae4abdb06a656b0d47ee3",
+  "_shrinkwrap": null,
+  "_spec": "ack-angular@github:ackerapple/ack-angular",
+  "_where": "/Users/ackerapple/projects/Ack/browser/Angular/ack-angular",
+  "author": {
+    "name": "Acker Dawn Apple"
+  },
+  "bugs": {
+    "url": "https://github.com/AckerApple/ack-angular/issues"
+  },
+  "dependencies": {},
+  "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
+  "devDependencies": {
+    "@angular/common": "^2.4.9",
+    "@angular/compiler": "^2.4.9",
+    "@angular/compiler-cli": "^2.4.10",
+    "@angular/core": "^2.4.9",
+    "@angular/forms": "^2.4.9",
+    "@angular/platform-browser": "^2.4.9",
+    "@angular/platform-browser-dynamic": "^2.4.9",
+    "@angular/router": "^3.4.8",
+    "@types/node": "^7.0.8",
+    "ack-angular-fx": "github:ackerapple/ack-angular-fx",
+    "ack-css-boot": "^1.2.27",
+    "ack-pug-bundler": "^1.3.0",
+    "ack-sass": "^1.0.13",
+    "ack-webpack": "^1.1.16",
+    "ng2-page-scroll": "^4.0.0-beta.5",
+    "pug": "^2.0.0-beta11",
+    "pug-cli": "^1.0.0-alpha6",
+    "pug-loader": "^2.3.0",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.2.0",
+    "ts-loader": "^2.0.1",
+    "typescript": "^2.2.1",
+    "ui-router-ng2": "^1.0.0-beta.4",
+    "webpack": "^2.2.1",
+    "zone.js": "^0.7.8"
+  },
+  "gitHead": "c0cd3957a273ba5b1a25d88619cd89254a9ba5cb",
+  "homepage": "https://github.com/AckerApple/ack-angular#readme",
+  "jsDependencies": {
+    "@angular/router": "^3.4.8",
+    "ack-angular-fx": "^1.0.3",
+    "ui-router-ng2": "^1.0.0-beta.4"
+  },
+  "keywords": [
+    "ng2",
+    "angular2",
+    "angular",
+    "directives",
+    "components",
+    "pipes",
+    "providers"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "ack-angular",
+  "optionalDependencies": {},
+  "readme": "# ack-angular\nExtra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\n\nDemos and Examples : [tap here](https://ackerapple.github.io/ack-angular/)\n\n> Looking for Angular 1.5+ code, use [ack-angularjs](https://github.com/AckerApple/ack-angularjs)\n\n### Table of Contents\n- [Install](#install)\n  - [Requirements](#requirements)\n  - [ack-webpack install jsDependencies](#ack-webpack-install-jsdependencies)\n  - [Manually Install jsDependencies](#manually-install-jsdependencies)\n- [Include in Project](#include-in-project)\n- [Dependency Map](#dependency-map)\n- [Components](#components)\n- [Work on This Project](#work-on-this-project)\n  - [Building Example](#building-example)\n- [Resources](#install)\n\n# Install\n\n## Requirements\nSince you're using Angular, the following are expected to already be installed:\n\n- reflect-metadata\n- @angular/core\n\nTwo ways to install:\n\n- Use ack-webpack to install jsDependencies\n- Manually install jsDependencies\n\n### ack-webpack install jsDependencies\n\n> NOTE : ack-webpack auto adds a script entry to your package.json file to make CLI commands easier\n\nStep 1\n```bash\nnpm install ack-webpack --save-dev\n```\n\nStep 2\n```bash\nnpm run ack-webpack -- install\n```\n\n### Manually Install jsDependencies\n\n```bash\nnpm install --save-dev web-animations-js ack-angular-fx ui-router-ng2 ack-angular\n```\n\n## Include in Project\nack-angular uses file based imports, importing the index does nothing.\n\n\n### Import Samples\n\n> If you attempt to import any of the following, certain dependencies must have already been installed.\n>> [check dependency map](#dependency-map)\n\n```javascript\nimport * as pipes from \"ack-angular/pipes\"\n\nimport * as RouteDocWatcher from \"ack-angular/RouteDocWatcher.component\"\n\nimport * as RouteWatcher from \"ack-angular/RouteWatcher.class\"\n```\n\n> Do NOT do this\n```bash\nimport * as ackAngular from 'ack-angular';\n```\n\n## Dependency Map\nIf you import the following files, make sure you have installed it's dependencies\n\n> You can ignore all of this if you used [ack-webpack to install jsDependencies](#ack-webpack-install-jsdependencies)\n\n- ack-angular/fx\n```javascript\nimport * as fx from \"ack-angular/fx\"\n```\n```bash\nnpm install ack-angular-fx --save-dev\n```\n- ack-angular/RouteDocWatcher.component\n```javascript\nimport * as RouteDocWatcher from \"ack-angular/RouteDocWatcher.component\"\n```\n```bash\nnpm install ui-router-ng2 --save-dev\n```\n- ack-angular/RouteWatcher.class\n```javascript\nimport * as RouteWatcher from \"ack-angular/RouteWatcher.class\"\n```\n```bash\nnpm install ui-router-ng2 --save-dev\n```\n\n> The [Extended Documentation](https://ackerapple.github.io/ack-angular/) will help further understanding what's required of and when\n\n# Components\n\n## route-doc-watcher\n```javascript\nimport { UIRouterModule } from \"ui-router-ng2\";\nimport { RouteWatcher } from \"ack-angular/RouteWatcher.class\"\nimport { RouteDocWatcher } from \"ack-angular/RouteDocWatcher.component\"\nimport { NgModule } from '@angular/core';\n\n@NgModule({\n  imports:[ UIRouterModule.forRoot({states:...}) ],\n  providers: [ RouteWatcher ],\n  declarations:[RouteDocWatcher]\n})\n```\n\n# Work on This Project\nEverything in this topic is run in an command prompt terminal\n\nClone this project\n```bash\ngit clone https://github.com/AckerApple/ack-angular\n```\n\n## Building Example\n\nDev Fast Project Watching\n```bash\nnpm run watch:example:js:jit\n```\n\nDev AoT Project Watching. Longer compile times, ensures production compatibility\n```bash\nnpm run watch:example:js\n```\n\nWhen changing core code animations, the example prefx must be compiled\n```bash\nnpm run compile:example:prefx\n```\n\n## Publishing\n\n```bash\nnpm run build\n```\n\n\n## Resources\n- [Examples and Docs](https://ackerapple.github.io/ack-angular/)\n- [Repository](https://github.com/AckerApple/ack-angular)\n- [Angular2 Cheatsheet](https://angular.io/docs/ts/latest/guide/cheatsheet.html)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AckerApple/ack-angular.git"
+  },
+  "scripts": {
+    "ack-webpack": "ack-webpack",
+    "build": "npm run build:dist && npm run build:example",
+    "build:assets": "ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType=ts",
+    "build:dist": "tsc --rootDir src --outDir dist/ --declaration --project src/tsconfig.json",
+    "build:dist:tsc": "tsc --rootDir src --outDir dist/ --declaration --project src/tsconfig.json",
+    "build:example": "npm run build:example:dist && npm run build:example:js && npm run build:example:index && npm run build:example:css",
+    "build:example:aot2": "ack-webpack example/src/app.module.ts example/aot/src/app.module.ngfactory.ts --project example/tsconfig.aot.json --aot",
+    "build:example:css": "ack-sass example/src/styles.scss example/www/styles.css --production",
+    "build:example:dist": "ncp ./src/ ./example/src/ack-angular/ --stopOnErr",
+    "build:example:index": "pug example/src/index.pug --out example/www/",
+    "build:example:js": "ack-webpack example/index.aot.ts example/www/index.js --production --project example/tsconfig.json",
+    "compile:example:aot": "ngc -p ./example/tsconfig.aot.json",
+    "compile:example:prefx": "ack-angular-fx --select absoluteSwap500,200,500 --effects slide,fade --out ./example/src/prefx.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npm run watch:example:js && npm run watch:example:css",
+    "watch:assets": "npm run build:assets -- --watch",
+    "watch:example:css": "ack-sass example/src/styles.scss example/www/styles.css --watch",
+    "watch:example:js": "ack-webpack example/index.aot.ts example/www/index.js --watch --browser --project example/tsconfig.json",
+    "watch:example:js2": "ack-webpack example/index.aot.ts example/www/index.js --watch --browser --project example/tsconfig.json",
+    "watch:example:js:jit": "ack-webpack example/index.ts example/www/index.js --watch --browser --project example/tsconfig.json"
+  },
+  "typings": "index.d.ts",
+  "version": "0.0.5"
+}
