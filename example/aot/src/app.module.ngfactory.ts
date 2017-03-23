@@ -30,7 +30,7 @@ import * as import21 from '@angular/platform-browser/src/browser/title';
 import * as import22 from '@angular/forms/src/directives/radio_control_value_accessor';
 import * as import23 from '@angular/common/src/location/hash_location_strategy';
 import * as import24 from 'ng2-page-scroll/src/ng2-page-scroll.service';
-import * as import25 from '../../src/js_modules/ack-angular/src/RouteWatcher.class';
+import * as import25 from '../../src/js_modules/ack-angular/RouteWatcher.class';
 import * as import26 from '@angular/core/src/di/injector';
 import * as import27 from './js_modules/ui-router-ng2/lib/directives/uiView.ngfactory';
 import * as import28 from './states.object.ngfactory';
@@ -78,25 +78,29 @@ import * as import69 from '@angular/core/src/linker/view_container';
 import * as import70 from '@angular/core/src/change_detection/change_detection_util';
 import * as import71 from '../../src/js_modules/@angular/router/src/router';
 import * as import72 from 'ng2-page-scroll/src/ng2-page-scroll.directive';
-import * as import73 from '../../src/js_modules/ack-angular/src/RouteDocWatcher.component';
-import * as import74 from './js_modules/ack-angular/src/RouteDocWatcher.component.ngfactory';
+import * as import73 from './js_modules/ack-angular/components.ngfactory';
+import * as import74 from './js_modules/ack-angular/RouteDocWatcher.component.ngfactory';
 import * as import75 from '../node_modules/@angular/common/src/directives/ng_class.ngfactory';
-import * as import76 from '../node_modules/@angular/common/src/directives/ng_if.ngfactory';
-import * as import77 from '@angular/core/src/linker/element_ref';
-import * as import78 from '@angular/core/src/linker/template_ref';
-import * as import79 from '@angular/common/src/directives/ng_class';
-import * as import80 from '@angular/common/src/directives/ng_if';
-import * as import81 from '../node_modules/@angular/common/src/directives/ng_for.ngfactory';
-import * as import82 from '../node_modules/@angular/forms/src/directives/default_value_accessor.ngfactory';
-import * as import83 from '../node_modules/@angular/forms/src/directives/ng_model.ngfactory';
-import * as import84 from '../node_modules/@angular/forms/src/directives/ng_control_status.ngfactory';
-import * as import85 from '@angular/common/src/directives/ng_for';
-import * as import86 from '@angular/forms/src/directives/default_value_accessor';
-import * as import87 from '@angular/forms/src/directives/control_value_accessor';
-import * as import88 from '@angular/forms/src/directives/ng_model';
-import * as import89 from '@angular/forms/src/directives/ng_control';
-import * as import90 from '@angular/forms/src/directives/ng_control_status';
-import * as import91 from '@angular/common/src/pipes/json_pipe';
+import * as import76 from '../node_modules/@angular/common/src/directives/ng_style.ngfactory';
+import * as import77 from '../node_modules/@angular/common/src/directives/ng_if.ngfactory';
+import * as import78 from '@angular/core/src/linker/element_ref';
+import * as import79 from '@angular/core/src/linker/template_ref';
+import * as import80 from '../../src/js_modules/ack-angular/components';
+import * as import81 from '../../src/js_modules/ack-angular/RouteDocWatcher.component';
+import * as import82 from '@angular/common/src/directives/ng_class';
+import * as import83 from '@angular/common/src/directives/ng_if';
+import * as import84 from '@angular/common/src/directives/ng_style';
+import * as import85 from '../node_modules/@angular/common/src/directives/ng_for.ngfactory';
+import * as import86 from '../node_modules/@angular/forms/src/directives/default_value_accessor.ngfactory';
+import * as import87 from '../node_modules/@angular/forms/src/directives/ng_model.ngfactory';
+import * as import88 from '../node_modules/@angular/forms/src/directives/ng_control_status.ngfactory';
+import * as import89 from '@angular/common/src/directives/ng_for';
+import * as import90 from '@angular/forms/src/directives/default_value_accessor';
+import * as import91 from '@angular/forms/src/directives/control_value_accessor';
+import * as import92 from '@angular/forms/src/directives/ng_model';
+import * as import93 from '@angular/forms/src/directives/ng_control';
+import * as import94 from '@angular/forms/src/directives/ng_control_status';
+import * as import95 from '@angular/common/src/pipes/json_pipe';
 class AppModuleInjector extends import0.NgModuleInjector<import1.AppModule> {
   _CommonModule_0:import2.CommonModule;
   _ApplicationModule_1:import3.ApplicationModule;
@@ -3804,8 +3808,8 @@ class View_AppComponent1 extends import57.AppView<any> {
     this._expr_11 = import70.UNINITIALIZED;
   }
   createInternal(rootSelector:string):import61.ComponentRef<any> {
-    this._el_0 = import20.createRenderElement(this.renderer,(null as any),'div',new import20.InlineArray2(2,'class','pad-h'),(null as any));
-    this._el_1 = import20.createRenderElement(this.renderer,this._el_0,'h2',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_0 = import20.createRenderElement(this.renderer,(null as any),'div',new import20.InlineArray2(2,'class','pad-md'),(null as any));
+    this._el_1 = import20.createRenderElement(this.renderer,this._el_0,'h2',new import20.InlineArray2(2,'class','margin-top-0'),(null as any));
     this._text_2 = this.renderer.createText(this._el_1,'Overview',(null as any));
     this._el_3 = import20.createRenderElement(this.renderer,this._el_0,'overview-examples',import20.EMPTY_INLINE_ARRAY,(null as any));
     this.compView_3 = new View_OverviewExamples0(this.viewUtils,this,3,this._el_3);
@@ -3839,6 +3843,8 @@ class View_AppComponent1 extends import57.AppView<any> {
     const currVal_11:any = this.parentView.context.panelAnim;
     if (import20.checkBinding(throwOnChange,this._expr_11,currVal_11)) {
       var animationTransition_absoluteSwap500:any = this.componentType.animations['absoluteSwap500'](this,this._el_0,((this._expr_11 == import70.UNINITIALIZED)? 'void': this._expr_11),((currVal_11 == import70.UNINITIALIZED)? 'void': currVal_11));
+      animationTransition_absoluteSwap500.onStart(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.start'));
+      animationTransition_absoluteSwap500.onDone(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.done'));
       this._expr_11 = currVal_11;
     }
     this._OverviewExamples_3_3.ngDoCheck(this,this._el_3,throwOnChange);
@@ -3855,9 +3861,24 @@ class View_AppComponent1 extends import57.AppView<any> {
   }
   detachInternal():void {
     var animationTransition_absoluteSwap500:any = this.componentType.animations['absoluteSwap500'](this,this._el_0,this._expr_11,'void');
+    animationTransition_absoluteSwap500.onStart(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.start'));
+    animationTransition_absoluteSwap500.onDone(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.done'));
   }
   visitRootNodesInternal(cb:any,ctx:any):void {
     cb(this._el_0,ctx);
+  }
+  handleEvent_0(eventName:string,$event:any):boolean {
+    this.markPathToRootAsCheckOnce();
+    var result:boolean = true;
+    if ((eventName == '@absoluteSwap500.start')) {
+      const pd_sub_0:any = ((<any>(this.parentView.context.isSwaping = 1)) !== false);
+      result = (pd_sub_0 && result);
+    }
+    if ((eventName == '@absoluteSwap500.done')) {
+      const pd_sub_1:any = ((<any>(this.parentView.context.isSwaping = 0)) !== false);
+      result = (pd_sub_1 && result);
+    }
+    return result;
   }
   handleEvent_6(eventName:string,$event:any):boolean {
     this.markPathToRootAsCheckOnce();
@@ -3884,8 +3905,8 @@ class View_AppComponent2 extends import57.AppView<any> {
     this._expr_11 = import70.UNINITIALIZED;
   }
   createInternal(rootSelector:string):import61.ComponentRef<any> {
-    this._el_0 = import20.createRenderElement(this.renderer,(null as any),'div',new import20.InlineArray2(2,'class','pad-h'),(null as any));
-    this._el_1 = import20.createRenderElement(this.renderer,this._el_0,'h2',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_0 = import20.createRenderElement(this.renderer,(null as any),'div',new import20.InlineArray2(2,'class','pad-md'),(null as any));
+    this._el_1 = import20.createRenderElement(this.renderer,this._el_0,'h2',new import20.InlineArray2(2,'class','margin-top-0'),(null as any));
     this._text_2 = this.renderer.createText(this._el_1,'Components',(null as any));
     this._el_3 = import20.createRenderElement(this.renderer,this._el_0,'components-examples',import20.EMPTY_INLINE_ARRAY,(null as any));
     this.compView_3 = new View_ComponentsExamples0(this.viewUtils,this,3,this._el_3);
@@ -3919,6 +3940,8 @@ class View_AppComponent2 extends import57.AppView<any> {
     const currVal_11:any = this.parentView.context.panelAnim;
     if (import20.checkBinding(throwOnChange,this._expr_11,currVal_11)) {
       var animationTransition_absoluteSwap500:any = this.componentType.animations['absoluteSwap500'](this,this._el_0,((this._expr_11 == import70.UNINITIALIZED)? 'void': this._expr_11),((currVal_11 == import70.UNINITIALIZED)? 'void': currVal_11));
+      animationTransition_absoluteSwap500.onStart(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.start'));
+      animationTransition_absoluteSwap500.onDone(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.done'));
       this._expr_11 = currVal_11;
     }
     this._ComponentsExamples_3_3.ngDoCheck(this,this._el_3,throwOnChange);
@@ -3935,9 +3958,24 @@ class View_AppComponent2 extends import57.AppView<any> {
   }
   detachInternal():void {
     var animationTransition_absoluteSwap500:any = this.componentType.animations['absoluteSwap500'](this,this._el_0,this._expr_11,'void');
+    animationTransition_absoluteSwap500.onStart(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.start'));
+    animationTransition_absoluteSwap500.onDone(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.done'));
   }
   visitRootNodesInternal(cb:any,ctx:any):void {
     cb(this._el_0,ctx);
+  }
+  handleEvent_0(eventName:string,$event:any):boolean {
+    this.markPathToRootAsCheckOnce();
+    var result:boolean = true;
+    if ((eventName == '@absoluteSwap500.start')) {
+      const pd_sub_0:any = ((<any>(this.parentView.context.isSwaping = 1)) !== false);
+      result = (pd_sub_0 && result);
+    }
+    if ((eventName == '@absoluteSwap500.done')) {
+      const pd_sub_1:any = ((<any>(this.parentView.context.isSwaping = 0)) !== false);
+      result = (pd_sub_1 && result);
+    }
+    return result;
   }
   handleEvent_6(eventName:string,$event:any):boolean {
     this.markPathToRootAsCheckOnce();
@@ -3964,8 +4002,8 @@ class View_AppComponent3 extends import57.AppView<any> {
     this._expr_11 = import70.UNINITIALIZED;
   }
   createInternal(rootSelector:string):import61.ComponentRef<any> {
-    this._el_0 = import20.createRenderElement(this.renderer,(null as any),'div',new import20.InlineArray2(2,'class','pad-h'),(null as any));
-    this._el_1 = import20.createRenderElement(this.renderer,this._el_0,'h2',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_0 = import20.createRenderElement(this.renderer,(null as any),'div',new import20.InlineArray2(2,'class','pad-md'),(null as any));
+    this._el_1 = import20.createRenderElement(this.renderer,this._el_0,'h2',new import20.InlineArray2(2,'class','margin-top-0'),(null as any));
     this._text_2 = this.renderer.createText(this._el_1,'Pipes',(null as any));
     this._el_3 = import20.createRenderElement(this.renderer,this._el_0,'pipes-examples',import20.EMPTY_INLINE_ARRAY,(null as any));
     this.compView_3 = new View_PipesExamples0(this.viewUtils,this,3,this._el_3);
@@ -3999,6 +4037,8 @@ class View_AppComponent3 extends import57.AppView<any> {
     const currVal_11:any = this.parentView.context.panelAnim;
     if (import20.checkBinding(throwOnChange,this._expr_11,currVal_11)) {
       var animationTransition_absoluteSwap500:any = this.componentType.animations['absoluteSwap500'](this,this._el_0,((this._expr_11 == import70.UNINITIALIZED)? 'void': this._expr_11),((currVal_11 == import70.UNINITIALIZED)? 'void': currVal_11));
+      animationTransition_absoluteSwap500.onStart(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.start'));
+      animationTransition_absoluteSwap500.onDone(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.done'));
       this._expr_11 = currVal_11;
     }
     this._PipesExamples_3_3.ngDoCheck(this,this._el_3,throwOnChange);
@@ -4015,9 +4055,24 @@ class View_AppComponent3 extends import57.AppView<any> {
   }
   detachInternal():void {
     var animationTransition_absoluteSwap500:any = this.componentType.animations['absoluteSwap500'](this,this._el_0,this._expr_11,'void');
+    animationTransition_absoluteSwap500.onStart(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.start'));
+    animationTransition_absoluteSwap500.onDone(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.done'));
   }
   visitRootNodesInternal(cb:any,ctx:any):void {
     cb(this._el_0,ctx);
+  }
+  handleEvent_0(eventName:string,$event:any):boolean {
+    this.markPathToRootAsCheckOnce();
+    var result:boolean = true;
+    if ((eventName == '@absoluteSwap500.start')) {
+      const pd_sub_0:any = ((<any>(this.parentView.context.isSwaping = 1)) !== false);
+      result = (pd_sub_0 && result);
+    }
+    if ((eventName == '@absoluteSwap500.done')) {
+      const pd_sub_1:any = ((<any>(this.parentView.context.isSwaping = 0)) !== false);
+      result = (pd_sub_1 && result);
+    }
+    return result;
   }
   handleEvent_6(eventName:string,$event:any):boolean {
     this.markPathToRootAsCheckOnce();
@@ -4044,8 +4099,8 @@ class View_AppComponent4 extends import57.AppView<any> {
     this._expr_11 = import70.UNINITIALIZED;
   }
   createInternal(rootSelector:string):import61.ComponentRef<any> {
-    this._el_0 = import20.createRenderElement(this.renderer,(null as any),'div',new import20.InlineArray2(2,'class','pad-h'),(null as any));
-    this._el_1 = import20.createRenderElement(this.renderer,this._el_0,'h2',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_0 = import20.createRenderElement(this.renderer,(null as any),'div',new import20.InlineArray2(2,'class','pad-md'),(null as any));
+    this._el_1 = import20.createRenderElement(this.renderer,this._el_0,'h2',new import20.InlineArray2(2,'class','margin-top-0'),(null as any));
     this._text_2 = this.renderer.createText(this._el_1,'Services',(null as any));
     this._el_3 = import20.createRenderElement(this.renderer,this._el_0,'services-examples',import20.EMPTY_INLINE_ARRAY,(null as any));
     this.compView_3 = new View_ServicesExamples0(this.viewUtils,this,3,this._el_3);
@@ -4079,6 +4134,8 @@ class View_AppComponent4 extends import57.AppView<any> {
     const currVal_11:any = this.parentView.context.panelAnim;
     if (import20.checkBinding(throwOnChange,this._expr_11,currVal_11)) {
       var animationTransition_absoluteSwap500:any = this.componentType.animations['absoluteSwap500'](this,this._el_0,((this._expr_11 == import70.UNINITIALIZED)? 'void': this._expr_11),((currVal_11 == import70.UNINITIALIZED)? 'void': currVal_11));
+      animationTransition_absoluteSwap500.onStart(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.start'));
+      animationTransition_absoluteSwap500.onDone(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.done'));
       this._expr_11 = currVal_11;
     }
     this._ServicesExamples_3_3.ngDoCheck(this,this._el_3,throwOnChange);
@@ -4095,9 +4152,24 @@ class View_AppComponent4 extends import57.AppView<any> {
   }
   detachInternal():void {
     var animationTransition_absoluteSwap500:any = this.componentType.animations['absoluteSwap500'](this,this._el_0,this._expr_11,'void');
+    animationTransition_absoluteSwap500.onStart(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.start'));
+    animationTransition_absoluteSwap500.onDone(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.done'));
   }
   visitRootNodesInternal(cb:any,ctx:any):void {
     cb(this._el_0,ctx);
+  }
+  handleEvent_0(eventName:string,$event:any):boolean {
+    this.markPathToRootAsCheckOnce();
+    var result:boolean = true;
+    if ((eventName == '@absoluteSwap500.start')) {
+      const pd_sub_0:any = ((<any>(this.parentView.context.isSwaping = 1)) !== false);
+      result = (pd_sub_0 && result);
+    }
+    if ((eventName == '@absoluteSwap500.done')) {
+      const pd_sub_1:any = ((<any>(this.parentView.context.isSwaping = 0)) !== false);
+      result = (pd_sub_1 && result);
+    }
+    return result;
   }
   handleEvent_6(eventName:string,$event:any):boolean {
     this.markPathToRootAsCheckOnce();
@@ -4124,8 +4196,8 @@ class View_AppComponent5 extends import57.AppView<any> {
     this._expr_11 = import70.UNINITIALIZED;
   }
   createInternal(rootSelector:string):import61.ComponentRef<any> {
-    this._el_0 = import20.createRenderElement(this.renderer,(null as any),'div',new import20.InlineArray2(2,'class','pad-h'),(null as any));
-    this._el_1 = import20.createRenderElement(this.renderer,this._el_0,'h2',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_0 = import20.createRenderElement(this.renderer,(null as any),'div',new import20.InlineArray2(2,'class','pad-md'),(null as any));
+    this._el_1 = import20.createRenderElement(this.renderer,this._el_0,'h2',new import20.InlineArray2(2,'class','margin-top-0'),(null as any));
     this._text_2 = this.renderer.createText(this._el_1,'Animations',(null as any));
     this._el_3 = import20.createRenderElement(this.renderer,this._el_0,'animation-examples',import20.EMPTY_INLINE_ARRAY,(null as any));
     this.compView_3 = new View_AnimationExamples0(this.viewUtils,this,3,this._el_3);
@@ -4159,6 +4231,8 @@ class View_AppComponent5 extends import57.AppView<any> {
     const currVal_11:any = this.parentView.context.panelAnim;
     if (import20.checkBinding(throwOnChange,this._expr_11,currVal_11)) {
       var animationTransition_absoluteSwap500:any = this.componentType.animations['absoluteSwap500'](this,this._el_0,((this._expr_11 == import70.UNINITIALIZED)? 'void': this._expr_11),((currVal_11 == import70.UNINITIALIZED)? 'void': currVal_11));
+      animationTransition_absoluteSwap500.onStart(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.start'));
+      animationTransition_absoluteSwap500.onDone(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.done'));
       this._expr_11 = currVal_11;
     }
     this._AnimationExamples_3_3.ngDoCheck(this,this._el_3,throwOnChange);
@@ -4175,9 +4249,24 @@ class View_AppComponent5 extends import57.AppView<any> {
   }
   detachInternal():void {
     var animationTransition_absoluteSwap500:any = this.componentType.animations['absoluteSwap500'](this,this._el_0,this._expr_11,'void');
+    animationTransition_absoluteSwap500.onStart(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.start'));
+    animationTransition_absoluteSwap500.onDone(this.handleEvent_0.bind(this).bind(this,'@absoluteSwap500.done'));
   }
   visitRootNodesInternal(cb:any,ctx:any):void {
     cb(this._el_0,ctx);
+  }
+  handleEvent_0(eventName:string,$event:any):boolean {
+    this.markPathToRootAsCheckOnce();
+    var result:boolean = true;
+    if ((eventName == '@absoluteSwap500.start')) {
+      const pd_sub_0:any = ((<any>(this.parentView.context.isSwaping = 1)) !== false);
+      result = (pd_sub_0 && result);
+    }
+    if ((eventName == '@absoluteSwap500.done')) {
+      const pd_sub_1:any = ((<any>(this.parentView.context.isSwaping = 0)) !== false);
+      result = (pd_sub_1 && result);
+    }
+    return result;
   }
   handleEvent_6(eventName:string,$event:any):boolean {
     this.markPathToRootAsCheckOnce();
@@ -4194,264 +4283,326 @@ var renderType_AppComponent:import43.RenderComponentType = import20.createRender
 );
 export class View_AppComponent0 extends import57.AppView<import1.AppComponent> {
   _el_0:any;
-  compView_0:import57.AppView<import73.RouteDocWatcher>;
-  _RouteDocWatcher_0_3:import74.Wrapper_RouteDocWatcher;
+  _ScreenWidthModel_0_3:import73.Wrapper_ScreenWidthModel;
   _el_1:any;
+  _RouteDocWatcher_1_3:import74.Wrapper_RouteDocWatcher;
   _el_2:any;
   _el_3:any;
   _el_4:any;
-  _text_5:any;
-  _text_6:any;
+  _el_5:any;
+  _el_6:any;
   _el_7:any;
-  _text_8:any;
+  _el_8:any;
   _el_9:any;
   _el_10:any;
-  _NgClass_10_3:import75.Wrapper_NgClass;
-  _text_11:any;
+  _el_11:any;
   _el_12:any;
-  _NgClass_12_3:import75.Wrapper_NgClass;
   _text_13:any;
-  _el_14:any;
-  _NgClass_14_3:import75.Wrapper_NgClass;
-  _text_15:any;
-  _el_16:any;
-  _NgClass_16_3:import75.Wrapper_NgClass;
-  _text_17:any;
+  _text_14:any;
+  _el_15:any;
+  _text_16:any;
+  _el_17:any;
   _el_18:any;
   _NgClass_18_3:import75.Wrapper_NgClass;
   _text_19:any;
   _el_20:any;
-  _el_21:any;
-  _anchor_22:any;
-  /*private*/ _vc_22:import69.ViewContainer;
-  _TemplateRef_22_5:any;
-  _NgIf_22_6:import76.Wrapper_NgIf;
-  _anchor_23:any;
-  /*private*/ _vc_23:import69.ViewContainer;
-  _TemplateRef_23_5:any;
-  _NgIf_23_6:import76.Wrapper_NgIf;
-  _anchor_24:any;
-  /*private*/ _vc_24:import69.ViewContainer;
-  _TemplateRef_24_5:any;
-  _NgIf_24_6:import76.Wrapper_NgIf;
-  _anchor_25:any;
-  /*private*/ _vc_25:import69.ViewContainer;
-  _TemplateRef_25_5:any;
-  _NgIf_25_6:import76.Wrapper_NgIf;
-  _anchor_26:any;
-  /*private*/ _vc_26:import69.ViewContainer;
-  _TemplateRef_26_5:any;
-  _NgIf_26_6:import76.Wrapper_NgIf;
-  _el_27:any;
+  _NgClass_20_3:import75.Wrapper_NgClass;
+  _text_21:any;
+  _el_22:any;
+  _NgClass_22_3:import75.Wrapper_NgClass;
+  _text_23:any;
+  _el_24:any;
+  _NgClass_24_3:import75.Wrapper_NgClass;
+  _text_25:any;
+  _el_26:any;
+  _NgClass_26_3:import75.Wrapper_NgClass;
+  _text_27:any;
   _el_28:any;
-  /*private*/ _expr_51:any;
-  _map_52:any;
-  _map_53:any;
-  _map_54:any;
-  _map_55:any;
-  _map_56:any;
+  _el_29:any;
+  _el_30:any;
+  _NgStyle_30_3:import76.Wrapper_NgStyle;
+  _el_31:any;
+  _NgStyle_31_3:import76.Wrapper_NgStyle;
+  _anchor_32:any;
+  /*private*/ _vc_32:import69.ViewContainer;
+  _TemplateRef_32_5:any;
+  _NgIf_32_6:import77.Wrapper_NgIf;
+  _anchor_33:any;
+  /*private*/ _vc_33:import69.ViewContainer;
+  _TemplateRef_33_5:any;
+  _NgIf_33_6:import77.Wrapper_NgIf;
+  _anchor_34:any;
+  /*private*/ _vc_34:import69.ViewContainer;
+  _TemplateRef_34_5:any;
+  _NgIf_34_6:import77.Wrapper_NgIf;
+  _anchor_35:any;
+  /*private*/ _vc_35:import69.ViewContainer;
+  _TemplateRef_35_5:any;
+  _NgIf_35_6:import77.Wrapper_NgIf;
+  _anchor_36:any;
+  /*private*/ _vc_36:import69.ViewContainer;
+  _TemplateRef_36_5:any;
+  _NgIf_36_6:import77.Wrapper_NgIf;
+  /*private*/ _expr_61:any;
+  _map_62:any;
+  _map_63:any;
+  _map_64:any;
+  _map_65:any;
+  _map_66:any;
+  _map_67:any;
+  _map_68:any;
   constructor(viewUtils:import20.ViewUtils,parentView:import57.AppView<any>,parentIndex:number,parentElement:any) {
     super(View_AppComponent0,renderType_AppComponent,import59.ViewType.COMPONENT,viewUtils,parentView,parentIndex,parentElement,import60.ChangeDetectorStatus.CheckAlways);
-    this._expr_51 = import70.UNINITIALIZED;
-    this._map_52 = import20.pureProxy1((p0:any):{[key: string]:any} => {
+    this._expr_61 = import70.UNINITIALIZED;
+    this._map_62 = import20.pureProxy1((p0:any):{[key: string]:any} => {
       return {'bg-energized': p0};
     });
-    this._map_53 = import20.pureProxy1((p0:any):{[key: string]:any} => {
+    this._map_63 = import20.pureProxy1((p0:any):{[key: string]:any} => {
       return {'bg-energized': p0};
     });
-    this._map_54 = import20.pureProxy1((p0:any):{[key: string]:any} => {
+    this._map_64 = import20.pureProxy1((p0:any):{[key: string]:any} => {
       return {'bg-energized': p0};
     });
-    this._map_55 = import20.pureProxy1((p0:any):{[key: string]:any} => {
+    this._map_65 = import20.pureProxy1((p0:any):{[key: string]:any} => {
       return {'bg-energized': p0};
     });
-    this._map_56 = import20.pureProxy1((p0:any):{[key: string]:any} => {
+    this._map_66 = import20.pureProxy1((p0:any):{[key: string]:any} => {
       return {'bg-energized': p0};
+    });
+    this._map_67 = import20.pureProxy1((p0:any):{[key: string]:any} => {
+      return {'overflow-x': p0};
+    });
+    this._map_68 = import20.pureProxy1((p0:any):{[key: string]:any} => {
+      return {'max-width': p0};
     });
   }
   createInternal(rootSelector:string):import61.ComponentRef<any> {
     const parentRenderNode:any = this.renderer.createViewRoot(this.parentElement);
-    this._el_0 = import20.createRenderElement(this.renderer,parentRenderNode,'route-doc-watcher',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this.compView_0 = new import74.View_RouteDocWatcher0(this.viewUtils,this,0,this._el_0);
-    this._RouteDocWatcher_0_3 = new import74.Wrapper_RouteDocWatcher(this.parentView.injectorGet(import25.RouteWatcher,this.parentIndex),this.parentView.injectorGet(import50.TransitionService,this.parentIndex));
-    this.compView_0.create(this._RouteDocWatcher_0_3.context);
-    this._el_1 = import20.createRenderElement(this.renderer,parentRenderNode,'div',new import20.InlineArray4(4,'id','top','style','font-size:16px;'),(null as any));
-    this._el_2 = import20.createRenderElement(this.renderer,this._el_1,'div',new import20.InlineArray2(2,'class','pad flex-valign-center flex-wrap bg-energized'),(null as any));
-    this._el_3 = import20.createRenderElement(this.renderer,this._el_2,'h1',new import20.InlineArray2(2,'class','margin-0'),(null as any));
-    this._el_4 = import20.createRenderElement(this.renderer,this._el_3,'span',new import20.InlineArray2(2,'class','text-xs'),(null as any));
-    this._text_5 = this.renderer.createText(this._el_4,'🚴',(null as any));
-    this._text_6 = this.renderer.createText(this._el_3,' ack-angular',(null as any));
-    this._el_7 = import20.createRenderElement(this.renderer,this._el_2,'span',new import20.InlineArray2(2,'class','text-right flex-1 text-white'),(null as any));
-    this._text_8 = this.renderer.createText(this._el_7,'',(null as any));
-    this._el_9 = import20.createRenderElement(this.renderer,this._el_1,'div',new import20.InlineArray2(2,'class','flex-wrap flex-evenly bg-info child-pad-sm text-center text-2x strong child-hover-bg-warning'),(null as any));
-    this._el_10 = import20.createRenderElement(this.renderer,this._el_9,'a',new import20.InlineArray4(4,'class','no-a-style flex-1 border-right border-white','href','#/overview'),(null as any));
-    this._NgClass_10_3 = new import75.Wrapper_NgClass(this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.parentView.injectorGet(import46.KeyValueDiffers,this.parentIndex),new import77.ElementRef(this._el_10),this.renderer);
-    this._text_11 = this.renderer.createText(this._el_10,'Overview',(null as any));
-    this._el_12 = import20.createRenderElement(this.renderer,this._el_9,'a',new import20.InlineArray4(4,'class','no-a-style flex-1 border-right border-white','href','#/components'),(null as any));
-    this._NgClass_12_3 = new import75.Wrapper_NgClass(this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.parentView.injectorGet(import46.KeyValueDiffers,this.parentIndex),new import77.ElementRef(this._el_12),this.renderer);
-    this._text_13 = this.renderer.createText(this._el_12,'Components',(null as any));
-    this._el_14 = import20.createRenderElement(this.renderer,this._el_9,'a',new import20.InlineArray4(4,'class','no-a-style flex-1 border-right border-white','href','#/pipes'),(null as any));
-    this._NgClass_14_3 = new import75.Wrapper_NgClass(this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.parentView.injectorGet(import46.KeyValueDiffers,this.parentIndex),new import77.ElementRef(this._el_14),this.renderer);
-    this._text_15 = this.renderer.createText(this._el_14,'Pipes',(null as any));
-    this._el_16 = import20.createRenderElement(this.renderer,this._el_9,'a',new import20.InlineArray4(4,'class','no-a-style flex-1','href','#/services'),(null as any));
-    this._NgClass_16_3 = new import75.Wrapper_NgClass(this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.parentView.injectorGet(import46.KeyValueDiffers,this.parentIndex),new import77.ElementRef(this._el_16),this.renderer);
-    this._text_17 = this.renderer.createText(this._el_16,'Services',(null as any));
-    this._el_18 = import20.createRenderElement(this.renderer,this._el_9,'a',new import20.InlineArray4(4,'class','no-a-style flex-1','href','#/animations'),(null as any));
-    this._NgClass_18_3 = new import75.Wrapper_NgClass(this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.parentView.injectorGet(import46.KeyValueDiffers,this.parentIndex),new import77.ElementRef(this._el_18),this.renderer);
-    this._text_19 = this.renderer.createText(this._el_18,'Animations',(null as any));
-    this._el_20 = import20.createRenderElement(this.renderer,this._el_1,'div',new import20.InlineArray2(2,'class','text-center flex-center'),(null as any));
-    this._el_21 = import20.createRenderElement(this.renderer,this._el_20,'div',new import20.InlineArray4(4,'class','max-width-1000 line-height-2x text-left width-full','style','position:relative;'),(null as any));
-    this._anchor_22 = this.renderer.createTemplateAnchor(this._el_21,(null as any));
-    this._vc_22 = new import69.ViewContainer(22,21,this,this._anchor_22);
-    this._TemplateRef_22_5 = new import78.TemplateRef_(this,22,this._anchor_22);
-    this._NgIf_22_6 = new import76.Wrapper_NgIf(this._vc_22.vcRef,this._TemplateRef_22_5);
-    this._anchor_23 = this.renderer.createTemplateAnchor(this._el_21,(null as any));
-    this._vc_23 = new import69.ViewContainer(23,21,this,this._anchor_23);
-    this._TemplateRef_23_5 = new import78.TemplateRef_(this,23,this._anchor_23);
-    this._NgIf_23_6 = new import76.Wrapper_NgIf(this._vc_23.vcRef,this._TemplateRef_23_5);
-    this._anchor_24 = this.renderer.createTemplateAnchor(this._el_21,(null as any));
-    this._vc_24 = new import69.ViewContainer(24,21,this,this._anchor_24);
-    this._TemplateRef_24_5 = new import78.TemplateRef_(this,24,this._anchor_24);
-    this._NgIf_24_6 = new import76.Wrapper_NgIf(this._vc_24.vcRef,this._TemplateRef_24_5);
-    this._anchor_25 = this.renderer.createTemplateAnchor(this._el_21,(null as any));
-    this._vc_25 = new import69.ViewContainer(25,21,this,this._anchor_25);
-    this._TemplateRef_25_5 = new import78.TemplateRef_(this,25,this._anchor_25);
-    this._NgIf_25_6 = new import76.Wrapper_NgIf(this._vc_25.vcRef,this._TemplateRef_25_5);
-    this._anchor_26 = this.renderer.createTemplateAnchor(this._el_21,(null as any));
-    this._vc_26 = new import69.ViewContainer(26,21,this,this._anchor_26);
-    this._TemplateRef_26_5 = new import78.TemplateRef_(this,26,this._anchor_26);
-    this._NgIf_26_6 = new import76.Wrapper_NgIf(this._vc_26.vcRef,this._TemplateRef_26_5);
-    this._el_27 = import20.createRenderElement(this.renderer,this._el_1,'br',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._el_28 = import20.createRenderElement(this.renderer,this._el_1,'br',import20.EMPTY_INLINE_ARRAY,(null as any));
-    var disposable_0:Function = import20.subscribeToRenderElement(this,this._el_0,new import20.InlineArray8(6,'refChange',(null as any),'beforeChange',(null as any),'onChange',(null as any)),this.eventHandler(this.handleEvent_0));
-    this._RouteDocWatcher_0_3.subscribe(this,this.eventHandler(this.handleEvent_0),true,true,true);
+    this._el_0 = import20.createRenderElement(this.renderer,parentRenderNode,'div',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._ScreenWidthModel_0_3 = new import73.Wrapper_ScreenWidthModel();
+    this._el_1 = import20.createRenderElement(this.renderer,parentRenderNode,'route-doc-watcher',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._RouteDocWatcher_1_3 = new import74.Wrapper_RouteDocWatcher(this.parentView.injectorGet(import25.RouteWatcher,this.parentIndex),this.parentView.injectorGet(import50.TransitionService,this.parentIndex));
+    this._el_2 = import20.createRenderElement(this.renderer,parentRenderNode,'div',new import20.InlineArray2(2,'class','text-center height-full'),(null as any));
+    this._el_3 = import20.createRenderElement(this.renderer,this._el_2,'div',new import20.InlineArray2(2,'class','inline-block width-full line-height-2x height-full max-width-1000'),(null as any));
+    this._el_4 = import20.createRenderElement(this.renderer,this._el_3,'div',new import20.InlineArray8(6,'class','width-full height-full','id','top','style','font-size:16px;'),(null as any));
+    this._el_5 = import20.createRenderElement(this.renderer,this._el_4,'table',new import20.InlineArray8(6,'cellpadding','0','cellspacing','0','class','width-full height-full'),(null as any));
+    this._el_6 = import20.createRenderElement(this.renderer,this._el_5,'tbody',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_7 = import20.createRenderElement(this.renderer,this._el_6,'tr',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_8 = import20.createRenderElement(this.renderer,this._el_7,'td',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_9 = import20.createRenderElement(this.renderer,this._el_8,'div',new import20.InlineArray2(2,'class','bg-energized border-grey-3x border-left-1 border-right-1'),(null as any));
+    this._el_10 = import20.createRenderElement(this.renderer,this._el_9,'div',new import20.InlineArray2(2,'class','pad flex-valign-center flex-wrap'),(null as any));
+    this._el_11 = import20.createRenderElement(this.renderer,this._el_10,'h1',new import20.InlineArray2(2,'class','margin-0'),(null as any));
+    this._el_12 = import20.createRenderElement(this.renderer,this._el_11,'span',new import20.InlineArray2(2,'class','text-sm'),(null as any));
+    this._text_13 = this.renderer.createText(this._el_12,'🚴',(null as any));
+    this._text_14 = this.renderer.createText(this._el_11,' ack-angular',(null as any));
+    this._el_15 = import20.createRenderElement(this.renderer,this._el_10,'span',new import20.InlineArray2(2,'class','text-right flex-1 text-white'),(null as any));
+    this._text_16 = this.renderer.createText(this._el_15,'',(null as any));
+    this._el_17 = import20.createRenderElement(this.renderer,this._el_9,'div',new import20.InlineArray2(2,'class','flex-wrap flex-evenly bg-info child-pad-sm text-center text-2x strong child-hover-bg-warning'),(null as any));
+    this._el_18 = import20.createRenderElement(this.renderer,this._el_17,'a',new import20.InlineArray4(4,'class','no-a-style flex-1 border-right border-white','href','#/overview'),(null as any));
+    this._NgClass_18_3 = new import75.Wrapper_NgClass(this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.parentView.injectorGet(import46.KeyValueDiffers,this.parentIndex),new import78.ElementRef(this._el_18),this.renderer);
+    this._text_19 = this.renderer.createText(this._el_18,'Overview',(null as any));
+    this._el_20 = import20.createRenderElement(this.renderer,this._el_17,'a',new import20.InlineArray4(4,'class','no-a-style flex-1 border-right border-white','href','#/components'),(null as any));
+    this._NgClass_20_3 = new import75.Wrapper_NgClass(this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.parentView.injectorGet(import46.KeyValueDiffers,this.parentIndex),new import78.ElementRef(this._el_20),this.renderer);
+    this._text_21 = this.renderer.createText(this._el_20,'Components',(null as any));
+    this._el_22 = import20.createRenderElement(this.renderer,this._el_17,'a',new import20.InlineArray4(4,'class','no-a-style flex-1 border-right border-white','href','#/pipes'),(null as any));
+    this._NgClass_22_3 = new import75.Wrapper_NgClass(this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.parentView.injectorGet(import46.KeyValueDiffers,this.parentIndex),new import78.ElementRef(this._el_22),this.renderer);
+    this._text_23 = this.renderer.createText(this._el_22,'Pipes',(null as any));
+    this._el_24 = import20.createRenderElement(this.renderer,this._el_17,'a',new import20.InlineArray4(4,'class','no-a-style flex-1','href','#/services'),(null as any));
+    this._NgClass_24_3 = new import75.Wrapper_NgClass(this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.parentView.injectorGet(import46.KeyValueDiffers,this.parentIndex),new import78.ElementRef(this._el_24),this.renderer);
+    this._text_25 = this.renderer.createText(this._el_24,'Services',(null as any));
+    this._el_26 = import20.createRenderElement(this.renderer,this._el_17,'a',new import20.InlineArray4(4,'class','no-a-style flex-1','href','#/animations'),(null as any));
+    this._NgClass_26_3 = new import75.Wrapper_NgClass(this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.parentView.injectorGet(import46.KeyValueDiffers,this.parentIndex),new import78.ElementRef(this._el_26),this.renderer);
+    this._text_27 = this.renderer.createText(this._el_26,'Animations    ',(null as any));
+    this._el_28 = import20.createRenderElement(this.renderer,this._el_6,'tr',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_29 = import20.createRenderElement(this.renderer,this._el_28,'td',new import20.InlineArray2(2,'class','height-full bg-white border-grey-3x border-left-1 border-right-1'),(null as any));
+    this._el_30 = import20.createRenderElement(this.renderer,this._el_29,'div',new import20.InlineArray2(2,'class','height-full'),(null as any));
+    this._NgStyle_30_3 = new import76.Wrapper_NgStyle(this.parentView.injectorGet(import46.KeyValueDiffers,this.parentIndex),new import78.ElementRef(this._el_30),this.renderer);
+    this._el_31 = import20.createRenderElement(this.renderer,this._el_30,'div',new import20.InlineArray2(2,'class','pos-rel text-left height-full'),(null as any));
+    this._NgStyle_31_3 = new import76.Wrapper_NgStyle(this.parentView.injectorGet(import46.KeyValueDiffers,this.parentIndex),new import78.ElementRef(this._el_31),this.renderer);
+    this._anchor_32 = this.renderer.createTemplateAnchor(this._el_31,(null as any));
+    this._vc_32 = new import69.ViewContainer(32,31,this,this._anchor_32);
+    this._TemplateRef_32_5 = new import79.TemplateRef_(this,32,this._anchor_32);
+    this._NgIf_32_6 = new import77.Wrapper_NgIf(this._vc_32.vcRef,this._TemplateRef_32_5);
+    this._anchor_33 = this.renderer.createTemplateAnchor(this._el_31,(null as any));
+    this._vc_33 = new import69.ViewContainer(33,31,this,this._anchor_33);
+    this._TemplateRef_33_5 = new import79.TemplateRef_(this,33,this._anchor_33);
+    this._NgIf_33_6 = new import77.Wrapper_NgIf(this._vc_33.vcRef,this._TemplateRef_33_5);
+    this._anchor_34 = this.renderer.createTemplateAnchor(this._el_31,(null as any));
+    this._vc_34 = new import69.ViewContainer(34,31,this,this._anchor_34);
+    this._TemplateRef_34_5 = new import79.TemplateRef_(this,34,this._anchor_34);
+    this._NgIf_34_6 = new import77.Wrapper_NgIf(this._vc_34.vcRef,this._TemplateRef_34_5);
+    this._anchor_35 = this.renderer.createTemplateAnchor(this._el_31,(null as any));
+    this._vc_35 = new import69.ViewContainer(35,31,this,this._anchor_35);
+    this._TemplateRef_35_5 = new import79.TemplateRef_(this,35,this._anchor_35);
+    this._NgIf_35_6 = new import77.Wrapper_NgIf(this._vc_35.vcRef,this._TemplateRef_35_5);
+    this._anchor_36 = this.renderer.createTemplateAnchor(this._el_31,(null as any));
+    this._vc_36 = new import69.ViewContainer(36,31,this,this._anchor_36);
+    this._TemplateRef_36_5 = new import79.TemplateRef_(this,36,this._anchor_36);
+    this._NgIf_36_6 = new import77.Wrapper_NgIf(this._vc_36.vcRef,this._TemplateRef_36_5);
+    var disposable_0:Function = import20.subscribeToRenderElement(this,this._el_0,new import20.InlineArray2(2,'screenWidthModelChange',(null as any)),this.eventHandler(this.handleEvent_0));
+    this._ScreenWidthModel_0_3.subscribe(this,this.eventHandler(this.handleEvent_0),true);
+    var disposable_1:Function = import20.subscribeToRenderElement(this,this._el_1,new import20.InlineArray8(6,'refChange',(null as any),'beforeChange',(null as any),'onChange',(null as any)),this.eventHandler(this.handleEvent_1));
+    this._RouteDocWatcher_1_3.subscribe(this,this.eventHandler(this.handleEvent_1),true,true,true);
     this.init((null as any),((<any>this.renderer).directRenderer? (null as any): [
       this._el_0,
       this._el_1,
       this._el_2,
       this._el_3,
       this._el_4,
-      this._text_5,
-      this._text_6,
+      this._el_5,
+      this._el_6,
       this._el_7,
-      this._text_8,
+      this._el_8,
       this._el_9,
       this._el_10,
-      this._text_11,
+      this._el_11,
       this._el_12,
       this._text_13,
-      this._el_14,
-      this._text_15,
-      this._el_16,
-      this._text_17,
+      this._text_14,
+      this._el_15,
+      this._text_16,
+      this._el_17,
       this._el_18,
       this._text_19,
       this._el_20,
-      this._el_21,
-      this._anchor_22,
-      this._anchor_23,
-      this._anchor_24,
-      this._anchor_25,
-      this._anchor_26,
-      this._el_27,
-      this._el_28
+      this._text_21,
+      this._el_22,
+      this._text_23,
+      this._el_24,
+      this._text_25,
+      this._el_26,
+      this._text_27,
+      this._el_28,
+      this._el_29,
+      this._el_30,
+      this._el_31,
+      this._anchor_32,
+      this._anchor_33,
+      this._anchor_34,
+      this._anchor_35,
+      this._anchor_36
     ]
-    ),[disposable_0]);
+    ),[
+      disposable_0,
+      disposable_1
+    ]
+    );
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import73.RouteDocWatcher) && (0 === requestNodeIndex))) { return this._RouteDocWatcher_0_3.context; }
-    if (((token === import79.NgClass) && ((10 <= requestNodeIndex) && (requestNodeIndex <= 11)))) { return this._NgClass_10_3.context; }
-    if (((token === import79.NgClass) && ((12 <= requestNodeIndex) && (requestNodeIndex <= 13)))) { return this._NgClass_12_3.context; }
-    if (((token === import79.NgClass) && ((14 <= requestNodeIndex) && (requestNodeIndex <= 15)))) { return this._NgClass_14_3.context; }
-    if (((token === import79.NgClass) && ((16 <= requestNodeIndex) && (requestNodeIndex <= 17)))) { return this._NgClass_16_3.context; }
-    if (((token === import79.NgClass) && ((18 <= requestNodeIndex) && (requestNodeIndex <= 19)))) { return this._NgClass_18_3.context; }
-    if (((token === import78.TemplateRef) && (22 === requestNodeIndex))) { return this._TemplateRef_22_5; }
-    if (((token === import80.NgIf) && (22 === requestNodeIndex))) { return this._NgIf_22_6.context; }
-    if (((token === import78.TemplateRef) && (23 === requestNodeIndex))) { return this._TemplateRef_23_5; }
-    if (((token === import80.NgIf) && (23 === requestNodeIndex))) { return this._NgIf_23_6.context; }
-    if (((token === import78.TemplateRef) && (24 === requestNodeIndex))) { return this._TemplateRef_24_5; }
-    if (((token === import80.NgIf) && (24 === requestNodeIndex))) { return this._NgIf_24_6.context; }
-    if (((token === import78.TemplateRef) && (25 === requestNodeIndex))) { return this._TemplateRef_25_5; }
-    if (((token === import80.NgIf) && (25 === requestNodeIndex))) { return this._NgIf_25_6.context; }
-    if (((token === import78.TemplateRef) && (26 === requestNodeIndex))) { return this._TemplateRef_26_5; }
-    if (((token === import80.NgIf) && (26 === requestNodeIndex))) { return this._NgIf_26_6.context; }
+    if (((token === import80.ScreenWidthModel) && (0 === requestNodeIndex))) { return this._ScreenWidthModel_0_3.context; }
+    if (((token === import81.RouteDocWatcher) && (1 === requestNodeIndex))) { return this._RouteDocWatcher_1_3.context; }
+    if (((token === import82.NgClass) && ((18 <= requestNodeIndex) && (requestNodeIndex <= 19)))) { return this._NgClass_18_3.context; }
+    if (((token === import82.NgClass) && ((20 <= requestNodeIndex) && (requestNodeIndex <= 21)))) { return this._NgClass_20_3.context; }
+    if (((token === import82.NgClass) && ((22 <= requestNodeIndex) && (requestNodeIndex <= 23)))) { return this._NgClass_22_3.context; }
+    if (((token === import82.NgClass) && ((24 <= requestNodeIndex) && (requestNodeIndex <= 25)))) { return this._NgClass_24_3.context; }
+    if (((token === import82.NgClass) && ((26 <= requestNodeIndex) && (requestNodeIndex <= 27)))) { return this._NgClass_26_3.context; }
+    if (((token === import79.TemplateRef) && (32 === requestNodeIndex))) { return this._TemplateRef_32_5; }
+    if (((token === import83.NgIf) && (32 === requestNodeIndex))) { return this._NgIf_32_6.context; }
+    if (((token === import79.TemplateRef) && (33 === requestNodeIndex))) { return this._TemplateRef_33_5; }
+    if (((token === import83.NgIf) && (33 === requestNodeIndex))) { return this._NgIf_33_6.context; }
+    if (((token === import79.TemplateRef) && (34 === requestNodeIndex))) { return this._TemplateRef_34_5; }
+    if (((token === import83.NgIf) && (34 === requestNodeIndex))) { return this._NgIf_34_6.context; }
+    if (((token === import79.TemplateRef) && (35 === requestNodeIndex))) { return this._TemplateRef_35_5; }
+    if (((token === import83.NgIf) && (35 === requestNodeIndex))) { return this._NgIf_35_6.context; }
+    if (((token === import79.TemplateRef) && (36 === requestNodeIndex))) { return this._TemplateRef_36_5; }
+    if (((token === import83.NgIf) && (36 === requestNodeIndex))) { return this._NgIf_36_6.context; }
+    if (((token === import84.NgStyle) && ((31 <= requestNodeIndex) && (requestNodeIndex <= 36)))) { return this._NgStyle_31_3.context; }
+    if (((token === import84.NgStyle) && ((30 <= requestNodeIndex) && (requestNodeIndex <= 36)))) { return this._NgStyle_30_3.context; }
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {
-    const currVal_0_0_0:any = this.context.routeDocWatcher;
-    this._RouteDocWatcher_0_3.check_ref(currVal_0_0_0,throwOnChange,false);
-    this._RouteDocWatcher_0_3.ngDoCheck(this,this._el_0,throwOnChange);
-    const currVal_10_0_0:any = 'no-a-style flex-1 border-right border-white';
-    this._NgClass_10_3.check_klass(currVal_10_0_0,throwOnChange,false);
-    const currVal_10_0_1:any = this._map_52((this.context.stateName == 'overview'));
-    this._NgClass_10_3.check_ngClass(currVal_10_0_1,throwOnChange,false);
-    this._NgClass_10_3.ngDoCheck(this,this._el_10,throwOnChange);
-    const currVal_12_0_0:any = 'no-a-style flex-1 border-right border-white';
-    this._NgClass_12_3.check_klass(currVal_12_0_0,throwOnChange,false);
-    const currVal_12_0_1:any = this._map_53((this.context.stateName == 'components'));
-    this._NgClass_12_3.check_ngClass(currVal_12_0_1,throwOnChange,false);
-    this._NgClass_12_3.ngDoCheck(this,this._el_12,throwOnChange);
-    const currVal_14_0_0:any = 'no-a-style flex-1 border-right border-white';
-    this._NgClass_14_3.check_klass(currVal_14_0_0,throwOnChange,false);
-    const currVal_14_0_1:any = this._map_54((this.context.stateName == 'pipes'));
-    this._NgClass_14_3.check_ngClass(currVal_14_0_1,throwOnChange,false);
-    this._NgClass_14_3.ngDoCheck(this,this._el_14,throwOnChange);
-    const currVal_16_0_0:any = 'no-a-style flex-1';
-    this._NgClass_16_3.check_klass(currVal_16_0_0,throwOnChange,false);
-    const currVal_16_0_1:any = this._map_55((this.context.stateName == 'services'));
-    this._NgClass_16_3.check_ngClass(currVal_16_0_1,throwOnChange,false);
-    this._NgClass_16_3.ngDoCheck(this,this._el_16,throwOnChange);
-    const currVal_18_0_0:any = 'no-a-style flex-1';
+    const currVal_0_0_0:any = this.context.screenWidthModel;
+    this._ScreenWidthModel_0_3.check_screenWidthModel(currVal_0_0_0,throwOnChange,false);
+    this._ScreenWidthModel_0_3.ngDoCheck(this,this._el_0,throwOnChange);
+    const currVal_1_0_0:any = this.context.routeDocWatcher;
+    this._RouteDocWatcher_1_3.check_ref(currVal_1_0_0,throwOnChange,false);
+    this._RouteDocWatcher_1_3.ngDoCheck(this,this._el_1,throwOnChange);
+    const currVal_18_0_0:any = 'no-a-style flex-1 border-right border-white';
     this._NgClass_18_3.check_klass(currVal_18_0_0,throwOnChange,false);
-    const currVal_18_0_1:any = this._map_56((this.context.stateName == 'animations'));
+    const currVal_18_0_1:any = this._map_62((this.context.stateName == 'overview'));
     this._NgClass_18_3.check_ngClass(currVal_18_0_1,throwOnChange,false);
     this._NgClass_18_3.ngDoCheck(this,this._el_18,throwOnChange);
-    const currVal_22_0_0:any = (this.context.stateName == 'overview');
-    this._NgIf_22_6.check_ngIf(currVal_22_0_0,throwOnChange,false);
-    this._NgIf_22_6.ngDoCheck(this,this._anchor_22,throwOnChange);
-    const currVal_23_0_0:any = (this.context.stateName == 'components');
-    this._NgIf_23_6.check_ngIf(currVal_23_0_0,throwOnChange,false);
-    this._NgIf_23_6.ngDoCheck(this,this._anchor_23,throwOnChange);
-    const currVal_24_0_0:any = (this.context.stateName == 'pipes');
-    this._NgIf_24_6.check_ngIf(currVal_24_0_0,throwOnChange,false);
-    this._NgIf_24_6.ngDoCheck(this,this._anchor_24,throwOnChange);
-    const currVal_25_0_0:any = (this.context.stateName == 'services');
-    this._NgIf_25_6.check_ngIf(currVal_25_0_0,throwOnChange,false);
-    this._NgIf_25_6.ngDoCheck(this,this._anchor_25,throwOnChange);
-    const currVal_26_0_0:any = (this.context.stateName == 'animations');
-    this._NgIf_26_6.check_ngIf(currVal_26_0_0,throwOnChange,false);
-    this._NgIf_26_6.ngDoCheck(this,this._anchor_26,throwOnChange);
-    this._vc_22.detectChangesInNestedViews(throwOnChange);
-    this._vc_23.detectChangesInNestedViews(throwOnChange);
-    this._vc_24.detectChangesInNestedViews(throwOnChange);
-    this._vc_25.detectChangesInNestedViews(throwOnChange);
-    this._vc_26.detectChangesInNestedViews(throwOnChange);
-    const currVal_51:any = import20.inlineInterpolate(1,'v',this.context.version,'');
-    if (import20.checkBinding(throwOnChange,this._expr_51,currVal_51)) {
-      this.renderer.setText(this._text_8,currVal_51);
-      this._expr_51 = currVal_51;
+    const currVal_20_0_0:any = 'no-a-style flex-1 border-right border-white';
+    this._NgClass_20_3.check_klass(currVal_20_0_0,throwOnChange,false);
+    const currVal_20_0_1:any = this._map_63((this.context.stateName == 'components'));
+    this._NgClass_20_3.check_ngClass(currVal_20_0_1,throwOnChange,false);
+    this._NgClass_20_3.ngDoCheck(this,this._el_20,throwOnChange);
+    const currVal_22_0_0:any = 'no-a-style flex-1 border-right border-white';
+    this._NgClass_22_3.check_klass(currVal_22_0_0,throwOnChange,false);
+    const currVal_22_0_1:any = this._map_64((this.context.stateName == 'pipes'));
+    this._NgClass_22_3.check_ngClass(currVal_22_0_1,throwOnChange,false);
+    this._NgClass_22_3.ngDoCheck(this,this._el_22,throwOnChange);
+    const currVal_24_0_0:any = 'no-a-style flex-1';
+    this._NgClass_24_3.check_klass(currVal_24_0_0,throwOnChange,false);
+    const currVal_24_0_1:any = this._map_65((this.context.stateName == 'services'));
+    this._NgClass_24_3.check_ngClass(currVal_24_0_1,throwOnChange,false);
+    this._NgClass_24_3.ngDoCheck(this,this._el_24,throwOnChange);
+    const currVal_26_0_0:any = 'no-a-style flex-1';
+    this._NgClass_26_3.check_klass(currVal_26_0_0,throwOnChange,false);
+    const currVal_26_0_1:any = this._map_66((this.context.stateName == 'animations'));
+    this._NgClass_26_3.check_ngClass(currVal_26_0_1,throwOnChange,false);
+    this._NgClass_26_3.ngDoCheck(this,this._el_26,throwOnChange);
+    const currVal_30_0_0:any = (this.context.isSwaping? this._map_67('hidden'): (null as any));
+    this._NgStyle_30_3.check_ngStyle(currVal_30_0_0,throwOnChange,false);
+    this._NgStyle_30_3.ngDoCheck(this,this._el_30,throwOnChange);
+    const currVal_31_0_0:any = this._map_68((this.context.screenWidthModel + 'px'));
+    this._NgStyle_31_3.check_ngStyle(currVal_31_0_0,throwOnChange,false);
+    this._NgStyle_31_3.ngDoCheck(this,this._el_31,throwOnChange);
+    const currVal_32_0_0:any = (this.context.stateName == 'overview');
+    this._NgIf_32_6.check_ngIf(currVal_32_0_0,throwOnChange,false);
+    this._NgIf_32_6.ngDoCheck(this,this._anchor_32,throwOnChange);
+    const currVal_33_0_0:any = (this.context.stateName == 'components');
+    this._NgIf_33_6.check_ngIf(currVal_33_0_0,throwOnChange,false);
+    this._NgIf_33_6.ngDoCheck(this,this._anchor_33,throwOnChange);
+    const currVal_34_0_0:any = (this.context.stateName == 'pipes');
+    this._NgIf_34_6.check_ngIf(currVal_34_0_0,throwOnChange,false);
+    this._NgIf_34_6.ngDoCheck(this,this._anchor_34,throwOnChange);
+    const currVal_35_0_0:any = (this.context.stateName == 'services');
+    this._NgIf_35_6.check_ngIf(currVal_35_0_0,throwOnChange,false);
+    this._NgIf_35_6.ngDoCheck(this,this._anchor_35,throwOnChange);
+    const currVal_36_0_0:any = (this.context.stateName == 'animations');
+    this._NgIf_36_6.check_ngIf(currVal_36_0_0,throwOnChange,false);
+    this._NgIf_36_6.ngDoCheck(this,this._anchor_36,throwOnChange);
+    this._vc_32.detectChangesInNestedViews(throwOnChange);
+    this._vc_33.detectChangesInNestedViews(throwOnChange);
+    this._vc_34.detectChangesInNestedViews(throwOnChange);
+    this._vc_35.detectChangesInNestedViews(throwOnChange);
+    this._vc_36.detectChangesInNestedViews(throwOnChange);
+    const currVal_61:any = import20.inlineInterpolate(1,'v',this.context.version,'');
+    if (import20.checkBinding(throwOnChange,this._expr_61,currVal_61)) {
+      this.renderer.setText(this._text_16,currVal_61);
+      this._expr_61 = currVal_61;
     }
-    this.compView_0.internalDetectChanges(throwOnChange);
+    if (!throwOnChange) { if ((this.numberOfChecks === 0)) { this._ScreenWidthModel_0_3.context.ngAfterViewInit(); } }
   }
   destroyInternal():void {
-    this._vc_22.destroyNestedViews();
-    this._vc_23.destroyNestedViews();
-    this._vc_24.destroyNestedViews();
-    this._vc_25.destroyNestedViews();
-    this._vc_26.destroyNestedViews();
-    this.compView_0.destroy();
-    this._RouteDocWatcher_0_3.ngOnDestroy();
+    this._vc_32.destroyNestedViews();
+    this._vc_33.destroyNestedViews();
+    this._vc_34.destroyNestedViews();
+    this._vc_35.destroyNestedViews();
+    this._vc_36.destroyNestedViews();
+    this._ScreenWidthModel_0_3.ngOnDestroy();
+    this._RouteDocWatcher_1_3.ngOnDestroy();
   }
   createEmbeddedViewInternal(nodeIndex:number):import57.AppView<any> {
-    if ((nodeIndex == 22)) { return new View_AppComponent1(this.viewUtils,this,22,this._anchor_22,this._vc_22); }
-    if ((nodeIndex == 23)) { return new View_AppComponent2(this.viewUtils,this,23,this._anchor_23,this._vc_23); }
-    if ((nodeIndex == 24)) { return new View_AppComponent3(this.viewUtils,this,24,this._anchor_24,this._vc_24); }
-    if ((nodeIndex == 25)) { return new View_AppComponent4(this.viewUtils,this,25,this._anchor_25,this._vc_25); }
-    if ((nodeIndex == 26)) { return new View_AppComponent5(this.viewUtils,this,26,this._anchor_26,this._vc_26); }
+    if ((nodeIndex == 32)) { return new View_AppComponent1(this.viewUtils,this,32,this._anchor_32,this._vc_32); }
+    if ((nodeIndex == 33)) { return new View_AppComponent2(this.viewUtils,this,33,this._anchor_33,this._vc_33); }
+    if ((nodeIndex == 34)) { return new View_AppComponent3(this.viewUtils,this,34,this._anchor_34,this._vc_34); }
+    if ((nodeIndex == 35)) { return new View_AppComponent4(this.viewUtils,this,35,this._anchor_35,this._vc_35); }
+    if ((nodeIndex == 36)) { return new View_AppComponent5(this.viewUtils,this,36,this._anchor_36,this._vc_36); }
     return (null as any);
   }
   handleEvent_0(eventName:string,$event:any):boolean {
+    this.markPathToRootAsCheckOnce();
+    var result:boolean = true;
+    if ((eventName == 'screenWidthModelChange')) {
+      const pd_sub_0:any = ((<any>(this.context.screenWidthModel = $event)) !== false);
+      result = (pd_sub_0 && result);
+    }
+    return result;
+  }
+  handleEvent_1(eventName:string,$event:any):boolean {
     this.markPathToRootAsCheckOnce();
     var result:boolean = true;
     if ((eventName == 'refChange')) {
@@ -7774,7 +7925,7 @@ export class View_AnimationExamples0 extends import57.AppView<import1.AnimationE
   _anchor_48:any;
   /*private*/ _vc_48:import69.ViewContainer;
   _TemplateRef_48_5:any;
-  _NgFor_48_6:import81.Wrapper_NgFor;
+  _NgFor_48_6:import85.Wrapper_NgFor;
   _el_49:any;
   _el_50:any;
   _el_51:any;
@@ -7782,7 +7933,7 @@ export class View_AnimationExamples0 extends import57.AppView<import1.AnimationE
   _anchor_53:any;
   /*private*/ _vc_53:import69.ViewContainer;
   _TemplateRef_53_5:any;
-  _NgFor_53_6:import81.Wrapper_NgFor;
+  _NgFor_53_6:import85.Wrapper_NgFor;
   _el_54:any;
   _el_55:any;
   _text_56:any;
@@ -7794,14 +7945,14 @@ export class View_AnimationExamples0 extends import57.AppView<import1.AnimationE
   _anchor_62:any;
   /*private*/ _vc_62:import69.ViewContainer;
   _TemplateRef_62_5:any;
-  _NgFor_62_6:import81.Wrapper_NgFor;
+  _NgFor_62_6:import85.Wrapper_NgFor;
   _el_63:any;
   _el_64:any;
-  _DefaultValueAccessor_64_3:import82.Wrapper_DefaultValueAccessor;
+  _DefaultValueAccessor_64_3:import86.Wrapper_DefaultValueAccessor;
   _NG_VALUE_ACCESSOR_64_4:any[];
-  _NgModel_64_5:import83.Wrapper_NgModel;
+  _NgModel_64_5:import87.Wrapper_NgModel;
   _NgControl_64_6:any;
-  _NgControlStatus_64_7:import84.Wrapper_NgControlStatus;
+  _NgControlStatus_64_7:import88.Wrapper_NgControlStatus;
   _el_65:any;
   _text_66:any;
   _el_67:any;
@@ -7864,16 +8015,16 @@ export class View_AnimationExamples0 extends import57.AppView<import1.AnimationE
     this._el_47 = import20.createRenderElement(this.renderer,this._el_46,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._anchor_48 = this.renderer.createTemplateAnchor(this._el_47,(null as any));
     this._vc_48 = new import69.ViewContainer(48,47,this,this._anchor_48);
-    this._TemplateRef_48_5 = new import78.TemplateRef_(this,48,this._anchor_48);
-    this._NgFor_48_6 = new import81.Wrapper_NgFor(this._vc_48.vcRef,this._TemplateRef_48_5,this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.ref);
+    this._TemplateRef_48_5 = new import79.TemplateRef_(this,48,this._anchor_48);
+    this._NgFor_48_6 = new import85.Wrapper_NgFor(this._vc_48.vcRef,this._TemplateRef_48_5,this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.ref);
     this._el_49 = import20.createRenderElement(this.renderer,this._el_45,'div',new import20.InlineArray2(2,'class','pad'),(null as any));
     this._el_50 = import20.createRenderElement(this.renderer,this._el_49,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._el_51 = import20.createRenderElement(this.renderer,this._el_50,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._text_52 = this.renderer.createText(this._el_51,'absoluteSwap',(null as any));
     this._anchor_53 = this.renderer.createTemplateAnchor(this._el_50,(null as any));
     this._vc_53 = new import69.ViewContainer(53,50,this,this._anchor_53);
-    this._TemplateRef_53_5 = new import78.TemplateRef_(this,53,this._anchor_53);
-    this._NgFor_53_6 = new import81.Wrapper_NgFor(this._vc_53.vcRef,this._TemplateRef_53_5,this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.ref);
+    this._TemplateRef_53_5 = new import79.TemplateRef_(this,53,this._anchor_53);
+    this._NgFor_53_6 = new import85.Wrapper_NgFor(this._vc_53.vcRef,this._TemplateRef_53_5,this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.ref);
     this._el_54 = import20.createRenderElement(this.renderer,parentRenderNode,'br',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._el_55 = import20.createRenderElement(this.renderer,parentRenderNode,'h3',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._text_56 = this.renderer.createText(this._el_55,'Supporting Examples',(null as any));
@@ -7884,15 +8035,15 @@ export class View_AnimationExamples0 extends import57.AppView<import1.AnimationE
     this._el_61 = import20.createRenderElement(this.renderer,this._el_58,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._anchor_62 = this.renderer.createTemplateAnchor(this._el_61,(null as any));
     this._vc_62 = new import69.ViewContainer(62,61,this,this._anchor_62);
-    this._TemplateRef_62_5 = new import78.TemplateRef_(this,62,this._anchor_62);
-    this._NgFor_62_6 = new import81.Wrapper_NgFor(this._vc_62.vcRef,this._TemplateRef_62_5,this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.ref);
+    this._TemplateRef_62_5 = new import79.TemplateRef_(this,62,this._anchor_62);
+    this._NgFor_62_6 = new import85.Wrapper_NgFor(this._vc_62.vcRef,this._TemplateRef_62_5,this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.ref);
     this._el_63 = import20.createRenderElement(this.renderer,this._el_58,'div',new import20.InlineArray2(2,'class','flex'),(null as any));
     this._el_64 = import20.createRenderElement(this.renderer,this._el_63,'input',new import20.InlineArray2(2,'class','flex-1'),(null as any));
-    this._DefaultValueAccessor_64_3 = new import82.Wrapper_DefaultValueAccessor(this.renderer,new import77.ElementRef(this._el_64));
+    this._DefaultValueAccessor_64_3 = new import86.Wrapper_DefaultValueAccessor(this.renderer,new import78.ElementRef(this._el_64));
     this._NG_VALUE_ACCESSOR_64_4 = [this._DefaultValueAccessor_64_3.context];
-    this._NgModel_64_5 = new import83.Wrapper_NgModel((null as any),(null as any),(null as any),this._NG_VALUE_ACCESSOR_64_4);
+    this._NgModel_64_5 = new import87.Wrapper_NgModel((null as any),(null as any),(null as any),this._NG_VALUE_ACCESSOR_64_4);
     this._NgControl_64_6 = this._NgModel_64_5.context;
-    this._NgControlStatus_64_7 = new import84.Wrapper_NgControlStatus(this._NgControl_64_6);
+    this._NgControlStatus_64_7 = new import88.Wrapper_NgControlStatus(this._NgControl_64_6);
     this._el_65 = import20.createRenderElement(this.renderer,this._el_63,'button',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._text_66 = this.renderer.createText(this._el_65,'add',(null as any));
     this._el_67 = import20.createRenderElement(this.renderer,parentRenderNode,'br',import20.EMPTY_INLINE_ARRAY,(null as any));
@@ -7989,17 +8140,17 @@ export class View_AnimationExamples0 extends import57.AppView<import1.AnimationE
     if (((token === import72.PageScroll) && ((19 <= requestNodeIndex) && (requestNodeIndex <= 20)))) { return this._PageScroll_19_3.context; }
     if (((token === import72.PageScroll) && ((22 <= requestNodeIndex) && (requestNodeIndex <= 23)))) { return this._PageScroll_22_3.context; }
     if (((token === import72.PageScroll) && ((25 <= requestNodeIndex) && (requestNodeIndex <= 26)))) { return this._PageScroll_25_3.context; }
-    if (((token === import78.TemplateRef) && (48 === requestNodeIndex))) { return this._TemplateRef_48_5; }
-    if (((token === import85.NgFor) && (48 === requestNodeIndex))) { return this._NgFor_48_6.context; }
-    if (((token === import78.TemplateRef) && (53 === requestNodeIndex))) { return this._TemplateRef_53_5; }
-    if (((token === import85.NgFor) && (53 === requestNodeIndex))) { return this._NgFor_53_6.context; }
-    if (((token === import78.TemplateRef) && (62 === requestNodeIndex))) { return this._TemplateRef_62_5; }
-    if (((token === import85.NgFor) && (62 === requestNodeIndex))) { return this._NgFor_62_6.context; }
-    if (((token === import86.DefaultValueAccessor) && (64 === requestNodeIndex))) { return this._DefaultValueAccessor_64_3.context; }
-    if (((token === import87.NG_VALUE_ACCESSOR) && (64 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_64_4; }
-    if (((token === import88.NgModel) && (64 === requestNodeIndex))) { return this._NgModel_64_5.context; }
-    if (((token === import89.NgControl) && (64 === requestNodeIndex))) { return this._NgControl_64_6; }
-    if (((token === import90.NgControlStatus) && (64 === requestNodeIndex))) { return this._NgControlStatus_64_7.context; }
+    if (((token === import79.TemplateRef) && (48 === requestNodeIndex))) { return this._TemplateRef_48_5; }
+    if (((token === import89.NgFor) && (48 === requestNodeIndex))) { return this._NgFor_48_6.context; }
+    if (((token === import79.TemplateRef) && (53 === requestNodeIndex))) { return this._TemplateRef_53_5; }
+    if (((token === import89.NgFor) && (53 === requestNodeIndex))) { return this._NgFor_53_6.context; }
+    if (((token === import79.TemplateRef) && (62 === requestNodeIndex))) { return this._TemplateRef_62_5; }
+    if (((token === import89.NgFor) && (62 === requestNodeIndex))) { return this._NgFor_62_6.context; }
+    if (((token === import90.DefaultValueAccessor) && (64 === requestNodeIndex))) { return this._DefaultValueAccessor_64_3.context; }
+    if (((token === import91.NG_VALUE_ACCESSOR) && (64 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_64_4; }
+    if (((token === import92.NgModel) && (64 === requestNodeIndex))) { return this._NgModel_64_5.context; }
+    if (((token === import93.NgControl) && (64 === requestNodeIndex))) { return this._NgControl_64_6; }
+    if (((token === import94.NgControlStatus) && (64 === requestNodeIndex))) { return this._NgControlStatus_64_7.context; }
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {
@@ -8165,108 +8316,120 @@ export class View_OverviewExamples0 extends import57.AppView<import1.OverviewExa
   _PageScroll_20_3:import68.Wrapper_PageScroll;
   _text_21:any;
   _el_22:any;
-  _text_23:any;
-  _el_24:any;
-  _text_25:any;
-  _el_26:any;
+  _el_23:any;
+  _PageScroll_23_3:import68.Wrapper_PageScroll;
+  _text_24:any;
+  _el_25:any;
+  _text_26:any;
   _el_27:any;
   _text_28:any;
   _el_29:any;
   _el_30:any;
   _text_31:any;
   _el_32:any;
-  _text_33:any;
-  _el_34:any;
-  _text_35:any;
-  _el_36:any;
+  _el_33:any;
+  _text_34:any;
+  _el_35:any;
+  _text_36:any;
   _el_37:any;
-  _el_38:any;
-  _text_39:any;
+  _text_38:any;
+  _el_39:any;
   _el_40:any;
   _el_41:any;
   _text_42:any;
   _el_43:any;
-  _text_44:any;
-  _el_45:any;
-  _text_46:any;
-  _el_47:any;
+  _el_44:any;
+  _text_45:any;
+  _el_46:any;
+  _text_47:any;
   _el_48:any;
   _text_49:any;
   _el_50:any;
   _el_51:any;
   _text_52:any;
   _el_53:any;
-  _text_54:any;
-  _el_55:any;
-  _text_56:any;
-  _el_57:any;
-  _text_58:any;
-  _el_59:any;
+  _el_54:any;
+  _text_55:any;
+  _el_56:any;
+  _text_57:any;
+  _el_58:any;
+  _text_59:any;
   _el_60:any;
   _text_61:any;
   _el_62:any;
-  _text_63:any;
-  _el_64:any;
-  _text_65:any;
-  _el_66:any;
-  _text_67:any;
-  _el_68:any;
+  _el_63:any;
+  _text_64:any;
+  _el_65:any;
+  _text_66:any;
+  _el_67:any;
+  _text_68:any;
   _el_69:any;
-  _el_70:any;
-  _text_71:any;
+  _text_70:any;
+  _el_71:any;
   _el_72:any;
   _el_73:any;
   _text_74:any;
   _el_75:any;
-  _text_76:any;
-  _el_77:any;
+  _el_76:any;
+  _text_77:any;
   _el_78:any;
-  _el_79:any;
-  _text_80:any;
+  _text_79:any;
+  _el_80:any;
   _el_81:any;
   _el_82:any;
   _text_83:any;
   _el_84:any;
-  _text_85:any;
-  _el_86:any;
+  _el_85:any;
+  _text_86:any;
   _el_87:any;
   _text_88:any;
   _el_89:any;
-  _text_90:any;
-  _el_91:any;
+  _el_90:any;
+  _text_91:any;
   _el_92:any;
   _text_93:any;
   _el_94:any;
-  _text_95:any;
-  _el_96:any;
+  _el_95:any;
+  _text_96:any;
   _el_97:any;
   _text_98:any;
   _el_99:any;
-  _text_100:any;
-  _el_101:any;
-  _text_102:any;
-  _el_103:any;
-  _text_104:any;
-  _el_105:any;
+  _el_100:any;
+  _text_101:any;
+  _el_102:any;
+  _text_103:any;
+  _el_104:any;
+  _text_105:any;
   _el_106:any;
   _text_107:any;
   _el_108:any;
-  _text_109:any;
-  _el_110:any;
+  _el_109:any;
+  _text_110:any;
   _el_111:any;
   _text_112:any;
   _el_113:any;
-  _text_114:any;
-  _el_115:any;
-  _text_116:any;
-  _el_117:any;
-  _text_118:any;
-  _el_119:any;
-  _text_120:any;
-  _el_121:any;
-  _text_122:any;
-  _el_123:any;
-  _text_124:any;
+  _el_114:any;
+  _text_115:any;
+  _el_116:any;
+  _text_117:any;
+  _el_118:any;
+  _text_119:any;
+  _el_120:any;
+  _text_121:any;
+  _el_122:any;
+  _text_123:any;
+  _el_124:any;
+  _el_125:any;
+  _text_126:any;
+  _el_127:any;
+  _text_128:any;
+  _el_129:any;
+  _text_130:any;
+  _el_131:any;
+  _el_132:any;
+  _text_133:any;
+  _el_134:any;
+  _text_135:any;
   constructor(viewUtils:import20.ViewUtils,parentView:import57.AppView<any>,parentIndex:number,parentElement:any) {
     super(View_OverviewExamples0,renderType_OverviewExamples,import59.ViewType.COMPONENT,viewUtils,parentView,parentIndex,parentElement,import60.ChangeDetectorStatus.CheckAlways);
   }
@@ -8296,117 +8459,130 @@ export class View_OverviewExamples0 extends import57.AppView<import1.OverviewExa
     this._PageScroll_17_3 = new import68.Wrapper_PageScroll(this.parentView.injectorGet(import24.PageScrollService,this.parentIndex),this.parentView.injectorGet(import71.Router,this.parentIndex,(null as any)),this.parentView.injectorGet(import41.DOCUMENT,this.parentIndex));
     this._text_18 = this.renderer.createText(this._el_17,'My Personal TypeScript Opinion',(null as any));
     this._el_19 = import20.createRenderElement(this.renderer,this._el_6,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._el_20 = import20.createRenderElement(this.renderer,this._el_19,'a',new import20.InlineArray4(4,'href','#ack-angularjs','pageScroll','pageScroll'),(null as any));
+    this._el_20 = import20.createRenderElement(this.renderer,this._el_19,'a',new import20.InlineArray4(4,'href','#My Ahead-of-Time Experience','pageScroll','pageScroll'),(null as any));
     this._PageScroll_20_3 = new import68.Wrapper_PageScroll(this.parentView.injectorGet(import24.PageScrollService,this.parentIndex),this.parentView.injectorGet(import71.Router,this.parentIndex,(null as any)),this.parentView.injectorGet(import41.DOCUMENT,this.parentIndex));
-    this._text_21 = this.renderer.createText(this._el_20,'ack-angularjs',(null as any));
-    this._el_22 = import20.createRenderElement(this.renderer,parentRenderNode,'h3',new import20.InlineArray2(2,'id','Requirements'),(null as any));
-    this._text_23 = this.renderer.createText(this._el_22,'Requirements',(null as any));
-    this._el_24 = import20.createRenderElement(this.renderer,parentRenderNode,'p',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_25 = this.renderer.createText(this._el_24,'It is very important to understand what connects where',(null as any));
-    this._el_26 = import20.createRenderElement(this.renderer,parentRenderNode,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._el_27 = import20.createRenderElement(this.renderer,this._el_26,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_28 = this.renderer.createText(this._el_27,'core angular components are expected to have already been installed',(null as any));
-    this._el_29 = import20.createRenderElement(this.renderer,this._el_26,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_21 = this.renderer.createText(this._el_20,'My Ahead-of-Time Experience',(null as any));
+    this._el_22 = import20.createRenderElement(this.renderer,this._el_6,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_23 = import20.createRenderElement(this.renderer,this._el_22,'a',new import20.InlineArray4(4,'href','#ack-angularjs','pageScroll','pageScroll'),(null as any));
+    this._PageScroll_23_3 = new import68.Wrapper_PageScroll(this.parentView.injectorGet(import24.PageScrollService,this.parentIndex),this.parentView.injectorGet(import71.Router,this.parentIndex,(null as any)),this.parentView.injectorGet(import41.DOCUMENT,this.parentIndex));
+    this._text_24 = this.renderer.createText(this._el_23,'ack-angularjs',(null as any));
+    this._el_25 = import20.createRenderElement(this.renderer,parentRenderNode,'h3',new import20.InlineArray2(2,'id','Requirements'),(null as any));
+    this._text_26 = this.renderer.createText(this._el_25,'Requirements',(null as any));
+    this._el_27 = import20.createRenderElement(this.renderer,parentRenderNode,'p',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_28 = this.renderer.createText(this._el_27,'It is very important to understand what connects where',(null as any));
+    this._el_29 = import20.createRenderElement(this.renderer,parentRenderNode,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._el_30 = import20.createRenderElement(this.renderer,this._el_29,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_31 = this.renderer.createText(this._el_30,'reflect-metadata',(null as any));
-    this._el_32 = import20.createRenderElement(this.renderer,this._el_29,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_33 = this.renderer.createText(this._el_32,'@angular/core',(null as any));
-    this._el_34 = import20.createRenderElement(this.renderer,this._el_26,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_35 = this.renderer.createText(this._el_34,'jsDependencies',(null as any));
-    this._el_36 = import20.createRenderElement(this.renderer,this._el_26,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._el_37 = import20.createRenderElement(this.renderer,this._el_36,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._el_38 = import20.createRenderElement(this.renderer,this._el_37,'a',new import20.InlineArray2(2,'href','https://www.npmjs.com/package/ack-angular-fx'),(null as any));
-    this._text_39 = this.renderer.createText(this._el_38,'ack-angular-fx',(null as any));
-    this._el_40 = import20.createRenderElement(this.renderer,this._el_36,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._el_41 = import20.createRenderElement(this.renderer,this._el_40,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_42 = this.renderer.createText(this._el_41,'only required for animation implementing',(null as any));
-    this._el_43 = import20.createRenderElement(this.renderer,this._el_40,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_44 = this.renderer.createText(this._el_43,'The following code would depend on ack-angular-fx installation',(null as any));
-    this._el_45 = import20.createRenderElement(this.renderer,this._el_43,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
-    this._text_46 = this.renderer.createText(this._el_45,'import * as fx from "ack-angular/fx"',(null as any));
-    this._el_47 = import20.createRenderElement(this.renderer,this._el_36,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._el_48 = import20.createRenderElement(this.renderer,this._el_47,'a',new import20.InlineArray2(2,'href','https://www.npmjs.com/package/ui-router-ng2'),(null as any));
-    this._text_49 = this.renderer.createText(this._el_48,'ui-router-ng2',(null as any));
-    this._el_50 = import20.createRenderElement(this.renderer,this._el_36,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._el_51 = import20.createRenderElement(this.renderer,this._el_50,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_52 = this.renderer.createText(this._el_51,'only required for router based ack-angular component and services',(null as any));
-    this._el_53 = import20.createRenderElement(this.renderer,this._el_50,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_54 = this.renderer.createText(this._el_53,'The following code would depend on ack-angular-fx installation',(null as any));
-    this._el_55 = import20.createRenderElement(this.renderer,this._el_53,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
-    this._text_56 = this.renderer.createText(this._el_55,'import * as RouteDocWatcher from "ack-angular/RouteDocWatcher.component"\nimport * as RouteWatcher from "ack-angular/RouteWatcher.class"\n',(null as any));
-    this._el_57 = import20.createRenderElement(this.renderer,parentRenderNode,'h3',new import20.InlineArray2(2,'id','This Demo Area'),(null as any));
-    this._text_58 = this.renderer.createText(this._el_57,'This Demo Area',(null as any));
-    this._el_59 = import20.createRenderElement(this.renderer,parentRenderNode,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._el_60 = import20.createRenderElement(this.renderer,this._el_59,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_61 = this.renderer.createText(this._el_60,'Uses hash routing to support github\'s gh-pages servers which do not support html5 non-hash routing',(null as any));
-    this._el_62 = import20.createRenderElement(this.renderer,this._el_59,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_63 = this.renderer.createText(this._el_62,'Pagescrolling, which is not a jsDependency of ack-angular, is provided by ',(null as any));
-    this._el_64 = import20.createRenderElement(this.renderer,this._el_62,'a',new import20.InlineArray2(2,'href','https://www.npmjs.com/package/ng2-page-scroll'),(null as any));
-    this._text_65 = this.renderer.createText(this._el_64,'ng2-page-scroll',(null as any));
-    this._el_66 = import20.createRenderElement(this.renderer,parentRenderNode,'h3',new import20.InlineArray2(2,'id','Resources'),(null as any));
-    this._text_67 = this.renderer.createText(this._el_66,'Resources',(null as any));
-    this._el_68 = import20.createRenderElement(this.renderer,parentRenderNode,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._el_69 = import20.createRenderElement(this.renderer,this._el_68,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._el_70 = import20.createRenderElement(this.renderer,this._el_69,'a',new import20.InlineArray2(2,'href','https://github.com/AckerApple/ack-angular'),(null as any));
-    this._text_71 = this.renderer.createText(this._el_70,'Repository',(null as any));
-    this._el_72 = import20.createRenderElement(this.renderer,this._el_68,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._el_73 = import20.createRenderElement(this.renderer,this._el_72,'a',new import20.InlineArray2(2,'href','https://angular.io/docs/ts/latest/guide/cheatsheet.html'),(null as any));
-    this._text_74 = this.renderer.createText(this._el_73,'Angular2 Cheatsheet',(null as any));
-    this._el_75 = import20.createRenderElement(this.renderer,parentRenderNode,'h3',new import20.InlineArray2(2,'id','My Personal TypeScript Opinion'),(null as any));
-    this._text_76 = this.renderer.createText(this._el_75,'My Personal TypeScript Opinion',(null as any));
-    this._el_77 = import20.createRenderElement(this.renderer,parentRenderNode,'div',new import20.InlineArray2(2,'class','pad-h'),(null as any));
-    this._el_78 = import20.createRenderElement(this.renderer,this._el_77,'div',new import20.InlineArray2(2,'class','border-left-5 border-grey-5x bg-stable pad'),(null as any));
-    this._el_79 = import20.createRenderElement(this.renderer,this._el_78,'i',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_80 = this.renderer.createText(this._el_79,'"TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.""',(null as any));
-    this._el_81 = import20.createRenderElement(this.renderer,this._el_78,'div',new import20.InlineArray2(2,'class','text-sm pad-top'),(null as any));
-    this._el_82 = import20.createRenderElement(this.renderer,this._el_81,'a',new import20.InlineArray2(2,'href','https://www.typescriptlang.org/'),(null as any));
-    this._text_83 = this.renderer.createText(this._el_82,'typescriptlang.org',(null as any));
-    this._el_84 = import20.createRenderElement(this.renderer,this._el_77,'p',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_85 = this.renderer.createText(this._el_84,'The above statement is just not 100% true, it\'s more like 96.5%',(null as any));
-    this._el_86 = import20.createRenderElement(this.renderer,this._el_77,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._el_87 = import20.createRenderElement(this.renderer,this._el_86,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_88 = this.renderer.createText(this._el_87,'ISSUE : ',(null as any));
-    this._el_89 = import20.createRenderElement(this.renderer,this._el_87,'a',new import20.InlineArray2(2,'href','https://github.com/Microsoft/TypeScript/issues/6373'),(null as any));
-    this._text_90 = this.renderer.createText(this._el_89,'TS2339',(null as any));
-    this._el_91 = import20.createRenderElement(this.renderer,this._el_86,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._el_92 = import20.createRenderElement(this.renderer,this._el_91,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_93 = this.renderer.createText(this._el_92,'Error Message : Property \'name\' does not exist on type \'{}\'',(null as any));
-    this._el_94 = import20.createRenderElement(this.renderer,this._el_91,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_95 = this.renderer.createText(this._el_94,'Cannot create object and then add properties to it that were not already defined',(null as any));
-    this._el_96 = import20.createRenderElement(this.renderer,this._el_91,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._el_97 = import20.createRenderElement(this.renderer,this._el_96,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
-    this._text_98 = this.renderer.createText(this._el_97,'let obj = {}\nobj.name = "name prop"',(null as any));
-    this._el_99 = import20.createRenderElement(this.renderer,this._el_96,'div',new import20.InlineArray2(2,'class','text-grey-2x text-sm'),(null as any));
-    this._text_100 = this.renderer.createText(this._el_99,'The above code, under most ts configurations, will fail',(null as any));
-    this._el_101 = import20.createRenderElement(this.renderer,this._el_86,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_102 = this.renderer.createText(this._el_101,'ISSUE : ',(null as any));
-    this._el_103 = import20.createRenderElement(this.renderer,this._el_101,'a',new import20.InlineArray2(2,'href','https://github.com/Microsoft/TypeScript/issues/6373'),(null as any));
-    this._text_104 = this.renderer.createText(this._el_103,'TS2346',(null as any));
-    this._el_105 = import20.createRenderElement(this.renderer,this._el_86,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._el_106 = import20.createRenderElement(this.renderer,this._el_105,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_107 = this.renderer.createText(this._el_106,'Error Message : Supplied parameters do not match any signature of call target.',(null as any));
-    this._el_108 = import20.createRenderElement(this.renderer,this._el_105,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_109 = this.renderer.createText(this._el_108,'You have to call a function with exact number of arguments OR put a question mark in your argument definition',(null as any));
-    this._el_110 = import20.createRenderElement(this.renderer,this._el_105,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._el_111 = import20.createRenderElement(this.renderer,this._el_110,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
-    this._text_112 = this.renderer.createText(this._el_111,'function myFunc(a,b,c){}\n\nmyFunc(1)',(null as any));
-    this._el_113 = import20.createRenderElement(this.renderer,this._el_110,'div',new import20.InlineArray2(2,'class','text-grey-2x text-sm'),(null as any));
-    this._text_114 = this.renderer.createText(this._el_113,'The above code, under most ts configurations, will fail',(null as any));
-    this._el_115 = import20.createRenderElement(this.renderer,this._el_105,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_116 = this.renderer.createText(this._el_115,'Fix',(null as any));
-    this._el_117 = import20.createRenderElement(this.renderer,this._el_115,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
-    this._text_118 = this.renderer.createText(this._el_117,'function myFunc(a,b?,c?){}\n\nmyFunc(1)\n',(null as any));
-    this._el_119 = import20.createRenderElement(this.renderer,parentRenderNode,'h3',new import20.InlineArray2(2,'id','ack-angularjs'),(null as any));
-    this._text_120 = this.renderer.createText(this._el_119,'ack-angularjs',(null as any));
-    this._el_121 = import20.createRenderElement(this.renderer,parentRenderNode,'p',import20.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_122 = this.renderer.createText(this._el_121,'ack-angular is a continuation of successful directives, services, and filters that were established for AngularJs during the building of ',(null as any));
-    this._el_123 = import20.createRenderElement(this.renderer,this._el_121,'a',new import20.InlineArray2(2,'href','https://github.com/AckerApple/ack-angularjs'),(null as any));
-    this._text_124 = this.renderer.createText(this._el_123,'ack-angularjs',(null as any));
+    this._text_31 = this.renderer.createText(this._el_30,'core angular components are expected to have already been installed',(null as any));
+    this._el_32 = import20.createRenderElement(this.renderer,this._el_29,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_33 = import20.createRenderElement(this.renderer,this._el_32,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_34 = this.renderer.createText(this._el_33,'reflect-metadata',(null as any));
+    this._el_35 = import20.createRenderElement(this.renderer,this._el_32,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_36 = this.renderer.createText(this._el_35,'@angular/core',(null as any));
+    this._el_37 = import20.createRenderElement(this.renderer,this._el_29,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_38 = this.renderer.createText(this._el_37,'jsDependencies',(null as any));
+    this._el_39 = import20.createRenderElement(this.renderer,this._el_29,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_40 = import20.createRenderElement(this.renderer,this._el_39,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_41 = import20.createRenderElement(this.renderer,this._el_40,'a',new import20.InlineArray2(2,'href','https://www.npmjs.com/package/ack-angular-fx'),(null as any));
+    this._text_42 = this.renderer.createText(this._el_41,'ack-angular-fx',(null as any));
+    this._el_43 = import20.createRenderElement(this.renderer,this._el_39,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_44 = import20.createRenderElement(this.renderer,this._el_43,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_45 = this.renderer.createText(this._el_44,'only required for animation implementing',(null as any));
+    this._el_46 = import20.createRenderElement(this.renderer,this._el_43,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_47 = this.renderer.createText(this._el_46,'The following code would depend on ack-angular-fx installation',(null as any));
+    this._el_48 = import20.createRenderElement(this.renderer,this._el_46,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
+    this._text_49 = this.renderer.createText(this._el_48,'import * as fx from "ack-angular/fx"',(null as any));
+    this._el_50 = import20.createRenderElement(this.renderer,this._el_39,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_51 = import20.createRenderElement(this.renderer,this._el_50,'a',new import20.InlineArray2(2,'href','https://www.npmjs.com/package/ui-router-ng2'),(null as any));
+    this._text_52 = this.renderer.createText(this._el_51,'ui-router-ng2',(null as any));
+    this._el_53 = import20.createRenderElement(this.renderer,this._el_39,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_54 = import20.createRenderElement(this.renderer,this._el_53,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_55 = this.renderer.createText(this._el_54,'only required for router based ack-angular component and services',(null as any));
+    this._el_56 = import20.createRenderElement(this.renderer,this._el_53,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_57 = this.renderer.createText(this._el_56,'The following code would depend on ack-angular-fx installation',(null as any));
+    this._el_58 = import20.createRenderElement(this.renderer,this._el_56,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
+    this._text_59 = this.renderer.createText(this._el_58,'import * as RouteDocWatcher from "ack-angular/RouteDocWatcher.component"\nimport * as RouteWatcher from "ack-angular/RouteWatcher.class"\n',(null as any));
+    this._el_60 = import20.createRenderElement(this.renderer,parentRenderNode,'h3',new import20.InlineArray2(2,'id','This Demo Area'),(null as any));
+    this._text_61 = this.renderer.createText(this._el_60,'This Demo Area',(null as any));
+    this._el_62 = import20.createRenderElement(this.renderer,parentRenderNode,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_63 = import20.createRenderElement(this.renderer,this._el_62,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_64 = this.renderer.createText(this._el_63,'Uses hash routing to support github\'s gh-pages servers which do not support html5 non-hash routing',(null as any));
+    this._el_65 = import20.createRenderElement(this.renderer,this._el_62,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_66 = this.renderer.createText(this._el_65,'Pagescrolling, which is not a jsDependency of ack-angular, is provided by ',(null as any));
+    this._el_67 = import20.createRenderElement(this.renderer,this._el_65,'a',new import20.InlineArray2(2,'href','https://www.npmjs.com/package/ng2-page-scroll'),(null as any));
+    this._text_68 = this.renderer.createText(this._el_67,'ng2-page-scroll',(null as any));
+    this._el_69 = import20.createRenderElement(this.renderer,parentRenderNode,'h3',new import20.InlineArray2(2,'id','Resources'),(null as any));
+    this._text_70 = this.renderer.createText(this._el_69,'Resources',(null as any));
+    this._el_71 = import20.createRenderElement(this.renderer,parentRenderNode,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_72 = import20.createRenderElement(this.renderer,this._el_71,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_73 = import20.createRenderElement(this.renderer,this._el_72,'a',new import20.InlineArray2(2,'href','https://github.com/AckerApple/ack-angular'),(null as any));
+    this._text_74 = this.renderer.createText(this._el_73,'Repository',(null as any));
+    this._el_75 = import20.createRenderElement(this.renderer,this._el_71,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_76 = import20.createRenderElement(this.renderer,this._el_75,'a',new import20.InlineArray2(2,'href','https://angular.io/docs/ts/latest/guide/cheatsheet.html'),(null as any));
+    this._text_77 = this.renderer.createText(this._el_76,'Angular2 Cheatsheet',(null as any));
+    this._el_78 = import20.createRenderElement(this.renderer,parentRenderNode,'h3',new import20.InlineArray2(2,'id','My Personal TypeScript Opinion'),(null as any));
+    this._text_79 = this.renderer.createText(this._el_78,'My Personal TypeScript Opinion',(null as any));
+    this._el_80 = import20.createRenderElement(this.renderer,parentRenderNode,'div',new import20.InlineArray2(2,'class','pad-h'),(null as any));
+    this._el_81 = import20.createRenderElement(this.renderer,this._el_80,'div',new import20.InlineArray2(2,'class','border-left-5 border-grey-5x bg-stable pad'),(null as any));
+    this._el_82 = import20.createRenderElement(this.renderer,this._el_81,'i',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_83 = this.renderer.createText(this._el_82,'"TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.""',(null as any));
+    this._el_84 = import20.createRenderElement(this.renderer,this._el_81,'div',new import20.InlineArray2(2,'class','text-sm pad-top'),(null as any));
+    this._el_85 = import20.createRenderElement(this.renderer,this._el_84,'a',new import20.InlineArray2(2,'href','https://www.typescriptlang.org/'),(null as any));
+    this._text_86 = this.renderer.createText(this._el_85,'typescriptlang.org',(null as any));
+    this._el_87 = import20.createRenderElement(this.renderer,this._el_80,'p',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_88 = this.renderer.createText(this._el_87,'The above statement is just not 100% true, it\'s more like 96.5%',(null as any));
+    this._el_89 = import20.createRenderElement(this.renderer,this._el_80,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_90 = import20.createRenderElement(this.renderer,this._el_89,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_91 = this.renderer.createText(this._el_90,'ISSUE : ',(null as any));
+    this._el_92 = import20.createRenderElement(this.renderer,this._el_90,'a',new import20.InlineArray2(2,'href','https://github.com/Microsoft/TypeScript/issues/6373'),(null as any));
+    this._text_93 = this.renderer.createText(this._el_92,'TS2339',(null as any));
+    this._el_94 = import20.createRenderElement(this.renderer,this._el_89,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_95 = import20.createRenderElement(this.renderer,this._el_94,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_96 = this.renderer.createText(this._el_95,'Error Message : Property \'name\' does not exist on type \'{}\'',(null as any));
+    this._el_97 = import20.createRenderElement(this.renderer,this._el_94,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_98 = this.renderer.createText(this._el_97,'Cannot create object and then add properties to it that were not already defined',(null as any));
+    this._el_99 = import20.createRenderElement(this.renderer,this._el_94,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_100 = import20.createRenderElement(this.renderer,this._el_99,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
+    this._text_101 = this.renderer.createText(this._el_100,'let obj = {}\nobj.name = "name prop"',(null as any));
+    this._el_102 = import20.createRenderElement(this.renderer,this._el_99,'div',new import20.InlineArray2(2,'class','text-grey-2x text-sm'),(null as any));
+    this._text_103 = this.renderer.createText(this._el_102,'The above code, under most ts configurations, will fail',(null as any));
+    this._el_104 = import20.createRenderElement(this.renderer,this._el_89,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_105 = this.renderer.createText(this._el_104,'ISSUE : ',(null as any));
+    this._el_106 = import20.createRenderElement(this.renderer,this._el_104,'a',new import20.InlineArray2(2,'href','https://github.com/Microsoft/TypeScript/issues/6373'),(null as any));
+    this._text_107 = this.renderer.createText(this._el_106,'TS2346',(null as any));
+    this._el_108 = import20.createRenderElement(this.renderer,this._el_89,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_109 = import20.createRenderElement(this.renderer,this._el_108,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_110 = this.renderer.createText(this._el_109,'Error Message : Supplied parameters do not match any signature of call target.',(null as any));
+    this._el_111 = import20.createRenderElement(this.renderer,this._el_108,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_112 = this.renderer.createText(this._el_111,'You have to call a function with exact number of arguments OR put a question mark in your argument definition',(null as any));
+    this._el_113 = import20.createRenderElement(this.renderer,this._el_108,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_114 = import20.createRenderElement(this.renderer,this._el_113,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
+    this._text_115 = this.renderer.createText(this._el_114,'function myFunc(a,b,c){}\n\nmyFunc(1)',(null as any));
+    this._el_116 = import20.createRenderElement(this.renderer,this._el_113,'div',new import20.InlineArray2(2,'class','text-grey-2x text-sm'),(null as any));
+    this._text_117 = this.renderer.createText(this._el_116,'The above code, under most ts configurations, will fail',(null as any));
+    this._el_118 = import20.createRenderElement(this.renderer,this._el_108,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_119 = this.renderer.createText(this._el_118,'Fix',(null as any));
+    this._el_120 = import20.createRenderElement(this.renderer,this._el_118,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
+    this._text_121 = this.renderer.createText(this._el_120,'function myFunc(a,b?,c?){}\n\nmyFunc(1)\n',(null as any));
+    this._el_122 = import20.createRenderElement(this.renderer,parentRenderNode,'h3',new import20.InlineArray4(4,'class','margin-bottom-xs','id','My Ahead-of-Time Experience'),(null as any));
+    this._text_123 = this.renderer.createText(this._el_122,'My Ahead-of-Time Experience',(null as any));
+    this._el_124 = import20.createRenderElement(this.renderer,parentRenderNode,'div',new import20.InlineArray2(2,'class','pad-h'),(null as any));
+    this._el_125 = import20.createRenderElement(this.renderer,this._el_124,'p',new import20.InlineArray2(2,'class','margin-top-xs margin-left text-grey-2x'),(null as any));
+    this._text_126 = this.renderer.createText(this._el_125,'Its Complicated',(null as any));
+    this._el_127 = import20.createRenderElement(this.renderer,this._el_124,'p',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_128 = this.renderer.createText(this._el_127,'In the past, I\'ve had large AngularJs (ng1) apps that loaded seemingly instantly. Without Ahead-of-Time (AoT) compiling, Angular2 takes seconds to load in browser. When applying AoT compiling, Angular2 certainly loads faster. I depend on @angular/compiler-cli (ngc) to compile AoT and it has "limitations" that make the whole process a bit more complicated.',(null as any));
+    this._el_129 = import20.createRenderElement(this.renderer,parentRenderNode,'h3',new import20.InlineArray2(2,'id','ack-angularjs'),(null as any));
+    this._text_130 = this.renderer.createText(this._el_129,'ack-angularjs',(null as any));
+    this._el_131 = import20.createRenderElement(this.renderer,parentRenderNode,'div',new import20.InlineArray2(2,'class','pad-h'),(null as any));
+    this._el_132 = import20.createRenderElement(this.renderer,this._el_131,'p',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_133 = this.renderer.createText(this._el_132,'ack-angular is a continuation of successful directives, services, and filters that were established for AngularJs during the building of ',(null as any));
+    this._el_134 = import20.createRenderElement(this.renderer,this._el_132,'a',new import20.InlineArray2(2,'href','https://github.com/AckerApple/ack-angularjs'),(null as any));
+    this._text_135 = this.renderer.createText(this._el_134,'ack-angularjs',(null as any));
     var disposable_0:Function = import20.subscribeToRenderElement(this,this._el_8,new import20.InlineArray2(2,'click',(null as any)),this.eventHandler(this.handleEvent_8));
     var disposable_1:Function = import20.subscribeToRenderElement(this,this._el_11,new import20.InlineArray2(2,'click',(null as any)),this.eventHandler(this.handleEvent_11));
     var disposable_2:Function = import20.subscribeToRenderElement(this,this._el_14,new import20.InlineArray2(2,'click',(null as any)),this.eventHandler(this.handleEvent_14));
     var disposable_3:Function = import20.subscribeToRenderElement(this,this._el_17,new import20.InlineArray2(2,'click',(null as any)),this.eventHandler(this.handleEvent_17));
     var disposable_4:Function = import20.subscribeToRenderElement(this,this._el_20,new import20.InlineArray2(2,'click',(null as any)),this.eventHandler(this.handleEvent_20));
+    var disposable_5:Function = import20.subscribeToRenderElement(this,this._el_23,new import20.InlineArray2(2,'click',(null as any)),this.eventHandler(this.handleEvent_23));
     this.init((null as any),((<any>this.renderer).directRenderer? (null as any): [
       this._el_0,
       this._el_1,
@@ -8431,115 +8607,127 @@ export class View_OverviewExamples0 extends import57.AppView<import1.OverviewExa
       this._el_20,
       this._text_21,
       this._el_22,
-      this._text_23,
-      this._el_24,
-      this._text_25,
-      this._el_26,
+      this._el_23,
+      this._text_24,
+      this._el_25,
+      this._text_26,
       this._el_27,
       this._text_28,
       this._el_29,
       this._el_30,
       this._text_31,
       this._el_32,
-      this._text_33,
-      this._el_34,
-      this._text_35,
-      this._el_36,
+      this._el_33,
+      this._text_34,
+      this._el_35,
+      this._text_36,
       this._el_37,
-      this._el_38,
-      this._text_39,
+      this._text_38,
+      this._el_39,
       this._el_40,
       this._el_41,
       this._text_42,
       this._el_43,
-      this._text_44,
-      this._el_45,
-      this._text_46,
-      this._el_47,
+      this._el_44,
+      this._text_45,
+      this._el_46,
+      this._text_47,
       this._el_48,
       this._text_49,
       this._el_50,
       this._el_51,
       this._text_52,
       this._el_53,
-      this._text_54,
-      this._el_55,
-      this._text_56,
-      this._el_57,
-      this._text_58,
-      this._el_59,
+      this._el_54,
+      this._text_55,
+      this._el_56,
+      this._text_57,
+      this._el_58,
+      this._text_59,
       this._el_60,
       this._text_61,
       this._el_62,
-      this._text_63,
-      this._el_64,
-      this._text_65,
-      this._el_66,
-      this._text_67,
-      this._el_68,
+      this._el_63,
+      this._text_64,
+      this._el_65,
+      this._text_66,
+      this._el_67,
+      this._text_68,
       this._el_69,
-      this._el_70,
-      this._text_71,
+      this._text_70,
+      this._el_71,
       this._el_72,
       this._el_73,
       this._text_74,
       this._el_75,
-      this._text_76,
-      this._el_77,
+      this._el_76,
+      this._text_77,
       this._el_78,
-      this._el_79,
-      this._text_80,
+      this._text_79,
+      this._el_80,
       this._el_81,
       this._el_82,
       this._text_83,
       this._el_84,
-      this._text_85,
-      this._el_86,
+      this._el_85,
+      this._text_86,
       this._el_87,
       this._text_88,
       this._el_89,
-      this._text_90,
-      this._el_91,
+      this._el_90,
+      this._text_91,
       this._el_92,
       this._text_93,
       this._el_94,
-      this._text_95,
-      this._el_96,
+      this._el_95,
+      this._text_96,
       this._el_97,
       this._text_98,
       this._el_99,
-      this._text_100,
-      this._el_101,
-      this._text_102,
-      this._el_103,
-      this._text_104,
-      this._el_105,
+      this._el_100,
+      this._text_101,
+      this._el_102,
+      this._text_103,
+      this._el_104,
+      this._text_105,
       this._el_106,
       this._text_107,
       this._el_108,
-      this._text_109,
-      this._el_110,
+      this._el_109,
+      this._text_110,
       this._el_111,
       this._text_112,
       this._el_113,
-      this._text_114,
-      this._el_115,
-      this._text_116,
-      this._el_117,
-      this._text_118,
-      this._el_119,
-      this._text_120,
-      this._el_121,
-      this._text_122,
-      this._el_123,
-      this._text_124
+      this._el_114,
+      this._text_115,
+      this._el_116,
+      this._text_117,
+      this._el_118,
+      this._text_119,
+      this._el_120,
+      this._text_121,
+      this._el_122,
+      this._text_123,
+      this._el_124,
+      this._el_125,
+      this._text_126,
+      this._el_127,
+      this._text_128,
+      this._el_129,
+      this._text_130,
+      this._el_131,
+      this._el_132,
+      this._text_133,
+      this._el_134,
+      this._text_135
     ]
     ),[
       disposable_0,
       disposable_1,
       disposable_2,
       disposable_3,
-      disposable_4
+      disposable_4,
+      disposable_5
     ]
     );
     return (null as any);
@@ -8550,6 +8738,7 @@ export class View_OverviewExamples0 extends import57.AppView<import1.OverviewExa
     if (((token === import72.PageScroll) && ((14 <= requestNodeIndex) && (requestNodeIndex <= 15)))) { return this._PageScroll_14_3.context; }
     if (((token === import72.PageScroll) && ((17 <= requestNodeIndex) && (requestNodeIndex <= 18)))) { return this._PageScroll_17_3.context; }
     if (((token === import72.PageScroll) && ((20 <= requestNodeIndex) && (requestNodeIndex <= 21)))) { return this._PageScroll_20_3.context; }
+    if (((token === import72.PageScroll) && ((23 <= requestNodeIndex) && (requestNodeIndex <= 24)))) { return this._PageScroll_23_3.context; }
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {
@@ -8573,11 +8762,16 @@ export class View_OverviewExamples0 extends import57.AppView<import1.OverviewExa
     const currVal_17_0_1:any = 'pageScroll';
     this._PageScroll_17_3.check_pageScroll(currVal_17_0_1,throwOnChange,false);
     this._PageScroll_17_3.ngDoCheck(this,this._el_17,throwOnChange);
-    const currVal_20_0_0:any = '#ack-angularjs';
+    const currVal_20_0_0:any = '#My Ahead-of-Time Experience';
     this._PageScroll_20_3.check_href(currVal_20_0_0,throwOnChange,false);
     const currVal_20_0_1:any = 'pageScroll';
     this._PageScroll_20_3.check_pageScroll(currVal_20_0_1,throwOnChange,false);
     this._PageScroll_20_3.ngDoCheck(this,this._el_20,throwOnChange);
+    const currVal_23_0_0:any = '#ack-angularjs';
+    this._PageScroll_23_3.check_href(currVal_23_0_0,throwOnChange,false);
+    const currVal_23_0_1:any = 'pageScroll';
+    this._PageScroll_23_3.check_pageScroll(currVal_23_0_1,throwOnChange,false);
+    this._PageScroll_23_3.ngDoCheck(this,this._el_23,throwOnChange);
   }
   destroyInternal():void {
     this._PageScroll_8_3.ngOnDestroy();
@@ -8585,6 +8779,7 @@ export class View_OverviewExamples0 extends import57.AppView<import1.OverviewExa
     this._PageScroll_14_3.ngOnDestroy();
     this._PageScroll_17_3.ngOnDestroy();
     this._PageScroll_20_3.ngOnDestroy();
+    this._PageScroll_23_3.ngOnDestroy();
   }
   handleEvent_8(eventName:string,$event:any):boolean {
     this.markPathToRootAsCheckOnce();
@@ -8614,6 +8809,12 @@ export class View_OverviewExamples0 extends import57.AppView<import1.OverviewExa
     this.markPathToRootAsCheckOnce();
     var result:boolean = true;
     result = (this._PageScroll_20_3.handleEvent(eventName,$event) && result);
+    return result;
+  }
+  handleEvent_23(eventName:string,$event:any):boolean {
+    this.markPathToRootAsCheckOnce();
+    var result:boolean = true;
+    result = (this._PageScroll_23_3.handleEvent(eventName,$event) && result);
     return result;
   }
 }
@@ -11751,6 +11952,102 @@ class View_ComponentsExamples1 extends import57.AppView<any> {
   _el_1:any;
   _text_2:any;
   _el_3:any;
+  _text_4:any;
+  /*private*/ _expr_5:any;
+  /*private*/ _expr_6:any;
+  constructor(viewUtils:import20.ViewUtils,parentView:import57.AppView<any>,parentIndex:number,parentElement:any,declaredViewContainer:import69.ViewContainer) {
+    super(View_ComponentsExamples1,renderType_ComponentsExamples,import59.ViewType.EMBEDDED,viewUtils,parentView,parentIndex,parentElement,import60.ChangeDetectorStatus.CheckAlways,declaredViewContainer);
+    this._expr_5 = import70.UNINITIALIZED;
+    this._expr_6 = import70.UNINITIALIZED;
+  }
+  createInternal(rootSelector:string):import61.ComponentRef<any> {
+    this._el_0 = import20.createRenderElement(this.renderer,(null as any),'div',new import20.InlineArray2(2,'class','border border-top-0 border-grey-4x bg-stable'),(null as any));
+    this._el_1 = import20.createRenderElement(this.renderer,this._el_0,'h4',new import20.InlineArray2(2,'class','pad-sm margin-0'),(null as any));
+    this._text_2 = this.renderer.createText(this._el_1,'Usage Example',(null as any));
+    this._el_3 = import20.createRenderElement(this.renderer,this._el_0,'pre',new import20.InlineArray2(2,'class','code-sample margin-0'),(null as any));
+    this._text_4 = this.renderer.createText(this._el_3,'',(null as any));
+    this.init(this._el_0,((<any>this.renderer).directRenderer? (null as any): [
+      this._el_0,
+      this._el_1,
+      this._text_2,
+      this._el_3,
+      this._text_4
+    ]
+    ),(null as any));
+    return (null as any);
+  }
+  detectChangesInternal(throwOnChange:boolean):void {
+    const currVal_5:any = 'fadeInUp';
+    if (import20.checkBinding(throwOnChange,this._expr_5,currVal_5)) {
+      var animationTransition_500:any = this.componentType.animations['500'](this,this._el_0,((this._expr_5 == import70.UNINITIALIZED)? 'void': this._expr_5),((currVal_5 == import70.UNINITIALIZED)? 'void': currVal_5));
+      this._expr_5 = currVal_5;
+    }
+    const currVal_6:any = import20.inlineInterpolate(1,'<div("[(screenWidthModel)]"="screenWidthModel")>\n  |screenWidthModel : ',this.parentView.context.screenWidthModel,'px\n</div>\n');
+    if (import20.checkBinding(throwOnChange,this._expr_6,currVal_6)) {
+      this.renderer.setText(this._text_4,currVal_6);
+      this._expr_6 = currVal_6;
+    }
+  }
+  detachInternal():void {
+    var animationTransition_500:any = this.componentType.animations['500'](this,this._el_0,this._expr_5,'void');
+  }
+  visitRootNodesInternal(cb:any,ctx:any):void {
+    cb(this._el_0,ctx);
+  }
+}
+class View_ComponentsExamples2 extends import57.AppView<any> {
+  _el_0:any;
+  _el_1:any;
+  _text_2:any;
+  _el_3:any;
+  _text_4:any;
+  /*private*/ _expr_5:any;
+  /*private*/ _expr_6:any;
+  constructor(viewUtils:import20.ViewUtils,parentView:import57.AppView<any>,parentIndex:number,parentElement:any,declaredViewContainer:import69.ViewContainer) {
+    super(View_ComponentsExamples2,renderType_ComponentsExamples,import59.ViewType.EMBEDDED,viewUtils,parentView,parentIndex,parentElement,import60.ChangeDetectorStatus.CheckAlways,declaredViewContainer);
+    this._expr_5 = import70.UNINITIALIZED;
+    this._expr_6 = import70.UNINITIALIZED;
+  }
+  createInternal(rootSelector:string):import61.ComponentRef<any> {
+    this._el_0 = import20.createRenderElement(this.renderer,(null as any),'div',new import20.InlineArray2(2,'class','border border-top-0 border-grey-4x bg-stable'),(null as any));
+    this._el_1 = import20.createRenderElement(this.renderer,this._el_0,'h4',new import20.InlineArray2(2,'class','pad-sm margin-0'),(null as any));
+    this._text_2 = this.renderer.createText(this._el_1,'Usage Example',(null as any));
+    this._el_3 = import20.createRenderElement(this.renderer,this._el_0,'pre',new import20.InlineArray2(2,'class','code-sample margin-0'),(null as any));
+    this._text_4 = this.renderer.createText(this._el_3,'',(null as any));
+    this.init(this._el_0,((<any>this.renderer).directRenderer? (null as any): [
+      this._el_0,
+      this._el_1,
+      this._text_2,
+      this._el_3,
+      this._text_4
+    ]
+    ),(null as any));
+    return (null as any);
+  }
+  detectChangesInternal(throwOnChange:boolean):void {
+    const currVal_5:any = 'fadeInUp';
+    if (import20.checkBinding(throwOnChange,this._expr_5,currVal_5)) {
+      var animationTransition_500:any = this.componentType.animations['500'](this,this._el_0,((this._expr_5 == import70.UNINITIALIZED)? 'void': this._expr_5),((currVal_5 == import70.UNINITIALIZED)? 'void': currVal_5));
+      this._expr_5 = currVal_5;
+    }
+    const currVal_6:any = import20.inlineInterpolate(1,'<div("[(screenHeightModel)]"="screenHeightModel")>\n  |screenHeightModel : ',this.parentView.context.screenHeightModel,'px\n</div>\n');
+    if (import20.checkBinding(throwOnChange,this._expr_6,currVal_6)) {
+      this.renderer.setText(this._text_4,currVal_6);
+      this._expr_6 = currVal_6;
+    }
+  }
+  detachInternal():void {
+    var animationTransition_500:any = this.componentType.animations['500'](this,this._el_0,this._expr_5,'void');
+  }
+  visitRootNodesInternal(cb:any,ctx:any):void {
+    cb(this._el_0,ctx);
+  }
+}
+class View_ComponentsExamples3 extends import57.AppView<any> {
+  _el_0:any;
+  _el_1:any;
+  _text_2:any;
+  _el_3:any;
   _el_4:any;
   _text_5:any;
   _el_6:any;
@@ -11763,28 +12060,28 @@ class View_ComponentsExamples1 extends import57.AppView<any> {
   _text_13:any;
   /*private*/ _expr_14:any;
   /*private*/ _expr_15:any;
-  _pipe_json_0:import91.JsonPipe;
+  _pipe_json_0:import95.JsonPipe;
   constructor(viewUtils:import20.ViewUtils,parentView:import57.AppView<any>,parentIndex:number,parentElement:any,declaredViewContainer:import69.ViewContainer) {
-    super(View_ComponentsExamples1,renderType_ComponentsExamples,import59.ViewType.EMBEDDED,viewUtils,parentView,parentIndex,parentElement,import60.ChangeDetectorStatus.CheckAlways,declaredViewContainer);
+    super(View_ComponentsExamples3,renderType_ComponentsExamples,import59.ViewType.EMBEDDED,viewUtils,parentView,parentIndex,parentElement,import60.ChangeDetectorStatus.CheckAlways,declaredViewContainer);
     this._expr_14 = import70.UNINITIALIZED;
     this._expr_15 = import70.UNINITIALIZED;
   }
   createInternal(rootSelector:string):import61.ComponentRef<any> {
-    this._el_0 = import20.createRenderElement(this.renderer,(null as any),'div',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_0 = import20.createRenderElement(this.renderer,(null as any),'div',new import20.InlineArray2(2,'class','border border-top-0 border-grey-4x bg-stable'),(null as any));
     this._el_1 = import20.createRenderElement(this.renderer,this._el_0,'div',new import20.InlineArray2(2,'class','pad'),(null as any));
     this._text_2 = this.renderer.createText(this._el_1,'Requirements',(null as any));
     this._el_3 = import20.createRenderElement(this.renderer,this._el_1,'ul',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._el_4 = import20.createRenderElement(this.renderer,this._el_3,'li',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._text_5 = this.renderer.createText(this._el_4,'ui-router-ng2',(null as any));
-    this._el_6 = import20.createRenderElement(this.renderer,this._el_0,'h4',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_6 = import20.createRenderElement(this.renderer,this._el_0,'h4',new import20.InlineArray2(2,'class','pad-sm margin-0'),(null as any));
     this._text_7 = this.renderer.createText(this._el_6,'Usage Example',(null as any));
-    this._el_8 = import20.createRenderElement(this.renderer,this._el_0,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
+    this._el_8 = import20.createRenderElement(this.renderer,this._el_0,'pre',new import20.InlineArray2(2,'class','code-sample margin-0'),(null as any));
     this._text_9 = this.renderer.createText(this._el_8,'<route-doc-watcher [(ref)]="" (beforeChange)="" (onChange)="">',(null as any));
     this._el_10 = import20.createRenderElement(this.renderer,this._el_0,'h4',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._text_11 = this.renderer.createText(this._el_10,'ref example',(null as any));
-    this._el_12 = import20.createRenderElement(this.renderer,this._el_0,'pre',new import20.InlineArray2(2,'class','code-sample max-height-500'),(null as any));
+    this._el_12 = import20.createRenderElement(this.renderer,this._el_0,'pre',new import20.InlineArray2(2,'class','code-sample margin-0 max-height-500'),(null as any));
     this._text_13 = this.renderer.createText(this._el_12,'',(null as any));
-    this._pipe_json_0 = new import91.JsonPipe();
+    this._pipe_json_0 = new import95.JsonPipe();
     this.init(this._el_0,((<any>this.renderer).directRenderer? (null as any): [
       this._el_0,
       this._el_1,
@@ -11833,83 +12130,333 @@ var renderType_ComponentsExamples:import43.RenderComponentType = import20.create
 );
 export class View_ComponentsExamples0 extends import57.AppView<import1.ComponentsExamples> {
   _el_0:any;
-  _el_1:any;
+  _text_1:any;
   _el_2:any;
-  _text_3:any;
-  _el_4:any;
-  _text_5:any;
-  _el_6:any;
+  _el_3:any;
+  _text_4:any;
+  _el_5:any;
+  _text_6:any;
   _el_7:any;
-  _NgClass_7_3:import75.Wrapper_NgClass;
-  _text_8:any;
-  _anchor_9:any;
-  /*private*/ _vc_9:import69.ViewContainer;
-  _TemplateRef_9_5:any;
-  _NgIf_9_6:import76.Wrapper_NgIf;
-  _map_14:any;
+  _el_8:any;
+  _el_9:any;
+  _el_10:any;
+  _ScreenWidthModel_10_3:import73.Wrapper_ScreenWidthModel;
+  _el_11:any;
+  _el_12:any;
+  _text_13:any;
+  _el_14:any;
+  _text_15:any;
+  _el_16:any;
+  _el_17:any;
+  _el_18:any;
+  _NgClass_18_3:import75.Wrapper_NgClass;
+  _text_19:any;
+  _anchor_20:any;
+  /*private*/ _vc_20:import69.ViewContainer;
+  _TemplateRef_20_5:any;
+  _NgIf_20_6:import77.Wrapper_NgIf;
+  _el_21:any;
+  _el_22:any;
+  _el_23:any;
+  _ScreenHeightModel_23_3:import73.Wrapper_ScreenHeightModel;
+  _el_24:any;
+  _el_25:any;
+  _text_26:any;
+  _el_27:any;
+  _text_28:any;
+  _el_29:any;
+  _el_30:any;
+  _el_31:any;
+  _NgClass_31_3:import75.Wrapper_NgClass;
+  _text_32:any;
+  _anchor_33:any;
+  /*private*/ _vc_33:import69.ViewContainer;
+  _TemplateRef_33_5:any;
+  _NgIf_33_6:import77.Wrapper_NgIf;
+  _el_34:any;
+  _el_35:any;
+  _text_36:any;
+  _el_37:any;
+  _el_38:any;
+  _text_39:any;
+  _el_40:any;
+  _el_41:any;
+  _el_42:any;
+  _el_43:any;
+  _el_44:any;
+  _text_45:any;
+  _el_46:any;
+  _text_47:any;
+  _el_48:any;
+  _el_49:any;
+  _el_50:any;
+  _NgClass_50_3:import75.Wrapper_NgClass;
+  _text_51:any;
+  _anchor_52:any;
+  /*private*/ _vc_52:import69.ViewContainer;
+  _TemplateRef_52_5:any;
+  _NgIf_52_6:import77.Wrapper_NgIf;
+  /*private*/ _expr_67:any;
+  /*private*/ _expr_68:any;
   constructor(viewUtils:import20.ViewUtils,parentView:import57.AppView<any>,parentIndex:number,parentElement:any) {
     super(View_ComponentsExamples0,renderType_ComponentsExamples,import59.ViewType.COMPONENT,viewUtils,parentView,parentIndex,parentElement,import60.ChangeDetectorStatus.CheckAlways);
-    this._map_14 = import20.pureProxy1((p0:any):{[key: string]:any} => {
-      return {'border-energized bg-energized': p0};
-    });
+    this._expr_67 = import70.UNINITIALIZED;
+    this._expr_68 = import70.UNINITIALIZED;
   }
   createInternal(rootSelector:string):import61.ComponentRef<any> {
     const parentRenderNode:any = this.renderer.createViewRoot(this.parentElement);
-    this._el_0 = import20.createRenderElement(this.renderer,parentRenderNode,'fieldset',new import20.InlineArray2(2,'class','border-dotted border-grey-2x border'),(null as any));
-    this._el_1 = import20.createRenderElement(this.renderer,this._el_0,'legend',new import20.InlineArray2(2,'class','pad-h'),(null as any));
-    this._el_2 = import20.createRenderElement(this.renderer,this._el_1,'h3',new import20.InlineArray2(2,'class','margin-0'),(null as any));
-    this._text_3 = this.renderer.createText(this._el_2,'route-doc-watcher',(null as any));
-    this._el_4 = import20.createRenderElement(this.renderer,this._el_0,'p',new import20.InlineArray2(2,'class','text-grey-2x'),(null as any));
-    this._text_5 = this.renderer.createText(this._el_4,'Get in tune with your document route states',(null as any));
-    this._el_6 = import20.createRenderElement(this.renderer,this._el_0,'div',new import20.InlineArray2(2,'class','text-center'),(null as any));
-    this._el_7 = import20.createRenderElement(this.renderer,this._el_6,'div',new import20.InlineArray2(2,'class','border border-info pad-xs'),(null as any));
-    this._NgClass_7_3 = new import75.Wrapper_NgClass(this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.parentView.injectorGet(import46.KeyValueDiffers,this.parentIndex),new import77.ElementRef(this._el_7),this.renderer);
-    this._text_8 = this.renderer.createText(this._el_7,'view details',(null as any));
-    this._anchor_9 = this.renderer.createTemplateAnchor(this._el_0,(null as any));
-    this._vc_9 = new import69.ViewContainer(9,0,this,this._anchor_9);
-    this._TemplateRef_9_5 = new import78.TemplateRef_(this,9,this._anchor_9);
-    this._NgIf_9_6 = new import76.Wrapper_NgIf(this._vc_9.vcRef,this._TemplateRef_9_5);
-    var disposable_0:Function = import20.subscribeToRenderElement(this,this._el_7,new import20.InlineArray2(2,'click',(null as any)),this.eventHandler(this.handleEvent_7));
+    this._el_0 = import20.createRenderElement(this.renderer,parentRenderNode,'h3',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_1 = this.renderer.createText(this._el_0,'Common Components',(null as any));
+    this._el_2 = import20.createRenderElement(this.renderer,parentRenderNode,'div',new import20.InlineArray2(2,'class','pad-h'),(null as any));
+    this._el_3 = import20.createRenderElement(this.renderer,this._el_2,'p',new import20.InlineArray2(2,'class','margin-bottom-0'),(null as any));
+    this._text_4 = this.renderer.createText(this._el_3,'Import Example',(null as any));
+    this._el_5 = import20.createRenderElement(this.renderer,this._el_2,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
+    this._text_6 = this.renderer.createText(this._el_5,'import { declarations as ackDecs } from "ack-angular/components"\nimport { NgModule } from \'@angular/core\';\n\n@NgModule({\n  declarations:ackDecs\n})\n',(null as any));
+    this._el_7 = import20.createRenderElement(this.renderer,parentRenderNode,'div',new import20.InlineArray2(2,'class','flex-wrap child-pad-xs'),(null as any));
+    this._el_8 = import20.createRenderElement(this.renderer,this._el_7,'div',new import20.InlineArray2(2,'class','width-full flex1'),(null as any));
+    this._el_9 = import20.createRenderElement(this.renderer,this._el_8,'div',new import20.InlineArray2(2,'class','border border-grey-4x border width-full border-bottom-0'),(null as any));
+    this._el_10 = import20.createRenderElement(this.renderer,this._el_9,'div',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._ScreenWidthModel_10_3 = new import73.Wrapper_ScreenWidthModel();
+    this._el_11 = import20.createRenderElement(this.renderer,this._el_9,'div',new import20.InlineArray2(2,'class','pad-h'),(null as any));
+    this._el_12 = import20.createRenderElement(this.renderer,this._el_11,'h3',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_13 = this.renderer.createText(this._el_12,'screenWidthModel',(null as any));
+    this._el_14 = import20.createRenderElement(this.renderer,this._el_11,'p',new import20.InlineArray2(2,'class','margin-0 text-grey-2x'),(null as any));
+    this._text_15 = this.renderer.createText(this._el_14,'',(null as any));
+    this._el_16 = import20.createRenderElement(this.renderer,this._el_11,'br',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_17 = import20.createRenderElement(this.renderer,this._el_8,'div',new import20.InlineArray2(2,'class','text-center'),(null as any));
+    this._el_18 = import20.createRenderElement(this.renderer,this._el_17,'div',new import20.InlineArray2(2,'class','border pad-xs'),(null as any));
+    this._NgClass_18_3 = new import75.Wrapper_NgClass(this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.parentView.injectorGet(import46.KeyValueDiffers,this.parentIndex),new import78.ElementRef(this._el_18),this.renderer);
+    this._text_19 = this.renderer.createText(this._el_18,'view details',(null as any));
+    this._anchor_20 = this.renderer.createTemplateAnchor(this._el_8,(null as any));
+    this._vc_20 = new import69.ViewContainer(20,8,this,this._anchor_20);
+    this._TemplateRef_20_5 = new import79.TemplateRef_(this,20,this._anchor_20);
+    this._NgIf_20_6 = new import77.Wrapper_NgIf(this._vc_20.vcRef,this._TemplateRef_20_5);
+    this._el_21 = import20.createRenderElement(this.renderer,this._el_7,'div',new import20.InlineArray2(2,'class','width-full flex1'),(null as any));
+    this._el_22 = import20.createRenderElement(this.renderer,this._el_21,'div',new import20.InlineArray2(2,'class','border border-grey-4x border width-full border-bottom-0'),(null as any));
+    this._el_23 = import20.createRenderElement(this.renderer,this._el_22,'div',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._ScreenHeightModel_23_3 = new import73.Wrapper_ScreenHeightModel();
+    this._el_24 = import20.createRenderElement(this.renderer,this._el_22,'div',new import20.InlineArray2(2,'class','pad-h'),(null as any));
+    this._el_25 = import20.createRenderElement(this.renderer,this._el_24,'h3',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_26 = this.renderer.createText(this._el_25,'screenHeightModel',(null as any));
+    this._el_27 = import20.createRenderElement(this.renderer,this._el_24,'p',new import20.InlineArray2(2,'class','margin-0 text-grey-2x'),(null as any));
+    this._text_28 = this.renderer.createText(this._el_27,'',(null as any));
+    this._el_29 = import20.createRenderElement(this.renderer,this._el_24,'br',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_30 = import20.createRenderElement(this.renderer,this._el_21,'div',new import20.InlineArray2(2,'class','text-center'),(null as any));
+    this._el_31 = import20.createRenderElement(this.renderer,this._el_30,'div',new import20.InlineArray2(2,'class','border pad-xs'),(null as any));
+    this._NgClass_31_3 = new import75.Wrapper_NgClass(this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.parentView.injectorGet(import46.KeyValueDiffers,this.parentIndex),new import78.ElementRef(this._el_31),this.renderer);
+    this._text_32 = this.renderer.createText(this._el_31,'view details',(null as any));
+    this._anchor_33 = this.renderer.createTemplateAnchor(this._el_21,(null as any));
+    this._vc_33 = new import69.ViewContainer(33,21,this,this._anchor_33);
+    this._TemplateRef_33_5 = new import79.TemplateRef_(this,33,this._anchor_33);
+    this._NgIf_33_6 = new import77.Wrapper_NgIf(this._vc_33.vcRef,this._TemplateRef_33_5);
+    this._el_34 = import20.createRenderElement(this.renderer,parentRenderNode,'br',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_35 = import20.createRenderElement(this.renderer,parentRenderNode,'h3',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_36 = this.renderer.createText(this._el_35,'Complex Components',(null as any));
+    this._el_37 = import20.createRenderElement(this.renderer,parentRenderNode,'div',new import20.InlineArray2(2,'class','pad-h'),(null as any));
+    this._el_38 = import20.createRenderElement(this.renderer,this._el_37,'p',new import20.InlineArray2(2,'class','margin-bottom-0'),(null as any));
+    this._text_39 = this.renderer.createText(this._el_38,'Components that have additional dependencies or restrictions',(null as any));
+    this._el_40 = import20.createRenderElement(this.renderer,parentRenderNode,'div',new import20.InlineArray2(2,'class','flex-wrap child-pad-xs'),(null as any));
+    this._el_41 = import20.createRenderElement(this.renderer,this._el_40,'div',new import20.InlineArray2(2,'class','width-full flex1'),(null as any));
+    this._el_42 = import20.createRenderElement(this.renderer,this._el_41,'div',new import20.InlineArray2(2,'class','border border-grey-4x border width-full border-bottom-0'),(null as any));
+    this._el_43 = import20.createRenderElement(this.renderer,this._el_42,'div',new import20.InlineArray2(2,'class','pad-h'),(null as any));
+    this._el_44 = import20.createRenderElement(this.renderer,this._el_43,'h3',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._text_45 = this.renderer.createText(this._el_44,'route-doc-watcher',(null as any));
+    this._el_46 = import20.createRenderElement(this.renderer,this._el_43,'p',new import20.InlineArray2(2,'class','margin-0 text-grey-2x'),(null as any));
+    this._text_47 = this.renderer.createText(this._el_46,'Get in tune with your document route states',(null as any));
+    this._el_48 = import20.createRenderElement(this.renderer,this._el_43,'br',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_49 = import20.createRenderElement(this.renderer,this._el_41,'div',new import20.InlineArray2(2,'class','text-center'),(null as any));
+    this._el_50 = import20.createRenderElement(this.renderer,this._el_49,'div',new import20.InlineArray2(2,'class','border pad-xs'),(null as any));
+    this._NgClass_50_3 = new import75.Wrapper_NgClass(this.parentView.injectorGet(import45.IterableDiffers,this.parentIndex),this.parentView.injectorGet(import46.KeyValueDiffers,this.parentIndex),new import78.ElementRef(this._el_50),this.renderer);
+    this._text_51 = this.renderer.createText(this._el_50,'view details',(null as any));
+    this._anchor_52 = this.renderer.createTemplateAnchor(this._el_41,(null as any));
+    this._vc_52 = new import69.ViewContainer(52,41,this,this._anchor_52);
+    this._TemplateRef_52_5 = new import79.TemplateRef_(this,52,this._anchor_52);
+    this._NgIf_52_6 = new import77.Wrapper_NgIf(this._vc_52.vcRef,this._TemplateRef_52_5);
+    var disposable_0:Function = import20.subscribeToRenderElement(this,this._el_10,new import20.InlineArray2(2,'screenWidthModelChange',(null as any)),this.eventHandler(this.handleEvent_10));
+    this._ScreenWidthModel_10_3.subscribe(this,this.eventHandler(this.handleEvent_10),true);
+    var disposable_1:Function = import20.subscribeToRenderElement(this,this._el_18,new import20.InlineArray2(2,'click',(null as any)),this.eventHandler(this.handleEvent_18));
+    var disposable_2:Function = import20.subscribeToRenderElement(this,this._el_23,new import20.InlineArray2(2,'screenHeightModelChange',(null as any)),this.eventHandler(this.handleEvent_23));
+    this._ScreenHeightModel_23_3.subscribe(this,this.eventHandler(this.handleEvent_23),true);
+    var disposable_3:Function = import20.subscribeToRenderElement(this,this._el_31,new import20.InlineArray2(2,'click',(null as any)),this.eventHandler(this.handleEvent_31));
+    var disposable_4:Function = import20.subscribeToRenderElement(this,this._el_50,new import20.InlineArray2(2,'click',(null as any)),this.eventHandler(this.handleEvent_50));
     this.init((null as any),((<any>this.renderer).directRenderer? (null as any): [
       this._el_0,
-      this._el_1,
+      this._text_1,
       this._el_2,
-      this._text_3,
-      this._el_4,
-      this._text_5,
-      this._el_6,
+      this._el_3,
+      this._text_4,
+      this._el_5,
+      this._text_6,
       this._el_7,
-      this._text_8,
-      this._anchor_9
+      this._el_8,
+      this._el_9,
+      this._el_10,
+      this._el_11,
+      this._el_12,
+      this._text_13,
+      this._el_14,
+      this._text_15,
+      this._el_16,
+      this._el_17,
+      this._el_18,
+      this._text_19,
+      this._anchor_20,
+      this._el_21,
+      this._el_22,
+      this._el_23,
+      this._el_24,
+      this._el_25,
+      this._text_26,
+      this._el_27,
+      this._text_28,
+      this._el_29,
+      this._el_30,
+      this._el_31,
+      this._text_32,
+      this._anchor_33,
+      this._el_34,
+      this._el_35,
+      this._text_36,
+      this._el_37,
+      this._el_38,
+      this._text_39,
+      this._el_40,
+      this._el_41,
+      this._el_42,
+      this._el_43,
+      this._el_44,
+      this._text_45,
+      this._el_46,
+      this._text_47,
+      this._el_48,
+      this._el_49,
+      this._el_50,
+      this._text_51,
+      this._anchor_52
     ]
-    ),[disposable_0]);
+    ),[
+      disposable_0,
+      disposable_1,
+      disposable_2,
+      disposable_3,
+      disposable_4
+    ]
+    );
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import79.NgClass) && ((7 <= requestNodeIndex) && (requestNodeIndex <= 8)))) { return this._NgClass_7_3.context; }
-    if (((token === import78.TemplateRef) && (9 === requestNodeIndex))) { return this._TemplateRef_9_5; }
-    if (((token === import80.NgIf) && (9 === requestNodeIndex))) { return this._NgIf_9_6.context; }
+    if (((token === import80.ScreenWidthModel) && (10 === requestNodeIndex))) { return this._ScreenWidthModel_10_3.context; }
+    if (((token === import82.NgClass) && ((18 <= requestNodeIndex) && (requestNodeIndex <= 19)))) { return this._NgClass_18_3.context; }
+    if (((token === import79.TemplateRef) && (20 === requestNodeIndex))) { return this._TemplateRef_20_5; }
+    if (((token === import83.NgIf) && (20 === requestNodeIndex))) { return this._NgIf_20_6.context; }
+    if (((token === import80.ScreenHeightModel) && (23 === requestNodeIndex))) { return this._ScreenHeightModel_23_3.context; }
+    if (((token === import82.NgClass) && ((31 <= requestNodeIndex) && (requestNodeIndex <= 32)))) { return this._NgClass_31_3.context; }
+    if (((token === import79.TemplateRef) && (33 === requestNodeIndex))) { return this._TemplateRef_33_5; }
+    if (((token === import83.NgIf) && (33 === requestNodeIndex))) { return this._NgIf_33_6.context; }
+    if (((token === import82.NgClass) && ((50 <= requestNodeIndex) && (requestNodeIndex <= 51)))) { return this._NgClass_50_3.context; }
+    if (((token === import79.TemplateRef) && (52 === requestNodeIndex))) { return this._TemplateRef_52_5; }
+    if (((token === import83.NgIf) && (52 === requestNodeIndex))) { return this._NgIf_52_6.context; }
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {
-    const currVal_7_0_0:any = 'border border-info pad-xs';
-    this._NgClass_7_3.check_klass(currVal_7_0_0,throwOnChange,false);
-    const currVal_7_0_1:any = this._map_14(this.context.viewRouteDocWatcher);
-    this._NgClass_7_3.check_ngClass(currVal_7_0_1,throwOnChange,false);
-    this._NgClass_7_3.ngDoCheck(this,this._el_7,throwOnChange);
-    const currVal_9_0_0:any = this.context.viewRouteDocWatcher;
-    this._NgIf_9_6.check_ngIf(currVal_9_0_0,throwOnChange,false);
-    this._NgIf_9_6.ngDoCheck(this,this._anchor_9,throwOnChange);
-    this._vc_9.detectChangesInNestedViews(throwOnChange);
+    const currVal_10_0_0:any = this.context.screenWidthModel;
+    this._ScreenWidthModel_10_3.check_screenWidthModel(currVal_10_0_0,throwOnChange,false);
+    this._ScreenWidthModel_10_3.ngDoCheck(this,this._el_10,throwOnChange);
+    const currVal_18_0_0:any = 'border pad-xs';
+    this._NgClass_18_3.check_klass(currVal_18_0_0,throwOnChange,false);
+    const currVal_18_0_1:any = (this.context.viewScreenWidthModel? 'border-energized bg-energized': 'border-info bg-info');
+    this._NgClass_18_3.check_ngClass(currVal_18_0_1,throwOnChange,false);
+    this._NgClass_18_3.ngDoCheck(this,this._el_18,throwOnChange);
+    const currVal_20_0_0:any = this.context.viewScreenWidthModel;
+    this._NgIf_20_6.check_ngIf(currVal_20_0_0,throwOnChange,false);
+    this._NgIf_20_6.ngDoCheck(this,this._anchor_20,throwOnChange);
+    const currVal_23_0_0:any = this.context.screenHeightModel;
+    this._ScreenHeightModel_23_3.check_screenHeightModel(currVal_23_0_0,throwOnChange,false);
+    this._ScreenHeightModel_23_3.ngDoCheck(this,this._el_23,throwOnChange);
+    const currVal_31_0_0:any = 'border pad-xs';
+    this._NgClass_31_3.check_klass(currVal_31_0_0,throwOnChange,false);
+    const currVal_31_0_1:any = (this.context.viewScreenHeightModel? 'border-energized bg-energized': 'border-info bg-info');
+    this._NgClass_31_3.check_ngClass(currVal_31_0_1,throwOnChange,false);
+    this._NgClass_31_3.ngDoCheck(this,this._el_31,throwOnChange);
+    const currVal_33_0_0:any = this.context.viewScreenHeightModel;
+    this._NgIf_33_6.check_ngIf(currVal_33_0_0,throwOnChange,false);
+    this._NgIf_33_6.ngDoCheck(this,this._anchor_33,throwOnChange);
+    const currVal_50_0_0:any = 'border pad-xs';
+    this._NgClass_50_3.check_klass(currVal_50_0_0,throwOnChange,false);
+    const currVal_50_0_1:any = (this.context.viewRouteDocWatcher? 'border-energized bg-energized': 'border-info bg-info');
+    this._NgClass_50_3.check_ngClass(currVal_50_0_1,throwOnChange,false);
+    this._NgClass_50_3.ngDoCheck(this,this._el_50,throwOnChange);
+    const currVal_52_0_0:any = this.context.viewRouteDocWatcher;
+    this._NgIf_52_6.check_ngIf(currVal_52_0_0,throwOnChange,false);
+    this._NgIf_52_6.ngDoCheck(this,this._anchor_52,throwOnChange);
+    this._vc_20.detectChangesInNestedViews(throwOnChange);
+    this._vc_33.detectChangesInNestedViews(throwOnChange);
+    this._vc_52.detectChangesInNestedViews(throwOnChange);
+    const currVal_67:any = import20.inlineInterpolate(1,'Get the browser window inner width. Currently : ',this.context.screenWidthModel,'px');
+    if (import20.checkBinding(throwOnChange,this._expr_67,currVal_67)) {
+      this.renderer.setText(this._text_15,currVal_67);
+      this._expr_67 = currVal_67;
+    }
+    const currVal_68:any = import20.inlineInterpolate(1,'Get the browser window inner height. Currently : ',this.context.screenHeightModel,'px');
+    if (import20.checkBinding(throwOnChange,this._expr_68,currVal_68)) {
+      this.renderer.setText(this._text_28,currVal_68);
+      this._expr_68 = currVal_68;
+    }
+    if (!throwOnChange) {
+      if ((this.numberOfChecks === 0)) { this._ScreenWidthModel_10_3.context.ngAfterViewInit(); }
+      if ((this.numberOfChecks === 0)) { this._ScreenHeightModel_23_3.context.ngAfterViewInit(); }
+    }
   }
   destroyInternal():void {
-    this._vc_9.destroyNestedViews();
+    this._vc_20.destroyNestedViews();
+    this._vc_33.destroyNestedViews();
+    this._vc_52.destroyNestedViews();
+    this._ScreenWidthModel_10_3.ngOnDestroy();
+    this._ScreenHeightModel_23_3.ngOnDestroy();
   }
   createEmbeddedViewInternal(nodeIndex:number):import57.AppView<any> {
-    if ((nodeIndex == 9)) { return new View_ComponentsExamples1(this.viewUtils,this,9,this._anchor_9,this._vc_9); }
+    if ((nodeIndex == 20)) { return new View_ComponentsExamples1(this.viewUtils,this,20,this._anchor_20,this._vc_20); }
+    if ((nodeIndex == 33)) { return new View_ComponentsExamples2(this.viewUtils,this,33,this._anchor_33,this._vc_33); }
+    if ((nodeIndex == 52)) { return new View_ComponentsExamples3(this.viewUtils,this,52,this._anchor_52,this._vc_52); }
     return (null as any);
   }
-  handleEvent_7(eventName:string,$event:any):boolean {
+  handleEvent_10(eventName:string,$event:any):boolean {
+    this.markPathToRootAsCheckOnce();
+    var result:boolean = true;
+    if ((eventName == 'screenWidthModelChange')) {
+      const pd_sub_0:any = ((<any>(this.context.screenWidthModel = $event)) !== false);
+      result = (pd_sub_0 && result);
+    }
+    return result;
+  }
+  handleEvent_18(eventName:string,$event:any):boolean {
+    this.markPathToRootAsCheckOnce();
+    var result:boolean = true;
+    if ((eventName == 'click')) {
+      const pd_sub_0:any = ((<any>(this.context.viewScreenWidthModel = !this.context.viewScreenWidthModel)) !== false);
+      result = (pd_sub_0 && result);
+    }
+    return result;
+  }
+  handleEvent_23(eventName:string,$event:any):boolean {
+    this.markPathToRootAsCheckOnce();
+    var result:boolean = true;
+    if ((eventName == 'screenHeightModelChange')) {
+      const pd_sub_0:any = ((<any>(this.context.screenHeightModel = $event)) !== false);
+      result = (pd_sub_0 && result);
+    }
+    return result;
+  }
+  handleEvent_31(eventName:string,$event:any):boolean {
+    this.markPathToRootAsCheckOnce();
+    var result:boolean = true;
+    if ((eventName == 'click')) {
+      const pd_sub_0:any = ((<any>(this.context.viewScreenHeightModel = !this.context.viewScreenHeightModel)) !== false);
+      result = (pd_sub_0 && result);
+    }
+    return result;
+  }
+  handleEvent_50(eventName:string,$event:any):boolean {
     this.markPathToRootAsCheckOnce();
     var result:boolean = true;
     if ((eventName == 'click')) {
@@ -12070,93 +12617,93 @@ export class View_PipesExamples0 extends import57.AppView<import1.PipesExamples>
     this._el_8 = import20.createRenderElement(this.renderer,parentRenderNode,'br',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._el_9 = import20.createRenderElement(this.renderer,parentRenderNode,'h3',new import20.InlineArray2(2,'id','Documentation'),(null as any));
     this._text_10 = this.renderer.createText(this._el_9,'Documentation',(null as any));
-    this._el_11 = import20.createRenderElement(this.renderer,parentRenderNode,'div',new import20.InlineArray2(2,'class','flex-wrap'),(null as any));
-    this._el_12 = import20.createRenderElement(this.renderer,this._el_11,'fieldset',new import20.InlineArray2(2,'class','flex1 border-dotted border-grey-2x border'),(null as any));
-    this._el_13 = import20.createRenderElement(this.renderer,this._el_12,'legend',new import20.InlineArray2(2,'class','pad-h'),(null as any));
+    this._el_11 = import20.createRenderElement(this.renderer,parentRenderNode,'div',new import20.InlineArray2(2,'class','flex-wrap width-full child-pad-xxs'),(null as any));
+    this._el_12 = import20.createRenderElement(this.renderer,this._el_11,'div',new import20.InlineArray2(2,'class','flex1 width-full'),(null as any));
+    this._el_13 = import20.createRenderElement(this.renderer,this._el_12,'div',new import20.InlineArray2(2,'class','pad-h border-grey-6x border'),(null as any));
     this._el_14 = import20.createRenderElement(this.renderer,this._el_13,'h3',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._text_15 = this.renderer.createText(this._el_14,'typeof',(null as any));
-    this._el_16 = import20.createRenderElement(this.renderer,this._el_12,'p',new import20.InlineArray2(2,'class','text-grey-2x'),(null as any));
+    this._el_16 = import20.createRenderElement(this.renderer,this._el_13,'p',new import20.InlineArray2(2,'class','text-grey-2x'),(null as any));
     this._text_17 = this.renderer.createText(this._el_16,'Output result of native javascript typeof() function',(null as any));
-    this._el_18 = import20.createRenderElement(this.renderer,this._el_12,'h4',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_18 = import20.createRenderElement(this.renderer,this._el_13,'h4',new import20.InlineArray2(2,'class','margin-bottom-0'),(null as any));
     this._text_19 = this.renderer.createText(this._el_18,'Usage Example',(null as any));
-    this._el_20 = import20.createRenderElement(this.renderer,this._el_12,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
+    this._el_20 = import20.createRenderElement(this.renderer,this._el_12,'pre',new import20.InlineArray2(2,'class','width-full code-sample margin-0'),(null as any));
     this._text_21 = this.renderer.createText(this._el_20,'{{ 0 | typeof }',(null as any));
     this._text_22 = this.renderer.createText(this._el_20,'}\n',(null as any));
-    this._el_23 = import20.createRenderElement(this.renderer,this._el_11,'fieldset',new import20.InlineArray2(2,'class','flex1 border-dotted border-grey-2x border'),(null as any));
-    this._el_24 = import20.createRenderElement(this.renderer,this._el_23,'legend',new import20.InlineArray2(2,'class','pad-h'),(null as any));
+    this._el_23 = import20.createRenderElement(this.renderer,this._el_11,'div',new import20.InlineArray2(2,'class','flex1 width-full'),(null as any));
+    this._el_24 = import20.createRenderElement(this.renderer,this._el_23,'div',new import20.InlineArray2(2,'class','pad-h border-grey-6x border'),(null as any));
     this._el_25 = import20.createRenderElement(this.renderer,this._el_24,'h3',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._text_26 = this.renderer.createText(this._el_25,'console',(null as any));
-    this._el_27 = import20.createRenderElement(this.renderer,this._el_23,'p',new import20.InlineArray2(2,'class','text-grey-2x'),(null as any));
+    this._el_27 = import20.createRenderElement(this.renderer,this._el_24,'p',new import20.InlineArray2(2,'class','text-grey-2x'),(null as any));
     this._text_28 = this.renderer.createText(this._el_27,'console log result of native console.log() function',(null as any));
-    this._el_29 = import20.createRenderElement(this.renderer,this._el_23,'h4',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_29 = import20.createRenderElement(this.renderer,this._el_24,'h4',new import20.InlineArray2(2,'class','margin-bottom-0'),(null as any));
     this._text_30 = this.renderer.createText(this._el_29,'Usage Example',(null as any));
-    this._el_31 = import20.createRenderElement(this.renderer,this._el_23,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
+    this._el_31 = import20.createRenderElement(this.renderer,this._el_23,'pre',new import20.InlineArray2(2,'class','width-full code-sample margin-0'),(null as any));
     this._text_32 = this.renderer.createText(this._el_31,'{{ \'message1\' | console : \'message2\' }',(null as any));
     this._text_33 = this.renderer.createText(this._el_31,'}\n',(null as any));
-    this._el_34 = import20.createRenderElement(this.renderer,this._el_11,'fieldset',new import20.InlineArray2(2,'class','flex1 border-dotted border-grey-2x border'),(null as any));
-    this._el_35 = import20.createRenderElement(this.renderer,this._el_34,'legend',new import20.InlineArray2(2,'class','pad-h'),(null as any));
+    this._el_34 = import20.createRenderElement(this.renderer,this._el_11,'div',new import20.InlineArray2(2,'class','flex1 width-full'),(null as any));
+    this._el_35 = import20.createRenderElement(this.renderer,this._el_34,'div',new import20.InlineArray2(2,'class','pad-h border-grey-6x border'),(null as any));
     this._el_36 = import20.createRenderElement(this.renderer,this._el_35,'h3',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._text_37 = this.renderer.createText(this._el_36,'capitalize',(null as any));
-    this._el_38 = import20.createRenderElement(this.renderer,this._el_34,'p',new import20.InlineArray2(2,'class','text-grey-2x'),(null as any));
+    this._el_38 = import20.createRenderElement(this.renderer,this._el_35,'p',new import20.InlineArray2(2,'class','text-grey-2x'),(null as any));
     this._text_39 = this.renderer.createText(this._el_38,'Each sentence leading word is capitalized',(null as any));
-    this._el_40 = import20.createRenderElement(this.renderer,this._el_34,'h4',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_40 = import20.createRenderElement(this.renderer,this._el_35,'h4',new import20.InlineArray2(2,'class','margin-bottom-0'),(null as any));
     this._text_41 = this.renderer.createText(this._el_40,'Usage Example',(null as any));
-    this._el_42 = import20.createRenderElement(this.renderer,this._el_34,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
+    this._el_42 = import20.createRenderElement(this.renderer,this._el_34,'pre',new import20.InlineArray2(2,'class','width-full code-sample margin-0'),(null as any));
     this._text_43 = this.renderer.createText(this._el_42,'{{ \'how do you do?\' | capitalize }',(null as any));
     this._text_44 = this.renderer.createText(this._el_42,'} == How do you do?\n',(null as any));
-    this._el_45 = import20.createRenderElement(this.renderer,this._el_11,'fieldset',new import20.InlineArray2(2,'class','flex1 border-dotted border-grey-2x border'),(null as any));
-    this._el_46 = import20.createRenderElement(this.renderer,this._el_45,'legend',new import20.InlineArray2(2,'class','pad-h'),(null as any));
+    this._el_45 = import20.createRenderElement(this.renderer,this._el_11,'div',new import20.InlineArray2(2,'class','flex1 width-full'),(null as any));
+    this._el_46 = import20.createRenderElement(this.renderer,this._el_45,'div',new import20.InlineArray2(2,'class','pad-h border-grey-6x border'),(null as any));
     this._el_47 = import20.createRenderElement(this.renderer,this._el_46,'h3',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._text_48 = this.renderer.createText(this._el_47,'capitalizeWords',(null as any));
-    this._el_49 = import20.createRenderElement(this.renderer,this._el_45,'p',new import20.InlineArray2(2,'class','text-grey-2x'),(null as any));
+    this._el_49 = import20.createRenderElement(this.renderer,this._el_46,'p',new import20.InlineArray2(2,'class','text-grey-2x'),(null as any));
     this._text_50 = this.renderer.createText(this._el_49,'Every word is capitalized',(null as any));
-    this._el_51 = import20.createRenderElement(this.renderer,this._el_45,'h4',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_51 = import20.createRenderElement(this.renderer,this._el_46,'h4',new import20.InlineArray2(2,'class','margin-bottom-0'),(null as any));
     this._text_52 = this.renderer.createText(this._el_51,'Usage Example',(null as any));
-    this._el_53 = import20.createRenderElement(this.renderer,this._el_45,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
+    this._el_53 = import20.createRenderElement(this.renderer,this._el_45,'pre',new import20.InlineArray2(2,'class','width-full code-sample margin-0'),(null as any));
     this._text_54 = this.renderer.createText(this._el_53,'{{ \'how do you do?\' | capitalizeWords }',(null as any));
     this._text_55 = this.renderer.createText(this._el_53,'} == How Do You Do?\n',(null as any));
-    this._el_56 = import20.createRenderElement(this.renderer,this._el_11,'fieldset',new import20.InlineArray2(2,'class','flex1 border-dotted border-grey-2x border'),(null as any));
-    this._el_57 = import20.createRenderElement(this.renderer,this._el_56,'legend',new import20.InlineArray2(2,'class','pad-h'),(null as any));
+    this._el_56 = import20.createRenderElement(this.renderer,this._el_11,'div',new import20.InlineArray2(2,'class','flex1 width-full'),(null as any));
+    this._el_57 = import20.createRenderElement(this.renderer,this._el_56,'div',new import20.InlineArray2(2,'class','pad-h border-grey-6x border'),(null as any));
     this._el_58 = import20.createRenderElement(this.renderer,this._el_57,'h3',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._text_59 = this.renderer.createText(this._el_58,'yesno',(null as any));
-    this._el_60 = import20.createRenderElement(this.renderer,this._el_56,'p',new import20.InlineArray2(2,'class','text-grey-2x'),(null as any));
+    this._el_60 = import20.createRenderElement(this.renderer,this._el_57,'p',new import20.InlineArray2(2,'class','text-grey-2x'),(null as any));
     this._text_61 = this.renderer.createText(this._el_60,'Truthy value converts to: yes. Otherwise: no',(null as any));
-    this._el_62 = import20.createRenderElement(this.renderer,this._el_56,'h4',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_62 = import20.createRenderElement(this.renderer,this._el_57,'h4',new import20.InlineArray2(2,'class','margin-bottom-0'),(null as any));
     this._text_63 = this.renderer.createText(this._el_62,'Usage Example',(null as any));
-    this._el_64 = import20.createRenderElement(this.renderer,this._el_56,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
+    this._el_64 = import20.createRenderElement(this.renderer,this._el_56,'pre',new import20.InlineArray2(2,'class','width-full code-sample margin-0'),(null as any));
     this._text_65 = this.renderer.createText(this._el_64,'{{ \'true\' | yesno }',(null as any));
     this._text_66 = this.renderer.createText(this._el_64,'} == yes\n',(null as any));
-    this._el_67 = import20.createRenderElement(this.renderer,this._el_11,'fieldset',new import20.InlineArray2(2,'class','flex1 border-dotted border-grey-2x border'),(null as any));
-    this._el_68 = import20.createRenderElement(this.renderer,this._el_67,'legend',new import20.InlineArray2(2,'class','pad-h'),(null as any));
+    this._el_67 = import20.createRenderElement(this.renderer,this._el_11,'div',new import20.InlineArray2(2,'class','flex1 width-full'),(null as any));
+    this._el_68 = import20.createRenderElement(this.renderer,this._el_67,'div',new import20.InlineArray2(2,'class','pad-h border-grey-6x border'),(null as any));
     this._el_69 = import20.createRenderElement(this.renderer,this._el_68,'h3',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._text_70 = this.renderer.createText(this._el_69,'YesNo',(null as any));
-    this._el_71 = import20.createRenderElement(this.renderer,this._el_67,'p',new import20.InlineArray2(2,'class','text-grey-2x'),(null as any));
+    this._el_71 = import20.createRenderElement(this.renderer,this._el_68,'p',new import20.InlineArray2(2,'class','text-grey-2x'),(null as any));
     this._text_72 = this.renderer.createText(this._el_71,'Truthy value converts to: Yes. Otherwise: No',(null as any));
-    this._el_73 = import20.createRenderElement(this.renderer,this._el_67,'h4',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_73 = import20.createRenderElement(this.renderer,this._el_68,'h4',new import20.InlineArray2(2,'class','margin-bottom-0'),(null as any));
     this._text_74 = this.renderer.createText(this._el_73,'Usage Example',(null as any));
-    this._el_75 = import20.createRenderElement(this.renderer,this._el_67,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
+    this._el_75 = import20.createRenderElement(this.renderer,this._el_67,'pre',new import20.InlineArray2(2,'class','width-full code-sample margin-0'),(null as any));
     this._text_76 = this.renderer.createText(this._el_75,'{{ 1 | YesNo }',(null as any));
     this._text_77 = this.renderer.createText(this._el_75,'} == Yes\n',(null as any));
-    this._el_78 = import20.createRenderElement(this.renderer,this._el_11,'fieldset',new import20.InlineArray2(2,'class','flex1 border-dotted border-grey-2x border'),(null as any));
-    this._el_79 = import20.createRenderElement(this.renderer,this._el_78,'legend',new import20.InlineArray2(2,'class','pad-h'),(null as any));
+    this._el_78 = import20.createRenderElement(this.renderer,this._el_11,'div',new import20.InlineArray2(2,'class','flex1 width-full'),(null as any));
+    this._el_79 = import20.createRenderElement(this.renderer,this._el_78,'div',new import20.InlineArray2(2,'class','pad-h border-grey-6x border'),(null as any));
     this._el_80 = import20.createRenderElement(this.renderer,this._el_79,'h3',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._text_81 = this.renderer.createText(this._el_80,'numbers',(null as any));
-    this._el_82 = import20.createRenderElement(this.renderer,this._el_78,'p',new import20.InlineArray2(2,'class','text-grey-2x'),(null as any));
+    this._el_82 = import20.createRenderElement(this.renderer,this._el_79,'p',new import20.InlineArray2(2,'class','text-grey-2x'),(null as any));
     this._text_83 = this.renderer.createText(this._el_82,'Removes anything not a number from a string',(null as any));
-    this._el_84 = import20.createRenderElement(this.renderer,this._el_78,'h4',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_84 = import20.createRenderElement(this.renderer,this._el_79,'h4',new import20.InlineArray2(2,'class','margin-bottom-0'),(null as any));
     this._text_85 = this.renderer.createText(this._el_84,'Usage Example',(null as any));
-    this._el_86 = import20.createRenderElement(this.renderer,this._el_78,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
+    this._el_86 = import20.createRenderElement(this.renderer,this._el_78,'pre',new import20.InlineArray2(2,'class','width-full code-sample margin-0'),(null as any));
     this._text_87 = this.renderer.createText(this._el_86,'{{ \'sam123acb456xyz\' | numbers }',(null as any));
     this._text_88 = this.renderer.createText(this._el_86,'} == 123456\n',(null as any));
-    this._el_89 = import20.createRenderElement(this.renderer,this._el_11,'fieldset',new import20.InlineArray2(2,'class','flex1 border-dotted border-grey-2x border'),(null as any));
-    this._el_90 = import20.createRenderElement(this.renderer,this._el_89,'legend',new import20.InlineArray2(2,'class','pad-h'),(null as any));
+    this._el_89 = import20.createRenderElement(this.renderer,this._el_11,'div',new import20.InlineArray2(2,'class','flex1 width-full'),(null as any));
+    this._el_90 = import20.createRenderElement(this.renderer,this._el_89,'div',new import20.InlineArray2(2,'class','pad-h border-grey-6x border'),(null as any));
     this._el_91 = import20.createRenderElement(this.renderer,this._el_90,'h3',import20.EMPTY_INLINE_ARRAY,(null as any));
     this._text_92 = this.renderer.createText(this._el_91,'keys',(null as any));
-    this._el_93 = import20.createRenderElement(this.renderer,this._el_89,'p',new import20.InlineArray2(2,'class','text-grey-2x'),(null as any));
+    this._el_93 = import20.createRenderElement(this.renderer,this._el_90,'p',new import20.InlineArray2(2,'class','text-grey-2x'),(null as any));
     this._text_94 = this.renderer.createText(this._el_93,'List of keys for an Object',(null as any));
-    this._el_95 = import20.createRenderElement(this.renderer,this._el_89,'h4',import20.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_95 = import20.createRenderElement(this.renderer,this._el_90,'h4',new import20.InlineArray2(2,'class','margin-bottom-0'),(null as any));
     this._text_96 = this.renderer.createText(this._el_95,'Usage Example',(null as any));
-    this._el_97 = import20.createRenderElement(this.renderer,this._el_89,'pre',new import20.InlineArray2(2,'class','code-sample'),(null as any));
+    this._el_97 = import20.createRenderElement(this.renderer,this._el_89,'pre',new import20.InlineArray2(2,'class','width-full code-sample margin-0'),(null as any));
     this._text_98 = this.renderer.createText(this._el_97,'{{ {x:1,y:2,z:3} | keys }',(null as any));
     this._text_99 = this.renderer.createText(this._el_97,'} == ["x","y","z"]',(null as any));
     this.init((null as any),((<any>this.renderer).directRenderer? (null as any): [

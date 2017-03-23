@@ -7,47 +7,34 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import * as pipes from "ack-angular/pipes"
 
-//import { RouteDocWatcher } from "src/RouteDocWatcher.component"
+import * as ackComponents from "ack-angular/components"
 import { RouteDocWatcher } from "ack-angular/RouteDocWatcher.component"
-//import { RouteDocWatcher } from "./RouteDocWatcher.component"
-//import { RouteWatcher } from "src/RouteWatcher.class"
 import { RouteWatcher } from "ack-angular/RouteWatcher.class"
-//import { RouteWatcher } from "./RouteWatcher.class"
 
 //import {version} from "package.json"
-
-
-
 //import {version} from "package.json"
 export const version = '0.0.4'
 
 import * as ackFx from 'ack-angular-fx'
-//import * as ackFx from './prefx'
 import { fxArray } from './prefx'
-//import { fxArray } from 'ack-angular-fx/prefx'
-//console.log('array', JSON.stringify(array))
 import * as states from "./states.object";
 
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
 
 
-import * as ackAppStageTemplate from './templates/ack-app-stage.pug'
-import * as animationExamples from './templates/animation-examples.pug'
-import * as overviewExamples from './templates/overview-examples.pug'
-import * as componentsExamples from './templates/components-examples.pug'
-import * as pipesExamples from './templates/pipes-examples.pug'
-import * as servicesExamples from './templates/services-examples.pug'
+import {string as ackAppStageTemplate} from './templates/ack-app-stage.pug'
+import {string as animationExamples} from './templates/animation-examples.pug'
+import {string as overviewExamples} from './templates/overview-examples.pug'
+import {string as componentsExamples} from './templates/components-examples.pug'
+import {string as pipesExamples} from './templates/pipes-examples.pug'
+import {string as servicesExamples} from './templates/services-examples.pug'
 
 @Component({
   selector: 'ack-app-stage'
-  //,template: 'hello world'//ackAppStageTemplate()
-  //,template: ackAppStageTemplate()
-  ,template: ackAppStageTemplate.string
+  ,template: ackAppStageTemplate
   ,animations:fxArray
-  //,animations:[{"name":"absoluteSwap","definitions":[{"stateNameExpr":"fadeOut","styles":{"styles":[{"display":"none"}],"offset":null}}]}]
 }) export class AppComponent {
   public version = version
-  //static parameters:any = [[window]]
 
   ngAfterViewInit(){
     console.log('Total Wire Time:', Date.now()-strapTime+'ms')
@@ -59,37 +46,32 @@ import * as servicesExamples from './templates/services-examples.pug'
 
 @Component({
   selector: 'animation-examples'
-  //,template: 'hello world'//animationExamples()
-  ,template: animationExamples.string
+  ,template: animationExamples
   ,animations:fxArray
 }) export class AnimationExamples {
   public list = ['abc','defg','hij','klm','opq','rst','uvx','yz']
-  //public delayArray = ackFx.delayArray
+  public delayArray = ackFx.delayArray
 }
 
 @Component({
   selector: 'overview-examples'
-  //,template: 'hello world'//overviewExamples()
-  ,template: overviewExamples.string
+  ,template: overviewExamples
 }) export class OverviewExamples {}
 
 @Component({
   selector: 'components-examples'
-  //,template: 'hello world'//componentsExamples()
-  ,template: componentsExamples.string
+  ,template: componentsExamples
   ,animations:fxArray
 }) export class ComponentsExamples {}
 
 @Component({
   selector: 'pipes-examples'
-  //,template: 'hello world'//pipesExamples()
-  ,template: pipesExamples.string
+  ,template: pipesExamples
 }) export class PipesExamples {}
 
 @Component({
   selector: 'services-examples'
-  //,template: 'hello world'//servicesExamples()
-  ,template: servicesExamples.string
+  ,template: servicesExamples
 }) export class ServicesExamples {}
 
 let declarations = [
@@ -102,6 +84,7 @@ let declarations = [
   ServicesExamples,
   ...pipes.declarations,
   ...states.declarations
+  ,...ackComponents.declarations
 ]
 
 //const fxLoadTime = Date.now()

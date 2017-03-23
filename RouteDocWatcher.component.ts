@@ -1,11 +1,10 @@
 import { TransitionService } from "ui-router-ng2";
-import { Component, Input, Output, EventEmitter } from "@angular/core"
+import { Directive, Input, Output, EventEmitter } from "@angular/core"
 import { RouteWatcher } from "./RouteWatcher.class"
 
-@Component({
+@Directive({
   //inputs:['ref'],
-  selector: 'route-doc-watcher',
-  template:''
+  selector: 'route-doc-watcher'
 }) export class RouteDocWatcher{
   public $document
   public $scope

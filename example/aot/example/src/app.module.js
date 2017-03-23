@@ -11,13 +11,10 @@ var core_1 = require("@angular/core");
 var ui_router_ng2_1 = require("ui-router-ng2");
 var forms_1 = require("@angular/forms");
 var platform_browser_1 = require("@angular/platform-browser");
-var pipes = require("pipes");
-//import { RouteDocWatcher } from "src/RouteDocWatcher.component"
-var RouteDocWatcher_component_1 = require("RouteDocWatcher.component");
-//import { RouteDocWatcher } from "./RouteDocWatcher.component"
-//import { RouteWatcher } from "src/RouteWatcher.class"
-var RouteWatcher_class_1 = require("RouteWatcher.class");
-//import { RouteWatcher } from "./RouteWatcher.class"
+var pipes = require("ack-angular/pipes");
+var ackComponents = require("../../components");
+var RouteDocWatcher_component_1 = require("../../RouteDocWatcher.component");
+var RouteWatcher_class_1 = require("../../RouteWatcher.class");
 //import {version} from "package.json"
 //import {version} from "package.json"
 exports.version = '0.0.4';
@@ -27,12 +24,12 @@ var prefx_1 = require("./prefx");
 //console.log('array', JSON.stringify(array))
 var states = require("./states.object");
 var ng2_page_scroll_1 = require("ng2-page-scroll");
-var ackAppStageTemplate = require("./templates/ack-app-stage.pug");
-var animationExamples = require("./templates/animation-examples.pug");
-var overviewExamples = require("./templates/overview-examples.pug");
-var componentsExamples = require("./templates/components-examples.pug");
-var pipesExamples = require("./templates/pipes-examples.pug");
-var servicesExamples = require("./templates/services-examples.pug");
+var ack_app_stage_pug_1 = require("./templates/ack-app-stage.pug");
+var animation_examples_pug_1 = require("./templates/animation-examples.pug");
+var overview_examples_pug_1 = require("./templates/overview-examples.pug");
+var components_examples_pug_1 = require("./templates/components-examples.pug");
+var pipes_examples_pug_1 = require("./templates/pipes-examples.pug");
+var services_examples_pug_1 = require("./templates/services-examples.pug");
 var AppComponent = (function () {
     function AppComponent() {
         this.version = exports.version;
@@ -52,7 +49,7 @@ AppComponent = __decorate([
         //,template: 'hello world'//ackAppStageTemplate()
         //,template: ackAppStageTemplate()
         ,
-        template: ackAppStageTemplate.string,
+        template: ack_app_stage_pug_1.string,
         animations: prefx_1.fxArray
         //,animations:[{"name":"absoluteSwap","definitions":[{"stateNameExpr":"fadeOut","styles":{"styles":[{"display":"none"}],"offset":null}}]}]
     })
@@ -70,7 +67,7 @@ AnimationExamples = __decorate([
         selector: 'animation-examples'
         //,template: 'hello world'//animationExamples()
         ,
-        template: animationExamples.string,
+        template: animation_examples_pug_1.string,
         animations: prefx_1.fxArray
     })
 ], AnimationExamples);
@@ -85,7 +82,7 @@ OverviewExamples = __decorate([
         selector: 'overview-examples'
         //,template: 'hello world'//overviewExamples()
         ,
-        template: overviewExamples.string
+        template: overview_examples_pug_1.string
     })
 ], OverviewExamples);
 exports.OverviewExamples = OverviewExamples;
@@ -99,7 +96,7 @@ ComponentsExamples = __decorate([
         selector: 'components-examples'
         //,template: 'hello world'//componentsExamples()
         ,
-        template: componentsExamples.string,
+        template: components_examples_pug_1.string,
         animations: prefx_1.fxArray
     })
 ], ComponentsExamples);
@@ -114,7 +111,7 @@ PipesExamples = __decorate([
         selector: 'pipes-examples'
         //,template: 'hello world'//pipesExamples()
         ,
-        template: pipesExamples.string
+        template: pipes_examples_pug_1.string
     })
 ], PipesExamples);
 exports.PipesExamples = PipesExamples;
@@ -128,7 +125,7 @@ ServicesExamples = __decorate([
         selector: 'services-examples'
         //,template: 'hello world'//servicesExamples()
         ,
-        template: servicesExamples.string
+        template: services_examples_pug_1.string
     })
 ], ServicesExamples);
 exports.ServicesExamples = ServicesExamples;
@@ -140,7 +137,7 @@ var declarations = [
     ComponentsExamples,
     PipesExamples,
     ServicesExamples
-].concat(pipes.declarations, states.declarations);
+].concat(pipes.declarations, states.declarations, ackComponents.declarations);
 //const fxLoadTime = Date.now()
 //ackFx.upgradeComponents(declarations, fxArray)
 //console.log('FX Load Time', Date.now()-fxLoadTime+'ms')

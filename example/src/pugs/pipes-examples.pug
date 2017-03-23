@@ -19,67 +19,68 @@ pre.code-sample.
 br
 
 h3(id="Documentation") Documentation
-.flex-wrap
-  fieldset.flex1.border-dotted.border-grey-2x.border
-    legend.pad-h
+
+.flex-wrap.width-full.child-pad-xxs
+  .flex1.width-full
+    .pad-h.border-grey-6x.border
       h3 typeof
-    p.text-grey-2x Output result of native javascript typeof() function
-    h4 Usage Example
-    pre.code-sample.
+      p.text-grey-2x Output result of native javascript typeof() function
+      h4.margin-bottom-0 Usage Example
+    pre.width-full.code-sample.margin-0.
       {{ 0 | typeof }<!---->}
 
-  fieldset.flex1.border-dotted.border-grey-2x.border
-    legend.pad-h
+  .flex1.width-full
+    .pad-h.border-grey-6x.border
       h3 console
-    p.text-grey-2x console log result of native console.log() function
-    h4 Usage Example
-    pre.code-sample.
+      p.text-grey-2x console log result of native console.log() function
+      h4.margin-bottom-0 Usage Example
+    pre.width-full.code-sample.margin-0.
       {{ 'message1' | console : 'message2' }<!---->}
 
-  fieldset.flex1.border-dotted.border-grey-2x.border
-    legend.pad-h
+  .flex1.width-full
+    .pad-h.border-grey-6x.border
       h3 capitalize
-    p.text-grey-2x Each sentence leading word is capitalized
-    h4 Usage Example
-    pre.code-sample.
+      p.text-grey-2x Each sentence leading word is capitalized
+      h4.margin-bottom-0 Usage Example
+    pre.width-full.code-sample.margin-0.
       {{ 'how do you do?' | capitalize }<!---->} == How do you do?
 
-  fieldset.flex1.border-dotted.border-grey-2x.border
-    legend.pad-h
+  .flex1.width-full
+    .pad-h.border-grey-6x.border
       h3 capitalizeWords
-    p.text-grey-2x Every word is capitalized
-    h4 Usage Example
-    pre.code-sample.
+      p.text-grey-2x Every word is capitalized
+      h4.margin-bottom-0 Usage Example
+    pre.width-full.code-sample.margin-0.
       {{ 'how do you do?' | capitalizeWords }<!---->} == How Do You Do?
 
-  fieldset.flex1.border-dotted.border-grey-2x.border
-    legend.pad-h
+  .flex1.width-full
+    .pad-h.border-grey-6x.border
       h3 yesno
-    p.text-grey-2x Truthy value converts to: yes. Otherwise: no
-    h4 Usage Example
-    pre.code-sample.
+      p.text-grey-2x Truthy value converts to: yes. Otherwise: no
+      h4.margin-bottom-0 Usage Example
+    pre.width-full.code-sample.margin-0.
       {{ 'true' | yesno }<!---->} == yes
 
-  fieldset.flex1.border-dotted.border-grey-2x.border
-    legend.pad-h
+  .flex1.width-full
+    .pad-h.border-grey-6x.border
       h3 YesNo
-    p.text-grey-2x Truthy value converts to: Yes. Otherwise: No
-    h4 Usage Example
-    pre.code-sample.
+      p.text-grey-2x Truthy value converts to: Yes. Otherwise: No
+      h4.margin-bottom-0 Usage Example
+    pre.width-full.code-sample.margin-0.
       {{ 1 | YesNo }<!---->} == Yes
 
-  fieldset.flex1.border-dotted.border-grey-2x.border
-    legend.pad-h
+  .flex1.width-full
+    .pad-h.border-grey-6x.border
       h3 numbers
-    p.text-grey-2x Removes anything not a number from a string
-    h4 Usage Example
-    pre.code-sample.
+      p.text-grey-2x Removes anything not a number from a string
+      h4.margin-bottom-0 Usage Example
+    pre.width-full.code-sample.margin-0.
       {{ 'sam123acb456xyz' | numbers }<!---->} == 123456
 
-  fieldset.flex1.border-dotted.border-grey-2x.border
-    legend.pad-h
+  .flex1.width-full
+    .pad-h.border-grey-6x.border
       h3 keys
-    p.text-grey-2x List of keys for an Object
-    h4 Usage Example
-    pre.code-sample.
+      p.text-grey-2x List of keys for an Object
+      h4.margin-bottom-0 Usage Example
+    pre.width-full.code-sample.margin-0.
       {{ {x:1,y:2,z:3} | keys }<!---->} == ["x","y","z"]

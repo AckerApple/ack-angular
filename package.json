@@ -8,7 +8,7 @@
     "install:example:js": "ack-webpack install github:ackerapple/ack-angular --out example/src/js_modules --no-save",
     "compile:example:prefx": "ack-angular-fx --select absoluteSwap500,200,500 --effects slide,fade --out ./example/src/prefx.ts",
     "compile:example:aot": "ngc -p ./example/tsconfig.aot.json",
-    "build:example:js": "ack-webpack example/index.aot.ts example/www/index.js --production --project example/tsconfig.json",
+    "build:example:js": "ack-webpack example/index.aot.ts example/www/index.js --production --project example/tsconfig.json --modules .",
     "build:example": "npm run build:example:js && npm run build:example:index && npm run build:example:css",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dist:tsc": "tsc --rootDir . --outDir dist/ --declaration --project ./tsconfig.json",
@@ -16,7 +16,8 @@
     "build:example:dist": "ncp . ./example/src/ack-angular/ --stopOnErr",
     "build:example:aot2": "ack-webpack example/src/app.module.ts example/aot/src/app.module.ngfactory.ts --project example/tsconfig.aot.json --aot",
     "watch:example:js": "ack-webpack example/index.aot.ts example/www/index.js --watch --browser --project example/tsconfig.json",
-    "watch:example:js:jit": "ack-webpack example/index.ts example/www/index.js --watch --browser --project example/tsconfig.json",
+    "watch:example:js:jit": "npm run watch:assets & npm run watch:example:js:jit:js",
+    "watch:example:js:jit:js": "ack-webpack example/index.ts example/www/index.js --watch --browser --project example/tsconfig.json --modules .",
     "watch:example:js2": "ack-webpack example/index.aot.ts example/www/index.js --watch --browser --project example/tsconfig.json",
     "build:example:index": "pug example/src/index.pug --out example/www/",
     "build:example:css": "ack-sass example/src/styles.scss example/www/styles.css --production",
@@ -24,7 +25,7 @@
     "watch": "npm run watch:example:js && npm run watch:example:css",
     "build": "npm run build:dist && npm run build:example",
     "ack-webpack": "ack-webpack",
-    "build:assets": "ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType=ts",
+    "build:assets": "ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts",
     "watch:assets": "npm run build:assets -- --watch"
   },
   "repository": {

@@ -10,7 +10,7 @@ Demos and Examples : [tap here](https://ackerapple.github.io/ack-angular/)
   - [Requirements](#requirements)
   - [ack-webpack install jsDependencies](#ack-webpack-install-jsdependencies)
   - [Manually Install jsDependencies](#manually-install-jsdependencies)
-- [AoT Compatibility](#aot-compatiblity)
+- [AoT Compatibility](#aot-compatibility)
 - [Include in Project](#include-in-project)
 - [Dependency Map](#dependency-map)
 - [Components](#components)
@@ -31,7 +31,7 @@ Two ways to install:
 - Use ack-webpack to install jsDependencies
 - Manually install jsDependencies
 
-> AoT Compatiblity a concern? [READ HERE FIRST](#aot-compatiblity)
+> AoT compatibility a concern? [READ HERE FIRST](#aot-compatibility)
 
 ### ack-webpack install jsDependencies
 
@@ -60,7 +60,7 @@ If you don't use [ack-webpack](https://www.npmjs.com/package/ack-webpack) to ins
 npm install --save-dev web-animations-js ack-angular-fx ui-router-ng2 ack-angular
 ```
 
-### AoT Compatiblity
+### AoT Compatibility
 I, Acker Dawn Apple, have busted my tail to get a grip on Ahead-of-Time compiling. I've come up with a few custom measures to handle this beast:
 
 **Biggest Note**: Your import modules for ack-angular, will need to be the source Typescript files, and they **cannot** live in the node_modules folder
@@ -140,8 +140,24 @@ npm install ui-router-ng2 --save-dev
 > The [Extended Documentation](https://ackerapple.github.io/ack-angular/) will help further understanding what's required of and when
 
 # Components
+Directives and Components making development life more joyful
 
-## route-doc-watcher
+## Common Components
+Include one file and access several
+
+```javascript
+import { declarations as ackDecs } from "ack-angular/components";
+import { NgModule } from '@angular/core';
+
+@NgModule({
+  declarations:ackDecs
+})
+```
+
+## Complex Components
+Components that have additional dependencies or restrictions
+
+### route-doc-watcher
 ```javascript
 import { UIRouterModule } from "ui-router-ng2";
 import { RouteWatcher } from "ack-angular/RouteWatcher.class"
