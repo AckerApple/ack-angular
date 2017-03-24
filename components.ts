@@ -1,4 +1,34 @@
-import { Directive, Input, Output, EventEmitter } from "@angular/core"
+import {
+  Component,
+  Directive,
+  Input,
+  Output,
+  EventEmitter,
+  ElementRef
+} from "@angular/core"
+
+import {string as readerHeaderBody} from "./templates/reader-header-body.pug"
+
+@Component({
+  selector:'reader-header-body',
+  template:readerHeaderBody
+}) export class ReaderHeaderBody {}
+
+@Directive({
+  selector:'reader-header'
+}) export class ReaderHeader {}
+
+
+@Directive({
+  selector:"reader-body"
+}) export class ReaderBody {
+  static parameters = [[ElementRef]]
+
+  constructor(el){
+    el.nativeElement.style.height = '100%';
+    el.nativeElement.style.display = 'block';
+  }
+}
 
 @Directive({
   //inputs:['screen-height-model'],
@@ -68,5 +98,8 @@ import { Directive, Input, Output, EventEmitter } from "@angular/core"
 
 export const declarations = [
   ScreenHeightModel,
-  ScreenWidthModel
+  ScreenWidthModel,
+  ReaderHeaderBody,
+  ReaderHeader,
+  ReaderBody
 ]

@@ -17,9 +17,11 @@
     "paths":{
       "*":["node_modules/*","src/js_modules/*"]
     }
+
   },
   "files": [
-    "./src/app.module.ts"
+    "typings.d.ts",
+    "src/app.module.ts"
   ],
   "angularCompilerOptions": {
     "genDir": "aot",

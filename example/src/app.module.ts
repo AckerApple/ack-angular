@@ -12,15 +12,14 @@ import { RouteDocWatcher } from "ack-angular/RouteDocWatcher.component"
 import { RouteWatcher } from "ack-angular/RouteWatcher.class"
 
 //import {version} from "package.json"
-//import {version} from "package.json"
-export const version = '0.0.4'
+import * as packJson from "ack-angular/package.json"
+//export const version = '0.0.4'
 
 import * as ackFx from 'ack-angular-fx'
 import { fxArray } from './prefx'
 import * as states from "./states.object";
 
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
-
 
 import {string as ackAppStageTemplate} from './templates/ack-app-stage.pug'
 import {string as animationExamples} from './templates/animation-examples.pug'
@@ -34,7 +33,7 @@ import {string as servicesExamples} from './templates/services-examples.pug'
   ,template: ackAppStageTemplate
   ,animations:fxArray
 }) export class AppComponent {
-  public version = version
+  public version = packJson['version']
 
   ngAfterViewInit(){
     console.log('Total Wire Time:', Date.now()-strapTime+'ms')
@@ -75,6 +74,7 @@ import {string as servicesExamples} from './templates/services-examples.pug'
 }) export class ServicesExamples {}
 
 let declarations = [
+  AppComponent,
   AppComponent,
   RouteDocWatcher,
   AnimationExamples,

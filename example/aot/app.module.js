@@ -16,13 +16,10 @@ var ackComponents = require("ack-angular/components");
 var RouteDocWatcher_component_1 = require("ack-angular/RouteDocWatcher.component");
 var RouteWatcher_class_1 = require("ack-angular/RouteWatcher.class");
 //import {version} from "package.json"
-//import {version} from "package.json"
-exports.version = '0.0.4';
+var packJson = require("ack-angular/package.json");
+//export const version = '0.0.4'
 var ackFx = require("ack-angular-fx");
-//import * as ackFx from './prefx'
 var prefx_1 = require("./prefx");
-//import { fxArray } from 'ack-angular-fx/prefx'
-//console.log('array', JSON.stringify(array))
 var states = require("./states.object");
 var ng2_page_scroll_1 = require("ng2-page-scroll");
 var ack_app_stage_pug_1 = require("./templates/ack-app-stage.pug");
@@ -33,7 +30,7 @@ var pipes_examples_pug_1 = require("./templates/pipes-examples.pug");
 var services_examples_pug_1 = require("./templates/services-examples.pug");
 var AppComponent = (function () {
     function AppComponent() {
-        this.version = exports.version;
+        this.version = packJson['version'];
     }
     AppComponent.prototype.ngAfterViewInit = function () {
         console.log('Total Wire Time:', Date.now() - exports.strapTime + 'ms');

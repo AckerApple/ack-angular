@@ -6,56 +6,52 @@ mixin top
 div("[(screenWidthModel)]"="screenWidthModel")
 route-doc-watcher("[(ref)]"="routeDocWatcher" "(beforeChange)"="panelAnim=$event.isBackMode?'slideInRight':'slideInLeft';isBackMode=$event.isBackMode;" "(onChange)"="stateName=$event.$state().current.name")
 
-.text-center.height-full
-  .inline-block.width-full.line-height-2x.height-full.max-width-1000
-    .width-full.height-full(style="font-size:16px;" id="top")
-      table.width-full.height-full(cellpadding=0 cellspacing=0)
-        tr
-          td
-            .bg-energized.border-grey-3x.border-left-1.border-right-1
-              .pad.flex-valign-center.flex-wrap
-                h1.margin-0
-                  span.text-sm 🚴
-                  |&nbsp;ack-angular
-                span.text-right.flex-1.text-white
-                  |v{{ version }}
+reader-header-body.font-helvetica
+  reader-header
+    .bg-energized.border-grey-3x.border-left-1.border-right-1(id="top")
+      .pad.flex-valign-center.flex-wrap
+        h1.margin-0
+          span.text-sm 🚴
+          |&nbsp;ack-angular
+        span.text-right.flex-1.text-white
+          |v{{ version }}
 
-              .flex-wrap.flex-evenly.bg-info.child-pad-sm.text-center.text-2x.strong.child-hover-bg-warning
-                a.no-a-style.flex-1.border-right.border-white([ngClass]="{'bg-energized':stateName=='overview'}" href="#/overview")
-                  |Overview
-                a.no-a-style.flex-1.border-right.border-white([ngClass]="{'bg-energized':stateName=='components'}" href="#/components")
-                  |Components
-                a.no-a-style.flex-1.border-right.border-white([ngClass]="{'bg-energized':stateName=='pipes'}" href="#/pipes")
-                  |Pipes
-                a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='services'}" href="#/services")
-                  |Services
-                a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='animations'}" href="#/animations")
-                  |Animations    
-        tr
-          td.height-full.bg-white.border-grey-3x.border-left-1.border-right-1
-            .height-full("[ngStyle]"="isSwaping?{'overflow-x':'hidden'}:null")
-              .pos-rel.text-left.height-full([ngStyle]="{'max-width':screenWidthModel+'px'}")
-                .pad-md(*ngIf="stateName=='overview'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
-                  h2.margin-top-0 Overview
-                  overview-examples
-                  +top
+      .flex-wrap.flex-evenly.bg-info.child-pad-sm.text-center.text-2x.strong.child-hover-bg-warning
+        a.no-a-style.flex-1.border-right.border-white([ngClass]="{'bg-energized':stateName=='overview'}" href="#/overview")
+          |Overview
+        a.no-a-style.flex-1.border-right.border-white([ngClass]="{'bg-energized':stateName=='components'}" href="#/components")
+          |Components
+        a.no-a-style.flex-1.border-right.border-white([ngClass]="{'bg-energized':stateName=='pipes'}" href="#/pipes")
+          |Pipes
+        a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='services'}" href="#/services")
+          |Services
+        a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='animations'}" href="#/animations")
+          |Animations    
 
-                .pad-md(*ngIf="stateName=='components'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
-                  h2.margin-top-0 Components
-                  components-examples
-                  +top
+  reader-body.line-height-2x(style="font-size:16px;")
+    .height-full.bg-white.border-grey-3x.border-left-1.border-right-1("[ngStyle]"="isSwaping?{'overflow-x':'hidden'}:null")
+      .pos-rel.text-left.height-full([ngStyle]="{'max-width':screenWidthModel+'px'}")
+        .pad-md(*ngIf="stateName=='overview'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+          h2.margin-top-0 Overview
+          overview-examples
+          +top
 
-                .pad-md(*ngIf="stateName=='pipes'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
-                  h2.margin-top-0 Pipes
-                  pipes-examples
-                  +top
+        .pad-md(*ngIf="stateName=='components'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+          h2.margin-top-0 Components
+          components-examples
+          +top
 
-                .pad-md(*ngIf="stateName=='services'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
-                  h2.margin-top-0 Services
-                  services-examples
-                  +top
+        .pad-md(*ngIf="stateName=='pipes'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+          h2.margin-top-0 Pipes
+          pipes-examples
+          +top
 
-                .pad-md(*ngIf="stateName=='animations'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
-                  h2.margin-top-0 Animations
-                  animation-examples
-                  +top
+        .pad-md(*ngIf="stateName=='services'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+          h2.margin-top-0 Services
+          services-examples
+          +top
+
+        .pad-md(*ngIf="stateName=='animations'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+          h2.margin-top-0 Animations
+          animation-examples
+          +top
