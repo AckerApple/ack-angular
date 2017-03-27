@@ -21,10 +21,11 @@ import {string as readerHeaderBody} from "./templates/reader-header-body.pug"
 
 @Directive({
   selector:"reader-body"
+  //,parameters:[[ElementRef]]
 }) export class ReaderBody {
   static parameters = [[ElementRef]]
 
-  constructor(el){
+  constructor(public el: ElementRef){
     el.nativeElement.style.height = '100%';
     el.nativeElement.style.display = 'block';
   }

@@ -2,23 +2,19 @@ export const strapTime = Date.now()
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Component, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { UIRouterModule } from "ui-router-ng2";
 import { FormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-import * as pipes from "ack-angular/pipes"
 
-import * as ackComponents from "ack-angular/components"
-import { RouteDocWatcher } from "ack-angular/RouteDocWatcher.component"
 import { RouteWatcher } from "ack-angular/RouteWatcher.class"
+import { RouteDocWatcher } from "ack-angular/RouteDocWatcher.component"
+import * as pipes from "ack-angular/pipes"
+import * as ackComponents from "ack-angular/components"
 
-//import {version} from "package.json"
 import * as packJson from "ack-angular/package.json"
-//export const version = '0.0.4'
 
 import * as ackFx from 'ack-angular-fx'
 import { fxArray } from './prefx'
-import * as states from "./states.object";
 
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
 
@@ -28,6 +24,11 @@ import {string as overviewExamples} from './templates/overview-examples.pug'
 import {string as componentsExamples} from './templates/components-examples.pug'
 import {string as pipesExamples} from './templates/pipes-examples.pug'
 import {string as servicesExamples} from './templates/services-examples.pug'
+
+import * as states from "./states.object";
+import { routing } from "./route-test"
+//import { declarations as states,routing } from "./route-test"
+
 
 @Component({
   selector: 'ack-app-stage'
@@ -74,7 +75,7 @@ import {string as servicesExamples} from './templates/services-examples.pug'
   ,template: servicesExamples
 }) export class ServicesExamples {}
 
-let declarations = [
+export const declarations = [
   AppComponent,
   AppComponent,
   RouteDocWatcher,
@@ -84,21 +85,13 @@ let declarations = [
   PipesExamples,
   ServicesExamples,
   ...pipes.declarations,
-  ...states.declarations
-  ,...ackComponents.declarations
+  ...states.declarations,
+  ...ackComponents.declarations
 ]
 
 //const fxLoadTime = Date.now()
 //ackFx.upgradeComponents(declarations, fxArray)
 //console.log('FX Load Time', Date.now()-fxLoadTime+'ms')
-
-const routeConfig = {
-  states: states.states,
-  useHash:true,
-  otherwise:'/overview'
-}
-
-import { routing } from "./route-test"
 
 @NgModule({
   imports:[
@@ -106,8 +99,8 @@ import { routing } from "./route-test"
     ,BrowserAnimationsModule
     ,FormsModule
     //,UIRouterModule.forRoot(routeConfig)
-    ,routing
-    ,Ng2PageScrollModule.forRoot()
+    //,routing
+    //,Ng2PageScrollModule.forRoot()
   ],
   declarations: declarations,
   providers:[RouteWatcher],

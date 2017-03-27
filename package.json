@@ -15,7 +15,7 @@
     "build:dist": "ngc --rootDir . --outDir dist/ --declaration --project ./tsconfig.json",
     "build:example:dist": "ncp . ./example/src/ack-angular/ --stopOnErr",
     "watch:example:js": "ack-webpack example/index.aot.ts example/www/index.js --watch --browser --project example/tsconfig.json --modules .",
-    "watch:example:js:jit": "ack-webpack example/index.ts example/www/index.js --watch --browser --project example/tsconfig.json --modules js_modules,.",
+    "watch:example:js:jit": "ack-webpack example/index.ts example/www/index.js --watch --browser --project example/tsconfig.json --modules .",
     "build:example:index": "pug example/src/index.pug --out example/www/",
     "build:example:css": "ack-sass example/src/styles.scss example/www/styles.css --production",
     "watch:example:css": "ack-sass example/src/styles.scss example/www/styles.css --watch",
@@ -47,6 +47,7 @@
   },
   "homepage": "https://github.com/AckerApple/ack-angular#readme",
   "devDependencies": {
+    "@angular/animation": "^4.0.0-beta.8",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/compiler-cli": "^4.0.0",
@@ -83,7 +84,6 @@
     "@angular/core": "^4.0.0",
     "@angular/forms": "^4.0.0",
     "@angular/platform-browser": "^4.0.0",
-    "@angular/platform-browser-dynamic": "^4.0.0",
-    "@angular/router": "^4.0.0"
+    "@angular/platform-browser-dynamic": "^4.0.0"
   }
 }

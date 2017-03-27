@@ -181,6 +181,11 @@ git clone https://github.com/AckerApple/ack-angular
 
 ## Building Example
 
+Install example dependencies
+```bash
+npm run install:example:js
+```
+
 Dev Fast Project Watching
 ```bash
 npm run watch:example:js:jit

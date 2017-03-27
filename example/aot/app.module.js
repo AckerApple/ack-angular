@@ -7,27 +7,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.strapTime = Date.now();
+var animations_1 = require("@angular/platform-browser/animations");
 var core_1 = require("@angular/core");
-var ui_router_ng2_1 = require("ui-router-ng2");
 var forms_1 = require("@angular/forms");
 var platform_browser_1 = require("@angular/platform-browser");
+var RouteWatcher_class_1 = require("ack-angular/RouteWatcher.class");
+var RouteDocWatcher_component_1 = require("ack-angular/RouteDocWatcher.component");
 var pipes = require("ack-angular/pipes");
 var ackComponents = require("ack-angular/components");
-var RouteDocWatcher_component_1 = require("ack-angular/RouteDocWatcher.component");
-var RouteWatcher_class_1 = require("ack-angular/RouteWatcher.class");
-//import {version} from "package.json"
 var packJson = require("ack-angular/package.json");
-//export const version = '0.0.4'
 var ackFx = require("ack-angular-fx");
 var prefx_1 = require("./prefx");
-var states = require("./states.object");
-var ng2_page_scroll_1 = require("ng2-page-scroll");
 var ack_app_stage_pug_1 = require("./templates/ack-app-stage.pug");
 var animation_examples_pug_1 = require("./templates/animation-examples.pug");
 var overview_examples_pug_1 = require("./templates/overview-examples.pug");
 var components_examples_pug_1 = require("./templates/components-examples.pug");
 var pipes_examples_pug_1 = require("./templates/pipes-examples.pug");
 var services_examples_pug_1 = require("./templates/services-examples.pug");
+var states = require("./states.object");
+//import { declarations as states,routing } from "./route-test"
 var AppComponent = (function () {
     function AppComponent() {
         this.version = packJson['version'];
@@ -112,7 +110,8 @@ ServicesExamples = __decorate([
     })
 ], ServicesExamples);
 exports.ServicesExamples = ServicesExamples;
-var declarations = [
+exports.declarations = [
+    AppComponent,
     AppComponent,
     RouteDocWatcher_component_1.RouteDocWatcher,
     AnimationExamples,
@@ -124,11 +123,6 @@ var declarations = [
 //const fxLoadTime = Date.now()
 //ackFx.upgradeComponents(declarations, fxArray)
 //console.log('FX Load Time', Date.now()-fxLoadTime+'ms')
-var routeConfig = {
-    states: states.states,
-    useHash: true,
-    otherwise: '/overview'
-};
 var AppModule = (function () {
     function AppModule() {
     }
@@ -138,13 +132,16 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [
             platform_browser_1.BrowserModule,
-            forms_1.FormsModule,
-            ui_router_ng2_1.UIRouterModule.forRoot(routeConfig),
-            ng2_page_scroll_1.Ng2PageScrollModule.forRoot()
+            animations_1.BrowserAnimationsModule,
+            forms_1.FormsModule
+            //,UIRouterModule.forRoot(routeConfig)
+            //,routing
+            //,Ng2PageScrollModule.forRoot()
         ],
-        declarations: declarations,
+        declarations: exports.declarations,
         providers: [RouteWatcher_class_1.RouteWatcher],
-        bootstrap: [AppComponent]
+        bootstrap: [AppComponent],
+        schemas: [core_1.CUSTOM_ELEMENTS_SCHEMA]
     })
 ], AppModule);
 exports.AppModule = AppModule;
