@@ -1,6 +1,7 @@
 export const strapTime = Date.now()
 
-import { Component, NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Component, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { UIRouterModule } from "ui-router-ng2";
 import { FormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -97,16 +98,21 @@ const routeConfig = {
   otherwise:'/overview'
 }
 
+import { routing } from "./route-test"
+
 @NgModule({
   imports:[
     BrowserModule
+    ,BrowserAnimationsModule
     ,FormsModule
-    ,UIRouterModule.forRoot(routeConfig)
+    //,UIRouterModule.forRoot(routeConfig)
+    ,routing
     ,Ng2PageScrollModule.forRoot()
   ],
   declarations: declarations,
   providers:[RouteWatcher],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 }) export class AppModule {}
 
 console.log('Ng Define Time', Date.now()-strapTime+'ms')

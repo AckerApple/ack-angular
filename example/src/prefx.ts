@@ -1,4 +1,4 @@
-import { trigger,style,state,transition,animate,keyframes,AnimationEntryMetadata } from '@angular/core'
+import { trigger,style,state,transition,animate,keyframes } from '@angular/animations'
 export const fxArray = [
 trigger('500', [
 transition('zoomInUp => void, * => zoomOutUp', [
