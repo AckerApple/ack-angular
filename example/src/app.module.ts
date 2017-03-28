@@ -40,6 +40,7 @@ import { declarations as states,routing } from "./route-test"
   selector: 'ack-app-stage'
   ,template: ackAppStageTemplate
   ,animations:fxArray
+  //,animations:[]
   //,template:'Hello World<router-outlet></router-outlet>'
   //,template:'Hello World<div *ngIf="show" [@500]="\'slideInLeft\'">Inner Content</div>'
 }) export class AppComponent {
@@ -58,6 +59,7 @@ import { declarations as states,routing } from "./route-test"
   selector: 'animation-examples'
   ,template: animationExamples
   ,animations:fxArray
+  //,animations:[]
 }) export class AnimationExamples {
   public list = ['abc','defg','hij','klm','opq','rst','uvx','yz']
   public delayArray = ackFx.delayArray
@@ -72,6 +74,7 @@ import { declarations as states,routing } from "./route-test"
   selector: 'components-examples'
   ,template: componentsExamples
   ,animations:fxArray
+  //,animations:[]
 }) export class ComponentsExamples {}
 
 @Component({
@@ -99,7 +102,7 @@ export const declarations = [
 ]
 
 //const fxLoadTime = Date.now()
-//ackFx.upgradeComponents(declarations, fxArray)
+//ackFx.upgradeComponents(declarations)
 //console.log('FX Load Time', Date.now()-fxLoadTime+'ms')
 //BrowserAnimationsModule()
 

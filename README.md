@@ -61,32 +61,9 @@ npm install --save-dev web-animations-js ack-angular-fx ui-router-ng2 ack-angula
 ```
 
 ### AoT Compatibility
-I, Acker Dawn Apple, have busted my tail to get a grip on Ahead-of-Time compiling. I've come up with a few custom measures to handle this beast:
+I, Acker Dawn Apple, have busted my tail to make this package compatible with Ahead-of-Time compiling.
 
-**Biggest Note**: Your import modules for ack-angular, will need to be the source Typescript files, and they **cannot** live in the node_modules folder
-
-First, a lot was learned here about AoT's requirements:
-- https://medium.com/@isaacplmann/getting-your-angular-2-library-ready-for-aot-90d1347bcad
-- https://medium.com/@isaacplmann/making-your-angular-2-library-statically-analyzable-for-aot-e1c6f3ebedd5
-
-Second, for your code to include my code and to be AoT compatible:
-- Your going to need to import my Typesscript source files
-  - `import * as pipes from "ack-angular/pipes"`
-  - `import { RouteDocWatcher } from "ack-angular/RouteDocWatcher.component"`
-  - `import { RouteWatcher } from "ack-angular/RouteWatcher.class"`
-  - And so on...
-- This project uses a js_modules folder as a node_modules alternative, to be compatible with .ts source file import bundling
-- The package [ack-webpack](https://www.npmjs.com/package/ack-webpack) and its CLI commands makes installing and targeting the js_modules folder, much easier
-  - It reads jsDependencies of a packages.json file
-  - Easy to use
-    - Install one package : `ack-webpack install:js ack-angular-fx`
-    - Install all jsDependencies : `ack-webpack install:js`
-    - And so on...
-- It is far easier to compile AoT with Typescript source files (.ts)
-  - **IF** you include .ts source files from the **node_modules** folder, you'll run into errors
-  - I created the js_modules folder concept
-    - Took away the concept from [jspm](https://www.npmjs.com/package/jspm) which puts js files into non-node_modules folder
-    - This allows .ts source file imports to occur without error
+Everything in this package is tested working with AoT compiling
 
 ## Include in Project
 ack-angular uses file based imports, importing the index does nothing.

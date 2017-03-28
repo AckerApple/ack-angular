@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "postinstall": "npm install --prefix example",
+    "install:example": "npm install --prefix example",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dist:tsc": "tsc --declaration --project src",
     "build:dist": "ngc --declaration --project src",
