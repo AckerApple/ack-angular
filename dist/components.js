@@ -1,13 +1,4 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var reader_header_body_pug_1 = require("./templates/reader-header-body.pug");
@@ -16,23 +7,27 @@ var ReaderHeaderBody = (function () {
     }
     return ReaderHeaderBody;
 }());
-ReaderHeaderBody = __decorate([
-    core_1.Component({
-        selector: 'reader-header-body',
-        template: reader_header_body_pug_1.string
-    })
-], ReaderHeaderBody);
+ReaderHeaderBody.decorators = [
+    { type: core_1.Component, args: [{
+                selector: 'reader-header-body',
+                template: reader_header_body_pug_1.string
+            },] },
+];
+/** @nocollapse */
+ReaderHeaderBody.ctorParameters = function () { return []; };
 exports.ReaderHeaderBody = ReaderHeaderBody;
 var ReaderHeader = (function () {
     function ReaderHeader() {
     }
     return ReaderHeader;
 }());
-ReaderHeader = __decorate([
-    core_1.Directive({
-        selector: 'reader-header'
-    })
-], ReaderHeader);
+ReaderHeader.decorators = [
+    { type: core_1.Directive, args: [{
+                selector: 'reader-header'
+            },] },
+];
+/** @nocollapse */
+ReaderHeader.ctorParameters = function () { return []; };
 exports.ReaderHeader = ReaderHeader;
 var ReaderBody = (function () {
     function ReaderBody(el) {
@@ -43,13 +38,16 @@ var ReaderBody = (function () {
     return ReaderBody;
 }());
 ReaderBody.parameters = [[core_1.ElementRef]];
-ReaderBody = __decorate([
-    core_1.Directive({
-        selector: "reader-body"
-        //,parameters:[[ElementRef]]
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], ReaderBody);
+ReaderBody.decorators = [
+    { type: core_1.Directive, args: [{
+                selector: "reader-body"
+                //,parameters:[[ElementRef]]
+            },] },
+];
+/** @nocollapse */
+ReaderBody.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
 exports.ReaderBody = ReaderBody;
 var ScreenWidthModel = (function () {
     function ScreenWidthModel() {
@@ -72,21 +70,18 @@ var ScreenWidthModel = (function () {
     };
     return ScreenWidthModel;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], ScreenWidthModel.prototype, "screenWidthModel", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ScreenWidthModel.prototype, "screenWidthModelChange", void 0);
-ScreenWidthModel = __decorate([
-    core_1.Directive({
-        //inputs:['screen-height-model'],
-        selector: '[screenWidthModel]'
-    }),
-    __metadata("design:paramtypes", [])
-], ScreenWidthModel);
+ScreenWidthModel.decorators = [
+    { type: core_1.Directive, args: [{
+                //inputs:['screen-height-model'],
+                selector: '[screenWidthModel]'
+            },] },
+];
+/** @nocollapse */
+ScreenWidthModel.ctorParameters = function () { return []; };
+ScreenWidthModel.propDecorators = {
+    'screenWidthModel': [{ type: core_1.Input },],
+    'screenWidthModelChange': [{ type: core_1.Output },],
+};
 exports.ScreenWidthModel = ScreenWidthModel;
 var ScreenHeightModel = (function () {
     function ScreenHeightModel() {
@@ -109,21 +104,18 @@ var ScreenHeightModel = (function () {
     };
     return ScreenHeightModel;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], ScreenHeightModel.prototype, "screenHeightModel", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ScreenHeightModel.prototype, "screenHeightModelChange", void 0);
-ScreenHeightModel = __decorate([
-    core_1.Directive({
-        //inputs:['screen-height-model'],
-        selector: '[screenHeightModel]'
-    }),
-    __metadata("design:paramtypes", [])
-], ScreenHeightModel);
+ScreenHeightModel.decorators = [
+    { type: core_1.Directive, args: [{
+                //inputs:['screen-height-model'],
+                selector: '[screenHeightModel]'
+            },] },
+];
+/** @nocollapse */
+ScreenHeightModel.ctorParameters = function () { return []; };
+ScreenHeightModel.propDecorators = {
+    'screenHeightModel': [{ type: core_1.Input },],
+    'screenHeightModelChange': [{ type: core_1.Output },],
+};
 exports.ScreenHeightModel = ScreenHeightModel;
 exports.declarations = [
     ScreenHeightModel,
