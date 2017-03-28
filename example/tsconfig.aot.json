@@ -15,7 +15,7 @@
     "lib": ["es2015", "dom"],
     "outDir": "aot",
     "paths":{
-      "*":["./js_modules/*"]
+      "*":["node_modules/*","js_modules/*"]
     }
   },
   "files": [
@@ -25,6 +25,7 @@
   "angularCompilerOptions": {
     "genDir": "aot",
     "skipMetadataEmit" : true,
+    "skipTemplateCodegen" : false,
     "entryModule": "app.module#AppModule"
   }
 }
