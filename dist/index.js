@@ -1,7 +1,6 @@
+//export { declarations as components } from "./components";
+//export { declarations as pipes } from "./pipes";
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var components_1 = require("./components");
-exports.components = components_1.declarations;
-var pipes_1 = require("./pipes");
-exports.pipes = pipes_1.declarations;
+exports.message = "nothing to import here";
 //# sourceMappingURL=index.js.map
