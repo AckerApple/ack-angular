@@ -7,11 +7,16 @@
   "scripts": {
     "install:js": "ack-webpack install github:ackerapple/ack-angular --out js_modules --no-save",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:dist:tsc": "tsc --rootDir . --outDir dist/ --declaration --project ./tsconfig.json",
-    "build:dist": "ngc --rootDir . --outDir dist/ --declaration --project ./tsconfig.json",
+    "build:dist:tsc": "tsc --rootDir . --outDir dist/ --declaration --project ./src/tsconfig.json",
+    "build:dist": "ngc --rootDir src --outDir dist/ --declaration --project ./src/tsconfig.json",
     "ack-webpack": "ack-webpack",
     "build:src:assets": "ack-pug-bundler pugs/ templates/ --oneToOne --outType ts",
-    "watch:assets": "npm run build:src:assets -- --watch & npm run build:example:assets -- --watch"
+    "watch:assets": "npm run build:src:assets -- --watch",
+
+    "compile:prefx": "ack-angular-fx --select absoluteSwap500,200,500 --effects slide,fade --out example/src/prefx.ts",
+    "compile:aot": "ngc -p example/tsconfig.aot.json",
+    "build:js": "ack-webpack example/index.aot.ts example/www/index.js --production --project tsconfig.json --modules example/js_modules",
+    "build": "npm run compile:prefx && npm run compile:aot && npm run build:js"
   },
   "repository": {
     "type": "git",

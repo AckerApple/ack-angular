@@ -1,15 +1,11 @@
-//import { StateService,TransitionService,Transition } from "ui-router-ng2";
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { Injectable } from '@angular/core';
-
+import { StateService,TransitionService,Transition } from "ui-router-ng2";
 
 /** A stateful connection to ui-router history
  - .stateChange() with arguments MUST be called at every state change
  - Has 99% accuracy of knowing if OS back or forward button has been used
    - Their is no web event for knowing if OS button is used. 
 */
-@Injectable() export class RouteWatchReporter{
-  public current : any = {}
+export class RouteWatcher{
   public $history : any
   public $state : any
   public $window : any
@@ -19,29 +15,21 @@ import { Injectable } from '@angular/core';
   public isNextBackHistory : boolean = false
   public isBackMode : boolean = false
   public isOsAction : boolean = false
-  //public stateService : StateService
-  //public activatedRoute : ActivatedRoute
-  //static parameters = [[Router, ActivatedRoute]]
+  public stateService : StateService
 
-  constructor(public router:Router, public activatedRoute:ActivatedRoute){
-    this.activatedRoute = activatedRoute
+  static parameters = [[StateService],[TransitionService]]
+
+  constructor(public StateService:StateService, public TransitionService:TransitionService){
+    const stateHistory = []
+    this.$state = ()=>StateService
     this.$window = ()=>window
-    this.$history = []
+    //this.$history = ()=>stateHistory
+    this.$history = stateHistory
 
-    router.events.subscribe(event=>{
-      if(event.constructor==NavigationEnd){
-        const params = {}//COMING REALLY SOON
-        this.recordStateChange(this.getCurrent(), params)
-      }
+    TransitionService.onStart({to:'*'}, (transition:Transition)=>{
+      this.recordStateChange(transition.targetState().$state(), transition.targetState().params())
+      //this.recordStateChange(transition._targetState._definition, transition._targetState._params)
     })
-
-    this.current = this.getCurrent()
-  }
-
-  getCurrent():any{
-    let target = this.activatedRoute
-    while(target.firstChild)target=target.firstChild
-    return target.routeConfig
   }
 
   isTrapHistory(toState, toParams){
@@ -49,6 +37,7 @@ import { Injectable } from '@angular/core';
   }
 
   isBackHistory(toState, toParams){
+    //const $history = this.$history()
     const $history = this.$history
     const isEven = $history.length > this.historyPos+1
     const isNameMatch = isEven && toState && toState.name==$history[this.historyPos+1].name
@@ -56,6 +45,7 @@ import { Injectable } from '@angular/core';
   }
 
   isForwardHistory(toState, toParams){
+    //const $history = this.$history()
     const $history = this.$history
     const isEven = !this.isNextBackMode && this.historyPos && $history.length>this.historyPos
     const isNameMatch = isEven && toState && toState.name==$history[this.historyPos-1].name
@@ -71,8 +61,19 @@ import { Injectable } from '@angular/core';
     return true
   }
 
+  /**
+    @event Object - not used
+    @toState Object{name} - required
+    @toParams Object{} - only recorded to history, not used otherwise
+    @fromState Object{name} - not used
+    @fromParams Object{} - not used
+  */
+  /*
+  stateChange(event, toState, toParams, fromState, fromParams){
+    this.recordStateChange(toState, toParams)
+  }*/
+
   recordStateChange(toState, toParams){
-    this.current = { params:toParams, ...toState }
     let isForward = this.isForwardHistory(toState, toParams)
     let isBackHistory = this.isNextBackHistory || this.isBackHistory(toState, toParams)
 
@@ -86,15 +87,21 @@ import { Injectable } from '@angular/core';
       this.isBackMode = this.isNextBackMode || (this.isOsAction && isBackHistory)
     }
 
+
+//console.log('this.isOsAction',this.isNextBackMode,isBackHistory,this.isOsAction,this.isBackMode)
+
+    //const $history = this.$history()
     const $history = this.$history
+    //if($history.length)this.last = $history[this.historyPos]
 
     if(isForward){
       --this.historyPos
     }else if(this.isBackMode){
       ++this.historyPos
     }else{
-      //const $state = this.$state()
+      const $state = this.$state()
       this.historyPos = 0
+      
       const hist = {name:toState.name, params:toParams}
 
       if( !Object.keys(toParams).length ){
@@ -104,7 +111,12 @@ import { Injectable } from '@angular/core';
       $history.unshift(hist)
     }
 
+    /*if($history.length > this.historyPos+1){
+      this.back = $history[this.historyPos+1]
+    }*/
+
     this.isNextBackHistory = false
+//console.log('this.isOsAction',isBackHistory,this.isOsAction,this.isBackMode)
   }
 
   goBackTo(name, params){
@@ -118,6 +130,10 @@ import { Injectable } from '@angular/core';
       this.isNextBackMode = true
       this.isNextBackHistory = true
       this.$window().history.back()
+      /*
+      console.log('go back', this.historyPos, this.stateHistory.length, this.stateHistory)
+      this.$state.go(this.stateHistory[this.historyPos].name, this.stateHistory[this.historyPos].params)
+      */
     }else{
       this.goBackTo(name, params)
     }

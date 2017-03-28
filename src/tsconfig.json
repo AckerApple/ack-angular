@@ -6,19 +6,14 @@
     "sourceMap": true,
     "inlineSources": true,
     "emitDecoratorMetadata": true,
-    "baseUrl": ".",
+    "baseUrl": "src",
     "experimentalDecorators": true,
     "noEmitHelpers": false,
-    "allowJs": true,
+    "allowJs": false,
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
     "lib": ["es2015", "dom"],
-    "paths":{
-      "*":["node_modules/*","src/js_modules/*"]
-    }
+    "outDir": "dist"
   },
-  "exclude": [
-    "node_modules",
-    "aot"
-  ]
+  "exclude": ["node_modules"]
 }

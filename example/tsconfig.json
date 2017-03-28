@@ -12,6 +12,9 @@
     "allowJs": true,
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
-    "lib": ["es2015", "dom"]
+    "lib": ["es2015", "dom"],
+    "paths":{
+      "*":["./js_modules/*"]
+    }
   }
 }
