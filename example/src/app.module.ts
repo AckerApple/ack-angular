@@ -10,14 +10,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router, NavigationStart, NavigationEnd, ActivatedRoute } from '@angular/router';
 
-//import { RouteWatcher } from "ack-angular/RouteWatcher.class"
-//import { RouteDocWatcher } from "ack-angular/RouteDocWatcher.component"
+//import { RouteWatcher } from "ack-angular/dist/RouteWatcher.class"
+//import { RouteDocWatcher } from "ack-angular/dist/RouteDocWatcher.component"
 
-import { RouteWatchReporter } from "ack-angular/RouteWatchReporter.class"
-import { RouteReporter } from "ack-angular/RouteReporter.component"
-import * as pipes from "ack-angular/pipes"
-import * as ackComponents from "ack-angular/components"
-import * as packJson from "ack-angular/package.json"
+import { RouteWatchReporter } from "ack-angular/dist/RouteWatchReporter.class"
+import { RouteReporter } from "ack-angular/dist/RouteReporter.component"
+import * as pipes from "ack-angular/dist/pipes"
+import * as ackComponents from "ack-angular/dist/components"
+import * as packJson from "ack-angular/dist/package.json"
 
 import * as ackFx from 'ack-angular-fx'
 import { fxArray } from './prefx'
