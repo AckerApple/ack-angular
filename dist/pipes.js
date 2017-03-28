@@ -1,4 +1,10 @@
 "use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var pipes_class_1 = require("./pipes.class");
@@ -10,11 +16,9 @@ var Capitalize = (function () {
     };
     return Capitalize;
 }());
-Capitalize.decorators = [
-    { type: core_1.Pipe, args: [{ name: 'capitalize' },] },
-];
-/** @nocollapse */
-Capitalize.ctorParameters = function () { return []; };
+Capitalize = __decorate([
+    core_1.Pipe({ name: 'capitalize' })
+], Capitalize);
 exports.Capitalize = Capitalize;
 var CapitalizeWords = (function () {
     function CapitalizeWords() {
@@ -24,11 +28,9 @@ var CapitalizeWords = (function () {
     };
     return CapitalizeWords;
 }());
-CapitalizeWords.decorators = [
-    { type: core_1.Pipe, args: [{ name: 'capitalizeWords' },] },
-];
-/** @nocollapse */
-CapitalizeWords.ctorParameters = function () { return []; };
+CapitalizeWords = __decorate([
+    core_1.Pipe({ name: 'capitalizeWords' })
+], CapitalizeWords);
 exports.CapitalizeWords = CapitalizeWords;
 var Yesno = (function () {
     function Yesno() {
@@ -38,11 +40,9 @@ var Yesno = (function () {
     };
     return Yesno;
 }());
-Yesno.decorators = [
-    { type: core_1.Pipe, args: [{ name: 'yesno' },] },
-];
-/** @nocollapse */
-Yesno.ctorParameters = function () { return []; };
+Yesno = __decorate([
+    core_1.Pipe({ name: 'yesno' })
+], Yesno);
 exports.Yesno = Yesno;
 var YesNo = (function () {
     function YesNo() {
@@ -52,11 +52,9 @@ var YesNo = (function () {
     };
     return YesNo;
 }());
-YesNo.decorators = [
-    { type: core_1.Pipe, args: [{ name: 'YesNo' },] },
-];
-/** @nocollapse */
-YesNo.ctorParameters = function () { return []; };
+YesNo = __decorate([
+    core_1.Pipe({ name: 'YesNo' })
+], YesNo);
 exports.YesNo = YesNo;
 var Numbers = (function () {
     function Numbers() {
@@ -66,11 +64,9 @@ var Numbers = (function () {
     };
     return Numbers;
 }());
-Numbers.decorators = [
-    { type: core_1.Pipe, args: [{ name: 'numbers' },] },
-];
-/** @nocollapse */
-Numbers.ctorParameters = function () { return []; };
+Numbers = __decorate([
+    core_1.Pipe({ name: 'numbers' })
+], Numbers);
 exports.Numbers = Numbers;
 var Keys = (function () {
     function Keys() {
@@ -81,11 +77,9 @@ var Keys = (function () {
     };
     return Keys;
 }());
-Keys.decorators = [
-    { type: core_1.Pipe, args: [{ name: 'keys' },] },
-];
-/** @nocollapse */
-Keys.ctorParameters = function () { return []; };
+Keys = __decorate([
+    core_1.Pipe({ name: 'keys' })
+], Keys);
 exports.Keys = Keys;
 var TypeofPipe = (function () {
     function TypeofPipe() {
@@ -95,11 +89,9 @@ var TypeofPipe = (function () {
     };
     return TypeofPipe;
 }());
-TypeofPipe.decorators = [
-    { type: core_1.Pipe, args: [{ name: 'typeof' },] },
-];
-/** @nocollapse */
-TypeofPipe.ctorParameters = function () { return []; };
+TypeofPipe = __decorate([
+    core_1.Pipe({ name: 'typeof' })
+], TypeofPipe);
 exports.TypeofPipe = TypeofPipe;
 var ConsolePipe = (function () {
     function ConsolePipe() {
@@ -109,11 +101,9 @@ var ConsolePipe = (function () {
     };
     return ConsolePipe;
 }());
-ConsolePipe.decorators = [
-    { type: core_1.Pipe, args: [{ name: 'console' },] },
-];
-/** @nocollapse */
-ConsolePipe.ctorParameters = function () { return []; };
+ConsolePipe = __decorate([
+    core_1.Pipe({ name: 'console' })
+], ConsolePipe);
 exports.ConsolePipe = ConsolePipe;
 exports.declarations = [
     Capitalize,

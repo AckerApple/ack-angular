@@ -13,9 +13,6 @@
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
     "lib": ["es2015", "dom"],
-    "outDir": "www",
-    "paths":{
-      "*":["node_modules/*","js_modules/*"]
-    }
+    "outDir": "www"
   }
 }

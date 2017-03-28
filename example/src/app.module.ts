@@ -16,12 +16,9 @@ import { Router, NavigationStart, NavigationEnd, ActivatedRoute } from '@angular
 import { RouteWatchReporter } from "ack-angular/dist/RouteWatchReporter.class"
 import { RouteReporter } from "ack-angular/dist/RouteReporter.component"
 
-//import { declarations as pipes } from "ack-angular/dist/pipes"
-//import { declarations as ackComponents } from "ack-angular/dist/components"
-
-//import { pipes, components as ackComponents } from "ack-angular"
 import * as pipes from "ack-angular/dist/pipes"
 import * as ackComponents from "ack-angular/dist/components"
+
 import * as packJson from "ack-angular/package.json"
 
 import * as ackFx from 'ack-angular-fx'
@@ -109,7 +106,9 @@ export const declarations = [
   imports:[
     BrowserModule
     ,BrowserAnimationsModule
+    //,NoopAnimationsModule
     ,FormsModule
+    //,UIRouterModule.forRoot(routeConfig)
     ,routing
     ,Ng2PageScrollModule.forRoot()
   ]
@@ -117,6 +116,7 @@ export const declarations = [
   ,declarations: declarations
   ,providers:[
     RouteWatchReporter
+    //RouteWatcher
   ]
   ,bootstrap: [ AppComponent ]
   //,schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

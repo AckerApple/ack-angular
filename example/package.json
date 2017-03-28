@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compile:prefx": "ack-angular-fx --select absoluteSwap500,200,500 --effects slide,fade --out src/prefx.ts",
-    "compile:aot": "ngc -p tsconfig.aot.json",
+    "compile:aot": "ngc -p ./tsconfig.aot.json",
     "build:js": "ack-webpack index.aot.ts www/index.js --production --project tsconfig.json",
     "build": "npm run compile:prefx && npm run compile:aot && npm run build:js",
     "ack-webpack": "ack-webpack",
