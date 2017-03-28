@@ -13,10 +13,14 @@
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
     "lib": ["es2015", "dom"],
+    "outDir": "aot",
     "paths":{
-      "*":["../node_modules/*","../js_modules/*"]
+      "*":["./js_modules/*"]
     }
   },
+  "exclude":[
+    "aot","js_modules","node_modules"
+  ],
   "files": [
     "typings.d.ts",
     "src/app.module.ts"

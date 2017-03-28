@@ -12,17 +12,6 @@
     "allowJs": true,
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
-    "lib": ["es2015", "dom"],
-    "paths":{
-      "*":["../node_modules/*"]
-    }
-  },
-  "files": [
-    "typings.d.ts",
-    "src/app.module.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "aot"
-  ]
+    "lib": ["es2015", "dom"]
+  }
 }
