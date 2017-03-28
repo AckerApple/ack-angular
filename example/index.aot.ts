@@ -7,6 +7,6 @@ import { supportDocument } from 'ack-angular-fx/web-animations.min'
 
 supportDocument(document)
 
-enableProdMode()
+//enableProdMode()
 
 platformBrowserDynamic().bootstrapModuleFactory( AppModuleNgFactory )

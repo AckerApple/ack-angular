@@ -4,7 +4,11 @@ mixin top
     a.text-xs(href="#top" pageScroll) top
 
 div("[(screenWidthModel)]"="screenWidthModel")
-route-doc-watcher("[(ref)]"="routeDocWatcher" "(beforeChange)"="panelAnim=$event.isBackMode?'slideInRight':'slideInLeft';isBackMode=$event.isBackMode;" "(onChange)"="stateName=$event.$state().current.name")
+
+//-route-doc-watcher("[(ref)]"="routeDocWatcher" "(beforeChange)"="panelAnim=$event.isBackMode?'slideInRight':'slideInLeft';isBackMode=$event.isBackMode;" "(onChange)"="stateName=$event.$state().current.name")
+route-reporter("[(ref)]"="routeDocWatcher" "(beforeChange)"="panelAnim=$event.isBackMode?'slideInRight':'slideInLeft';isBackMode=$event.isBackMode;" "(onChange)"="stateName=$event.current.name")
+//-|routeDocWatcher.current : {{ routeDocWatcher.current }}
+router-outlet
 
 reader-header-body.font-helvetica
   reader-header
