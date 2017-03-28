@@ -1,1 +1,4 @@
-export declare const indexMessage = "ack-angular is a file target based framework. Import files other than index";
+import * as comps from "./components";
+import * as pips from "./pipes";
+export declare const components: typeof comps;
+export declare const pipes: typeof pips;

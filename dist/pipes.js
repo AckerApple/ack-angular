@@ -2,13 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var pipes_class_1 = require("./pipes.class");
-exports.pipes = pipes_class_1.pipes;
-var pipes_class_2 = require("./pipes.class");
 var Capitalize = (function () {
     function Capitalize() {
     }
     Capitalize.prototype.transform = function (input) {
-        return pipes_class_2.pipes.capitalize(input);
+        return pipes_class_1.pipes.capitalize(input);
     };
     return Capitalize;
 }());
@@ -22,7 +20,7 @@ var CapitalizeWords = (function () {
     function CapitalizeWords() {
     }
     CapitalizeWords.prototype.transform = function (input) {
-        return pipes_class_2.pipes.capitalizeWords(input);
+        return pipes_class_1.pipes.capitalizeWords(input);
     };
     return CapitalizeWords;
 }());
@@ -36,7 +34,7 @@ var Yesno = (function () {
     function Yesno() {
     }
     Yesno.prototype.transform = function (input) {
-        return pipes_class_2.pipes.yesno(input);
+        return pipes_class_1.pipes.yesno(input);
     };
     return Yesno;
 }());
@@ -50,7 +48,7 @@ var YesNo = (function () {
     function YesNo() {
     }
     YesNo.prototype.transform = function (input) {
-        return pipes_class_2.pipes.yesNo(input);
+        return pipes_class_1.pipes.yesNo(input);
     };
     return YesNo;
 }());
@@ -64,7 +62,7 @@ var Numbers = (function () {
     function Numbers() {
     }
     Numbers.prototype.transform = function (input) {
-        return pipes_class_2.pipes.numbers(input);
+        return pipes_class_1.pipes.numbers(input);
     };
     return Numbers;
 }());

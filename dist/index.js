@@ -1,4 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.indexMessage = 'ack-angular is a file target based framework. Import files other than index';
+var comps = require("./components");
+var pips = require("./pipes");
+exports.components = comps;
+exports.pipes = pips;
 //# sourceMappingURL=index.js.map
