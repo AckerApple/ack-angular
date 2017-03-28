@@ -8,7 +8,9 @@
     "install:js": "ack-webpack install github:ackerapple/ack-angular --out js_modules --no-save",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dist:tsc": "tsc --rootDir . --outDir dist/ --declaration --project ./src/tsconfig.json",
-    "build:dist": "ngc --rootDir src --outDir dist/ --declaration --project ./src/tsconfig.json",
+    
+    "build:dist": "tsc --rootDir src --outDir dist --declaration --project src",
+    
     "ack-webpack": "ack-webpack",
     "build:src:assets": "ack-pug-bundler pugs/ templates/ --oneToOne --outType ts",
     "watch:assets": "npm run build:src:assets -- --watch",

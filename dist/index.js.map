@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../src/index.ts"],"names":[],"mappings":";;AAAa,QAAA,YAAY,GAAG,6EAA6E,CAAA","sourcesContent":["export const indexMessage = 'ack-angular is a file target based framework. Import files other than index'"]}
