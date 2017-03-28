@@ -1,5 +1,2 @@
-import * as comps from "./components";
-import * as pips from "./pipes";
-
-export const components = comps;
-export const pipes = pips;
+export { declarations as components } from "./components";
+export { declarations as pipes } from "./pipes";

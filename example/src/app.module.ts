@@ -15,8 +15,11 @@ import { Router, NavigationStart, NavigationEnd, ActivatedRoute } from '@angular
 
 import { RouteWatchReporter } from "ack-angular/dist/RouteWatchReporter.class"
 import { RouteReporter } from "ack-angular/dist/RouteReporter.component"
+
 import * as pipes from "ack-angular/dist/pipes"
 import * as ackComponents from "ack-angular/dist/components"
+
+//import { pipes, components as ackComponents } from "ack-angular/dist/index"
 import * as packJson from "ack-angular/package.json"
 
 import * as ackFx from 'ack-angular-fx'
