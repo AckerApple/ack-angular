@@ -9,11 +9,11 @@ import { FormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-//import { UiRouteWatchReporter } from "ack-angular/dist/UiRouteWatchReporter.class"
-//import { UiRouteReporter } from "ack-angular/dist/UiRouteReporter.component"
+//import { UiRouteWatchReporter } from "ack-angular/UiRouteWatchReporter.class"
+//import { UiRouteReporter } from "ack-angular/UiRouteReporter.component"
 
-import { RouteWatchReporter } from "ack-angular/dist/RouteWatchReporter.class"
-import { RouteReporter } from "ack-angular/dist/RouteReporter.component"
+import { RouteWatchReporter } from "ack-angular/RouteWatchReporter.class"
+import { RouteReporter } from "ack-angular/RouteReporter.component"
 
 import { pipes, components as ackComponents } from "ack-angular"
 

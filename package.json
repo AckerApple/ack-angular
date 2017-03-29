@@ -17,7 +17,7 @@
     "watch:js": "ack-webpack example/index.ts example/www/index.js --project example/tsconfig.json --modules ../ --watch --browser",
     "compile:prefx": "ack-angular-fx --select absoluteSwap500,200,500 --effects slide,fade --out example/src/prefx.ts",
     "compile:aot": "ngc -p example/tsconfig.aot.json",
-    "build:js": "ack-webpack example/index.aot.ts example/www/index.js --production --project example/tsconfig.json --modules ../",
+    "build:js": "cd example && ../node_modules/.bin/ack-webpack index.aot.ts www/index.js --production --project tsconfig.json",
     "build": "npm run compile:prefx && npm run compile:aot && npm run build:js"
   },
   "repository": {

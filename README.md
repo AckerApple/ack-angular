@@ -1,9 +1,11 @@
 # ack-angular
 Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2
 
-Demos and Examples : [tap here](https://ackerapple.github.io/ack-angular/)
+> Demos and Examples : [tap here](https://ackerapple.github.io/ack-angular/)
 
-> Looking for Angular 1.5+ code, use [ack-angularjs](https://github.com/AckerApple/ack-angularjs)
+> Source Repository : [src branch here](https://github.com/AckerApple/ack-angular/tree/src)
+
+> AngularJs 1.5+ code : [ack-angularjs](https://github.com/AckerApple/ack-angularjs)
 
 ### Table of Contents
 - [Install](#install)
@@ -181,9 +183,9 @@ import { NgModule } from '@angular/core';
 # Work on This Project
 Everything in this topic is run in an command prompt terminal
 
-Clone this project
+Clone project source files
 ```bash
-git clone https://github.com/AckerApple/ack-angular
+git clone -b src https://github.com/AckerApple/ack-angular
 ```
 
 ## Building Example
