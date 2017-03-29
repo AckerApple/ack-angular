@@ -25,10 +25,12 @@
   "homepage": "https://github.com/AckerApple/ack-angular#readme",
   "jsDependencies": {
     "reflect-metadata": "^0.1.10",
-    "@angular/common": "^4.0.0",
-    "@angular/core": "^4.0.0",   
-    "@angular/animations": "^4.0.0",
     "rxjs": "^5.2.0",
-    "zone.js": "^0.8.5"
+    "zone.js": "^0.8.5",
+    "ack-angular-fx": "^1.1.0",
+    "@angular/common": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0"
   }
 }
