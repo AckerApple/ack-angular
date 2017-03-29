@@ -31,7 +31,7 @@ import {string as componentsExamples} from './templates/components-examples.pug'
 import {string as pipesExamples} from './templates/pipes-examples.pug'
 import {string as servicesExamples} from './templates/services-examples.pug'
 
-import { declarations as states,routing } from "./route-test"
+import { declarations as states, routing } from "./states.object"
 
 @Component({
   selector: 'ack-app-stage'

@@ -2,6 +2,36 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var reader_header_body_pug_1 = require("./templates/reader-header-body.pug");
+/** adds form element onchange listener via addEventListener('change') that calls formChanged scope argument */
+var FormChanged = (function () {
+    function FormChanged(el) {
+        this.el = el;
+        this.formChanged = new core_1.EventEmitter();
+        console.log('launched');
+        this.onChange = function (event) {
+            this.formChanged.emit(event);
+        }.bind(this);
+        el.nativeElement.addEventListener('change', this.onChange);
+    }
+    FormChanged.prototype.ngOnDestroy = function () {
+        this.el.nativeElement.removeEventListener('change', this.onChange);
+    };
+    return FormChanged;
+}());
+FormChanged.parameters = [[core_1.ElementRef]];
+FormChanged.decorators = [
+    { type: core_1.Directive, args: [{
+                selector: '[formChanged]'
+            },] },
+];
+/** @nocollapse */
+FormChanged.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
+FormChanged.propDecorators = {
+    'formChanged': [{ type: core_1.Output },],
+};
+exports.FormChanged = FormChanged;
 var ReaderHeaderBody = (function () {
     function ReaderHeaderBody() {
     }
@@ -148,6 +178,7 @@ ScreenHeightModel.propDecorators = {
 };
 exports.ScreenHeightModel = ScreenHeightModel;
 exports.declarations = [
+    FormChanged,
     ScreenScrollModelY,
     ScreenHeightModel,
     ScreenWidthModel,

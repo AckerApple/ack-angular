@@ -9,8 +9,8 @@ h3 Common Components
       declarations:ackDecs
     &#125;)
 
-.flex-wrap.child-pad-xs
-  .flex-2
+.flex-wrap.child-margin-xxs
+  .flex-1
     .border.border-grey-4x.border.border-bottom-0
       div("[(screenScrollModelY)]"="screenScrollModelY")
       .pad-h
@@ -23,12 +23,12 @@ h3 Common Components
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(*ngIf="siewScreenScrollModelY" "[@500]"="'fadeInUp'")
       h4.pad-sm.margin-0 Usage Example
-      textarea.width-full.code-sample.margin-0(rows=2 wrap="off" ngNonBindable).
+      textarea.width-full.code-sample.margin-0(rows=3 wrap="off" ngNonBindable).
         &lt;div("[(screenScrollModelY)]"="screenScrollModelY")&gt;
           |screenScrollModelY : {{ screenScrollModelY }}px
         &lt;/div&gt;
 
-  .flex-2
+  .flex-1
     .border.border-grey-4x.border.border-bottom-0
       div("[(screenWidthModel)]"="screenWidthModel")
       .pad-h
@@ -41,12 +41,12 @@ h3 Common Components
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenWidthModel" "[@500]"="'fadeInUp'")
       h4.pad-sm.margin-0 Usage Example
-      textarea.width-full.code-sample.margin-0(rows=2 wrap="off" ngNonBindable).
+      textarea.width-full.code-sample.margin-0(rows=3 wrap="off" ngNonBindable).
         &lt;div("[(screenWidthModel)]"="screenWidthModel")&gt;
           |screenWidthModel : {{ screenWidthModel }}px
         &lt;/div&gt;
 
-  .flex-2
+  .flex-1
     .border.border-grey-4x.border.border-bottom-0
       div("[(screenHeightModel)]"="screenHeightModel")
       .pad-h
@@ -59,10 +59,39 @@ h3 Common Components
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenHeightModel" "[@500]"="'fadeInUp'")
       h4.pad-sm.margin-0 Usage Example
-      textarea.width-full.code-sample.margin-0(rows=2 wrap="off" ngNonBindable).
+      textarea.width-full.code-sample.margin-0(rows=3 wrap="off" ngNonBindable).
         &lt;div("[(screenHeightModel)]"="screenHeightModel")&gt;
           |screenHeightModel : {{ screenHeightModel }}px
         &lt;/div&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 formChanged
+        p.margin-0.text-grey-2x.max-width-400
+          |Capture a form tag onchange event
+        br
+    .text-center
+      .border.pad-xs("(click)"="viewFormChanged=!viewFormChanged" "[ngClass]"="viewFormChanged?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewFormChanged" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Example
+      form.pad("(formChanged)"="changeCount=changeCount==null?1:changeCount+1")
+        span Change Count : {{changeCount || 0}} :
+        |&nbsp;
+        input(type="radio" name="fcTest")
+        |&nbsp;
+        input(type="radio" name="fcTest")
+        |&nbsp;
+        input(type="radio" name="fcTest")
+      h4.pad-sm.margin-0 Usage Example
+      textarea.width-full.code-sample.margin-0(rows=9 wrap="off" ngNonBindable).
+        &lt;form (formChanged)="changeCount=changeCount?1:changeCount+1" &gt;
+          &lt;span&gt; Change Count : {{changeCount || 0}} &lt;/span&gt;
+          &lt;input type="radio" name="fcTest" /&gt;
+          &lt;input type="radio" name="fcTest" /&gt;
+          &lt;input type="radio" name="fcTest" /&gt;
+        &lt;/form&gt;
 
 br
 h3 Complex Components

@@ -1,4 +1,13 @@
 import { EventEmitter, ElementRef } from "@angular/core";
+/** adds form element onchange listener via addEventListener('change') that calls formChanged scope argument */
+export declare class FormChanged {
+    el: ElementRef;
+    static parameters: typeof ElementRef[][];
+    onChange: any;
+    formChanged: EventEmitter<{}>;
+    constructor(el: ElementRef);
+    ngOnDestroy(): void;
+}
 export declare class ReaderHeaderBody {
 }
 export declare class ReaderHeader {

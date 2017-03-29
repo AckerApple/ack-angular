@@ -9,6 +9,31 @@ import {
 
 import {string as readerHeaderBody} from "./templates/reader-header-body.pug"
 
+/** adds form element onchange listener via addEventListener('change') that calls formChanged scope argument */
+@Directive({
+  selector:'[formChanged]'
+}) export class FormChanged{
+  static parameters = [[ElementRef]]
+  public onChange
+
+  @Output() public formChanged = new EventEmitter()
+
+  constructor(public el:ElementRef){
+    console.log('launched')
+
+    this.onChange = function(event){
+      this.formChanged.emit(event)
+    }.bind(this)
+
+    el.nativeElement.addEventListener('change',this.onChange)
+  }
+
+  ngOnDestroy(){
+    this.el.nativeElement.removeEventListener('change',this.onChange)
+  }
+}
+
+
 @Component({
   selector:'reader-header-body',
   template:readerHeaderBody
@@ -17,7 +42,6 @@ import {string as readerHeaderBody} from "./templates/reader-header-body.pug"
 @Directive({
   selector:'reader-header'
 }) export class ReaderHeader {}
-
 
 @Directive({
   selector:"reader-body"
@@ -125,6 +149,7 @@ import {string as readerHeaderBody} from "./templates/reader-header-body.pug"
 }
 
 export const declarations = [
+  FormChanged,
   ScreenScrollModelY,
   ScreenHeightModel,
   ScreenWidthModel,

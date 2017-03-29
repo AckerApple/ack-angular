@@ -22,12 +22,20 @@ h3(id="Import Example") Import Example
 pre.code-sample.
   import &#123; Component &#125; from '@angular/core'
   import &#123; ackAnimations &#125; from 'ack-angular/fx'
-  
+  import &#123; BrowserModule &#125; from '@angular/platform-browser'
+  import &#123; BrowserAnimationsModule &#125; from '@angular/platform-browser/animations';
+
   @Component(&#123;
     selector: 'app-tag'
     ,template: 'Hello Template'
     ,animations: ackAnimations
   &#125;) class AppComponent &#123;&#125;
+
+  @NgModule(&#123;
+    imports : [ BrowserModule, BrowserAnimationsModule ]
+    declarations : [ AppComponent, ...ackPipes.declarations ],
+    boostrap : [ AppComponent ]
+  &#125;) export class AppModule &#123;&#125;
 
 h3(id="Usage Example") Usage Example
 pre.code-sample.

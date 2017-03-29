@@ -8,12 +8,8 @@ pre.code-sample.
   
   import * as ackPipes from 'ack-angular/pipes'
 
-  let decs = [ AppComponent ]
-
-  decs = decs.concat( ackPipes.declarations )
-
   @NgModule(&#123;
-    declarations:decs
+    declarations : [ AppComponent, ...ackPipes.declarations ]
   &#125;) export class AppModule &#123;&#125;
   
 br
