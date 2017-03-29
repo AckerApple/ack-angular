@@ -1,0 +1,113 @@
+h3 Common Components
+.pad-h
+  p.margin-bottom-0 Import Example
+  pre.code-sample.
+    import &#123; declarations as ackDecs &#125; from "ack-angular/components"
+    import &#123; NgModule &#125; from '@angular/core';
+
+    @NgModule(&#123;
+      declarations:ackDecs
+    &#125;)
+
+.flex-wrap.child-pad-xs
+  .flex-2
+    .border.border-grey-4x.border.border-bottom-0
+      div("[(screenScrollModelY)]"="screenScrollModelY")
+      .pad-h
+        h3 screenScrollModelY
+        p.margin-0.text-grey-2x.max-width-400
+          |Get the browser window inner width. Currently : {{screenScrollModelY}}px
+        br
+    .text-center
+      .border.pad-xs("(click)"="siewScreenScrollModelY=!siewScreenScrollModelY" "[ngClass]"="siewScreenScrollModelY?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="siewScreenScrollModelY" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Usage Example
+      pre.code-sample.margin-0.
+        &lt;div("[(screenScrollModelY)]"="screenScrollModelY")&gt;
+          |screenScrollModelY : {{ screenScrollModelY }}px
+        &lt;/div&gt;
+
+  .flex-2
+    .border.border-grey-4x.border.border-bottom-0
+      div("[(screenWidthModel)]"="screenWidthModel")
+      .pad-h
+        h3 screenWidthModel
+        p.margin-0.text-grey-2x.max-width-400
+          |Get the browser window inner width. Currently : {{screenWidthModel}}px
+        br
+    .text-center
+      .border.pad-xs("(click)"="viewScreenWidthModel=!viewScreenWidthModel" "[ngClass]"="viewScreenWidthModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenWidthModel" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Usage Example
+      pre.code-sample.margin-0.
+        &lt;div("[(screenWidthModel)]"="screenWidthModel")&gt;
+          |screenWidthModel : {{ screenWidthModel }}px
+        &lt;/div&gt;
+
+  .flex-2
+    .border.border-grey-4x.border.border-bottom-0
+      div("[(screenHeightModel)]"="screenHeightModel")
+      .pad-h
+        h3 screenHeightModel
+        p.margin-0.text-grey-2x.max-width-400
+          |Get the browser window inner height. Currently : {{screenHeightModel}}px
+        br
+    .text-center
+      .border.pad-xs("(click)"="viewScreenHeightModel=!viewScreenHeightModel" "[ngClass]"="viewScreenHeightModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenHeightModel" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Usage Example
+      pre.code-sample.margin-0.
+        &lt;div("[(screenHeightModel)]"="screenHeightModel")&gt;
+          |screenHeightModel : {{ screenHeightModel }}px
+        &lt;/div&gt;
+
+br
+h3 Complex Components
+.pad-h
+  p.margin-bottom-0 Components that have additional dependencies or restrictions
+.flex-wrap.child-margin-xxs
+  .flex-1.border.border-grey-4x.border
+    .pad-h
+      h3 route-reporter
+      p.margin-0.text-grey-2x.max-width-400
+        |Get in tune with your document route states using @angular/router
+      br
+    .text-center
+      .border.pad-xxs("(click)"="viewRouteReporter=!viewRouteReporter" "[ngClass]"="viewRouteReporter?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewRouteReporter" "[@500]"="'fadeInUp'")
+      .pad Requirements
+        ul
+          li route-reporter
+      h4.pad-sm.margin-0 Usage Example
+      pre.code-sample.margin-0.
+        &lt;route-reporter [(ref)]="" (beforeChange)="" (onChange)=""&gt;
+      h4.pad-sm.margin-0 ref example
+      pre.code-sample.margin-0.max-height-500.
+        &lt;route-reporter [(ref)]="routeState" &gt;
+        -----------------------------------------
+        routeState:{{ routeState|json }}
+  .flex-1.border.border-grey-4x.border
+    .pad-h
+      h3 ui-route-reporter
+      p.margin-0.text-grey-2x.max-width-400
+        |Get in tune with your document route states using ui-router-ng2
+      br
+    .text-center
+      .border.pad-xxs("(click)"="viewUiRouteReporter=!viewUiRouteReporter" "[ngClass]"="viewUiRouteReporter?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewUiRouteReporter" "[@500]"="'fadeInUp'")
+      .pad Requirements
+        ul
+          li ui-router-ng2
+      h4.pad-sm.margin-0 Usage Example
+      pre.code-sample.margin-0.
+        &lt;ui-route-reporter [(ref)]="" (beforeChange)="" (onChange)=""&gt;
+      h4.pad-sm.margin-0 ref example
+      pre.code-sample.margin-0.max-height-500.
+        &lt;ui-route-reporter [(ref)]="routeState" &gt;
+        -----------------------------------------
+        routeState:{{ routeState|json }}

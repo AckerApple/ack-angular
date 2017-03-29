@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "inlineSources": true,
+    "emitDecoratorMetadata": true,
+    "baseUrl": "src",
+    "experimentalDecorators": true,
+    "noEmitHelpers": false,
+    "allowJs": false,
+    "noImplicitAny": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "lib": ["es2015", "dom"],
+    "outDir": "../dist",
+    "declaration": true
+  },
+  "exclude": ["node_modules"],
+  "angularCompilerOptions": {
+    "genDir": "../aot",
+    "skipMetadataEmit" : false,
+    "skipTemplateCodegen" : true,
+    "entryModule": "app.module#AppModule"
+  }
+}
