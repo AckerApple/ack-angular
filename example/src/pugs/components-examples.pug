@@ -23,7 +23,7 @@ h3 Common Components
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(*ngIf="siewScreenScrollModelY" "[@500]"="'fadeInUp'")
       h4.pad-sm.margin-0 Usage Example
-      pre.code-sample.margin-0.
+      textarea.width-full.code-sample.margin-0(rows=2 wrap="off" ngNonBindable).
         &lt;div("[(screenScrollModelY)]"="screenScrollModelY")&gt;
           |screenScrollModelY : {{ screenScrollModelY }}px
         &lt;/div&gt;
@@ -41,7 +41,7 @@ h3 Common Components
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenWidthModel" "[@500]"="'fadeInUp'")
       h4.pad-sm.margin-0 Usage Example
-      pre.code-sample.margin-0.
+      textarea.width-full.code-sample.margin-0(rows=2 wrap="off" ngNonBindable).
         &lt;div("[(screenWidthModel)]"="screenWidthModel")&gt;
           |screenWidthModel : {{ screenWidthModel }}px
         &lt;/div&gt;
@@ -59,7 +59,7 @@ h3 Common Components
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenHeightModel" "[@500]"="'fadeInUp'")
       h4.pad-sm.margin-0 Usage Example
-      pre.code-sample.margin-0.
+      textarea.width-full.code-sample.margin-0(rows=2 wrap="off" ngNonBindable).
         &lt;div("[(screenHeightModel)]"="screenHeightModel")&gt;
           |screenHeightModel : {{ screenHeightModel }}px
         &lt;/div&gt;
@@ -83,10 +83,10 @@ h3 Complex Components
         ul
           li route-reporter
       h4.pad-sm.margin-0 Usage Example
-      pre.code-sample.margin-0.
+      textarea.width-full.code-sample.margin-0(rows=1 wrap="off" ngNonBindable).
         &lt;route-reporter [(ref)]="" (beforeChange)="" (onChange)=""&gt;
       h4.pad-sm.margin-0 ref example
-      pre.code-sample.margin-0.max-height-500.
+      textarea.width-full.code-sample.margin-0(rows=2 wrap="off" ngNonBindable).
         &lt;route-reporter [(ref)]="routeState" &gt;
         -----------------------------------------
         routeState:{{ routeState|json }}
@@ -104,10 +104,10 @@ h3 Complex Components
         ul
           li ui-router-ng2
       h4.pad-sm.margin-0 Usage Example
-      pre.code-sample.margin-0.
+      textarea.width-full.code-sample.margin-0(rows=1 wrap="off" ngNonBindable).
         &lt;ui-route-reporter [(ref)]="" (beforeChange)="" (onChange)=""&gt;
       h4.pad-sm.margin-0 ref example
-      pre.code-sample.margin-0.max-height-500.
+      textarea.width-full.code-sample.margin-0(rows=2 wrap="off" ngNonBindable).
         &lt;ui-route-reporter [(ref)]="routeState" &gt;
         -----------------------------------------
         routeState:{{ routeState|json }}
