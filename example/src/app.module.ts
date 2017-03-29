@@ -72,7 +72,9 @@ import { declarations as states, routing } from "./states.object"
   ,template: componentsExamples
   ,animations:fxArray
   //,animations:[]
-}) export class ComponentsExamples {}
+}) export class ComponentsExamples {
+  public formChanges:number = 0
+}
 
 @Component({
   selector: 'pipes-examples'
