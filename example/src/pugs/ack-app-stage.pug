@@ -5,9 +5,9 @@ mixin top
 
 div("[(screenWidthModel)]"="screenWidthModel")
 
-//-route-doc-watcher("[(ref)]"="routeDocWatcher" "(beforeChange)"="panelAnim=$event.isBackMode?'slideInRight':'slideInLeft';isBackMode=$event.isBackMode;" "(onChange)"="stateName=$event.$state().current.name")
-route-reporter("[(ref)]"="routeDocWatcher" "(beforeChange)"="panelAnim=$event.isBackMode?'slideInRight':'slideInLeft';isBackMode=$event.isBackMode;" "(onChange)"="stateName=$event.current.name")
-//-|routeDocWatcher.current : {{ routeDocWatcher.current }}
+//-ui-route-reporter("[(ref)]"="routeReporter" "(beforeChange)"="panelAnim=$event.isBackMode?'slideInRight':'slideInLeft';isBackMode=$event.isBackMode;" "(onChange)"="stateName=$event.$state().current.name")
+route-reporter("[(ref)]"="routeReporter" "(beforeChange)"="panelAnim=$event.isBackMode?'slideInRight':'slideInLeft';isBackMode=$event.isBackMode;" "(onChange)"="stateName=$event.current.name")
+//-|routeReporter.current : {{ routeReporter.current }}
 router-outlet
 
 reader-header-body.font-helvetica
@@ -27,7 +27,7 @@ reader-header-body.font-helvetica
           |Components
         a.no-a-style.flex-1.border-right.border-white([ngClass]="{'bg-energized':stateName=='pipes'}" href="#/pipes")
           |Pipes
-        a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='services'}" href="#/services")
+        //-a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='services'}" href="#/services")
           |Services
         a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='animations'}" href="#/animations")
           |Animations    
@@ -50,7 +50,7 @@ reader-header-body.font-helvetica
           pipes-examples
           +top
 
-        .pad-md(*ngIf="stateName=='services'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+        //-.pad-md(*ngIf="stateName=='services'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
           h2.margin-top-0 Services
           services-examples
           +top

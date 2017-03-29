@@ -66,6 +66,33 @@ import {string as readerHeaderBody} from "./templates/reader-header-body.pug"
 
 @Directive({
   //inputs:['screen-height-model'],
+  selector: '[screenScrollModelY]'
+}) export class ScreenScrollModelY{
+  public window
+  public onScroll
+
+  @Input() public screenScrollModelY
+  @Output() public screenScrollModelYChange = new EventEmitter()
+
+  constructor(){
+    this.onScroll = function(){
+      this.screenScrollModelY = window['pageYOffset']
+      this.screenScrollModelYChange.emit(this.screenScrollModelY)
+    }.bind(this)
+  }
+  
+  ngOnInit(){
+    this.onScroll()
+    window['addEventListener']("scroll", this.onScroll)
+  }
+
+  ngOnDestroy(){
+    window['removeEventListener']("scroll", this.onScroll)
+  }
+}
+
+@Directive({
+  //inputs:['screen-height-model'],
   selector: '[screenHeightModel]'
 }) export class ScreenHeightModel{
   public window
@@ -98,6 +125,7 @@ import {string as readerHeaderBody} from "./templates/reader-header-body.pug"
 }
 
 export const declarations = [
+  ScreenScrollModelY,
   ScreenHeightModel,
   ScreenWidthModel,
   ReaderHeaderBody,

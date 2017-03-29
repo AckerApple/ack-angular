@@ -7,11 +7,10 @@ Demos and Examples : [tap here](https://ackerapple.github.io/ack-angular/)
 
 ### Table of Contents
 - [Install](#install)
-  - [Requirements](#requirements)
-  - [ack-webpack install jsDependencies](#ack-webpack-install-jsdependencies)
-  - [Manually Install jsDependencies](#manually-install-jsdependencies)
+  - [Install jsDependencies via ack-webpack](#install-jsdependencies-via-ack-webpack)
+  - [Manually Install Dependencies](#manually-install-dependencies)
 - [AoT Compatibility](#aot-compatibility)
-- [Include in Project](#include-in-project)
+- [Importing into Project](#importing-into-project)
 - [Dependency Map](#dependency-map)
 - [Components](#components)
 - [Work on This Project](#work-on-this-project)
@@ -20,71 +19,87 @@ Demos and Examples : [tap here](https://ackerapple.github.io/ack-angular/)
 
 # Install
 
-## Requirements
-Since you're using Angular, the following are expected to already be installed:
-
-- reflect-metadata
-- @angular/core
-
 Two ways to install:
 
-- Use ack-webpack to install jsDependencies
-- Manually install jsDependencies
+- Install jsDependencies via ack-webpack
+- Manually Install Dependencies
 
-> AoT compatibility a concern? [READ HERE FIRST](#aot-compatibility)
+### Install jsDependencies via ack-webpack
+[ack-webpack](https://www.npmjs.com/package/ack-webpack) reads the jsDependencies in a package.json to then install defined packages and any sub-jsDependencies of installed packages
 
-### ack-webpack install jsDependencies
-
-> NOTE : [ack-webpack](https://www.npmjs.com/package/ack-webpack) auto adds a script entry to your package.json file to make CLI commands easier
+> NOTE : ack-webpack auto adds a script entry to your package.json file to make CLI commands easier
 
 Step 1
 ```bash
 npm install ack-webpack --save-dev
 ```
 
-Step 2 : **NOT** AoT Compatible
+Step 2
 ```bash
 npm run ack-webpack -- install
 ```
 
-Step 2 : Aot Compatible
+
+### Manually Install Dependencies
+If you don't use [ack-webpack](https://www.npmjs.com/package/ack-webpack) to install your dependencies, you can install dependencies yourself
+
+Minimal Install
 ```bash
-npm run ack-webpack -- install:js
+npm install --save-dev web-animations-js ack-angular-fx ack-angular
 ```
 
-
-### Manually Install jsDependencies
-If you don't use [ack-webpack](https://www.npmjs.com/package/ack-webpack) to install your dependencies, you can do it... but it may not be AoT compatible and you may not always include future undocumented dependencies
-
+Full Install
 ```bash
-npm install --save-dev web-animations-js ack-angular-fx ui-router-ng2 ack-angular
+npm install --save-dev reflect-metadata @angular/common @angular/core @angular/animations rxjs zone.js
 ```
 
 ### AoT Compatibility
 I, Acker Dawn Apple, have busted my tail to make this package compatible with Ahead-of-Time compiling.
 
-Everything in this package is tested working with AoT compiling
+Everything in this package is tested working with AoT compiling. Animations provided by [ack-angular-fx](https://www.npmjs.com/package/ack-angular-fx), must be pre-compiled to a TypeScript file (dynamic animations are not AoT compatible).
 
-## Include in Project
+#### Precompile Animations with ack-angular-fx for Aot Compatibility
+Dynamic animations are not supported for AoT compiling. Precompile animations to TypeScript file.
+
+- Step 1 : Add script entry to your package.json file
+```javascript
+"scripts":{
+  "compile:prefx": "ack-angular-fx --select animateSwap,400,500 --effects fade,slide --out ./src/prefx.ts"
+}
+```
+- Step 2 : Run script in a command prompt terminal
+```bash
+npm run compile:prefx
+```
+
+## Importing into Project
 ack-angular uses file based imports, importing the index does nothing.
 
 
 ### Import Samples
 
-> If you attempt to import any of the following, certain dependencies must have already been installed.
->> [check dependency map](#dependency-map)
-
+#### Various Import Examples
 ```javascript
-import * as pipes from "ack-angular/pipes"
+import { pipes, components } from "ack-angular"
 
-import * as RouteDocWatcher from "ack-angular/RouteDocWatcher.component"
-
-import * as RouteWatcher from "ack-angular/RouteWatcher.class"
+//save as above
+import { declarations as pipes } from "ack-angular/pipes"
+import { declarations as components } from "ack-angular/components"
 ```
 
-> Do NOT do this
-```bash
-import * as ackAngular from 'ack-angular';
+#### Dependency Based Import Examples
+If you attempt to import any of the following, certain dependencies must have already been installed.
+
+[check dependency map](#dependency-map)
+
+```javascript
+//requires @angular/router imports
+import { RouteReporter } from "ack-angular/RouteReporter.component"
+import { RouteWatchReporter } from "ack-angular/RouteWatchReporter.class"
+
+//requires ui-router-ng2 imports : broken as of 3/29/17 when @angular released 4.0.0
+import { UiRouteReporter } from "ack-angular/UiRouteReporter.component"
+import { UiRouteWatchReporter } from "ack-angular/UiRouteWatchReporter.class"
 ```
 
 ## Dependency Map
@@ -92,29 +107,25 @@ If you import the following files, make sure you have installed it's dependencie
 
 > You can ignore all of this if you used [ack-webpack to install jsDependencies](#ack-webpack-install-jsdependencies)
 
-- ack-angular/fx
-```javascript
-import * as fx from "ack-angular/fx"
-```
-```bash
-npm install ack-angular-fx --save-dev
-```
-- ack-angular/RouteDocWatcher.component
-```javascript
-import * as RouteDocWatcher from "ack-angular/RouteDocWatcher.component"
-```
-```bash
-npm install ui-router-ng2 --save-dev
-```
-- ack-angular/RouteWatcher.class
-```javascript
-import * as RouteWatcher from "ack-angular/RouteWatcher.class"
-```
-```bash
-npm install ui-router-ng2 --save-dev
-```
+- ack-angular/**fx.ts**
+  - Import Example : `import * as fx from "ack-angular/fx"`
+  - Dependency Install : `npm install ack-angular-fx --save-dev`
+- ack-angular/**RouteReporter.component.ts**
+  - Import Example : `import { RouteReporter } from "ack-angular/RouteReporter.component"`
+  - Dependency Install `npm install @angular/router --save-dev`
+- ack-angular/**RouteWatchReporter.class.ts**
+  - Import Example : `import { RouteWatchReporter } from "ack-angular/RouteWatchReporter.class"`
+  - Dependency Install `npm install @angular/router --save-dev`
+- ack-angular/**UiRouteReporter.component.ts**
+  - **broken** as of 3/29/17 when @angular released 4.0.0
+  - Import Example : `import { UiRouteReporter } from "ack-angular/UiRouteReporter.component"`
+  - Dependency Install `npm install ui-router-ng2 --save-dev`
+- ack-angular/**UiRouteWatchReporter.class.ts**
+  - **broken** as of 3/29/17 when @angular released 4.0.0
+  - Import Example : `import { UiRouteWatchReporter } from "ack-angular/UiRouteWatchReporter.class"`
+  - Dependency Install `npm install ui-router-ng2 --save-dev`
 
-> The [Extended Documentation](https://ackerapple.github.io/ack-angular/) will help further understanding what's required of and when
+> The [Extended Documentation](https://ackerapple.github.io/ack-angular/) may help bring further understanding as to what is required and when to import dependencies
 
 # Components
 Directives and Components making development life more joyful
@@ -123,28 +134,47 @@ Directives and Components making development life more joyful
 Include one file and access several
 
 ```javascript
-import { declarations as ackDecs } from "ack-angular/components";
+import { pipes as ackPipes , components as ackComps } from "ack-angular/components";
 import { NgModule } from '@angular/core';
 
 @NgModule({
-  declarations:ackDecs
+  declarations:[...ackComps, ...ackPipes]
 })
 ```
 
 ## Complex Components
 Components that have additional dependencies or restrictions
 
-### route-doc-watcher
+### route-reporter
+A directive that exposes @angular/router metadata for use in a component template
 ```javascript
-import { UIRouterModule } from "ui-router-ng2";
-import { RouteWatcher } from "ack-angular/RouteWatcher.class"
-import { RouteDocWatcher } from "ack-angular/RouteDocWatcher.component"
+import { RouterModule } from '@angular/router';
+import { RouteWatchReporter } from "ack-angular/RouteWatchReporter.class"
+import { RouteReporter } from "ack-angular/RouteReporter.component"
 import { NgModule } from '@angular/core';
 
 @NgModule({
-  imports:[ UIRouterModule.forRoot({states:...}) ],
-  providers: [ RouteWatcher ],
-  declarations:[RouteDocWatcher]
+  imports:[ RouterModule.forRoot([], {}) ],
+  providers: [ UiRouteWatchReporter ],
+  declarations:[ UiRouteReporter ]
+})
+```
+
+### ui-route-reporter
+A directive that exposes ui-router-ng2 route metadata for use in a component template
+
+> **broken** as of 3/29/17 when @angular released 4.0.0
+
+```javascript
+import { UIRouterModule } from "ui-router-ng2";
+import { UiRouteWatchReporter } from "ack-angular/UiRouteWatchReporter.class"
+import { UiRouteReporter } from "ack-angular/UiRouteReporter.component"
+import { NgModule } from '@angular/core';
+
+@NgModule({
+  imports:[ UIRouterModule.forRoot({states:[]}) ],
+  providers: [ UiRouteWatchReporter ],
+  declarations:[ UiRouteReporter ]
 })
 ```
 
@@ -160,28 +190,17 @@ git clone https://github.com/AckerApple/ack-angular
 
 Install example dependencies
 ```bash
-npm run install:example:js
+npm run build
 ```
 
-Dev Fast Project Watching
+Dev Project Watching
 ```bash
-npm run watch:example:js:jit
-```
-
-Dev AoT Project Watching. Longer compile times, ensures production compatibility
-```bash
-npm run watch:example:js
+npm run watch
 ```
 
 When changing core code animations, the example prefx must be compiled
 ```bash
 npm run compile:example:prefx
-```
-
-## Publishing
-
-```bash
-npm run build
 ```
 
 

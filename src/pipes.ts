@@ -59,7 +59,3 @@ export const declarations = [
   TypeofPipe,
   ConsolePipe
 ]
-
-export function getDeclarations(){
-  return declarations
-}

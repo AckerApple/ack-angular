@@ -1,6 +1,6 @@
 p.pad-h
   strong ack-angular
-  |, Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2
+  |&nbsp;is extra special directives, components, providers and pipes to aide in tackling everyday Angular2 driven development.
 
 h4 Table of Contents
 ul.margin-top-0
@@ -34,13 +34,24 @@ ul
         pre.code-sample.
           import * as fx from "ack-angular/fx"
     li
+      a(href="https://www.npmjs.com/package/@angular/router") @angular/router
+    ul
+      li only required for @angular/router based ack-angular component and services
+      li The following code would depend on @angular/router installation
+        pre.code-sample.
+          import &#123; RouteReporter &#125; from "ack-angular/RouteReporter.component"
+          import &#123; RouteWatchReporter &#125; from "ack-angular/RouteWatchReporter.class"
+        //-pre.code-sample.
+          import &#123; UiRouteReporter &#125; from "ack-angular/UiRouteReporter.component"
+          import &#123; UiRouteWatchReporter &#125; from "ack-angular/UiRouteWatchReporter.class"
+    li
       a(href="https://www.npmjs.com/package/ui-router-ng2") ui-router-ng2
     ul
-      li only required for router based ack-angular component and services
-      li The following code would depend on ack-angular-fx installation
+      li only required for ui-router-ng2 based ack-angular component and services
+      li The following code would depend on ui-router-ng2 installation
         pre.code-sample.
-          import * as RouteDocWatcher from "ack-angular/RouteDocWatcher.component"
-          import * as RouteWatcher from "ack-angular/RouteWatcher.class"
+          import &#123; UiRouteReporter &#125; from "ack-angular/UiRouteReporter.component"
+          import &#123; UiRouteWatchReporter &#125; from "ack-angular/UiRouteWatchReporter.class"
 
 h3(id="This Demo Area") This Demo Area
 ul

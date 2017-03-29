@@ -83,6 +83,36 @@ ScreenWidthModel.propDecorators = {
     'screenWidthModelChange': [{ type: core_1.Output },],
 };
 exports.ScreenWidthModel = ScreenWidthModel;
+var ScreenScrollModelY = (function () {
+    function ScreenScrollModelY() {
+        this.screenScrollModelYChange = new core_1.EventEmitter();
+        this.onScroll = function () {
+            this.screenScrollModelY = window['pageYOffset'];
+            this.screenScrollModelYChange.emit(this.screenScrollModelY);
+        }.bind(this);
+    }
+    ScreenScrollModelY.prototype.ngOnInit = function () {
+        this.onScroll();
+        window['addEventListener']("scroll", this.onScroll);
+    };
+    ScreenScrollModelY.prototype.ngOnDestroy = function () {
+        window['removeEventListener']("scroll", this.onScroll);
+    };
+    return ScreenScrollModelY;
+}());
+ScreenScrollModelY.decorators = [
+    { type: core_1.Directive, args: [{
+                //inputs:['screen-height-model'],
+                selector: '[screenScrollModelY]'
+            },] },
+];
+/** @nocollapse */
+ScreenScrollModelY.ctorParameters = function () { return []; };
+ScreenScrollModelY.propDecorators = {
+    'screenScrollModelY': [{ type: core_1.Input },],
+    'screenScrollModelYChange': [{ type: core_1.Output },],
+};
+exports.ScreenScrollModelY = ScreenScrollModelY;
 var ScreenHeightModel = (function () {
     function ScreenHeightModel() {
         this.screenHeightModelChange = new core_1.EventEmitter();
@@ -118,6 +148,7 @@ ScreenHeightModel.propDecorators = {
 };
 exports.ScreenHeightModel = ScreenHeightModel;
 exports.declarations = [
+    ScreenScrollModelY,
     ScreenHeightModel,
     ScreenWidthModel,
     ReaderHeaderBody,

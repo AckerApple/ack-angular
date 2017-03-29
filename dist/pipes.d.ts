@@ -23,4 +23,3 @@ export declare class ConsolePipe {
     transform(): any;
 }
 export declare const declarations: typeof Capitalize[];
-export declare function getDeclarations(): typeof Capitalize[];

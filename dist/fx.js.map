@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/fx.ts"],"names":[],"mappings":";;;;;AAAA,oCAA8B","file":"fx.js","sourceRoot":"","sourcesContent":["export * from \"ack-angular-fx\""]}

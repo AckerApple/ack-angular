@@ -8,17 +8,14 @@ import {
 import { FormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Router, NavigationStart, NavigationEnd, ActivatedRoute } from '@angular/router';
 
-//import { RouteWatcher } from "ack-angular/dist/RouteWatcher.class"
-//import { RouteDocWatcher } from "ack-angular/dist/RouteDocWatcher.component"
+//import { UiRouteWatchReporter } from "ack-angular/dist/UiRouteWatchReporter.class"
+//import { UiRouteReporter } from "ack-angular/dist/UiRouteReporter.component"
 
 import { RouteWatchReporter } from "ack-angular/dist/RouteWatchReporter.class"
 import { RouteReporter } from "ack-angular/dist/RouteReporter.component"
 
 import { pipes, components as ackComponents } from "ack-angular"
-//import * as pipes from "ack-angular/dist/pipes"
-//import * as ackComponents from "ack-angular/dist/components"
 
 import * as packJson from "ack-angular/package.json"
 
@@ -89,7 +86,7 @@ import { declarations as states,routing } from "./route-test"
 
 export const declarations = [
   AppComponent
-  //,RouteDocWatcher
+  //,UiRouteReporter
   ,RouteReporter
   ,AnimationExamples
   ,OverviewExamples
@@ -120,7 +117,7 @@ export const declarations = [
   ,declarations: declarations
   ,providers:[
     RouteWatchReporter
-    //RouteWatcher
+    //,UiRouteWatchReporter
   ]
   ,bootstrap: [ AppComponent ]
   //,schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

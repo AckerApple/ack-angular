@@ -8,8 +8,7 @@
     "install:example": "npm install --prefix example",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dist:tsc": "tsc --declaration --project src",
-    "build:dist": "ngc --declaration --project src",
-    
+    "build:dist": "ngc --declaration --project src",    
     "ack-webpack": "ack-webpack",
     "build:src:assets": "ack-pug-bundler src/pugs/ src/templates/ --oneToOne --outType ts",
     "build:example:assets": "ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts",

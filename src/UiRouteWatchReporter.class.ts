@@ -5,7 +5,7 @@ import { StateService,TransitionService,Transition } from "ui-router-ng2";
  - Has 99% accuracy of knowing if OS back or forward button has been used
    - Their is no web event for knowing if OS button is used. 
 */
-export class RouteWatcher{
+export class UiRouteWatchReporter{
   public $history : any
   public $state : any
   public $window : any

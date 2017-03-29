@@ -125,8 +125,4 @@ exports.declarations = [
     TypeofPipe,
     ConsolePipe
 ];
-function getDeclarations() {
-    return exports.declarations;
-}
-exports.getDeclarations = getDeclarations;
 //# sourceMappingURL=pipes.js.map

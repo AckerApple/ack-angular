@@ -17,6 +17,15 @@ export declare class ScreenWidthModel {
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
 }
+export declare class ScreenScrollModelY {
+    window: any;
+    onScroll: any;
+    screenScrollModelY: any;
+    screenScrollModelYChange: EventEmitter<{}>;
+    constructor();
+    ngOnInit(): void;
+    ngOnDestroy(): void;
+}
 export declare class ScreenHeightModel {
     window: any;
     onResize: any;
