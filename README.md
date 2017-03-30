@@ -205,6 +205,17 @@ When changing core code animations, the example prefx must be compiled
 npm run compile:example:prefx
 ```
 
+### Publish Package
+
+Before publishing, update the package version number in:
+- package.json
+- ack-angular/package.json
+
+After running the build command:
+- git push `/ack-angular` to `master` branch
+- npm publish `ack-angular` folder
+- git push `/example/www/` to `gh-pages` branch
+- git push `/` to `src` branch
 
 ## Resources
 - [Examples and Docs](https://ackerapple.github.io/ack-angular/)

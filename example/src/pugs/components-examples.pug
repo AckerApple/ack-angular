@@ -67,16 +67,16 @@ h3 Common Components
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
-        h3 formChanged
+        h3 onFormChanged
         p.margin-0.text-grey-2x.max-width-400
           |Capture a form tag onchange event
         br
     .text-center
-      .border.pad-xs("(click)"="viewFormChanged=!viewFormChanged" "[ngClass]"="viewFormChanged?'border-energized bg-energized':'border-info bg-info'")
+      .border.pad-xs("(click)"="viewOnFormChanged=!viewOnFormChanged" "[ngClass]"="viewOnFormChanged?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewFormChanged" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewOnFormChanged" "[@500]"="'fadeInUp'")
       h4.pad-sm.margin-0 Example
-      form.pad("(formChanged)"="formChanges=formChanges==null?1:formChanges+1")
+      form.pad("(onFormChanged)"="formChanges=formChanges==null?1:formChanges+1")
         span Change Count : {{formChanges || 0}} :
         |&nbsp;
         input(type="radio" name="fcTest")
@@ -86,11 +86,34 @@ h3 Common Components
         input(type="radio" name="fcTest")
       h4.pad-sm.margin-0 Usage Example
       textarea.width-full.code-sample.margin-0(rows=9 wrap="off" ngNonBindable).
-        &lt;form (formChanged)="formChanges=formChanges==null?1:formChanges+1" &gt;
+        &lt;form (onFormChanged)="formChanges=formChanges==null?1:formChanges+1" &gt;
           &lt;span&gt; Change Count : {{formChanges || 0}} &lt;/span&gt;
           &lt;input type="radio" name="fcTest" /&gt;
           &lt;input type="radio" name="fcTest" /&gt;
           &lt;input type="radio" name="fcTest" /&gt;
+        &lt;/form&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 onFormAlter
+        p.margin-0.text-grey-2x.max-width-400
+          |Capture a form tag oninput event
+        br
+    .text-center
+      .border.pad-xs("(click)"="viewOnFormAlter=!viewOnFormAlter" "[ngClass]"="viewOnFormAlter?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewOnFormAlter" "[@500]"="'fadeInUp'")
+      .pad.text-info Fires for every form input alteration and NOT just after a change occurred
+      h4.pad-sm.margin-0 Example
+      form.pad("(onFormAlter)"="formAlters=formAlters==null?1:formAlters+1")
+        span Alter Count : {{formAlters || 0}} :
+        input(type="text")
+      h4.pad-sm.margin-0 Usage Example
+      textarea.width-full.code-sample.margin-0(rows=9 wrap="off" ngNonBindable).
+        &lt;form (onFormAlter)="formAlters=formAlters==null?1:formAlters+1" &gt;
+          &lt;span&gt; Alter Count : {{formAlters || 0}} &lt;/span&gt;
+          &lt;input type="text" /&gt;
         &lt;/form&gt;
 
   .flex-1

@@ -2,36 +2,63 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var reader_header_body_pug_1 = require("./templates/reader-header-body.pug");
-/** adds form element onchange listener via addEventListener('change') that calls formChanged scope argument */
-var FormChanged = (function () {
-    function FormChanged(element) {
+/** adds form element onchange listener via addEventListener('change') that calls onFormChanged scope argument */
+var OnFormChanged = (function () {
+    function OnFormChanged(element) {
         this.element = element;
-        this.formChanged = new core_1.EventEmitter();
-        console.log('launched');
+        this.onFormChanged = new core_1.EventEmitter();
         this.onChange = function (event) {
-            this.formChanged.emit(event);
+            this.onFormChanged.emit(event);
         }.bind(this);
         element.nativeElement.addEventListener('change', this.onChange);
     }
-    FormChanged.prototype.ngOnDestroy = function () {
+    OnFormChanged.prototype.ngOnDestroy = function () {
         this.element.nativeElement.removeEventListener('change', this.onChange);
     };
-    return FormChanged;
+    return OnFormChanged;
 }());
-FormChanged.parameters = [[core_1.ElementRef]];
-FormChanged.decorators = [
+OnFormChanged.parameters = [[core_1.ElementRef]];
+OnFormChanged.decorators = [
     { type: core_1.Directive, args: [{
-                selector: '[formChanged]'
+                selector: '[onFormChanged]'
             },] },
 ];
 /** @nocollapse */
-FormChanged.ctorParameters = function () { return [
+OnFormChanged.ctorParameters = function () { return [
     { type: core_1.ElementRef, },
 ]; };
-FormChanged.propDecorators = {
-    'formChanged': [{ type: core_1.Output },],
+OnFormChanged.propDecorators = {
+    'onFormChanged': [{ type: core_1.Output },],
 };
-exports.FormChanged = FormChanged;
+exports.OnFormChanged = OnFormChanged;
+var OnFormAlter = (function () {
+    function OnFormAlter(element) {
+        this.element = element;
+        this.onFormAlter = new core_1.EventEmitter();
+        this.onChange = function (event) {
+            this.onFormAlter.emit(event);
+        }.bind(this);
+        element.nativeElement.addEventListener('input', this.onChange);
+    }
+    OnFormAlter.prototype.ngOnDestroy = function () {
+        this.element.nativeElement.removeEventListener('input', this.onChange);
+    };
+    return OnFormAlter;
+}());
+OnFormAlter.parameters = [[core_1.ElementRef]];
+OnFormAlter.decorators = [
+    { type: core_1.Directive, args: [{
+                selector: '[onFormAlter]'
+            },] },
+];
+/** @nocollapse */
+OnFormAlter.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
+OnFormAlter.propDecorators = {
+    'onFormAlter': [{ type: core_1.Output },],
+};
+exports.OnFormAlter = OnFormAlter;
 var ReaderHeaderBody = (function () {
     function ReaderHeaderBody() {
     }
@@ -324,13 +351,14 @@ function removeClass(el, className) {
 }
 exports.removeClass = removeClass;
 exports.declarations = [
-    FormChanged,
+    OnFormChanged,
     ScreenScrollModelY,
     ScreenHeightModel,
     ScreenWidthModel,
     ReaderHeaderBody,
     ReaderHeader,
     ReaderBody,
-    ShakeOn
+    ShakeOn,
+    OnFormAlter
 ];
 //# sourceMappingURL=components.js.map

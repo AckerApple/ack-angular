@@ -9,20 +9,18 @@ import {
 
 import {string as readerHeaderBody} from "./templates/reader-header-body.pug"
 
-/** adds form element onchange listener via addEventListener('change') that calls formChanged scope argument */
+/** adds form element onchange listener via addEventListener('change') that calls onFormChanged scope argument */
 @Directive({
-  selector:'[formChanged]'
-}) export class FormChanged{
+  selector:'[onFormChanged]'
+}) export class OnFormChanged{
   static parameters = [[ElementRef]]
   public onChange
 
-  @Output() public formChanged = new EventEmitter()
+  @Output() public onFormChanged = new EventEmitter()
 
   constructor(public element:ElementRef){
-    console.log('launched')
-
     this.onChange = function(event){
-      this.formChanged.emit(event)
+      this.onFormChanged.emit(event)
     }.bind(this)
 
     element.nativeElement.addEventListener('change',this.onChange)
@@ -30,6 +28,27 @@ import {string as readerHeaderBody} from "./templates/reader-header-body.pug"
 
   ngOnDestroy(){
     this.element.nativeElement.removeEventListener('change',this.onChange)
+  }
+}
+
+@Directive({
+  selector:'[onFormAlter]'
+}) export class OnFormAlter{
+  static parameters = [[ElementRef]]
+  public onChange
+
+  @Output() public onFormAlter = new EventEmitter()
+
+  constructor(public element:ElementRef){
+    this.onChange = function(event){
+      this.onFormAlter.emit(event)
+    }.bind(this)
+
+    element.nativeElement.addEventListener('input',this.onChange)
+  }
+
+  ngOnDestroy(){
+    this.element.nativeElement.removeEventListener('input',this.onChange)
   }
 }
 
@@ -290,12 +309,13 @@ export function removeClass(el, className) {
 }
 
 export const declarations = [
-  FormChanged,
+  OnFormChanged,
   ScreenScrollModelY,
   ScreenHeightModel,
   ScreenWidthModel,
   ReaderHeaderBody,
   ReaderHeader,
   ReaderBody,
-  ShakeOn
+  ShakeOn,
+  OnFormAlter
 ]
