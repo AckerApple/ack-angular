@@ -76,7 +76,7 @@ h3 Common Components
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewFormChanged" "[@500]"="'fadeInUp'")
       h4.pad-sm.margin-0 Example
-      form.pad("(formChanged)"="formChanges=formChanges+1")
+      form.pad("(formChanged)"="formChanges=formChanges==null?1:formChanges+1")
         span Change Count : {{formChanges || 0}} :
         |&nbsp;
         input(type="radio" name="fcTest")
@@ -86,12 +86,53 @@ h3 Common Components
         input(type="radio" name="fcTest")
       h4.pad-sm.margin-0 Usage Example
       textarea.width-full.code-sample.margin-0(rows=9 wrap="off" ngNonBindable).
-        &lt;form (formChanged)="formChanges=formChanges?1:formChanges+1" &gt;
+        &lt;form (formChanged)="formChanges=formChanges==null?1:formChanges+1" &gt;
           &lt;span&gt; Change Count : {{formChanges || 0}} &lt;/span&gt;
           &lt;input type="radio" name="fcTest" /&gt;
           &lt;input type="radio" name="fcTest" /&gt;
           &lt;input type="radio" name="fcTest" /&gt;
         &lt;/form&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 shakeOn
+        p.margin-0.text-grey-2x.max-width-400
+          |Control an animated shaking effect on demand
+        br
+    .text-center
+      .border.pad-xs("(click)"="viewShakeOn=!viewShakeOn" "[ngClass]"="viewShakeOn?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewShakeOn" "[@500]"="'fadeInUp'")
+      .pad
+        .pad-xs.bg-warning.border-warning.text-warning
+          |You will need to &lt;link&gt; one of two style sheets:
+          ul
+            li ack-angular/ack-angular.css
+            li - or -
+            li ack-angular/csshake.css
+      h4.pad-sm.margin-0 Example
+      .pad
+        label([shakeOn]="shakeOn" "(shakeThen)"="shakeOn=false" "[(shakeRef)]"="shakeRef" "[(shakeForMs)]"="shakeForMs" "[(shakeType)]"="shakeOnType")
+          |shake this text :: {{ shakeOn||false }}
+        |&nbsp;
+        button("(click)"="shakeOn=true") shake:{{shakeOn||false}}
+        |&nbsp;
+        select("[(ngModel)]"="shakeOnType" "(change)"="shakeOn=true")
+          option(*ngFor="let item of shakeRef.shakeTypes" value="{{item}}") {{item}}
+        |&nbsp;
+        input("[(ngModel)]"="shakeForMs" "(change)"="shakeOn=true")
+
+      h4.pad-sm.margin-0 Usage Example
+      textarea.width-full.code-sample.margin-0(rows=8 wrap="off" ngNonBindable).
+        &lt;label [shakeOn]="shakeOn" (shakeThen)="shakeOn=false" [(shakeRef)]="shakeRef" [(shakeForMs)]="shakeForMs" [(shakeType)]="shakeOnType"&gt;
+          |shake this text :: {{ shakeOn||false }}
+        &lt;/label&gt;
+        &lt;button (click)="shakeOn=true"&gt; shake:{{shakeOn||false}} &lt;/button&gt;
+        &lt;select [(ngModel)]="shakeOnType" (change)="shakeOn=true"&gt;
+          &lt;option *ngFor="let item of (shakeRef?shakeRef.shakeTypes:[])" value="{{item}}"&gt;{{item}}&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;input [(ngModel)]="shakeForMs" (change)="shakeOn=true" /&gt;
 
 br
 h3 Complex Components

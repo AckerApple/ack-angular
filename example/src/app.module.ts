@@ -1,6 +1,7 @@
 export const strapTime = Date.now()
 
 import {
+  Input,
   Component,
   NgModule
   //,CUSTOM_ELEMENTS_SCHEMA
@@ -72,9 +73,7 @@ import { declarations as states, routing } from "./states.object"
   ,template: componentsExamples
   ,animations:fxArray
   //,animations:[]
-}) export class ComponentsExamples {
-  public formChanges:number = 0
-}
+}) export class ComponentsExamples {}
 
 @Component({
   selector: 'pipes-examples'
