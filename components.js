@@ -1,7 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var prefx_1 = require("./prefx");
 var reader_header_body_pug_1 = require("./templates/reader-header-body.pug");
+var error_well_pug_1 = require("./templates/error-well.pug");
+var absolute_overflow_y_pug_1 = require("./templates/absolute-overflow-y.pug");
 /** adds form element onchange listener via addEventListener('change') that calls onFormChanged scope argument */
 var OnFormChanged = (function () {
     function OnFormChanged(element) {
@@ -106,40 +109,82 @@ ReaderBody.ctorParameters = function () { return [
     { type: core_1.ElementRef, },
 ]; };
 exports.ReaderBody = ReaderBody;
-var ScreenWidthModel = (function () {
-    function ScreenWidthModel() {
-        this.screenWidthModelChange = new core_1.EventEmitter();
-        this.window = window;
+var ElementHeightModel = (function () {
+    function ElementHeightModel(element) {
+        this.element = element;
+        this.elementHeightModelChange = new core_1.EventEmitter();
         this.onResize = function () {
-            if (this.screenWidthModel !== window.innerWidth) {
-                this.screenWidthModel = window.innerWidth;
-                this.screenWidthModelChange.emit(this.screenWidthModel);
-            }
+            this.setModel();
         }.bind(this);
         window.addEventListener('resize', this.onResize);
     }
-    ScreenWidthModel.prototype.ngAfterViewInit = function () {
-        this.screenWidthModel = this.window.innerWidth;
-        this.screenWidthModelChange.emit(this.screenWidthModel);
+    ElementHeightModel.prototype.ngOnChanges = function () {
+        this.setModel();
     };
-    ScreenWidthModel.prototype.ngOnDestroy = function () {
+    ElementHeightModel.prototype.setModel = function () {
+        this.elementHeightModel = this.element.nativeElement.offsetHeight;
+        this.elementHeightModelChange.emit(this.elementHeightModel);
+    };
+    ElementHeightModel.prototype.ngAfterViewInit = function () {
+        this.setModel();
+    };
+    ElementHeightModel.prototype.ngOnDestroy = function () {
         window.removeEventListener(this.onResize);
     };
-    return ScreenWidthModel;
+    return ElementHeightModel;
 }());
-ScreenWidthModel.decorators = [
+ElementHeightModel.decorators = [
     { type: core_1.Directive, args: [{
-                //inputs:['screen-height-model'],
-                selector: '[screenWidthModel]'
+                selector: '[elementHeightModel]'
             },] },
 ];
 /** @nocollapse */
-ScreenWidthModel.ctorParameters = function () { return []; };
-ScreenWidthModel.propDecorators = {
-    'screenWidthModel': [{ type: core_1.Input },],
-    'screenWidthModelChange': [{ type: core_1.Output },],
+ElementHeightModel.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
+ElementHeightModel.propDecorators = {
+    'elementHeightModel': [{ type: core_1.Input },],
+    'elementHeightModelChange': [{ type: core_1.Output },],
 };
-exports.ScreenWidthModel = ScreenWidthModel;
+exports.ElementHeightModel = ElementHeightModel;
+var ElementWidthModel = (function () {
+    function ElementWidthModel(element) {
+        this.element = element;
+        this.elementWidthModelChange = new core_1.EventEmitter();
+        this.onResize = function () {
+            this.setModel();
+        }.bind(this);
+        window.addEventListener('resize', this.onResize);
+    }
+    ElementWidthModel.prototype.ngOnChanges = function () {
+        this.setModel();
+    };
+    ElementWidthModel.prototype.setModel = function () {
+        this.elementWidthModel = this.element.nativeElement.offsetWidth;
+        this.elementWidthModelChange.emit(this.elementWidthModel);
+    };
+    ElementWidthModel.prototype.ngAfterViewInit = function () {
+        this.setModel();
+    };
+    ElementWidthModel.prototype.ngOnDestroy = function () {
+        window.removeEventListener(this.onResize);
+    };
+    return ElementWidthModel;
+}());
+ElementWidthModel.decorators = [
+    { type: core_1.Directive, args: [{
+                selector: '[elementWidthModel]'
+            },] },
+];
+/** @nocollapse */
+ElementWidthModel.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
+ElementWidthModel.propDecorators = {
+    'elementWidthModel': [{ type: core_1.Input },],
+    'elementWidthModelChange': [{ type: core_1.Output },],
+};
+exports.ElementWidthModel = ElementWidthModel;
 var ScreenScrollModelY = (function () {
     function ScreenScrollModelY() {
         this.screenScrollModelYChange = new core_1.EventEmitter();
@@ -170,6 +215,41 @@ ScreenScrollModelY.propDecorators = {
     'screenScrollModelYChange': [{ type: core_1.Output },],
 };
 exports.ScreenScrollModelY = ScreenScrollModelY;
+var ScreenWidthModel = (function () {
+    function ScreenWidthModel() {
+        this.screenWidthModelChange = new core_1.EventEmitter();
+        this.onResize = function () {
+            if (this.screenWidthModel !== window.innerWidth) {
+                this.setModel();
+            }
+        }.bind(this);
+        window.addEventListener('resize', this.onResize);
+    }
+    ScreenWidthModel.prototype.setModel = function () {
+        this.screenWidthModel = window.innerWidth;
+        this.screenWidthModelChange.emit(this.screenWidthModel);
+    };
+    ScreenWidthModel.prototype.ngAfterViewInit = function () {
+        this.setModel();
+    };
+    ScreenWidthModel.prototype.ngOnDestroy = function () {
+        window.removeEventListener(this.onResize);
+    };
+    return ScreenWidthModel;
+}());
+ScreenWidthModel.decorators = [
+    { type: core_1.Directive, args: [{
+                //inputs:['screen-height-model'],
+                selector: '[screenWidthModel]'
+            },] },
+];
+/** @nocollapse */
+ScreenWidthModel.ctorParameters = function () { return []; };
+ScreenWidthModel.propDecorators = {
+    'screenWidthModel': [{ type: core_1.Input },],
+    'screenWidthModelChange': [{ type: core_1.Output },],
+};
+exports.ScreenWidthModel = ScreenWidthModel;
 var ScreenHeightModel = (function () {
     function ScreenHeightModel() {
         this.screenHeightModelChange = new core_1.EventEmitter();
@@ -204,6 +284,42 @@ ScreenHeightModel.propDecorators = {
     'screenHeightModelChange': [{ type: core_1.Output },],
 };
 exports.ScreenHeightModel = ScreenHeightModel;
+var AbsoluteOverflowY = (function () {
+    function AbsoluteOverflowY() {
+    }
+    return AbsoluteOverflowY;
+}());
+AbsoluteOverflowY.decorators = [
+    { type: core_1.Component, args: [{
+                selector: 'absolute-overflow-y',
+                template: absolute_overflow_y_pug_1.string
+            },] },
+];
+/** @nocollapse */
+AbsoluteOverflowY.ctorParameters = function () { return []; };
+exports.AbsoluteOverflowY = AbsoluteOverflowY;
+var ErrorWell = (function () {
+    function ErrorWell() {
+    }
+    ErrorWell.prototype.ngOnInit = function () {
+        this.cssClasses = this.cssClasses || 'bg-danger border-danger text-danger';
+    };
+    return ErrorWell;
+}());
+ErrorWell.decorators = [
+    { type: core_1.Component, args: [{
+                selector: 'error-well',
+                template: error_well_pug_1.string,
+                animations: prefx_1.fxArray
+            },] },
+];
+/** @nocollapse */
+ErrorWell.ctorParameters = function () { return []; };
+ErrorWell.propDecorators = {
+    'error': [{ type: core_1.Input },],
+    'cssClasses': [{ type: core_1.Input },],
+};
+exports.ErrorWell = ErrorWell;
 /** runs shake instructions when condition returns a truthy value */
 var ShakeOn = (function () {
     function ShakeOn(element) {
@@ -355,10 +471,14 @@ exports.declarations = [
     ScreenScrollModelY,
     ScreenHeightModel,
     ScreenWidthModel,
+    ShakeOn,
+    OnFormAlter,
+    ElementWidthModel,
+    ElementHeightModel,
     ReaderHeaderBody,
     ReaderHeader,
     ReaderBody,
-    ShakeOn,
-    OnFormAlter
+    ErrorWell,
+    AbsoluteOverflowY
 ];
 //# sourceMappingURL=components.js.map
