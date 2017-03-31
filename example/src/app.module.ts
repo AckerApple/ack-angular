@@ -72,8 +72,13 @@ import { declarations as states, routing } from "./states.object"
   selector: 'components-examples'
   ,template: componentsExamples
   ,animations:fxArray
-  //,animations:[]
-}) export class ComponentsExamples {}
+}) export class ComponentsExamples {
+  public error
+
+  causeError(){
+    this.error = new Error( 'An intended error was caused @ '+new Date().toString() )
+  }
+}
 
 @Component({
   selector: 'pipes-examples'

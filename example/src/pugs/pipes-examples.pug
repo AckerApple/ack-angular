@@ -22,61 +22,69 @@ h3(id="Documentation") Documentation
       h3 typeof
       p.text-grey-2x Output result of native javascript typeof() function
       h4.margin-bottom-0 Usage Example
-    textarea.width-full.code-sample.margin-0(rows=1 wrap="off" ngNonBindable).
-      {{ 0 | typeof }}
+    absolute-overflow-y
+      pre.code-sample.margin-0(ngNonBindable).
+        {{ 0 | typeof }}
 
   .flex2.border-grey-6x.border
     .pad-h
       h3 console
       p.text-grey-2x console log result of native console.log() function
       h4.margin-bottom-0 Usage Example
-    textarea.width-full.code-sample.margin-0(rows=1 wrap="off" ngNonBindable).
-      {{ 'message1' | console : 'message2' }}
+    absolute-overflow-y
+      pre.code-sample.margin-0(ngNonBindable).
+        {{ 'message1' | console : 'message2' }}
 
   .flex2.border-grey-6x.border
     .pad-h
       h3 capitalize
       p.text-grey-2x Each sentence leading word is capitalized
       h4.margin-bottom-0 Usage Example
-    textarea.width-full.code-sample.margin-0(rows=1 wrap="off" ngNonBindable).
-      {{ 'how do you do?' | capitalize }} == How do you do?
+    absolute-overflow-y
+      pre.code-sample.margin-0(ngNonBindable).
+        {{ 'how do you do?' | capitalize }} == How do you do?
 
   .flex2.border-grey-6x.border
     .pad-h
       h3 capitalizeWords
       p.text-grey-2x Every word is capitalized
       h4.margin-bottom-0 Usage Example
-    textarea.width-full.code-sample.margin-0(rows=1 wrap="off" ngNonBindable).
-      {{ 'how do you do?' | capitalizeWords }} == How Do You Do?
+    absolute-overflow-y
+      pre.code-sample.margin-0(ngNonBindable).
+        {{ 'how do you do?' | capitalizeWords }} == How Do You Do?
 
   .flex2.border-grey-6x.border
     .pad-h
       h3 yesno
       p.text-grey-2x Truthy value converts to: yes. Otherwise: no
       h4.margin-bottom-0 Usage Example
-    textarea.width-full.code-sample.margin-0(rows=1 wrap="off" ngNonBindable).
-      {{ 'true' | yesno }} == yes
+    absolute-overflow-y
+      pre.code-sample.margin-0(ngNonBindable).
+        {{ 'true' | yesno }} == yes
 
   .flex2.border-grey-6x.border
     .pad-h
       h3 YesNo
       p.text-grey-2x Truthy value converts to: Yes. Otherwise: No
       h4.margin-bottom-0 Usage Example
-    textarea.width-full.code-sample.margin-0(rows=1 wrap="off" ngNonBindable).
-      {{ 1 | YesNo }} == Yes
+    absolute-overflow-y
+      pre.code-sample.margin-0(ngNonBindable).
+        {{ 1 | YesNo }} == Yes
 
   .flex2.border-grey-6x.border
     .pad-h
       h3 numbers
       p.text-grey-2x Removes anything not a number from a string
       h4.margin-bottom-0 Usage Example
-    textarea.width-full.code-sample.margin-0(rows=1 wrap="off" ngNonBindable).
-      {{ 'sam123acb456xyz' | numbers }} == 123456
+    absolute-overflow-y
+      pre.code-sample.margin-0(ngNonBindable).
+        {{ 'sam123acb456xyz' | numbers }} == 123456
 
   .flex2.border-grey-6x.border
     .pad-h
       h3 keys
       p.text-grey-2x List of keys for an Object
       h4.margin-bottom-0 Usage Example
-    textarea.width-full.code-sample.margin-0(rows=1 wrap="off" ngNonBindable).
-      {{ {x:1,y:2,z:3} | keys }} == ["x","y","z"]
+    absolute-overflow-y
+      pre.code-sample.margin-0(ngNonBindable).
+        {{ {x:1,y:2,z:3} | keys }} == ["x","y","z"]

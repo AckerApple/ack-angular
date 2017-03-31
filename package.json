@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "ack-angular/index.js",
   "typings": "ack-angular/index.d.ts",
@@ -18,12 +18,17 @@
     "build:dist": "ngc --declaration --project src",
     "watch:dist": "watch 'npm run build:dist' src/ -ignoreDirectoryPattern=/pugs/",
     "ack-webpack": "ack-webpack",
-    "build:src:assets": "ack-pug-bundler src/pugs/ src/templates/ --oneToOne --outType ts",
-    "build:example:assets": "ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts",
-    "watch:assets": "npm run build:src:assets -- --watch & npm run build:example:assets -- --watch",
+    "build:assets": "npm run build:assets:src && npm run build:assets:example",
+    "build:assets:src": "ack-pug-bundler src/pugs/ src/templates/ --oneToOne --outType ts",
+    "build:assets:example": "ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts",
+    "watch:assets": "npm run build:assets:src -- --watch & npm run build:assets:example -- --watch",
     "watch": "npm run watch:dist & npm run watch:assets & npm run watch:js",
     "watch:js": "ack-webpack example/index.ts example/www/index.js --project example/tsconfig.json --modules . --watch --browser",
-    "compile:prefx": "ack-angular-fx --select absoluteSwap500,200,500 --effects slide,fade --out example/src/prefx.ts",
+    
+    "compile:prefx": "npm run compile:prefx:src && npm run compile:prefx:example",
+    "compile:prefx:src": "ack-angular-fx --select 200 --effects fade --out src/prefx.ts",
+    "compile:prefx:example": "ack-angular-fx --select absoluteSwap500,200,500 --effects slide,fade --out example/src/prefx.ts",
+    
     "compile:aot": "ncp ack-angular example/node_modules/ack-angular && ngc -p example/tsconfig.aot.json",
     "build:js": "cd example && ../node_modules/.bin/ack-webpack index.aot.ts www/index.js --production --project tsconfig.json --modules ../",
     "build": "npm run compile:prefx && npm run compile:aot && npm run build:js"

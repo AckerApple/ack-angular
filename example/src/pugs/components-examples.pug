@@ -15,64 +15,68 @@ h3 Common Components
       div("[(screenScrollModelY)]"="screenScrollModelY")
       .pad-h
         h3 screenScrollModelY
-        p.margin-0.text-grey-2x.max-width-400
-          |Get the browser window inner width. Currently : {{screenScrollModelY}}px
+        .text-grey-2x.max-width-400
+          |Get browser window inner width. Currently :
+          .inline-block.width-50 &nbsp;{{screenScrollModelY}}px
         br
     .text-center
-      .border.pad-xs("(click)"="siewScreenScrollModelY=!siewScreenScrollModelY" "[ngClass]"="siewScreenScrollModelY?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewScreenScrollModelY=!viewScreenScrollModelY" "[ngClass]"="viewScreenScrollModelY?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="siewScreenScrollModelY" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenScrollModelY" "[@500]"="'fadeInUp'")
       h4.pad-sm.margin-0 Usage Example
-      textarea.width-full.code-sample.margin-0(rows=3 wrap="off" ngNonBindable).
-        &lt;div("[(screenScrollModelY)]"="screenScrollModelY")&gt;
-          |screenScrollModelY : {{ screenScrollModelY }}px
-        &lt;/div&gt;
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div("[(screenScrollModelY)]"="screenScrollModelY")&gt;
+            |screenScrollModelY : {{ screenScrollModelY }}px
+          &lt;/div&gt;
 
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       div("[(screenWidthModel)]"="screenWidthModel")
       .pad-h
         h3 screenWidthModel
-        p.margin-0.text-grey-2x.max-width-400
+        .text-grey-2x.max-width-400
           |Get the browser window inner width. Currently : {{screenWidthModel}}px
         br
     .text-center
-      .border.pad-xs("(click)"="viewScreenWidthModel=!viewScreenWidthModel" "[ngClass]"="viewScreenWidthModel?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewScreenWidthModel=!viewScreenWidthModel" "[ngClass]"="viewScreenWidthModel?'border-energized bg-energized':'border-info bg-info'")
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenWidthModel" "[@500]"="'fadeInUp'")
       h4.pad-sm.margin-0 Usage Example
-      textarea.width-full.code-sample.margin-0(rows=3 wrap="off" ngNonBindable).
-        &lt;div("[(screenWidthModel)]"="screenWidthModel")&gt;
-          |screenWidthModel : {{ screenWidthModel }}px
-        &lt;/div&gt;
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div("[(screenWidthModel)]"="screenWidthModel")&gt;
+          &nbsp;&nbsp;screenWidthModel : {{ screenWidthModel }}px
+          &lt;/div&gt;
 
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       div("[(screenHeightModel)]"="screenHeightModel")
       .pad-h
         h3 screenHeightModel
-        p.margin-0.text-grey-2x.max-width-400
+        .text-grey-2x.max-width-400
           |Get the browser window inner height. Currently : {{screenHeightModel}}px
         br
     .text-center
-      .border.pad-xs("(click)"="viewScreenHeightModel=!viewScreenHeightModel" "[ngClass]"="viewScreenHeightModel?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewScreenHeightModel=!viewScreenHeightModel" "[ngClass]"="viewScreenHeightModel?'border-energized bg-energized':'border-info bg-info'")
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenHeightModel" "[@500]"="'fadeInUp'")
       h4.pad-sm.margin-0 Usage Example
-      textarea.width-full.code-sample.margin-0(rows=3 wrap="off" ngNonBindable).
-        &lt;div("[(screenHeightModel)]"="screenHeightModel")&gt;
-          |screenHeightModel : {{ screenHeightModel }}px
-        &lt;/div&gt;
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div("[(screenHeightModel)]"="screenHeightModel")&gt;
+          &nbsp;&nbsp;screenHeightModel : {{ screenHeightModel }}px
+          &lt;/div&gt;
 
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 onFormChanged
-        p.margin-0.text-grey-2x.max-width-400
+        .text-grey-2x.max-width-400
           |Capture a form tag onchange event
         br
     .text-center
-      .border.pad-xs("(click)"="viewOnFormChanged=!viewOnFormChanged" "[ngClass]"="viewOnFormChanged?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewOnFormChanged=!viewOnFormChanged" "[ngClass]"="viewOnFormChanged?'border-energized bg-energized':'border-info bg-info'")
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewOnFormChanged" "[@500]"="'fadeInUp'")
       h4.pad-sm.margin-0 Example
@@ -85,23 +89,24 @@ h3 Common Components
         |&nbsp;
         input(type="radio" name="fcTest")
       h4.pad-sm.margin-0 Usage Example
-      textarea.width-full.code-sample.margin-0(rows=9 wrap="off" ngNonBindable).
-        &lt;form (onFormChanged)="formChanges=formChanges==null?1:formChanges+1" &gt;
-          &lt;span&gt; Change Count : {{formChanges || 0}} &lt;/span&gt;
-          &lt;input type="radio" name="fcTest" /&gt;
-          &lt;input type="radio" name="fcTest" /&gt;
-          &lt;input type="radio" name="fcTest" /&gt;
-        &lt;/form&gt;
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;form (onFormChanged)="formChanges=formChanges==null?1:formChanges+1" &gt;
+            &lt;span&gt; Change Count : {{formChanges || 0}} &lt;/span&gt;
+            &lt;input type="radio" name="fcTest" /&gt;
+            &lt;input type="radio" name="fcTest" /&gt;
+            &lt;input type="radio" name="fcTest" /&gt;
+          &lt;/form&gt;
 
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 onFormAlter
-        p.margin-0.text-grey-2x.max-width-400
+        .text-grey-2x.max-width-400
           |Capture a form tag oninput event
         br
     .text-center
-      .border.pad-xs("(click)"="viewOnFormAlter=!viewOnFormAlter" "[ngClass]"="viewOnFormAlter?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewOnFormAlter=!viewOnFormAlter" "[ngClass]"="viewOnFormAlter?'border-energized bg-energized':'border-info bg-info'")
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewOnFormAlter" "[@500]"="'fadeInUp'")
       .pad.text-info Fires for every form input alteration and NOT just after a change occurred
@@ -110,25 +115,26 @@ h3 Common Components
         span Alter Count : {{formAlters || 0}} :
         input(type="text")
       h4.pad-sm.margin-0 Usage Example
-      textarea.width-full.code-sample.margin-0(rows=9 wrap="off" ngNonBindable).
-        &lt;form (onFormAlter)="formAlters=formAlters==null?1:formAlters+1" &gt;
-          &lt;span&gt; Alter Count : {{formAlters || 0}} &lt;/span&gt;
-          &lt;input type="text" /&gt;
-        &lt;/form&gt;
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;form (onFormAlter)="formAlters=formAlters==null?1:formAlters+1" &gt;
+            &lt;span&gt; Alter Count : {{formAlters || 0}} &lt;/span&gt;
+            &lt;input type="text" /&gt;
+          &lt;/form&gt;
 
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 shakeOn
-        p.margin-0.text-grey-2x.max-width-400
+        .text-grey-2x.max-width-400
           |Control an animated shaking effect on demand
         br
     .text-center
-      .border.pad-xs("(click)"="viewShakeOn=!viewShakeOn" "[ngClass]"="viewShakeOn?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewShakeOn=!viewShakeOn" "[ngClass]"="viewShakeOn?'border-energized bg-energized':'border-info bg-info'")
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewShakeOn" "[@500]"="'fadeInUp'")
       .pad
-        .pad-xs.bg-warning.border-warning.text-warning
+        .pad-xs.bg-warning.border-warning.text-warning.border
           |You will need to &lt;link&gt; one of two style sheets:
           ul
             li ack-angular/ack-angular.css
@@ -147,15 +153,96 @@ h3 Common Components
         input("[(ngModel)]"="shakeForMs" "(change)"="shakeOn=true")
 
       h4.pad-sm.margin-0 Usage Example
-      textarea.width-full.code-sample.margin-0(rows=8 wrap="off" ngNonBindable).
-        &lt;label [shakeOn]="shakeOn" (shakeThen)="shakeOn=false" [(shakeRef)]="shakeRef" [(shakeForMs)]="shakeForMs" [(shakeType)]="shakeOnType"&gt;
-          |shake this text :: {{ shakeOn||false }}
-        &lt;/label&gt;
-        &lt;button (click)="shakeOn=true"&gt; shake:{{shakeOn||false}} &lt;/button&gt;
-        &lt;select [(ngModel)]="shakeOnType" (change)="shakeOn=true"&gt;
-          &lt;option *ngFor="let item of (shakeRef?shakeRef.shakeTypes:[])" value="{{item}}"&gt;{{item}}&lt;/option&gt;
-        &lt;/select&gt;
-        &lt;input [(ngModel)]="shakeForMs" (change)="shakeOn=true" /&gt;
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;label [shakeOn]="shakeOn" (shakeThen)="shakeOn=false" [(shakeRef)]="shakeRef" [(shakeForMs)]="shakeForMs" [(shakeType)]="shakeOnType"&gt;
+            |shake this text :: {{ shakeOn||false }}
+          &lt;/label&gt;
+          &lt;button (click)="shakeOn=true"&gt; shake:{{shakeOn||false}} &lt;/button&gt;
+          &lt;select [(ngModel)]="shakeOnType" (change)="shakeOn=true"&gt;
+            &lt;option *ngFor="let item of (shakeRef?shakeRef.shakeTypes:[])" value="{{item}}"&gt;{{item}}&lt;/option&gt;
+          &lt;/select&gt;
+          &lt;input [(ngModel)]="shakeForMs" (change)="shakeOn=true" /&gt;
+
+br
+h3.margin-bottom-0 Layout Components
+.pad
+  .pad.bg-warning.border-warning.text-warning.border
+    |You will need to &lt;link&gt; one of two style sheets:
+    ul
+      li ack-angular/ack-angular.css
+      li - or -
+      li ack-angular/ack-css-boot.css
+.flex-wrap.child-margin-xxs
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 absolute-overflow-y
+        .text-grey-2x.max-width-400
+          |Control pre and nowrap elements y-axis overflow
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="absoluteOverflowY=!absoluteOverflowY" "[ngClass]"="absoluteOverflowY?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="absoluteOverflowY" "[@500]"="'fadeInUp'")
+      .pad
+        .pad.bg-info.text-info.text-info
+          |Often, pre elements and nowrap styles, make it hard to contronl y-axis overflow.
+          p The following component, uses a relative and a absolute position elements along with height monitoring to manage y-axis overflow.
+          p A no-sroll-bar option is defaulted to remove overflow scroll bars.
+      h4.pad-sm.margin-0 Example
+      .pad
+        absolute-overflow-y
+          //-.pad-xs
+            input(type="checkbox" "[(ngModel)]"="scrollBars" name="scrollBars")
+            |&nbsp;scrollBars
+          .nowrap &nbsp;&nbsp;This content all runs on one line flat out for as long as I can stand to stand typing at a Veridesk in Delray Beach, FL. Not that long it turns out...
+          //-pre
+            |&lt;pre&gt;
+            |&nbsp;&nbsp;This PRE ELEMENT content all runs on one line flat out for as long as I can stand to stand typing at a Veridesk in Delray Beach, FL. Not that long it turns out...
+            |&lt;/pre&gt;
+        h4.pad-sm.margin-0 Usage Example
+        absolute-overflow-y
+          pre.code-sample.margin-0(ngNonBindable).
+            &lt;absolute-overflow-y&gt;
+            &nbsp;&nbsp;&lt;div style="white-space:nowrap;"&gt;
+            &nbsp;&nbsp;&nbsp;&nbsp;This content all runs on one line flat out for as long as I can stand to stand typing at a Veridesk in Delray Beach, FL. Not that long it turns out...
+            &nbsp;&nbsp;&lt;/div&gt;
+            &lt;/absolute-overflow-y&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 error-well
+        .text-grey-2x.max-width-400
+          |a smart and simple place to display errors
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewErrorWell=!viewErrorWell" "[ngClass]"="viewErrorWell?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewErrorWell" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Example
+      .pad
+        select(name="cssClasses" "[(ngModel)]"="cssClasses")
+          option(value="bg-info border-info text-info") bg-info border-info text-info
+          option(value="bg-warning border-warning text-warning") bg-warning border-warning text-warning
+          option(value="bg-danger border-danger text-danger") bg-danger border-danger text-danger
+          option(value="bg-energized border-energized text-energized") bg-energized border-energized text-energized
+          option(value="bg-calm border-calm text-calm") bg-calm border-calm text-calm
+          option(value="bg-assertive border-assertive text-assertive") bg-assertive border-assertive text-assertive
+          option(value="bg-success border-success text-success") bg-success border-success text-success
+          option(value="bg-positive border-positive text-positive") bg-positive border-positive text-positive
+          option(value="bg-balanced border-balanced text-balanced") bg-balanced border-balanced text-balanced
+          option(value="bg-stable border-stable text-stable") bg-stable border-stable text-stable
+          option(value="bg-dark border-dark text-dark") bg-dark border-dark text-dark
+          option(value="bg-royal border-royal text-royal") bg-royal border-royal text-royal
+        error-well.margin("[error]"="error" "[cssClasses]"="cssClasses")
+        button("(click)"="causeError()") cause error
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;error-well [error]="error"&gt;&lt;/error-well&gt;
+          &lt;button("(click)"="causeError()") cause error &lt;/button&gt;
 
 br
 h3 Complex Components
@@ -165,7 +252,7 @@ h3 Complex Components
   .flex-1.border.border-grey-4x.border
     .pad-h
       h3 route-reporter
-      p.margin-0.text-grey-2x.max-width-400
+      .text-grey-2x.max-width-400
         |Get in tune with your document route states using @angular/router
       br
     .text-center
@@ -176,17 +263,19 @@ h3 Complex Components
         ul
           li route-reporter
       h4.pad-sm.margin-0 Usage Example
-      textarea.width-full.code-sample.margin-0(rows=1 wrap="off" ngNonBindable).
-        &lt;route-reporter [(ref)]="" (beforeChange)="" (onChange)=""&gt;
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;route-reporter [(ref)]="" (beforeChange)="" (onChange)=""&gt;
       h4.pad-sm.margin-0 ref example
-      textarea.width-full.code-sample.margin-0(rows=2 wrap="off" ngNonBindable).
-        &lt;route-reporter [(ref)]="routeState" &gt;
-        -----------------------------------------
-        routeState:{{ routeState|json }}
-  .flex-1.border.border-grey-4x.border
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;route-reporter [(ref)]="routeState" &gt;
+          -----------------------------------------
+          routeState:{{ routeState|json }}
+  //-.flex-1.border.border-grey-4x.border
     .pad-h
       h3 ui-route-reporter
-      p.margin-0.text-grey-2x.max-width-400
+      .text-grey-2x.max-width-400
         |Get in tune with your document route states using ui-router-ng2
       br
     .text-center
@@ -197,10 +286,12 @@ h3 Complex Components
         ul
           li ui-router-ng2
       h4.pad-sm.margin-0 Usage Example
-      textarea.width-full.code-sample.margin-0(rows=1 wrap="off" ngNonBindable).
-        &lt;ui-route-reporter [(ref)]="" (beforeChange)="" (onChange)=""&gt;
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;ui-route-reporter [(ref)]="" (beforeChange)="" (onChange)=""&gt;
       h4.pad-sm.margin-0 ref example
-      textarea.width-full.code-sample.margin-0(rows=2 wrap="off" ngNonBindable).
-        &lt;ui-route-reporter [(ref)]="routeState" &gt;
-        -----------------------------------------
-        routeState:{{ routeState|json }}
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;ui-route-reporter [(ref)]="routeState" &gt;
+          -----------------------------------------
+          routeState:{{ routeState|json }}

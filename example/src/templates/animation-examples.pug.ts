@@ -1,11 +1,19 @@
 export const string = "<p class=\"text-grey-2x\">Make an app far more beautiful when changing scenery</p>Currently, all animations are provided by <a href=\"https://npmjs.org/ack-angular-fx\">ack-angular-fx</a><ul><li><a href=\"https://ackerapple.github.io/ack-angular-fx/\">examples</a></li><li><a href=\"https://github.com/AckerApple/ack-angular-fx\">repository</a></li></ul><h4>Table of Contents</h4><ul class=\"child-pad-xxs\"><li><a href=\"#Import Example\" pageScroll=\"pageScroll\">Import Example</a></li><li><a href=\"#Usage Example\" pageScroll=\"pageScroll\">Usage Example</a></li><li><a href=\"#Swap Example\" pageScroll=\"pageScroll\">Swap Example</a></li><li><a href=\"#Supported Definitions\" pageScroll=\"pageScroll\">Supported Definitions</a></li></ul><h3 id=\"Import Example\">Import Example</h3><pre class=\"code-sample\">import &#123; Component &#125; from '@angular/core'"+
 "\nimport &#123; ackAnimations &#125; from 'ack-angular/fx'"+
+"\nimport &#123; BrowserModule &#125; from '@angular/platform-browser'"+
+"\nimport &#123; BrowserAnimationsModule &#125; from '@angular/platform-browser/animations';"+
 "\n"+
 "\n@Component(&#123;"+
 "\n  selector: 'app-tag'"+
 "\n  ,template: 'Hello Template'"+
 "\n  ,animations: ackAnimations"+
 "\n&#125;) class AppComponent &#123;&#125;"+
+"\n"+
+"\n@NgModule(&#123;"+
+"\n  imports : [ BrowserModule, BrowserAnimationsModule ]"+
+"\n  declarations : [ AppComponent, ...ackPipes.declarations ],"+
+"\n  boostrap : [ AppComponent ]"+
+"\n&#125;) export class AppModule &#123;&#125;"+
 "\n</pre><h3 id=\"Usage Example\">Usage Example</h3><pre class=\"code-sample\">&lt;button \"(click)\"=\"viewDets=!viewDets\")&gt; view details &lt;/button&gt;"+
 "\n"+
 "\n&lt;div [*ngIf]=\"viewDets\" [@200]=\"'slideInLeft'\"&gt;"+

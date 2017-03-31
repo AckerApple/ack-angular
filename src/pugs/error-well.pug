@@ -1,0 +1,14 @@
+.border.pad-xxs(*ngIf="error && errorClose!=error" "[@200]"="'fadeInUp'" "[ngClass]"="cssClasses")
+  .flex-valign-center.flex-wrap.child-margin-xxs
+    .flex-1
+      .strong.text-3x.margin-0("(click)"="moreDetails=!moreDetails")
+        //-i.fa.fa-exclamation-triangle
+          |&nbsp;
+        |{{ error && error.message ? error.message : 'Unexpected Error Occured' }}
+    a.text-blue.underline.text-xs(*ngIf="error" "(click)"="moreDetails=!moreDetails")
+      |details
+    a.text-blue.underline.text-xs(*ngIf="error" "(click)"="errorClose=error")
+      |close
+
+  absolute-overflow-y.text-sm(*ngIf="moreDetails" "[@200]"="'fadeInUp'")
+    pre.margin-0.pad-xs {{ error|json }}

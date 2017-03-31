@@ -7,7 +7,11 @@ import {
   ElementRef
 } from "@angular/core"
 
-import {string as readerHeaderBody} from "./templates/reader-header-body.pug"
+import { fxArray as prefx } from "./prefx"
+
+import { string as readerHeaderBody } from "./templates/reader-header-body.pug"
+import { string as errorWell } from "./templates/error-well.pug"
+import { string as absoluteOverflowY } from "./templates/absolute-overflow-y.pug"
 
 /** adds form element onchange listener via addEventListener('change') that calls onFormChanged scope argument */
 @Directive({
@@ -75,31 +79,68 @@ import {string as readerHeaderBody} from "./templates/reader-header-body.pug"
 }
 
 @Directive({
-  //inputs:['screen-height-model'],
-  selector: '[screenWidthModel]'
-}) export class ScreenWidthModel{
-  public window
+  selector: '[elementHeightModel]'
+}) export class ElementHeightModel{
   public onResize
+  public timeout
 
-  @Input() public screenWidthModel
-  @Output() public screenWidthModelChange = new EventEmitter()
+  @Input() public elementHeightModel
+  @Output() public elementHeightModelChange = new EventEmitter()
 
-  constructor(){
-    this.window = window
-
+  constructor(public element:ElementRef){
     this.onResize = function(){
-      if(this.screenWidthModel !== window.innerWidth){
-        this.screenWidthModel = window.innerWidth
-        this.screenWidthModelChange.emit(this.screenWidthModel)
-      }
+      this.setModel()
     }.bind(this)
 
     window.addEventListener('resize', this.onResize)
   }
 
+  ngOnChanges(){
+    this.setModel()
+  }
+
+  setModel(){
+    this.elementHeightModel = this.element.nativeElement.offsetHeight
+    this.elementHeightModelChange.emit(this.elementHeightModel)
+  }
+
   ngAfterViewInit(){
-    this.screenWidthModel = this.window.innerWidth
-    this.screenWidthModelChange.emit(this.screenWidthModel)
+    this.setModel()
+  }
+
+  ngOnDestroy(){
+    window.removeEventListener(this.onResize)
+  }
+}
+
+@Directive({
+  selector: '[elementWidthModel]'
+}) export class ElementWidthModel{
+  public onResize
+  public timeout
+
+  @Input() public elementWidthModel
+  @Output() public elementWidthModelChange = new EventEmitter()
+
+  constructor(public element:ElementRef){
+    this.onResize = function(){
+      this.setModel()
+    }.bind(this)
+
+    window.addEventListener('resize', this.onResize)
+  }
+
+  ngOnChanges(){
+    this.setModel()
+  }
+
+  setModel(){
+    this.elementWidthModel = this.element.nativeElement.offsetWidth
+    this.elementWidthModelChange.emit(this.elementWidthModel)
+  }
+
+  ngAfterViewInit(){
+    this.setModel()
   }
 
   ngOnDestroy(){
@@ -136,6 +177,40 @@ import {string as readerHeaderBody} from "./templates/reader-header-body.pug"
 
 @Directive({
   //inputs:['screen-height-model'],
+  selector: '[screenWidthModel]'
+}) export class ScreenWidthModel{
+  public window
+  public onResize
+
+  @Input() public screenWidthModel
+  @Output() public screenWidthModelChange = new EventEmitter()
+
+  constructor(){
+    this.onResize = function(){
+      if(this.screenWidthModel !== window.innerWidth){
+        this.setModel()
+      }
+    }.bind(this)
+
+    window.addEventListener('resize', this.onResize)
+  }
+
+  setModel(){
+    this.screenWidthModel = window.innerWidth
+    this.screenWidthModelChange.emit(this.screenWidthModel)
+  }
+
+  ngAfterViewInit(){
+    this.setModel()
+  }
+
+  ngOnDestroy(){
+    window.removeEventListener(this.onResize)
+  }
+}
+
+@Directive({
+  //inputs:['screen-height-model'],
   selector: '[screenHeightModel]'
 }) export class ScreenHeightModel{
   public window
@@ -166,6 +241,25 @@ import {string as readerHeaderBody} from "./templates/reader-header-body.pug"
     window.removeEventListener(this.onResize)
   }
 }
+
+@Component({
+  selector:'absolute-overflow-y',
+  template:absoluteOverflowY
+}) export class AbsoluteOverflowY{}
+
+@Component({
+  selector:'error-well',
+  template:errorWell,
+  animations:prefx
+}) export class ErrorWell{
+  @Input() error
+  @Input() cssClasses:string
+
+  ngOnInit(){
+    this.cssClasses = this.cssClasses || 'bg-danger border-danger text-danger'
+  }
+}
+
 
 /** runs shake instructions when condition returns a truthy value */
 @Directive({
@@ -313,9 +407,15 @@ export const declarations = [
   ScreenScrollModelY,
   ScreenHeightModel,
   ScreenWidthModel,
+  ShakeOn,
+  OnFormAlter,
+
+  ElementWidthModel,
+  ElementHeightModel,
+
   ReaderHeaderBody,
   ReaderHeader,
   ReaderBody,
-  ShakeOn,
-  OnFormAlter
+  ErrorWell,
+  AbsoluteOverflowY
 ]

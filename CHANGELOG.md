@@ -1,6 +1,12 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.2.4] - 2017-03-31
+### Added
+### Breaking Changes
+- No major version change, still in 0.*.* phase
+- began to remove ui-router-ng2
+
 ## [0.2.1] - 2017-03-28
 ### Added
 - formChanged directive
