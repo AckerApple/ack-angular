@@ -1,3 +1,5 @@
+*.css.map
+*.js.map
 jspm_packages
 .DS_Store
 updaters
