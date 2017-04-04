@@ -1,7 +1,7 @@
 //import { TransitionService } from "ui-router-ng2";
 import { Directive, Input, Output, EventEmitter } from "@angular/core"
 import { RouteWatchReporter } from "./RouteWatchReporter.class"
-import { NavigationEnd } from '@angular/router';
+import { NavigationStart, NavigationEnd } from '@angular/router';
 
 @Directive({
   //inputs:['ref'],
@@ -37,6 +37,10 @@ import { NavigationEnd } from '@angular/router';
     })*/
 
     RouteWatchReporter.router.events.subscribe(event=>{
+      if(event.constructor == NavigationStart){
+        this.beforeChanger.emit( this.RouteWatchReporter )
+      }
+
       if(event.constructor == NavigationEnd){
         this.stateChanger.emit( this.RouteWatchReporter )
       }

@@ -31,6 +31,24 @@ import { pipes } from "./pipes.class"
   }
 }
 
+@Pipe({name: 'aDate'}) export class ADate {
+  transform(){
+    return pipes.aDate.apply(pipes.aDate, arguments)
+  }
+}
+
+@Pipe({name: 'aTime'}) export class ATime {
+  transform(){
+    return pipes.aTime.apply(pipes.aTime, arguments)
+  }
+}
+
+@Pipe({name: 'ack'}) export class Ack {
+  transform(){
+    return pipes.ack.apply(pipes.ack, arguments)
+  }
+}
+
 @Pipe({name: 'keys'}) export class Keys {
   transform(input:any){
     if(input)return Object.keys(input)
@@ -57,5 +75,8 @@ export const declarations = [
   Numbers,
   Keys,
   TypeofPipe,
-  ConsolePipe
+  ConsolePipe,
+  ADate,
+  ATime,
+  Ack
 ]

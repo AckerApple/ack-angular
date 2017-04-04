@@ -17,7 +17,7 @@ br
 
 h3(id="Documentation") Documentation
 
-.flex-wrap.width-full.child-margin-xxs.no-scroll-bars-ever
+.flex-wrap.child-margin-xxs.no-scroll-bars-ever
   .flex2.border-grey-6x.border
     .pad-h
       h3 typeof
@@ -87,5 +87,93 @@ h3(id="Documentation") Documentation
       p.text-grey-2x List of keys for an Object
       h4.margin-bottom-0 Usage Example
     absolute-overflow-y
-      pre.code-sample.margin-0(ngNonBindable).
-        {{ {x:1,y:2,z:3} | keys }} == ["x","y","z"]
+      pre.code-sample.margin-0
+        span(ngNonBindable) {{ {x:1,y:2,z:3} | keys }}
+        span.pad-h-sm ==
+        span {{ {x:1,y:2,z:3} | keys | ack:['stringify',0] }}
+  
+  .flex2.border-grey-6x.border
+    .pad-h
+      h3 aDate
+      p.text-grey-2x A different approach @ date decorating
+      h4.margin-bottom-0 Usage Example
+    absolute-overflow-y
+      pre.code-sample.margin-0
+        span(ngNonBindable) {{ 0 | aDate:'now':'date' }}
+        span.pad-h-sm ==
+        span {{ 0 | aDate:'now':'date':'getTime' }}
+  
+  .flex2.border-grey-6x.border
+    .pad-h
+      h3 aTime
+      p.text-grey-2x A different approach @ time decorating
+      h4.margin-bottom-0 Usage Example
+    absolute-overflow-y
+      pre.code-sample.margin-0
+        span(ngNonBindable) {{ 0 | aTime:'now':'date' }}
+        span.pad-h-sm ==
+        span {{ 0 | aDate:'now':'date':'getTime' }}
+
+
+h3.margin-bottom-0 More Pipe Examples
+.flex-wrap.child-margin-xs.child-pad-xs.text-center
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ 0 | aDate : 'now' : 'hmmtt' }}
+    span.text-grey-2x &nbsp;== {{ 0 | aDate : 'now' : 'hmmtt' }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ 0 | aDate : 'now' : 'hhmmtt' }}
+    span.text-grey-2x &nbsp;== {{ 0 | aDate : 'now' : 'hhmmtt' }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ null | aDate : 'now' : 'hmmtt' }}
+    span.text-grey-2x &nbsp;== {{ null | aDate : 'now' : 'hmmtt' }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ null | aDate : 'now' : 'hhmmtt' }}
+    span.text-grey-2x &nbsp;== {{ null | aDate : 'now' : 'hhmmtt' }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ 0 | aDate : 'now' : ['addSeconds',60] : 'dateSecondDiff' }}
+    span.text-grey-2x &nbsp;== {{ 0 | aDate : 'now' : ['addSeconds',60] : 'dateSecondDiff' }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ '13:30' | aTime : 'hhmmtt' }}
+    span.text-grey-2x &nbsp;== {{ '13:30' | aTime : 'hhmmtt' }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ '1:30 pm' | aTime : 'hhmmtt' }}
+    span.text-grey-2x &nbsp;== {{ '1:30 pm' | aTime : 'hhmmtt' }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ '12:00 am' | aTime : 'hhmmtt' }}
+    span.text-grey-2x &nbsp;== {{ '12:00 am' | aTime : 'hhmmtt' }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ '12:00 pm' | aTime : 'hhmmtt' }}
+    span.text-grey-2x &nbsp;== {{ '12:00 pm' | aTime : 'hhmmtt' }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ '01/01/2014 2:00 am' | aDate : ['dateMinuteDiff','01/02/2014 2:00 am'] }}
+    span.text-grey-2x &nbsp;== {{ '01/01/2014 2:00 am' | aDate : ['dateMinuteDiff','01/02/2014 2:00 am'] }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ 0 | ack : 'date' : 'now' : 'hmmtt' }}
+    span.text-grey-2x &nbsp;== {{ 0 | ack : 'date' : 'now' : 'hmmtt' }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ 0 | ack : 'date' : 'now' : 'hhmmtt' }}
+    span.text-grey-2x &nbsp;== {{ 0 | ack : 'date' : 'now' : 'hhmmtt' }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ null | ack : 'date' : 'now' : 'hmmtt' }}
+    span.text-grey-2x &nbsp;== {{ null | ack : 'date' : 'now' : 'hmmtt' }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ null | ack : 'date' : 'now' : 'hhmmtt' }}
+    span.text-grey-2x &nbsp;== {{ null | ack : 'date' : 'now' : 'hhmmtt' }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ 0 | ack : 'date' : 'now' : ['addSeconds',60] : 'dateSecondDiff' }}
+    span.text-grey-2x &nbsp;== {{ 0 | ack : 'date' : 'now' : ['addSeconds',60] : 'dateSecondDiff' }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ '13:30' | aTime : 'hhmmtt' }}
+    span.text-grey-2x &nbsp;== {{ '13:30' | aTime : 'hhmmtt' }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ '1:30 pm' | aTime : 'hhmmtt' }}
+    span.text-grey-2x &nbsp;== {{ '1:30 pm' | aTime : 'hhmmtt' }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ '12:00 am' | aTime : 'hhmmtt' }}
+    span.text-grey-2x &nbsp;== {{ '12:00 am' | aTime : 'hhmmtt' }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ '12:00 pm' | aTime : 'hhmmtt' }}
+    span.text-grey-2x &nbsp;== {{ '12:00 pm' | aTime : 'hhmmtt' }}
+  .flex-1.border.border-grey-3x
+    span(ngNonBindable) {{ '01/01/2014 2:00 am' | ack : 'date' : ['dateMinuteDiff','01/02/2014 2:00 am'] }}
+    span.text-grey-2x &nbsp;== {{ '01/01/2014 2:00 am' | ack : 'date' : ['dateMinuteDiff','01/02/2014 2:00 am'] }}
