@@ -1,4 +1,4 @@
-import { trigger,style,state,transition,animate,keyframes } from '@angular/animations'
+import { AnimationTriggerMetadata,trigger,style,state,transition,animate,keyframes } from '@angular/animations'
 export const fxArray = [
 trigger('500', [
 transition('zoomInUp => void, * => zoomOutUp', [
@@ -537,51 +537,51 @@ style({"display":"none"})),
 state('fadeOut', 
 style({"display":"none"}))]),
 trigger('absoluteSwap500', [
-transition('zoomInUp => void, void => zoomOutUp', [
+transition('zoomInUp => void, * => zoomOutUp', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":1,"transform":"scale3d(1, 1, 1) translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"scale3d(.475, .475, .475) translate3d(0, -60px, 0)","offset":0.4,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transform":"scale3d(.1, .1, .1) translate3d(0, -1000px, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => zoomInUp', [
+transition('* => zoomInUp', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transform":"scale3d(.1, .1, .1) translate3d(0, 1000px, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transform":"scale3d(.475, .475, .475) translate3d(0, -60px, 0)","offset":0.6,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"scale3d(1, 1, 1) translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('zoomInRight => void, void => zoomOutLeft', [
+transition('zoomInRight => void, * => zoomOutLeft', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":1,"transform":"scale3d(1, 1, 1) translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"scale3d(.475, .475, .475) translate3d(10px, 0, 0)","offset":0.6,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transform":"scale3d(.1, .1, .1) translate3d(-1000px, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => zoomInRight', [
+transition('* => zoomInRight', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transform":"scale3d(.1, .1, .1) translate3d(1000px, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transform":"scale3d(.475, .475, .475) translate3d(-10px, 0, 0)","offset":0.6,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"scale3d(1, 1, 1) translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('zoomInLeft => void, void => zoomOutRight', [
+transition('zoomInLeft => void, * => zoomOutRight', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":1,"transform":"scale3d(1, 1, 1) translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"scale3d(.475, .475, .475) translate3d(-10px, 0, 0)","offset":0.6,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transform":"scale3d(.1, .1, .1) translate3d(1000px, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => zoomInLeft', [
+transition('* => zoomInLeft', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transform":"scale3d(.1, .1, .1) translate3d(-1000px, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transform":"scale3d(.475, .475, .475) translate3d(10px, 0, 0)","offset":0.6,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"scale3d(1, 1, 1) translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('zoomInDown => void, void => zoomOutDown', [
+transition('zoomInDown => void, * => zoomOutDown', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":1,"transform":"scale3d(1, 1, 1) translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"scale3d(.475, .475, .475) translate3d(0, 60px, 0)","offset":0.4,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transform":"scale3d(.1, .1, .1) translate3d(0, 1000px, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => zoomInDown', [
+transition('* => zoomInDown', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transform":"scale3d(.1, .1, .1) translate3d(0, -1000px, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transform":"scale3d(.475, .475, .475) translate3d(0, 60px, 0)","offset":0.6,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"scale3d(1, 1, 1) translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('zoomIn => void, void => zoomOut', [
+transition('zoomIn => void, * => zoomOut', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":1,"transform":"scale3d(1, 1, 1)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transform":"scale3d(.1, .1, .1)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => zoomIn', [
+transition('* => zoomIn', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transform":"scale3d(.1, .1, .1)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transform":"scale3d(1, 1, 1)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
@@ -595,35 +595,35 @@ state('zoomOutDown',
 style({"display":"none"})),
 state('zoomOut', 
 style({"display":"none"})),
-transition('slideInUp => void, void => slideOutUp', [
+transition('slideInUp => void, * => slideOutUp', [
 animate('500ms 0ms linear', keyframes([
 style({"transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(0, -100%, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => slideInUp', [
+transition('* => slideInUp', [
 animate('500ms 0ms linear', keyframes([
 style({"transform":"translate3d(0, 100%, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('slideInRight => void, void => slideOutLeft', [
+transition('slideInRight => void, * => slideOutLeft', [
 animate('500ms 0ms linear', keyframes([
 style({"transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(-100%, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => slideInRight', [
+transition('* => slideInRight', [
 animate('500ms 0ms linear', keyframes([
 style({"transform":"translate3d(100%, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('slideInLeft => void, void => slideOutRight', [
+transition('slideInLeft => void, * => slideOutRight', [
 animate('500ms 0ms linear', keyframes([
 style({"transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(100%, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => slideInLeft', [
+transition('* => slideInLeft', [
 animate('500ms 0ms linear', keyframes([
 style({"transform":"translate3d(-100%, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('slideInDown => void, void => slideOutDown', [
+transition('slideInDown => void, * => slideOutDown', [
 animate('500ms 0ms linear', keyframes([
 style({"transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(0, 100%, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => slideInDown', [
+transition('* => slideInDown', [
 animate('500ms 0ms linear', keyframes([
 style({"transform":"translate3d(0, -100%, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
@@ -635,43 +635,43 @@ state('slideOutLeft',
 style({"display":"none"})),
 state('slideOutDown', 
 style({"display":"none"})),
-transition('rotateInUpRight => void, void => rotateOutUpRight', [
+transition('rotateInUpRight => void, * => rotateOutUpRight', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":1,"transformOrigin":"right bottom","transform":"rotate3d(0, 0, 1, 0deg)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transformOrigin":"right bottom","transform":"rotate3d(0, 0, 1, 45deg)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => rotateInUpRight', [
+transition('* => rotateInUpRight', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transformOrigin":"right bottom","transform":"rotate3d(0, 0, 1, -45deg)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transformOrigin":"right bottom","transform":"rotate3d(0, 0, 1, 0deg)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('rotateInUpLeft => void, void => rotateOutUpLeft', [
+transition('rotateInUpLeft => void, * => rotateOutUpLeft', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":1,"transformOrigin":"left bottom","transform":"rotate3d(0, 0, 1, 0deg)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transformOrigin":"left bottom","transform":"rotate3d(0, 0, 1, -45deg)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => rotateInUpLeft', [
+transition('* => rotateInUpLeft', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transformOrigin":"left bottom","transform":"rotate3d(0, 0, 1, 45deg)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transformOrigin":"left bottom","transform":"rotate3d(0, 0, 1, 0deg)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('rotateInDownRight => void, void => rotateOutDownRight', [
+transition('rotateInDownRight => void, * => rotateOutDownRight', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":1,"transformOrigin":"right bottom","transform":"rotate3d(0, 0, 1, 0deg)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transformOrigin":"right bottom","transform":"rotate3d(0, 0, 1, -45deg)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => rotateInDownRight', [
+transition('* => rotateInDownRight', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transformOrigin":"right bottom","transform":"rotate3d(0, 0, 1, 45deg)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transformOrigin":"right bottom","transform":"rotate3d(0, 0, 1, 0deg)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('rotateInDownLeft => void, void => rotateOutDownLeft', [
+transition('rotateInDownLeft => void, * => rotateOutDownLeft', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":1,"transformOrigin":"left bottom","transform":"rotate3d(0, 0, 1, 0deg)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transformOrigin":"left bottom","transform":"rotate3d(0, 0, 1, 45deg)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => rotateInDownLeft', [
+transition('* => rotateInDownLeft', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transformOrigin":"left bottom","transform":"rotate3d(0, 0, 1, -45deg)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transformOrigin":"left bottom","transform":"rotate3d(0, 0, 1, 0deg)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('rotateIn => void, void => rotateOut', [
+transition('rotateIn => void, * => rotateOut', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":1,"transformOrigin":"center","transform":"rotate3d(0, 0, 1, 0deg)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transformOrigin":"center","transform":"rotate3d(0, 0, 1, 200deg)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => rotateIn', [
+transition('* => rotateIn', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transformOrigin":"center","transform":"rotate3d(0, 0, 1, -200deg)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transformOrigin":"center","transform":"rotate3d(0, 0, 1, 0deg)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
@@ -685,58 +685,58 @@ state('rotateOutDownLeft',
 style({"display":"none"})),
 state('rotateOut', 
 style({"display":"none"})),
-transition('bounceInUp => void, void => bounceOutUp', [
+transition('bounceInUp => void, * => bounceOutUp', [
 animate('500ms 0ms linear', keyframes([
 style({"transform":"translate3d(0, -10px, 0)","offset":0.2,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transform":"translate3d(0, 20px, 0)","offset":0.5,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transform":"translate3d(0, -1000px, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => bounceInUp', [
+transition('* => bounceInUp', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transform":"translate3d(0, 1000px, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transform":"translate3d(0, -20px, 0)","offset":0.6,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(0, 10px, 0)","offset":0.75,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(0, -5px, 0)","offset":0.9,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('bounceInRight => void, void => bounceOutLeft', [
+transition('bounceInRight => void, * => bounceOutLeft', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":1,"transform":"translate3d(20px, 0, 0)","offset":0.2,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transform":"translate3d(-1000px, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => bounceInRight', [
+transition('* => bounceInRight', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transform":"translate3d(1000px, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transform":"translate3d(-20px, 0, 0)","offset":0.6,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(10px, 0, 0)","offset":0.75,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(-5px, 0, 0)","offset":0.9,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('bounceInLeft => void, void => bounceOutRight', [
+transition('bounceInLeft => void, * => bounceOutRight', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":1,"transform":"translate3d(-20px, 0, 0)","offset":0.2,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transform":"translate3d(1000px, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => bounceInLeft', [
+transition('* => bounceInLeft', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transform":"translate3d(-1000px, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transform":"translate3d(20px, 0, 0)","offset":0.6,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(-10px, 0, 0)","offset":0.75,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(5px, 0, 0)","offset":0.9,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('bounceInDown => void, void => bounceOutDown', [
+transition('bounceInDown => void, * => bounceOutDown', [
 animate('500ms 0ms linear', keyframes([
 style({"transform":"translate3d(0, 10px, 0)","offset":0.2,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transform":"translate3d(0, -20px, 0)","offset":0.5,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transform":"translate3d(0, 1000px, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => bounceInDown', [
+transition('* => bounceInDown', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transform":"translate3d(0, -1000px, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transform":"translate3d(0, 20px, 0)","offset":0.6,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(0, -10px, 0)","offset":0.75,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(0, 5px, 0)","offset":0.9,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('bounceIn => void, void => bounceOut', [
+transition('bounceIn => void, * => bounceOut', [
 animate('500ms 0ms linear', keyframes([
 style({"transform":"scale3d(.9, .9, .9)","offset":0.2,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transform":"scale3d(1.1, 1.1, 1.1)","offset":0.5,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transform":"scale3d(.3, .3, .3)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => bounceIn', [
+transition('* => bounceIn', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transform":"scale3d(.3, .3, .3)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"transform":"scale3d(1.1, 1.1, 1.1)","offset":0.2,"position":"absolute","width":"100%","overflow":"hidden"}),
@@ -754,43 +754,43 @@ state('bounceOutDown',
 style({"display":"none"})),
 state('bounceOut', 
 style({"display":"none"})),
-transition('fadeInUp => void, void => fadeOutUp', [
+transition('fadeInUp => void, * => fadeOutUp', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":1,"transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transform":"translate3d(0, -100%, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => fadeInUp', [
+transition('* => fadeInUp', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transform":"translate3d(0, 100%, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('fadeInRight => void, void => fadeOutLeft', [
+transition('fadeInRight => void, * => fadeOutLeft', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":1,"transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transform":"translate3d(-100%, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => fadeInRight', [
+transition('* => fadeInRight', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transform":"translate3d(100%, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('fadeInLeft => void, void => fadeOutRight', [
+transition('fadeInLeft => void, * => fadeOutRight', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":1,"transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transform":"translate3d(100%, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => fadeInLeft', [
+transition('* => fadeInLeft', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transform":"translate3d(-100%, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('fadeInDown => void, void => fadeOutDown', [
+transition('fadeInDown => void, * => fadeOutDown', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":1,"transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"transform":"translate3d(0, 100%, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => fadeInDown', [
+transition('* => fadeInDown', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"transform":"translate3d(0, -100%, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('fadeIn => void, void => fadeOut', [
+transition('fadeIn => void, * => fadeOut', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":1,"offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":0,"offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('void => fadeIn', [
+transition('* => fadeIn', [
 animate('500ms 0ms linear', keyframes([
 style({"opacity":0,"offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
 style({"opacity":1,"offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),

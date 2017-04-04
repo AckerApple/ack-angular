@@ -1,11 +1,12 @@
-.border.pad-xxs(*ngIf="error && errorClose!=error" "[@200]"="'fadeInUp'" "[ngClass]"="cssClasses")
+.border.pad-xxs(*ngIf="error!=null && errorClose!=error" "[@200]"="'fadeInUp'" "[ngClass]"="cssClasses")
   .flex-valign-center.flex-wrap.child-margin-xxs
     .flex-1
       .strong.text-3x.margin-0("(click)"="moreDetails=!moreDetails")
         //-i.fa.fa-exclamation-triangle
           |&nbsp;
-        |{{ error && error.message ? error.message : 'Unexpected Error Occured' }}
-    a.text-blue.underline.text-xs(*ngIf="error" "(click)"="moreDetails=!moreDetails")
+        |{{ error && (error|typeof)=='string'?error : (error && error.message ? error.message : 'Unexpected Error Occured') }}
+
+    a.text-blue.underline.text-xs(*ngIf="error && (error|typeof)!='string'" "(click)"="moreDetails=!moreDetails")
       |details
     a.text-blue.underline.text-xs(*ngIf="error" "(click)"="errorClose=error")
       |close

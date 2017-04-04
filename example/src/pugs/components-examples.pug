@@ -1,6 +1,8 @@
 h3 Common Components
 .pad-h
   p.margin-bottom-0 Import Example
+  .pad-h.text-warning.text-xs
+    |The following import code, is NOT needed if you used the AckModule import #[a.text-calm(href="#/overview" "(click)"="scrollToModuleImport()") seen here]
   pre.code-sample.
     import &#123; declarations as ackDecs &#125; from "ack-angular/components"
     import &#123; NgModule &#125; from '@angular/core';
@@ -10,6 +12,56 @@ h3 Common Components
     &#125;)
 
 .flex-wrap.child-margin-xxs
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      div("[(statusOnlineModel)]"="statusOnlineModel")
+      .pad-h
+        h3 statusOnlineModel
+        .text-grey-2x.max-width-400
+          |Get browser window inner width. #[strong IS ONLINE] :
+          .inline-block.width-50 &nbsp;{{ statusOnlineModel }}
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewStatusOnlineModel=!viewStatusOnlineModel" "[ngClass]"="viewStatusOnlineModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewStatusOnlineModel" "[@500]"="'fadeInUp'")
+      .pad
+        .pad.bg-warning.border-warning.border.text-warning
+          |Completely turn off your internet and the online status will change.
+          br
+          |A delay is expected during transition from offline to online
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div("[(statusOnlineModel)]"="statusOnlineModel")&gt;
+            |statusOnlineModel : {{ statusOnlineModel ? 'online' : 'offline'}}
+          &lt;/div&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      div("[(statusOfflineModel)]"="statusOfflineModel")
+      .pad-h
+        h3 statusOfflineModel
+        .text-grey-2x.max-width-400
+          |Get browser window inner width. #[strong IS OFFLINE] :
+          .inline-block.width-50 &nbsp;{{ statusOfflineModel }}
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewStatusOfflineModel=!viewStatusOfflineModel" "[ngClass]"="viewStatusOfflineModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewStatusOfflineModel" "[@500]"="'fadeInUp'")
+      .pad
+        .pad.bg-warning.border-warning.border.text-warning
+        |Completely turn off your internet and the offline status will change
+        br
+        |A delay is expected during transition from offline to online
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div("[(statusOfflineModel)]"="statusOfflineModel")&gt;
+            |statusOfflineModel : {{ statusOfflineModel ? 'offline' : 'online'}}
+          &lt;/div&gt;
+
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       div("[(screenScrollModelY)]"="screenScrollModelY")
@@ -66,6 +118,24 @@ h3 Common Components
         pre.code-sample.margin-0(ngNonBindable).
           &lt;div("[(screenHeightModel)]"="screenHeightModel")&gt;
           &nbsp;&nbsp;screenHeightModel : {{ screenHeightModel }}px
+          &lt;/div&gt;
+
+  .flex-1("[(elementHeightModel)]"="elementHeightModel")
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 elementHeightModel
+        .text-grey-2x.max-width-400
+          |Get the browser window inner height. Currently : {{elementHeightModel}}px
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewElementHeightModel=!viewElementHeightModel" "[ngClass]"="viewElementHeightModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewElementHeightModel" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div("[(elementHeightModel)]"="elementHeightModel")&gt;
+          &nbsp;&nbsp;elementHeightModel : {{ elementHeightModel }}px
           &lt;/div&gt;
 
   .flex-1
@@ -145,10 +215,10 @@ h3 Common Components
         label([shakeOn]="shakeOn" "(shakeThen)"="shakeOn=false" "[(shakeRef)]"="shakeRef" "[(shakeForMs)]"="shakeForMs" "[(shakeType)]"="shakeOnType")
           |shake this text :: {{ shakeOn||false }}
         |&nbsp;
-        button("(click)"="shakeOn=true") shake:{{shakeOn||false}}
+        button("(click)"="shakeOn=!shakeOn") shake:{{shakeOn||false}}
         |&nbsp;
         select("[(ngModel)]"="shakeOnType" "(change)"="shakeOn=true")
-          option(*ngFor="let item of shakeRef.shakeTypes" value="{{item}}") {{item}}
+          option(*ngFor="let item of (shakeRef?shakeRef.shakeTypes:[])" value="{{item}}") {{item}}
         |&nbsp;
         input("[(ngModel)]"="shakeForMs" "(change)"="shakeOn=true")
 

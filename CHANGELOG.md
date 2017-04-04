@@ -1,6 +1,12 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.2.5] - 2017-04-04
+### Added
+- AckOffline
+- AckCache
+- AckQue
+
 ## [0.2.4] - 2017-03-31
 ### Added
 ### Breaking Changes

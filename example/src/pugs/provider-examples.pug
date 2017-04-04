@@ -1,0 +1,201 @@
+.pad-h
+  p.margin-bottom-0 Import Example
+  .pad-h.text-warning.text-xs
+    |The following import code, is NOT needed if you used the AckModule import #[a.text-calm(href="#/overview" "(click)"="scrollToModuleImport()") seen here]
+  pre.code-sample.
+    import &#123; providers as ackProviders &#125; from "ack-angular/providers"
+    import &#123; NgModule &#125; from '@angular/core';
+
+    @NgModule(&#123;
+      providers:[ ...ackProviders ]
+    &#125;)
+
+error-well([error]="error")
+
+.flex-wrap.child-margin-xxs
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 AckOffline
+        .text-grey-2x
+          |Offline storage provided by #[a.text-calm(href="https://www.npmjs.com/package/localforage") localforage]
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewAckOffline=!viewAckOffline" "[ngClass]"="viewAckOffline?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewAckOffline" "[@500]"="'fadeInUp'")
+      .strong.pad-sm Memory Test
+      form.pad-xs.flex.child-margin-xxs("(ngSubmit)"="setOffline(newOfflineStorage)")
+        input.flex-1("[(ngModel)]"="newOfflineStorage" name="newOfflineStorage" placeholder="put something into browser memory")
+        button("(click)"="setOffline(newOfflineStorage)") set
+        button(type="button" "(click)"="clearOffline()") clear
+      .text-xs.pad-xs.border-success.text-success.bg-success(*ngIf="offlineStorage" "[@500]"="'slideInLeft'")
+        h5.margin-0 Current Offline Storage
+        .pad {{ offlineStorage|json }}
+      .text-xs.pad-xs.border-info.text-info.bg-info.margin-bottom
+        ul
+          li Above you can edit offline browser storage.
+          li Come back later and your memory will still be there
+
+      h4.pad-h-sm.margin-0 Usage Example
+      .pad-xs
+        absolute-overflow-y
+          pre.code-sample.margin-0(ngNonBindable).
+            import &#123; AckOffline &#125; from "ack-angular"
+            import &#123; Component &#125; from "@angular/core"
+            
+            @Component(&#123;...&#125;)
+            export class SomeClass&#123;
+              constructor(public AckOffline:AckOffline)&#123;
+                this.AckOffline.get('my-app-data')
+                .then(data=&gt;this.appData=data)
+              &#125;
+
+              set(data)&#123;
+                return this.AckOffline.set('my-app-data', data)
+                .catch(e=&gt;console.error(e))
+              &#125;
+
+              get()&#123;
+                return this.AckOffline.get('my-app-data')
+                .catch(e=&gt;console.error(e))
+              &#125;
+
+              clear()&#123;
+                return this.AckOffline.clear('my-app-data')
+                .catch(e=&gt;console.error(e))
+              &#125;
+            &#125;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 AckCache
+        .text-grey-2x
+          |Offline storage used with expires and maxAge cache control options
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewAckCache=!viewAckCache" "[ngClass]"="viewAckCache?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewAckCache" "[@500]"="'fadeInUp'")
+      .strong.pad-sm Cache Test
+      form.pad-xs.flex.child-margin-xxs("(ngSubmit)"="setCache(cacheStorage, cacheSeconds)")
+        input.flex-1("[(ngModel)]"="cacheStorage" name="cacheStorage" placeholder="put something expirable into browser memory")
+        input.width-50(type="number" "[(ngModel)]"="cacheSeconds" name="cacheSeconds" placeholder="expires in seconds" value="30")
+        span.text-xs.text-grey-2x.margin-left-0.flex-stacked.flex-valign-bottom
+          .flex-1.line-height-0 &nbsp;
+          span.line-height-3-4 secs&nbsp;
+        button("(click)"="setCache(cacheStorage, cacheSeconds)") set
+        button(type="button" "(click)"="clearCache()") clear
+      .text-xs.pad-xs.border-success.text-success.bg-success(*ngIf="cache" "[@500]"="'slideInLeft'")
+        h5.margin-0 Current Cache
+        .pad {{ cache|json }}
+      .text-xs.pad-xs.border-info.text-info.bg-info.margin-bottom
+        ul
+          li Above you can edit offline browser storage.
+          li Come back later
+          li Your memory will still be there (until it expires)
+
+      h4.pad-h-sm.margin-0 Usage Example
+      .pad-xs
+        absolute-overflow-y
+          pre.code-sample.margin-0(ngNonBindable).
+            import &#123; AckCache &#125; from "ack-angular"
+            import &#123; Component &#125; from "@angular/core"
+            
+            @Component(&#123;...&#125;)
+            export class SomeClass&#123;
+              constructor(public AckCache:AckCache)&#123;
+              &#125;
+
+              set(data)&#123;
+                return this.AckCache.set('my-app-data', data)
+                .catch(e=&gt;console.error(e))
+              &#125;
+
+              get()&#123;
+                return this.AckCache.get('my-app-data')
+                .catch(e=&gt;console.error(e))
+              &#125;
+
+              clear()&#123;
+                return this.AckCache.clear('my-app-data')
+                .catch(e=&gt;console.error(e))
+              &#125;
+            &#125;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 AckQue
+        .text-grey-2x
+          |Offline storage used to provide association between data and data-processors
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewAckQue=!viewAckQue" "[ngClass]"="viewAckQue?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewAckQue" "[@500]"="'fadeInUp'")
+      .pad-sm.strong Que Test
+      form.flex.child-margin-xxs(*ngFor="let item of queArray; let i=index" "[@200]"="'slideInLeft'")
+        .text-xs.pad-h-xs {{i}}
+        input.flex-1("[(ngModel)]"="queArray[i]" name="que{{index}}" readonly)
+        button("(click)"="processQuedByIndex(i)") process
+        button("(click)"="dequeByIndex(i)") remove
+      form.flex.child-margin-xxs("(ngSumbit)"="que(queStorage)")
+        .text-xs.pad-h-xs add
+        input.flex-1("[(ngModel)]"="queStorage" name="queStorage" placeholder="put process data into que")
+        button("(click)"="que(queStorage)") que item
+        button("(click)"="clearQue()") clear all
+        button("(click)"="processQue()") process all
+      .flex.child-margin-xxs(*ngFor="let item of processQueResults; let i=index" "[@500]"="'slideInLeft'")
+        .text-xs.pad-h-xs Completed {{i}} :
+        input.flex-1([ngModel]="item" disabled)
+      .text-xs.pad-xs.border-info.text-info.bg-info.margin-bottom
+        |TRY THIS:
+        ul
+          li Put items into que
+          li Disable your internet connection (unplug it)
+          li Enable your internet connection
+          li The entire que will be processed (takes seconds)
+        .pad-xs("[(statusOnlineModel)]"="statusOnlineModel") You are currently : {{statusOnlineModel ? 'online' : 'offline'}}
+
+      h4.pad-h-sm.margin-0 Usage Example
+      .pad-xs
+        absolute-overflow-y
+          pre.code-sample.margin-0(ngNonBindable).
+            import &#123; AckOffline &#125; from "ack-angular"
+            import &#123; Component &#125; from "@angular/core"
+            
+            @Component(&#123;...&#125;)
+            export class SomeClass&#123;
+              constructor(public AckOffline:AckOffline)&#123;
+                this.AckOffline.registerQueHandler('postHttpQue',quedData=&gt;&#123;
+                  console.log('browser back online, ready to transmit data', quedData)
+                &#125;)
+
+                this.onlineEvent = ()=&gt;this.onOnline()
+
+                window.addEventListener('online',this.onlineEvent)
+              &#125;
+
+              /** anytime we come back from offline, lets process our que */
+              onOnline()&#123;
+                this.AckOffline.processQue()
+                .catch(e=&gt;console.error(e))
+              &#125;
+
+              set(data)&#123;
+                return this.AckOffline.set('my-app-que', data)
+                .catch(e=&gt;console.error(e))
+              &#125;
+              
+              ngOnDestroy()&#123;
+                window.removeEventListender(this.onlineEvent)
+              &#125;
+            &#125;
+.pad
+  .text-center.bg-info.pad
+    .inline-block.pad.border.border-dotted.border-grey-5x.bg-stable
+      .pad-sm.text-sm.text-grey-2x
+        |After testing offline storage providers, you may want to clear the memory that was created
+      button("(click)"="clearAllOffline()") clear all offline memory

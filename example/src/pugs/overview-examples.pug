@@ -5,6 +5,8 @@ p.pad-h
 h4 Table of Contents
 ul.margin-top-0
   li
+    a(href="#Import AckModule" pageScroll) Import AckModule
+  li
     a(href="#Requirements" pageScroll) Requirements
   li
     a(href="#This Demo Area" pageScroll) This Demo Area
@@ -15,12 +17,23 @@ ul.margin-top-0
   li
     a(href="#My Personal TypeScript Opinion" pageScroll) My Personal TypeScript Opinion
   li
-    a(href="#My Ahead-of-Time Experience" pageScroll) My Ahead-of-Time Experience
-  li
     a(href="#ack-angularjs" pageScroll) ack-angularjs
 
-h3(id="Requirements") Requirements
-p It is very important to understand what connects where
+h3.margin-bottom-0(id="Import AckModule") Import AckModule
+.pad
+  p Most all functionality can be achieved by importing AckModule
+  p Example
+  pre.code-sample.
+    import &#123; AckModule &#125; from "ack-angular"
+    import &#123; NgModule &#125; from '@angular/core';
+
+    @NgModule(&#123;
+      imports:[ AckModule ]
+    &#125;)
+
+h3.margin-bottom-0(id="Requirements") Requirements
+.pad
+  p It is very important to understand what connects where
 ul
   li core angular components are expected to have already been installed
   ul
@@ -63,23 +76,23 @@ ul
 h3(id="Available Stylesheets") Available Stylesheets
 .pad-h
   p ack-angular offers common animation, Ionic, and Bootstrap like classes
+ul
+  li
+    a(href="https://www.npmjs.com/package/csshake") csshake
   ul
-    li
-      a(href="https://www.npmjs.com/package/csshake") csshake
+    li File Location : ack-angular/csshake.css
+  li
+    a(href="https://www.npmjs.com/package/ack-css-boot") ack-css-boot
+  ul
+    li File Location : ack-angular/ack-css-boot.css
+  li ack-angular
+  ul
+    li Includes the following stylesheets
     ul
-      li File Location : ack-angular/csshake.css
-    li
-      a(href="https://www.npmjs.com/package/ack-css-boot") ack-css-boot
-    ul
-      li File Location : ack-angular/ack-css-boot.css
-    li ack-angular
-    ul
-      li Includes the following stylesheets
-      ul
-        li
-          span.code-sample(style="display:inline") * &#123;box-sizing:border-box&#125;
-        li csshake
-        li ack-css-boot
+      li
+        span.code-sample(style="display:inline") * &#123;box-sizing:border-box&#125;
+      li csshake
+      li ack-css-boot
 
 h3(id="Resources") Resources
 ul
@@ -93,36 +106,31 @@ h3(id="My Personal TypeScript Opinion") My Personal TypeScript Opinion
     .text-sm.pad-top
       a(href="https://www.typescriptlang.org/") typescriptlang.org
   p The above statement is just not 100% true, it's more like 96.5%
+ul
+  li ISSUE : #[a(href="https://github.com/Microsoft/TypeScript/issues/6373") TS2339]
   ul
-    li ISSUE : #[a(href="https://github.com/Microsoft/TypeScript/issues/6373") TS2339]
-    ul
-      li Error Message : Property 'name' does not exist on type '&#123;&#125;'
-      li Cannot create object and then add properties to it that were not already defined
-      li
-        pre.code-sample.
-          let obj = &#123;&#125;
-          obj.name = "name prop"
-        div.text-grey-2x.text-sm The above code, under most ts configurations, will fail
-    li ISSUE : #[a(href="https://github.com/Microsoft/TypeScript/issues/6373") TS2346]
-    ul
-      li Error Message : Supplied parameters do not match any signature of call target.
-      li You have to call a function with exact number of arguments OR put a question mark in your argument definition
-      li
-        pre.code-sample.
-          function myFunc(a,b,c)&#123;&#125;
+    li Error Message : Property 'name' does not exist on type '&#123;&#125;'
+    li Cannot create object and then add properties to it that were not already defined
+    li
+      pre.code-sample.
+        let obj = &#123;&#125;
+        obj.name = "name prop"
+      div.text-grey-2x.text-sm The above code, under most ts configurations, will fail
+  li ISSUE : #[a(href="https://github.com/Microsoft/TypeScript/issues/6373") TS2346]
+  ul
+    li Error Message : Supplied parameters do not match any signature of call target.
+    li You have to call a function with exact number of arguments OR put a question mark in your argument definition
+    li
+      pre.code-sample.
+        function myFunc(a,b,c)&#123;&#125;
 
-          myFunc(1)
-        div.text-grey-2x.text-sm The above code, under most ts configurations, will fail
-      li Fix
-        pre.code-sample.
-          function myFunc(a,b?,c?)&#123;&#125;
+        myFunc(1)
+      div.text-grey-2x.text-sm The above code, under most ts configurations, will fail
+    li Fix
+      pre.code-sample.
+        function myFunc(a,b?,c?)&#123;&#125;
 
-          myFunc(1)
-
-h3.margin-bottom-xs(id="My Ahead-of-Time Experience") My Ahead-of-Time Experience
-.pad-h
-  p.margin-top-xs.margin-left.text-grey-2x Its Complicated
-  p In the past, I've had large AngularJs (ng1) apps that loaded seemingly instantly. Without Ahead-of-Time (AoT) compiling, Angular2 takes seconds to load in browser. When applying AoT compiling, Angular2 certainly loads faster. I depend on @angular/compiler-cli (ngc) to compile AoT and it has "limitations" that make the whole process a bit more complicated.
+        myFunc(1)
 
 h3(id="ack-angularjs") ack-angularjs
 .pad-h

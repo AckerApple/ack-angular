@@ -1,4 +1,18 @@
 import { EventEmitter, ElementRef } from "@angular/core";
+export declare class StatusOnlineModel {
+    onChange: any;
+    statusOnlineModel: any;
+    statusOnlineModelChange: EventEmitter<{}>;
+    constructor();
+    ngOnDestroy(): void;
+}
+export declare class StatusOfflineModel {
+    onChange: any;
+    statusOfflineModel: any;
+    statusOfflineModelChange: EventEmitter<{}>;
+    constructor();
+    ngOnDestroy(): void;
+}
 /** adds form element onchange listener via addEventListener('change') that calls onFormChanged scope argument */
 export declare class OnFormChanged {
     element: ElementRef;
@@ -28,13 +42,13 @@ export declare class ReaderBody {
 export declare class ElementHeightModel {
     element: ElementRef;
     onResize: any;
+    observer: any;
     timeout: any;
     elementHeightModel: any;
     elementHeightModelChange: EventEmitter<{}>;
     constructor(element: ElementRef);
     ngOnChanges(): void;
     setModel(): void;
-    ngAfterViewInit(): void;
     ngOnDestroy(): void;
 }
 export declare class ElementWidthModel {
@@ -46,16 +60,13 @@ export declare class ElementWidthModel {
     constructor(element: ElementRef);
     ngOnChanges(): void;
     setModel(): void;
-    ngAfterViewInit(): void;
     ngOnDestroy(): void;
 }
 export declare class ScreenScrollModelY {
-    window: any;
     onScroll: any;
     screenScrollModelY: any;
     screenScrollModelYChange: EventEmitter<{}>;
     constructor();
-    ngOnInit(): void;
     ngOnDestroy(): void;
 }
 export declare class ScreenWidthModel {
@@ -65,19 +76,18 @@ export declare class ScreenWidthModel {
     screenWidthModelChange: EventEmitter<{}>;
     constructor();
     setModel(): void;
-    ngAfterViewInit(): void;
     ngOnDestroy(): void;
 }
 export declare class ScreenHeightModel {
-    window: any;
     onResize: any;
     screenHeightModel: any;
     screenHeightModelChange: EventEmitter<{}>;
     constructor();
-    ngAfterViewInit(): void;
+    setModel(): void;
     ngOnDestroy(): void;
 }
 export declare class AbsoluteOverflowY {
+    scrollBars: any;
 }
 export declare class ErrorWell {
     error: any;
@@ -97,7 +107,8 @@ export declare class ShakeOn {
     shakeRefChange: EventEmitter<{}>;
     shakeTypes: string[];
     constructor(element: ElementRef);
-    ngOnInit(): void;
+    ngAfterContentChecked(): void;
+    update(): void;
     ngOnChanges(changes: any): void;
     onFalse(): void;
     onTrue(): void;

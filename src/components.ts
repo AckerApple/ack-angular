@@ -13,6 +13,52 @@ import { string as readerHeaderBody } from "./templates/reader-header-body.pug"
 import { string as errorWell } from "./templates/error-well.pug"
 import { string as absoluteOverflowY } from "./templates/absolute-overflow-y.pug"
 
+@Directive({selector:'[statusOnlineModel]'})
+export class StatusOnlineModel{
+  public onChange
+  @Input() public statusOnlineModel
+  @Output() public statusOnlineModelChange = new EventEmitter()
+
+  constructor(){
+    this.onChange = function(){
+      this.statusOnlineModel = navigator.onLine
+      this.statusOnlineModelChange.emit(this.statusOnlineModel)
+    }.bind(this)
+
+    window.addEventListener("online", this.onChange)
+    window.addEventListener("offline", this.onChange)
+    setTimeout(()=>this.onChange(), 0)
+  }
+
+  ngOnDestroy(){
+    window.removeEventListener("online", this.onChange)
+    window.removeEventListener("offline", this.onChange)
+  }
+}
+
+@Directive({selector:'[statusOfflineModel]'})
+export class StatusOfflineModel{
+  public onChange
+  @Input() public statusOfflineModel
+  @Output() public statusOfflineModelChange = new EventEmitter()
+
+  constructor(){
+    this.onChange = function(){
+      this.statusOfflineModel = !navigator.onLine
+      this.statusOfflineModelChange.emit(this.statusOfflineModel)
+    }.bind(this)
+
+    window.addEventListener("offline", this.onChange)
+    window.addEventListener("online", this.onChange)
+    setTimeout(()=>this.onChange(), 0)
+  }
+
+  ngOnDestroy(){
+    window.removeEventListener("offline", this.onChange)
+    window.removeEventListener("online", this.onChange)
+  }
+}
+
 /** adds form element onchange listener via addEventListener('change') that calls onFormChanged scope argument */
 @Directive({
   selector:'[onFormChanged]'
@@ -82,6 +128,7 @@ import { string as absoluteOverflowY } from "./templates/absolute-overflow-y.pug
   selector: '[elementHeightModel]'
 }) export class ElementHeightModel{
   public onResize
+  public observer
   public timeout
 
   @Input() public elementHeightModel
@@ -93,22 +140,32 @@ import { string as absoluteOverflowY } from "./templates/absolute-overflow-y.pug
     }.bind(this)
 
     window.addEventListener('resize', this.onResize)
+    setTimeout(()=>this.setModel(), 0)
+
+    this.observer = new MutationObserver(()=>{
+      this.setModel()
+    })
+    
+    const config = {
+      attributes: true,
+      childList: true,
+      characterData: true
+    }
+    this.observer.observe(this.element.nativeElement, config);
   }
 
   ngOnChanges(){
-    this.setModel()
+    setTimeout(()=>this.setModel(), 0)
   }
 
   setModel(){
     this.elementHeightModel = this.element.nativeElement.offsetHeight
+    //this.element.nativeElement.style.border='1px solid red'
     this.elementHeightModelChange.emit(this.elementHeightModel)
   }
 
-  ngAfterViewInit(){
-    this.setModel()
-  }
-
   ngOnDestroy(){
+    this.observer.disconnect()
     window.removeEventListener(this.onResize)
   }
 }
@@ -128,6 +185,7 @@ import { string as absoluteOverflowY } from "./templates/absolute-overflow-y.pug
     }.bind(this)
 
     window.addEventListener('resize', this.onResize)
+    this.setModel()
   }
 
   ngOnChanges(){
@@ -139,10 +197,6 @@ import { string as absoluteOverflowY } from "./templates/absolute-overflow-y.pug
     this.elementWidthModelChange.emit(this.elementWidthModel)
   }
 
-  ngAfterViewInit(){
-    this.setModel()
-  }
-
   ngOnDestroy(){
     window.removeEventListener(this.onResize)
   }
@@ -152,20 +206,17 @@ import { string as absoluteOverflowY } from "./templates/absolute-overflow-y.pug
   //inputs:['screen-height-model'],
   selector: '[screenScrollModelY]'
 }) export class ScreenScrollModelY{
-  public window
+  //public window
   public onScroll
 
   @Input() public screenScrollModelY
   @Output() public screenScrollModelYChange = new EventEmitter()
-
+  
   constructor(){
     this.onScroll = function(){
       this.screenScrollModelY = window['pageYOffset']
       this.screenScrollModelYChange.emit(this.screenScrollModelY)
     }.bind(this)
-  }
-  
-  ngOnInit(){
     this.onScroll()
     window['addEventListener']("scroll", this.onScroll)
   }
@@ -193,15 +244,12 @@ import { string as absoluteOverflowY } from "./templates/absolute-overflow-y.pug
     }.bind(this)
 
     window.addEventListener('resize', this.onResize)
+    setTimeout(()=>this.setModel(), 0)
   }
 
   setModel(){
     this.screenWidthModel = window.innerWidth
     this.screenWidthModelChange.emit(this.screenWidthModel)
-  }
-
-  ngAfterViewInit(){
-    this.setModel()
   }
 
   ngOnDestroy(){
@@ -213,27 +261,25 @@ import { string as absoluteOverflowY } from "./templates/absolute-overflow-y.pug
   //inputs:['screen-height-model'],
   selector: '[screenHeightModel]'
 }) export class ScreenHeightModel{
-  public window
+  //public window
   public onResize
 
   @Input() public screenHeightModel
   @Output() public screenHeightModelChange = new EventEmitter()
 
   constructor(){
-    this.window = window
-
     this.onResize = function(){
       if(this.screenHeightModel !== window.innerHeight){
-        this.screenHeightModel = window.innerHeight
-        this.screenHeightModelChange.emit(this.screenHeightModel)
+        this.setModel()
       }
     }.bind(this)
 
     window.addEventListener('resize', this.onResize)
+    setTimeout(()=>this.onResize(), 0)
   }
 
-  ngAfterViewInit(){
-    this.screenHeightModel = this.window.innerHeight
+  setModel(){
+    this.screenHeightModel = window.innerHeight
     this.screenHeightModelChange.emit(this.screenHeightModel)
   }
 
@@ -245,7 +291,9 @@ import { string as absoluteOverflowY } from "./templates/absolute-overflow-y.pug
 @Component({
   selector:'absolute-overflow-y',
   template:absoluteOverflowY
-}) export class AbsoluteOverflowY{}
+}) export class AbsoluteOverflowY{
+  @Input() public scrollBars
+}
 
 @Component({
   selector:'error-well',
@@ -279,9 +327,14 @@ import { string as absoluteOverflowY } from "./templates/absolute-overflow-y.pug
   
   public shakeTypes = ['shake-slow','shake-hard','shake-little','shake-horizontal','shake-vertical','shake-rotate','shake-opacity','shake-crazy']
 
-  constructor(public element:ElementRef){}
+  constructor(public element:ElementRef){
+  }
 
-  ngOnInit(){
+  ngAfterContentChecked(){
+    setTimeout(()=>this.update(), 0)
+  }
+
+  update(){
     this.shakeForMs = this.shakeForMs || 2000
     this.shakeRef = this
     this.shakeType = this.shakeType || 'shake-slow'
@@ -409,7 +462,8 @@ export const declarations = [
   ScreenWidthModel,
   ShakeOn,
   OnFormAlter,
-
+  StatusOnlineModel,
+  StatusOfflineModel,
   ElementWidthModel,
   ElementHeightModel,
 

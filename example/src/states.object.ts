@@ -6,20 +6,14 @@ import { Component} from '@angular/core';
 @Component({template:''}) export class Components{}
 @Component({template:''}) export class Pipes{}
 @Component({template:''}) export class Animations{}
+@Component({template:''}) export class Providers{}
 
 export const declarations = [
   Overview,
   Components,
   Pipes,
-  Animations
-]
-
-//deprecated : ui-router-ng2
-export const states = [
-  {name: 'overview', url: '/overview',  component: Overview},
-  {name: 'components', url: '/components',  component: Components},
-  {name: 'pipes', url: '/pipes',  component: Pipes},
-  {name: 'animations', url: '/animations',  component: Animations}
+  Animations,
+  Providers
 ]
 
 export const routes = [
@@ -27,6 +21,7 @@ export const routes = [
   {name: 'components', path: 'components',  component: Components},
   {name: 'pipes', path: 'pipes',  component: Pipes},
   {name: 'animations', path: 'animations',  component: Animations},
+  {name: 'providers', path: 'providers',  component: Providers},
   {path: '',   redirectTo: 'overview', pathMatch: 'full' },//default route
   {path: '**',   redirectTo: 'overview' }//404
 ]

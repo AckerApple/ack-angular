@@ -16,21 +16,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouteWatchReporter } from "ack-angular/RouteWatchReporter.class"
 import { RouteReporter } from "ack-angular/RouteReporter.component"
 
-import { pipes, components as ackComponents } from "ack-angular"
+//import { pipes, components as ackComponents } from "ack-angular"
+import {
+  AckOffline,
+  AckCache,
+  AckQue,
+  AckModule
+} from "ack-angular"
 
 import * as packJson from "ack-angular/package.json"
 
 import * as ackFx from 'ack-angular-fx'
 import { fxArray } from './prefx'
 
-import { Ng2PageScrollModule } from 'ng2-page-scroll';
+import { Ng2PageScrollModule, PageScrollService, PageScrollInstance } from 'ng2-page-scroll';
 
 import {string as ackAppStageTemplate} from './templates/ack-app-stage.pug'
 import {string as animationExamples} from './templates/animation-examples.pug'
 import {string as overviewExamples} from './templates/overview-examples.pug'
 import {string as componentsExamples} from './templates/components-examples.pug'
 import {string as pipesExamples} from './templates/pipes-examples.pug'
-import {string as servicesExamples} from './templates/services-examples.pug'
+//import {string as servicesExamples} from './templates/services-examples.pug'
+import {string as providerExamples} from './templates/provider-examples.pug'
 
 import { declarations as states, routing } from "./states.object"
 
@@ -69,26 +76,193 @@ import { declarations as states, routing } from "./states.object"
 }) export class OverviewExamples {}
 
 @Component({
+  selector: 'provider-examples'
+  ,template: providerExamples
+  ,animations:fxArray
+}) export class ProviderExamples {
+  public cache
+  public error
+  public offlineStorage
+  public cacheStorage
+  public queStorage
+  public queArray = []
+  public processQueResults = []
+  public cacheSeconds:number = 20
+  public backOnlineAt
+
+  constructor(
+    public AckOffline:AckOffline,
+    public AckCache:AckCache,
+    public AckQue:AckQue,
+    public PageScrollService:PageScrollService
+    //,public PageScrollInstance:PageScrollInstance
+  ){}
+
+  ngOnInit(){
+    this.AckQue.registerQueHandler('ackNgTest', item=>this.processQueItem(item))
+
+    window.addEventListener('online',()=>{
+      if(navigator.onLine){
+        this.backOnlineAt = getServerTime()
+        this.processQue()
+      }
+    })
+
+    this.reloadData()
+  }
+
+  scrollToModuleImport(){
+    setTimeout(()=>{
+      const pageScrollInstance = PageScrollInstance.simpleInstance(document, '#Import AckModule');
+      this.PageScrollService.start(pageScrollInstance);
+    }, 600)
+  }
+
+  reloadData(){
+    return Promise.all([
+      this.readOffline(),
+      this.readQue(),
+      this.readCache()
+    ])
+  }
+
+  readOffline(){
+    this.AckOffline.get('ack-angular')
+    .then( data=>this.offlineStorage=data )
+  }
+
+  readQue(){
+    return this.AckQue.getQue('ackNgTest')
+    .then( que=>this.queArray=que )
+  }
+
+  readCache(){
+    return this.AckCache.get('ackNgCacheTest')
+    .then( cache=>this.cacheStorage=cache )
+    .then( ()=>this.readCacheObject() )
+    .catch(e=>{
+      if(e.code && e.code==401){
+        return
+      }
+
+      return Promise.reject(e)
+    })
+  }
+
+  readCacheObject(){
+    //use Offline to get raw cache
+    return this.AckOffline.get('ackNgCacheTest')
+    .then(v=>{
+      this.cache = v
+      if(v){
+        this.cache.seconds = (v['expires']-v['_timestamp']) / 1000
+      }
+    })
+  }
+
+  clearAllOffline(){
+    this.AckOffline.clearAll()
+    .then(()=>this.reloadData())
+  }
+
+  setCache(value, seconds){
+    const expires = new Date( Date.now()+(seconds*1000) ).getTime()
+    return this.AckCache.set('ackNgCacheTest', value, {expires:expires})
+    .then(()=>this.readCache())
+  }
+  
+  clearCache(){
+    this.AckCache.clear('ackNgCacheTest')
+    .then( ()=>this.readCache() )
+  }
+
+  clearOffline(){
+    this.offlineStorage = ''
+    this.AckOffline.clear('ack-angular')
+    .then( ()=>this.readOffline() )
+  }
+
+  setOffline(string){
+    this.offlineStorage = string
+    this.AckOffline.set('ack-angular', string)
+  }
+
+  clearQue(){
+    return this.AckQue.clear('ackNgTest')
+    .then( ()=>this.readQue() )
+  }
+
+  que(itemData){
+    this.queStorage = ''
+    return this.AckQue.que('ackNgTest', itemData)
+    .then( ()=>this.readQue() )
+  }
+
+  dequeByIndex(index){
+    return this.AckQue.dequeByIndex('ackNgTest', index)
+    .then( ()=>this.readQue() )
+  }
+
+  processQueItem(itemData){
+    return getServerTime() +' : ack-touched-data : '+itemData
+  }
+
+  processQuedByIndex(index){
+    return this.AckQue.processQuedByIndex('ackNgTest',index)
+    .then( result=>this.processQueResults.push(result) )
+    .then( ()=>this.readQue() )
+  }
+
+  processQue(){
+    return this.AckQue.processQue()
+    .then( results=>
+      this.processQueResults.push.apply(this.processQueResults, results)
+    )
+    .then( ()=>this.readQue() )
+    .catch( e=>this.error=e )
+  }
+}
+
+@Component({
   selector: 'components-examples'
   ,template: componentsExamples
   ,animations:fxArray
 }) export class ComponentsExamples {
   public error
-
+  
+  constructor(public PageScrollService:PageScrollService){}
+  
   causeError(){
-    this.error = new Error( 'An intended error was caused @ '+new Date().toString() )
+    this.error = new Error( 'An intended error was caused @ '+getServerTime() )
+  }
+
+  scrollToModuleImport(){
+    setTimeout(()=>{
+      const pageScrollInstance = PageScrollInstance.simpleInstance(document, '#Import AckModule');
+      this.PageScrollService.start(pageScrollInstance);
+    }, 600)
   }
 }
 
 @Component({
   selector: 'pipes-examples'
   ,template: pipesExamples
-}) export class PipesExamples {}
+}) export class PipesExamples {
 
-@Component({
+  constructor(public PageScrollService:PageScrollService){}
+
+  scrollToModuleImport(){
+    setTimeout(()=>{
+      const pageScrollInstance = PageScrollInstance.simpleInstance(document, '#Import AckModule');
+      this.PageScrollService.start(pageScrollInstance);
+    }, 600)
+  }
+}
+
+/*@Component({
   selector: 'services-examples'
   ,template: servicesExamples
-}) export class ServicesExamples {}
+}) export class ServicesExamples {}*/
 
 export const declarations = [
   AppComponent
@@ -98,26 +272,25 @@ export const declarations = [
   ,OverviewExamples
   ,ComponentsExamples
   ,PipesExamples
-  ,ServicesExamples
-  ,...pipes
+  //,ServicesExamples
+  ,ProviderExamples
   ,...states
-  ,...ackComponents
 ]
 
 //const fxLoadTime = Date.now()
 //ackFx.upgradeComponents(declarations)
 //console.log('FX Load Time', Date.now()-fxLoadTime+'ms')
-//BrowserAnimationsModule()
 
 @NgModule({
   imports:[
     BrowserModule
     ,BrowserAnimationsModule
-    //,NoopAnimationsModule
     ,FormsModule
     //,UIRouterModule.forRoot(routeConfig)
     ,routing
     ,Ng2PageScrollModule.forRoot()
+    ,AckModule//.forRoot()
+    //,AckModule//.forRoot()
   ]
   //,declarations: [ AppComponent ]
   ,declarations: declarations

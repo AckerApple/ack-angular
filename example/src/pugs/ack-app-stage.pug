@@ -31,6 +31,8 @@ reader-header-body.font-helvetica
           |Services
         a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='animations'}" href="#/animations")
           |Animations    
+        a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='providers'}" href="#/providers")
+          |Providers    
 
   reader-body.line-height-2x(style="font-size:16px;")
     .height-full.bg-white.border-grey-3x.border-left-1.border-right-1("[ngStyle]"="isSwaping?{'overflow-x':'hidden'}:null")
@@ -58,4 +60,9 @@ reader-header-body.font-helvetica
         .pad-md(*ngIf="stateName=='animations'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
           h2.margin-top-0 Animations
           animation-examples
+          +top
+
+        .pad-md(*ngIf="stateName=='providers'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+          h2.margin-top-0 Providers
+          provider-examples
           +top
