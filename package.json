@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -32,6 +32,7 @@
     "@angular/core": "^4.0.0",
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
-    "localforage": "^1.5.0"
+    "localforage": "^1.5.0",
+    "ack-x": "^1.2.22"
   }
 }
