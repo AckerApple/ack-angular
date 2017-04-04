@@ -6,4 +6,7 @@ export declare const pipes: {
     capitalize: (input: any) => any;
     capitalizeAfterSentence: (input: any) => any;
     capitalizeOne: (input: any) => any;
+    aDate: (v: any, call0: any, call1: any, call2: any) => any;
+    aTime: (v: any, call0: any, call1: any, call2: any) => any;
+    ack: (v: any, call0: any, call1: any, call2: any) => any;
 };

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var ack = require("ack-x/index-browser");
 exports.pipes = {
     yesno: function yesno(input) {
         if (input == null)
@@ -31,6 +32,36 @@ exports.pipes = {
     capitalizeOne: function capitalizeOne(input) {
         var reg = /[^\W_]+[^\s-]*/;
         return (!!input) ? input.replace(reg, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); }) : '';
-    }
+    },
+    aDate: a('date'),
+    aTime: a('time'),
+    ack: invokeRotator(ack)
 };
+function a(name) {
+    return invokeRotator(ack[name]);
+}
+function invokeRotator(invoke) {
+    return function (v, call0, call1, call2) {
+        var newkey, subargs, key, item, rtn = invoke(v);
+        //loop extra arguments as property collectors
+        for (var x = 1; x < arguments.length; ++x) {
+            key = arguments[x];
+            subargs = [];
+            //array where 1st arg is method and subs are positional arguments
+            if (key.constructor == Array) {
+                newkey = key.shift();
+                subargs = key;
+                key = newkey;
+            }
+            item = rtn[key];
+            if (item && item.constructor == Function) {
+                rtn = item.apply(rtn, subargs);
+            }
+            else {
+                rtn = item;
+            }
+        }
+        return rtn;
+    };
+}
 //# sourceMappingURL=pipes.class.js.map

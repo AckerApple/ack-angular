@@ -11,9 +11,9 @@ Extra special directives, components, providers and pipes to aide in tackling ev
 - [Install](#install)
   - [Install jsDependencies via ack-webpack](#install-jsdependencies-via-ack-webpack)
   - [Manually Install Dependencies](#manually-install-dependencies)
-- [AoT Compatibility](#aot-compatibility)
 - [Importing into Project](#importing-into-project)
 - [Dependency Map](#dependency-map)
+- [AoT Compatibility](#aot-compatibility)
 - [Components](#components)
 - [Work on This Project](#work-on-this-project)
   - [Building Example](#building-example)
@@ -55,28 +55,10 @@ Full Install
 npm install --save-dev reflect-metadata @angular/common @angular/core @angular/animations rxjs zone.js
 ```
 
-### AoT Compatibility
-I, Acker Dawn Apple, have busted my tail to make this package compatible with Ahead-of-Time compiling.
-
-Everything in this package is tested working with AoT compiling. Animations provided by [ack-angular-fx](https://www.npmjs.com/package/ack-angular-fx), must be pre-compiled to a TypeScript file (dynamic animations are not AoT compatible).
-
-#### Precompile Animations with ack-angular-fx for Aot Compatibility
-Dynamic animations are not supported for AoT compiling. Precompile animations to TypeScript file.
-
-- Step 1 : Add script entry to your package.json file
-```javascript
-"scripts":{
-  "compile:prefx": "ack-angular-fx --select animateSwap,400,500 --effects fade,slide --out ./src/prefx.ts"
-}
-```
-- Step 2 : Run script in a command prompt terminal
-```bash
-npm run compile:prefx
-```
-
 ## Importing into Project
 ack-angular uses file based imports, importing the index does nothing.
 
+> NOTE : You need to have the [`allowSyntheticDefaultImports` compiler option](https://www.typescriptlang.org/docs/handbook/compiler-options.html) set to `true` in your [tsconfig.json](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 
 ### Import Samples
 
@@ -128,6 +110,26 @@ If you import the following files, make sure you have installed it's dependencie
   - Dependency Install `npm install ui-router-ng2 --save-dev`
 
 > The [Extended Documentation](https://ackerapple.github.io/ack-angular/) may help bring further understanding as to what is required and when to import dependencies
+
+
+### AoT Compatibility
+I, Acker Dawn Apple, have busted my tail to make this package compatible with Ahead-of-Time compiling.
+
+Everything in this package is tested working with AoT compiling. Animations provided by [ack-angular-fx](https://www.npmjs.com/package/ack-angular-fx), must be pre-compiled to a TypeScript file (dynamic animations are not AoT compatible).
+
+#### Precompile Animations with ack-angular-fx for Aot Compatibility
+Dynamic animations are not supported for AoT compiling. Precompile animations to TypeScript file.
+
+- Step 1 : Add script entry to your package.json file
+```javascript
+"scripts":{
+  "compile:prefx": "ack-angular-fx --select animateSwap,400,500 --effects fade,slide --out ./src/prefx.ts"
+}
+```
+- Step 2 : Run script in a command prompt terminal
+```bash
+npm run compile:prefx
+```
 
 # Components
 Directives and Components making development life more joyful
@@ -205,6 +207,17 @@ When changing core code animations, the example prefx must be compiled
 npm run compile:example:prefx
 ```
 
+### Publish Package
+
+Before publishing, update the package version number in:
+- package.json
+- ack-angular/package.json
+
+After running the build command:
+- git push `/ack-angular` to `master` branch
+- npm publish `ack-angular` folder
+- git push `/example/www/` to `gh-pages` branch
+- git push `/` to `src` branch
 
 ## Resources
 - [Examples and Docs](https://ackerapple.github.io/ack-angular/)

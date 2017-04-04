@@ -93,25 +93,11 @@ var AckCache = (function (_super) {
         options = options || { expires: null };
         return _super.prototype.get.call(this, name)
             .then(function (data) {
-            /*
-                  if( this.validate(data, options) ){
-            console.log('data was valid')
-                    return data['cache']
-                  }
-            */
             if (data) {
                 return _this.cacheToReturn(name, data, options);
             }
             if (options.param)
                 return options.param;
-            /*
-                  var err = new Error('No valid cache found for '+name)
-                  err['code'] = 404
-            
-                  return new Promise((res,rej)=>{
-                    rej(err)
-                  })
-            */
             return Promise.resolve();
         });
     };

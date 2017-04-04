@@ -72,6 +72,48 @@ Numbers.decorators = [
 /** @nocollapse */
 Numbers.ctorParameters = function () { return []; };
 exports.Numbers = Numbers;
+var ADate = (function () {
+    function ADate() {
+    }
+    ADate.prototype.transform = function () {
+        return pipes_class_1.pipes.aDate.apply(pipes_class_1.pipes.aDate, arguments);
+    };
+    return ADate;
+}());
+ADate.decorators = [
+    { type: core_1.Pipe, args: [{ name: 'aDate' },] },
+];
+/** @nocollapse */
+ADate.ctorParameters = function () { return []; };
+exports.ADate = ADate;
+var ATime = (function () {
+    function ATime() {
+    }
+    ATime.prototype.transform = function () {
+        return pipes_class_1.pipes.aTime.apply(pipes_class_1.pipes.aTime, arguments);
+    };
+    return ATime;
+}());
+ATime.decorators = [
+    { type: core_1.Pipe, args: [{ name: 'aTime' },] },
+];
+/** @nocollapse */
+ATime.ctorParameters = function () { return []; };
+exports.ATime = ATime;
+var Ack = (function () {
+    function Ack() {
+    }
+    Ack.prototype.transform = function () {
+        return pipes_class_1.pipes.ack.apply(pipes_class_1.pipes.ack, arguments);
+    };
+    return Ack;
+}());
+Ack.decorators = [
+    { type: core_1.Pipe, args: [{ name: 'ack' },] },
+];
+/** @nocollapse */
+Ack.ctorParameters = function () { return []; };
+exports.Ack = Ack;
 var Keys = (function () {
     function Keys() {
     }
@@ -123,6 +165,9 @@ exports.declarations = [
     Numbers,
     Keys,
     TypeofPipe,
-    ConsolePipe
+    ConsolePipe,
+    ADate,
+    ATime,
+    Ack
 ];
 //# sourceMappingURL=pipes.js.map

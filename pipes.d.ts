@@ -13,6 +13,15 @@ export declare class YesNo {
 export declare class Numbers {
     transform(input: any): any;
 }
+export declare class ADate {
+    transform(): any;
+}
+export declare class ATime {
+    transform(): any;
+}
+export declare class Ack {
+    transform(): any;
+}
 export declare class Keys {
     transform(input: any): string[];
 }
