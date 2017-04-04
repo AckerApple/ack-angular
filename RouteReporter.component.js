@@ -25,11 +25,11 @@ var RouteReporter = (function () {
           setTimeout(()=>this.stateChanger.emit( this.RouteWatchReporter ), 0)
         })*/
         RouteWatchReporter.router.events.subscribe(function (event) {
-            if (event.constructor == router_1.NavigationStart) {
-                _this.beforeChanger.emit(_this.RouteWatchReporter);
-            }
+            //if(event.constructor == NavigationStart){}
             if (event.constructor == router_1.NavigationEnd) {
-                _this.stateChanger.emit(_this.RouteWatchReporter);
+                _this.beforeChanger.emit(_this.RouteWatchReporter);
+                //allow one process to occur before reporting state has changed
+                setTimeout(function () { return _this.stateChanger.emit(_this.RouteWatchReporter); }, 0);
             }
         });
         RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
