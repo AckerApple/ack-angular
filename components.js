@@ -5,6 +5,62 @@ var prefx_1 = require("./prefx");
 var reader_header_body_pug_1 = require("./templates/reader-header-body.pug");
 var error_well_pug_1 = require("./templates/error-well.pug");
 var absolute_overflow_y_pug_1 = require("./templates/absolute-overflow-y.pug");
+var StatusOnlineModel = (function () {
+    function StatusOnlineModel() {
+        var _this = this;
+        this.statusOnlineModelChange = new core_1.EventEmitter();
+        this.onChange = function () {
+            this.statusOnlineModel = navigator.onLine;
+            this.statusOnlineModelChange.emit(this.statusOnlineModel);
+        }.bind(this);
+        window.addEventListener("online", this.onChange);
+        window.addEventListener("offline", this.onChange);
+        setTimeout(function () { return _this.onChange(); }, 0);
+    }
+    StatusOnlineModel.prototype.ngOnDestroy = function () {
+        window.removeEventListener("online", this.onChange);
+        window.removeEventListener("offline", this.onChange);
+    };
+    return StatusOnlineModel;
+}());
+StatusOnlineModel.decorators = [
+    { type: core_1.Directive, args: [{ selector: '[statusOnlineModel]' },] },
+];
+/** @nocollapse */
+StatusOnlineModel.ctorParameters = function () { return []; };
+StatusOnlineModel.propDecorators = {
+    'statusOnlineModel': [{ type: core_1.Input },],
+    'statusOnlineModelChange': [{ type: core_1.Output },],
+};
+exports.StatusOnlineModel = StatusOnlineModel;
+var StatusOfflineModel = (function () {
+    function StatusOfflineModel() {
+        var _this = this;
+        this.statusOfflineModelChange = new core_1.EventEmitter();
+        this.onChange = function () {
+            this.statusOfflineModel = !navigator.onLine;
+            this.statusOfflineModelChange.emit(this.statusOfflineModel);
+        }.bind(this);
+        window.addEventListener("offline", this.onChange);
+        window.addEventListener("online", this.onChange);
+        setTimeout(function () { return _this.onChange(); }, 0);
+    }
+    StatusOfflineModel.prototype.ngOnDestroy = function () {
+        window.removeEventListener("offline", this.onChange);
+        window.removeEventListener("online", this.onChange);
+    };
+    return StatusOfflineModel;
+}());
+StatusOfflineModel.decorators = [
+    { type: core_1.Directive, args: [{ selector: '[statusOfflineModel]' },] },
+];
+/** @nocollapse */
+StatusOfflineModel.ctorParameters = function () { return []; };
+StatusOfflineModel.propDecorators = {
+    'statusOfflineModel': [{ type: core_1.Input },],
+    'statusOfflineModelChange': [{ type: core_1.Output },],
+};
+exports.StatusOfflineModel = StatusOfflineModel;
 /** adds form element onchange listener via addEventListener('change') that calls onFormChanged scope argument */
 var OnFormChanged = (function () {
     function OnFormChanged(element) {
@@ -111,24 +167,35 @@ ReaderBody.ctorParameters = function () { return [
 exports.ReaderBody = ReaderBody;
 var ElementHeightModel = (function () {
     function ElementHeightModel(element) {
+        var _this = this;
         this.element = element;
         this.elementHeightModelChange = new core_1.EventEmitter();
         this.onResize = function () {
             this.setModel();
         }.bind(this);
         window.addEventListener('resize', this.onResize);
+        setTimeout(function () { return _this.setModel(); }, 0);
+        this.observer = new MutationObserver(function () {
+            _this.setModel();
+        });
+        var config = {
+            attributes: true,
+            childList: true,
+            characterData: true
+        };
+        this.observer.observe(this.element.nativeElement, config);
     }
     ElementHeightModel.prototype.ngOnChanges = function () {
-        this.setModel();
+        var _this = this;
+        setTimeout(function () { return _this.setModel(); }, 0);
     };
     ElementHeightModel.prototype.setModel = function () {
         this.elementHeightModel = this.element.nativeElement.offsetHeight;
+        //this.element.nativeElement.style.border='1px solid red'
         this.elementHeightModelChange.emit(this.elementHeightModel);
     };
-    ElementHeightModel.prototype.ngAfterViewInit = function () {
-        this.setModel();
-    };
     ElementHeightModel.prototype.ngOnDestroy = function () {
+        this.observer.disconnect();
         window.removeEventListener(this.onResize);
     };
     return ElementHeightModel;
@@ -155,6 +222,7 @@ var ElementWidthModel = (function () {
             this.setModel();
         }.bind(this);
         window.addEventListener('resize', this.onResize);
+        this.setModel();
     }
     ElementWidthModel.prototype.ngOnChanges = function () {
         this.setModel();
@@ -162,9 +230,6 @@ var ElementWidthModel = (function () {
     ElementWidthModel.prototype.setModel = function () {
         this.elementWidthModel = this.element.nativeElement.offsetWidth;
         this.elementWidthModelChange.emit(this.elementWidthModel);
-    };
-    ElementWidthModel.prototype.ngAfterViewInit = function () {
-        this.setModel();
     };
     ElementWidthModel.prototype.ngOnDestroy = function () {
         window.removeEventListener(this.onResize);
@@ -192,11 +257,9 @@ var ScreenScrollModelY = (function () {
             this.screenScrollModelY = window['pageYOffset'];
             this.screenScrollModelYChange.emit(this.screenScrollModelY);
         }.bind(this);
-    }
-    ScreenScrollModelY.prototype.ngOnInit = function () {
         this.onScroll();
         window['addEventListener']("scroll", this.onScroll);
-    };
+    }
     ScreenScrollModelY.prototype.ngOnDestroy = function () {
         window['removeEventListener']("scroll", this.onScroll);
     };
@@ -217,6 +280,7 @@ ScreenScrollModelY.propDecorators = {
 exports.ScreenScrollModelY = ScreenScrollModelY;
 var ScreenWidthModel = (function () {
     function ScreenWidthModel() {
+        var _this = this;
         this.screenWidthModelChange = new core_1.EventEmitter();
         this.onResize = function () {
             if (this.screenWidthModel !== window.innerWidth) {
@@ -224,13 +288,11 @@ var ScreenWidthModel = (function () {
             }
         }.bind(this);
         window.addEventListener('resize', this.onResize);
+        setTimeout(function () { return _this.setModel(); }, 0);
     }
     ScreenWidthModel.prototype.setModel = function () {
         this.screenWidthModel = window.innerWidth;
         this.screenWidthModelChange.emit(this.screenWidthModel);
-    };
-    ScreenWidthModel.prototype.ngAfterViewInit = function () {
-        this.setModel();
     };
     ScreenWidthModel.prototype.ngOnDestroy = function () {
         window.removeEventListener(this.onResize);
@@ -252,18 +314,18 @@ ScreenWidthModel.propDecorators = {
 exports.ScreenWidthModel = ScreenWidthModel;
 var ScreenHeightModel = (function () {
     function ScreenHeightModel() {
+        var _this = this;
         this.screenHeightModelChange = new core_1.EventEmitter();
-        this.window = window;
         this.onResize = function () {
             if (this.screenHeightModel !== window.innerHeight) {
-                this.screenHeightModel = window.innerHeight;
-                this.screenHeightModelChange.emit(this.screenHeightModel);
+                this.setModel();
             }
         }.bind(this);
         window.addEventListener('resize', this.onResize);
+        setTimeout(function () { return _this.onResize(); }, 0);
     }
-    ScreenHeightModel.prototype.ngAfterViewInit = function () {
-        this.screenHeightModel = this.window.innerHeight;
+    ScreenHeightModel.prototype.setModel = function () {
+        this.screenHeightModel = window.innerHeight;
         this.screenHeightModelChange.emit(this.screenHeightModel);
     };
     ScreenHeightModel.prototype.ngOnDestroy = function () {
@@ -297,6 +359,9 @@ AbsoluteOverflowY.decorators = [
 ];
 /** @nocollapse */
 AbsoluteOverflowY.ctorParameters = function () { return []; };
+AbsoluteOverflowY.propDecorators = {
+    'scrollBars': [{ type: core_1.Input },],
+};
 exports.AbsoluteOverflowY = AbsoluteOverflowY;
 var ErrorWell = (function () {
     function ErrorWell() {
@@ -330,7 +395,11 @@ var ShakeOn = (function () {
         this.shakeRefChange = new core_1.EventEmitter();
         this.shakeTypes = ['shake-slow', 'shake-hard', 'shake-little', 'shake-horizontal', 'shake-vertical', 'shake-rotate', 'shake-opacity', 'shake-crazy'];
     }
-    ShakeOn.prototype.ngOnInit = function () {
+    ShakeOn.prototype.ngAfterContentChecked = function () {
+        var _this = this;
+        setTimeout(function () { return _this.update(); }, 0);
+    };
+    ShakeOn.prototype.update = function () {
         this.shakeForMs = this.shakeForMs || 2000;
         this.shakeRef = this;
         this.shakeType = this.shakeType || 'shake-slow';
@@ -473,6 +542,8 @@ exports.declarations = [
     ScreenWidthModel,
     ShakeOn,
     OnFormAlter,
+    StatusOnlineModel,
+    StatusOfflineModel,
     ElementWidthModel,
     ElementHeightModel,
     ReaderHeaderBody,
