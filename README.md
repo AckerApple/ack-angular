@@ -79,11 +79,11 @@ If you attempt to import any of the following, certain dependencies must have al
 ```javascript
 //requires @angular/router imports
 import { RouteReporter } from "ack-angular/RouteReporter.component"
-import { RouteWatchReporter } from "ack-angular/RouteWatchReporter.class"
+import { RouteWatchReporter } from "ack-angular/RouteWatchReporter"
 
 //requires ui-router-ng2 imports : broken as of 3/29/17 when @angular released 4.0.0
 import { UiRouteReporter } from "ack-angular/UiRouteReporter.component"
-import { UiRouteWatchReporter } from "ack-angular/UiRouteWatchReporter.class"
+import { UiRouteWatchReporter } from "ack-angular/UiRouteWatchReporter"
 ```
 
 ## Dependency Map
@@ -97,16 +97,16 @@ If you import the following files, make sure you have installed it's dependencie
 - ack-angular/**RouteReporter.component.ts**
   - Import Example : `import { RouteReporter } from "ack-angular/RouteReporter.component"`
   - Dependency Install `npm install @angular/router --save-dev`
-- ack-angular/**RouteWatchReporter.class.ts**
-  - Import Example : `import { RouteWatchReporter } from "ack-angular/RouteWatchReporter.class"`
+- ack-angular/**RouteWatchReporter.ts**
+  - Import Example : `import { RouteWatchReporter } from "ack-angular/RouteWatchReporter"`
   - Dependency Install `npm install @angular/router --save-dev`
 - ack-angular/**UiRouteReporter.component.ts**
   - **broken** as of 3/29/17 when @angular released 4.0.0
   - Import Example : `import { UiRouteReporter } from "ack-angular/UiRouteReporter.component"`
   - Dependency Install `npm install ui-router-ng2 --save-dev`
-- ack-angular/**UiRouteWatchReporter.class.ts**
+- ack-angular/**UiRouteWatchReporter.ts**
   - **broken** as of 3/29/17 when @angular released 4.0.0
-  - Import Example : `import { UiRouteWatchReporter } from "ack-angular/UiRouteWatchReporter.class"`
+  - Import Example : `import { UiRouteWatchReporter } from "ack-angular/UiRouteWatchReporter"`
   - Dependency Install `npm install ui-router-ng2 --save-dev`
 
 > The [Extended Documentation](https://ackerapple.github.io/ack-angular/) may help bring further understanding as to what is required and when to import dependencies
@@ -153,7 +153,7 @@ Components that have additional dependencies or restrictions
 A directive that exposes @angular/router metadata for use in a component template
 ```javascript
 import { RouterModule } from '@angular/router';
-import { RouteWatchReporter } from "ack-angular/RouteWatchReporter.class"
+import { RouteWatchReporter } from "ack-angular/RouteWatchReporter"
 import { RouteReporter } from "ack-angular/RouteReporter.component"
 import { NgModule } from '@angular/core';
 
@@ -171,7 +171,7 @@ A directive that exposes ui-router-ng2 route metadata for use in a component tem
 
 ```javascript
 import { UIRouterModule } from "ui-router-ng2";
-import { UiRouteWatchReporter } from "ack-angular/UiRouteWatchReporter.class"
+import { UiRouteWatchReporter } from "ack-angular/UiRouteWatchReporter"
 import { UiRouteReporter } from "ack-angular/UiRouteReporter.component"
 import { NgModule } from '@angular/core';
 

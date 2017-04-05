@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 //import { TransitionService } from "ui-router-ng2";
 var core_1 = require("@angular/core");
-var RouteWatchReporter_class_1 = require("./RouteWatchReporter.class");
+var RouteWatchReporter_1 = require("./RouteWatchReporter");
 var router_1 = require("@angular/router");
 var RouteReporter = (function () {
     function RouteReporter(RouteWatchReporter) {
@@ -58,7 +58,7 @@ var RouteReporter = (function () {
     return RouteReporter;
 }());
 RouteReporter.parameters = [[
-        RouteWatchReporter_class_1.RouteWatchReporter
+        RouteWatchReporter_1.RouteWatchReporter
     ]];
 RouteReporter.decorators = [
     { type: core_1.Directive, args: [{
@@ -68,7 +68,7 @@ RouteReporter.decorators = [
 ];
 /** @nocollapse */
 RouteReporter.ctorParameters = function () { return [
-    { type: RouteWatchReporter_class_1.RouteWatchReporter, },
+    { type: RouteWatchReporter_1.RouteWatchReporter, },
 ]; };
 RouteReporter.propDecorators = {
     'stateChanger': [{ type: core_1.Output, args: ["onChange",] },],
