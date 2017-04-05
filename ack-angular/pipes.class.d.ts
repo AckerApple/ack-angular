@@ -1,4 +1,5 @@
 export declare const pipes: {
+    markdownAnchor: (input: string) => string;
     yesno: (input: any) => any;
     yesNo: (input: any) => any;
     numbers: (input: any) => any;

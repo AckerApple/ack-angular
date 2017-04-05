@@ -1,3 +1,6 @@
+export declare class MarkdownAnchor {
+    transform(input: string): string;
+}
 export declare class Capitalize {
     transform(input: any): any;
 }

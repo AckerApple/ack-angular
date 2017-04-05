@@ -20,12 +20,23 @@ h3(id="Documentation") Documentation
 .flex-wrap.child-margin-xxs.no-scroll-bars-ever
   .flex2.border-grey-6x.border
     .pad-h
+      h3 markdownAnchor
+      p.text-grey-2x Cast string to a github markdown #anchor
+      h4.margin-bottom-0 Usage Example
+    absolute-overflow-y
+      pre.code-sample.margin-0
+        span(ngNonBindable) {{ 'Usage Examples' | markdownAnchor }}
+        span.pad-h == {{ 'Usage Examples' | markdownAnchor }}
+
+  .flex2.border-grey-6x.border
+    .pad-h
       h3 typeof
       p.text-grey-2x Output result of native javascript typeof() function
       h4.margin-bottom-0 Usage Example
     absolute-overflow-y
-      pre.code-sample.margin-0(ngNonBindable).
-        {{ 0 | typeof }}
+      pre.code-sample.margin-0
+        span(ngNonBindable) {{ 0 | typeof }}
+        span.pad-h == {{ 0 | typeof }}
 
   .flex2.border-grey-6x.border
     .pad-h

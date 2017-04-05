@@ -1,6 +1,12 @@
 import * as ack from "ack-x/index-browser"
 
 export const pipes = {
+  markdownAnchor:function markdownAnchor(input:string){
+    input = input.toString().replace(/ /gi,'-')
+    input = input.replace(/[^a-z0-9_-]/gi,'')
+    return input.toLowerCase()
+  },
+
   yesno:function yesno(input:any){
     if(input==null)return input
     return input ? 'yes' : 'no';

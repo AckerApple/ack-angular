@@ -45,6 +45,9 @@ error-well([error]="error")
                 this.ErrorLog.maxLog = 30
                 this.ErrorLog.add('some error')
                 this.errorCount  = this.ErrorLog.log.length
+
+                //catch and log all uncaught window onerror events
+                this.ErrorLog.monitorWindow()
               &#125;
             &#125;
 
