@@ -1,6 +1,6 @@
 import { TransitionService } from "ui-router-ng2";
 import { Directive, Input, Output, EventEmitter } from "@angular/core"
-import { UiRouteWatchReporter } from "./UiRouteWatchReporter.class"
+import { UiRouteWatchReporter } from "./UiRouteWatchReporter"
 
 @Directive({
   //inputs:['ref'],

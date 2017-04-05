@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 //import { TransitionService } from "ui-router-ng2";
 var core_1 = require("@angular/core");
-var RouteWatchReporter_class_1 = require("./RouteWatchReporter.class");
+var RouteWatchReporter_1 = require("./RouteWatchReporter");
 var router_1 = require("@angular/router");
 var RouteReporter = (function () {
     function RouteReporter(RouteWatchReporter) {
@@ -25,11 +25,11 @@ var RouteReporter = (function () {
           setTimeout(()=>this.stateChanger.emit( this.RouteWatchReporter ), 0)
         })*/
         RouteWatchReporter.router.events.subscribe(function (event) {
-            if (event.constructor == router_1.NavigationStart) {
-                _this.beforeChanger.emit(_this.RouteWatchReporter);
-            }
+            //if(event.constructor == NavigationStart){}
             if (event.constructor == router_1.NavigationEnd) {
-                _this.stateChanger.emit(_this.RouteWatchReporter);
+                _this.beforeChanger.emit(_this.RouteWatchReporter);
+                //allow one process to occur before reporting state has changed
+                setTimeout(function () { return _this.stateChanger.emit(_this.RouteWatchReporter); }, 0);
             }
         });
         RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
@@ -58,7 +58,7 @@ var RouteReporter = (function () {
     return RouteReporter;
 }());
 RouteReporter.parameters = [[
-        RouteWatchReporter_class_1.RouteWatchReporter
+        RouteWatchReporter_1.RouteWatchReporter
     ]];
 RouteReporter.decorators = [
     { type: core_1.Directive, args: [{
@@ -68,7 +68,7 @@ RouteReporter.decorators = [
 ];
 /** @nocollapse */
 RouteReporter.ctorParameters = function () { return [
-    { type: RouteWatchReporter_class_1.RouteWatchReporter, },
+    { type: RouteWatchReporter_1.RouteWatchReporter, },
 ]; };
 RouteReporter.propDecorators = {
     'stateChanger': [{ type: core_1.Output, args: ["onChange",] },],

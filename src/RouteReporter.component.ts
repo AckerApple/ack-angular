@@ -1,6 +1,6 @@
 //import { TransitionService } from "ui-router-ng2";
 import { Directive, Input, Output, EventEmitter } from "@angular/core"
-import { RouteWatchReporter } from "./RouteWatchReporter.class"
+import { RouteWatchReporter } from "./RouteWatchReporter"
 import { NavigationStart, NavigationEnd } from '@angular/router';
 
 @Directive({
@@ -37,12 +37,12 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
     })*/
 
     RouteWatchReporter.router.events.subscribe(event=>{
-      if(event.constructor == NavigationStart){
-        this.beforeChanger.emit( this.RouteWatchReporter )
-      }
-
+      //if(event.constructor == NavigationStart){}
       if(event.constructor == NavigationEnd){
-        this.stateChanger.emit( this.RouteWatchReporter )
+        this.beforeChanger.emit( this.RouteWatchReporter )
+
+        //allow one process to occur before reporting state has changed
+        setTimeout(()=>this.stateChanger.emit( this.RouteWatchReporter ), 0)
       }
     })
 

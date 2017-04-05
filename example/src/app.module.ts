@@ -10,18 +10,20 @@ import { FormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-//import { UiRouteWatchReporter } from "ack-angular/UiRouteWatchReporter.class"
+//import { UiRouteWatchReporter } from "ack-angular/UiRouteWatchReporter"
 //import { UiRouteReporter } from "ack-angular/UiRouteReporter.component"
 
-import { RouteWatchReporter } from "ack-angular/RouteWatchReporter.class"
+import { RouteWatchReporter } from "ack-angular/RouteWatchReporter"
 import { RouteReporter } from "ack-angular/RouteReporter.component"
 
 //import { pipes, components as ackComponents } from "ack-angular"
 import {
+  AckModule,
   AckOffline,
   AckCache,
   AckQue,
-  AckModule
+  ErrorLog,
+  Log
 } from "ack-angular"
 
 import * as packJson from "ack-angular/package.json"
@@ -94,9 +96,12 @@ import { declarations as states, routing } from "./states.object"
     public AckOffline:AckOffline,
     public AckCache:AckCache,
     public AckQue:AckQue,
-    public PageScrollService:PageScrollService
-    //,public PageScrollInstance:PageScrollInstance
-  ){}
+    public PageScrollService:PageScrollService,
+    public ErrorLog:ErrorLog,
+    public Log:Log,
+  ){
+    this.ErrorLog.monitorWindow()
+  }
 
   ngOnInit(){
     this.AckQue.registerQueHandler('ackNgTest', item=>this.processQueItem(item))
@@ -109,6 +114,14 @@ import { declarations as states, routing } from "./states.object"
     })
 
     this.reloadData()
+  }
+
+  causeErrorLog(){
+    this.ErrorLog.add("Error "+this.ErrorLog.log.length+" of "+this.ErrorLog.maxLog+" fired @ "+getServerTime())
+  }
+
+  causeLog(){
+    this.Log.add("Log "+this.Log.log.length+" of "+this.Log.maxLog+" fired @ "+getServerTime())
   }
 
   scrollToModuleImport(){

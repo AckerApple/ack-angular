@@ -1,5 +1,5 @@
 import { EventEmitter } from "@angular/core";
-import { RouteWatchReporter } from "./RouteWatchReporter.class";
+import { RouteWatchReporter } from "./RouteWatchReporter";
 export declare class RouteReporter {
     RouteWatchReporter: RouteWatchReporter;
     $document: any;

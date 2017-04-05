@@ -16,6 +16,76 @@ error-well([error]="error")
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
+        h3 ErrorLog
+        .text-grey-2x
+          |Smart error logging for single page apps
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewErrorLog=!viewErrorLog" "[ngClass]"="viewErrorLog?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewErrorLog" "[@500]"="'fadeInUp'")
+      .strong.pad-sm Error Tester
+      form.flex-center.flex-valign-center.child-margin-xs
+        span.margin-right-0 maxLog:
+        input.margin-left-0.width-50.text-md(type="number" "[(ngModel)]"="ErrorLog.maxLog" name="ErrorLog.maxLog")
+        button.text-md("(click)"="causeErrorLog()") cause error
+      .margin-bottom-xxs(*ngFor="let item of ErrorLog.log")
+        error-well([error]="item")
+
+      h4.pad-h-sm.margin-0 Usage Example
+      .pad-xs
+        absolute-overflow-y
+          pre.code-sample.margin-0(ngNonBindable).
+            import &#123; ErrorLog &#125; from "ack-angular"
+            import &#123; Component &#125; from "@angular/core"
+            
+            @Component(&#123;...&#125;)
+            export class SomeClass&#123;
+              constructor(public ErrorLog:ErrorLog)&#123;
+                this.ErrorLog.maxLog = 30
+                this.ErrorLog.add('some error')
+                this.errorCount  = this.ErrorLog.log.length
+              &#125;
+            &#125;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 Log
+        .text-grey-2x
+          |Smart logging for single page apps
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewLog=!viewLog" "[ngClass]"="viewLog?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewLog" "[@500]"="'fadeInUp'")
+      .strong.pad-sm Log Tester
+      form.flex-center.flex-valign-center.child-margin-xs
+        span.margin-right-0 maxLog:
+        input.margin-left-0.width-50.text-md(type="number" "[(ngModel)]"="Log.maxLog" name="Log.maxLog")
+        button.text-md("(click)"="causeLog()") cause log
+      .margin-bottom-xxs(*ngFor="let item of Log.log")
+        error-well([error]="item" cssClasses="border-info border text-info bg-info")
+
+      h4.pad-h-sm.margin-0 Usage Example
+      .pad-xs
+        absolute-overflow-y
+          pre.code-sample.margin-0(ngNonBindable).
+            import &#123; Log &#125; from "ack-angular"
+            import &#123; Component &#125; from "@angular/core"
+            
+            @Component(&#123;...&#125;)
+            export class SomeClass&#123;
+              constructor(public Log:Log)&#123;
+                this.Log.maxLog = 30
+                this.Log.add('some error')
+                this.logCount  = this.Log.log.length
+              &#125;
+            &#125;
+ 
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
         h3 AckOffline
         .text-grey-2x
           |Offline storage provided by #[a.text-calm(href="https://www.npmjs.com/package/localforage") localforage]
