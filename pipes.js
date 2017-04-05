@@ -2,12 +2,22 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var pipes_class_1 = require("./pipes.class");
+var MarkdownAnchor = (function () {
+    function MarkdownAnchor() {
+    }
+    MarkdownAnchor.prototype.transform = function (input) { return pipes_class_1.pipes.markdownAnchor(input); };
+    return MarkdownAnchor;
+}());
+MarkdownAnchor.decorators = [
+    { type: core_1.Pipe, args: [{ name: 'markdownAnchor' },] },
+];
+/** @nocollapse */
+MarkdownAnchor.ctorParameters = function () { return []; };
+exports.MarkdownAnchor = MarkdownAnchor;
 var Capitalize = (function () {
     function Capitalize() {
     }
-    Capitalize.prototype.transform = function (input) {
-        return pipes_class_1.pipes.capitalize(input);
-    };
+    Capitalize.prototype.transform = function (input) { return pipes_class_1.pipes.capitalize(input); };
     return Capitalize;
 }());
 Capitalize.decorators = [
@@ -19,9 +29,7 @@ exports.Capitalize = Capitalize;
 var CapitalizeWords = (function () {
     function CapitalizeWords() {
     }
-    CapitalizeWords.prototype.transform = function (input) {
-        return pipes_class_1.pipes.capitalizeWords(input);
-    };
+    CapitalizeWords.prototype.transform = function (input) { return pipes_class_1.pipes.capitalizeWords(input); };
     return CapitalizeWords;
 }());
 CapitalizeWords.decorators = [
@@ -33,9 +41,7 @@ exports.CapitalizeWords = CapitalizeWords;
 var Yesno = (function () {
     function Yesno() {
     }
-    Yesno.prototype.transform = function (input) {
-        return pipes_class_1.pipes.yesno(input);
-    };
+    Yesno.prototype.transform = function (input) { return pipes_class_1.pipes.yesno(input); };
     return Yesno;
 }());
 Yesno.decorators = [
@@ -47,9 +53,7 @@ exports.Yesno = Yesno;
 var YesNo = (function () {
     function YesNo() {
     }
-    YesNo.prototype.transform = function (input) {
-        return pipes_class_1.pipes.yesNo(input);
-    };
+    YesNo.prototype.transform = function (input) { return pipes_class_1.pipes.yesNo(input); };
     return YesNo;
 }());
 YesNo.decorators = [
@@ -61,9 +65,7 @@ exports.YesNo = YesNo;
 var Numbers = (function () {
     function Numbers() {
     }
-    Numbers.prototype.transform = function (input) {
-        return pipes_class_1.pipes.numbers(input);
-    };
+    Numbers.prototype.transform = function (input) { return pipes_class_1.pipes.numbers(input); };
     return Numbers;
 }());
 Numbers.decorators = [
@@ -75,9 +77,7 @@ exports.Numbers = Numbers;
 var ADate = (function () {
     function ADate() {
     }
-    ADate.prototype.transform = function () {
-        return pipes_class_1.pipes.aDate.apply(pipes_class_1.pipes.aDate, arguments);
-    };
+    ADate.prototype.transform = function () { return pipes_class_1.pipes.aDate.apply(pipes_class_1.pipes.aDate, arguments); };
     return ADate;
 }());
 ADate.decorators = [
@@ -89,9 +89,7 @@ exports.ADate = ADate;
 var ATime = (function () {
     function ATime() {
     }
-    ATime.prototype.transform = function () {
-        return pipes_class_1.pipes.aTime.apply(pipes_class_1.pipes.aTime, arguments);
-    };
+    ATime.prototype.transform = function () { return pipes_class_1.pipes.aTime.apply(pipes_class_1.pipes.aTime, arguments); };
     return ATime;
 }());
 ATime.decorators = [
@@ -103,9 +101,7 @@ exports.ATime = ATime;
 var Ack = (function () {
     function Ack() {
     }
-    Ack.prototype.transform = function () {
-        return pipes_class_1.pipes.ack.apply(pipes_class_1.pipes.ack, arguments);
-    };
+    Ack.prototype.transform = function () { return pipes_class_1.pipes.ack.apply(pipes_class_1.pipes.ack, arguments); };
     return Ack;
 }());
 Ack.decorators = [
@@ -132,9 +128,7 @@ exports.Keys = Keys;
 var TypeofPipe = (function () {
     function TypeofPipe() {
     }
-    TypeofPipe.prototype.transform = function (input) {
-        return typeof (input);
-    };
+    TypeofPipe.prototype.transform = function (input) { return typeof (input); };
     return TypeofPipe;
 }());
 TypeofPipe.decorators = [
@@ -146,9 +140,7 @@ exports.TypeofPipe = TypeofPipe;
 var ConsolePipe = (function () {
     function ConsolePipe() {
     }
-    ConsolePipe.prototype.transform = function () {
-        return console.log.apply(console, arguments);
-    };
+    ConsolePipe.prototype.transform = function () { return console.log.apply(console, arguments); };
     return ConsolePipe;
 }());
 ConsolePipe.decorators = [
@@ -158,6 +150,7 @@ ConsolePipe.decorators = [
 ConsolePipe.ctorParameters = function () { return []; };
 exports.ConsolePipe = ConsolePipe;
 exports.declarations = [
+    MarkdownAnchor,
     Capitalize,
     CapitalizeWords,
     Yesno,
