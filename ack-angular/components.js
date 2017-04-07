@@ -5,6 +5,110 @@ var prefx_1 = require("./prefx");
 var reader_header_body_pug_1 = require("./templates/reader-header-body.pug");
 var error_well_pug_1 = require("./templates/error-well.pug");
 var absolute_overflow_y_pug_1 = require("./templates/absolute-overflow-y.pug");
+/** onEnterKey - on-enter-key attribute will be evaluated when element event onkeydown fires with enter-key */
+var OnEnterKey = (function () {
+    function OnEnterKey(element) {
+        var _this = this;
+        this.element = element;
+        this.onEnterKey = new core_1.EventEmitter();
+        element.nativeElement.addEventListener('keydown', function (event) {
+            var yesNo = [13, 10].indexOf(event.which || event.keyCode) >= 0;
+            if (yesNo) {
+                _this.onEnterKey.emit(event);
+            }
+        });
+    }
+    return OnEnterKey;
+}());
+OnEnterKey.decorators = [
+    { type: core_1.Directive, args: [{ selector: '[onEnterKey]' },] },
+];
+/** @nocollapse */
+OnEnterKey.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
+OnEnterKey.propDecorators = {
+    'onEnterKey': [{ type: core_1.Output },],
+};
+exports.OnEnterKey = OnEnterKey;
+/** Disallow keyboard access to the backspace key */
+var PreventBackKey = (function () {
+    function PreventBackKey(element) {
+        var _this = this;
+        this.element = element;
+        this.preventBackKey = new core_1.EventEmitter();
+        element.nativeElement.addEventListener('keydown', function (event) {
+            var yesNo = [8].indexOf(event.which || event.keyCode) < 0;
+            if (!yesNo) {
+                _this.preventBackKey.emit(event);
+                if (event.preventDefault) {
+                    event.preventDefault();
+                }
+            }
+            return yesNo;
+        });
+    }
+    return PreventBackKey;
+}());
+PreventBackKey.decorators = [
+    { type: core_1.Directive, args: [{ selector: '[preventBackKey]' },] },
+];
+/** @nocollapse */
+PreventBackKey.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
+PreventBackKey.propDecorators = {
+    'preventBackKey': [{ type: core_1.Output },],
+};
+exports.PreventBackKey = PreventBackKey;
+/** Disallow keyboard access to the enter keys */
+var PreventEnterKey = (function () {
+    function PreventEnterKey(element) {
+        var _this = this;
+        this.element = element;
+        this.preventEnterKey = new core_1.EventEmitter();
+        element.nativeElement.addEventListener('keydown', function (event) {
+            var yesNo = [13, 10].indexOf(event.which || event.keyCode) < 0;
+            if (!yesNo) {
+                _this.preventEnterKey.emit(event);
+                if (event.preventDefault) {
+                    event.preventDefault();
+                }
+            }
+            return yesNo;
+        });
+    }
+    return PreventEnterKey;
+}());
+PreventEnterKey.decorators = [
+    { type: core_1.Directive, args: [{ selector: '[preventEnterKey]' },] },
+];
+/** @nocollapse */
+PreventEnterKey.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
+PreventEnterKey.propDecorators = {
+    'preventEnterKey': [{ type: core_1.Output },],
+};
+exports.PreventEnterKey = PreventEnterKey;
+var InputHint = (function () {
+    function InputHint() {
+        this.hintStyle = { 'font-size': '75%', 'color': '#CCC' };
+    }
+    return InputHint;
+}());
+InputHint.decorators = [
+    { type: core_1.Component, args: [{
+                selector: 'input-hint',
+                template: '<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
+            },] },
+];
+/** @nocollapse */
+InputHint.ctorParameters = function () { return []; };
+InputHint.propDecorators = {
+    'hintStyle': [{ type: core_1.Input },],
+};
+exports.InputHint = InputHint;
 var StatusOnlineModel = (function () {
     function StatusOnlineModel() {
         var _this = this;
@@ -76,10 +180,9 @@ var OnFormChanged = (function () {
     };
     return OnFormChanged;
 }());
-OnFormChanged.parameters = [[core_1.ElementRef]];
 OnFormChanged.decorators = [
     { type: core_1.Directive, args: [{
-                selector: '[onFormChanged]'
+                selector: '[onFormChanged]' //Also try : onFormAlter
             },] },
 ];
 /** @nocollapse */
@@ -104,7 +207,6 @@ var OnFormAlter = (function () {
     };
     return OnFormAlter;
 }());
-OnFormAlter.parameters = [[core_1.ElementRef]];
 OnFormAlter.decorators = [
     { type: core_1.Directive, args: [{
                 selector: '[onFormAlter]'
@@ -146,6 +248,7 @@ ReaderHeader.decorators = [
 ReaderHeader.ctorParameters = function () { return []; };
 exports.ReaderHeader = ReaderHeader;
 var ReaderBody = (function () {
+    //-static parameters = [[ElementRef]]
     function ReaderBody(element) {
         this.element = element;
         element.nativeElement.style.height = '100%';
@@ -153,7 +256,6 @@ var ReaderBody = (function () {
     }
     return ReaderBody;
 }());
-ReaderBody.parameters = [[core_1.ElementRef]];
 ReaderBody.decorators = [
     { type: core_1.Directive, args: [{
                 selector: "reader-body"
@@ -365,9 +467,17 @@ AbsoluteOverflowY.propDecorators = {
 exports.AbsoluteOverflowY = AbsoluteOverflowY;
 var ErrorWell = (function () {
     function ErrorWell() {
+        this.message = 'Unexpected Error Occured';
     }
     ErrorWell.prototype.ngOnInit = function () {
-        this.cssClasses = this.cssClasses || 'bg-danger border-danger text-danger';
+        this.cssClasses = this.cssClasses || 'bg-danger border border-danger text-danger';
+    };
+    ErrorWell.prototype.getErrorMessage = function (error) {
+        if (!error)
+            return this.message;
+        if (typeof error == 'string')
+            return error;
+        return error.message || error.statusText || this.message;
     };
     return ErrorWell;
 }());
@@ -381,6 +491,7 @@ ErrorWell.decorators = [
 /** @nocollapse */
 ErrorWell.ctorParameters = function () { return []; };
 ErrorWell.propDecorators = {
+    'message': [{ type: core_1.Input },],
     'error': [{ type: core_1.Input },],
     'cssClasses': [{ type: core_1.Input },],
 };
@@ -536,20 +647,26 @@ function removeClass(el, className) {
 }
 exports.removeClass = removeClass;
 exports.declarations = [
+    //directives
+    OnFormAlter,
     OnFormChanged,
+    OnEnterKey,
+    PreventBackKey,
+    PreventEnterKey,
     ScreenScrollModelY,
     ScreenHeightModel,
     ScreenWidthModel,
     ShakeOn,
-    OnFormAlter,
     StatusOnlineModel,
     StatusOfflineModel,
     ElementWidthModel,
     ElementHeightModel,
+    //components
     ReaderHeaderBody,
     ReaderHeader,
     ReaderBody,
     ErrorWell,
-    AbsoluteOverflowY
+    AbsoluteOverflowY,
+    InputHint
 ];
 //# sourceMappingURL=components.js.map

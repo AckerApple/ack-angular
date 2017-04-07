@@ -8,6 +8,12 @@ var AckOffline = (function () {
     function AckOffline() {
         this.prefix = "offline";
     }
+    AckOffline.prototype.set = function (name, data) {
+        return localForage.setItem(this.prefix + '-' + name, data);
+    };
+    AckOffline.prototype.get = function (name) {
+        return localForage.getItem(this.prefix + '-' + name);
+    };
     AckOffline.prototype.remove = function (name) {
         return localForage.removeItem(this.prefix + '-' + name);
     };
@@ -16,12 +22,6 @@ var AckOffline = (function () {
     AckOffline.prototype.clearAll = function () {
         var _this = this;
         return this.promiseNameArray().then(function (keys) { return keys.forEach(function (name) { return _this.remove(name); }); });
-    };
-    AckOffline.prototype.get = function (name) {
-        return localForage.getItem(this.prefix + '-' + name);
-    };
-    AckOffline.prototype.set = function (name, data) {
-        return localForage.setItem(this.prefix + '-' + name, data);
     };
     /** returns string array of all key names used for browser storage */
     AckOffline.prototype.promiseNameArray = function () {

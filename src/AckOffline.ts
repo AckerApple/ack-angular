@@ -6,6 +6,14 @@ import { Injectable } from '@angular/core';
 @Injectable() export class AckOffline{
   public prefix:string="offline"
 
+  set(name, data) {
+    return localForage.setItem(this.prefix+'-'+name, data)
+  }
+
+  get(name) {
+    return localForage.getItem(this.prefix+'-'+name)
+  }
+
   remove(name){
     return localForage.removeItem(this.prefix+'-'+name)
   }
@@ -15,14 +23,6 @@ import { Injectable } from '@angular/core';
 
   clearAll() {
     return this.promiseNameArray().then((keys) => keys.forEach(name=>this.remove(name)))
-  }
-
-  get(name) {
-    return localForage.getItem(this.prefix+'-'+name)
-  }
-
-  set(name, data) {
-    return localForage.setItem(this.prefix+'-'+name, data)
   }
 
   /** returns string array of all key names used for browser storage */

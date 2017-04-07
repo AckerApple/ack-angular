@@ -195,6 +195,72 @@ h3 Common Components
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
+        h3 onEnterKey
+        .text-grey-2x.max-width-400
+          |Capture keyUp events when enter key used
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewOnEnterKey=!viewOnEnterKey" "[ngClass]"="viewOnEnterKey?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewOnEnterKey" "[@500]"="'fadeInUp'")
+      .pad.text-info Fires for every onKeyUp event where enter key was pressed
+      h4.pad-sm.margin-0 Example
+      .flex.child-margin-xs.pad-xs
+        span Enter Count : {{enterCountKey || 0}}
+        input.flex-1(type="text" "(onEnterKey)"="enterCountKey=enterCountKey==null?1:enterCountKey+1" placeholder="type here and use enter key")
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;span&gt; Enter Count : {{enterCountKey || 0}} &lt;/span&gt;
+          &lt;input type="text" (onEnterKey)="enterCountKey=enterCountKey==null?1:enterCountKey+1" placeholder="type here and use enter key" /&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 preventBackKey
+        .text-grey-2x.max-width-400
+          |Prevent the use of the backspace key
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewPreventBackKey=!viewPreventBackKey" "[ngClass]"="viewPreventBackKey?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewPreventBackKey" "[@500]"="'fadeInUp'")
+      .pad.text-info Prevents and fires every onKeyUp event where backspace key was pressed
+      h4.pad-sm.margin-0 Example
+      .flex.child-margin-xs.pad-xs
+        span Backspace Count : {{backspaceCount || 0}}
+        input.flex-1(type="text" "(preventBackKey)"="backspaceCount=backspaceCount==null?1:backspaceCount+1" placeholder="type here and use enter key")
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;span&gt; Backspace Count : {{backspaceCount || 0}} &lt;/span&gt;
+          &lt;input type="text" (preventBackKey)="backspaceCount=backspaceCount==null?1:backspaceCount+1" placeholder="type here and then use backspace key" /&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 preventEnterKey
+        .text-grey-2x.max-width-400
+          |Prevent the use of the enter keys
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewPreventEnterKey=!viewPreventEnterKey" "[ngClass]"="viewPreventEnterKey?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewPreventEnterKey" "[@500]"="'fadeInUp'")
+      .pad.text-info Prevents and fires every onKeyUp event where enter key was pressed
+      h4.pad-sm.margin-0 Example
+      .flex.child-margin-xs.pad-xs
+        span Enter Count : {{preventEnterCount || 0}}
+        input.flex-1(type="text" "(preventEnterKey)"="preventEnterCount=preventEnterCount==null?1:preventEnterCount+1" placeholder="type here and use enter key")
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;span&gt; Enter Count : {{preventEnterCount || 0}} &lt;/span&gt;
+          &lt;input type="text" (onEnterKey)="preventEnterCount=preventEnterCount==null?1:preventEnterCount+1" placeholder="type here and use enter key" /&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
         h3 shakeOn
         .text-grey-2x.max-width-400
           |Control an animated shaking effect on demand

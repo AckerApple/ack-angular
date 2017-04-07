@@ -13,6 +13,63 @@ import { string as readerHeaderBody } from "./templates/reader-header-body.pug"
 import { string as errorWell } from "./templates/error-well.pug"
 import { string as absoluteOverflowY } from "./templates/absolute-overflow-y.pug"
 
+/** onEnterKey - on-enter-key attribute will be evaluated when element event onkeydown fires with enter-key */
+@Directive({selector:'[onEnterKey]'})
+export class OnEnterKey{
+  @Output() public onEnterKey = new EventEmitter()
+  constructor(public element:ElementRef){
+    element.nativeElement.addEventListener('keydown', (event)=>{
+      var yesNo = [13,10].indexOf(event.which||event.keyCode)>=0
+      if(yesNo){
+        this.onEnterKey.emit(event)
+      }
+    })
+  }
+}
+
+/** Disallow keyboard access to the backspace key */
+@Directive({selector:'[preventBackKey]'})
+export class PreventBackKey {
+  @Output() public preventBackKey = new EventEmitter()
+  constructor(public element:ElementRef){
+    element.nativeElement.addEventListener('keydown', (event)=>{
+      var yesNo = [8].indexOf(event.which||event.keyCode)<0
+      if(!yesNo){
+        this.preventBackKey.emit(event)
+        if(event.preventDefault){
+          event.preventDefault()
+        }
+      }
+      return yesNo
+    })
+  }
+}
+
+/** Disallow keyboard access to the enter keys */
+@Directive({selector:'[preventEnterKey]'})
+export class PreventEnterKey{
+  @Output() public preventEnterKey = new EventEmitter()
+  constructor(public element:ElementRef){
+    element.nativeElement.addEventListener('keydown', (event)=>{
+      var yesNo = [13,10].indexOf(event.which||event.keyCode)<0
+      if(!yesNo){
+        this.preventEnterKey.emit(event)
+        if(event.preventDefault){
+          event.preventDefault()
+        }
+      }
+      return yesNo
+    })
+  }
+}
+
+@Component({
+  selector:'input-hint',
+  template:'<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
+}) export class InputHint {
+  @Input() public hintStyle = {'font-size':'75%','color':'#CCC'}
+}
+
 @Directive({selector:'[statusOnlineModel]'})
 export class StatusOnlineModel{
   public onChange
@@ -61,9 +118,9 @@ export class StatusOfflineModel{
 
 /** adds form element onchange listener via addEventListener('change') that calls onFormChanged scope argument */
 @Directive({
-  selector:'[onFormChanged]'
+  selector:'[onFormChanged]'//Also try : onFormAlter
 }) export class OnFormChanged{
-  static parameters = [[ElementRef]]
+  //static parameters = [[ElementRef]]
   public onChange
 
   @Output() public onFormChanged = new EventEmitter()
@@ -84,7 +141,7 @@ export class StatusOfflineModel{
 @Directive({
   selector:'[onFormAlter]'
 }) export class OnFormAlter{
-  static parameters = [[ElementRef]]
+  //-static parameters = [[ElementRef]]
   public onChange
 
   @Output() public onFormAlter = new EventEmitter()
@@ -116,7 +173,7 @@ export class StatusOfflineModel{
   selector:"reader-body"
   //,parameters:[[ElementRef]]
 }) export class ReaderBody {
-  static parameters = [[ElementRef]]
+  //-static parameters = [[ElementRef]]
 
   constructor(public element: ElementRef){
     element.nativeElement.style.height = '100%';
@@ -300,11 +357,20 @@ export class StatusOfflineModel{
   template:errorWell,
   animations:prefx
 }) export class ErrorWell{
+  @Input() message:string = 'Unexpected Error Occured'
   @Input() error
   @Input() cssClasses:string
 
   ngOnInit(){
-    this.cssClasses = this.cssClasses || 'bg-danger border-danger text-danger'
+    this.cssClasses = this.cssClasses || 'bg-danger border border-danger text-danger'
+  }
+
+  getErrorMessage(error){
+    if(!error)return this.message
+    
+    if(typeof error=='string')return error
+
+    return error.message || error.statusText || this.message
   }
 }
 
@@ -456,20 +522,26 @@ export function removeClass(el, className) {
 }
 
 export const declarations = [
+  //directives
+  OnFormAlter,
   OnFormChanged,
+  OnEnterKey,
+  PreventBackKey,
+  PreventEnterKey,
   ScreenScrollModelY,
   ScreenHeightModel,
   ScreenWidthModel,
   ShakeOn,
-  OnFormAlter,
   StatusOnlineModel,
   StatusOfflineModel,
   ElementWidthModel,
   ElementHeightModel,
 
+  //components
   ReaderHeaderBody,
   ReaderHeader,
   ReaderBody,
   ErrorWell,
-  AbsoluteOverflowY
+  AbsoluteOverflowY,
+  InputHint
 ]

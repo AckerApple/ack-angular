@@ -2,7 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
-//import { FormsModule }   from '@angular/forms';
+var forms_1 = require("@angular/forms");
+var http_1 = require("@angular/http");
 //import { Ng2PageScrollModule } from 'ng2-page-scroll';
 var providers_1 = require("./providers");
 var components_1 = require("./components");
@@ -16,10 +17,11 @@ var AckModule = (function () {
 AckModule.decorators = [
     { type: core_1.NgModule, args: [{
                 imports: [
-                    common_1.CommonModule
+                    common_1.CommonModule,
+                    forms_1.FormsModule,
+                    http_1.HttpModule
                     //,AckOffline
                     //,BrowserAnimationsModule
-                    //,FormsModule
                     //,Ng2PageScrollModule.forRoot()
                 ],
                 declarations: declarations,

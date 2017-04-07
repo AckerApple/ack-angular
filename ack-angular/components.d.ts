@@ -1,4 +1,28 @@
 import { EventEmitter, ElementRef } from "@angular/core";
+/** onEnterKey - on-enter-key attribute will be evaluated when element event onkeydown fires with enter-key */
+export declare class OnEnterKey {
+    element: ElementRef;
+    onEnterKey: EventEmitter<{}>;
+    constructor(element: ElementRef);
+}
+/** Disallow keyboard access to the backspace key */
+export declare class PreventBackKey {
+    element: ElementRef;
+    preventBackKey: EventEmitter<{}>;
+    constructor(element: ElementRef);
+}
+/** Disallow keyboard access to the enter keys */
+export declare class PreventEnterKey {
+    element: ElementRef;
+    preventEnterKey: EventEmitter<{}>;
+    constructor(element: ElementRef);
+}
+export declare class InputHint {
+    hintStyle: {
+        'font-size': string;
+        'color': string;
+    };
+}
 export declare class StatusOnlineModel {
     onChange: any;
     statusOnlineModel: any;
@@ -16,7 +40,6 @@ export declare class StatusOfflineModel {
 /** adds form element onchange listener via addEventListener('change') that calls onFormChanged scope argument */
 export declare class OnFormChanged {
     element: ElementRef;
-    static parameters: typeof ElementRef[][];
     onChange: any;
     onFormChanged: EventEmitter<{}>;
     constructor(element: ElementRef);
@@ -24,7 +47,6 @@ export declare class OnFormChanged {
 }
 export declare class OnFormAlter {
     element: ElementRef;
-    static parameters: typeof ElementRef[][];
     onChange: any;
     onFormAlter: EventEmitter<{}>;
     constructor(element: ElementRef);
@@ -36,7 +58,6 @@ export declare class ReaderHeader {
 }
 export declare class ReaderBody {
     element: ElementRef;
-    static parameters: typeof ElementRef[][];
     constructor(element: ElementRef);
 }
 export declare class ElementHeightModel {
@@ -90,9 +111,11 @@ export declare class AbsoluteOverflowY {
     scrollBars: any;
 }
 export declare class ErrorWell {
+    message: string;
     error: any;
     cssClasses: string;
     ngOnInit(): void;
+    getErrorMessage(error: any): any;
 }
 /** runs shake instructions when condition returns a truthy value */
 export declare class ShakeOn {
@@ -118,4 +141,4 @@ export declare class ShakeOn {
 export declare function hasClass(el: any, className: any): any;
 export declare function addClass(el: any, className: any): void;
 export declare function removeClass(el: any, className: any): void;
-export declare const declarations: (typeof ReaderHeaderBody | typeof ReaderBody | typeof ElementHeightModel | typeof ElementWidthModel | typeof ShakeOn)[];
+export declare const declarations: (typeof ReaderHeaderBody | typeof ReaderBody)[];

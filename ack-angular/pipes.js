@@ -114,8 +114,7 @@ var Keys = (function () {
     function Keys() {
     }
     Keys.prototype.transform = function (input) {
-        if (input)
-            return Object.keys(input);
+        return input ? Object.keys(input) : [];
     };
     return Keys;
 }());

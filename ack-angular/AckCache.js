@@ -16,11 +16,16 @@ var AckOffline_1 = require("./AckOffline");
 var AckCache = (function (_super) {
     __extends(AckCache, _super);
     function AckCache() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.prefix = "offline-cache";
+        return _this;
     }
     AckCache.prototype.validate = function (data, config) {
         var exists = data !== null && typeof data.cache !== "undefined";
         return exists && !this.hasExpired(data._timestamp, data.expires || config.expires);
+    };
+    AckCache.prototype.optionsKillCache = function (options) {
+        return options.maxAge == null && options.expires == null ? false : true;
     };
     AckCache.prototype.hasMaxAged = function (stamp, maxAge) {
         var diff = Date.now() - maxAge;
@@ -71,9 +76,9 @@ var AckCache = (function (_super) {
                 .then(function () {
                 if (options.param)
                     return Promise.resolve(options.param);
-                var err = new Error('Cache expired for ' + name);
-                err['code'] = 401;
-                return Promise.reject(err);
+                /*const err = new Error('Cache expired for '+name)
+                err['code'] = 401
+                return Promise.reject( err )*/
             });
         }
         return Promise.resolve(data['cache']);
@@ -98,33 +103,40 @@ var AckCache = (function (_super) {
             }
             if (options.param)
                 return options.param;
-            return Promise.resolve();
+            return;
         });
     };
     /** aka get */
     AckCache.prototype.getCache = function (name, options) {
         return this.get(name, options);
     };
+    /** paste cache over cache, leave all else alone */
+    AckCache.prototype.dataOptionsCache = function (allCache, options, cache) {
+        options = options || {};
+        var newOptions = {};
+        newOptions['_timestamp'] = Date.now();
+        if (options.expires)
+            newOptions['expires'] = options.expires;
+        if (options.maxAge)
+            newOptions['maxAge'] = options.maxAge;
+        allCache = allCache && allCache.constructor != String ? allCache : {};
+        Object.assign(allCache, newOptions);
+        if (cache && cache.constructor == String) {
+            allCache['cache'] = cache;
+        }
+        else if (allCache['cache'] && allCache['cache'].constructor != String) {
+            Object.assign(allCache['cache'], cache);
+        }
+        else {
+            allCache['cache'] = cache;
+        }
+        return allCache;
+    };
     AckCache.prototype.set = function (name, cache, options) {
         var _this = this;
         options = options || {};
-        var newOptions = Object.assign({}, options);
-        newOptions._timestamp = Date.now();
         return _super.prototype.get.call(this, name)
-            .then(function (data) {
-            data = data && data.constructor != String ? data : {};
-            Object.assign(data, newOptions);
-            if (cache && cache.constructor == String) {
-                data['cache'] = cache;
-            }
-            else if (data['cache'] && data['cache'].constructor != String) {
-                Object.assign(data['cache'], cache);
-            }
-            else {
-                data['cache'] = cache;
-            }
-            return data;
-        }) //paste cache over cache, leave all else alone
+            .then(function (allCache) { return _this.dataOptionsCache(allCache, options, cache); })
             .then(function (data) { return _super.prototype.set.call(_this, name, data); });
     };
     /** aka set */

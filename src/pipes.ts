@@ -39,7 +39,7 @@ import { pipes } from "./pipes.class"
 
 @Pipe({name: 'keys'}) export class Keys {
   transform(input:any){
-    if(input)return Object.keys(input)
+    return input ? Object.keys(input) : []
   }
 }
 

@@ -4,7 +4,7 @@ var ack = require("ack-x/index-browser");
 exports.pipes = {
     markdownAnchor: function markdownAnchor(input) {
         input = input.toString().replace(/ /gi, '-');
-        input = input.toString().replace(/[^a-z0-9_-]/gi, '');
+        input = input.replace(/[^a-z0-9_-]/gi, '');
         return input.toLowerCase();
     },
     yesno: function yesno(input) {

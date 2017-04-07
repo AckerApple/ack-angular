@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AckOffline } from './AckOffline';
 
-//const supportsNav = typeof(navigator)!='undefined'
-
 /** Que data based processes by associating name based handlers */
 @Injectable() export class AckQue extends AckOffline{
+  public prefix:string="offline-que"
   public handlers = []
   
   /** processes with associated that are typically awaiting internet access to complete processing */
   get(name) {
     return super.get(name)
-    .then(data => data && data['que'] ? data['que'] : [])
+    .then( data => data && data['que'] ? data['que'] : [])
   }
 
   /** aka get */
@@ -23,29 +22,15 @@ import { AckOffline } from './AckOffline';
     return this.set(name, que)
   }
 
-  /** clears data-process based que of tasks */
-  /*clearQue(name) {
-    return super.clear(name)
-    .then(data => {
-      data['que'] = []
-      super.set(name, data)
-    })
-  }*/
+  /* deprecated : clearQue(name)... Call clear(name) */
 
   /** add to qued data. Typically when offline, add post/put requests here and process them when back online */
   que(name, queData) {
-    /*if(supportsNav && navigator.onLine) {
-      const registration = this.handlers.find( handler=>handler.name===name )
-      if(registration){
-        return Promise.resolve( registration.handler(queData) )
-      }
-    }*/
-
     return super.get(name)
     .then(data => {
       data = data || {}
       data['que'] = data['que'] || []
-      
+
       if(queData.forEach){
         queData.forEach(x=>{
           data['que'].push( x )
@@ -53,6 +38,7 @@ import { AckOffline } from './AckOffline';
       }else{
         data['que'].push( queData )
       }
+
       return super.set(name, data)
     })
   }
@@ -67,7 +53,10 @@ import { AckOffline } from './AckOffline';
 
   dequeByIndex(name, index){
     return this.getQue(name)
-    .then(array=>array.splice(index, 1) && array)
+    .then(array=>{
+      array.splice(index, 1)
+      return array
+    })
     .then( array=>this.setQue(name, array) )
   }
 
@@ -87,31 +76,63 @@ import { AckOffline } from './AckOffline';
   }
 
   /** Most important. When a que of data-tasks is being processed, the approperiate handler must be registered here */
-  registerQueHandler(name, handler) {
-    //handler = handler || this.getQueHandler.bind(this)
+  registerHandler(name, handler){
     this.handlers.push({name, handler})
     return this
   }
 
+  /** aka registerHandler */
+  registerQueHandler(name, handler){
+    return this.registerHandler(name, handler)
+  }
+
+  paramHandler(name, handler) {
+    for(let x=this.handlers.length-1; x >= 0; --x){
+      if(this.handlers[x].name==name){
+        return this
+      }
+    }
+    this.handlers.push({name, handler})
+    return this
+  }
+
+  getQueHandDefByName(name){
+    for(let i=this.handlers.length-1; i >= 0; --i){
+      if(this.handlers[i].name==name)return this.handlers[i]
+    }
+  }
+
   /** return functions */
   getQueHandlerByName(name){
-    for(let i=this.handlers.length-1; i >= 0; --i){
-      if(this.handlers[i].name==name)return this.handlers[i].handler
-    }
+    const hand = this.getQueHandDefByName(name)
+    if(hand)return hand.handler
   }
 
   handleQued(name, qued, handler){
     return Promise.resolve( handler(qued) )
   }
 
-  processQuedHandler(hand){
+  /** gets array of qued data and processes all and then clears que
+    @hand{name, handler}
+  */
+  processQuedHandler(hand:{name:string,handler}){
     const results = []
+    const mem = {que:[]}
     const eachHandle = this.eachHandler(hand.name, hand.handler)
 
     return this.get(hand.name)
-    .then( que => que.map(eachHandle) )
-    .then( r=>results.push.apply(results,r) )
+    .then( que=>mem.que=que )
     .then( ()=>this.clear(hand.name) )
+    .then(()=>{
+      var promise = new Promise(function(res,rej){res()})
+      mem.que.forEach((v,i)=>{
+        promise = promise
+        .then( ()=>eachHandle(v) )
+        .catch( e=>e )
+        .then( r=>results.push(r) )
+      })
+      return promise
+    })
     .then( ()=>results )
   }
 
@@ -120,7 +141,13 @@ import { AckOffline } from './AckOffline';
   }
 
   /** call manually in app when back online */
-  processQue(){
+  processQue(name:string){
+    const handler = this.getQueHandDefByName(name)
+    return handler ? this.processQuedHandler(handler) : Promise.resolve()
+  }
+
+  /** call manually in app when back online and sure you want to process all ques */
+  processAllQues(){
     const results = [], promises = []
 
     this.handlers.forEach(hand=>
@@ -134,71 +161,4 @@ import { AckOffline } from './AckOffline';
       return Promise.all( results )//array of arrays is now one array
     })
   }
-
-  /*getQueHandler(item) {
-    return this.$http(item)
-  }*/
-
-  /**
-    Creates que handler. Returns self. Most likely, use newQueModel
-    @options - {
-      handler : dataArray=> - overrides $http posting for que processing
-      onData : data=> - callback fired everytime data is retrieved
-      expires: Number - how many milisecs can a saved transmission live in cache
-    }
-  */
-  /*newQueModel(name,options={}){
-    options.name = name
-    this.addQueModel(name, options)
-    return new QueModel(this, options)
-  }*/
-
-  /**
-    Creates que handler. Returns self. Most likely, use newQueModel
-    @options - {
-      handler : dataArray=> - overrides $http posting for que processing
-      onData : data=> - callback fired everytime data is retrieved
-    }
-  */
-  /*addQueModel(name,options={}){
-    return this.registerQueHandler(name, trans=>{
-      let prom = this.$http(trans)
-
-      if(options.onData){
-        prom = prom.then(response=>{
-          if(response.data){
-            options.onData(response.data)
-          }
-        })
-      }
-
-      return prom.catch(e=>this.ErrorHandler.record(e))
-    })
-  }*/
 }
-
-
-/**
-  @config {expires, allowExpired, name}
-*/
-/*
-class QueModel{
-  constructor(AckOffline, config){
-    this.AckOffline = AckOffline
-    this.config = config
-  }
-
-  mergeConfig(config){
-    Object.assign(config, this.config)
-    this.config = config
-    return this
-  }
-
-  get(){
-    return this.AckOffline.get(this.config.name)
-  }
-
-  set(data){
-    return this.AckOffline.set(this.config.name, data)
-  }
-}*/

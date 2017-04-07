@@ -3,9 +3,15 @@ import { AckOffline } from './AckOffline';
 
 /** Cache logic that provides timestamping and timingout using AckOffline as storage */
 @Injectable() export class AckCache extends AckOffline{
+  public prefix:string="offline-cache"
+  
   validate(data, config) {
     const exists = data !== null && typeof data.cache !== "undefined"
     return exists && !this.hasExpired(data._timestamp, data.expires||config.expires)
+  }
+
+  optionsKillCache(options){
+    return options.maxAge==null && options.expires==null ? false : true
   }
 
   hasMaxAged(stamp, maxAge){
@@ -66,9 +72,9 @@ import { AckOffline } from './AckOffline';
       .then(()=>{
         if(options.param)return Promise.resolve( options.param )
 
-        const err = new Error('Cache expired for '+name)
+        /*const err = new Error('Cache expired for '+name)
         err['code'] = 401
-        return Promise.reject( err )
+        return Promise.reject( err )*/
       })
     }
 
@@ -97,7 +103,7 @@ import { AckOffline } from './AckOffline';
 
       if(options.param)return options.param
 
-      return Promise.resolve()
+      return
     })
   }
 
@@ -106,27 +112,33 @@ import { AckOffline } from './AckOffline';
     return this.get(name, options)
   }
 
+  /** paste cache over cache, leave all else alone */
+  dataOptionsCache(allCache, options, cache){
+    options = options || {}
+    const newOptions = {}
+    
+    newOptions['_timestamp'] = Date.now()
+    if(options.expires)newOptions['expires'] = options.expires
+    if(options.maxAge)newOptions['maxAge'] = options.maxAge
+    
+    allCache = allCache && allCache.constructor!=String ? allCache : {}
+
+    Object.assign(allCache, newOptions)
+    if(cache && cache.constructor==String){
+      allCache['cache'] = cache
+    }else if(allCache['cache'] && allCache['cache'].constructor!=String){
+      Object.assign(allCache['cache'], cache)      
+    }else{
+      allCache['cache'] = cache
+    }
+
+    return allCache
+  }
+
   set(name, cache, options?) {
     options = options || {}
-    const newOptions = Object.assign({}, options)
-
-    newOptions._timestamp = Date.now()
-
     return super.get(name)
-    .then( data=>{
-      data = data && data.constructor!=String ? data : {}
-
-      Object.assign(data, newOptions)
-      if(cache && cache.constructor==String){
-        data['cache'] = cache
-      }else if(data['cache'] && data['cache'].constructor!=String){
-        Object.assign(data['cache'], cache)
-      }else{
-        data['cache'] = cache
-      }
-
-      return data
-    })//paste cache over cache, leave all else alone
+    .then( allCache=>this.dataOptionsCache(allCache, options, cache) )
     .then( data=>super.set(name, data) )
   }
 
