@@ -1,8 +1,10 @@
+export { Log } from "./Log";
+export { ErrorLog } from "./ErrorLog";
 export { AckOffline } from "./AckOffline";
 export { AckCache } from "./AckCache";
 export { AckQue } from "./AckQue";
-export { ErrorLog } from "./ErrorLog";
-export { Log } from "./Log";
+export { AckApi } from "./AckApi";
 import { AckOffline } from "./AckOffline";
 import { Log } from "./Log";
-export declare const providers: (typeof AckOffline | typeof Log)[];
+import { AckApi } from "./AckApi";
+export declare const providers: (typeof AckOffline | typeof AckApi | typeof Log)[];

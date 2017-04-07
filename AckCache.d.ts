@@ -1,7 +1,9 @@
 import { AckOffline } from './AckOffline';
 /** Cache logic that provides timestamping and timingout using AckOffline as storage */
 export declare class AckCache extends AckOffline {
+    prefix: string;
     validate(data: any, config: any): boolean;
+    optionsKillCache(options: any): boolean;
     hasMaxAged(stamp: any, maxAge: any): boolean;
     hasExpired(stamp: any, expires: any): boolean;
     param(name: any, options: any): Promise<any>;
@@ -22,7 +24,9 @@ export declare class AckCache extends AckOffline {
     get(name: any, options?: any): Promise<any>;
     /** aka get */
     getCache(name: any, options: any): Promise<any>;
-    set(name: any, cache: any, options?: any): Promise<{}>;
+    /** paste cache over cache, leave all else alone */
+    dataOptionsCache(allCache: any, options: any, cache: any): any;
+    set(name: any, cache: any, options?: any): Promise<any>;
     /** aka set */
-    setCache(name: any, cache: any, options?: any): Promise<{}>;
+    setCache(name: any, cache: any, options?: any): Promise<any>;
 }

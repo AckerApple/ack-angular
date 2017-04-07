@@ -12,12 +12,12 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AckOffline_1 = require("./AckOffline");
-//const supportsNav = typeof(navigator)!='undefined'
 /** Que data based processes by associating name based handlers */
 var AckQue = (function (_super) {
     __extends(AckQue, _super);
     function AckQue() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.prefix = "offline-que";
         _this.handlers = [];
         return _this;
     }
@@ -34,22 +34,9 @@ var AckQue = (function (_super) {
     AckQue.prototype.setQue = function (name, que) {
         return this.set(name, que);
     };
-    /** clears data-process based que of tasks */
-    /*clearQue(name) {
-      return super.clear(name)
-      .then(data => {
-        data['que'] = []
-        super.set(name, data)
-      })
-    }*/
+    /* deprecated : clearQue(name)... Call clear(name) */
     /** add to qued data. Typically when offline, add post/put requests here and process them when back online */
     AckQue.prototype.que = function (name, queData) {
-        /*if(supportsNav && navigator.onLine) {
-          const registration = this.handlers.find( handler=>handler.name===name )
-          if(registration){
-            return Promise.resolve( registration.handler(queData) )
-          }
-        }*/
         var _this = this;
         return _super.prototype.get.call(this, name)
             .then(function (data) {
@@ -76,7 +63,10 @@ var AckQue = (function (_super) {
     AckQue.prototype.dequeByIndex = function (name, index) {
         var _this = this;
         return this.getQue(name)
-            .then(function (array) { return array.splice(index, 1) && array; })
+            .then(function (array) {
+            array.splice(index, 1);
+            return array;
+        })
             .then(function (array) { return _this.setQue(name, array); });
     };
     AckQue.prototype.processQuedByIndex = function (name, index) {
@@ -94,29 +84,59 @@ var AckQue = (function (_super) {
             .then(function () { return mem.result; });
     };
     /** Most important. When a que of data-tasks is being processed, the approperiate handler must be registered here */
-    AckQue.prototype.registerQueHandler = function (name, handler) {
-        //handler = handler || this.getQueHandler.bind(this)
+    AckQue.prototype.registerHandler = function (name, handler) {
         this.handlers.push({ name: name, handler: handler });
         return this;
     };
-    /** return functions */
-    AckQue.prototype.getQueHandlerByName = function (name) {
+    /** aka registerHandler */
+    AckQue.prototype.registerQueHandler = function (name, handler) {
+        return this.registerHandler(name, handler);
+    };
+    AckQue.prototype.paramHandler = function (name, handler) {
+        for (var x = this.handlers.length - 1; x >= 0; --x) {
+            if (this.handlers[x].name == name) {
+                return this;
+            }
+        }
+        this.handlers.push({ name: name, handler: handler });
+        return this;
+    };
+    AckQue.prototype.getQueHandDefByName = function (name) {
         for (var i = this.handlers.length - 1; i >= 0; --i) {
             if (this.handlers[i].name == name)
-                return this.handlers[i].handler;
+                return this.handlers[i];
         }
+    };
+    /** return functions */
+    AckQue.prototype.getQueHandlerByName = function (name) {
+        var hand = this.getQueHandDefByName(name);
+        if (hand)
+            return hand.handler;
     };
     AckQue.prototype.handleQued = function (name, qued, handler) {
         return Promise.resolve(handler(qued));
     };
+    /** gets array of qued data and processes all and then clears que
+      @hand{name, handler}
+    */
     AckQue.prototype.processQuedHandler = function (hand) {
         var _this = this;
         var results = [];
+        var mem = { que: [] };
         var eachHandle = this.eachHandler(hand.name, hand.handler);
         return this.get(hand.name)
-            .then(function (que) { return que.map(eachHandle); })
-            .then(function (r) { return results.push.apply(results, r); })
+            .then(function (que) { return mem.que = que; })
             .then(function () { return _this.clear(hand.name); })
+            .then(function () {
+            var promise = new Promise(function (res, rej) { res(); });
+            mem.que.forEach(function (v, i) {
+                promise = promise
+                    .then(function () { return eachHandle(v); })
+                    .catch(function (e) { return e; })
+                    .then(function (r) { return results.push(r); });
+            });
+            return promise;
+        })
             .then(function () { return results; });
     };
     AckQue.prototype.eachHandler = function (name, handler) {
@@ -124,7 +144,12 @@ var AckQue = (function (_super) {
         return function (data) { return _this.handleQued(name, data, handler); };
     };
     /** call manually in app when back online */
-    AckQue.prototype.processQue = function () {
+    AckQue.prototype.processQue = function (name) {
+        var handler = this.getQueHandDefByName(name);
+        return handler ? this.processQuedHandler(handler) : Promise.resolve();
+    };
+    /** call manually in app when back online and sure you want to process all ques */
+    AckQue.prototype.processAllQues = function () {
         var _this = this;
         var results = [], promises = [];
         this.handlers.forEach(function (hand) {
@@ -139,44 +164,6 @@ var AckQue = (function (_super) {
     };
     return AckQue;
 }(AckOffline_1.AckOffline));
-/*getQueHandler(item) {
-  return this.$http(item)
-}*/
-/**
-  Creates que handler. Returns self. Most likely, use newQueModel
-  @options - {
-    handler : dataArray=> - overrides $http posting for que processing
-    onData : data=> - callback fired everytime data is retrieved
-    expires: Number - how many milisecs can a saved transmission live in cache
-  }
-*/
-/*newQueModel(name,options={}){
-  options.name = name
-  this.addQueModel(name, options)
-  return new QueModel(this, options)
-}*/
-/**
-  Creates que handler. Returns self. Most likely, use newQueModel
-  @options - {
-    handler : dataArray=> - overrides $http posting for que processing
-    onData : data=> - callback fired everytime data is retrieved
-  }
-*/
-/*addQueModel(name,options={}){
-  return this.registerQueHandler(name, trans=>{
-    let prom = this.$http(trans)
-
-    if(options.onData){
-      prom = prom.then(response=>{
-        if(response.data){
-          options.onData(response.data)
-        }
-      })
-    }
-
-    return prom.catch(e=>this.ErrorHandler.record(e))
-  })
-}*/
 AckQue.decorators = [
     { type: core_1.Injectable },
 ];
