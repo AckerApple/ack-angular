@@ -7,7 +7,6 @@ const pack = require(packPath)
 pack.version = rootPack.version
 pack.jsDependencies = rootPack.jsDependencies
 
-
 fs.writeFileSync(packPath, JSON.stringify(pack, null, 2))
 const path = require('path')
 

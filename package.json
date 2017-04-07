@@ -92,5 +92,6 @@
     "localforage": "^1.5.0",
     "ack-x": "^1.2.22",
     "@angular/http": "4.0.1"
-  }
+  },
+  "private": true
 }
