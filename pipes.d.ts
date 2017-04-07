@@ -1,3 +1,12 @@
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+export declare class SafeUrl {
+    private domSanitizer;
+    constructor(domSanitizer: DomSanitizer);
+    transform(url: any): SafeResourceUrl;
+}
+export declare class TextDownload {
+    transform(input: string): any;
+}
 export declare class MarkdownAnchor {
     transform(input: string): string;
 }
@@ -34,4 +43,4 @@ export declare class TypeofPipe {
 export declare class ConsolePipe {
     transform(): any;
 }
-export declare const declarations: typeof Capitalize[];
+export declare const declarations: (typeof SafeUrl | typeof TextDownload)[];
