@@ -1,5 +1,6 @@
 export declare const pipes: {
     markdownAnchor: (input: string) => string;
+    textDownload: (input: any) => any;
     yesno: (input: any) => any;
     yesNo: (input: any) => any;
     numbers: (input: any) => any;

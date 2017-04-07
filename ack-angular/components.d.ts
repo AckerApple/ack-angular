@@ -60,6 +60,18 @@ export declare class ReaderBody {
     element: ElementRef;
     constructor(element: ElementRef);
 }
+export declare class InnerHtmlModel {
+    element: ElementRef;
+    onChange: any;
+    observer: any;
+    timeout: any;
+    innerHtmlModel: any;
+    innerHtmlModelChange: EventEmitter<{}>;
+    constructor(element: ElementRef);
+    ngOnChanges(): void;
+    setModel(): void;
+    ngOnDestroy(): void;
+}
 export declare class ElementHeightModel {
     element: ElementRef;
     onResize: any;

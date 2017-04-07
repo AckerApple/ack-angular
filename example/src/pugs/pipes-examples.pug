@@ -18,6 +18,16 @@ br
 h3(id="Documentation") Documentation
 
 .flex-wrap.child-margin-xxs.no-scroll-bars-ever
+  .flex3.border-grey-6x.border.width-full
+    .pad-h
+      h3 textDownload &amp; safeUrl
+      p.text-grey-2x Cast string to a data:text/plain uri
+      h4.margin-bottom-0 Usage Example
+    absolute-overflow-y
+      pre.code-sample.margin-0
+        span(ngNonBindable) &lt;a [href]="'Usage Examples' | textDownload | safeUrl" download="usageExamples.txt"&gt;download&lt;/a&gt;
+        span.pad-h == #[a([href]="'Usage Examples' | textDownload | safeUrl" download="usageExamples.txt") download]
+
   .flex2.border-grey-6x.border
     .pad-h
       h3 markdownAnchor

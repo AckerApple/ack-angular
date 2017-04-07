@@ -1,5 +1,20 @@
 import { Pipe } from '@angular/core';
 import { pipes } from "./pipes.class"
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+
+
+@Pipe({name: 'safeUrl'}) export class SafeUrl {
+  constructor(private domSanitizer: DomSanitizer) {}
+  transform(url) {
+    console.log('used', url)
+    return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+}
+
+//use with bypassSecurityTrustResourceUrl for href
+@Pipe({name: 'textDownload'}) export class TextDownload {
+  transform(input:string){return pipes.textDownload(input)}
+}
 
 @Pipe({name: 'markdownAnchor'}) export class MarkdownAnchor {
   transform(input:string){return pipes.markdownAnchor(input)}
@@ -52,6 +67,8 @@ import { pipes } from "./pipes.class"
 }
 
 export const declarations = [
+  SafeUrl,
+  TextDownload,
   MarkdownAnchor,
   Capitalize,
   CapitalizeWords,

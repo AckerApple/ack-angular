@@ -7,6 +7,12 @@ exports.pipes = {
         input = input.replace(/[^a-z0-9_-]/gi, '');
         return input.toLowerCase();
     },
+    //use with bypassSecurityTrustResourceUrl for href
+    textDownload: function textDownload(input) {
+        if (input == null)
+            return input;
+        return 'data:text/plain;charset=utf-8,' + encodeURIComponent(input);
+    },
     yesno: function yesno(input) {
         if (input == null)
             return input;

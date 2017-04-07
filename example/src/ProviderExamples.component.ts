@@ -25,7 +25,6 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
   public processQueResults = []
   public httpQueArray = []
   public httpCache = {}
-  
   public cache
   public error
   public offlineStorage

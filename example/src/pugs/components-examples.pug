@@ -261,6 +261,31 @@ h3 Common Components
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
+        h3 innerHtmlModel
+        .text-grey-2x.max-width-400
+          |Capture an elements innerHTML into a model
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewInnerHtmlModel=!viewInnerHtmlModel" "[ngClass]"="viewInnerHtmlModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewInnerHtmlModel" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Example
+      div("[(innerHtmlModel)]"="innerHtmlModel")
+        button("(click)"="contentArray.push('')") add content
+        span(*ngFor="let item of contentArray")
+          |&#10;
+          button("(click)"="contentArray.push('')") add content
+      absolute-overflow-y
+        pre.code-sample.margin-0 {{ innerHtmlModel }}
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;span&gt; Enter Count : {{preventEnterCount || 0}} &lt;/span&gt;
+          &lt;input type="text" (onEnterKey)="preventEnterCount=preventEnterCount==null?1:preventEnterCount+1" placeholder="type here and use enter key" /&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
         h3 shakeOn
         .text-grey-2x.max-width-400
           |Control an animated shaking effect on demand

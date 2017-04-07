@@ -7,6 +7,12 @@ export const pipes = {
     return input.toLowerCase()
   },
 
+  //use with bypassSecurityTrustResourceUrl for href
+  textDownload:function textDownload(input:any){
+    if(input==null)return input
+    return 'data:text/plain;charset=utf-8,' + encodeURIComponent(input)
+  },
+
   yesno:function yesno(input:any){
     if(input==null)return input
     return input ? 'yes' : 'no';

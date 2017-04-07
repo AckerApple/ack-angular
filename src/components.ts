@@ -182,6 +182,45 @@ export class StatusOfflineModel{
 }
 
 @Directive({
+  selector: '[innerHtmlModel]'
+}) export class InnerHtmlModel{
+  public onChange
+  public observer
+  public timeout
+
+  @Input() public innerHtmlModel
+  @Output() public innerHtmlModelChange = new EventEmitter()
+
+  constructor(public element:ElementRef){
+    this.observer = new MutationObserver( ()=>this.setModel() )
+    
+    const config = {
+      attributes: true,
+      childList: true,
+      characterData: true,
+      subtree: true
+    }
+    this.observer.observe(this.element.nativeElement, config);
+
+    //this.element.nativeElement.addEventListener("mouseup",()=>this.setModel())
+    //this.element.nativeElement.addEventListener("keyup",()=>this.setModel())
+  }
+
+  ngOnChanges(){
+    setTimeout(()=>this.setModel(), 0)
+  }
+
+  setModel(){
+    this.innerHtmlModel = this.element.nativeElement.innerHTML
+    this.innerHtmlModelChange.emit(this.innerHtmlModel)
+  }
+
+  ngOnDestroy(){
+    this.observer.disconnect()
+  }
+}
+
+@Directive({
   selector: '[elementHeightModel]'
 }) export class ElementHeightModel{
   public onResize
@@ -206,7 +245,8 @@ export class StatusOfflineModel{
     const config = {
       attributes: true,
       childList: true,
-      characterData: true
+      characterData: true,
+      subtree: true
     }
     this.observer.observe(this.element.nativeElement, config);
   }
@@ -523,6 +563,7 @@ export function removeClass(el, className) {
 
 export const declarations = [
   //directives
+  InnerHtmlModel,
   OnFormAlter,
   OnFormChanged,
   OnEnterKey,

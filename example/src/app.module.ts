@@ -80,7 +80,8 @@ import { declarations as states, routing } from "./states.object"
   ,animations:fxArray
 }) export class ComponentsExamples {
   public error
-  
+  public contentArray = []
+
   constructor(public PageScrollService:PageScrollService){}
   
   causeError(){

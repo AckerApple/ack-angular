@@ -2,6 +2,38 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var pipes_class_1 = require("./pipes.class");
+var platform_browser_1 = require("@angular/platform-browser");
+var SafeUrl = (function () {
+    function SafeUrl(domSanitizer) {
+        this.domSanitizer = domSanitizer;
+    }
+    SafeUrl.prototype.transform = function (url) {
+        console.log('used', url);
+        return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
+    };
+    return SafeUrl;
+}());
+SafeUrl.decorators = [
+    { type: core_1.Pipe, args: [{ name: 'safeUrl' },] },
+];
+/** @nocollapse */
+SafeUrl.ctorParameters = function () { return [
+    { type: platform_browser_1.DomSanitizer, },
+]; };
+exports.SafeUrl = SafeUrl;
+//use with bypassSecurityTrustResourceUrl for href
+var TextDownload = (function () {
+    function TextDownload() {
+    }
+    TextDownload.prototype.transform = function (input) { return pipes_class_1.pipes.textDownload(input); };
+    return TextDownload;
+}());
+TextDownload.decorators = [
+    { type: core_1.Pipe, args: [{ name: 'textDownload' },] },
+];
+/** @nocollapse */
+TextDownload.ctorParameters = function () { return []; };
+exports.TextDownload = TextDownload;
 var MarkdownAnchor = (function () {
     function MarkdownAnchor() {
     }
@@ -149,6 +181,8 @@ ConsolePipe.decorators = [
 ConsolePipe.ctorParameters = function () { return []; };
 exports.ConsolePipe = ConsolePipe;
 exports.declarations = [
+    SafeUrl,
+    TextDownload,
     MarkdownAnchor,
     Capitalize,
     CapitalizeWords,
