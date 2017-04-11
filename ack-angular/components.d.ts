@@ -2,7 +2,7 @@ import { EventEmitter, ElementRef } from "@angular/core";
 export declare class AckModal {
     element: ElementRef;
     onClose: EventEmitter<{}>;
-    size: string;
+    wrapStyle: any;
     backgroundColor: any;
     backgroundColorChange: EventEmitter<{}>;
     constructor(element: ElementRef);

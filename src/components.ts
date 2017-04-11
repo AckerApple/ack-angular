@@ -19,7 +19,8 @@ import { string as ackModal } from "./templates/ack-modal.pug"
   template:ackModal
 }) export class AckModal{
   @Output() public onClose = new EventEmitter()
-  @Input() public size:string//'full' or null
+  //@Input() public size:string//'full' or null
+  @Input() public wrapStyle
   @Input() public backgroundColor
   @Output() public backgroundColorChange = new EventEmitter()
 

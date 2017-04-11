@@ -82,6 +82,7 @@ import {string as componentsExamples} from './templates/components-examples.pug'
   public error
   public contentArray = []
   public modalBackgroundColor = 'rgba(255,255,255,0.95)'
+  public modalWrapStyle
 
   constructor(public PageScrollService:PageScrollService){}
   
@@ -94,6 +95,12 @@ import {string as componentsExamples} from './templates/components-examples.pug'
       const pageScrollInstance = PageScrollInstance.simpleInstance(document, '#Import AckModule');
       this.PageScrollService.start(pageScrollInstance);
     }, 600)
+  }
+
+  setModalWrapStyle(v){
+    try{
+      this.modalWrapStyle = JSON.parse(v)
+    }catch(e){}
   }
 }
 
