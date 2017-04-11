@@ -1,8 +1,13 @@
-import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+import { SafeStyle as SafeStyler, SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 export declare class SafeUrl {
     private domSanitizer;
     constructor(domSanitizer: DomSanitizer);
-    transform(url: any): SafeResourceUrl;
+    transform(input: any): SafeResourceUrl;
+}
+export declare class SafeStyle {
+    private domSanitizer;
+    constructor(domSanitizer: DomSanitizer);
+    transform(input: any): SafeStyler;
 }
 export declare class TextDownload {
     transform(input: string): any;
@@ -43,4 +48,4 @@ export declare class TypeofPipe {
 export declare class ConsolePipe {
     transform(): any;
 }
-export declare const declarations: (typeof SafeUrl | typeof TextDownload)[];
+export declare const declarations: (typeof SafeUrl | typeof SafeStyle | typeof TextDownload)[];
