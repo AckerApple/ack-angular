@@ -1,4 +1,15 @@
 import { EventEmitter, ElementRef } from "@angular/core";
+export declare class AckModal {
+    element: ElementRef;
+    onClose: EventEmitter<{}>;
+    size: string;
+    backgroundColor: any;
+    backgroundColorChange: EventEmitter<{}>;
+    constructor(element: ElementRef);
+    clickListenForClose(): void;
+    ngOnInit(): void;
+    close(): void;
+}
 /** onEnterKey - on-enter-key attribute will be evaluated when element event onkeydown fires with enter-key */
 export declare class OnEnterKey {
     element: ElementRef;

@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var ack = require("ack-x/index-browser");
 exports.pipes = {
     markdownAnchor: function markdownAnchor(input) {
+        input = input.toString().replace(/&/gi, 'amp'); //possibly unneeded
         input = input.toString().replace(/ /gi, '-');
         input = input.replace(/[^a-z0-9_-]/gi, '');
         return input.toLowerCase();

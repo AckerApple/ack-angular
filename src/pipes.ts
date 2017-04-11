@@ -1,13 +1,22 @@
 import { Pipe } from '@angular/core';
 import { pipes } from "./pipes.class"
-import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-
+import {
+  SafeStyle as SafeStyler,
+  SafeResourceUrl,
+  DomSanitizer
+} from '@angular/platform-browser';
 
 @Pipe({name: 'safeUrl'}) export class SafeUrl {
   constructor(private domSanitizer: DomSanitizer) {}
-  transform(url) {
-    console.log('used', url)
-    return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
+  transform(input) {
+    return this.domSanitizer.bypassSecurityTrustResourceUrl(input)
+  }
+}
+
+@Pipe({name: 'safeStyle'}) export class SafeStyle {
+  constructor(private domSanitizer: DomSanitizer) {}
+  transform(input) {
+    return this.domSanitizer.bypassSecurityTrustStyle(input)
   }
 }
 
@@ -68,6 +77,8 @@ import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
 export const declarations = [
   SafeUrl,
+  SafeStyle,
+
   TextDownload,
   MarkdownAnchor,
   Capitalize,

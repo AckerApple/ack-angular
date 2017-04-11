@@ -7,9 +7,8 @@ var SafeUrl = (function () {
     function SafeUrl(domSanitizer) {
         this.domSanitizer = domSanitizer;
     }
-    SafeUrl.prototype.transform = function (url) {
-        console.log('used', url);
-        return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
+    SafeUrl.prototype.transform = function (input) {
+        return this.domSanitizer.bypassSecurityTrustResourceUrl(input);
     };
     return SafeUrl;
 }());
@@ -21,6 +20,23 @@ SafeUrl.ctorParameters = function () { return [
     { type: platform_browser_1.DomSanitizer, },
 ]; };
 exports.SafeUrl = SafeUrl;
+var SafeStyle = (function () {
+    function SafeStyle(domSanitizer) {
+        this.domSanitizer = domSanitizer;
+    }
+    SafeStyle.prototype.transform = function (input) {
+        return this.domSanitizer.bypassSecurityTrustStyle(input);
+    };
+    return SafeStyle;
+}());
+SafeStyle.decorators = [
+    { type: core_1.Pipe, args: [{ name: 'safeStyle' },] },
+];
+/** @nocollapse */
+SafeStyle.ctorParameters = function () { return [
+    { type: platform_browser_1.DomSanitizer, },
+]; };
+exports.SafeStyle = SafeStyle;
 //use with bypassSecurityTrustResourceUrl for href
 var TextDownload = (function () {
     function TextDownload() {
@@ -182,6 +198,7 @@ ConsolePipe.ctorParameters = function () { return []; };
 exports.ConsolePipe = ConsolePipe;
 exports.declarations = [
     SafeUrl,
+    SafeStyle,
     TextDownload,
     MarkdownAnchor,
     Capitalize,

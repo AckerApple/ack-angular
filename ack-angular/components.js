@@ -5,6 +5,60 @@ var prefx_1 = require("./prefx");
 var reader_header_body_pug_1 = require("./templates/reader-header-body.pug");
 var error_well_pug_1 = require("./templates/error-well.pug");
 var absolute_overflow_y_pug_1 = require("./templates/absolute-overflow-y.pug");
+var ack_modal_pug_1 = require("./templates/ack-modal.pug");
+var AckModal = (function () {
+    function AckModal(element) {
+        var _this = this;
+        this.element = element;
+        this.onClose = new core_1.EventEmitter();
+        this.backgroundColorChange = new core_1.EventEmitter();
+        //after possible double click, close on outside content click
+        setTimeout(function () { return _this.clickListenForClose(); }, 400);
+        element.nativeElement.style.position = 'fixed';
+        element.nativeElement.style.top = 0;
+        element.nativeElement.style.left = 0;
+        element.nativeElement.style.zIndex = 20;
+        element.nativeElement.style.height = '100%';
+        element.nativeElement.style.width = '100%';
+        element.nativeElement.style.overflow = 'auto';
+        element.nativeElement.style.display = 'block';
+    }
+    AckModal.prototype.clickListenForClose = function () {
+        var _this = this;
+        this.element.nativeElement.addEventListener('click', function (event) {
+            var eTar = event.srcElement || event.toElement || event.target;
+            if (eTar == _this.element.nativeElement.children[0]) {
+                _this.close();
+            }
+        });
+    };
+    AckModal.prototype.ngOnInit = function () {
+        var _this = this;
+        this.backgroundColor = this.backgroundColor || 'rgba(255,255,255,0.95)';
+        setTimeout(function () { return _this.backgroundColorChange.emit(_this.backgroundColor); }, 0);
+    };
+    AckModal.prototype.close = function () {
+        this.onClose.emit(this);
+    };
+    return AckModal;
+}());
+AckModal.decorators = [
+    { type: core_1.Component, args: [{
+                selector: 'ack-modal',
+                template: ack_modal_pug_1.string
+            },] },
+];
+/** @nocollapse */
+AckModal.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
+AckModal.propDecorators = {
+    'onClose': [{ type: core_1.Output },],
+    'size': [{ type: core_1.Input },],
+    'backgroundColor': [{ type: core_1.Input },],
+    'backgroundColorChange': [{ type: core_1.Output },],
+};
+exports.AckModal = AckModal;
 /** onEnterKey - on-enter-key attribute will be evaluated when element event onkeydown fires with enter-key */
 var OnEnterKey = (function () {
     function OnEnterKey(element) {
@@ -712,6 +766,7 @@ exports.declarations = [
     ReaderBody,
     ErrorWell,
     AbsoluteOverflowY,
-    InputHint
+    InputHint,
+    AckModal
 ];
 //# sourceMappingURL=components.js.map

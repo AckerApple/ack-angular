@@ -64,6 +64,39 @@ h3 Common Components
 
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 ack-modal
+        .text-grey-2x.max-width-400
+          |Open simple dialog modal
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewAckModal=!viewAckModal" "[ngClass]"="viewAckModal?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewAckModal" "[@500]"="'fadeInUp'")
+      ack-modal("*ngIf"="showAckModal" "(onClose)"="showAckModal=false" "[@500]"="'fadeInUp'" "[(backgroundColor)]"="modalBackgroundColor" size="full")
+        .bg-white.border.border-grey-4x.pad-4x.radius-5
+          |Sample Modal Dialog Window
+          .text-xs.text-grey-2x.pad-h
+            |Animation provided by ack-angular-fx [@500]="'fadeInUp'"
+      .pad.text-center.flex.child-margin-xxs
+        button.text-lg((click)="showAckModal=1") show modal
+        .flex-1.flex-valign-center
+          .height-30.pad-h-sm.bg-grey-5x.border.border-grey-4x.border-right-0
+            |bg
+          input.height-30.flex-1("[(ngModel)]"="modalBackgroundColor")
+
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;ack-modal *ngIf="showAckModal" (onClose)="showAckModal=false" backgroundColor="rgba(255,255,255,0.95)"&gt;
+            &lt;div style="background-color:white;padding:1em;"&gt;
+              |Sample Modal Dialog Window
+            &lt;/div&gt;
+          &lt;/ack-model&gt;
+          &lt;button (click)="showAckModal=1"&gt; show modal &lt;/button&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
       div("[(screenScrollModelY)]"="screenScrollModelY")
       .pad-h
         h3 screenScrollModelY

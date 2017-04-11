@@ -25,8 +25,24 @@ h3(id="Documentation") Documentation
       h4.margin-bottom-0 Usage Example
     absolute-overflow-y
       pre.code-sample.margin-0
-        span(ngNonBindable) &lt;a [href]="'Usage Examples' | textDownload | safeUrl" download="usageExamples.txt"&gt;download&lt;/a&gt;
-        span.pad-h == #[a([href]="'Usage Examples' | textDownload | safeUrl" download="usageExamples.txt") download]
+        span(ngNonBindable).
+          &lt;a [href]="'Usage Examples' | textDownload | safeUrl" download="download.txt"&gt;
+            download
+          &lt;/a&gt;
+        span.pad-h == #[a([href]="'Usage Examples' | textDownload | safeUrl" download="download.txt") download]
+
+  .flex2.border-grey-6x.border.width-full
+    .pad-h
+      h3 safeStyle
+      p.text-grey-2x Cast string to safe style
+      h4.margin-bottom-0 Usage Example
+    absolute-overflow-y
+      pre.code-sample.margin-0
+        span(ngNonBindable).
+          &lt;span [ngStyle]="&#123;'...':('...'|safeStyle)&#125;"&gt;
+            safe styled
+          &lt;/span&gt;
+        span.pad-h == #[span("[ngStyle]"="{'...':('...'|safeStyle)}") safe styled]
 
   .flex2.border-grey-6x.border
     .pad-h

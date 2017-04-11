@@ -34,7 +34,6 @@ import { ProviderExamples } from "./ProviderExamples.component"
 import {string as ackAppStageTemplate} from './templates/ack-app-stage.pug'
 import {string as animationExamples} from './templates/animation-examples.pug'
 import {string as overviewExamples} from './templates/overview-examples.pug'
-import {string as componentsExamples} from './templates/components-examples.pug'
 import {string as pipesExamples} from './templates/pipes-examples.pug'
 //import {string as servicesExamples} from './templates/services-examples.pug'
 
@@ -74,6 +73,7 @@ import { declarations as states, routing } from "./states.object"
   ,template: overviewExamples
 }) export class OverviewExamples {}
 
+import {string as componentsExamples} from './templates/components-examples.pug'
 @Component({
   selector: 'components-examples'
   ,template: componentsExamples
@@ -81,6 +81,7 @@ import { declarations as states, routing } from "./states.object"
 }) export class ComponentsExamples {
   public error
   public contentArray = []
+  public modalBackgroundColor = 'rgba(255,255,255,0.95)'
 
   constructor(public PageScrollService:PageScrollService){}
   
