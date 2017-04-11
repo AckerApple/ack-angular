@@ -54,7 +54,7 @@ AckModal.ctorParameters = function () { return [
 ]; };
 AckModal.propDecorators = {
     'onClose': [{ type: core_1.Output },],
-    'size': [{ type: core_1.Input },],
+    'wrapStyle': [{ type: core_1.Input },],
     'backgroundColor': [{ type: core_1.Input },],
     'backgroundColorChange': [{ type: core_1.Output },],
 };
