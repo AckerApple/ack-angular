@@ -5,6 +5,23 @@ var prefx_1 = require("./prefx");
 var reader_header_body_pug_1 = require("./templates/reader-header-body.pug");
 var error_well_pug_1 = require("./templates/error-well.pug");
 var absolute_overflow_y_pug_1 = require("./templates/absolute-overflow-y.pug");
+var VarDirective = (function () {
+    function VarDirective() {
+    }
+    return VarDirective;
+}());
+VarDirective.decorators = [
+    { type: core_1.Directive, args: [{
+                selector: '[var]',
+                exportAs: 'var'
+            },] },
+];
+/** @nocollapse */
+VarDirective.ctorParameters = function () { return []; };
+VarDirective.propDecorators = {
+    'var': [{ type: core_1.Input },],
+};
+exports.VarDirective = VarDirective;
 var ack_modal_pug_1 = require("./templates/ack-modal.pug");
 var AckModal = (function () {
     function AckModal(element) {
@@ -147,7 +164,7 @@ PreventEnterKey.propDecorators = {
 exports.PreventEnterKey = PreventEnterKey;
 var InputHint = (function () {
     function InputHint() {
-        this.hintStyle = { 'font-size': '75%', 'color': '#CCC' };
+        this.hintStyle = { 'font-size': '75%', 'color': '#BBB' };
     }
     return InputHint;
 }());
@@ -746,6 +763,7 @@ function removeClass(el, className) {
 exports.removeClass = removeClass;
 exports.declarations = [
     //directives
+    VarDirective,
     InnerHtmlModel,
     OnFormAlter,
     OnFormChanged,
