@@ -1,6 +1,14 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.2.15] - 2017-04-12
+### Added
+- var
+- ack-modal
+- AckApi
+- safeUrl
+- safeStyle
+
 ## [0.2.5] - 2017-04-04
 ### Added
 - AckOffline

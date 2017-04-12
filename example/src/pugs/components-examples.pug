@@ -14,6 +14,37 @@ h3 Common Components
 .flex-wrap.child-margin-xxs
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 var
+        .text-grey-2x.max-width-400
+          |Create local template variables
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewVar=!viewVar" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewVar" "[@500]"="'fadeInUp'")
+      .pad-sm
+        h4.margin-0 Demo
+        p.text-grey-3x.text-sm
+          |Each item in list below, has a localized variable
+        .flex-wrap.child-margin-xxs(#myVar="var" "[var]"="0")
+          button("(click)"="myVar.var=myVar.var+1") outsize memory {{ myVar.var }}
+          button(*ngFor="let i of [0,1,2,3]" "#myVar"="var" "[var]"="i" "(click)"="myVar.var=myVar.var+1")
+            |click count + index {{ myVar.var }}
+
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div #myVar="var" [var]="0"&gt;
+            &lt;button (click)="myVar.var=myVar.var+1"&gt;
+              outsize memory {{ myVar.var }}
+            &lt;/button&gt;
+            &lt;button *ngFor="let i of [0,1,2,3]" #myVar="var" [var]="i" (click)="myVar.var=myVar.var+1"&gt;
+              click count + index {{ myVar.var }}
+            &lt;/button&gt;
+          &lt;/div&gt;
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
       div("[(statusOnlineModel)]"="statusOnlineModel")
       .pad-h
         h3 statusOnlineModel

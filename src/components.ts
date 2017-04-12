@@ -13,6 +13,14 @@ import { string as readerHeaderBody } from "./templates/reader-header-body.pug"
 import { string as errorWell } from "./templates/error-well.pug"
 import { string as absoluteOverflowY } from "./templates/absolute-overflow-y.pug"
 
+@Directive({
+  selector: '[var]',
+  exportAs: 'var'
+}) export class VarDirective {
+  @Input() var:any;
+}
+
+
 import { string as ackModal } from "./templates/ack-modal.pug"
 @Component({
   selector:'ack-modal',
@@ -112,7 +120,7 @@ export class PreventEnterKey{
   selector:'input-hint',
   template:'<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
 }) export class InputHint {
-  @Input() public hintStyle = {'font-size':'75%','color':'#CCC'}
+  @Input() public hintStyle = {'font-size':'75%','color':'#BBB'}
 }
 
 @Directive({selector:'[statusOnlineModel]'})
@@ -608,6 +616,7 @@ export function removeClass(el, className) {
 
 export const declarations = [
   //directives
+  VarDirective,
   InnerHtmlModel,
   OnFormAlter,
   OnFormChanged,
