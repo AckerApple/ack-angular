@@ -20,7 +20,6 @@ import { string as absoluteOverflowY } from "./templates/absolute-overflow-y.pug
   @Input() var:any;
 }
 
-
 import { string as ackModal } from "./templates/ack-modal.pug"
 @Component({
   selector:'ack-modal',

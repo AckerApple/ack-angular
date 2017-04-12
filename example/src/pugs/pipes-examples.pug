@@ -1,4 +1,4 @@
-p.text-grey-2x Decorate and filter output via Pipes
+p.text-sm.text-grey-2x Decorate and filter output via Pipes
 
 p.margin-bottom-0 Import Example
 .pad-h.text-warning.text-xs
@@ -21,135 +21,182 @@ h3(id="Documentation") Documentation
   .flex3.border-grey-6x.border.width-full
     .pad-h
       h3 textDownload &amp; safeUrl
-      p.text-grey-2x Cast string to a data:text/plain uri
-      h4.margin-bottom-0 Usage Example
-    absolute-overflow-y
-      pre.code-sample.margin-0
-        span(ngNonBindable).
-          &lt;a [href]="'Usage Examples' | textDownload | safeUrl" download="download.txt"&gt;
-            download
-          &lt;/a&gt;
-        span.pad-h == #[a([href]="'Usage Examples' | textDownload | safeUrl" download="download.txt") download]
+      p.text-sm.text-grey-2x Cast string to a data:text/plain uri
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewSafeUrl=!viewSafeUrl" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewSafeUrl" "[@500]"="'fadeInUp'")
+      absolute-overflow-y
+        pre.code-sample.margin-0
+          span(ngNonBindable).
+            &lt;a [href]="'Usage Examples' | textDownload | safeUrl" download="download.txt"&gt;
+              download
+            &lt;/a&gt;
+          span.pad-h == #[a([href]="'Usage Examples' | textDownload | safeUrl" download="download.txt") download]
 
   .flex2.border-grey-6x.border.width-full
     .pad-h
       h3 safeStyle
-      p.text-grey-2x Cast string to safe style
-      h4.margin-bottom-0 Usage Example
-    absolute-overflow-y
-      pre.code-sample.margin-0
-        span(ngNonBindable).
-          &lt;span [ngStyle]="&#123;'...':('...'|safeStyle)&#125;"&gt;
-            safe styled
-          &lt;/span&gt;
-        span.pad-h == #[span("[ngStyle]"="{'...':('...'|safeStyle)}") safe styled]
+      p.text-sm.text-grey-2x Cast string to safe style
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewSafeStyle=!viewSafeStyle" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewSafeStyle" "[@500]"="'fadeInUp'")
+      absolute-overflow-y
+        pre.code-sample.margin-0
+          span(ngNonBindable).
+            &lt;span [ngStyle]="&#123;'...':('...'|safeStyle)&#125;"&gt;
+              safe styled
+            &lt;/span&gt;
+          span.pad-h == #[span("[ngStyle]"="{'...':('...'|safeStyle)}") safe styled]
 
   .flex2.border-grey-6x.border
     .pad-h
       h3 markdownAnchor
-      p.text-grey-2x Cast string to a github markdown #anchor
-      h4.margin-bottom-0 Usage Example
-    absolute-overflow-y
-      pre.code-sample.margin-0
-        span(ngNonBindable) {{ 'Usage Examples' | markdownAnchor }}
-        span.pad-h == {{ 'Usage Examples' | markdownAnchor }}
+      p.text-sm.text-grey-2x Cast string to a github markdown #anchor
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewMarkdownAnchor=!viewMarkdownAnchor" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewMarkdownAnchor" "[@500]"="'fadeInUp'")
+      absolute-overflow-y
+        pre.code-sample.margin-0
+          span(ngNonBindable) {{ 'Usage Examples' | markdownAnchor }}
+          span.pad-h == {{ 'Usage Examples' | markdownAnchor }}
 
   .flex2.border-grey-6x.border
     .pad-h
       h3 typeof
-      p.text-grey-2x Output result of native javascript typeof() function
-      h4.margin-bottom-0 Usage Example
-    absolute-overflow-y
-      pre.code-sample.margin-0
-        span(ngNonBindable) {{ 0 | typeof }}
-        span.pad-h == {{ 0 | typeof }}
+      p.text-sm.text-grey-2x Result of native javascript typeof
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewTypeof=!viewTypeof" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewTypeof" "[@500]"="'fadeInUp'")
+      absolute-overflow-y
+        pre.code-sample.margin-0
+          span(ngNonBindable) {{ 0 | typeof }}
+          span.pad-h == {{ 0 | typeof }}
+
+  .flex2.border-grey-6x.border
+    .pad-h
+      h3 array : repeat : repeatValue
+      p.text-sm.text-grey-2x Force any variable to array
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewArray=!viewArray" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewArray" "[@500]"="'fadeInUp'")
+      absolute-overflow-y
+        pre.code-sample.margin-0
+          span(ngNonBindable) {{ 'a' | array }}
+          span.pad-h == {{ 'a' | array | stringify }}
+          br
+          span(ngNonBindable) {{ 'a' | array:3 }}
+          span.pad-h == {{ 'a' | array:3 | stringify }}
+          br
+          span(ngNonBindable) {{ ['a'] | array:3:1 }}
+          span.pad-h == {{ ['a'] | array:3:1 | stringify }}
+          br
+          span(ngNonBindable) {{ 'a' | array:3:1 }}
+          span.pad-h == {{ 'a' | array:3:1 | stringify }}
 
   .flex2.border-grey-6x.border
     .pad-h
       h3 console
-      p.text-grey-2x console log result of native console.log() function
-      h4.margin-bottom-0 Usage Example
-    absolute-overflow-y
-      pre.code-sample.margin-0(ngNonBindable).
-        {{ 'message1' | console : 'message2' }}
+      p.text-sm.text-grey-2x console log result of native console.log() function
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewConsole=!viewConsole" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewConsole" "[@500]"="'fadeInUp'")
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          {{ 'message1' | console : 'message2' }}
 
-  .flex2.border-grey-6x.border
+  .flex3.border-grey-6x.border
     .pad-h
       h3 capitalize
-      p.text-grey-2x Each sentence leading word is capitalized
-      h4.margin-bottom-0 Usage Example
-    absolute-overflow-y
-      pre.code-sample.margin-0(ngNonBindable).
-        {{ 'how do you do?' | capitalize }} == How do you do?
+      p.text-sm.text-grey-2x Each sentence leading word is capitalized
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewCapitalize=!viewCapitalize" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewCapitalize" "[@500]"="'fadeInUp'")
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          {{ 'how do you do?' | capitalize }} == How do you do?
 
   .flex2.border-grey-6x.border
     .pad-h
       h3 capitalizeWords
-      p.text-grey-2x Every word is capitalized
-      h4.margin-bottom-0 Usage Example
-    absolute-overflow-y
-      pre.code-sample.margin-0(ngNonBindable).
-        {{ 'how do you do?' | capitalizeWords }} == How Do You Do?
+      p.text-sm.text-grey-2x Every word is capitalized
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewCapitalizeWords=!viewCapitalizeWords" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewCapitalizeWords" "[@500]"="'fadeInUp'")
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          {{ 'how do you do?' | capitalizeWords }} == How Do You Do?
 
   .flex2.border-grey-6x.border
     .pad-h
       h3 yesno
-      p.text-grey-2x Truthy value converts to: yes. Otherwise: no
-      h4.margin-bottom-0 Usage Example
-    absolute-overflow-y
-      pre.code-sample.margin-0(ngNonBindable).
-        {{ 'true' | yesno }} == yes
+      p.text-sm.text-grey-2x Truthy value converts to: yes. Otherwise: no
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewYesno=!viewYesno" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewYesno" "[@500]"="'fadeInUp'")
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          {{ 'true' | yesno }} == yes
 
   .flex2.border-grey-6x.border
     .pad-h
       h3 YesNo
-      p.text-grey-2x Truthy value converts to: Yes. Otherwise: No
-      h4.margin-bottom-0 Usage Example
-    absolute-overflow-y
-      pre.code-sample.margin-0(ngNonBindable).
-        {{ 1 | YesNo }} == Yes
+      p.text-sm.text-grey-2x Truthy value converts to: Yes. Otherwise: No
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewYesNo=!viewYesNo" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewYesNo" "[@500]"="'fadeInUp'")
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          {{ 1 | YesNo }} == Yes
 
   .flex2.border-grey-6x.border
     .pad-h
       h3 numbers
-      p.text-grey-2x Removes anything not a number from a string
-      h4.margin-bottom-0 Usage Example
-    absolute-overflow-y
-      pre.code-sample.margin-0(ngNonBindable).
-        {{ 'sam123acb456xyz' | numbers }} == 123456
+      p.text-sm.text-grey-2x Removes anything not a number from a string
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewNumbers=!viewNumbers" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewNumbers" "[@500]"="'fadeInUp'")
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          {{ 'sam123acb456xyz' | numbers }} == 123456
 
   .flex2.border-grey-6x.border
     .pad-h
       h3 keys
-      p.text-grey-2x List of keys for an Object
-      h4.margin-bottom-0 Usage Example
-    absolute-overflow-y
-      pre.code-sample.margin-0
-        span(ngNonBindable) {{ {x:1,y:2,z:3} | keys }}
-        span.pad-h-sm ==
-        span {{ {x:1,y:2,z:3} | keys | ack:['stringify',0] }}
+      p.text-sm.text-grey-2x List of keys for an Object
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewKeys=!viewKeys" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewKeys" "[@500]"="'fadeInUp'")
+      absolute-overflow-y
+        pre.code-sample.margin-0
+          span(ngNonBindable) {{ {x:1,y:2,z:3} | keys }}
+          span.pad-h-sm ==
+          span {{ {x:1,y:2,z:3} | keys | ack:['stringify',0] }}
   
   .flex2.border-grey-6x.border
     .pad-h
       h3 aDate
-      p.text-grey-2x A different approach @ date decorating
-      h4.margin-bottom-0 Usage Example
-    absolute-overflow-y
-      pre.code-sample.margin-0
-        span(ngNonBindable) {{ 0 | aDate:'now':'date' }}
-        span.pad-h-sm ==
-        span {{ 0 | aDate:'now':'date':'getTime' }}
+      p.text-sm.text-grey-2x A different approach @ date decorating
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewADate=!viewADate" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewADate" "[@500]"="'fadeInUp'")
+      absolute-overflow-y
+        pre.code-sample.margin-0
+          span(ngNonBindable) {{ 0 | aDate:'now':'date' }}
+          span.pad-h-sm ==
+          span {{ 0 | aDate:'now':'date':'getTime' }}
   
   .flex2.border-grey-6x.border
     .pad-h
       h3 aTime
-      p.text-grey-2x A different approach @ time decorating
-      h4.margin-bottom-0 Usage Example
-    absolute-overflow-y
-      pre.code-sample.margin-0
-        span(ngNonBindable) {{ 0 | aTime:'now':'date' }}
-        span.pad-h-sm ==
-        span {{ 0 | aDate:'now':'date':'getTime' }}
+      p.text-sm.text-grey-2x A different approach @ time decorating
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewATime=!viewATime" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewATime" "[@500]"="'fadeInUp'")
+      absolute-overflow-y
+        pre.code-sample.margin-0
+          span(ngNonBindable) {{ 0 | aTime:'now':'date' }}
+          span.pad-h-sm ==
+          span {{ 0 | aDate:'now':'date':'getTime' }}
 
 
 h3.margin-bottom-0 More Pipe Examples

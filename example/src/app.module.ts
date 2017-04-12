@@ -34,7 +34,6 @@ import { ProviderExamples } from "./ProviderExamples.component"
 import {string as ackAppStageTemplate} from './templates/ack-app-stage.pug'
 import {string as animationExamples} from './templates/animation-examples.pug'
 import {string as overviewExamples} from './templates/overview-examples.pug'
-import {string as pipesExamples} from './templates/pipes-examples.pug'
 //import {string as servicesExamples} from './templates/services-examples.pug'
 
 import { declarations as states, routing } from "./states.object"
@@ -104,9 +103,11 @@ import {string as componentsExamples} from './templates/components-examples.pug'
   }
 }
 
+import {string as pipesExamples} from './templates/pipes-examples.pug'
 @Component({
   selector: 'pipes-examples'
   ,template: pipesExamples
+  ,animations:fxArray
 }) export class PipesExamples {
 
   constructor(public PageScrollService:PageScrollService){}

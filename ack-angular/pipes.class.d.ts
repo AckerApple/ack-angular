@@ -1,4 +1,5 @@
 export declare const pipes: {
+    array: (input: any, repeat: any, repeatValue: any) => any;
     markdownAnchor: (input: string) => string;
     textDownload: (input: any) => any;
     yesno: (input: any) => any;

@@ -3,6 +3,35 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var pipes_class_1 = require("./pipes.class");
 var platform_browser_1 = require("@angular/platform-browser");
+/* ONLY THIS FILE */
+var Stringify = (function () {
+    function Stringify() {
+    }
+    Stringify.prototype.transform = function (input, spaces) {
+        return JSON.stringify(input, null, spaces);
+    };
+    return Stringify;
+}());
+Stringify.decorators = [
+    { type: core_1.Pipe, args: [{ name: 'stringify' },] },
+];
+/** @nocollapse */
+Stringify.ctorParameters = function () { return []; };
+exports.Stringify = Stringify;
+var ForceArray = (function () {
+    function ForceArray() {
+    }
+    ForceArray.prototype.transform = function (input, repeat, repeatValue) {
+        return pipes_class_1.pipes.array(input, repeat, repeatValue);
+    };
+    return ForceArray;
+}());
+ForceArray.decorators = [
+    { type: core_1.Pipe, args: [{ name: 'array' },] },
+];
+/** @nocollapse */
+ForceArray.ctorParameters = function () { return []; };
+exports.ForceArray = ForceArray;
 var SafeUrl = (function () {
     function SafeUrl(domSanitizer) {
         this.domSanitizer = domSanitizer;
@@ -37,6 +66,7 @@ SafeStyle.ctorParameters = function () { return [
     { type: platform_browser_1.DomSanitizer, },
 ]; };
 exports.SafeStyle = SafeStyle;
+/* end: only this file */
 //use with bypassSecurityTrustResourceUrl for href
 var TextDownload = (function () {
     function TextDownload() {
@@ -197,6 +227,8 @@ ConsolePipe.decorators = [
 ConsolePipe.ctorParameters = function () { return []; };
 exports.ConsolePipe = ConsolePipe;
 exports.declarations = [
+    Stringify,
+    ForceArray,
     SafeUrl,
     SafeStyle,
     TextDownload,

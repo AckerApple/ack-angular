@@ -1,6 +1,26 @@
 import * as ack from "ack-x/index-browser"
 
 export const pipes = {
+  /** if input is array returned otherwise array created with  */
+  array:function(input, repeat, repeatValue){
+    const isArray = input!=null && input.constructor == Array
+    let rtn = isArray ? input : []
+    const useRepeat = repeatValue!=null
+    
+    if(!useRepeat && !isArray && input!=null){
+      rtn.push(input)
+    }
+
+    if((useRepeat || !isArray) && repeat && !isNaN(Number(repeat))){
+      const val = useRepeat ? repeatValue : input 
+      while(rtn.length<repeat){
+        rtn.push( val )
+      }
+    }
+
+    return rtn
+  },
+
   markdownAnchor:function markdownAnchor(input:string){
     input = input.toString().replace(/&/gi, 'amp')//possibly unneeded
     input = input.toString().replace(/ /gi,'-')

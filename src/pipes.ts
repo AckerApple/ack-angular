@@ -6,19 +6,33 @@ import {
   DomSanitizer
 } from '@angular/platform-browser';
 
-@Pipe({name: 'safeUrl'}) export class SafeUrl {
-  constructor(private domSanitizer: DomSanitizer) {}
-  transform(input) {
-    return this.domSanitizer.bypassSecurityTrustResourceUrl(input)
+/* ONLY THIS FILE */
+  @Pipe({name: 'stringify'}) export class Stringify {
+    transform(input, spaces) {
+      return JSON.stringify(input, null, spaces)
+    }
   }
-}
 
-@Pipe({name: 'safeStyle'}) export class SafeStyle {
-  constructor(private domSanitizer: DomSanitizer) {}
-  transform(input) {
-    return this.domSanitizer.bypassSecurityTrustStyle(input)
+  @Pipe({name: 'array'}) export class ForceArray {
+    transform(input, repeat, repeatValue) {
+      return pipes.array(input, repeat, repeatValue)
+    }
   }
-}
+
+  @Pipe({name: 'safeUrl'}) export class SafeUrl {
+    constructor(private domSanitizer: DomSanitizer) {}
+    transform(input) {
+      return this.domSanitizer.bypassSecurityTrustResourceUrl(input)
+    }
+  }
+
+  @Pipe({name: 'safeStyle'}) export class SafeStyle {
+    constructor(private domSanitizer: DomSanitizer) {}
+    transform(input) {
+      return this.domSanitizer.bypassSecurityTrustStyle(input)
+    }
+  }
+/* end: only this file */
 
 //use with bypassSecurityTrustResourceUrl for href
 @Pipe({name: 'textDownload'}) export class TextDownload {
@@ -76,9 +90,10 @@ import {
 }
 
 export const declarations = [
+  Stringify,
+  ForceArray,
   SafeUrl,
   SafeStyle,
-
   TextDownload,
   MarkdownAnchor,
   Capitalize,
