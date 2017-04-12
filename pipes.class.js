@@ -2,6 +2,22 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var ack = require("ack-x/index-browser");
 exports.pipes = {
+    /** if input is array returned otherwise array created with  */
+    array: function (input, repeat, repeatValue) {
+        var isArray = input != null && input.constructor == Array;
+        var rtn = isArray ? input : [];
+        var useRepeat = repeatValue != null;
+        if (!useRepeat && !isArray && input != null) {
+            rtn.push(input);
+        }
+        if ((useRepeat || !isArray) && repeat && !isNaN(Number(repeat))) {
+            var val = useRepeat ? repeatValue : input;
+            while (rtn.length < repeat) {
+                rtn.push(val);
+            }
+        }
+        return rtn;
+    },
     markdownAnchor: function markdownAnchor(input) {
         input = input.toString().replace(/&/gi, 'amp'); //possibly unneeded
         input = input.toString().replace(/ /gi, '-');

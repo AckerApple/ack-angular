@@ -1,4 +1,10 @@
 import { SafeStyle as SafeStyler, SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+export declare class Stringify {
+    transform(input: any, spaces: any): string;
+}
+export declare class ForceArray {
+    transform(input: any, repeat: any, repeatValue: any): any;
+}
 export declare class SafeUrl {
     private domSanitizer;
     constructor(domSanitizer: DomSanitizer);
@@ -48,4 +54,4 @@ export declare class TypeofPipe {
 export declare class ConsolePipe {
     transform(): any;
 }
-export declare const declarations: (typeof SafeUrl | typeof SafeStyle | typeof TextDownload)[];
+export declare const declarations: (typeof ForceArray | typeof SafeUrl | typeof SafeStyle)[];
