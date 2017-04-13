@@ -1,7 +1,8 @@
 import { Pipe } from '@angular/core';
 import { pipes } from "./pipes.class"
 import {
-  SafeStyle as SafeStyler,
+  SafeHtml as SafeHtmler,//must be exported for AOT
+  SafeStyle as SafeStyler,//must be exported for AOT
   SafeResourceUrl,
   DomSanitizer
 } from '@angular/platform-browser';
@@ -23,6 +24,13 @@ import {
     constructor(private domSanitizer: DomSanitizer) {}
     transform(input) {
       return this.domSanitizer.bypassSecurityTrustResourceUrl(input)
+    }
+  }
+
+  @Pipe({name: 'safeHtml'}) export class SafeHtml {
+    constructor(private domSanitizer: DomSanitizer) {}
+    transform(input) {
+      return this.domSanitizer.bypassSecurityTrustHtml(input)
     }
   }
 
@@ -92,6 +100,7 @@ import {
 export const declarations = [
   Stringify,
   ForceArray,
+  SafeHtml,
   SafeUrl,
   SafeStyle,
   TextDownload,

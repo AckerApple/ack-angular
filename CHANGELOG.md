@@ -1,6 +1,10 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.2.17] - 2017-04-13
+### Added
+- safeHtml
+
 ## [0.2.15] - 2017-04-12
 ### Added
 - var

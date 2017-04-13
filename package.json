@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "0.2.16",
+  "version": "0.2.18",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "ack-angular/index.js",
   "typings": "ack-angular/index.d.ts",
@@ -27,7 +27,7 @@
     "compile:prefx:example": "ack-angular-fx --select absoluteSwap500,200,500 --effects slide,fade,zoom --out example/src/prefx.ts",
     "compile:aot": "ncp ack-angular example/node_modules/ack-angular && ngc -p example/tsconfig.aot.json",
     "build:js": "cd example && ../node_modules/.bin/ack-webpack index.aot.ts www/index.js --production --project tsconfig.json --modules ../",
-    "build": "npm run compile:dist:package && npm run compile:prefx && npm run compile:aot && npm run build:js",
+    "build": "npm run compile:dist:package && npm run compile:prefx && npm run build:dist && npm run compile:aot && npm run build:js",
     "compile:dist:package": "node scripts/update-dist-package.js"
   },
   "repository": {

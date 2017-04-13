@@ -44,9 +44,26 @@ h3(id="Documentation") Documentation
         pre.code-sample.margin-0
           span(ngNonBindable).
             &lt;span [ngStyle]="&#123;'...':('...'|safeStyle)&#125;"&gt;
-              safe styled
+              trusted style
             &lt;/span&gt;
           span.pad-h == #[span("[ngStyle]"="{'...':('...'|safeStyle)}") safe styled]
+
+  .flex3.border-grey-6x.border.width-full
+    .pad-h
+      h3 safeHtml
+      p.text-sm.text-grey-2x Cast string to safe html
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewSafeHtml=!viewSafeHtml" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewSafeHtml" "[@500]"="'fadeInUp'")
+      absolute-overflow-y
+        pre.code-sample.margin-0
+          span(ngNonBindable).
+            &lt;span class="safeHtml" [innerHtml]="'&lt;style&gt;.safeHtml&#123;border:1px solid purple&#125;.safeHtml::before&#123;content:\\"trusted html\\"&#125;&lt;/style&gt;'|safeHtml"&gt;
+              untrusted html
+            &lt;/span&gt;
+          span.pad-h ==&nbsp;
+          span(class="safeHtml" "[innerHtml]"="'<style>.safeHtml{border:1px solid purple}.safeHtml::before{content:\\\"trusted html\\\"}</style>'|safeHtml")
+            |untrusted html
 
   .flex2.border-grey-6x.border
     .pad-h

@@ -9,7 +9,7 @@ export const string = "<div [(statusOnlineModel)]=\"statusOnlineModel\"></div><d
 "\n"+
 "\n@Component(&#123;...&#125;)"+
 "\nexport class SomeClass&#123;"+
-"\n  pubic queModel = &#123;"+
+"\n  public queModel = &#123;"+
 "\n    name:'ackHttpTests',"+
 "\n    maxAge:15000,//GET cache busted at 15 seconds"+
 "\n    maxTry:50//POST failure retries allowed"+
@@ -33,11 +33,11 @@ export const string = "<div [(statusOnlineModel)]=\"statusOnlineModel\"></div><d
 "\n    return this.AckApi.clearCache('ackHttpTests')"+
 "\n  &#125;"+
 "\n"+
-"\n  POST()&#123;"+
-"\n    this.AckApi.request(&#123;"+
+"\n  request()&#123;"+
+"\n    return this.AckApi.request(&#123;"+
 "\n      url:'...'."+
-"\n      method:'POST'"+
-"\n      queModel:queModel"+
+"\n      method:'...'"+
+"\n      queModel:this.queModel"+
 "\n    &#125;)"+
 "\n    .then( response=&gt;console.log('200',response) )"+
 "\n    .catch(e=&gt;&#123;"+
@@ -49,12 +49,19 @@ export const string = "<div [(statusOnlineModel)]=\"statusOnlineModel\"></div><d
 "\n    &#125;)"+
 "\n  &#125;"+
 "\n"+
-"\n  GET()&#123;"+
-"\n    this.AckApi.request(&#123;"+
-"\n      url:'...'."+
-"\n      method:'GET'"+
-"\n      queModel:queModel"+
+"\n  POST()&#123;"+
+"\n    return this.AckApi.post('url', &#123;data&#125;, &#123;queModel:this.queModel&#125;)"+
+"\n    .then( response=&gt;console.log('200',response) )"+
+"\n    .catch(e=&gt;&#123;"+
+"\n      //ignore error, has been qued for when internet returns"+
+"\n      if(e.offlineMetadata)return"+
+"\n"+
+"\n      return Promise.reject(e)"+
 "\n    &#125;)"+
+"\n  &#125;"+
+"\n"+
+"\n  GET()&#123;"+
+"\n    return this.AckApi.get('url', &#123;queModel:this.queModel&#125;)"+
 "\n    .then( response=&gt;console.log('200',response) )"+
 "\n    .catch( e=&gt;console.error(e) )"+
 "\n  &#125;"+

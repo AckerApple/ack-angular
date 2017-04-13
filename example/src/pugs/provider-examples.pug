@@ -156,7 +156,7 @@ error-well([error]="error")
             
             @Component(&#123;...&#125;)
             export class SomeClass&#123;
-              pubic queModel = &#123;
+              public queModel = &#123;
                 name:'ackHttpTests',
                 maxAge:15000,//GET cache busted at 15 seconds
                 maxTry:50//POST failure retries allowed
@@ -180,11 +180,11 @@ error-well([error]="error")
                 return this.AckApi.clearCache('ackHttpTests')
               &#125;
 
-              POST()&#123;
-                this.AckApi.request(&#123;
+              request()&#123;
+                return this.AckApi.request(&#123;
                   url:'...'.
-                  method:'POST'
-                  queModel:queModel
+                  method:'...'
+                  queModel:this.queModel
                 &#125;)
                 .then( response=&gt;console.log('200',response) )
                 .catch(e=&gt;&#123;
@@ -196,12 +196,19 @@ error-well([error]="error")
                 &#125;)
               &#125;
 
-              GET()&#123;
-                this.AckApi.request(&#123;
-                  url:'...'.
-                  method:'GET'
-                  queModel:queModel
+              POST()&#123;
+                return this.AckApi.post('url', &#123;data&#125;, &#123;queModel:this.queModel&#125;)
+                .then( response=&gt;console.log('200',response) )
+                .catch(e=&gt;&#123;
+                  //ignore error, has been qued for when internet returns
+                  if(e.offlineMetadata)return
+
+                  return Promise.reject(e)
                 &#125;)
+              &#125;
+
+              GET()&#123;
+                return this.AckApi.get('url', &#123;queModel:this.queModel&#125;)
                 .then( response=&gt;console.log('200',response) )
                 .catch( e=&gt;console.error(e) )
               &#125;
