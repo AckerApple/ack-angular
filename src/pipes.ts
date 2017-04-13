@@ -8,6 +8,12 @@ import {
 } from '@angular/platform-browser';
 
 /* ONLY THIS FILE */
+  @Pipe({name: 'indexTrack'}) export class IndexTrack {
+    transform() {
+      return function(index, ob){return index}
+    }
+  }
+
   @Pipe({name: 'stringify'}) export class Stringify {
     transform(input, spaces) {
       return JSON.stringify(input, null, spaces)
@@ -98,6 +104,7 @@ import {
 }
 
 export const declarations = [
+  IndexTrack,
   Stringify,
   ForceArray,
   SafeHtml,

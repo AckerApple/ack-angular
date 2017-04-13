@@ -109,6 +109,7 @@ import {string as pipesExamples} from './templates/pipes-examples.pug'
   ,template: pipesExamples
   ,animations:fxArray
 }) export class PipesExamples {
+  public simpleArray = ['a','b','c']
 
   constructor(public PageScrollService:PageScrollService){}
 

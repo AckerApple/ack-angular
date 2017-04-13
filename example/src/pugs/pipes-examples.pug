@@ -91,6 +91,32 @@ h3(id="Documentation") Documentation
 
   .flex2.border-grey-6x.border
     .pad-h
+      h3 indexTrack
+      p.text-sm.text-grey-2x Force ngFor into trackBy index
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewIndexOf=!viewIndexOf" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewIndexOf" "[@500]"="'fadeInUp'")
+      .pad-xs.text-info.text-sm
+        |Simple arrays like ["a","b","c"] are hard to work with ngFor + ngModel
+
+      strong With indexTrack
+      div(*ngFor="let item of simpleArray; let i=index; trackBy:0|indexTrack")
+        input.width-full("[(ngModel)]"="simpleArray[i]")
+
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div *ngFor="let item of simpleArray; let i=index; trackBy:0|indexTrack"&gt;
+            &lt;input [(ngModel)]="simpleArray[i]" /&gt;
+          &lt;/div&gt;
+      br
+      strong.text-warning Without indexTrack
+      .text-xs.text-grey-2x.pad-left-xs
+        |Inputs blur as you type in them
+      div(*ngFor="let item of simpleArray; let i=index; trackBy:index")
+        input.width-full("[(ngModel)]"="simpleArray[i]")
+
+  .flex2.border-grey-6x.border
+    .pad-h
       h3 array : repeat : repeatValue
       p.text-sm.text-grey-2x Force any variable to array
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewArray=!viewArray" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
