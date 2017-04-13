@@ -1,4 +1,7 @@
 import { SafeHtml as SafeHtmler, SafeStyle as SafeStyler, SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+export declare class IndexTrack {
+    transform(): (index: any, ob: any) => any;
+}
 export declare class Stringify {
     transform(input: any, spaces: any): string;
 }

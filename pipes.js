@@ -4,6 +4,20 @@ var core_1 = require("@angular/core");
 var pipes_class_1 = require("./pipes.class");
 var platform_browser_1 = require("@angular/platform-browser");
 /* ONLY THIS FILE */
+var IndexTrack = (function () {
+    function IndexTrack() {
+    }
+    IndexTrack.prototype.transform = function () {
+        return function (index, ob) { return index; };
+    };
+    return IndexTrack;
+}());
+IndexTrack.decorators = [
+    { type: core_1.Pipe, args: [{ name: 'indexTrack' },] },
+];
+/** @nocollapse */
+IndexTrack.ctorParameters = function () { return []; };
+exports.IndexTrack = IndexTrack;
 var Stringify = (function () {
     function Stringify() {
     }
@@ -244,6 +258,7 @@ ConsolePipe.decorators = [
 ConsolePipe.ctorParameters = function () { return []; };
 exports.ConsolePipe = ConsolePipe;
 exports.declarations = [
+    IndexTrack,
     Stringify,
     ForceArray,
     SafeHtml,
