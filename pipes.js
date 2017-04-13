@@ -49,6 +49,23 @@ SafeUrl.ctorParameters = function () { return [
     { type: platform_browser_1.DomSanitizer, },
 ]; };
 exports.SafeUrl = SafeUrl;
+var SafeHtml = (function () {
+    function SafeHtml(domSanitizer) {
+        this.domSanitizer = domSanitizer;
+    }
+    SafeHtml.prototype.transform = function (input) {
+        return this.domSanitizer.bypassSecurityTrustHtml(input);
+    };
+    return SafeHtml;
+}());
+SafeHtml.decorators = [
+    { type: core_1.Pipe, args: [{ name: 'safeHtml' },] },
+];
+/** @nocollapse */
+SafeHtml.ctorParameters = function () { return [
+    { type: platform_browser_1.DomSanitizer, },
+]; };
+exports.SafeHtml = SafeHtml;
 var SafeStyle = (function () {
     function SafeStyle(domSanitizer) {
         this.domSanitizer = domSanitizer;
@@ -229,6 +246,7 @@ exports.ConsolePipe = ConsolePipe;
 exports.declarations = [
     Stringify,
     ForceArray,
+    SafeHtml,
     SafeUrl,
     SafeStyle,
     TextDownload,
