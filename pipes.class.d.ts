@@ -1,3 +1,15 @@
+/** if input is array returned otherwise array created with  */
+export declare function array(input: any, repeat: any, repeatValue: any): any;
+export declare function markdownAnchor(input: string): string;
+export declare function textDownload(input: any): any;
+export declare function yesno(input: any): any;
+export declare function yesNo(input: any): any;
+export declare function numbers(input: any): any;
+export declare function capitalizeWords(input: any): any;
+/** each sentence word is capitalized */
+export declare function capitalize(input: any): any;
+export declare function capitalizeAfterSentence(input: any): any;
+export declare function capitalizeOne(input: any): any;
 export declare const pipes: {
     array: (input: any, repeat: any, repeatValue: any) => any;
     markdownAnchor: (input: string) => string;
