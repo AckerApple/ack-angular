@@ -685,7 +685,7 @@ var ShakeOn = (function () {
         this.shakeRefChange = new core_1.EventEmitter();
         this.shakeTypes = ['shake-slow', 'shake-hard', 'shake-little', 'shake-horizontal', 'shake-vertical', 'shake-rotate', 'shake-opacity', 'shake-crazy'];
     }
-    ShakeOn.prototype.ngAfterContentChecked = function () {
+    ShakeOn.prototype.ngOnInit = function () {
         var _this = this;
         setTimeout(function () { return _this.update(); }, 0);
     };

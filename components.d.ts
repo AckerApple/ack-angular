@@ -172,7 +172,7 @@ export declare class ShakeOn {
     shakeRefChange: EventEmitter<{}>;
     shakeTypes: string[];
     constructor(element: ElementRef);
-    ngAfterContentChecked(): void;
+    ngOnInit(): void;
     update(): void;
     ngOnChanges(changes: any): void;
     onFalse(): void;
