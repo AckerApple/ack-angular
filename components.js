@@ -5,6 +5,70 @@ var prefx_1 = require("./prefx");
 var reader_header_body_pug_1 = require("./templates/reader-header-body.pug");
 var error_well_pug_1 = require("./templates/error-well.pug");
 var absolute_overflow_y_pug_1 = require("./templates/absolute-overflow-y.pug");
+var FocusOn = (function () {
+    function FocusOn(element) {
+        this.element = element;
+        this.focusOnDelay = 0;
+        this.focusThen = new core_1.EventEmitter();
+    }
+    FocusOn.prototype.ngOnChanges = function (changes) {
+        var _this = this;
+        if (changes.focusOn && changes.focusOn.currentValue) {
+            setTimeout(function () {
+                _this.element.nativeElement.focus();
+                _this.focusThen.emit();
+            }, this.focusOnDelay);
+        }
+    };
+    return FocusOn;
+}());
+FocusOn.decorators = [
+    { type: core_1.Directive, args: [{
+                selector: '[focusOn]'
+            },] },
+];
+/** @nocollapse */
+FocusOn.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
+FocusOn.propDecorators = {
+    'focusOn': [{ type: core_1.Input },],
+    'focusOnDelay': [{ type: core_1.Input },],
+    'focusThen': [{ type: core_1.Output },],
+};
+exports.FocusOn = FocusOn;
+var SelectOn = (function () {
+    function SelectOn(element) {
+        this.element = element;
+        this.selectOnDelay = 0;
+        this.selectThen = new core_1.EventEmitter();
+    }
+    SelectOn.prototype.ngOnChanges = function (changes) {
+        var _this = this;
+        if (changes.selectOn && changes.selectOn.currentValue) {
+            setTimeout(function () {
+                _this.element.nativeElement.select();
+                _this.selectThen.emit();
+            }, this.selectOnDelay);
+        }
+    };
+    return SelectOn;
+}());
+SelectOn.decorators = [
+    { type: core_1.Directive, args: [{
+                selector: '[selectOn]'
+            },] },
+];
+/** @nocollapse */
+SelectOn.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
+SelectOn.propDecorators = {
+    'selectOn': [{ type: core_1.Input },],
+    'selectOnDelay': [{ type: core_1.Input },],
+    'selectThen': [{ type: core_1.Output },],
+};
+exports.SelectOn = SelectOn;
 var VarDirective = (function () {
     function VarDirective() {
     }
@@ -763,6 +827,8 @@ function removeClass(el, className) {
 exports.removeClass = removeClass;
 exports.declarations = [
     //directives
+    SelectOn,
+    FocusOn,
     VarDirective,
     InnerHtmlModel,
     OnFormAlter,

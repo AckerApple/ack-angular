@@ -1,4 +1,20 @@
 import { EventEmitter, ElementRef } from "@angular/core";
+export declare class FocusOn {
+    element: ElementRef;
+    focusOn: any;
+    focusOnDelay: number;
+    focusThen: EventEmitter<{}>;
+    constructor(element: ElementRef);
+    ngOnChanges(changes: any): void;
+}
+export declare class SelectOn {
+    element: ElementRef;
+    selectOn: any;
+    selectOnDelay: number;
+    selectThen: EventEmitter<{}>;
+    constructor(element: ElementRef);
+    ngOnChanges(changes: any): void;
+}
 export declare class VarDirective {
     var: any;
 }
