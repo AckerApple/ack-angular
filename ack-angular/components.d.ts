@@ -1,4 +1,20 @@
 import { EventEmitter, ElementRef } from "@angular/core";
+export declare class FocusOn {
+    element: ElementRef;
+    focusOn: any;
+    focusOnDelay: number;
+    focusThen: EventEmitter<{}>;
+    constructor(element: ElementRef);
+    ngOnChanges(changes: any): void;
+}
+export declare class SelectOn {
+    element: ElementRef;
+    selectOn: any;
+    selectOnDelay: number;
+    selectThen: EventEmitter<{}>;
+    constructor(element: ElementRef);
+    ngOnChanges(changes: any): void;
+}
 export declare class VarDirective {
     var: any;
 }
@@ -146,6 +162,8 @@ export declare class ErrorWell {
 /** runs shake instructions when condition returns a truthy value */
 export declare class ShakeOn {
     element: ElementRef;
+    timeout: any;
+    shakeConstant: boolean;
     shakeOn: any;
     shakeThen: EventEmitter<{}>;
     shakeForMs: any;
@@ -156,10 +174,11 @@ export declare class ShakeOn {
     shakeRefChange: EventEmitter<{}>;
     shakeTypes: string[];
     constructor(element: ElementRef);
-    ngAfterContentChecked(): void;
+    ngOnInit(): void;
     update(): void;
     ngOnChanges(changes: any): void;
     onFalse(): void;
+    applyType(): void;
     onTrue(): void;
 }
 /** runs shake instructions when model changes to a truthy value */

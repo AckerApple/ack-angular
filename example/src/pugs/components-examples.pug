@@ -1,4 +1,3 @@
-h3 Common Components
 .pad-h
   p.margin-bottom-0 Import Example
   .pad-h.text-warning.text-xs
@@ -11,7 +10,76 @@ h3 Common Components
       declarations:ackDecs
     &#125;)
 
+br
+
+h4.margin-bottom-0 Table of Contents
+ul
+  li
+    a(href="#Common Components" pageScroll) Common Components
+  li
+    a(href="#Layout Components" pageScroll) Layout Components
+  li
+    a(href="#Complex Components" pageScroll) Complex Components
+
+br
+
+h3.margin-bottom-0(id="Common Components") Common Components
 .flex-wrap.child-margin-xxs
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 focusOn
+        .text-grey-2x.max-width-400
+          |element focus on demand
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewFocusOn=!viewFocusOn" "[ngClass]"="viewFocusOn?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewFocusOn" "[@500]"="'fadeInUp'")
+      .pad.text-center.flex-wrap.child-margin-xxs
+        div
+          button.text-lg((click)="focusOn=1") focus input
+        .flex-1
+          input.width-full.text-lg("[(focusOn)]"="focusOn" "(focusThen)"="focusOn=0" "[focusOnDelay]"="focusOnDelay" placeholder="focus target")
+        div
+          input.text-lg.width-100(type="number" "[(ngModel)]"="focusOnDelay" placeholder="delay")
+          |ms
+
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;button (click)="focusOn=1"&gt; focus input &lt;/button&gt;
+          &lt;input [(focusOn)]="focusOn" (focusThen)="focusOn=0" [focusOnDelay]="focusOnDelay" placeholder="focus target" /&gt;
+          &lt;input type="number" [(ngModel)]="focusOnDelay" placeholder="delay" /&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 selectOn
+        .text-grey-2x.max-width-400
+          |element select on demand
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewSelectOn=!viewSelectOn" "[ngClass]"="viewSelectOn?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewSelectOn" "[@500]"="'fadeInUp'")
+      .pad.text-center.flex-wrap.child-margin-xxs
+        div
+          button.text-lg((click)="selectOn=1") select input
+        .flex-1
+          input.width-full.text-lg("[(selectOn)]"="selectOn" "(selectThen)"="selectOn=0" "[selectOnDelay]"="selectOnDelay" placeholder="select target" value="test to select")
+        div
+          input.text-lg.width-100(type="number" "[(ngModel)]"="selectOnDelay" placeholder="delay")
+          |ms
+
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-y
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;button (click)="selectOn=1"&gt; select input &lt;/button&gt;
+          &lt;input [(selectOn)]="selectOn" (selectThen)="selectOn=0" [selectOnDelay]="selectOnDelay" placeholder="select target" value="test to select" /&gt;
+          &lt;input type="number" [(ngModel)]="selectOnDelay" placeholder="delay" /&gt;
+
+
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
@@ -166,7 +234,7 @@ h3 Common Components
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-y
         pre.code-sample.margin-0(ngNonBindable).
-          &lt;div("[(screenWidthModel)]"="screenWidthModel")&gt;
+          &lt;div [(screenWidthModel)]="screenWidthModel"&gt;
           &nbsp;&nbsp;screenWidthModel : {{ screenWidthModel }}px
           &lt;/div&gt;
 
@@ -185,7 +253,7 @@ h3 Common Components
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-y
         pre.code-sample.margin-0(ngNonBindable).
-          &lt;div("[(screenHeightModel)]"="screenHeightModel")&gt;
+          &lt;div "[(screenHeightModel)]"="screenHeightModel"&gt;
           &nbsp;&nbsp;screenHeightModel : {{ screenHeightModel }}px
           &lt;/div&gt;
 
@@ -203,7 +271,7 @@ h3 Common Components
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-y
         pre.code-sample.margin-0(ngNonBindable).
-          &lt;div("[(elementHeightModel)]"="elementHeightModel")&gt;
+          &lt;div [(elementHeightModel)]="elementHeightModel"&gt;
           &nbsp;&nbsp;elementHeightModel : {{ elementHeightModel }}px
           &lt;/div&gt;
 
@@ -370,32 +438,51 @@ h3 Common Components
             li ack-angular/ack-angular.css
             li - or -
             li ack-angular/csshake.css
-      h4.pad-sm.margin-0 Example
-      .pad
-        label([shakeOn]="shakeOn" "(shakeThen)"="shakeOn=false" "[(shakeRef)]"="shakeRef" "[(shakeForMs)]"="shakeForMs" "[(shakeType)]"="shakeOnType")
-          |shake this text :: {{ shakeOn||false }}
-        |&nbsp;
-        button("(click)"="shakeOn=!shakeOn") shake:{{shakeOn||false}}
-        |&nbsp;
-        select("[(ngModel)]"="shakeOnType" "(change)"="shakeOn=true")
-          option(*ngFor="let item of (shakeRef?shakeRef.shakeTypes:[])" value="{{item}}") {{item}}
-        |&nbsp;
-        input("[(ngModel)]"="shakeForMs" "(change)"="shakeOn=true")
+      h4.pad-h-sm.margin-0 Example
+      .flex-wrap.child-pad-h-xs.pad-h
+        div
+          label.block &nbsp;
+          label([shakeOn]="shakeOn" "(shakeThen)"="shakeOn=false" "[(shakeRef)]"="shakeRef" "[(shakeForMs)]"="shakeForMs" "[(shakeType)]"="shakeOnType" "[(shakeConstant)]"="shakeConstant")
+            |shake this text
+        .width-100
+          label &nbsp;
+          button.width-full("(click)"="shakeOn=!shakeOn") shake:{{shakeOn||false}}
+        div
+          label &nbsp;
+          a.pad-h.border.border-positive.text-positive.block.text-center.hover-bg-positive.hover-text-white("(mouseover)"="shakeOn=true" "(mouseout)"="shakeOn=false")
+            |hover me
+        div
+          label shakeType
+          select.width-full("[(ngModel)]"="shakeOnType" "(change)"="shakeOn=true")
+            option(*ngFor="let item of (shakeRef?shakeRef.shakeTypes:[])" value="{{item}}") {{item}}
+        div
+          label &nbsp;
+          div
+            input(type="checkbox" id="shakeConstant" "[(ngModel)]"="shakeConstant" "(change)"="shakeOn=$event.target.checked")
+            |&nbsp;
+            label(for="shakeConstant") shakeConstant
+        div
+          label shakeForMs
+          div
+            input.width-100("[(ngModel)]"="shakeForMs" "(change)"="shakeOn=true")
 
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-y
         pre.code-sample.margin-0(ngNonBindable).
           &lt;label [shakeOn]="shakeOn" (shakeThen)="shakeOn=false" [(shakeRef)]="shakeRef" [(shakeForMs)]="shakeForMs" [(shakeType)]="shakeOnType"&gt;
-            |shake this text :: {{ shakeOn||false }}
+            shake this text :: {{ shakeOn||false }}
           &lt;/label&gt;
           &lt;button (click)="shakeOn=true"&gt; shake:{{shakeOn||false}} &lt;/button&gt;
+          &lt;a (mouseover)="shakeOn=true" (mouseout)="shakeOn=false"&gt;
+            hover me
+          &lt;/a&gt;
           &lt;select [(ngModel)]="shakeOnType" (change)="shakeOn=true"&gt;
             &lt;option *ngFor="let item of (shakeRef?shakeRef.shakeTypes:[])" value="{{item}}"&gt;{{item}}&lt;/option&gt;
           &lt;/select&gt;
+          &lt;input type="checkbox" id="shakeConstant" [(ngModel)]="shakeConstant" (change)="shakeOn=$event.target.checked" /&gt;
           &lt;input [(ngModel)]="shakeForMs" (change)="shakeOn=true" /&gt;
-
 br
-h3.margin-bottom-0 Layout Components
+h3.margin-bottom-0(id="Layout Components") Layout Components
 .pad
   .pad.bg-warning.border-warning.text-warning.border
     |You will need to &lt;link&gt; one of two style sheets:
@@ -475,7 +562,7 @@ h3.margin-bottom-0 Layout Components
           &lt;button("(click)"="causeError()") cause error &lt;/button&gt;
 
 br
-h3 Complex Components
+h3(id="Complex Components") Complex Components
 .pad-h
   p.margin-bottom-0 Components that have additional dependencies or restrictions
 .flex-wrap.child-margin-xxs

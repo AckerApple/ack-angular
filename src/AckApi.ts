@@ -63,9 +63,9 @@ import { AckQue } from './AckQue';
   }
 
   /** method all request transactions tunnel thru to instead try for cache first
-    @method:GET,POST,DELETE,PUT
-    @url
     @config - {
+      url:string
+      method:string - GET,POST,DELETE,PUT
       queModel:{
         name, maxTry:50, expires||maxAge, allowExpired
       }

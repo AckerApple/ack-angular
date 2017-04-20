@@ -14,6 +14,44 @@ import { string as errorWell } from "./templates/error-well.pug"
 import { string as absoluteOverflowY } from "./templates/absolute-overflow-y.pug"
 
 @Directive({
+  selector:'[focusOn]'
+}) export class FocusOn{
+  @Input() focusOn
+  @Input() focusOnDelay=0
+  @Output() focusThen = new EventEmitter()
+
+  constructor(public element:ElementRef){}
+
+  ngOnChanges(changes){
+    if(changes.focusOn && changes.focusOn.currentValue){
+      setTimeout(()=>{
+        this.element.nativeElement.focus();
+        this.focusThen.emit();
+      }, this.focusOnDelay);
+    }
+  }
+}
+
+@Directive({
+  selector:'[selectOn]'
+}) export class SelectOn{
+  @Input() selectOn
+  @Input() selectOnDelay=0
+  @Output() selectThen = new EventEmitter()
+
+  constructor(public element:ElementRef){}
+
+  ngOnChanges(changes){
+    if(changes.selectOn && changes.selectOn.currentValue){
+      setTimeout(()=>{
+        this.element.nativeElement.select();
+        this.selectThen.emit();
+      }, this.selectOnDelay);
+    }
+  }
+}
+
+@Directive({
   selector: '[var]',
   exportAs: 'var'
 }) export class VarDirective {
@@ -471,6 +509,10 @@ export class StatusOfflineModel{
 @Directive({
   selector:'[shakeOn]'
 }) export class ShakeOn {
+  public timeout
+
+  @Input() public shakeConstant = false
+
   @Input() public shakeOn
   @Output() public shakeThen = new EventEmitter()
 
@@ -488,7 +530,7 @@ export class StatusOfflineModel{
   constructor(public element:ElementRef){
   }
 
-  ngAfterContentChecked(){
+  ngOnInit(){
     setTimeout(()=>this.update(), 0)
   }
 
@@ -503,25 +545,43 @@ export class StatusOfflineModel{
   }
 
   ngOnChanges(changes){
-    if(changes.shakeOn && changes.shakeOn.currentValue && changes.shakeOn.currentValue!=changes.shakeOn.previousValue){
-      this.onTrue()
+    if (changes.shakeOn && changes.shakeOn.currentValue!=null && changes.shakeOn.currentValue!=changes.shakeOn.previousValue) {
+      if(changes.shakeOn.currentValue){
+        this.onTrue();
+      }else{
+        this.onFalse();
+      }
+    }
+
+    if(changes.shakeType && changes.shakeType.currentValue!=changes.shakeType.previousValue){
+      this.applyType()
     }
   }
 
   onFalse(){
     removeClass(this.element.nativeElement, 'shake-constant')
     removeClass(this.element.nativeElement, this.shakeType||'shake-slow')
+    if(this.timeout){
+      clearTimeout(this.timeout)
+      this.timeout = null
+    }
+  }
+
+  applyType(){
+    addClass(this.element.nativeElement, this.shakeType||'shake-slow')
   }
 
   onTrue(){
     addClass(this.element.nativeElement, 'shake-constant')
-    addClass(this.element.nativeElement, this.shakeType||'shake-slow')
+    this.applyType()
 
-    setTimeout(()=>{
-      //$scope.shakeOnController.shakeOn = false
-      this.onFalse()
-      this.shakeThen.emit(this)
-    }, this.shakeForMs);
+    if(!this.shakeConstant){
+      this.timeout = setTimeout(()=>{
+        //$scope.shakeOnController.shakeOn = false
+        this.onFalse()
+        this.shakeThen.emit(this)
+      }, this.shakeForMs);
+    }
   }
 
 }
@@ -615,6 +675,8 @@ export function removeClass(el, className) {
 
 export const declarations = [
   //directives
+  SelectOn,
+  FocusOn,
   VarDirective,
   InnerHtmlModel,
   OnFormAlter,

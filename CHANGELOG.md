@@ -1,6 +1,10 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.2.20] - 2017-04-18
+### Added
+- jsDependency of @angular/forms
+
 ## [0.2.17] - 2017-04-13
 ### Added
 - safeHtml

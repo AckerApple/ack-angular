@@ -5,6 +5,70 @@ var prefx_1 = require("./prefx");
 var reader_header_body_pug_1 = require("./templates/reader-header-body.pug");
 var error_well_pug_1 = require("./templates/error-well.pug");
 var absolute_overflow_y_pug_1 = require("./templates/absolute-overflow-y.pug");
+var FocusOn = (function () {
+    function FocusOn(element) {
+        this.element = element;
+        this.focusOnDelay = 0;
+        this.focusThen = new core_1.EventEmitter();
+    }
+    FocusOn.prototype.ngOnChanges = function (changes) {
+        var _this = this;
+        if (changes.focusOn && changes.focusOn.currentValue) {
+            setTimeout(function () {
+                _this.element.nativeElement.focus();
+                _this.focusThen.emit();
+            }, this.focusOnDelay);
+        }
+    };
+    return FocusOn;
+}());
+FocusOn.decorators = [
+    { type: core_1.Directive, args: [{
+                selector: '[focusOn]'
+            },] },
+];
+/** @nocollapse */
+FocusOn.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
+FocusOn.propDecorators = {
+    'focusOn': [{ type: core_1.Input },],
+    'focusOnDelay': [{ type: core_1.Input },],
+    'focusThen': [{ type: core_1.Output },],
+};
+exports.FocusOn = FocusOn;
+var SelectOn = (function () {
+    function SelectOn(element) {
+        this.element = element;
+        this.selectOnDelay = 0;
+        this.selectThen = new core_1.EventEmitter();
+    }
+    SelectOn.prototype.ngOnChanges = function (changes) {
+        var _this = this;
+        if (changes.selectOn && changes.selectOn.currentValue) {
+            setTimeout(function () {
+                _this.element.nativeElement.select();
+                _this.selectThen.emit();
+            }, this.selectOnDelay);
+        }
+    };
+    return SelectOn;
+}());
+SelectOn.decorators = [
+    { type: core_1.Directive, args: [{
+                selector: '[selectOn]'
+            },] },
+];
+/** @nocollapse */
+SelectOn.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
+SelectOn.propDecorators = {
+    'selectOn': [{ type: core_1.Input },],
+    'selectOnDelay': [{ type: core_1.Input },],
+    'selectThen': [{ type: core_1.Output },],
+};
+exports.SelectOn = SelectOn;
 var VarDirective = (function () {
     function VarDirective() {
     }
@@ -615,13 +679,14 @@ exports.ErrorWell = ErrorWell;
 var ShakeOn = (function () {
     function ShakeOn(element) {
         this.element = element;
+        this.shakeConstant = false;
         this.shakeThen = new core_1.EventEmitter();
         this.shakeForMsChange = new core_1.EventEmitter();
         this.shakeTypeChange = new core_1.EventEmitter();
         this.shakeRefChange = new core_1.EventEmitter();
         this.shakeTypes = ['shake-slow', 'shake-hard', 'shake-little', 'shake-horizontal', 'shake-vertical', 'shake-rotate', 'shake-opacity', 'shake-crazy'];
     }
-    ShakeOn.prototype.ngAfterContentChecked = function () {
+    ShakeOn.prototype.ngOnInit = function () {
         var _this = this;
         setTimeout(function () { return _this.update(); }, 0);
     };
@@ -634,23 +699,40 @@ var ShakeOn = (function () {
         this.shakeForMsChange.emit(this.shakeForMs);
     };
     ShakeOn.prototype.ngOnChanges = function (changes) {
-        if (changes.shakeOn && changes.shakeOn.currentValue && changes.shakeOn.currentValue != changes.shakeOn.previousValue) {
-            this.onTrue();
+        if (changes.shakeOn && changes.shakeOn.currentValue != null && changes.shakeOn.currentValue != changes.shakeOn.previousValue) {
+            if (changes.shakeOn.currentValue) {
+                this.onTrue();
+            }
+            else {
+                this.onFalse();
+            }
+        }
+        if (changes.shakeType && changes.shakeType.currentValue != changes.shakeType.previousValue) {
+            this.applyType();
         }
     };
     ShakeOn.prototype.onFalse = function () {
         removeClass(this.element.nativeElement, 'shake-constant');
         removeClass(this.element.nativeElement, this.shakeType || 'shake-slow');
+        if (this.timeout) {
+            clearTimeout(this.timeout);
+            this.timeout = null;
+        }
+    };
+    ShakeOn.prototype.applyType = function () {
+        addClass(this.element.nativeElement, this.shakeType || 'shake-slow');
     };
     ShakeOn.prototype.onTrue = function () {
         var _this = this;
         addClass(this.element.nativeElement, 'shake-constant');
-        addClass(this.element.nativeElement, this.shakeType || 'shake-slow');
-        setTimeout(function () {
-            //$scope.shakeOnController.shakeOn = false
-            _this.onFalse();
-            _this.shakeThen.emit(_this);
-        }, this.shakeForMs);
+        this.applyType();
+        if (!this.shakeConstant) {
+            this.timeout = setTimeout(function () {
+                //$scope.shakeOnController.shakeOn = false
+                _this.onFalse();
+                _this.shakeThen.emit(_this);
+            }, this.shakeForMs);
+        }
     };
     return ShakeOn;
 }());
@@ -664,6 +746,7 @@ ShakeOn.ctorParameters = function () { return [
     { type: core_1.ElementRef, },
 ]; };
 ShakeOn.propDecorators = {
+    'shakeConstant': [{ type: core_1.Input },],
     'shakeOn': [{ type: core_1.Input },],
     'shakeThen': [{ type: core_1.Output },],
     'shakeForMs': [{ type: core_1.Input },],
@@ -763,6 +846,8 @@ function removeClass(el, className) {
 exports.removeClass = removeClass;
 exports.declarations = [
     //directives
+    SelectOn,
+    FocusOn,
     VarDirective,
     InnerHtmlModel,
     OnFormAlter,

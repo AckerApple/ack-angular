@@ -36,33 +36,33 @@ reader-header-body.font-helvetica
 
   reader-body.line-height-2x(style="font-size:16px;")
     .height-full.bg-white.border-grey-3x.border-left-1.border-right-1("[ngStyle]"="isSwaping?{'overflow-x':'hidden'}:null")
-      .pos-rel.text-left.height-full([ngStyle]="{'max-width':screenWidthModel+'px'}")
-        .pad-xs(*ngIf="stateName=='overview'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+      .pos-rel.text-left.height-full.pad-top-lg("[ngStyle]"="{'max-width':screenWidthModel+'px'}" "[ngClass]"="screenWidthModel>900?'child-pad-h-lg':'child-pad-h-sm'")
+        div(*ngIf="stateName=='overview'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
           h2.margin-top-0 Overview
           overview-examples
           +top
 
-        .pad-xs(*ngIf="stateName=='components'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+        div(*ngIf="stateName=='components'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
           h2.margin-top-0 Components
           components-examples
           +top
 
-        .pad-xs(*ngIf="stateName=='pipes'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+        div(*ngIf="stateName=='pipes'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
           h2.margin-top-0 Pipes
           pipes-examples
           +top
 
-        //-.pad-xs(*ngIf="stateName=='services'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+        //-div(*ngIf="stateName=='services'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
           h2.margin-top-0 Services
           services-examples
           +top
 
-        .pad-xs(*ngIf="stateName=='animations'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+        div(*ngIf="stateName=='animations'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
           h2.margin-top-0 Animations
           animation-examples
           +top
 
-        .pad-xs(*ngIf="stateName=='providers'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+        div(*ngIf="stateName=='providers'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
           h2.margin-top-0 Providers
           provider-examples
           +top
