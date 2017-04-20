@@ -163,6 +163,7 @@ export declare class ErrorWell {
 export declare class ShakeOn {
     element: ElementRef;
     timeout: any;
+    shakeConstant: boolean;
     shakeOn: any;
     shakeThen: EventEmitter<{}>;
     shakeForMs: any;
@@ -177,6 +178,7 @@ export declare class ShakeOn {
     update(): void;
     ngOnChanges(changes: any): void;
     onFalse(): void;
+    applyType(): void;
     onTrue(): void;
 }
 /** runs shake instructions when model changes to a truthy value */

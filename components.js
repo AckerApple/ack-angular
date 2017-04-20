@@ -679,6 +679,7 @@ exports.ErrorWell = ErrorWell;
 var ShakeOn = (function () {
     function ShakeOn(element) {
         this.element = element;
+        this.shakeConstant = false;
         this.shakeThen = new core_1.EventEmitter();
         this.shakeForMsChange = new core_1.EventEmitter();
         this.shakeTypeChange = new core_1.EventEmitter();
@@ -706,6 +707,9 @@ var ShakeOn = (function () {
                 this.onFalse();
             }
         }
+        if (changes.shakeType && changes.shakeType.currentValue != changes.shakeType.previousValue) {
+            this.applyType();
+        }
     };
     ShakeOn.prototype.onFalse = function () {
         removeClass(this.element.nativeElement, 'shake-constant');
@@ -715,15 +719,20 @@ var ShakeOn = (function () {
             this.timeout = null;
         }
     };
+    ShakeOn.prototype.applyType = function () {
+        addClass(this.element.nativeElement, this.shakeType || 'shake-slow');
+    };
     ShakeOn.prototype.onTrue = function () {
         var _this = this;
         addClass(this.element.nativeElement, 'shake-constant');
-        addClass(this.element.nativeElement, this.shakeType || 'shake-slow');
-        this.timeout = setTimeout(function () {
-            //$scope.shakeOnController.shakeOn = false
-            _this.onFalse();
-            _this.shakeThen.emit(_this);
-        }, this.shakeForMs);
+        this.applyType();
+        if (!this.shakeConstant) {
+            this.timeout = setTimeout(function () {
+                //$scope.shakeOnController.shakeOn = false
+                _this.onFalse();
+                _this.shakeThen.emit(_this);
+            }, this.shakeForMs);
+        }
     };
     return ShakeOn;
 }());
@@ -737,6 +746,7 @@ ShakeOn.ctorParameters = function () { return [
     { type: core_1.ElementRef, },
 ]; };
 ShakeOn.propDecorators = {
+    'shakeConstant': [{ type: core_1.Input },],
     'shakeOn': [{ type: core_1.Input },],
     'shakeThen': [{ type: core_1.Output },],
     'shakeForMs': [{ type: core_1.Input },],
