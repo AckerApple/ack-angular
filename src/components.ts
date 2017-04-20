@@ -525,7 +525,11 @@ export class StatusOfflineModel{
   @Input() public shakeRef
   @Output() public shakeRefChange = new EventEmitter()
   
-  public shakeTypes = ['shake-slow','shake-hard','shake-little','shake-horizontal','shake-vertical','shake-rotate','shake-opacity','shake-crazy']
+  public shakeTypes = [
+    'shake-slow','shake-hard','shake-little','shake-horizontal',
+    'shake-vertical','shake-rotate','shake-opacity','shake-crazy',
+    'shake-chunk'
+  ]
 
   constructor(public element:ElementRef){
   }
@@ -554,17 +558,26 @@ export class StatusOfflineModel{
     }
 
     if(changes.shakeType && changes.shakeType.currentValue!=changes.shakeType.previousValue){
-      this.applyType()
+      if(this.shakeOn){
+        removeClass(this.element.nativeElement, changes.shakeType.previousValue)
+        this.applyType()
+      }else{
+        this.removeType()        
+      }
     }
   }
 
   onFalse(){
     removeClass(this.element.nativeElement, 'shake-constant')
-    removeClass(this.element.nativeElement, this.shakeType||'shake-slow')
+    this.removeType()
     if(this.timeout){
       clearTimeout(this.timeout)
       this.timeout = null
     }
+  }
+
+  removeType(){
+    removeClass(this.element.nativeElement, this.shakeType||'shake-slow')
   }
 
   applyType(){
@@ -583,72 +596,7 @@ export class StatusOfflineModel{
       }, this.shakeForMs);
     }
   }
-
 }
-/** runs shake instructions when model changes to a truthy value */
-//.directive('shakeModel', shakeModel)
-/*
-function shakeOnDirective($timeout) {
-  return {
-    restrict:'A',
-    scope:{},
-    bindToController:{
-      shakeOn:'=?', shakeForMs:'=?', shakeType:'=?', shakeThen:'&', shakeRef:'=?'
-    },
-    controller:shakeOn,
-    controllerAs:'shakeOnController',
-    link: function($scope, element, attrs){}
-  };
-}
-shakeOnDirective.$inject=['$timeout']
-*/
-
-/** runs shake instructions when model changes to a truthy value */
-/*
-function shakeModel($timeout) {
-  return {
-    restrict:'A',
-    scope:{},
-    bindToController:{
-      shakeModel:'=?', shakeForMs:'=?', shakeType:'=?', shakeRef:'=?'
-    },
-    controller:shakeOn,
-    controllerAs:'shakeModelController',
-    link: function($scope, element, attrs) {
-      $scope.shakeModelController.shakeForMs = $scope.shakeModelController.shakeForMs || 2000
-      $scope.shakeModelController.shakeType = $scope.shakeModelController.shakeType || 'shake-slow'
-
-      function onTrue(){
-        element.addClass('shake-constant')
-        element.addClass($scope.shakeModelController.shakeType)
-
-        $timeout(function() {
-          $scope.shakeModelController.shakeModel = false
-          element.removeClass('shake-constant')
-          element.removeClass($scope.shakeModelController.shakeType)
-          $scope.$apply()
-        }, $scope.shakeModelController.shakeForMs);
-      }
-
-      function onChange(value) {
-        if(value) {
-          onTrue()
-        }else{
-          element.removeClass('shake-constant')
-          element.removeClass($scope.shakeModelController.shakeType)
-        }
-      }
-
-      function watch(){
-        return $scope.shakeModelController.shakeModel
-      }
-
-      $scope.$watch(watch, onChange);
-    }
-  };
-}
-shakeModel.$inject = ['$timeout']
-*/
 
 export function hasClass(el, className) {
   if (el.classList)

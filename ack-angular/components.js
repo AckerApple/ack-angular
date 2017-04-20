@@ -684,7 +684,11 @@ var ShakeOn = (function () {
         this.shakeForMsChange = new core_1.EventEmitter();
         this.shakeTypeChange = new core_1.EventEmitter();
         this.shakeRefChange = new core_1.EventEmitter();
-        this.shakeTypes = ['shake-slow', 'shake-hard', 'shake-little', 'shake-horizontal', 'shake-vertical', 'shake-rotate', 'shake-opacity', 'shake-crazy'];
+        this.shakeTypes = [
+            'shake-slow', 'shake-hard', 'shake-little', 'shake-horizontal',
+            'shake-vertical', 'shake-rotate', 'shake-opacity', 'shake-crazy',
+            'shake-chunk'
+        ];
     }
     ShakeOn.prototype.ngOnInit = function () {
         var _this = this;
@@ -708,16 +712,25 @@ var ShakeOn = (function () {
             }
         }
         if (changes.shakeType && changes.shakeType.currentValue != changes.shakeType.previousValue) {
-            this.applyType();
+            if (this.shakeOn) {
+                removeClass(this.element.nativeElement, changes.shakeType.previousValue);
+                this.applyType();
+            }
+            else {
+                this.removeType();
+            }
         }
     };
     ShakeOn.prototype.onFalse = function () {
         removeClass(this.element.nativeElement, 'shake-constant');
-        removeClass(this.element.nativeElement, this.shakeType || 'shake-slow');
+        this.removeType();
         if (this.timeout) {
             clearTimeout(this.timeout);
             this.timeout = null;
         }
+    };
+    ShakeOn.prototype.removeType = function () {
+        removeClass(this.element.nativeElement, this.shakeType || 'shake-slow');
     };
     ShakeOn.prototype.applyType = function () {
         addClass(this.element.nativeElement, this.shakeType || 'shake-slow');
@@ -757,69 +770,6 @@ ShakeOn.propDecorators = {
     'shakeRefChange': [{ type: core_1.Output },],
 };
 exports.ShakeOn = ShakeOn;
-/** runs shake instructions when model changes to a truthy value */
-//.directive('shakeModel', shakeModel)
-/*
-function shakeOnDirective($timeout) {
-  return {
-    restrict:'A',
-    scope:{},
-    bindToController:{
-      shakeOn:'=?', shakeForMs:'=?', shakeType:'=?', shakeThen:'&', shakeRef:'=?'
-    },
-    controller:shakeOn,
-    controllerAs:'shakeOnController',
-    link: function($scope, element, attrs){}
-  };
-}
-shakeOnDirective.$inject=['$timeout']
-*/
-/** runs shake instructions when model changes to a truthy value */
-/*
-function shakeModel($timeout) {
-  return {
-    restrict:'A',
-    scope:{},
-    bindToController:{
-      shakeModel:'=?', shakeForMs:'=?', shakeType:'=?', shakeRef:'=?'
-    },
-    controller:shakeOn,
-    controllerAs:'shakeModelController',
-    link: function($scope, element, attrs) {
-      $scope.shakeModelController.shakeForMs = $scope.shakeModelController.shakeForMs || 2000
-      $scope.shakeModelController.shakeType = $scope.shakeModelController.shakeType || 'shake-slow'
-
-      function onTrue(){
-        element.addClass('shake-constant')
-        element.addClass($scope.shakeModelController.shakeType)
-
-        $timeout(function() {
-          $scope.shakeModelController.shakeModel = false
-          element.removeClass('shake-constant')
-          element.removeClass($scope.shakeModelController.shakeType)
-          $scope.$apply()
-        }, $scope.shakeModelController.shakeForMs);
-      }
-
-      function onChange(value) {
-        if(value) {
-          onTrue()
-        }else{
-          element.removeClass('shake-constant')
-          element.removeClass($scope.shakeModelController.shakeType)
-        }
-      }
-
-      function watch(){
-        return $scope.shakeModelController.shakeModel
-      }
-
-      $scope.$watch(watch, onChange);
-    }
-  };
-}
-shakeModel.$inject = ['$timeout']
-*/
 function hasClass(el, className) {
     if (el.classList)
         return el.classList.contains(className);
