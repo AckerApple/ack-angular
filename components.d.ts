@@ -162,6 +162,7 @@ export declare class ErrorWell {
 /** runs shake instructions when condition returns a truthy value */
 export declare class ShakeOn {
     element: ElementRef;
+    timeout: any;
     shakeOn: any;
     shakeThen: EventEmitter<{}>;
     shakeForMs: any;

@@ -698,19 +698,28 @@ var ShakeOn = (function () {
         this.shakeForMsChange.emit(this.shakeForMs);
     };
     ShakeOn.prototype.ngOnChanges = function (changes) {
-        if (changes.shakeOn && changes.shakeOn.currentValue && changes.shakeOn.currentValue != changes.shakeOn.previousValue) {
-            this.onTrue();
+        if (changes.shakeOn && changes.shakeOn.currentValue != null && changes.shakeOn.currentValue != changes.shakeOn.previousValue) {
+            if (changes.shakeOn.currentValue) {
+                this.onTrue();
+            }
+            else {
+                this.onFalse();
+            }
         }
     };
     ShakeOn.prototype.onFalse = function () {
         removeClass(this.element.nativeElement, 'shake-constant');
         removeClass(this.element.nativeElement, this.shakeType || 'shake-slow');
+        if (this.timeout) {
+            clearTimeout(this.timeout);
+            this.timeout = null;
+        }
     };
     ShakeOn.prototype.onTrue = function () {
         var _this = this;
         addClass(this.element.nativeElement, 'shake-constant');
         addClass(this.element.nativeElement, this.shakeType || 'shake-slow');
-        setTimeout(function () {
+        this.timeout = setTimeout(function () {
             //$scope.shakeOnController.shakeOn = false
             _this.onFalse();
             _this.shakeThen.emit(_this);
