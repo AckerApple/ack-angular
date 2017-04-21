@@ -4,7 +4,7 @@ var core_1 = require("@angular/core");
 var prefx_1 = require("./prefx");
 var reader_header_body_pug_1 = require("./templates/reader-header-body.pug");
 var error_well_pug_1 = require("./templates/error-well.pug");
-var absolute_overflow_y_pug_1 = require("./templates/absolute-overflow-y.pug");
+var absolute_overflow_x_pug_1 = require("./templates/absolute-overflow-x.pug");
 var FocusOn = (function () {
     function FocusOn(element) {
         this.element = element;
@@ -627,23 +627,23 @@ ScreenHeightModel.propDecorators = {
     'screenHeightModelChange': [{ type: core_1.Output },],
 };
 exports.ScreenHeightModel = ScreenHeightModel;
-var AbsoluteOverflowY = (function () {
-    function AbsoluteOverflowY() {
+var AbsoluteOverflowX = (function () {
+    function AbsoluteOverflowX() {
     }
-    return AbsoluteOverflowY;
+    return AbsoluteOverflowX;
 }());
-AbsoluteOverflowY.decorators = [
+AbsoluteOverflowX.decorators = [
     { type: core_1.Component, args: [{
-                selector: 'absolute-overflow-y',
-                template: absolute_overflow_y_pug_1.string
+                selector: 'absolute-overflow-x',
+                template: absolute_overflow_x_pug_1.string
             },] },
 ];
 /** @nocollapse */
-AbsoluteOverflowY.ctorParameters = function () { return []; };
-AbsoluteOverflowY.propDecorators = {
+AbsoluteOverflowX.ctorParameters = function () { return []; };
+AbsoluteOverflowX.propDecorators = {
     'scrollBars': [{ type: core_1.Input },],
 };
-exports.AbsoluteOverflowY = AbsoluteOverflowY;
+exports.AbsoluteOverflowX = AbsoluteOverflowX;
 var ErrorWell = (function () {
     function ErrorWell() {
         this.message = 'Unexpected Error Occured';
@@ -818,7 +818,7 @@ exports.declarations = [
     ReaderHeader,
     ReaderBody,
     ErrorWell,
-    AbsoluteOverflowY,
+    AbsoluteOverflowX,
     InputHint,
     AckModal
 ];

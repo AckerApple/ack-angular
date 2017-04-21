@@ -149,7 +149,7 @@ export declare class ScreenHeightModel {
     setModel(): void;
     ngOnDestroy(): void;
 }
-export declare class AbsoluteOverflowY {
+export declare class AbsoluteOverflowX {
     scrollBars: any;
 }
 export declare class ErrorWell {

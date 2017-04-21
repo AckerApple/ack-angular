@@ -34,6 +34,7 @@ var RouteReporter = (function () {
         setTimeout(function () {
             _this.ref = _this.RouteWatchReporter;
             _this.refChange.emit(_this.ref);
+            _this.stateChanger.emit(_this.RouteWatchReporter);
         }, 0);
         if (this.onLoad) {
             this.onLoad({
