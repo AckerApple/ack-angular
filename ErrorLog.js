@@ -75,7 +75,7 @@ ErrorLog.decorators = [
 ErrorLog.ctorParameters = function () { return []; };
 exports.ErrorLog = ErrorLog;
 function logObToErrorObject(log) {
-    var e = new Error(log.message || log.name || 'Unexpected Error Occured');
+    var e = new Error(log.message || log.statusText || log.name || 'Unexpected Error Occured');
     Object.keys(log).forEach(function (v) { return e[v] = log[v]; });
     return e;
 }
