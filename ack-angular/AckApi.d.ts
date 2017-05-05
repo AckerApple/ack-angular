@@ -60,8 +60,8 @@ export declare class AckApi {
         params:{}//url parameters
       }
     */
-    get(path: any, config: any): any;
-    post(path: any, data: any, config: any): any;
-    delete(path: any, config: any): any;
-    put(path: any, data: any, config: any): any;
+    get(path: any, config?: any): any;
+    post(path: any, data: any, config?: any): any;
+    delete(path: any, config?: any): any;
+    put(path: any, data: any, config?: any): any;
 }

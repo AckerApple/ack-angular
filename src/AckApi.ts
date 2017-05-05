@@ -236,14 +236,14 @@ import { AckQue } from './AckQue';
       params:{}//url parameters
     }
   */
-  get(path, config) {
+  get(path, config?) {
     const cfg = Object.assign({}, config)
     cfg.method = "GET"
     cfg.url = path
     return this.request( cfg )
   }
 
-  post(path, data, config) {
+  post(path, data, config?) {
     const cfg = Object.assign({}, config)
     cfg.method = "POST"
     //cfg.data = data
@@ -252,14 +252,14 @@ import { AckQue } from './AckQue';
     return this.request( cfg )
   }
 
-  delete(path, config) {
+  delete(path, config?) {
     const cfg = Object.assign({}, config)
     cfg.method = "DELETE"
     cfg.url = path
     return this.request( cfg )
   }
 
-  put(path, data, config) {
+  put(path, data, config?) {
     const cfg = Object.assign({}, config)
     cfg.method = "PUT"
     //cfg.data = data

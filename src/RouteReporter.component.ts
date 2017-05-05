@@ -26,15 +26,6 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
   constructor(public RouteWatchReporter:RouteWatchReporter){
     this.$document = document
     this.docCallbacks = RouteWatchReporter.getDocumentCallbacks()
-    
-    /*TransitionService.onStart({to:'*'}, transition=>{
-      this.beforeChanger.emit( this.RouteWatchReporter )
-    })
-
-    TransitionService.onSuccess({to:'*'}, transition=>{
-      //ensure smallest gap in digest occurs for things like animation swapping
-      setTimeout(()=>this.stateChanger.emit( this.RouteWatchReporter ), 0)
-    })*/
 
     RouteWatchReporter.router.events.subscribe(event=>{
       //if(event.constructor == NavigationStart){}
@@ -47,8 +38,6 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
     })
 
     RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks)
-    
-    this.ref = this.RouteWatchReporter
   }
 
   ngOnDestroy(){
@@ -56,7 +45,11 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
   }
 
   ngOnInit(){
-    setTimeout(()=>this.refChange.emit(this.ref), 0)
+    setTimeout(()=>{
+      this.ref = this.RouteWatchReporter
+      this.refChange.emit(this.ref)
+      this.stateChanger.emit(this.RouteWatchReporter)
+    }, 0)
 
     if(this.onLoad){
       this.onLoad({

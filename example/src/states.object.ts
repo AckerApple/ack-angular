@@ -7,13 +7,15 @@ import { Component} from '@angular/core';
 @Component({template:''}) export class Pipes{}
 @Component({template:''}) export class Animations{}
 @Component({template:''}) export class Providers{}
+@Component({template:''}) export class JjsWoz{}
 
 export const declarations = [
   Overview,
   Components,
   Pipes,
   Animations,
-  Providers
+  Providers,
+  JjsWoz
 ]
 
 export const routes = [
@@ -22,6 +24,7 @@ export const routes = [
   {name: 'pipes', path: 'pipes',  component: Pipes},
   {name: 'animations', path: 'animations',  component: Animations},
   {name: 'providers', path: 'providers',  component: Providers},
+  {name: 'jjswoz', path: 'jjswoz',  component: JjsWoz},
   {path: '',   redirectTo: 'overview', pathMatch: 'full' },//default route
   {path: '**',   redirectTo: 'overview' }//404
 ]

@@ -44,9 +44,9 @@ import { declarations as states, routing } from "./states.object"
   ,animations:fxArray
   //,animations:[]
   //,template:'Hello World<router-outlet></router-outlet>'
-  //,template:'Hello World<div *ngIf="show" [@500]="\'slideInLeft\'">Inner Content</div>'
+  //,template:'Hello World<div *ngIf="show" [@500]="\'slideInRight\'">Inner Content</div>'
 }) export class AppComponent {
-  public panelAnim = 'slideInLeft'
+  public panelAnim = 'slideInRight'
   public version = packJson['version']
 
   ngAfterViewInit(){
@@ -66,6 +66,14 @@ import { declarations as states, routing } from "./states.object"
   public list = ['abc','defg','hij','klm','opq','rst','uvx','yz']
   public delayArray = ackFx.delayArray
 }
+
+import {string as jjsWoz} from './templates/jjs-woz.pug'
+@Component({
+  selector: 'jjs-woz'
+  ,template: jjsWoz
+  //,animations:fxArray
+  //,animations:[]
+}) export class JjsWoz {}
 
 @Component({
   selector: 'overview-examples'
@@ -136,6 +144,7 @@ export const declarations = [
   ,PipesExamples
   //,ServicesExamples
   ,ProviderExamples
+  ,JjsWoz
   ,...states
 ]
 
@@ -157,7 +166,6 @@ import { HttpModule } from '@angular/http';
     ,AckModule//.forRoot()
     //,AckModule//.forRoot()
   ]
-  //,declarations: [ AppComponent ]
   ,declarations: declarations
   ,providers:[
     RouteWatchReporter

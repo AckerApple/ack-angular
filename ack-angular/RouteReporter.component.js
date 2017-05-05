@@ -16,14 +16,6 @@ var RouteReporter = (function () {
         this.refChange = new core_1.EventEmitter();
         this.$document = document;
         this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
-        /*TransitionService.onStart({to:'*'}, transition=>{
-          this.beforeChanger.emit( this.RouteWatchReporter )
-        })
-    
-        TransitionService.onSuccess({to:'*'}, transition=>{
-          //ensure smallest gap in digest occurs for things like animation swapping
-          setTimeout(()=>this.stateChanger.emit( this.RouteWatchReporter ), 0)
-        })*/
         RouteWatchReporter.router.events.subscribe(function (event) {
             //if(event.constructor == NavigationStart){}
             if (event.constructor == router_1.NavigationEnd) {
@@ -33,14 +25,17 @@ var RouteReporter = (function () {
             }
         });
         RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
-        this.ref = this.RouteWatchReporter;
     }
     RouteReporter.prototype.ngOnDestroy = function () {
         this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks);
     };
     RouteReporter.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.refChange.emit(_this.ref); }, 0);
+        setTimeout(function () {
+            _this.ref = _this.RouteWatchReporter;
+            _this.refChange.emit(_this.ref);
+            _this.stateChanger.emit(_this.RouteWatchReporter);
+        }, 0);
         if (this.onLoad) {
             this.onLoad({
                 state: this.RouteWatchReporter.current,

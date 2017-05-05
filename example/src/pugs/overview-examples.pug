@@ -5,6 +5,8 @@ p.pad-h
 h4 Table of Contents
 ul.margin-top-0
   li
+    a(href="#Install ack-angular" pageScroll) Install ack-angular
+  li
     a(href="#Import AckModule" pageScroll) Import AckModule
   li
     a(href="#Requirements" pageScroll) Requirements
@@ -18,6 +20,25 @@ ul.margin-top-0
     a(href="#My Personal TypeScript Opinion" pageScroll) My Personal TypeScript Opinion
   li
     a(href="#ack-angularjs" pageScroll) ack-angularjs
+
+br
+
+h3.margin-bottom-0(id="Install ack-angular") Install ack-angular
+
+p Install jsDependencies via #[a(href="https://www.npmjs.com/package/ack-webpack") ack-webpack]
+
+.pad.text-grey-2x.text-sm
+  |NOTE : ack-webpack reads the jsDependencies in a package.json to then install packages. Also when ack-webpack is installed, it auto adds a script entry to your package.json file to make CLI commands easier.
+
+strong Step 1
+pre.code-sample
+  |npm install ack-webpack --save-dev
+
+strong Step 2
+pre.code-sample
+  |npm run ack-webpack -- install ack-angular
+
+br
 
 h3.margin-bottom-0(id="Import AckModule") Import AckModule
 .pad
@@ -36,6 +57,8 @@ h3.margin-bottom-0(id="Import AckModule") Import AckModule
   .pad-xxs
     .pad.bg-warning.bg-warning.text-warning
       |NOTE : You need to have the #[a(href="https://www.typescriptlang.org/docs/handbook/compiler-options.html") allowSyntheticDefaultImports compiler option] set to #[strong true] in your #[a(href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html") tsconfig.json].
+
+br
 
 h3.margin-bottom-0(id="Requirements") Requirements
 .pad
@@ -76,10 +99,14 @@ ul
           import &#123; UiRouteReporter &#125; from "ack-angular/UiRouteReporter.component"
           import &#123; UiRouteWatchReporter &#125; from "ack-angular/UiRouteWatchReporter"
 
+br
+
 h3(id="This Demo Area") This Demo Area
 ul
   li Uses hash routing to support github's gh-pages servers which do not support html5 non-hash routing
   li Pagescrolling, which is not a jsDependency of ack-angular, is provided by #[a(href="https://www.npmjs.com/package/ng2-page-scroll") ng2-page-scroll]
+
+br
 
 h3(id="Available Stylesheets") Available Stylesheets
 .pad-h
@@ -101,6 +128,8 @@ ul
         span.code-sample(style="display:inline") * &#123;box-sizing:border-box&#125;
       li csshake
       li ack-css-boot
+
+br
 
 h3(id="Resources") Resources
 ul
@@ -139,6 +168,8 @@ ul
         function myFunc(a,b?,c?)&#123;&#125;
 
         myFunc(1)
+
+br
 
 h3(id="ack-angularjs") ack-angularjs
 .pad-h

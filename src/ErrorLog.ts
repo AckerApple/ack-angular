@@ -69,7 +69,7 @@ import { Injectable } from '@angular/core';
 }
 
 function logObToErrorObject(log){
-  const e = new Error( log.message || log.name || 'Unexpected Error Occured' )
+  const e = new Error( log.message || log.statusText || log.name || 'Unexpected Error Occured' )
   Object.keys(log).forEach( v=>e[v]=log[v] )
   return e
 }

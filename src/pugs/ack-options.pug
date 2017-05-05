@@ -1,0 +1,4 @@
+div("[ngClass]"="{'border-grey-6x border-top':stylize}")
+div(*ngFor="let item of array|array" "(click)"="selectItem(item)" "[ngClass]"="{'cursor-pointer pad-h pad-v-sm border-grey-6x border-bottom':stylize, 'bg-warning':stylize&&modelIndex(item)>=0, 'hover-bg-grey-5x':stylize&&modelIndex(item)<0}")
+  ng-template(*ngIf="templateRef" "[ngTemplateOutlet]"="templateRef" "[ngOutletContext]"="{item:item}")
+  span(*ngIf="!templateRef") {{ item }}

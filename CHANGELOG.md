@@ -1,6 +1,15 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.3.3] - 2017-05-05
+### Added
+- ack-options
+- ack-options-modal
+
+## [0.3.0] - 2017-04-21
+### Breaking Change
+- absolute-overflow-y is now absolute-overflow-x
+
 ## [0.2.20] - 2017-04-18
 ### Added
 - jsDependency of @angular/forms

@@ -1,4 +1,6 @@
 import {
+  ContentChild,
+  TemplateRef,
   Component,
   Directive,
   Input,
@@ -8,10 +10,11 @@ import {
 } from "@angular/core"
 
 import { fxArray as prefx } from "./prefx"
+import { array } from "./pipes.class"
 
 import { string as readerHeaderBody } from "./templates/reader-header-body.pug"
 import { string as errorWell } from "./templates/error-well.pug"
-import { string as absoluteOverflowY } from "./templates/absolute-overflow-y.pug"
+import { string as absoluteOverflowX } from "./templates/absolute-overflow-x.pug"
 
 @Directive({
   selector:'[focusOn]'
@@ -66,8 +69,11 @@ import { string as ackModal } from "./templates/ack-modal.pug"
   @Output() public onClose = new EventEmitter()
   //@Input() public size:string//'full' or null
   @Input() public wrapStyle
+  @Input() public allowClose = true
   @Input() public backgroundColor
   @Output() public backgroundColorChange = new EventEmitter()
+  @Input() private ref
+  @Output() public refChange = new EventEmitter()
 
   constructor(public element:ElementRef){
     //after possible double click, close on outside content click
@@ -85,6 +91,8 @@ import { string as ackModal } from "./templates/ack-modal.pug"
 
   clickListenForClose(){
     this.element.nativeElement.addEventListener('click', event=>{
+      if(!this.allowClose)return false
+
       var eTar = event.srcElement || event.toElement || event.target
 
       if(eTar == this.element.nativeElement.children[0]){
@@ -94,12 +102,102 @@ import { string as ackModal } from "./templates/ack-modal.pug"
   }
 
   ngOnInit(){
-    this.backgroundColor = this.backgroundColor || 'rgba(255,255,255,0.95)'
-    setTimeout(()=>this.backgroundColorChange.emit(this.backgroundColor), 0)
+    setTimeout(()=>{
+      this.ref = Object.assign(this,this.ref)
+      this.refChange.emit(this.ref)
+
+      this.backgroundColor = this.backgroundColor || 'rgba(255,255,255,0.95)'
+      this.backgroundColorChange.emit(this.backgroundColor)
+    }, 0)
   }
 
   close(){
     this.onClose.emit(this)
+  }
+}
+
+import { string as ackOptions } from "./templates/ack-options.pug"
+@Component({
+  selector:'ack-options',
+  template:ackOptions
+}) export class AckOptions{
+  @Input() public array = []
+  @Input() public stylize = true
+  @Input() public multiple = false
+  @Input() public toggleable = false//multiple must be false
+  @Input() public model
+  @Output() public modelChange = new EventEmitter()
+  @ContentChild(TemplateRef) @Input() public templateRef:TemplateRef<any>
+  @Input() private ref
+  @Output() public refChange = new EventEmitter()
+
+  ngOnInit(){
+    setTimeout(()=>{
+      this.ref = Object.assign(this,this.ref)
+      this.refChange.emit(this.ref)
+    }, 0)
+  }
+
+  selectItem(item){
+    if(this.multiple){
+      const modelIndex = this.modelIndex(item)
+      if(modelIndex>=0){
+        this.model.splice(modelIndex, 1)
+      }else{
+        this.model.push(item)
+      }
+    }else{
+      if(this.toggleable && this.model==item){
+        this.model=null
+      }else{
+        this.model=item
+      }
+    }
+    this.modelChange.emit(this.model)
+  }
+
+  modelIndex(item){
+    this.model = array(this.model)
+    for(let i=this.model.length-1; i >= 0; --i){
+      if(this.model[i]==item)return i
+    }
+    return -1
+  }
+}
+
+import { string as ackOptionsModal } from "./templates/ack-options-modal.pug"
+@Component({
+  selector:'ack-options-modal',
+  template:ackOptionsModal
+}) export class AckOptionsModal extends AckOptions{
+  public ackModal
+  public ackOptions
+  @Input() public allowClose = true
+  @Output() public onClose = new EventEmitter()
+
+  constructor(public element:ElementRef){
+    super()
+
+    element.nativeElement.style.position = 'fixed'
+    element.nativeElement.style.top=0
+    element.nativeElement.style.left=0
+    element.nativeElement.style.zIndex = 20;
+    element.nativeElement.style.height = '100%';
+    element.nativeElement.style.width = '100%'
+    element.nativeElement.style.overflow = 'auto';
+    element.nativeElement.style.display = 'block';
+  }
+
+  ngAfterViewInit(){
+    setTimeout(()=>{    
+      this.ackOptions.modelChange.subscribe(model=>{
+        if(model && !this.multiple && this.ackModal){
+          this.ackModal.close()
+        }
+
+        this.modelChange.emit( this.model )
+      })
+    }, 0)
   }
 }
 
@@ -476,9 +574,9 @@ export class StatusOfflineModel{
 }
 
 @Component({
-  selector:'absolute-overflow-y',
-  template:absoluteOverflowY
-}) export class AbsoluteOverflowY{
+  selector:'absolute-overflow-x',
+  template:absoluteOverflowX
+}) export class AbsoluteOverflowX{
   @Input() public scrollBars
 }
 
@@ -646,7 +744,9 @@ export const declarations = [
   ReaderHeader,
   ReaderBody,
   ErrorWell,
-  AbsoluteOverflowY,
+  AbsoluteOverflowX,
   InputHint,
-  AckModal
+  AckModal,
+  AckOptions,
+  AckOptionsModal
 ]

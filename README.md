@@ -38,7 +38,7 @@ npm install ack-webpack --save-dev
 
 Step 2
 ```bash
-npm run ack-webpack -- install
+npm run ack-webpack -- install ack-angular
 ```
 
 
