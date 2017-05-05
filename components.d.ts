@@ -1,4 +1,4 @@
-import { EventEmitter, ElementRef } from "@angular/core";
+import { TemplateRef, EventEmitter, ElementRef } from "@angular/core";
 export declare class FocusOn {
     element: ElementRef;
     focusOn: any;
@@ -22,12 +22,38 @@ export declare class AckModal {
     element: ElementRef;
     onClose: EventEmitter<{}>;
     wrapStyle: any;
+    allowClose: boolean;
     backgroundColor: any;
     backgroundColorChange: EventEmitter<{}>;
+    private ref;
+    refChange: EventEmitter<{}>;
     constructor(element: ElementRef);
     clickListenForClose(): void;
     ngOnInit(): void;
     close(): void;
+}
+export declare class AckOptions {
+    array: any[];
+    stylize: boolean;
+    multiple: boolean;
+    toggleable: boolean;
+    model: any;
+    modelChange: EventEmitter<{}>;
+    templateRef: TemplateRef<any>;
+    private ref;
+    refChange: EventEmitter<{}>;
+    ngOnInit(): void;
+    selectItem(item: any): void;
+    modelIndex(item: any): number;
+}
+export declare class AckOptionsModal extends AckOptions {
+    element: ElementRef;
+    ackModal: any;
+    ackOptions: any;
+    allowClose: boolean;
+    onClose: EventEmitter<{}>;
+    constructor(element: ElementRef);
+    ngAfterViewInit(): void;
 }
 /** onEnterKey - on-enter-key attribute will be evaluated when element event onkeydown fires with enter-key */
 export declare class OnEnterKey {
