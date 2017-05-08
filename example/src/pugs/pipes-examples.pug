@@ -22,7 +22,7 @@ h3(id="Documentation") Documentation
     .pad-h
       h3 textDownload &amp; safeUrl
       p.text-sm.text-grey-2x Cast string to a data:text/plain uri
-    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewSafeUrl=!viewSafeUrl" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewSafeUrl=!viewSafeUrl" "[ngClass]"="viewSafeUrl?'border-energized bg-energized':'border-info bg-info'")
       |view details
     div(*ngIf="viewSafeUrl" "[@500]"="'fadeInUp'")
       absolute-overflow-x
@@ -37,7 +37,7 @@ h3(id="Documentation") Documentation
     .pad-h
       h3 safeStyle
       p.text-sm.text-grey-2x Cast string to safe style
-    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewSafeStyle=!viewSafeStyle" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewSafeStyle=!viewSafeStyle" "[ngClass]"="viewSafeStyle?'border-energized bg-energized':'border-info bg-info'")
       |view details
     div(*ngIf="viewSafeStyle" "[@500]"="'fadeInUp'")
       absolute-overflow-x
@@ -52,7 +52,7 @@ h3(id="Documentation") Documentation
     .pad-h
       h3 safeHtml
       p.text-sm.text-grey-2x Cast string to safe html
-    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewSafeHtml=!viewSafeHtml" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewSafeHtml=!viewSafeHtml" "[ngClass]"="viewSafeHtml?'border-energized bg-energized':'border-info bg-info'")
       |view details
     div(*ngIf="viewSafeHtml" "[@500]"="'fadeInUp'")
       absolute-overflow-x
@@ -69,7 +69,7 @@ h3(id="Documentation") Documentation
     .pad-h
       h3 markdownAnchor
       p.text-sm.text-grey-2x Cast string to a github markdown #anchor
-    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewMarkdownAnchor=!viewMarkdownAnchor" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewMarkdownAnchor=!viewMarkdownAnchor" "[ngClass]"="viewMarkdownAnchor?'border-energized bg-energized':'border-info bg-info'")
       |view details
     div(*ngIf="viewMarkdownAnchor" "[@500]"="'fadeInUp'")
       absolute-overflow-x
@@ -81,7 +81,7 @@ h3(id="Documentation") Documentation
     .pad-h
       h3 typeof
       p.text-sm.text-grey-2x Result of native javascript typeof
-    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewTypeof=!viewTypeof" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewTypeof=!viewTypeof" "[ngClass]"="viewTypeof?'border-energized bg-energized':'border-info bg-info'")
       |view details
     div(*ngIf="viewTypeof" "[@500]"="'fadeInUp'")
       absolute-overflow-x
@@ -91,9 +91,31 @@ h3(id="Documentation") Documentation
 
   .flex2.border-grey-6x.border
     .pad-h
+      h3 numberToPhone
+      p.text-sm.text-grey-2x Converts numbers in input into basic phone format
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewNumberToPhone=!viewNumberToPhone" "[ngClass]"="viewNumberToPhone?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewNumberToPhone" "[@500]"="'fadeInUp'")
+      absolute-overflow-x
+        pre.code-sample.margin-0
+          div
+            span(ngNonBindable) {{ 8779276969 | numberToPhone }}
+            span.pad-h == {{ 8779276969 | numberToPhone }}
+          div
+            span(ngNonBindable) {{ 'L8O7V7E9D2O7C6T9O6R9S' | numberToPhone }}
+            span.pad-h == {{ 'L8O7V7E9D2O7C6T9O6R9S' | numberToPhone }}
+          div
+            span(ngNonBindable) {{ 'L8O7V7E9D2O' | numberToPhone }}
+            span.pad-h == {{ 'L8O7V7E9D2O7C6T9O6' | numberToPhone }}
+          div
+            span(ngNonBindable) {{ 'L8O7V7E9D2O7C6T9O6' | numberToPhone }}
+            span.pad-h == {{ 'L8O7V7E9D2O' | numberToPhone }}
+
+  .flex2.border-grey-6x.border
+    .pad-h
       h3 indexTrack
       p.text-sm.text-grey-2x Force ngFor into trackBy index
-    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewIndexOf=!viewIndexOf" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewIndexOf=!viewIndexOf" "[ngClass]"="viewIndexOf?'border-energized bg-energized':'border-info bg-info'")
       |view details
     div(*ngIf="viewIndexOf" "[@500]"="'fadeInUp'")
       .pad-xs.text-info.text-sm
@@ -119,7 +141,7 @@ h3(id="Documentation") Documentation
     .pad-h
       h3 array : repeat : repeatValue
       p.text-sm.text-grey-2x Force any variable to array
-    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewArray=!viewArray" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewArray=!viewArray" "[ngClass]"="viewArray?'border-energized bg-energized':'border-info bg-info'")
       |view details
     div(*ngIf="viewArray" "[@500]"="'fadeInUp'")
       absolute-overflow-x
@@ -140,7 +162,7 @@ h3(id="Documentation") Documentation
     .pad-h
       h3 console
       p.text-sm.text-grey-2x console log result of native console.log() function
-    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewConsole=!viewConsole" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewConsole=!viewConsole" "[ngClass]"="viewConsole?'border-energized bg-energized':'border-info bg-info'")
       |view details
     div(*ngIf="viewConsole" "[@500]"="'fadeInUp'")
       absolute-overflow-x
@@ -151,7 +173,7 @@ h3(id="Documentation") Documentation
     .pad-h
       h3 capitalize
       p.text-sm.text-grey-2x Each sentence leading word is capitalized
-    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewCapitalize=!viewCapitalize" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewCapitalize=!viewCapitalize" "[ngClass]"="viewCapitalize?'border-energized bg-energized':'border-info bg-info'")
       |view details
     div(*ngIf="viewCapitalize" "[@500]"="'fadeInUp'")
       absolute-overflow-x
@@ -162,7 +184,7 @@ h3(id="Documentation") Documentation
     .pad-h
       h3 capitalizeWords
       p.text-sm.text-grey-2x Every word is capitalized
-    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewCapitalizeWords=!viewCapitalizeWords" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewCapitalizeWords=!viewCapitalizeWords" "[ngClass]"="viewCapitalizeWords?'border-energized bg-energized':'border-info bg-info'")
       |view details
     div(*ngIf="viewCapitalizeWords" "[@500]"="'fadeInUp'")
       absolute-overflow-x
@@ -173,7 +195,7 @@ h3(id="Documentation") Documentation
     .pad-h
       h3 yesno
       p.text-sm.text-grey-2x Truthy value converts to: yes. Otherwise: no
-    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewYesno=!viewYesno" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewYesno=!viewYesno" "[ngClass]"="viewYesno?'border-energized bg-energized':'border-info bg-info'")
       |view details
     div(*ngIf="viewYesno" "[@500]"="'fadeInUp'")
       absolute-overflow-x
@@ -184,7 +206,7 @@ h3(id="Documentation") Documentation
     .pad-h
       h3 YesNo
       p.text-sm.text-grey-2x Truthy value converts to: Yes. Otherwise: No
-    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewYesNo=!viewYesNo" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewYesNo=!viewYesNo" "[ngClass]"="viewYesNo?'border-energized bg-energized':'border-info bg-info'")
       |view details
     div(*ngIf="viewYesNo" "[@500]"="'fadeInUp'")
       absolute-overflow-x
@@ -195,7 +217,7 @@ h3(id="Documentation") Documentation
     .pad-h
       h3 numbers
       p.text-sm.text-grey-2x Removes anything not a number from a string
-    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewNumbers=!viewNumbers" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewNumbers=!viewNumbers" "[ngClass]"="viewNumbers?'border-energized bg-energized':'border-info bg-info'")
       |view details
     div(*ngIf="viewNumbers" "[@500]"="'fadeInUp'")
       absolute-overflow-x
@@ -206,7 +228,7 @@ h3(id="Documentation") Documentation
     .pad-h
       h3 keys
       p.text-sm.text-grey-2x List of keys for an Object
-    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewKeys=!viewKeys" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewKeys=!viewKeys" "[ngClass]"="viewKeys?'border-energized bg-energized':'border-info bg-info'")
       |view details
     div(*ngIf="viewKeys" "[@500]"="'fadeInUp'")
       absolute-overflow-x
@@ -219,7 +241,7 @@ h3(id="Documentation") Documentation
     .pad-h
       h3 aDate
       p.text-sm.text-grey-2x A different approach @ date decorating
-    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewADate=!viewADate" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewADate=!viewADate" "[ngClass]"="viewADate?'border-energized bg-energized':'border-info bg-info'")
       |view details
     div(*ngIf="viewADate" "[@500]"="'fadeInUp'")
       absolute-overflow-x
@@ -232,7 +254,7 @@ h3(id="Documentation") Documentation
     .pad-h
       h3 aTime
       p.text-sm.text-grey-2x A different approach @ time decorating
-    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewATime=!viewATime" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewATime=!viewATime" "[ngClass]"="viewATime?'border-energized bg-energized':'border-info bg-info'")
       |view details
     div(*ngIf="viewATime" "[@500]"="'fadeInUp'")
       absolute-overflow-x

@@ -1,6 +1,10 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.3.4] - 2017-05-08
+### Added
+- numberToPhone filter
+
 ## [0.3.3] - 2017-05-05
 ### Added
 - ack-options

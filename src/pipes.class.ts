@@ -1,4 +1,11 @@
-import * as ack from "ack-x/index-browser"
+import * as ackX from "ack-x/index-browser"
+
+export function numberToPhone(val){
+  if(!val)return val
+  val = String(val).replace(/[^0-9]/g,'')
+  //if(!val.substring)return val
+  return '('+val.substring(0, 3)+') '+ val.substring(3, 6)+'-'+val.substring(6, 10)
+}
 
 /** if input is array returned otherwise array created with  */
 export function array(input, repeat?:number, repeatValue?){
@@ -69,25 +76,8 @@ export function capitalizeOne(input:any) {
   return (!!input) ? input.replace(reg, function(txt:any){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()}) : ''
 }
 
-export const pipes = {
-  array:array,
-  markdownAnchor:markdownAnchor,
-  textDownload:textDownload,
-  yesno:yesno,
-  yesNo:yesNo,
-  numbers:numbers,
-  capitalizeWords:capitalizeWords,
-  capitalize:capitalize,
-  capitalizeAfterSentence:capitalizeAfterSentence,
-  capitalizeOne:capitalizeOne,
-  aDate:a('date'),
-  aTime:a('time'),
-  ack:invokeRotator( ack )
-}
-
-
 function a(name){
-  return invokeRotator( ack[name] )
+  return invokeRotator( ackX[name] )
 }
 
 function invokeRotator(invoke){
@@ -117,4 +107,27 @@ function invokeRotator(invoke){
 
     return rtn
   }
+}
+
+export const aDate = a('date')
+export const aTime = a('time')
+export const ack = invokeRotator( ackX )
+
+// maybe deprecated . Remove in future releases
+export const pipes = {
+  array:array,
+  markdownAnchor:markdownAnchor,
+  textDownload:textDownload,
+  yesno:yesno,
+  yesNo:yesNo,
+  numbers:numbers,
+  capitalizeWords:capitalizeWords,
+  capitalize:capitalize,
+  capitalizeAfterSentence:capitalizeAfterSentence,
+  capitalizeOne:capitalizeOne,
+  numberToPhone,
+  
+  aDate:aDate,
+  aTime:aTime,
+  ack:ack
 }

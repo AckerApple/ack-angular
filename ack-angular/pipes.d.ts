@@ -26,6 +26,9 @@ export declare class SafeStyle {
 export declare class TextDownload {
     transform(input: string): any;
 }
+export declare class NumberToPhone {
+    transform(input: string): any;
+}
 export declare class MarkdownAnchor {
     transform(input: string): string;
 }

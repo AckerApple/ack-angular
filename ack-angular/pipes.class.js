@@ -1,6 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var ack = require("ack-x/index-browser");
+var ackX = require("ack-x/index-browser");
+function numberToPhone(val) {
+    if (!val)
+        return val;
+    val = String(val).replace(/[^0-9]/g, '');
+    //if(!val.substring)return val
+    return '(' + val.substring(0, 3) + ') ' + val.substring(3, 6) + '-' + val.substring(6, 10);
+}
+exports.numberToPhone = numberToPhone;
 /** if input is array returned otherwise array created with  */
 function array(input, repeat, repeatValue) {
     var isArray = input != null && input.constructor == Array;
@@ -70,23 +78,8 @@ function capitalizeOne(input) {
     return (!!input) ? input.replace(reg, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); }) : '';
 }
 exports.capitalizeOne = capitalizeOne;
-exports.pipes = {
-    array: array,
-    markdownAnchor: markdownAnchor,
-    textDownload: textDownload,
-    yesno: yesno,
-    yesNo: yesNo,
-    numbers: numbers,
-    capitalizeWords: capitalizeWords,
-    capitalize: capitalize,
-    capitalizeAfterSentence: capitalizeAfterSentence,
-    capitalizeOne: capitalizeOne,
-    aDate: a('date'),
-    aTime: a('time'),
-    ack: invokeRotator(ack)
-};
 function a(name) {
-    return invokeRotator(ack[name]);
+    return invokeRotator(ackX[name]);
 }
 function invokeRotator(invoke) {
     return function (v, call0, call1, call2) {
@@ -112,4 +105,24 @@ function invokeRotator(invoke) {
         return rtn;
     };
 }
+exports.aDate = a('date');
+exports.aTime = a('time');
+exports.ack = invokeRotator(ackX);
+// maybe deprecated . Remove in future releases
+exports.pipes = {
+    array: array,
+    markdownAnchor: markdownAnchor,
+    textDownload: textDownload,
+    yesno: yesno,
+    yesNo: yesNo,
+    numbers: numbers,
+    capitalizeWords: capitalizeWords,
+    capitalize: capitalize,
+    capitalizeAfterSentence: capitalizeAfterSentence,
+    capitalizeOne: capitalizeOne,
+    numberToPhone: numberToPhone,
+    aDate: exports.aDate,
+    aTime: exports.aTime,
+    ack: exports.ack
+};
 //# sourceMappingURL=pipes.class.js.map

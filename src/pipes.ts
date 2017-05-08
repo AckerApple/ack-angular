@@ -1,5 +1,5 @@
 import { Pipe } from '@angular/core';
-import { pipes } from "./pipes.class"
+import * as pipes from "./pipes.class"
 import {
   SafeHtml as SafeHtmler,//must be exported for AOT
   SafeStyle as SafeStyler,//must be exported for AOT
@@ -51,6 +51,10 @@ import {
 //use with bypassSecurityTrustResourceUrl for href
 @Pipe({name: 'textDownload'}) export class TextDownload {
   transform(input:string){return pipes.textDownload(input)}
+}
+
+@Pipe({name: 'numberToPhone'}) export class NumberToPhone {
+  transform(input:string){return pipes.numberToPhone(input)}
 }
 
 @Pipe({name: 'markdownAnchor'}) export class MarkdownAnchor {
@@ -122,5 +126,6 @@ export const declarations = [
   ConsolePipe,
   ADate,
   ATime,
-  Ack
+  Ack,
+  NumberToPhone
 ]
