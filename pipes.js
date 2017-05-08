@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var pipes_class_1 = require("./pipes.class");
+var pipes = require("./pipes.class");
 var platform_browser_1 = require("@angular/platform-browser");
 /* ONLY THIS FILE */
 var IndexTrack = (function () {
@@ -36,7 +36,7 @@ var ForceArray = (function () {
     function ForceArray() {
     }
     ForceArray.prototype.transform = function (input, repeat, repeatValue) {
-        return pipes_class_1.pipes.array(input, repeat, repeatValue);
+        return pipes.array(input, repeat, repeatValue);
     };
     return ForceArray;
 }());
@@ -102,7 +102,7 @@ exports.SafeStyle = SafeStyle;
 var TextDownload = (function () {
     function TextDownload() {
     }
-    TextDownload.prototype.transform = function (input) { return pipes_class_1.pipes.textDownload(input); };
+    TextDownload.prototype.transform = function (input) { return pipes.textDownload(input); };
     return TextDownload;
 }());
 TextDownload.decorators = [
@@ -111,10 +111,22 @@ TextDownload.decorators = [
 /** @nocollapse */
 TextDownload.ctorParameters = function () { return []; };
 exports.TextDownload = TextDownload;
+var NumberToPhone = (function () {
+    function NumberToPhone() {
+    }
+    NumberToPhone.prototype.transform = function (input) { return pipes.numberToPhone(input); };
+    return NumberToPhone;
+}());
+NumberToPhone.decorators = [
+    { type: core_1.Pipe, args: [{ name: 'numberToPhone' },] },
+];
+/** @nocollapse */
+NumberToPhone.ctorParameters = function () { return []; };
+exports.NumberToPhone = NumberToPhone;
 var MarkdownAnchor = (function () {
     function MarkdownAnchor() {
     }
-    MarkdownAnchor.prototype.transform = function (input) { return pipes_class_1.pipes.markdownAnchor(input); };
+    MarkdownAnchor.prototype.transform = function (input) { return pipes.markdownAnchor(input); };
     return MarkdownAnchor;
 }());
 MarkdownAnchor.decorators = [
@@ -126,7 +138,7 @@ exports.MarkdownAnchor = MarkdownAnchor;
 var Capitalize = (function () {
     function Capitalize() {
     }
-    Capitalize.prototype.transform = function (input) { return pipes_class_1.pipes.capitalize(input); };
+    Capitalize.prototype.transform = function (input) { return pipes.capitalize(input); };
     return Capitalize;
 }());
 Capitalize.decorators = [
@@ -138,7 +150,7 @@ exports.Capitalize = Capitalize;
 var CapitalizeWords = (function () {
     function CapitalizeWords() {
     }
-    CapitalizeWords.prototype.transform = function (input) { return pipes_class_1.pipes.capitalizeWords(input); };
+    CapitalizeWords.prototype.transform = function (input) { return pipes.capitalizeWords(input); };
     return CapitalizeWords;
 }());
 CapitalizeWords.decorators = [
@@ -150,7 +162,7 @@ exports.CapitalizeWords = CapitalizeWords;
 var Yesno = (function () {
     function Yesno() {
     }
-    Yesno.prototype.transform = function (input) { return pipes_class_1.pipes.yesno(input); };
+    Yesno.prototype.transform = function (input) { return pipes.yesno(input); };
     return Yesno;
 }());
 Yesno.decorators = [
@@ -162,7 +174,7 @@ exports.Yesno = Yesno;
 var YesNo = (function () {
     function YesNo() {
     }
-    YesNo.prototype.transform = function (input) { return pipes_class_1.pipes.yesNo(input); };
+    YesNo.prototype.transform = function (input) { return pipes.yesNo(input); };
     return YesNo;
 }());
 YesNo.decorators = [
@@ -174,7 +186,7 @@ exports.YesNo = YesNo;
 var Numbers = (function () {
     function Numbers() {
     }
-    Numbers.prototype.transform = function (input) { return pipes_class_1.pipes.numbers(input); };
+    Numbers.prototype.transform = function (input) { return pipes.numbers(input); };
     return Numbers;
 }());
 Numbers.decorators = [
@@ -186,7 +198,7 @@ exports.Numbers = Numbers;
 var ADate = (function () {
     function ADate() {
     }
-    ADate.prototype.transform = function () { return pipes_class_1.pipes.aDate.apply(pipes_class_1.pipes.aDate, arguments); };
+    ADate.prototype.transform = function () { return pipes.aDate.apply(pipes.aDate, arguments); };
     return ADate;
 }());
 ADate.decorators = [
@@ -198,7 +210,7 @@ exports.ADate = ADate;
 var ATime = (function () {
     function ATime() {
     }
-    ATime.prototype.transform = function () { return pipes_class_1.pipes.aTime.apply(pipes_class_1.pipes.aTime, arguments); };
+    ATime.prototype.transform = function () { return pipes.aTime.apply(pipes.aTime, arguments); };
     return ATime;
 }());
 ATime.decorators = [
@@ -210,7 +222,7 @@ exports.ATime = ATime;
 var Ack = (function () {
     function Ack() {
     }
-    Ack.prototype.transform = function () { return pipes_class_1.pipes.ack.apply(pipes_class_1.pipes.ack, arguments); };
+    Ack.prototype.transform = function () { return pipes.ack.apply(pipes.ack, arguments); };
     return Ack;
 }());
 Ack.decorators = [
@@ -276,6 +288,7 @@ exports.declarations = [
     ConsolePipe,
     ADate,
     ATime,
-    Ack
+    Ack,
+    NumberToPhone
 ];
 //# sourceMappingURL=pipes.js.map

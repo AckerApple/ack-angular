@@ -1,3 +1,4 @@
+export declare function numberToPhone(val: any): any;
 /** if input is array returned otherwise array created with  */
 export declare function array(input: any, repeat?: number, repeatValue?: any): any;
 export declare function markdownAnchor(input: string): string;
@@ -10,6 +11,9 @@ export declare function capitalizeWords(input: any): any;
 export declare function capitalize(input: any): any;
 export declare function capitalizeAfterSentence(input: any): any;
 export declare function capitalizeOne(input: any): any;
+export declare const aDate: (v: any, call0: any, call1: any, call2: any) => any;
+export declare const aTime: (v: any, call0: any, call1: any, call2: any) => any;
+export declare const ack: (v: any, call0: any, call1: any, call2: any) => any;
 export declare const pipes: {
     array: (input: any, repeat?: number, repeatValue?: any) => any;
     markdownAnchor: (input: string) => string;
@@ -21,6 +25,7 @@ export declare const pipes: {
     capitalize: (input: any) => any;
     capitalizeAfterSentence: (input: any) => any;
     capitalizeOne: (input: any) => any;
+    numberToPhone: (val: any) => any;
     aDate: (v: any, call0: any, call1: any, call2: any) => any;
     aTime: (v: any, call0: any, call1: any, call2: any) => any;
     ack: (v: any, call0: any, call1: any, call2: any) => any;
