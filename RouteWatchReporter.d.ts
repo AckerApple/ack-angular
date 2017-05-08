@@ -18,6 +18,8 @@ export declare class RouteWatchReporter {
     isOsAction: boolean;
     constructor(router: Router, activatedRoute: ActivatedRoute);
     getCurrent(): any;
+    getCurrentConfig(): any;
+    getCurrentParams(): any;
     isTrapHistory(toState: any, toParams: any): boolean;
     isBackHistory(toState: any, toParams: any): boolean;
     isForwardHistory(toState: any, toParams: any): boolean;

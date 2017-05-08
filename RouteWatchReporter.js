@@ -1,12 +1,4 @@
 "use strict";
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 //import { StateService,TransitionService,Transition } from "ui-router-ng2";
 var router_1 = require("@angular/router");
@@ -36,7 +28,8 @@ var RouteWatchReporter = (function () {
         router.events.subscribe(function (event) {
             if (event.constructor == router_1.NavigationEnd) {
                 var params = {}; //COMING REALLY SOON
-                _this.recordStateChange(_this.getCurrent(), params);
+                var current = _this.getCurrent();
+                _this.recordStateChange(current.config, current.params);
             }
         });
         this.current = this.getCurrent();
@@ -45,7 +38,23 @@ var RouteWatchReporter = (function () {
         var target = this.activatedRoute;
         while (target.firstChild)
             target = target.firstChild;
+        return {
+            config: target.routeConfig,
+            params: target.snapshot.params
+            //...target.routeConfig//may want to do away with this
+        };
+    };
+    RouteWatchReporter.prototype.getCurrentConfig = function () {
+        var target = this.activatedRoute;
+        while (target.firstChild)
+            target = target.firstChild;
         return target.routeConfig;
+    };
+    RouteWatchReporter.prototype.getCurrentParams = function () {
+        var target = this.activatedRoute;
+        while (target.firstChild)
+            target = target.firstChild;
+        return target.snapshot.params;
     };
     RouteWatchReporter.prototype.isTrapHistory = function (toState, toParams) {
         return this.isBackHistory(toState, toParams) && this.isForwardHistory(toState, toParams);
@@ -71,7 +80,7 @@ var RouteWatchReporter = (function () {
         return true;
     };
     RouteWatchReporter.prototype.recordStateChange = function (toState, toParams) {
-        this.current = __assign({ params: toParams }, toState);
+        this.current = { params: toParams, config: toState };
         var isForward = this.isForwardHistory(toState, toParams);
         var isBackHistory = this.isNextBackHistory || this.isBackHistory(toState, toParams);
         if (this.isOsAction && this.isTrapHistory(toState, toParams)) {
