@@ -275,7 +275,6 @@ AckOptionsModal.propDecorators = {
     'onClose': [{ type: core_1.Output },],
 };
 exports.AckOptionsModal = AckOptionsModal;
-/** onEnterKey - on-enter-key attribute will be evaluated when element event onkeydown fires with enter-key */
 var OnEnterKey = (function () {
     function OnEnterKey(element) {
         var _this = this;
@@ -301,6 +300,31 @@ OnEnterKey.propDecorators = {
     'onEnterKey': [{ type: core_1.Output },],
 };
 exports.OnEnterKey = OnEnterKey;
+var OnEscapeKey = (function () {
+    function OnEscapeKey(element) {
+        var _this = this;
+        this.element = element;
+        this.onEscapeKey = new core_1.EventEmitter();
+        element.nativeElement.addEventListener('keydown', function (event) {
+            var code = event.which || event.keyCode;
+            if (code == 27) {
+                _this.onEscapeKey.emit(event);
+            }
+        });
+    }
+    return OnEscapeKey;
+}());
+OnEscapeKey.decorators = [
+    { type: core_1.Directive, args: [{ selector: '[onEscapeKey]' },] },
+];
+/** @nocollapse */
+OnEscapeKey.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
+OnEscapeKey.propDecorators = {
+    'onEscapeKey': [{ type: core_1.Output },],
+};
+exports.OnEscapeKey = OnEscapeKey;
 /** Disallow keyboard access to the backspace key */
 var PreventBackKey = (function () {
     function PreventBackKey(element) {
@@ -948,6 +972,7 @@ exports.declarations = [
     OnFormAlter,
     OnFormChanged,
     OnEnterKey,
+    OnEscapeKey,
     PreventBackKey,
     PreventEnterKey,
     ScreenScrollModelY,
