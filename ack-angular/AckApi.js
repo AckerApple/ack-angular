@@ -251,6 +251,7 @@ AckApi.ctorParameters = function () { return [
 exports.AckApi = AckApi;
 /** prevent angular1 from assuming the header to send is application/json */
 function upgradeConfig(cfg) {
+    cfg.method = cfg.method || 'GET';
     var isFormData = cfg.data && FormData && cfg.data.constructor == FormData;
     if (isFormData) {
         var preventAutoContentType = !cfg.headers || Object.keys(cfg.headers).filter(function (h) { return h.search(/content-type/i) < 0; });
@@ -258,5 +259,6 @@ function upgradeConfig(cfg) {
             cfg.headers['Content-Type'] = undefined; //'multipart/form-data;'
         }
     }
+    return cfg;
 }
 //# sourceMappingURL=AckApi.js.map

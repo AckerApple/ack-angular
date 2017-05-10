@@ -676,6 +676,10 @@ var ScreenScrollModelY = (function () {
         this.onScroll();
         window['addEventListener']("scroll", this.onScroll);
     }
+    ScreenScrollModelY.prototype.ngOnInit = function () {
+        var _this = this;
+        setTimeout(function () { return _this.onScroll(); }, 0); //two way bind often needs init override
+    };
     ScreenScrollModelY.prototype.ngOnDestroy = function () {
         window['removeEventListener']("scroll", this.onScroll);
     };
@@ -706,6 +710,10 @@ var ScreenWidthModel = (function () {
         window.addEventListener('resize', this.onResize);
         setTimeout(function () { return _this.setModel(); }, 0);
     }
+    ScreenWidthModel.prototype.ngOnInit = function () {
+        var _this = this;
+        setTimeout(function () { return _this.onResize(); }, 0); //two way bind often needs init override
+    };
     ScreenWidthModel.prototype.setModel = function () {
         this.screenWidthModel = window.innerWidth;
         this.screenWidthModelChange.emit(this.screenWidthModel);
@@ -717,7 +725,6 @@ var ScreenWidthModel = (function () {
 }());
 ScreenWidthModel.decorators = [
     { type: core_1.Directive, args: [{
-                //inputs:['screen-height-model'],
                 selector: '[screenWidthModel]'
             },] },
 ];
@@ -740,6 +747,10 @@ var ScreenHeightModel = (function () {
         window.addEventListener('resize', this.onResize);
         setTimeout(function () { return _this.onResize(); }, 0);
     }
+    ScreenHeightModel.prototype.ngOnInit = function () {
+        var _this = this;
+        setTimeout(function () { return _this.onResize(); }, 0); //two way bind often needs init override
+    };
     ScreenHeightModel.prototype.setModel = function () {
         this.screenHeightModel = window.innerHeight;
         this.screenHeightModelChange.emit(this.screenHeightModel);
@@ -751,7 +762,6 @@ var ScreenHeightModel = (function () {
 }());
 ScreenHeightModel.decorators = [
     { type: core_1.Directive, args: [{
-                //inputs:['screen-height-model'],
                 selector: '[screenHeightModel]'
             },] },
 ];

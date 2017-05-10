@@ -506,13 +506,16 @@ export class StatusOfflineModel{
     window['addEventListener']("scroll", this.onScroll)
   }
 
+  ngOnInit(){
+    setTimeout(()=>this.onScroll(), 0)//two way bind often needs init override
+  }
+
   ngOnDestroy(){
     window['removeEventListener']("scroll", this.onScroll)
   }
 }
 
 @Directive({
-  //inputs:['screen-height-model'],
   selector: '[screenWidthModel]'
 }) export class ScreenWidthModel{
   public window
@@ -532,6 +535,10 @@ export class StatusOfflineModel{
     setTimeout(()=>this.setModel(), 0)
   }
 
+  ngOnInit(){
+    setTimeout(()=>this.onResize(), 0)//two way bind often needs init override
+  }
+
   setModel(){
     this.screenWidthModel = window.innerWidth
     this.screenWidthModelChange.emit(this.screenWidthModel)
@@ -543,10 +550,8 @@ export class StatusOfflineModel{
 }
 
 @Directive({
-  //inputs:['screen-height-model'],
   selector: '[screenHeightModel]'
 }) export class ScreenHeightModel{
-  //public window
   public onResize
 
   @Input() public screenHeightModel
@@ -561,6 +566,10 @@ export class StatusOfflineModel{
 
     window.addEventListener('resize', this.onResize)
     setTimeout(()=>this.onResize(), 0)
+  }
+
+  ngOnInit(){
+    setTimeout(()=>this.onResize(), 0)//two way bind often needs init override
   }
 
   setModel(){

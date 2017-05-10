@@ -1,6 +1,13 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.4.0] - 2017-05-08
+### Breaking Change
+- RouteWatchReporter.current is now RouteWatchReporter.current.config
+### Added
+- RouteWatchReporter.current now has config & params
+
+
 ## [0.3.4] - 2017-05-08
 ### Added
 - numberToPhone filter

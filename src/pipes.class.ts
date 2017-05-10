@@ -50,6 +50,26 @@ export function yesNo(input:any){
   return input ? 'Yes' : 'No';
 }
 
+export function boolean(input:any){
+  if(input==null)return false
+  
+  const num = Number(input)
+  if(!isNaN(num)){
+    return Boolean(num) ? true : false;
+  }
+
+  if(input.toLowerCase){
+    if( input.toLowerCase()=='true' )return true
+    if( input.toLowerCase()=='false' )return false
+  }
+
+  return Boolean(input) ? true : false;
+}
+
+export function bit(input:any){
+  return boolean(input) ? 1 : 0;
+}
+
 export function numbers(input:any){
   return input ? String(input).replace(/[^0-9]/g,'') : input
 }

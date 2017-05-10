@@ -193,6 +193,50 @@ h3(id="Documentation") Documentation
 
   .flex2.border-grey-6x.border
     .pad-h
+      h3 bit
+      p.text-sm.text-grey-2x Truthy value converts to: 1. Otherwise: 0
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewBit=!viewBit" "[ngClass]"="viewBit?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewBit" "[@500]"="'fadeInUp'")
+      absolute-overflow-x
+        pre.code-sample.margin-0
+          div
+            span(ngNonBindable) {{ 'true' | bit }}
+            span &nbsp;==&nbsp;
+            span {{ 'true' | bit }}
+          div
+            span(ngNonBindable) {{ '0' | bit }}
+            span &nbsp;==&nbsp;
+            span {{ '0' | bit }}
+          div
+            span(ngNonBindable) {{ 'false' | bit }}
+            span &nbsp;==&nbsp;
+            span {{ 'false' | bit }}
+
+  .flex2.border-grey-6x.border
+    .pad-h
+      h3 boolean
+      p.text-sm.text-grey-2x Truthy value converts to: true. Otherwise: false
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewBoolean=!viewBoolean" "[ngClass]"="viewBoolean?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewBoolean" "[@500]"="'fadeInUp'")
+      absolute-overflow-x
+        pre.code-sample.margin-0
+          div
+            span(ngNonBindable) {{ 1 | boolean }}
+            span &nbsp;==&nbsp;
+            span {{ 1 | boolean }}
+          div
+            span(ngNonBindable) {{ '0' | boolean }}
+            span &nbsp;==&nbsp;
+            span {{ '0' | boolean }}
+          div
+            span(ngNonBindable) {{ 'false' | boolean }}
+            span &nbsp;==&nbsp;
+            span {{ 'false' | boolean }}
+
+  .flex2.border-grey-6x.border
+    .pad-h
       h3 yesno
       p.text-sm.text-grey-2x Truthy value converts to: yes. Otherwise: no
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewYesno=!viewYesno" "[ngClass]"="viewYesno?'border-energized bg-energized':'border-info bg-info'")

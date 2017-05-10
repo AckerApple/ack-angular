@@ -31,7 +31,8 @@ import { Injectable } from '@angular/core';
     router.events.subscribe(event=>{
       if(event.constructor==NavigationEnd){
         const params = {}//COMING REALLY SOON
-        this.recordStateChange(this.getCurrent(), params)
+        const current = this.getCurrent()
+        this.recordStateChange(current.config, current.params)
       }
     })
 
@@ -41,7 +42,23 @@ import { Injectable } from '@angular/core';
   getCurrent():any{
     let target = this.activatedRoute
     while(target.firstChild)target=target.firstChild
+    return {
+      config:target.routeConfig,
+      params:target.snapshot.params
+      //...target.routeConfig//may want to do away with this
+    }
+  }
+
+  getCurrentConfig():any{
+    let target = this.activatedRoute
+    while(target.firstChild)target=target.firstChild
     return target.routeConfig
+  }
+
+  getCurrentParams():any{
+    let target = this.activatedRoute
+    while(target.firstChild)target=target.firstChild
+    return target.snapshot.params
   }
 
   isTrapHistory(toState, toParams){
@@ -72,7 +89,7 @@ import { Injectable } from '@angular/core';
   }
 
   recordStateChange(toState, toParams){
-    this.current = { params:toParams, ...toState }
+    this.current = { params:toParams, config:toState }
     let isForward = this.isForwardHistory(toState, toParams)
     let isBackHistory = this.isNextBackHistory || this.isBackHistory(toState, toParams)
 

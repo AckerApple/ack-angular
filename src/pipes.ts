@@ -77,6 +77,14 @@ import {
   transform(input:any){return pipes.yesNo(input)}
 }
 
+@Pipe({name: 'boolean'}) export class BooleanPipe {
+  transform(input:any){return pipes.boolean(input)}
+}
+
+@Pipe({name: 'bit'}) export class Bit {
+  transform(input:any){return pipes.bit(input)}
+}
+
 @Pipe({name: 'numbers'}) export class Numbers {
   transform(input:any){return pipes.numbers(input)}
 }
@@ -127,5 +135,7 @@ export const declarations = [
   ADate,
   ATime,
   Ack,
-  NumberToPhone
+  NumberToPhone,
+  Bit,
+  BooleanPipe
 ]

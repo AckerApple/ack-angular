@@ -675,22 +675,26 @@ h3(id="Complex Components") Complex Components
         |Get in tune with your document route states using @angular/router
       br
     .text-center
-      .border.pad-xxs("(click)"="viewRouteReporter=!viewRouteReporter" "[ngClass]"="viewRouteReporter?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewRouteReporter=!viewRouteReporter" "[ngClass]"="viewRouteReporter?'border-energized bg-energized':'border-info bg-info'")
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewRouteReporter" "[@500]"="'fadeInUp'")
       .pad Requirements
         ul
           li route-reporter
+      route-reporter("[(ref)]"="routeState")
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
           &lt;route-reporter [(ref)]="" (beforeChange)="" (onChange)=""&gt;
       h4.pad-sm.margin-0 ref example
       absolute-overflow-x
-        pre.code-sample.margin-0(ngNonBindable).
-          &lt;route-reporter [(ref)]="routeState" &gt;
-          -----------------------------------------
-          routeState:{{ routeState|json }}
+        pre.code-sample.margin-0
+          div(ngNonBindable).
+            &lt;route-reporter [(ref)]="routeState" &gt;
+          div
+            span(ngNonBindable) {{ routeState?.current.config.name }}
+            span &nbsp;==&nbsp;
+            span {{ routeState?.current.config.name }}
   //-.flex-1.border.border-grey-4x.border
     .pad-h
       h3 ui-route-reporter

@@ -280,6 +280,8 @@ import { AckQue } from './AckQue';
 
 /** prevent angular1 from assuming the header to send is application/json */
 function upgradeConfig(cfg){
+  cfg.method = cfg.method || 'GET'
+
   const isFormData = cfg.data && FormData && cfg.data.constructor==FormData
   if(isFormData){
     const preventAutoContentType =  !cfg.headers || Object.keys(cfg.headers).filter(h=>h.search(/content-type/i)<0)
@@ -288,4 +290,6 @@ function upgradeConfig(cfg){
       cfg.headers['Content-Type'] = undefined//'multipart/form-data;'
     }
   }
+
+  return cfg
 }
