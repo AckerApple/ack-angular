@@ -52,6 +52,26 @@ function yesNo(input) {
     return input ? 'Yes' : 'No';
 }
 exports.yesNo = yesNo;
+function boolean(input) {
+    if (input == null)
+        return false;
+    var num = Number(input);
+    if (!isNaN(num)) {
+        return Boolean(num) ? true : false;
+    }
+    if (input.toLowerCase) {
+        if (input.toLowerCase() == 'true')
+            return true;
+        if (input.toLowerCase() == 'false')
+            return false;
+    }
+    return Boolean(input) ? true : false;
+}
+exports.boolean = boolean;
+function bit(input) {
+    return boolean(input) ? 1 : 0;
+}
+exports.bit = bit;
 function numbers(input) {
     return input ? String(input).replace(/[^0-9]/g, '') : input;
 }

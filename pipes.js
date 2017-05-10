@@ -183,6 +183,30 @@ YesNo.decorators = [
 /** @nocollapse */
 YesNo.ctorParameters = function () { return []; };
 exports.YesNo = YesNo;
+var BooleanPipe = (function () {
+    function BooleanPipe() {
+    }
+    BooleanPipe.prototype.transform = function (input) { return pipes.boolean(input); };
+    return BooleanPipe;
+}());
+BooleanPipe.decorators = [
+    { type: core_1.Pipe, args: [{ name: 'boolean' },] },
+];
+/** @nocollapse */
+BooleanPipe.ctorParameters = function () { return []; };
+exports.BooleanPipe = BooleanPipe;
+var Bit = (function () {
+    function Bit() {
+    }
+    Bit.prototype.transform = function (input) { return pipes.bit(input); };
+    return Bit;
+}());
+Bit.decorators = [
+    { type: core_1.Pipe, args: [{ name: 'bit' },] },
+];
+/** @nocollapse */
+Bit.ctorParameters = function () { return []; };
+exports.Bit = Bit;
 var Numbers = (function () {
     function Numbers() {
     }
@@ -289,6 +313,8 @@ exports.declarations = [
     ADate,
     ATime,
     Ack,
-    NumberToPhone
+    NumberToPhone,
+    Bit,
+    BooleanPipe
 ];
 //# sourceMappingURL=pipes.js.map

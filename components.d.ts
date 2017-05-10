@@ -156,6 +156,7 @@ export declare class ScreenScrollModelY {
     screenScrollModelY: any;
     screenScrollModelYChange: EventEmitter<{}>;
     constructor();
+    ngOnInit(): void;
     ngOnDestroy(): void;
 }
 export declare class ScreenWidthModel {
@@ -164,6 +165,7 @@ export declare class ScreenWidthModel {
     screenWidthModel: any;
     screenWidthModelChange: EventEmitter<{}>;
     constructor();
+    ngOnInit(): void;
     setModel(): void;
     ngOnDestroy(): void;
 }
@@ -172,6 +174,7 @@ export declare class ScreenHeightModel {
     screenHeightModel: any;
     screenHeightModelChange: EventEmitter<{}>;
     constructor();
+    ngOnInit(): void;
     setModel(): void;
     ngOnDestroy(): void;
 }
