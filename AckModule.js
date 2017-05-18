@@ -26,7 +26,7 @@ AckModule.decorators = [
                 ],
                 declarations: declarations,
                 providers: providers_1.providers,
-                exports: declarations.slice()
+                exports: [forms_1.FormsModule, http_1.HttpModule].concat(declarations)
             },] },
 ];
 /** @nocollapse */

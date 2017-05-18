@@ -495,8 +495,10 @@ var OnFormAlter = (function () {
             this.onFormAlter.emit(event);
         }.bind(this);
         element.nativeElement.addEventListener('input', this.onChange);
+        element.nativeElement.addEventListener('change', this.onChange);
     }
     OnFormAlter.prototype.ngOnDestroy = function () {
+        this.element.nativeElement.removeEventListener('change', this.onChange);
         this.element.nativeElement.removeEventListener('input', this.onChange);
     };
     return OnFormAlter;
