@@ -2,13 +2,30 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var ackX = require("ack-x/index-browser");
 function numberToPhone(val) {
-    if (!val)
+    if (val == null)
         return val;
     val = String(val).replace(/[^0-9]/g, '');
     //if(!val.substring)return val
     return '(' + val.substring(0, 3) + ') ' + val.substring(3, 6) + '-' + val.substring(6, 10);
 }
 exports.numberToPhone = numberToPhone;
+function numberSuffix(val) {
+    val = Number(val);
+    if (!val || isNaN(val))
+        return '';
+    var j = val % 10, k = val % 100;
+    if (j == 1 && k != 11) {
+        return "st";
+    }
+    if (j == 2 && k != 12) {
+        return "nd";
+    }
+    if (j == 3 && k != 13) {
+        return "rd";
+    }
+    return "th";
+}
+exports.numberSuffix = numberSuffix;
 /** if input is array returned otherwise array created with  */
 function array(input, repeat, repeatValue) {
     var isArray = input != null && input.constructor == Array;
@@ -141,6 +158,7 @@ exports.pipes = {
     capitalizeAfterSentence: capitalizeAfterSentence,
     capitalizeOne: capitalizeOne,
     numberToPhone: numberToPhone,
+    numberSuffix: numberSuffix,
     aDate: exports.aDate,
     aTime: exports.aTime,
     ack: exports.ack

@@ -1,4 +1,5 @@
 export declare function numberToPhone(val: any): any;
+export declare function numberSuffix(val: any): "" | "st" | "nd" | "rd" | "th";
 /** if input is array returned otherwise array created with  */
 export declare function array(input: any, repeat?: number, repeatValue?: any): any;
 export declare function markdownAnchor(input: string): string;
@@ -28,6 +29,7 @@ export declare const pipes: {
     capitalizeAfterSentence: (input: any) => any;
     capitalizeOne: (input: any) => any;
     numberToPhone: (val: any) => any;
+    numberSuffix: (val: any) => "" | "st" | "nd" | "rd" | "th";
     aDate: (v: any, call0: any, call1: any, call2: any) => any;
     aTime: (v: any, call0: any, call1: any, call2: any) => any;
     ack: (v: any, call0: any, call1: any, call2: any) => any;
