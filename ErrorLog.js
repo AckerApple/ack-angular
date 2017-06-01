@@ -59,6 +59,16 @@ var ErrorLog = (function () {
             recErr['arguments'] = err.arguments;
         if (typeof err.type != 'undefined')
             recErr['type'] = err.type;
+        //auto attempt to parse body
+        if (err._body && !err.data && err.headers) {
+            var contentType = err.headers.get('content-type');
+            if (contentType && contentType.toLowerCase() == 'application/json') {
+                try {
+                    recErr.data = JSON.parse(err._body);
+                }
+                catch (e) { }
+            }
+        }
         return recErr;
     };
     /** same as reject but uses native throw instead of native Promise.reject */
