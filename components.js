@@ -798,6 +798,80 @@ ScreenHeightModel.propDecorators = {
     'screenHeightModelChange': [{ type: core_1.Output },],
 };
 exports.ScreenHeightModel = ScreenHeightModel;
+var HtmlWidthModel = (function () {
+    function HtmlWidthModel() {
+        var _this = this;
+        this.htmlWidthModelChange = new core_1.EventEmitter();
+        this.onResize = function () {
+            if (this.htmlWidthModel !== window.document.documentElement.clientWidth) {
+                this.setModel();
+            }
+        }.bind(this);
+        window.addEventListener('resize', this.onResize);
+        setTimeout(function () { return _this.setModel(); }, 0);
+    }
+    HtmlWidthModel.prototype.ngOnInit = function () {
+        var _this = this;
+        setTimeout(function () { return _this.onResize(); }, 0); //two way bind often needs init override
+    };
+    HtmlWidthModel.prototype.setModel = function () {
+        this.htmlWidthModel = window.document.documentElement.clientWidth;
+        this.htmlWidthModelChange.emit(this.htmlWidthModel);
+    };
+    HtmlWidthModel.prototype.ngOnDestroy = function () {
+        window.removeEventListener(this.onResize);
+    };
+    return HtmlWidthModel;
+}());
+HtmlWidthModel.decorators = [
+    { type: core_1.Directive, args: [{
+                selector: '[htmlWidthModel]'
+            },] },
+];
+/** @nocollapse */
+HtmlWidthModel.ctorParameters = function () { return []; };
+HtmlWidthModel.propDecorators = {
+    'htmlWidthModel': [{ type: core_1.Input },],
+    'htmlWidthModelChange': [{ type: core_1.Output },],
+};
+exports.HtmlWidthModel = HtmlWidthModel;
+var HtmlHeightModel = (function () {
+    function HtmlHeightModel() {
+        var _this = this;
+        this.htmlHeightModelChange = new core_1.EventEmitter();
+        this.onResize = function () {
+            if (this.htmlHeightModel !== window.document.documentElement.clientHeight) {
+                this.setModel();
+            }
+        }.bind(this);
+        window.addEventListener('resize', this.onResize);
+        setTimeout(function () { return _this.onResize(); }, 0);
+    }
+    HtmlHeightModel.prototype.ngOnInit = function () {
+        var _this = this;
+        setTimeout(function () { return _this.onResize(); }, 0); //two way bind often needs init override
+    };
+    HtmlHeightModel.prototype.setModel = function () {
+        this.htmlHeightModel = window.document.documentElement.clientHeight;
+        this.htmlHeightModelChange.emit(this.htmlHeightModel);
+    };
+    HtmlHeightModel.prototype.ngOnDestroy = function () {
+        window.removeEventListener(this.onResize);
+    };
+    return HtmlHeightModel;
+}());
+HtmlHeightModel.decorators = [
+    { type: core_1.Directive, args: [{
+                selector: '[htmlHeightModel]'
+            },] },
+];
+/** @nocollapse */
+HtmlHeightModel.ctorParameters = function () { return []; };
+HtmlHeightModel.propDecorators = {
+    'htmlHeightModel': [{ type: core_1.Input },],
+    'htmlHeightModelChange': [{ type: core_1.Output },],
+};
+exports.HtmlHeightModel = HtmlHeightModel;
 var AbsoluteOverflowX = (function () {
     function AbsoluteOverflowX() {
     }
@@ -978,8 +1052,10 @@ exports.declarations = [
     PreventBackKey,
     PreventEnterKey,
     ScreenScrollModelY,
-    ScreenHeightModel,
     ScreenWidthModel,
+    ScreenHeightModel,
+    HtmlWidthModel,
+    HtmlHeightModel,
     ShakeOn,
     StatusOnlineModel,
     StatusOfflineModel,

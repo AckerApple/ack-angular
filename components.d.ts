@@ -182,6 +182,25 @@ export declare class ScreenHeightModel {
     setModel(): void;
     ngOnDestroy(): void;
 }
+export declare class HtmlWidthModel {
+    window: any;
+    onResize: any;
+    htmlWidthModel: any;
+    htmlWidthModelChange: EventEmitter<{}>;
+    constructor();
+    ngOnInit(): void;
+    setModel(): void;
+    ngOnDestroy(): void;
+}
+export declare class HtmlHeightModel {
+    onResize: any;
+    htmlHeightModel: any;
+    htmlHeightModelChange: EventEmitter<{}>;
+    constructor();
+    ngOnInit(): void;
+    setModel(): void;
+    ngOnDestroy(): void;
+}
 export declare class AbsoluteOverflowX {
     scrollBars: any;
 }

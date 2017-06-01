@@ -2,10 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var ackX = require("ack-x/index-browser");
 function numberToPhone(val) {
-    if (val == null)
+    if (val == null || !val)
         return val;
     val = String(val).replace(/[^0-9]/g, '');
-    //if(!val.substring)return val
+    if (val.length == 0)
+        return val;
     return '(' + val.substring(0, 3) + ') ' + val.substring(3, 6) + '-' + val.substring(6, 10);
 }
 exports.numberToPhone = numberToPhone;
