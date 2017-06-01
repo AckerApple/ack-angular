@@ -91,6 +91,34 @@ h3(id="Documentation") Documentation
 
   .flex2.border-grey-6x.border
     .pad-h
+      h3 numberSuffix
+      p.text-sm.text-grey-2x returns suffix for a given number
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewNumberSuffix=!viewNumberSuffix" "[ngClass]"="viewNumberSuffix?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewNumberSuffix" "[@500]"="'fadeInUp'")
+      absolute-overflow-x
+        pre.code-sample.margin-0
+          div
+            span(ngNonBindable) 1{{ 1 | numberSuffix }}
+            span.pad-h == 1{{ 1 | numberSuffix }}
+          div
+            span(ngNonBindable) 2{{ '2' | numberSuffix }}
+            span.pad-h == 2{{ '2' | numberSuffix }}
+          div
+            span(ngNonBindable) 0{{ '0' | numberSuffix }}
+            span.pad-h == 0{{ '0' | numberSuffix }}
+          div
+            span(ngNonBindable) {{ null | numberSuffix }}
+            span.pad-h == {{ null | numberSuffix }}
+          div
+            span(ngNonBindable) 13{{ '13' | numberSuffix }}
+            span.pad-h == 13{{ '13' | numberSuffix }}
+          div
+            span(ngNonBindable) 33{{ '33' | numberSuffix }}
+            span.pad-h == 33{{ '33' | numberSuffix }}
+
+  .flex2.border-grey-6x.border
+    .pad-h
       h3 numberToPhone
       p.text-sm.text-grey-2x Converts numbers in input into basic phone format
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewNumberToPhone=!viewNumberToPhone" "[ngClass]"="viewNumberToPhone?'border-energized bg-energized':'border-info bg-info'")

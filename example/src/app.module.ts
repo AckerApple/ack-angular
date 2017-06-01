@@ -1,24 +1,22 @@
 export const strapTime = Date.now()
 
 import {
+  ElementRef,
   Input,
   Component,
   NgModule
-  //,CUSTOM_ELEMENTS_SCHEMA
 } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-//import { UiRouteWatchReporter } from "ack-angular/UiRouteWatchReporter"
-//import { UiRouteReporter } from "ack-angular/UiRouteReporter.component"
-
-import { RouteWatchReporter } from "ack-angular/RouteWatchReporter"
-import { RouteReporter } from "ack-angular/RouteReporter.component"
+import { RouteWatchReporter } from "./ack-angular/RouteWatchReporter"
+import { RouteReporter } from "./ack-angular/RouteReporter.component"
 
 //import { pipes, components as ackComponents } from "ack-angular"
-import { AckModule } from "ack-angular"
+import { AckModule } from "./ack-angular"
 
-import * as packJson from "ack-angular/package.json"
+import * as packJson from "../../package.json"
+//const packJson = {version:'0.0.0'}
 
 import * as ackFx from 'ack-angular-fx'
 import { fxArray } from './prefx'
@@ -73,7 +71,13 @@ import {string as jjsWoz} from './templates/jjs-woz.pug'
   ,template: jjsWoz
   //,animations:fxArray
   //,animations:[]
-}) export class JjsWoz {}
+}) export class JjsWoz {
+  constructor(public ElementRef:ElementRef){}
+
+  ngOnInit(){
+    this.ElementRef.nativeElement.getElementsByTagName('audio')[0].play()
+  }
+}
 
 @Component({
   selector: 'overview-examples'

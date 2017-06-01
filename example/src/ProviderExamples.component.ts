@@ -8,7 +8,7 @@ import {
   AckCache,
   AckQue,
   AckApi
-} from "ack-angular"
+} from "./ack-angular"
 
 import { fxArray } from './prefx'
 import { string as providerExamples } from './templates/provider-examples.pug'
@@ -264,9 +264,7 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
 
   processQue(){
     return this.AckQue.processQue('ackNgQueTest')
-    .then( results=>
-      this.processQueResults.push.apply(this.processQueResults, results)
-    )
+    .then( results=>this.processQueResults.push.apply(this.processQueResults, results))
     .then( ()=>this.readQue() )
     .catch( e=>this.error=e )
   }

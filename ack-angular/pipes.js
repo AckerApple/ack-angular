@@ -123,6 +123,18 @@ NumberToPhone.decorators = [
 /** @nocollapse */
 NumberToPhone.ctorParameters = function () { return []; };
 exports.NumberToPhone = NumberToPhone;
+var NumberSuffix = (function () {
+    function NumberSuffix() {
+    }
+    NumberSuffix.prototype.transform = function (input) { return pipes.numberSuffix(input); };
+    return NumberSuffix;
+}());
+NumberSuffix.decorators = [
+    { type: core_1.Pipe, args: [{ name: 'numberSuffix' },] },
+];
+/** @nocollapse */
+NumberSuffix.ctorParameters = function () { return []; };
+exports.NumberSuffix = NumberSuffix;
 var MarkdownAnchor = (function () {
     function MarkdownAnchor() {
     }
@@ -314,6 +326,7 @@ exports.declarations = [
     ATime,
     Ack,
     NumberToPhone,
+    NumberSuffix,
     Bit,
     BooleanPipe
 ];

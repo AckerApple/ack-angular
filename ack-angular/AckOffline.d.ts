@@ -6,7 +6,7 @@ export declare class AckOffline {
     remove(name: any): Promise<void>;
     /** aka of remove */
     clear(name: any): Promise<void>;
-    clearAll(): Promise<any>;
+    clearAll(): Promise<void>;
     /** returns string array of all key names used for browser storage */
-    promiseNameArray(): Promise<any>;
+    promiseNameArray(): Promise<any[]>;
 }

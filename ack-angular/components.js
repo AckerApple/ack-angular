@@ -275,7 +275,6 @@ AckOptionsModal.propDecorators = {
     'onClose': [{ type: core_1.Output },],
 };
 exports.AckOptionsModal = AckOptionsModal;
-/** onEnterKey - on-enter-key attribute will be evaluated when element event onkeydown fires with enter-key */
 var OnEnterKey = (function () {
     function OnEnterKey(element) {
         var _this = this;
@@ -301,6 +300,31 @@ OnEnterKey.propDecorators = {
     'onEnterKey': [{ type: core_1.Output },],
 };
 exports.OnEnterKey = OnEnterKey;
+var OnEscapeKey = (function () {
+    function OnEscapeKey(element) {
+        var _this = this;
+        this.element = element;
+        this.onEscapeKey = new core_1.EventEmitter();
+        element.nativeElement.addEventListener('keydown', function (event) {
+            var code = event.which || event.keyCode;
+            if (code == 27) {
+                _this.onEscapeKey.emit(event);
+            }
+        });
+    }
+    return OnEscapeKey;
+}());
+OnEscapeKey.decorators = [
+    { type: core_1.Directive, args: [{ selector: '[onEscapeKey]' },] },
+];
+/** @nocollapse */
+OnEscapeKey.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
+OnEscapeKey.propDecorators = {
+    'onEscapeKey': [{ type: core_1.Output },],
+};
+exports.OnEscapeKey = OnEscapeKey;
 /** Disallow keyboard access to the backspace key */
 var PreventBackKey = (function () {
     function PreventBackKey(element) {
@@ -471,8 +495,10 @@ var OnFormAlter = (function () {
             this.onFormAlter.emit(event);
         }.bind(this);
         element.nativeElement.addEventListener('input', this.onChange);
+        element.nativeElement.addEventListener('change', this.onChange);
     }
     OnFormAlter.prototype.ngOnDestroy = function () {
+        this.element.nativeElement.removeEventListener('change', this.onChange);
         this.element.nativeElement.removeEventListener('input', this.onChange);
     };
     return OnFormAlter;
@@ -772,6 +798,80 @@ ScreenHeightModel.propDecorators = {
     'screenHeightModelChange': [{ type: core_1.Output },],
 };
 exports.ScreenHeightModel = ScreenHeightModel;
+var HtmlWidthModel = (function () {
+    function HtmlWidthModel() {
+        var _this = this;
+        this.htmlWidthModelChange = new core_1.EventEmitter();
+        this.onResize = function () {
+            if (this.htmlWidthModel !== window.document.documentElement.clientWidth) {
+                this.setModel();
+            }
+        }.bind(this);
+        window.addEventListener('resize', this.onResize);
+        setTimeout(function () { return _this.setModel(); }, 0);
+    }
+    HtmlWidthModel.prototype.ngOnInit = function () {
+        var _this = this;
+        setTimeout(function () { return _this.onResize(); }, 0); //two way bind often needs init override
+    };
+    HtmlWidthModel.prototype.setModel = function () {
+        this.htmlWidthModel = window.document.documentElement.clientWidth;
+        this.htmlWidthModelChange.emit(this.htmlWidthModel);
+    };
+    HtmlWidthModel.prototype.ngOnDestroy = function () {
+        window.removeEventListener(this.onResize);
+    };
+    return HtmlWidthModel;
+}());
+HtmlWidthModel.decorators = [
+    { type: core_1.Directive, args: [{
+                selector: '[htmlWidthModel]'
+            },] },
+];
+/** @nocollapse */
+HtmlWidthModel.ctorParameters = function () { return []; };
+HtmlWidthModel.propDecorators = {
+    'htmlWidthModel': [{ type: core_1.Input },],
+    'htmlWidthModelChange': [{ type: core_1.Output },],
+};
+exports.HtmlWidthModel = HtmlWidthModel;
+var HtmlHeightModel = (function () {
+    function HtmlHeightModel() {
+        var _this = this;
+        this.htmlHeightModelChange = new core_1.EventEmitter();
+        this.onResize = function () {
+            if (this.htmlHeightModel !== window.document.documentElement.clientHeight) {
+                this.setModel();
+            }
+        }.bind(this);
+        window.addEventListener('resize', this.onResize);
+        setTimeout(function () { return _this.onResize(); }, 0);
+    }
+    HtmlHeightModel.prototype.ngOnInit = function () {
+        var _this = this;
+        setTimeout(function () { return _this.onResize(); }, 0); //two way bind often needs init override
+    };
+    HtmlHeightModel.prototype.setModel = function () {
+        this.htmlHeightModel = window.document.documentElement.clientHeight;
+        this.htmlHeightModelChange.emit(this.htmlHeightModel);
+    };
+    HtmlHeightModel.prototype.ngOnDestroy = function () {
+        window.removeEventListener(this.onResize);
+    };
+    return HtmlHeightModel;
+}());
+HtmlHeightModel.decorators = [
+    { type: core_1.Directive, args: [{
+                selector: '[htmlHeightModel]'
+            },] },
+];
+/** @nocollapse */
+HtmlHeightModel.ctorParameters = function () { return []; };
+HtmlHeightModel.propDecorators = {
+    'htmlHeightModel': [{ type: core_1.Input },],
+    'htmlHeightModelChange': [{ type: core_1.Output },],
+};
+exports.HtmlHeightModel = HtmlHeightModel;
 var AbsoluteOverflowX = (function () {
     function AbsoluteOverflowX() {
     }
@@ -948,11 +1048,14 @@ exports.declarations = [
     OnFormAlter,
     OnFormChanged,
     OnEnterKey,
+    OnEscapeKey,
     PreventBackKey,
     PreventEnterKey,
     ScreenScrollModelY,
-    ScreenHeightModel,
     ScreenWidthModel,
+    ScreenHeightModel,
+    HtmlWidthModel,
+    HtmlHeightModel,
     ShakeOn,
     StatusOnlineModel,
     StatusOfflineModel,

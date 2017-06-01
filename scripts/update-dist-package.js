@@ -23,4 +23,4 @@ function manageExample(){
   fs.writeFileSync(exPackPath, JSON.stringify(exPack, null, 2))
 }
 
-manageExample()
+//manageExample()

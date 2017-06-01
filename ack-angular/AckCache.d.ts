@@ -18,7 +18,7 @@ export declare class AckCache extends AckOffline {
         maxAge:number -
       }
     */
-    cacheToReturn(name: any, data: any, options: any): Promise<void>;
+    cacheToReturn(name: any, data: any, options: any): Promise<any>;
     selfDestructData(name: any, data: any): Promise<void>;
     dataDestructReady(data: any): boolean;
     get(name: any, options?: any): Promise<any>;

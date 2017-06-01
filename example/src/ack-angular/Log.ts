@@ -1,0 +1,37 @@
+import { Injectable } from '@angular/core';
+
+@Injectable() export class Log{
+  public log = []
+  public maxLog = 80
+
+  add(e, toConsole?){
+    const ob = this.paramAudit(e,toConsole)
+    this.log.unshift( ob );
+    if(this.maxLog){
+      while(this.log.length>this.maxLog){
+        this.log.pop()//remove last
+      }
+    }
+    return e
+  }
+
+  paramAudit(e, toConsole?){
+    switch(e.constructor){
+      case String:
+      case Boolean:
+      case Number:{
+        e = {message:e}
+      }
+    }
+
+    if(toConsole==null || toConsole)console.log(e)
+
+    e['datetime'] = e['datetime']||getDateTimeString()
+
+    return e
+  }
+}
+
+function getDateTimeString(){
+  return (function(d){return (('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+d.getDate()).slice(-2)+'/'+d.getFullYear())})(new Date())+' '+(function(d){var h=d.getHours(),t='AM',m=d.getMinutes();var mn = m<10?'0'+m:m;h = h>=12?(t='PM',h-12||12):h==0?12:h;return ('0'+h).slice(-2)+':'+('0'+mn).slice(-2)+' '+t})(new Date())
+}

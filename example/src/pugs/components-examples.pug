@@ -323,6 +323,44 @@ h3.margin-bottom-0(id="Common Components") Common Components
 
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
+      div("[(htmlWidthModel)]"="htmlWidthModel")
+      .pad-h
+        h3 htmlWidthModel
+        .text-grey-2x.max-width-400
+          |Get the browser document inner width. Currently : {{htmlWidthModel}}px
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewHtmlWidthModel=!viewHtmlWidthModel" "[ngClass]"="viewHtmlWidthModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewHtmlWidthModel" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div [(htmlWidthModel)]="htmlWidthModel"&gt;
+          &nbsp;&nbsp;htmlWidthModel : {{ htmlWidthModel }}px
+          &lt;/div&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      div("[(htmlHeightModel)]"="htmlHeightModel")
+      .pad-h
+        h3 htmlHeightModel
+        .text-grey-2x.max-width-400
+          |Get the browser document inner height. Currently : {{htmlHeightModel}}px
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewHtmlHeightModel=!viewHtmlHeightModel" "[ngClass]"="viewHtmlHeightModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewHtmlHeightModel" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div "[(htmlHeightModel)]"="htmlHeightModel"&gt;
+          &nbsp;&nbsp;htmlHeightModel : {{ htmlHeightModel }}px
+          &lt;/div&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
       div("[(screenWidthModel)]"="screenWidthModel")
       .pad-h
         h3 screenWidthModel
@@ -452,6 +490,28 @@ h3.margin-bottom-0(id="Common Components") Common Components
         pre.code-sample.margin-0(ngNonBindable).
           &lt;span&gt; Enter Count : {{enterCountKey || 0}} &lt;/span&gt;
           &lt;input type="text" (onEnterKey)="enterCountKey=enterCountKey==null?1:enterCountKey+1" placeholder="type here and use enter key" /&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 onEscapeKey
+        .text-grey-2x.max-width-400
+          |Capture keyUp events when escape key used
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewOnEscapeKey=!viewOnEscapeKey" "[ngClass]"="viewOnEscapeKey?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewOnEscapeKey" "[@500]"="'fadeInUp'")
+      .pad.text-info Fires for every onKeyUp event where enter key was pressed
+      h4.pad-sm.margin-0 Example
+      .flex.child-margin-xs.pad-xs
+        span Escape Count : {{escapeCountKey || 0}}
+        input.flex-1(type="text" "(onEscapeKey)"="escapeCountKey=escapeCountKey==null?1:escapeCountKey+1" placeholder="type here and use escape key")
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;span&gt; Escape Count : {{escapeCountKey || 0}} &lt;/span&gt;
+          &lt;input type="text" (onEscapeKey)="escapeCountKey=escapeCountKey==null?1:escapeCountKey+1" placeholder="type here and use escape key" /&gt;
 
   .flex-1
     .border.border-grey-4x.border.border-bottom-0

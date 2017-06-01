@@ -1,6 +1,19 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.4.10] - 2017-05-31
+- added htmlWidthModel
+- added htmlHeightModel
+
+## [0.4.6] - 2017-05-22
+- added numberSuffix pipe
+
+## [0.4.1] - 2017-05-10
+### Added
+- onEscapeKey
+- bit pipe
+- boolean pipe
+
 ## [0.4.0] - 2017-05-08
 ### Breaking Change
 - RouteWatchReporter.current is now RouteWatchReporter.current.config

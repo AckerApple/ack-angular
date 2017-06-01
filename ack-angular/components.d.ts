@@ -55,10 +55,14 @@ export declare class AckOptionsModal extends AckOptions {
     constructor(element: ElementRef);
     ngAfterViewInit(): void;
 }
-/** onEnterKey - on-enter-key attribute will be evaluated when element event onkeydown fires with enter-key */
 export declare class OnEnterKey {
     element: ElementRef;
     onEnterKey: EventEmitter<{}>;
+    constructor(element: ElementRef);
+}
+export declare class OnEscapeKey {
+    element: ElementRef;
+    onEscapeKey: EventEmitter<{}>;
     constructor(element: ElementRef);
 }
 /** Disallow keyboard access to the backspace key */
@@ -173,6 +177,25 @@ export declare class ScreenHeightModel {
     onResize: any;
     screenHeightModel: any;
     screenHeightModelChange: EventEmitter<{}>;
+    constructor();
+    ngOnInit(): void;
+    setModel(): void;
+    ngOnDestroy(): void;
+}
+export declare class HtmlWidthModel {
+    window: any;
+    onResize: any;
+    htmlWidthModel: any;
+    htmlWidthModelChange: EventEmitter<{}>;
+    constructor();
+    ngOnInit(): void;
+    setModel(): void;
+    ngOnDestroy(): void;
+}
+export declare class HtmlHeightModel {
+    onResize: any;
+    htmlHeightModel: any;
+    htmlHeightModelChange: EventEmitter<{}>;
     constructor();
     ngOnInit(): void;
     setModel(): void;

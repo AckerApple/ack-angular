@@ -1,0 +1,70 @@
+//import { TransitionService } from "ui-router-ng2";
+import { Directive, Input, Output, EventEmitter } from "@angular/core"
+import { RouteWatchReporter } from "./RouteWatchReporter"
+import { NavigationStart, NavigationEnd } from '@angular/router';
+
+@Directive({
+  //inputs:['ref'],
+  selector: 'route-reporter'
+}) export class RouteReporter{
+  public $document
+  public $scope
+  static parameters = [[
+    RouteWatchReporter
+  ]]
+  public docCallbacks
+  //public isBackButton
+  //public isNotBackButton
+  //public mouseover
+
+  @Output("onChange") public stateChanger = new EventEmitter()
+  @Output("beforeChange") public beforeChanger = new EventEmitter()
+  @Input() public onLoad
+  @Input() public ref//variable reference
+  @Output() public refChange = new EventEmitter()
+
+  constructor(public RouteWatchReporter:RouteWatchReporter){
+    this.$document = document
+    this.docCallbacks = RouteWatchReporter.getDocumentCallbacks()
+
+    RouteWatchReporter.router.events.subscribe(event=>{
+      //if(event.constructor == NavigationStart){}
+      if(event.constructor == NavigationEnd){
+        this.beforeChanger.emit( this.RouteWatchReporter )
+
+        //allow one process to occur before reporting state has changed
+        setTimeout(()=>this.stateChanger.emit( this.RouteWatchReporter ), 0)
+      }
+    })
+
+    RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks)
+  }
+
+  ngOnDestroy(){
+    this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks)
+  }
+
+  ngOnInit(){
+    setTimeout(()=>{
+      this.ref = this.RouteWatchReporter
+      this.refChange.emit(this.ref)
+      this.stateChanger.emit(this.RouteWatchReporter)
+    }, 0)
+
+    if(this.onLoad){
+      this.onLoad({
+        state:this.RouteWatchReporter.current,
+        params:this.RouteWatchReporter.current.params,
+        current:this.RouteWatchReporter.current
+      })
+    }
+  }
+
+  goBackTo(name, params){
+    this.RouteWatchReporter.goBackTo(name, params)
+  }
+
+  tryBack(name, params){
+    this.RouteWatchReporter.tryBack(name, params)
+  }
+}

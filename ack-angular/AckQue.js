@@ -128,7 +128,7 @@ var AckQue = (function (_super) {
             .then(function (que) { return mem.que = que; })
             .then(function () { return _this.clear(hand.name); })
             .then(function () {
-            var promise = new Promise(function (res, rej) { res(); });
+            var promise = Promise.resolve();
             mem.que.forEach(function (v, i) {
                 promise = promise
                     .then(function () { return eachHandle(v); })

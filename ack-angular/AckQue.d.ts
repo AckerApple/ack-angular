@@ -8,14 +8,14 @@ export declare class AckQue extends AckOffline {
     /** aka get */
     getQue(name: any): Promise<any>;
     /** aka set */
-    setQue(name: any, que: any): Promise<{}>;
+    setQue(name: any, que: any): Promise<any>;
     /** add to qued data. Typically when offline, add post/put requests here and process them when back online */
-    que(name: any, queData: any): Promise<{}>;
+    que(name: any, queData: any): Promise<any>;
     /** merge new que data overtop of existing que
       @name:string
       @que
     */
-    set(name: any, queData: any): Promise<{}>;
+    set(name: any, queData: any): Promise<any>;
     dequeByIndex(name: any, index: any): Promise<any>;
     processQuedByIndex(name: any, index: any): Promise<any>;
     /** Most important. When a que of data-tasks is being processed, the approperiate handler must be registered here */
