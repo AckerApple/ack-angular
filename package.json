@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "0.4.10",
+  "version": "0.4.12",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "ack-angular/index.js",
   "typings": "ack-angular/index.d.ts",
@@ -14,7 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dist:tsc": "tsc --declaration --project src",
     "build:dist": "ngc --declaration --project src",
-    "watch:dist": "watch \"npm run build:dist\" src/ --ignoreDirectoryPattern=/pugs/",
+    "watch:dist": "watch \"npm run build:dist && npm run compile:aot\" src/ --ignoreDirectoryPattern=/pugs/",
     "ack-webpack": "ack-webpack",
     "build:assets": "npm run build:assets:src && npm run build:assets:example",
     "build:assets:src": "ack-pug-bundler src/pugs/ src/templates/ --oneToOne --outType ts",

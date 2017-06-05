@@ -5,8 +5,12 @@ export declare class ErrorLog {
     reject(err: any): Promise<never>;
     rejector(): (err: any) => Promise<never>;
     add(e: any, toConsole?: any): Error;
-    paramAudit(e: any, toConsole?: any): {};
-    objectifyError(err: any): {};
+    paramAudit(e: any, toConsole?: any): {
+        data?: any;
+    };
+    objectifyError(err: any): {
+        data?: any;
+    };
     /** same as reject but uses native throw instead of native Promise.reject */
     rethrow(err: any): void;
 }

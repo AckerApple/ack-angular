@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.4.11] - 2017-06-05
+- added ack-modal-options header
+
 ## [0.4.10] - 2017-05-31
 - added htmlWidthModel
 - added htmlHeightModel

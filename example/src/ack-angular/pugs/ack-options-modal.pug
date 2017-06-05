@@ -1,3 +1,5 @@
 ack-modal("[(ref)]"="ackModal" "(onClose)"="onClose.emit($event)" "[allowClose]"="allowClose")
+  ng-content
+  //-ng-content(select="component-header")
   .border-grey-6x.border.bg-white
     ack-options("[(ref)]"="ackOptions" "[array]"="array" "[(model)]"="model" "[multiple]"="multiple" "[toggleable]"="toggleable" "[stylize]"="stylize" "[templateRef]"="templateRef")

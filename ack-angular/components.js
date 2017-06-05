@@ -1,21 +1,14 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var prefx_1 = require("./prefx");
-var pipes_class_1 = require("./pipes.class");
+var AckModal_component_1 = require("./AckModal.component");
+var AckOptions_component_1 = require("./AckOptions.component");
+var AckOptionsModal_component_1 = require("./AckOptionsModal.component");
 var reader_header_body_pug_1 = require("./templates/reader-header-body.pug");
 var error_well_pug_1 = require("./templates/error-well.pug");
 var absolute_overflow_x_pug_1 = require("./templates/absolute-overflow-x.pug");
+//@Directive({selector:'component-header'}) export class ComponentHeader {}
 var FocusOn = (function () {
     function FocusOn(element) {
         this.element = element;
@@ -97,184 +90,6 @@ VarDirective.propDecorators = {
     'var': [{ type: core_1.Input },],
 };
 exports.VarDirective = VarDirective;
-var ack_modal_pug_1 = require("./templates/ack-modal.pug");
-var AckModal = (function () {
-    function AckModal(element) {
-        var _this = this;
-        this.element = element;
-        this.onClose = new core_1.EventEmitter();
-        this.allowClose = true;
-        this.backgroundColorChange = new core_1.EventEmitter();
-        this.refChange = new core_1.EventEmitter();
-        //after possible double click, close on outside content click
-        setTimeout(function () { return _this.clickListenForClose(); }, 400);
-        element.nativeElement.style.position = 'fixed';
-        element.nativeElement.style.top = 0;
-        element.nativeElement.style.left = 0;
-        element.nativeElement.style.zIndex = 20;
-        element.nativeElement.style.height = '100%';
-        element.nativeElement.style.width = '100%';
-        element.nativeElement.style.overflow = 'auto';
-        element.nativeElement.style.display = 'block';
-    }
-    AckModal.prototype.clickListenForClose = function () {
-        var _this = this;
-        this.element.nativeElement.addEventListener('click', function (event) {
-            if (!_this.allowClose)
-                return false;
-            var eTar = event.srcElement || event.toElement || event.target;
-            if (eTar == _this.element.nativeElement.children[0]) {
-                _this.close();
-            }
-        });
-    };
-    AckModal.prototype.ngOnInit = function () {
-        var _this = this;
-        setTimeout(function () {
-            _this.ref = Object.assign(_this, _this.ref);
-            _this.refChange.emit(_this.ref);
-            _this.backgroundColor = _this.backgroundColor || 'rgba(255,255,255,0.95)';
-            _this.backgroundColorChange.emit(_this.backgroundColor);
-        }, 0);
-    };
-    AckModal.prototype.close = function () {
-        this.onClose.emit(this);
-    };
-    return AckModal;
-}());
-AckModal.decorators = [
-    { type: core_1.Component, args: [{
-                selector: 'ack-modal',
-                template: ack_modal_pug_1.string
-            },] },
-];
-/** @nocollapse */
-AckModal.ctorParameters = function () { return [
-    { type: core_1.ElementRef, },
-]; };
-AckModal.propDecorators = {
-    'onClose': [{ type: core_1.Output },],
-    'wrapStyle': [{ type: core_1.Input },],
-    'allowClose': [{ type: core_1.Input },],
-    'backgroundColor': [{ type: core_1.Input },],
-    'backgroundColorChange': [{ type: core_1.Output },],
-    'ref': [{ type: core_1.Input },],
-    'refChange': [{ type: core_1.Output },],
-};
-exports.AckModal = AckModal;
-var ack_options_pug_1 = require("./templates/ack-options.pug");
-var AckOptions = (function () {
-    function AckOptions() {
-        this.array = [];
-        this.stylize = true;
-        this.multiple = false;
-        this.toggleable = false; //multiple must be false
-        this.modelChange = new core_1.EventEmitter();
-        this.refChange = new core_1.EventEmitter();
-    }
-    AckOptions.prototype.ngOnInit = function () {
-        var _this = this;
-        setTimeout(function () {
-            _this.ref = Object.assign(_this, _this.ref);
-            _this.refChange.emit(_this.ref);
-        }, 0);
-    };
-    AckOptions.prototype.selectItem = function (item) {
-        if (this.multiple) {
-            var modelIndex = this.modelIndex(item);
-            if (modelIndex >= 0) {
-                this.model.splice(modelIndex, 1);
-            }
-            else {
-                this.model.push(item);
-            }
-        }
-        else {
-            if (this.toggleable && this.model == item) {
-                this.model = null;
-            }
-            else {
-                this.model = item;
-            }
-        }
-        this.modelChange.emit(this.model);
-    };
-    AckOptions.prototype.modelIndex = function (item) {
-        this.model = pipes_class_1.array(this.model);
-        for (var i = this.model.length - 1; i >= 0; --i) {
-            if (this.model[i] == item)
-                return i;
-        }
-        return -1;
-    };
-    return AckOptions;
-}());
-AckOptions.decorators = [
-    { type: core_1.Component, args: [{
-                selector: 'ack-options',
-                template: ack_options_pug_1.string
-            },] },
-];
-/** @nocollapse */
-AckOptions.ctorParameters = function () { return []; };
-AckOptions.propDecorators = {
-    'array': [{ type: core_1.Input },],
-    'stylize': [{ type: core_1.Input },],
-    'multiple': [{ type: core_1.Input },],
-    'toggleable': [{ type: core_1.Input },],
-    'model': [{ type: core_1.Input },],
-    'modelChange': [{ type: core_1.Output },],
-    'templateRef': [{ type: core_1.ContentChild, args: [core_1.TemplateRef,] }, { type: core_1.Input },],
-    'ref': [{ type: core_1.Input },],
-    'refChange': [{ type: core_1.Output },],
-};
-exports.AckOptions = AckOptions;
-var ack_options_modal_pug_1 = require("./templates/ack-options-modal.pug");
-var AckOptionsModal = (function (_super) {
-    __extends(AckOptionsModal, _super);
-    function AckOptionsModal(element) {
-        var _this = _super.call(this) || this;
-        _this.element = element;
-        _this.allowClose = true;
-        _this.onClose = new core_1.EventEmitter();
-        element.nativeElement.style.position = 'fixed';
-        element.nativeElement.style.top = 0;
-        element.nativeElement.style.left = 0;
-        element.nativeElement.style.zIndex = 20;
-        element.nativeElement.style.height = '100%';
-        element.nativeElement.style.width = '100%';
-        element.nativeElement.style.overflow = 'auto';
-        element.nativeElement.style.display = 'block';
-        return _this;
-    }
-    AckOptionsModal.prototype.ngAfterViewInit = function () {
-        var _this = this;
-        setTimeout(function () {
-            _this.ackOptions.modelChange.subscribe(function (model) {
-                if (model && !_this.multiple && _this.ackModal) {
-                    _this.ackModal.close();
-                }
-                _this.modelChange.emit(_this.model);
-            });
-        }, 0);
-    };
-    return AckOptionsModal;
-}(AckOptions));
-AckOptionsModal.decorators = [
-    { type: core_1.Component, args: [{
-                selector: 'ack-options-modal',
-                template: ack_options_modal_pug_1.string
-            },] },
-];
-/** @nocollapse */
-AckOptionsModal.ctorParameters = function () { return [
-    { type: core_1.ElementRef, },
-]; };
-AckOptionsModal.propDecorators = {
-    'allowClose': [{ type: core_1.Input },],
-    'onClose': [{ type: core_1.Output },],
-};
-exports.AckOptionsModal = AckOptionsModal;
 var OnEnterKey = (function () {
     function OnEnterKey(element) {
         var _this = this;
@@ -1068,8 +883,10 @@ exports.declarations = [
     ErrorWell,
     AbsoluteOverflowX,
     InputHint,
-    AckModal,
-    AckOptions,
-    AckOptionsModal
+    AckOptions_component_1.AckOptions,
+    AckOptionsModal_component_1.AckOptionsModal,
+    AckModal_component_1.AckModal
+    //ComponentHeader
+    //...AckModals
 ];
 //# sourceMappingURL=components.js.map
