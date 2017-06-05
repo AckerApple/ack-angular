@@ -23,6 +23,7 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   @ContentChild(TemplateRef) @Input() public templateRef:TemplateRef<any>
   @Input() private ref
   @Output() public refChange = new EventEmitter()
+  @Input() public arrayKey:string
 
   ngOnInit(){
     setTimeout(()=>{
@@ -32,28 +33,52 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   }
 
   selectItem(item){
+    const value = this.getArrayValue(item)
+
     if(this.multiple){
-      const modelIndex = this.modelIndex(item)
+      const modelIndex = this.modelIndex( item )
       if(modelIndex>=0){
         this.model.splice(modelIndex, 1)
       }else{
-        this.model.push(item)
+        this.model.push( value )
       }
     }else{
-      if(this.toggleable && this.model==item){
-        this.model=null
+      if(this.toggleable && this.model==value){
+        this.model = null
       }else{
-        this.model=item
+        this.model = value
       }
     }
     this.modelChange.emit(this.model)
   }
 
+  getArrayValue(item){
+    if(!this.arrayKey)return item
+
+    let items = this.arrayKey.split('.')
+    var scope = item
+    while(items.length){
+      if( scope==null )return null
+      scope = scope[ items.shift() ]
+    }
+
+    return scope
+  }
+
   modelIndex(item){
     this.model = array(this.model)
     for(let i=this.model.length-1; i >= 0; --i){
-      if(this.model[i]==item)return i
+      let value = this.getArrayValue( item )
+      if( value==this.model[i] )return i
     }
     return -1
+  }
+
+  getItemClass(item){
+    return {
+      'cursor-pointer pad-h pad-v-sm border-grey-6x border-bottom' : this.stylize,
+      'bg-warning' : this.stylize && this.modelIndex(item)>=0,
+      'hover-bg-grey-5x' : this.stylize && this.modelIndex(item)<0
+    }
   }
 }

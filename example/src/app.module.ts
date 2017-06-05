@@ -1,5 +1,5 @@
 export const strapTime = Date.now()
-
+import { getServerTime } from "./functions"
 import {
   ElementRef,
   Input,
@@ -84,36 +84,7 @@ import {string as jjsWoz} from './templates/jjs-woz.pug'
   ,template: overviewExamples
 }) export class OverviewExamples {}
 
-import {string as componentsExamples} from './templates/components-examples.pug'
-@Component({
-  selector: 'components-examples'
-  ,template: componentsExamples
-  ,animations:fxArray
-}) export class ComponentsExamples {
-  public error
-  public contentArray = []
-  public modalBackgroundColor = 'rgba(255,255,255,0.95)'
-  public modalWrapStyle
-
-  constructor(public PageScrollService:PageScrollService){}
-  
-  causeError(){
-    this.error = new Error( 'An intended error was caused @ '+getServerTime() )
-  }
-
-  scrollToModuleImport(){
-    setTimeout(()=>{
-      const pageScrollInstance = PageScrollInstance.simpleInstance(document, '#Import AckModule');
-      this.PageScrollService.start(pageScrollInstance);
-    }, 600)
-  }
-
-  setModalWrapStyle(v){
-    try{
-      this.modalWrapStyle = JSON.parse(v)
-    }catch(e){}
-  }
-}
+import { ComponentsExamples } from "./ComponentsExamples.component"
 
 import {string as pipesExamples} from './templates/pipes-examples.pug'
 @Component({
@@ -180,8 +151,3 @@ import { HttpModule } from '@angular/http';
 }) export class AppModule {}
 
 console.log('Ng Define Time', Date.now()-strapTime+'ms', '@', getServerTime())
-
-function getServerTime(d?){
-  d = d || new Date()
-  var h=d.getHours(),t='AM',m=d.getMinutes();m=m<10?'0'+m:m;h=h>=12?(t='PM',h-12||12):h==0?12:h;return ('0'+h).slice(-2)+':'+m+':'+('0'+d.getSeconds()).slice(-2)+'.'+d.getMilliseconds()+' '+t
-}

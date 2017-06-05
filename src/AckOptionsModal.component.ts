@@ -16,7 +16,7 @@ import { string as ackOptionsModal } from "./templates/ack-options-modal.pug"
   public ackOptions
   @Input() public allowClose = true
   @Output() public onClose = new EventEmitter()
-
+  
   constructor(public element:ElementRef){
     super()
 

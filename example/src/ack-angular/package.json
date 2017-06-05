@@ -1,10 +1,11 @@
 {
   "name": "ack-angular",
-  "version": "0.4.12",
+  "version": "0.4.13",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "ack-angular/index.js",
   "typings": "ack-angular/index.d.ts",
   "scripts": {
+    "build:index": "pug example/src/index.pug --out example/www/",
     "build:css": "npm run build:css:ack-css-boot && npm run build:css:csshake && npm run build:css:dist && npm run build:css:example",
     "build:css:ack-css-boot": "ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss ack-angular/ack-css-boot.css --production",
     "build:css:csshake": "ack-sass node_modules/csshake/scss/csshake.scss ack-angular/csshake.css --production",
@@ -28,7 +29,7 @@
     "compile:aot": "npm run compile:aot:copy && ngc -p example/tsconfig.aot.json",
     "compile:aot:copy": "ncp src example/src/ack-angular && ncp package.json example/src/ack-angular/package.json",
     "build:js": "ack-webpack example/index.aot.ts example/www/index.js --production --project tsconfig.json --modules ../",
-    "build": "npm run build:css && npm run build:assets && npm run compile:dist:package && npm run compile:prefx && npm run build:dist && npm run compile:aot && npm run build:js",
+    "build": "npm run build:index && npm run build:css && npm run build:assets && npm run compile:dist:package && npm run compile:prefx && npm run build:dist && npm run compile:aot && npm run build:js",
     "compile:dist:package": "node scripts/update-dist-package.js"
   },
   "repository": {

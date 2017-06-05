@@ -20,32 +20,53 @@ var AckOptions = (function () {
         }, 0);
     };
     AckOptions.prototype.selectItem = function (item) {
+        var value = this.getArrayValue(item);
         if (this.multiple) {
             var modelIndex = this.modelIndex(item);
             if (modelIndex >= 0) {
                 this.model.splice(modelIndex, 1);
             }
             else {
-                this.model.push(item);
+                this.model.push(value);
             }
         }
         else {
-            if (this.toggleable && this.model == item) {
+            if (this.toggleable && this.model == value) {
                 this.model = null;
             }
             else {
-                this.model = item;
+                this.model = value;
             }
         }
         this.modelChange.emit(this.model);
     };
+    AckOptions.prototype.getArrayValue = function (item) {
+        if (!this.arrayKey)
+            return item;
+        var items = this.arrayKey.split('.');
+        var scope = item;
+        while (items.length) {
+            if (scope == null)
+                return null;
+            scope = scope[items.shift()];
+        }
+        return scope;
+    };
     AckOptions.prototype.modelIndex = function (item) {
         this.model = pipes_class_1.array(this.model);
         for (var i = this.model.length - 1; i >= 0; --i) {
-            if (this.model[i] == item)
+            var value = this.getArrayValue(item);
+            if (value == this.model[i])
                 return i;
         }
         return -1;
+    };
+    AckOptions.prototype.getItemClass = function (item) {
+        return {
+            'cursor-pointer pad-h pad-v-sm border-grey-6x border-bottom': this.stylize,
+            'bg-warning': this.stylize && this.modelIndex(item) >= 0,
+            'hover-bg-grey-5x': this.stylize && this.modelIndex(item) < 0
+        };
     };
     return AckOptions;
 }());
@@ -67,6 +88,7 @@ AckOptions.propDecorators = {
     'templateRef': [{ type: core_1.ContentChild, args: [core_1.TemplateRef,] }, { type: core_1.Input },],
     'ref': [{ type: core_1.Input },],
     'refChange': [{ type: core_1.Output },],
+    'arrayKey': [{ type: core_1.Input },],
 };
 exports.AckOptions = AckOptions;
 //# sourceMappingURL=AckOptions.component.js.map

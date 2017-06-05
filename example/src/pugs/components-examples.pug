@@ -266,7 +266,7 @@ h3.margin-bottom-0(id="Common Components") Common Components
         div(*ngIf="ackOptionStringModal" "[@500]"="'fadeInUp'")
           strong Selected Option:
           |&nbsp;{{ ackOptionStringModal }}
-        ack-options-modal(*ngIf="showAckOptionsStringModal" "[@500]"="'fadeInUp'" allowClose="0" "(onClose)"="showAckOptionsStringModal=0" "[array]"="['option 0','option 1','option 2']" "[(model)]"="ackOptionStringModal" toggleable=1)
+        ack-options-modal(*ngIf="showAckOptionsStringModal" "[@500]"="'fadeInUp'" allowClose="0" "(onClose)"="showAckOptionsStringModal=0" "[array]"="['option 0','option 1','option 2']" "[(model)]"="ackOptionStringModal" toggleable="1")
           .pad-right-3x Select Something Below
         button("(click)"="showAckOptionsStringModal=!showAckOptionsStringModal") select option
         hr
@@ -276,7 +276,7 @@ h3.margin-bottom-0(id="Common Components") Common Components
             strong Selected Options:
           absolute-overflow-x
             pre.code-sample {{ ackOptionArrayModal | json }}
-        ack-options-modal(*ngIf="showAckOptionsObjectModal" "[@500]"="'fadeInUp'" "(onClose)"="showAckOptionsObjectModal=0" "[array]"="[{name:'option a'},{name:'option b'},{name:'option c'}]" "[(model)]"="ackOptionArrayModal" multiple=1)
+        ack-options-modal(*ngIf="showAckOptionsObjectModal" "[@500]"="'fadeInUp'" "(onClose)"="showAckOptionsObjectModal=0" "[array]"="[{name:'red'},{name:'blue'},{name:'green'}]" "[(model)]"="ackOptionArrayModal" multiple="1" "arrayKey"="name")
           .pad-right-3x Select Multiple Things Below
           ng-template(let-item="item")
             div &bull; name:{{ item.name }}
@@ -298,7 +298,7 @@ h3.margin-bottom-0(id="Common Components") Common Components
             &lt;strong&gt; Selected Options: &lt;/strong&gt;
             &lt;pre&gt; &#123;&#123; ackOptionArrayModal | json &#125;&#125; &lt;/pre&gt;
           &lt;/div&gt;
-          &lt;ack-options-modal *ngIf="showAckOptionsObjectModal" [@500]="'fadeInUp'" (onClose)="showAckOptionsObjectModal=0" [array]="[&#123;name:'x'&#125;,&#123;name:'y'&#125;,&#123;name:'z'&#125;]" [(model)]="ackOptionArrayModal" multiple&gt;
+          &lt;ack-options-modal *ngIf="showAckOptionsObjectModal" [@500]="'fadeInUp'" (onClose)="showAckOptionsObjectModal=0" [array]="[&#123;name:'red'&#125;,&#123;name:'blue'&#125;,&#123;name:'green'&#125;]" [(model)]="ackOptionArrayModal" multiple arrayKey="name"&gt;
             &lt;div style="padding-right:30px;"&gt;Select Multiple Things Below&lt;/div&gt;
             &lt;ng-template let-item="item"&gt;
               &lt;div&gt; &amp;bull; name:&#123;&#123; item.name &#125;&#125; &lt;/div&gt;
