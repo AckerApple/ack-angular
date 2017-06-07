@@ -20,14 +20,14 @@ var AckOptions = (function () {
         }, 0);
     };
     AckOptions.prototype.selectItem = function (item) {
-        var value = this.getArrayValue(item);
+        var value = this.getArrayItemValue(item);
         if (this.multiple) {
             var modelIndex = this.modelIndex(item);
             if (modelIndex >= 0) {
                 this.model.splice(modelIndex, 1);
             }
             else {
-                this.model.push(value);
+                this.model.push(this.getArrayItemModel(item));
             }
         }
         else {
@@ -35,12 +35,29 @@ var AckOptions = (function () {
                 this.model = null;
             }
             else {
-                this.model = value;
+                this.model = this.getArrayItemModel(item);
             }
         }
         this.modelChange.emit(this.model);
     };
-    AckOptions.prototype.getArrayValue = function (item) {
+    AckOptions.prototype.getArrayItemModel = function (item) {
+        if (this.arrayToModelKey != null) {
+            if (this.arrayToModelKey == '') {
+                return item;
+            }
+            var split = this.arrayToModelKey.split('.');
+            var scope = item;
+            while (split.length) {
+                if (scope == null)
+                    return null;
+                var key = split.shift();
+                scope = scope[key];
+            }
+            return scope;
+        }
+        return this.getArrayItemValue(item);
+    };
+    AckOptions.prototype.getArrayItemValue = function (item) {
         if (!this.arrayKey)
             return item;
         var items = this.arrayKey.split('.');
@@ -52,11 +69,24 @@ var AckOptions = (function () {
         }
         return scope;
     };
+    AckOptions.prototype.getModelValueToArrayItem = function (modelValue) {
+        if (!this.modelKey)
+            return modelValue;
+        var items = this.modelKey.split('.');
+        var scope = modelValue;
+        while (items.length) {
+            if (scope == null)
+                return null;
+            scope = scope[items.shift()];
+        }
+        return scope;
+    };
     AckOptions.prototype.modelIndex = function (item) {
         this.model = pipes_class_1.array(this.model);
         for (var i = this.model.length - 1; i >= 0; --i) {
-            var value = this.getArrayValue(item);
-            if (value == this.model[i])
+            var value = this.getArrayItemValue(item);
+            var modelValue = this.getModelValueToArrayItem(this.model[i]);
+            if (value == modelValue)
                 return i;
         }
         return -1;
@@ -89,6 +119,8 @@ AckOptions.propDecorators = {
     'ref': [{ type: core_1.Input },],
     'refChange': [{ type: core_1.Output },],
     'arrayKey': [{ type: core_1.Input },],
+    'modelKey': [{ type: core_1.Input },],
+    'arrayToModelKey': [{ type: core_1.Input },],
 };
 exports.AckOptions = AckOptions;
 //# sourceMappingURL=AckOptions.component.js.map

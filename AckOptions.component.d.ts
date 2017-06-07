@@ -10,9 +10,13 @@ export declare class AckOptions {
     private ref;
     refChange: EventEmitter<{}>;
     arrayKey: string;
+    modelKey: string;
+    arrayToModelKey: string;
     ngOnInit(): void;
     selectItem(item: any): void;
-    getArrayValue(item: any): any;
+    getArrayItemModel(item: any): any;
+    getArrayItemValue(item: any): any;
+    getModelValueToArrayItem(modelValue: any): any;
     modelIndex(item: any): number;
     getItemClass(item: any): {
         'cursor-pointer pad-h pad-v-sm border-grey-6x border-bottom': boolean;
