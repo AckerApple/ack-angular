@@ -9,7 +9,7 @@ export declare class AckApi {
         method: string;
         baseUrl: string;
         $http: {
-            headers: {};
+            headers: any;
         };
     };
     constructor(http: Http);
