@@ -91,11 +91,15 @@ var AckOptions = (function () {
         }
         return -1;
     };
+    AckOptions.prototype.isItemSelected = function (item) {
+        return this.modelIndex(item) >= 0;
+    };
     AckOptions.prototype.getItemClass = function (item) {
+        var selected = this.isItemSelected(item);
         return {
             'cursor-pointer pad-h pad-v-sm border-grey-6x border-bottom': this.stylize,
-            'bg-warning': this.stylize && this.modelIndex(item) >= 0,
-            'hover-bg-grey-5x': this.stylize && this.modelIndex(item) < 0
+            'bg-warning': this.stylize && selected,
+            'hover-bg-grey-5x': this.stylize && !selected
         };
     };
     return AckOptions;

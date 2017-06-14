@@ -18,6 +18,7 @@ export declare class AckOptions {
     getArrayItemValue(item: any): any;
     getModelValueToArrayItem(modelValue: any): any;
     modelIndex(item: any): number;
+    isItemSelected(item: any): boolean;
     getItemClass(item: any): {
         'cursor-pointer pad-h pad-v-sm border-grey-6x border-bottom': boolean;
         'bg-warning': boolean;
