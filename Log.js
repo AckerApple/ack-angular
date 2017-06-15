@@ -29,13 +29,13 @@ var Log = (function () {
         e['datetime'] = e['datetime'] || getDateTimeString();
         return e;
     };
+    Log.decorators = [
+        { type: core_1.Injectable },
+    ];
+    /** @nocollapse */
+    Log.ctorParameters = function () { return []; };
     return Log;
 }());
-Log.decorators = [
-    { type: core_1.Injectable },
-];
-/** @nocollapse */
-Log.ctorParameters = function () { return []; };
 exports.Log = Log;
 function getDateTimeString() {
     return (function (d) { return (('0' + (d.getMonth() + 1)).slice(-2) + '/' + ('0' + d.getDate()).slice(-2) + '/' + d.getFullYear()); })(new Date()) + ' ' + (function (d) { var h = d.getHours(), t = 'AM', m = d.getMinutes(); var mn = m < 10 ? '0' + m : m; h = h >= 12 ? (t = 'PM', h - 12 || 12) : h == 0 ? 12 : h; return ('0' + h).slice(-2) + ':' + ('0' + mn).slice(-2) + ' ' + t; })(new Date());

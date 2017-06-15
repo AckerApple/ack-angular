@@ -41,21 +41,21 @@ var AckOptionsModal = (function (_super) {
             });
         }, 0);
     };
+    AckOptionsModal.decorators = [
+        { type: core_1.Component, args: [{
+                    selector: 'ack-options-modal',
+                    template: ack_options_modal_pug_1.string
+                },] },
+    ];
+    /** @nocollapse */
+    AckOptionsModal.ctorParameters = function () { return [
+        { type: core_1.ElementRef, },
+    ]; };
+    AckOptionsModal.propDecorators = {
+        'allowClose': [{ type: core_1.Input },],
+        'onClose': [{ type: core_1.Output },],
+    };
     return AckOptionsModal;
 }(AckOptions_component_1.AckOptions));
-AckOptionsModal.decorators = [
-    { type: core_1.Component, args: [{
-                selector: 'ack-options-modal',
-                template: ack_options_modal_pug_1.string
-            },] },
-];
-/** @nocollapse */
-AckOptionsModal.ctorParameters = function () { return [
-    { type: core_1.ElementRef, },
-]; };
-AckOptionsModal.propDecorators = {
-    'allowClose': [{ type: core_1.Input },],
-    'onClose': [{ type: core_1.Output },],
-};
 exports.AckOptionsModal = AckOptionsModal;
 //# sourceMappingURL=AckOptionsModal.component.js.map
