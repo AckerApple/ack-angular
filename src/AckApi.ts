@@ -8,7 +8,13 @@ import { AckQue } from './AckQue';
 @Injectable() export class AckApi{
   public AckCache
   public AckQue
-  public config = {
+  public config:{
+    method:string,
+    baseUrl:string,
+    $http:{
+      headers:any
+    }
+  } = {
     method:'GET',
     baseUrl:'',
     $http:{

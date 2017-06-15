@@ -3,6 +3,7 @@ export declare class AckModal {
     element: ElementRef;
     onClose: EventEmitter<{}>;
     wrapStyle: any;
+    wrapCellStyle: any;
     allowClose: boolean;
     backgroundColor: any;
     backgroundColorChange: EventEmitter<{}>;

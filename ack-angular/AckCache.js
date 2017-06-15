@@ -143,12 +143,12 @@ var AckCache = (function (_super) {
     AckCache.prototype.setCache = function (name, cache, options) {
         return this.set(name, options);
     };
+    AckCache.decorators = [
+        { type: core_1.Injectable },
+    ];
+    /** @nocollapse */
+    AckCache.ctorParameters = function () { return []; };
     return AckCache;
 }(AckOffline_1.AckOffline));
-AckCache.decorators = [
-    { type: core_1.Injectable },
-];
-/** @nocollapse */
-AckCache.ctorParameters = function () { return []; };
 exports.AckCache = AckCache;
 //# sourceMappingURL=AckCache.js.map

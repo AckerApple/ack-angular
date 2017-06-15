@@ -15,6 +15,7 @@ import { string as ackModal } from "./templates/ack-modal.pug"
   @Output() public onClose = new EventEmitter()
   //@Input() public size:string//'full' or null
   @Input() public wrapStyle
+  @Input() public wrapCellStyle
   @Input() public allowClose = true
   @Input() public backgroundColor
   @Output() public backgroundColorChange = new EventEmitter()

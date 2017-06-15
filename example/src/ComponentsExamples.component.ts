@@ -13,7 +13,7 @@ import {string as componentsExamples} from './templates/components-examples.pug'
   public contentArray = []
   public modalBackgroundColor = 'rgba(255,255,255,0.95)'
   public modalWrapStyle
-  //public ackOptionArrayModal = ['blue']
+  public ackOptionArrayModal = [{key:'b'}]
 
   constructor(public PageScrollService:PageScrollService){}
   

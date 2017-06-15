@@ -76,13 +76,13 @@ var ErrorLog = (function () {
         var e = this.add(err);
         throw e;
     };
+    ErrorLog.decorators = [
+        { type: core_1.Injectable },
+    ];
+    /** @nocollapse */
+    ErrorLog.ctorParameters = function () { return []; };
     return ErrorLog;
 }());
-ErrorLog.decorators = [
-    { type: core_1.Injectable },
-];
-/** @nocollapse */
-ErrorLog.ctorParameters = function () { return []; };
 exports.ErrorLog = ErrorLog;
 function logObToErrorObject(log) {
     var e = new Error(log.message || log.statusText || log.name || 'Unexpected Error Occured');

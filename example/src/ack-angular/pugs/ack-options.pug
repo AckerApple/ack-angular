@@ -1,4 +1,4 @@
 div("[ngClass]"="{'border-grey-6x border-top':stylize}")
 div(*ngFor="let item of array|array" "(click)"="selectItem(item)" "[ngClass]"="getItemClass(item)")
-  ng-template(*ngIf="templateRef" "[ngTemplateOutlet]"="templateRef" "[ngOutletContext]"="{item:item}")
+  ng-template(*ngIf="templateRef" "[ngTemplateOutlet]"="templateRef" "[ngOutletContext]"="{item:item, selected:isItemSelected(item)}")
   span(*ngIf="!templateRef") {{ item }}

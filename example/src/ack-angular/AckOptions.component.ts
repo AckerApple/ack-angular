@@ -23,7 +23,10 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   @ContentChild(TemplateRef) @Input() public templateRef:TemplateRef<any>
   @Input() private ref
   @Output() public refChange = new EventEmitter()
+  
   @Input() public arrayKey:string
+  @Input() public modelKey:string
+  @Input() public arrayToModelKey:string
 
   ngOnInit(){
     setTimeout(()=>{
@@ -33,26 +36,44 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   }
 
   selectItem(item){
-    const value = this.getArrayValue(item)
+    const value = this.getArrayItemValue(item)
 
     if(this.multiple){
       const modelIndex = this.modelIndex( item )
       if(modelIndex>=0){
         this.model.splice(modelIndex, 1)
       }else{
-        this.model.push( value )
+        this.model.push( this.getArrayItemModel(item) )
       }
     }else{
       if(this.toggleable && this.model==value){
         this.model = null
       }else{
-        this.model = value
+        this.model = this.getArrayItemModel(item)
       }
     }
     this.modelChange.emit(this.model)
   }
 
-  getArrayValue(item){
+  getArrayItemModel(item){
+    if(this.arrayToModelKey!=null){
+      if(this.arrayToModelKey==''){
+        return item
+      }
+      
+      const split = this.arrayToModelKey.split('.')
+      var scope = item
+      while(split.length){
+        if(scope==null)return null
+        let key = split.shift()
+        scope = scope[ key ]
+      }
+      return scope
+    }
+    return this.getArrayItemValue( item )
+  }
+
+  getArrayItemValue(item){
     if(!this.arrayKey)return item
 
     let items = this.arrayKey.split('.')
@@ -65,20 +86,39 @@ import { string as ackOptions } from "./templates/ack-options.pug"
     return scope
   }
 
+  getModelValueToArrayItem(modelValue){
+    if(!this.modelKey)return modelValue
+
+    let items = this.modelKey.split('.')
+    var scope = modelValue
+    while(items.length){
+      if( scope==null )return null
+      scope = scope[ items.shift() ]
+    }
+
+    return scope
+  }
+
   modelIndex(item){
     this.model = array(this.model)
     for(let i=this.model.length-1; i >= 0; --i){
-      let value = this.getArrayValue( item )
-      if( value==this.model[i] )return i
+      let value = this.getArrayItemValue( item )
+      let modelValue = this.getModelValueToArrayItem( this.model[i] )
+      if( value == modelValue )return i
     }
     return -1
   }
 
+  isItemSelected(item){
+    return this.modelIndex(item)>=0
+  }
+
   getItemClass(item){
+    const selected = this.isItemSelected(item)
     return {
       'cursor-pointer pad-h pad-v-sm border-grey-6x border-bottom' : this.stylize,
-      'bg-warning' : this.stylize && this.modelIndex(item)>=0,
-      'hover-bg-grey-5x' : this.stylize && this.modelIndex(item)<0
+      'bg-warning' : this.stylize && selected,
+      'hover-bg-grey-5x' : this.stylize && !selected
     }
   }
 }
