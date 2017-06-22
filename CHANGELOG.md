@@ -1,7 +1,7 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
-## [0.4.17] - 2017-06-22
+## [0.4.18] - 2017-06-22
 ### Enhanced
 - Cloned ack-modal options inside of ack-options-modal
 
