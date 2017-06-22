@@ -79,8 +79,19 @@ import { Injectable } from '@angular/core';
   }
 }
 
+function getErrorMessage(err){
+  return err.message || err.statusText || err.name || 'Unexpected Error Occured'
+}
+
+function getResponseMessage(res){
+  if(res.data && res.data.error && res.data.error.message){
+    return res.data.error.message
+  }
+    return getErrorMessage(res)
+}
+
 function logObToErrorObject(log){
-  const e = new Error( log.message || log.statusText || log.name || 'Unexpected Error Occured' )
+  const e = new Error( getResponseMessage(log) )
   Object.keys(log).forEach( v=>e[v]=log[v] )
   return e
 }

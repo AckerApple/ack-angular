@@ -14,8 +14,21 @@ import { string as ackOptionsModal } from "./templates/ack-options-modal.pug"
 }) export class AckOptionsModal extends AckOptions{
   public ackModal
   public ackOptions
+  
   @Input() public allowClose = true
   @Output() public onClose = new EventEmitter()
+  @Input() public wrapStyle
+  @Input() public wrapCellStyle
+  @Input() public backgroundColor
+  @Output() public backgroundColorChange = new EventEmitter()
+  /* omitted ack-modal inputs
+  @Input() private ref
+  @Output() public refChange = new EventEmitter()
+  */
+
+
+
+
   
   constructor(public element:ElementRef){
     super()

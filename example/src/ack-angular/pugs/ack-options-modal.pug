@@ -1,4 +1,12 @@
-ack-modal("[(ref)]"="ackModal" "(onClose)"="onClose.emit($event)" "[allowClose]"="allowClose")
+-attrs = {};
+-attrs["[(ref)]"] = "ackModal"
+-attrs["(onClose)"] = "onClose.emit($event)"
+-attrs["[allowClose]"] = "allowClose"
+-attrs["[wrapStyle]"] = "wrapStyle"
+-attrs["[wrapCellStyle]"] = "wrapCellStyle"
+-attrs["[backgroundColor]"] = "backgroundColor"
+-attrs["(backgroundColorChange)"] = "backgroundColorChange.emit($event)"
+ack-modal&attributes(attrs)
   ng-content
   //-ng-content(select="component-header")
   .border-grey-6x.border.bg-white

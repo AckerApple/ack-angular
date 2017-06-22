@@ -15,11 +15,16 @@ var AckOptions_component_1 = require("./AckOptions.component");
 var ack_options_modal_pug_1 = require("./templates/ack-options-modal.pug");
 var AckOptionsModal = (function (_super) {
     __extends(AckOptionsModal, _super);
+    /* omitted ack-modal inputs
+    @Input() private ref
+    @Output() public refChange = new EventEmitter()
+    */
     function AckOptionsModal(element) {
         var _this = _super.call(this) || this;
         _this.element = element;
         _this.allowClose = true;
         _this.onClose = new core_1.EventEmitter();
+        _this.backgroundColorChange = new core_1.EventEmitter();
         element.nativeElement.style.position = 'fixed';
         element.nativeElement.style.top = 0;
         element.nativeElement.style.left = 0;
@@ -54,6 +59,10 @@ var AckOptionsModal = (function (_super) {
     AckOptionsModal.propDecorators = {
         'allowClose': [{ type: core_1.Input },],
         'onClose': [{ type: core_1.Output },],
+        'wrapStyle': [{ type: core_1.Input },],
+        'wrapCellStyle': [{ type: core_1.Input },],
+        'backgroundColor': [{ type: core_1.Input },],
+        'backgroundColorChange': [{ type: core_1.Output },],
     };
     return AckOptionsModal;
 }(AckOptions_component_1.AckOptions));
