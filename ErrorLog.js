@@ -84,8 +84,17 @@ var ErrorLog = (function () {
     return ErrorLog;
 }());
 exports.ErrorLog = ErrorLog;
+function getErrorMessage(err) {
+    return err.message || err.statusText || err.name || 'Unexpected Error Occured';
+}
+function getResponseMessage(res) {
+    if (res.data && res.data.error && res.data.error.message) {
+        return res.data.error.message;
+    }
+    return getErrorMessage(res);
+}
 function logObToErrorObject(log) {
-    var e = new Error(log.message || log.statusText || log.name || 'Unexpected Error Occured');
+    var e = new Error(getResponseMessage(log));
     Object.keys(log).forEach(function (v) { return e[v] = log[v]; });
     return e;
 }
