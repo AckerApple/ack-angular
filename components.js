@@ -1,13 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var prefx_1 = require("./prefx");
 var AckModal_component_1 = require("./AckModal.component");
 var AckOptions_component_1 = require("./AckOptions.component");
 var AckOptionsModal_component_1 = require("./AckOptionsModal.component");
 var reader_header_body_pug_1 = require("./templates/reader-header-body.pug");
-var error_well_pug_1 = require("./templates/error-well.pug");
-var absolute_overflow_x_pug_1 = require("./templates/absolute-overflow-x.pug");
+var AbsoluteOverflowX_component_1 = require("./AbsoluteOverflowX.component");
+var AbsoluteOverflowX_component_2 = require("./AbsoluteOverflowX.component");
+exports.AbsoluteOverflowX = AbsoluteOverflowX_component_2.AbsoluteOverflowX;
+var ShakeOn_component_1 = require("./ShakeOn.component");
+var ShakeOn_component_2 = require("./ShakeOn.component");
+exports.ShakeOn = ShakeOn_component_2.ShakeOn;
+var ErrorWell_component_1 = require("./ErrorWell.component");
+var ErrorWell_component_2 = require("./ErrorWell.component");
+exports.ErrorWell = ErrorWell_component_2.ErrorWell;
 //@Directive({selector:'component-header'}) export class ComponentHeader {}
 var FocusOn = (function () {
     function FocusOn(element) {
@@ -687,173 +693,6 @@ var HtmlHeightModel = (function () {
     return HtmlHeightModel;
 }());
 exports.HtmlHeightModel = HtmlHeightModel;
-var AbsoluteOverflowX = (function () {
-    function AbsoluteOverflowX() {
-    }
-    AbsoluteOverflowX.decorators = [
-        { type: core_1.Component, args: [{
-                    selector: 'absolute-overflow-x',
-                    template: absolute_overflow_x_pug_1.string
-                },] },
-    ];
-    /** @nocollapse */
-    AbsoluteOverflowX.ctorParameters = function () { return []; };
-    AbsoluteOverflowX.propDecorators = {
-        'scrollBars': [{ type: core_1.Input },],
-    };
-    return AbsoluteOverflowX;
-}());
-exports.AbsoluteOverflowX = AbsoluteOverflowX;
-var ErrorWell = (function () {
-    function ErrorWell() {
-        this.message = 'Unexpected Error Occured';
-    }
-    ErrorWell.prototype.ngOnInit = function () {
-        this.cssClasses = this.cssClasses || 'bg-danger border border-danger text-danger';
-    };
-    ErrorWell.prototype.getErrorMessage = function (error) {
-        if (!error)
-            return this.message;
-        if (typeof error == 'string')
-            return error;
-        return error.message || error.statusText || this.message;
-    };
-    ErrorWell.decorators = [
-        { type: core_1.Component, args: [{
-                    selector: 'error-well',
-                    template: error_well_pug_1.string,
-                    animations: prefx_1.fxArray
-                },] },
-    ];
-    /** @nocollapse */
-    ErrorWell.ctorParameters = function () { return []; };
-    ErrorWell.propDecorators = {
-        'message': [{ type: core_1.Input },],
-        'error': [{ type: core_1.Input },],
-        'cssClasses': [{ type: core_1.Input },],
-    };
-    return ErrorWell;
-}());
-exports.ErrorWell = ErrorWell;
-/** runs shake instructions when condition returns a truthy value */
-var ShakeOn = (function () {
-    function ShakeOn(element) {
-        this.element = element;
-        this.shakeConstant = false;
-        this.shakeThen = new core_1.EventEmitter();
-        this.shakeForMsChange = new core_1.EventEmitter();
-        this.shakeTypeChange = new core_1.EventEmitter();
-        this.shakeRefChange = new core_1.EventEmitter();
-        this.shakeTypes = [
-            'shake-slow', 'shake-hard', 'shake-little', 'shake-horizontal',
-            'shake-vertical', 'shake-rotate', 'shake-opacity', 'shake-crazy',
-            'shake-chunk'
-        ];
-    }
-    ShakeOn.prototype.ngOnInit = function () {
-        var _this = this;
-        setTimeout(function () { return _this.update(); }, 0);
-    };
-    ShakeOn.prototype.update = function () {
-        this.shakeForMs = this.shakeForMs || 2000;
-        this.shakeRef = this;
-        this.shakeType = this.shakeType || 'shake-slow';
-        this.shakeRefChange.emit(this.shakeRef);
-        this.shakeTypeChange.emit(this.shakeType);
-        this.shakeForMsChange.emit(this.shakeForMs);
-    };
-    ShakeOn.prototype.ngOnChanges = function (changes) {
-        if (changes.shakeOn && changes.shakeOn.currentValue != null && changes.shakeOn.currentValue != changes.shakeOn.previousValue) {
-            if (changes.shakeOn.currentValue) {
-                this.onTrue();
-            }
-            else {
-                this.onFalse();
-            }
-        }
-        if (changes.shakeType && changes.shakeType.currentValue != changes.shakeType.previousValue) {
-            if (this.shakeOn) {
-                removeClass(this.element.nativeElement, changes.shakeType.previousValue);
-                this.applyType();
-            }
-            else {
-                this.removeType();
-            }
-        }
-    };
-    ShakeOn.prototype.onFalse = function () {
-        removeClass(this.element.nativeElement, 'shake-constant');
-        this.removeType();
-        if (this.timeout) {
-            clearTimeout(this.timeout);
-            this.timeout = null;
-        }
-    };
-    ShakeOn.prototype.removeType = function () {
-        removeClass(this.element.nativeElement, this.shakeType || 'shake-slow');
-    };
-    ShakeOn.prototype.applyType = function () {
-        addClass(this.element.nativeElement, this.shakeType || 'shake-slow');
-    };
-    ShakeOn.prototype.onTrue = function () {
-        var _this = this;
-        addClass(this.element.nativeElement, 'shake-constant');
-        this.applyType();
-        if (!this.shakeConstant) {
-            this.timeout = setTimeout(function () {
-                //$scope.shakeOnController.shakeOn = false
-                _this.onFalse();
-                _this.shakeThen.emit(_this);
-            }, this.shakeForMs);
-        }
-    };
-    ShakeOn.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[shakeOn]'
-                },] },
-    ];
-    /** @nocollapse */
-    ShakeOn.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    ShakeOn.propDecorators = {
-        'shakeConstant': [{ type: core_1.Input },],
-        'shakeOn': [{ type: core_1.Input },],
-        'shakeThen': [{ type: core_1.Output },],
-        'shakeForMs': [{ type: core_1.Input },],
-        'shakeForMsChange': [{ type: core_1.Output },],
-        'shakeType': [{ type: core_1.Input },],
-        'shakeTypeChange': [{ type: core_1.Output },],
-        'shakeRef': [{ type: core_1.Input },],
-        'shakeRefChange': [{ type: core_1.Output },],
-    };
-    return ShakeOn;
-}());
-exports.ShakeOn = ShakeOn;
-function hasClass(el, className) {
-    if (el.classList)
-        return el.classList.contains(className);
-    else
-        return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'));
-}
-exports.hasClass = hasClass;
-function addClass(el, className) {
-    if (el.classList) {
-        el.classList.add(className);
-    }
-    else if (!hasClass(el, className))
-        el.className += " " + className;
-}
-exports.addClass = addClass;
-function removeClass(el, className) {
-    if (el.classList)
-        el.classList.remove(className);
-    else if (hasClass(el, className)) {
-        var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
-        el.className = el.className.replace(reg, ' ');
-    }
-}
-exports.removeClass = removeClass;
 exports.declarations = [
     //directives
     SelectOn,
@@ -871,7 +710,7 @@ exports.declarations = [
     ScreenHeightModel,
     HtmlWidthModel,
     HtmlHeightModel,
-    ShakeOn,
+    ShakeOn_component_1.ShakeOn,
     StatusOnlineModel,
     StatusOfflineModel,
     ElementWidthModel,
@@ -880,8 +719,8 @@ exports.declarations = [
     ReaderHeaderBody,
     ReaderHeader,
     ReaderBody,
-    ErrorWell,
-    AbsoluteOverflowX,
+    ErrorWell_component_1.ErrorWell,
+    AbsoluteOverflowX_component_1.AbsoluteOverflowX,
     InputHint,
     AckOptions_component_1.AckOptions,
     AckOptionsModal_component_1.AckOptionsModal,

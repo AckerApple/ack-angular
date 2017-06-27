@@ -12,6 +12,7 @@ var AckApi = (function () {
         //,public AckQue:AckQue
     ) {
         this.http = http;
+        this.AuthError = new core_1.EventEmitter();
         this.config = {
             method: 'GET',
             baseUrl: '',
@@ -182,6 +183,9 @@ var AckApi = (function () {
             var newError = new Error();
             Object.assign(newError, e.data.error);
             e = newError;
+        }
+        if (e.status == 401) {
+            this.AuthError.emit(e);
         }
         return Promise.reject(e);
     };
