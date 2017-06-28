@@ -1,11 +1,14 @@
 import 'rxjs/add/operator/toPromise';
+import { EventEmitter } from '@angular/core';
 import { Http } from '@angular/http';
 /** Http util with offline config for request failures */
 export declare class AckApi {
     http: Http;
+    AuthError: EventEmitter<{}>;
     AckCache: any;
     AckQue: any;
     config: {
+        promise?: string;
         method: string;
         baseUrl: string;
         $http: {

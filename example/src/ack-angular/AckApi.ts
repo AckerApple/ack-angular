@@ -1,14 +1,16 @@
 import 'rxjs/add/operator/toPromise';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Response, Request } from '@angular/http';
 import { AckCache } from './AckCache';
 import { AckQue } from './AckQue';
 
 /** Http util with offline config for request failures */
 @Injectable() export class AckApi{
-  public AckCache
-  public AckQue
-  public config:{
+  AuthError = new EventEmitter()
+  AckCache
+  AckQue
+  config:{
+    promise?:string,
     method:string,
     baseUrl:string,
     $http:{
@@ -219,6 +221,10 @@ import { AckQue } from './AckQue';
       const newError = new Error()
       Object.assign(newError, e.data.error)
       e = newError
+    }
+
+    if(e.status==401){
+      this.AuthError.emit(e)
     }
 
     return Promise.reject(e)

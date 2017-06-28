@@ -1,6 +1,10 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.4.20] - 2017-06-27
+### Added
+- AckApi has AuthError observer
+
 ## [0.4.18] - 2017-06-22
 ### Enhanced
 - Cloned ack-modal options inside of ack-options-modal
