@@ -36,7 +36,7 @@ export declare class AckQue extends AckOffline {
     }): Promise<any>;
     eachHandler(name: any, handler: any): (data: any) => Promise<any>;
     /** call manually in app when back online */
-    processQue(name: string): Promise<any>;
+    processQue(name: string): Promise<void>;
     /** call manually in app when back online and sure you want to process all ques */
     processAllQues(): Promise<any[]>;
 }
