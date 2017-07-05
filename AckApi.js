@@ -7,10 +7,7 @@ var AckCache_1 = require("./AckCache");
 var AckQue_1 = require("./AckQue");
 /** Http util with offline config for request failures */
 var AckApi = (function () {
-    function AckApi(http
-        //,public AckCache:AckCache
-        //,public AckQue:AckQue
-    ) {
+    function AckApi(http) {
         this.http = http;
         this.AuthError = new core_1.EventEmitter();
         this.config = {
