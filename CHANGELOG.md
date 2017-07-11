@@ -1,7 +1,8 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
-## [0.5.4] - 2017-07-11
+## [0.5.5] - 2017-07-11
+- AckApi has ApiError EventEmitter
 - Updated ack-css-boot
 
 ## [0.5.3] - 2017-07-10

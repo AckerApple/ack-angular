@@ -7,6 +7,7 @@ import { AckQue } from './AckQue';
 /** Http util with offline config for request failures */
 @Injectable() export class AckApi{
   AuthError = new EventEmitter()
+  ApiError = new EventEmitter()
   AckCache
   AckQue
   config:{
@@ -222,6 +223,8 @@ import { AckQue } from './AckQue';
 
     if(e.status==401){
       this.AuthError.emit(e)
+    }else{
+      this.ApiError.emit(e)
     }
 
     return Promise.reject(e)
