@@ -8,7 +8,12 @@ var AckOffline = (function () {
     function AckOffline() {
         this.prefix = "offline";
     }
+    /** save to browser offline memory with datetime stamps offlineSavedAt and offlineCreatedAt */
     AckOffline.prototype.set = function (name, data) {
+        if (data && data.constructor == Object)
+            data.offlineSavedAt = new Date().toString();
+        if (data && data.constructor == Object)
+            data.offlineCreatedAt = data.offlineCreatedAt || new Date().toString();
         return localForage.setItem(this.prefix + '-' + name, data);
     };
     AckOffline.prototype.get = function (name) {
