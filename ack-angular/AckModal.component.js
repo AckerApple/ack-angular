@@ -44,27 +44,27 @@ var AckModal = (function () {
     AckModal.prototype.close = function () {
         this.onClose.emit(this);
     };
-    AckModal.decorators = [
-        { type: core_1.Component, args: [{
-                    selector: 'ack-modal',
-                    template: ack_modal_pug_1.string
-                },] },
-    ];
-    /** @nocollapse */
-    AckModal.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    AckModal.propDecorators = {
-        'onClose': [{ type: core_1.Output },],
-        'wrapStyle': [{ type: core_1.Input },],
-        'wrapCellStyle': [{ type: core_1.Input },],
-        'allowClose': [{ type: core_1.Input },],
-        'backgroundColor': [{ type: core_1.Input },],
-        'backgroundColorChange': [{ type: core_1.Output },],
-        'ref': [{ type: core_1.Input },],
-        'refChange': [{ type: core_1.Output },],
-    };
     return AckModal;
 }());
+AckModal.decorators = [
+    { type: core_1.Component, args: [{
+                selector: 'ack-modal',
+                template: ack_modal_pug_1.string
+            },] },
+];
+/** @nocollapse */
+AckModal.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
+AckModal.propDecorators = {
+    'onClose': [{ type: core_1.Output },],
+    'wrapStyle': [{ type: core_1.Input },],
+    'wrapCellStyle': [{ type: core_1.Input },],
+    'allowClose': [{ type: core_1.Input },],
+    'backgroundColor': [{ type: core_1.Input },],
+    'backgroundColorChange': [{ type: core_1.Output },],
+    'ref': [{ type: core_1.Input },],
+    'refChange': [{ type: core_1.Output },],
+};
 exports.AckModal = AckModal;
 //# sourceMappingURL=AckModal.component.js.map

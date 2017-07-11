@@ -1,6 +1,17 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.5.4] - 2017-07-11
+- Updated ack-css-boot
+
+## [0.5.3] - 2017-07-10
+### Enhanced
+- offline storage now auto params offlineSavedAt offlineCreatedAt timestamps
+
+## [0.5.0] - 2017-06-30
+### Upgraded
+- Angular 4.1.3 to 4.2.5
+
 ## [0.4.20] - 2017-06-27
 ### Added
 - AckApi has AuthError observer

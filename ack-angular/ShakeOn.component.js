@@ -73,28 +73,28 @@ var ShakeOn = (function () {
             }, this.shakeForMs);
         }
     };
-    ShakeOn.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[shakeOn]'
-                },] },
-    ];
-    /** @nocollapse */
-    ShakeOn.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    ShakeOn.propDecorators = {
-        'shakeConstant': [{ type: core_1.Input },],
-        'shakeOn': [{ type: core_1.Input },],
-        'shakeThen': [{ type: core_1.Output },],
-        'shakeForMs': [{ type: core_1.Input },],
-        'shakeForMsChange': [{ type: core_1.Output },],
-        'shakeType': [{ type: core_1.Input },],
-        'shakeTypeChange': [{ type: core_1.Output },],
-        'shakeRef': [{ type: core_1.Input },],
-        'shakeRefChange': [{ type: core_1.Output },],
-    };
     return ShakeOn;
 }());
+ShakeOn.decorators = [
+    { type: core_1.Directive, args: [{
+                selector: '[shakeOn]'
+            },] },
+];
+/** @nocollapse */
+ShakeOn.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
+ShakeOn.propDecorators = {
+    'shakeConstant': [{ type: core_1.Input },],
+    'shakeOn': [{ type: core_1.Input },],
+    'shakeThen': [{ type: core_1.Output },],
+    'shakeForMs': [{ type: core_1.Input },],
+    'shakeForMsChange': [{ type: core_1.Output },],
+    'shakeType': [{ type: core_1.Input },],
+    'shakeTypeChange': [{ type: core_1.Output },],
+    'shakeRef': [{ type: core_1.Input },],
+    'shakeRefChange': [{ type: core_1.Output },],
+};
 exports.ShakeOn = ShakeOn;
 function hasClass(el, className) {
     if (el.classList)

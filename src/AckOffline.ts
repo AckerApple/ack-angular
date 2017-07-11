@@ -6,7 +6,11 @@ import { Injectable } from '@angular/core';
 @Injectable() export class AckOffline{
   public prefix:string="offline"
 
+  /** save to browser offline memory with datetime stamps offlineSavedAt and offlineCreatedAt */
   set(name, data) {
+    if(data && data.constructor==Object)data.offlineSavedAt = new Date().toString()
+    if(data && data.constructor==Object)data.offlineCreatedAt = data.offlineCreatedAt || new Date().toString()
+    
     return localForage.setItem(this.prefix+'-'+name, data)
   }
 

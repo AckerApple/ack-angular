@@ -2,6 +2,78 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var animations_1 = require("@angular/animations");
 exports.fxArray = [
+    animations_1.trigger('childStag50', [
+        animations_1.transition('* => *', [
+            animations_1.query('.childFx', [
+                animations_1.stagger(50, [
+                    animations_1.animateChild()
+                ])
+            ], {
+                "optional": true,
+                "limit": 500
+            })
+        ])
+    ]),
+    animations_1.trigger('childStag', [
+        animations_1.transition('* => *', [
+            animations_1.query('.childFx', [
+                animations_1.stagger(100, [
+                    animations_1.animateChild()
+                ])
+            ], {
+                "optional": true,
+                "limit": 500
+            })
+        ])
+    ]),
+    animations_1.trigger('childStag200', [
+        animations_1.transition('* => *', [
+            animations_1.query('.childFx', [
+                animations_1.stagger(200, [
+                    animations_1.animateChild()
+                ])
+            ], {
+                "optional": true,
+                "limit": 500
+            })
+        ])
+    ]),
+    animations_1.trigger('childStag300', [
+        animations_1.transition('* => *', [
+            animations_1.query('.childFx', [
+                animations_1.stagger(300, [
+                    animations_1.animateChild()
+                ])
+            ], {
+                "optional": true,
+                "limit": 500
+            })
+        ])
+    ]),
+    animations_1.trigger('childStag400', [
+        animations_1.transition('* => *', [
+            animations_1.query('.childFx', [
+                animations_1.stagger(400, [
+                    animations_1.animateChild()
+                ])
+            ], {
+                "optional": true,
+                "limit": 500
+            })
+        ])
+    ]),
+    animations_1.trigger('childStag500', [
+        animations_1.transition('* => *', [
+            animations_1.query('.childFx', [
+                animations_1.stagger(500, [
+                    animations_1.animateChild()
+                ])
+            ], {
+                "optional": true,
+                "limit": 500
+            })
+        ])
+    ]),
     animations_1.trigger('200', [
         animations_1.transition('zoomInUp => void, * => zoomOutUp', [
             animations_1.animate('200ms 0ms linear', animations_1.keyframes([
@@ -76,52 +148,76 @@ exports.fxArray = [
         animations_1.state('zoomOutLeft', animations_1.style({ "display": "none" })),
         animations_1.state('zoomOutDown', animations_1.style({ "display": "none" })),
         animations_1.state('zoomOut', animations_1.style({ "display": "none" })),
-        animations_1.transition('slideInUp => void, * => slideOutUp', [
+        animations_1.transition('* => slideOutUp', [
             animations_1.animate('200ms 0ms linear', animations_1.keyframes([
-                animations_1.style({ "transform": "translate3d(0, 0, 0)", "offset": 0 }),
-                animations_1.style({ "transform": "translate3d(0, -100%, 0)", "offset": 1 })
+                animations_1.style({ "visibility": "hidden", "transform": "translate3d(0, 0, 0)", "offset": 0 }),
+                animations_1.style({ "visibility": "visible", "transform": "translate3d(0, -100%, 0)", "offset": 1 })
+            ]))
+        ]),
+        animations_1.transition('slideInUp => void', [
+            animations_1.animate('200ms 0ms linear', animations_1.keyframes([
+                animations_1.style({ "visibility": "visible", "transform": "translate3d(0, 0, 0)", "offset": 0 }),
+                animations_1.style({ "visibility": "hidden", "transform": "translate3d(0, -100%, 0)", "offset": 1 })
             ]))
         ]),
         animations_1.transition('* => slideInUp', [
             animations_1.animate('200ms 0ms linear', animations_1.keyframes([
-                animations_1.style({ "transform": "translate3d(0, 100%, 0)", "offset": 0 }),
-                animations_1.style({ "transform": "translate3d(0, 0, 0)", "offset": 1 })
+                animations_1.style({ "visibility": "hidden", "transform": "translate3d(0, 100%, 0)", "offset": 0 }),
+                animations_1.style({ "visibility": "visible", "transform": "translate3d(0, 0, 0)", "offset": 1 })
             ]))
         ]),
-        animations_1.transition('slideInRight => void, * => slideOutLeft', [
+        animations_1.transition('* => slideOutLeft', [
             animations_1.animate('200ms 0ms linear', animations_1.keyframes([
-                animations_1.style({ "transform": "translate3d(0, 0, 0)", "offset": 0 }),
-                animations_1.style({ "transform": "translate3d(-100%, 0, 0)", "offset": 1 })
+                animations_1.style({ "visibility": "hidden", "transform": "translate3d(0, 0, 0)", "offset": 0 }),
+                animations_1.style({ "visibility": "visible", "transform": "translate3d(-100%, 0, 0)", "offset": 1 })
+            ]))
+        ]),
+        animations_1.transition('slideInRight => void', [
+            animations_1.animate('200ms 0ms linear', animations_1.keyframes([
+                animations_1.style({ "visibility": "visible", "transform": "translate3d(0, 0, 0)", "offset": 0 }),
+                animations_1.style({ "visibility": "hidden", "transform": "translate3d(-100%, 0, 0)", "offset": 1 })
             ]))
         ]),
         animations_1.transition('* => slideInRight', [
             animations_1.animate('200ms 0ms linear', animations_1.keyframes([
-                animations_1.style({ "transform": "translate3d(100%, 0, 0)", "offset": 0 }),
-                animations_1.style({ "transform": "translate3d(0, 0, 0)", "offset": 1 })
+                animations_1.style({ "visibility": "hidden", "transform": "translate3d(100%, 0, 0)", "offset": 0 }),
+                animations_1.style({ "visibility": "visible", "transform": "translate3d(0, 0, 0)", "offset": 1 })
             ]))
         ]),
-        animations_1.transition('slideInLeft => void, * => slideOutRight', [
+        animations_1.transition('* => slideOutRight', [
             animations_1.animate('200ms 0ms linear', animations_1.keyframes([
-                animations_1.style({ "transform": "translate3d(0, 0, 0)", "offset": 0 }),
-                animations_1.style({ "transform": "translate3d(100%, 0, 0)", "offset": 1 })
+                animations_1.style({ "visibility": "hidden", "transform": "translate3d(0, 0, 0)", "offset": 0 }),
+                animations_1.style({ "visibility": "visible", "transform": "translate3d(100%, 0, 0)", "offset": 1 })
+            ]))
+        ]),
+        animations_1.transition('slideInLeft => void', [
+            animations_1.animate('200ms 0ms linear', animations_1.keyframes([
+                animations_1.style({ "visibility": "visible", "transform": "translate3d(0, 0, 0)", "offset": 0 }),
+                animations_1.style({ "visibility": "hidden", "transform": "translate3d(100%, 0, 0)", "offset": 1 })
             ]))
         ]),
         animations_1.transition('* => slideInLeft', [
             animations_1.animate('200ms 0ms linear', animations_1.keyframes([
-                animations_1.style({ "transform": "translate3d(-100%, 0, 0)", "offset": 0 }),
-                animations_1.style({ "transform": "translate3d(0, 0, 0)", "offset": 1 })
+                animations_1.style({ "visibility": "hidden", "transform": "translate3d(-100%, 0, 0)", "offset": 0 }),
+                animations_1.style({ "visibility": "visible", "transform": "translate3d(0, 0, 0)", "offset": 1 })
             ]))
         ]),
-        animations_1.transition('slideInDown => void, * => slideOutDown', [
+        animations_1.transition('* => slideOutDown', [
             animations_1.animate('200ms 0ms linear', animations_1.keyframes([
-                animations_1.style({ "transform": "translate3d(0, 0, 0)", "offset": 0 }),
-                animations_1.style({ "transform": "translate3d(0, 100%, 0)", "offset": 1 })
+                animations_1.style({ "visibility": "hidden", "transform": "translate3d(0, 0, 0)", "offset": 0 }),
+                animations_1.style({ "visibility": "visible", "transform": "translate3d(0, 100%, 0)", "offset": 1 })
+            ]))
+        ]),
+        animations_1.transition('slideInDown => void', [
+            animations_1.animate('200ms 0ms linear', animations_1.keyframes([
+                animations_1.style({ "visibility": "visible", "transform": "translate3d(0, 0, 0)", "offset": 0 }),
+                animations_1.style({ "visibility": "hidden", "transform": "translate3d(0, 100%, 0)", "offset": 1 })
             ]))
         ]),
         animations_1.transition('* => slideInDown', [
             animations_1.animate('200ms 0ms linear', animations_1.keyframes([
-                animations_1.style({ "transform": "translate3d(0, -100%, 0)", "offset": 0 }),
-                animations_1.style({ "transform": "translate3d(0, 0, 0)", "offset": 1 })
+                animations_1.style({ "visibility": "hidden", "transform": "translate3d(0, -100%, 0)", "offset": 0 }),
+                animations_1.style({ "visibility": "visible", "transform": "translate3d(0, 0, 0)", "offset": 1 })
             ]))
         ]),
         animations_1.state('slideOutUp', animations_1.style({ "display": "none" })),

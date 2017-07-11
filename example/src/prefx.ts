@@ -1,5 +1,53 @@
-import { AnimationTriggerMetadata,trigger,style,state,transition,animate,keyframes } from '@angular/animations'
+import { query, stagger, animateChild, AnimationTriggerMetadata,trigger,style,state,transition,animate,keyframes } from '@angular/animations'
 export const fxArray = [
+trigger('childStag50', [
+transition('* => *', [
+query('.childFx', [
+stagger(50, [
+animateChild()])], {
+  "optional": true,
+  "limit": 500
+})])]),
+trigger('childStag', [
+transition('* => *', [
+query('.childFx', [
+stagger(100, [
+animateChild()])], {
+  "optional": true,
+  "limit": 500
+})])]),
+trigger('childStag200', [
+transition('* => *', [
+query('.childFx', [
+stagger(200, [
+animateChild()])], {
+  "optional": true,
+  "limit": 500
+})])]),
+trigger('childStag300', [
+transition('* => *', [
+query('.childFx', [
+stagger(300, [
+animateChild()])], {
+  "optional": true,
+  "limit": 500
+})])]),
+trigger('childStag400', [
+transition('* => *', [
+query('.childFx', [
+stagger(400, [
+animateChild()])], {
+  "optional": true,
+  "limit": 500
+})])]),
+trigger('childStag500', [
+transition('* => *', [
+query('.childFx', [
+stagger(500, [
+animateChild()])], {
+  "optional": true,
+  "limit": 500
+})])]),
 trigger('500', [
 transition('zoomInUp => void, * => zoomOutUp', [
 animate('500ms 0ms linear', keyframes([
@@ -59,38 +107,54 @@ state('zoomOutDown',
 style({"display":"none"})),
 state('zoomOut', 
 style({"display":"none"})),
-transition('slideInUp => void, * => slideOutUp', [
+transition('* => slideOutUp', [
 animate('500ms 0ms linear', keyframes([
-style({"transform":"translate3d(0, 0, 0)","offset":0}),
-style({"transform":"translate3d(0, -100%, 0)","offset":1})]))]),
+style({"visibility":"hidden","transform":"translate3d(0, 0, 0)","offset":0}),
+style({"visibility":"visible","transform":"translate3d(0, -100%, 0)","offset":1})]))]),
+transition('slideInUp => void', [
+animate('500ms 0ms linear', keyframes([
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":0}),
+style({"visibility":"hidden","transform":"translate3d(0, -100%, 0)","offset":1})]))]),
 transition('* => slideInUp', [
 animate('500ms 0ms linear', keyframes([
-style({"transform":"translate3d(0, 100%, 0)","offset":0}),
-style({"transform":"translate3d(0, 0, 0)","offset":1})]))]),
-transition('slideInRight => void, * => slideOutLeft', [
+style({"visibility":"hidden","transform":"translate3d(0, 100%, 0)","offset":0}),
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":1})]))]),
+transition('* => slideOutLeft', [
 animate('500ms 0ms linear', keyframes([
-style({"transform":"translate3d(0, 0, 0)","offset":0}),
-style({"transform":"translate3d(-100%, 0, 0)","offset":1})]))]),
+style({"visibility":"hidden","transform":"translate3d(0, 0, 0)","offset":0}),
+style({"visibility":"visible","transform":"translate3d(-100%, 0, 0)","offset":1})]))]),
+transition('slideInRight => void', [
+animate('500ms 0ms linear', keyframes([
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":0}),
+style({"visibility":"hidden","transform":"translate3d(-100%, 0, 0)","offset":1})]))]),
 transition('* => slideInRight', [
 animate('500ms 0ms linear', keyframes([
-style({"transform":"translate3d(100%, 0, 0)","offset":0}),
-style({"transform":"translate3d(0, 0, 0)","offset":1})]))]),
-transition('slideInLeft => void, * => slideOutRight', [
+style({"visibility":"hidden","transform":"translate3d(100%, 0, 0)","offset":0}),
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":1})]))]),
+transition('* => slideOutRight', [
 animate('500ms 0ms linear', keyframes([
-style({"transform":"translate3d(0, 0, 0)","offset":0}),
-style({"transform":"translate3d(100%, 0, 0)","offset":1})]))]),
+style({"visibility":"hidden","transform":"translate3d(0, 0, 0)","offset":0}),
+style({"visibility":"visible","transform":"translate3d(100%, 0, 0)","offset":1})]))]),
+transition('slideInLeft => void', [
+animate('500ms 0ms linear', keyframes([
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":0}),
+style({"visibility":"hidden","transform":"translate3d(100%, 0, 0)","offset":1})]))]),
 transition('* => slideInLeft', [
 animate('500ms 0ms linear', keyframes([
-style({"transform":"translate3d(-100%, 0, 0)","offset":0}),
-style({"transform":"translate3d(0, 0, 0)","offset":1})]))]),
-transition('slideInDown => void, * => slideOutDown', [
+style({"visibility":"hidden","transform":"translate3d(-100%, 0, 0)","offset":0}),
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":1})]))]),
+transition('* => slideOutDown', [
 animate('500ms 0ms linear', keyframes([
-style({"transform":"translate3d(0, 0, 0)","offset":0}),
-style({"transform":"translate3d(0, 100%, 0)","offset":1})]))]),
+style({"visibility":"hidden","transform":"translate3d(0, 0, 0)","offset":0}),
+style({"visibility":"visible","transform":"translate3d(0, 100%, 0)","offset":1})]))]),
+transition('slideInDown => void', [
+animate('500ms 0ms linear', keyframes([
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":0}),
+style({"visibility":"hidden","transform":"translate3d(0, 100%, 0)","offset":1})]))]),
 transition('* => slideInDown', [
 animate('500ms 0ms linear', keyframes([
-style({"transform":"translate3d(0, -100%, 0)","offset":0}),
-style({"transform":"translate3d(0, 0, 0)","offset":1})]))]),
+style({"visibility":"hidden","transform":"translate3d(0, -100%, 0)","offset":0}),
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":1})]))]),
 state('slideOutUp', 
 style({"display":"none"})),
 state('slideOutRight', 
@@ -327,38 +391,54 @@ state('zoomOutDown',
 style({"display":"none"})),
 state('zoomOut', 
 style({"display":"none"})),
-transition('slideInUp => void, * => slideOutUp', [
+transition('* => slideOutUp', [
 animate('200ms 0ms linear', keyframes([
-style({"transform":"translate3d(0, 0, 0)","offset":0}),
-style({"transform":"translate3d(0, -100%, 0)","offset":1})]))]),
+style({"visibility":"hidden","transform":"translate3d(0, 0, 0)","offset":0}),
+style({"visibility":"visible","transform":"translate3d(0, -100%, 0)","offset":1})]))]),
+transition('slideInUp => void', [
+animate('200ms 0ms linear', keyframes([
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":0}),
+style({"visibility":"hidden","transform":"translate3d(0, -100%, 0)","offset":1})]))]),
 transition('* => slideInUp', [
 animate('200ms 0ms linear', keyframes([
-style({"transform":"translate3d(0, 100%, 0)","offset":0}),
-style({"transform":"translate3d(0, 0, 0)","offset":1})]))]),
-transition('slideInRight => void, * => slideOutLeft', [
+style({"visibility":"hidden","transform":"translate3d(0, 100%, 0)","offset":0}),
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":1})]))]),
+transition('* => slideOutLeft', [
 animate('200ms 0ms linear', keyframes([
-style({"transform":"translate3d(0, 0, 0)","offset":0}),
-style({"transform":"translate3d(-100%, 0, 0)","offset":1})]))]),
+style({"visibility":"hidden","transform":"translate3d(0, 0, 0)","offset":0}),
+style({"visibility":"visible","transform":"translate3d(-100%, 0, 0)","offset":1})]))]),
+transition('slideInRight => void', [
+animate('200ms 0ms linear', keyframes([
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":0}),
+style({"visibility":"hidden","transform":"translate3d(-100%, 0, 0)","offset":1})]))]),
 transition('* => slideInRight', [
 animate('200ms 0ms linear', keyframes([
-style({"transform":"translate3d(100%, 0, 0)","offset":0}),
-style({"transform":"translate3d(0, 0, 0)","offset":1})]))]),
-transition('slideInLeft => void, * => slideOutRight', [
+style({"visibility":"hidden","transform":"translate3d(100%, 0, 0)","offset":0}),
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":1})]))]),
+transition('* => slideOutRight', [
 animate('200ms 0ms linear', keyframes([
-style({"transform":"translate3d(0, 0, 0)","offset":0}),
-style({"transform":"translate3d(100%, 0, 0)","offset":1})]))]),
+style({"visibility":"hidden","transform":"translate3d(0, 0, 0)","offset":0}),
+style({"visibility":"visible","transform":"translate3d(100%, 0, 0)","offset":1})]))]),
+transition('slideInLeft => void', [
+animate('200ms 0ms linear', keyframes([
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":0}),
+style({"visibility":"hidden","transform":"translate3d(100%, 0, 0)","offset":1})]))]),
 transition('* => slideInLeft', [
 animate('200ms 0ms linear', keyframes([
-style({"transform":"translate3d(-100%, 0, 0)","offset":0}),
-style({"transform":"translate3d(0, 0, 0)","offset":1})]))]),
-transition('slideInDown => void, * => slideOutDown', [
+style({"visibility":"hidden","transform":"translate3d(-100%, 0, 0)","offset":0}),
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":1})]))]),
+transition('* => slideOutDown', [
 animate('200ms 0ms linear', keyframes([
-style({"transform":"translate3d(0, 0, 0)","offset":0}),
-style({"transform":"translate3d(0, 100%, 0)","offset":1})]))]),
+style({"visibility":"hidden","transform":"translate3d(0, 0, 0)","offset":0}),
+style({"visibility":"visible","transform":"translate3d(0, 100%, 0)","offset":1})]))]),
+transition('slideInDown => void', [
+animate('200ms 0ms linear', keyframes([
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":0}),
+style({"visibility":"hidden","transform":"translate3d(0, 100%, 0)","offset":1})]))]),
 transition('* => slideInDown', [
 animate('200ms 0ms linear', keyframes([
-style({"transform":"translate3d(0, -100%, 0)","offset":0}),
-style({"transform":"translate3d(0, 0, 0)","offset":1})]))]),
+style({"visibility":"hidden","transform":"translate3d(0, -100%, 0)","offset":0}),
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":1})]))]),
 state('slideOutUp', 
 style({"display":"none"})),
 state('slideOutRight', 
@@ -595,38 +675,54 @@ state('zoomOutDown',
 style({"display":"none"})),
 state('zoomOut', 
 style({"display":"none"})),
-transition('slideInUp => void, * => slideOutUp', [
+transition('* => slideOutUp', [
 animate('500ms 0ms linear', keyframes([
-style({"transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
-style({"transform":"translate3d(0, -100%, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
+style({"visibility":"hidden","transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
+style({"visibility":"visible","transform":"translate3d(0, -100%, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
+transition('slideInUp => void', [
+animate('500ms 0ms linear', keyframes([
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
+style({"visibility":"hidden","transform":"translate3d(0, -100%, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
 transition('* => slideInUp', [
 animate('500ms 0ms linear', keyframes([
-style({"transform":"translate3d(0, 100%, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
-style({"transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('slideInRight => void, * => slideOutLeft', [
+style({"visibility":"hidden","transform":"translate3d(0, 100%, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
+transition('* => slideOutLeft', [
 animate('500ms 0ms linear', keyframes([
-style({"transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
-style({"transform":"translate3d(-100%, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
+style({"visibility":"hidden","transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
+style({"visibility":"visible","transform":"translate3d(-100%, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
+transition('slideInRight => void', [
+animate('500ms 0ms linear', keyframes([
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
+style({"visibility":"hidden","transform":"translate3d(-100%, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
 transition('* => slideInRight', [
 animate('500ms 0ms linear', keyframes([
-style({"transform":"translate3d(100%, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
-style({"transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('slideInLeft => void, * => slideOutRight', [
+style({"visibility":"hidden","transform":"translate3d(100%, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
+transition('* => slideOutRight', [
 animate('500ms 0ms linear', keyframes([
-style({"transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
-style({"transform":"translate3d(100%, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
+style({"visibility":"hidden","transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
+style({"visibility":"visible","transform":"translate3d(100%, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
+transition('slideInLeft => void', [
+animate('500ms 0ms linear', keyframes([
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
+style({"visibility":"hidden","transform":"translate3d(100%, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
 transition('* => slideInLeft', [
 animate('500ms 0ms linear', keyframes([
-style({"transform":"translate3d(-100%, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
-style({"transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
-transition('slideInDown => void, * => slideOutDown', [
+style({"visibility":"hidden","transform":"translate3d(-100%, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
+transition('* => slideOutDown', [
 animate('500ms 0ms linear', keyframes([
-style({"transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
-style({"transform":"translate3d(0, 100%, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
+style({"visibility":"hidden","transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
+style({"visibility":"visible","transform":"translate3d(0, 100%, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
+transition('slideInDown => void', [
+animate('500ms 0ms linear', keyframes([
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
+style({"visibility":"hidden","transform":"translate3d(0, 100%, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
 transition('* => slideInDown', [
 animate('500ms 0ms linear', keyframes([
-style({"transform":"translate3d(0, -100%, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
-style({"transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
+style({"visibility":"hidden","transform":"translate3d(0, -100%, 0)","offset":0,"position":"absolute","width":"100%","overflow":"hidden"}),
+style({"visibility":"visible","transform":"translate3d(0, 0, 0)","offset":1,"position":"absolute","width":"100%","overflow":"hidden"})]))]),
 state('slideOutUp', 
 style({"display":"none"})),
 state('slideOutRight', 

@@ -102,29 +102,29 @@ var AckOptions = (function () {
             'hover-bg-grey-5x': this.stylize && !selected
         };
     };
-    AckOptions.decorators = [
-        { type: core_1.Component, args: [{
-                    selector: 'ack-options',
-                    template: ack_options_pug_1.string
-                },] },
-    ];
-    /** @nocollapse */
-    AckOptions.ctorParameters = function () { return []; };
-    AckOptions.propDecorators = {
-        'array': [{ type: core_1.Input },],
-        'stylize': [{ type: core_1.Input },],
-        'multiple': [{ type: core_1.Input },],
-        'toggleable': [{ type: core_1.Input },],
-        'model': [{ type: core_1.Input },],
-        'modelChange': [{ type: core_1.Output },],
-        'templateRef': [{ type: core_1.ContentChild, args: [core_1.TemplateRef,] }, { type: core_1.Input },],
-        'ref': [{ type: core_1.Input },],
-        'refChange': [{ type: core_1.Output },],
-        'arrayKey': [{ type: core_1.Input },],
-        'modelKey': [{ type: core_1.Input },],
-        'arrayToModelKey': [{ type: core_1.Input },],
-    };
     return AckOptions;
 }());
+AckOptions.decorators = [
+    { type: core_1.Component, args: [{
+                selector: 'ack-options',
+                template: ack_options_pug_1.string
+            },] },
+];
+/** @nocollapse */
+AckOptions.ctorParameters = function () { return []; };
+AckOptions.propDecorators = {
+    'array': [{ type: core_1.Input },],
+    'stylize': [{ type: core_1.Input },],
+    'multiple': [{ type: core_1.Input },],
+    'toggleable': [{ type: core_1.Input },],
+    'model': [{ type: core_1.Input },],
+    'modelChange': [{ type: core_1.Output },],
+    'templateRef': [{ type: core_1.ContentChild, args: [core_1.TemplateRef,] }, { type: core_1.Input },],
+    'ref': [{ type: core_1.Input },],
+    'refChange': [{ type: core_1.Output },],
+    'arrayKey': [{ type: core_1.Input },],
+    'modelKey': [{ type: core_1.Input },],
+    'arrayToModelKey': [{ type: core_1.Input },],
+};
 exports.AckOptions = AckOptions;
 //# sourceMappingURL=AckOptions.component.js.map

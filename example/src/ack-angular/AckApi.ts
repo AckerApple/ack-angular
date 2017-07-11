@@ -13,6 +13,7 @@ import { AckQue } from './AckQue';
     promise?:string,
     method:string,
     baseUrl:string,
+    params?:object,//query vars
     $http:{
       headers:any
     }
@@ -24,11 +25,7 @@ import { AckQue } from './AckQue';
     }
   }
 
-  constructor(
-    public http: Http
-    //,public AckCache:AckCache
-    //,public AckQue:AckQue
-  ){
+  constructor(public http:Http){
     this.AckCache = new AckCache()
     this.AckQue = new AckQue()
   }

@@ -11,6 +11,7 @@ export declare class AckApi {
         promise?: string;
         method: string;
         baseUrl: string;
+        params?: object;
         $http: {
             headers: any;
         };

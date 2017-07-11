@@ -7,10 +7,7 @@ var AckCache_1 = require("./AckCache");
 var AckQue_1 = require("./AckQue");
 /** Http util with offline config for request failures */
 var AckApi = (function () {
-    function AckApi(http
-        //,public AckCache:AckCache
-        //,public AckQue:AckQue
-    ) {
+    function AckApi(http) {
         this.http = http;
         this.AuthError = new core_1.EventEmitter();
         this.config = {
@@ -235,23 +232,23 @@ var AckApi = (function () {
         cfg.url = path;
         return this.request(cfg);
     };
-    /** all process ques with be run with navigator.onLine */
-    /*monitorOnlineStatus(){
-      const onOnline = ()=>{
-        this.AckQue.processAllQues()
-      }
-  
-      window.addEventListener("online", onOnline)
-    }*/
-    AckApi.decorators = [
-        { type: core_1.Injectable },
-    ];
-    /** @nocollapse */
-    AckApi.ctorParameters = function () { return [
-        { type: http_1.Http, },
-    ]; };
     return AckApi;
 }());
+/** all process ques with be run with navigator.onLine */
+/*monitorOnlineStatus(){
+  const onOnline = ()=>{
+    this.AckQue.processAllQues()
+  }
+
+  window.addEventListener("online", onOnline)
+}*/
+AckApi.decorators = [
+    { type: core_1.Injectable },
+];
+/** @nocollapse */
+AckApi.ctorParameters = function () { return [
+    { type: http_1.Http, },
+]; };
 exports.AckApi = AckApi;
 /** prevent angular1 from assuming the header to send is application/json */
 function upgradeConfig(cfg) {

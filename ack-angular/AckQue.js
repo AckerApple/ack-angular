@@ -162,12 +162,12 @@ var AckQue = (function (_super) {
             return Promise.all(results); //array of arrays is now one array
         });
     };
-    AckQue.decorators = [
-        { type: core_1.Injectable },
-    ];
-    /** @nocollapse */
-    AckQue.ctorParameters = function () { return []; };
     return AckQue;
 }(AckOffline_1.AckOffline));
+AckQue.decorators = [
+    { type: core_1.Injectable },
+];
+/** @nocollapse */
+AckQue.ctorParameters = function () { return []; };
 exports.AckQue = AckQue;
 //# sourceMappingURL=AckQue.js.map

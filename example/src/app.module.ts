@@ -30,7 +30,6 @@ import {
 import { ProviderExamples } from "./ProviderExamples.component"
 
 import {string as ackAppStageTemplate} from './templates/ack-app-stage.pug'
-import {string as animationExamples} from './templates/animation-examples.pug'
 import {string as overviewExamples} from './templates/overview-examples.pug'
 //import {string as servicesExamples} from './templates/services-examples.pug'
 
@@ -55,15 +54,7 @@ import { declarations as states, routing } from "./states.object"
   }
 }
 
-@Component({
-  selector: 'animation-examples'
-  ,template: animationExamples
-  ,animations:fxArray
-  //,animations:[]
-}) export class AnimationExamples {
-  public list = ['abc','defg','hij','klm','opq','rst','uvx','yz']
-  public delayArray = ackFx.delayArray
-}
+import { AnimationExamples } from "./AnimationExamples.component"
 
 import {string as jjsWoz} from './templates/jjs-woz.pug'
 @Component({

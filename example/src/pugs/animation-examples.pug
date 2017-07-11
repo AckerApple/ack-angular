@@ -19,7 +19,7 @@ ul.child-pad-xxs
     a(href="#Supported Definitions" pageScroll) Supported Definitions
 
 h3(id="Import Example") Import Example
-pre.code-sample.
+pre.code-sample(ngNonBindable).
   import &#123; Component &#125; from '@angular/core'
   import &#123; ackAnimations &#125; from 'ack-angular/fx'
   import &#123; BrowserModule &#125; from '@angular/platform-browser'
@@ -38,7 +38,7 @@ pre.code-sample.
   &#125;) export class AppModule &#123;&#125;
 
 h3(id="Usage Example") Usage Example
-pre.code-sample.
+pre.code-sample(ngNonBindable).
   &lt;button "(click)"="viewDets=!viewDets")&gt; view details &lt;/button&gt;
   
   &lt;div [*ngIf]="viewDets" [@200]="'slideInLeft'"&gt;
@@ -49,7 +49,7 @@ br
 
 h3(id="Swap Example") Swap Example
 p.text-grey-2x Animate swapping elements using @absoluteSwap. Behind the scene, during animation, the following is styles are applied position:absolute;width:100%;overflow:hidden;
-pre.code-sample.
+pre.code-sample(ngNonBindable).
   &lt;button "(click)"="viewDets='default'")&gt; view default &lt;/button&gt;
   &lt;button "(click)"="viewDets='other'")&gt; view other &lt;/button&gt;
   
@@ -76,17 +76,38 @@ h3(id="Supported Definitions") Supported Definitions
     ul
       li absoluteSwap
       li("*ngFor"="let item of delayArray") absoluteSwap{{ item }}
+  .pad
+    ul
+      li childStag
+      li("*ngFor"="let item of [50,100,200,300,400,500]") childStag{{ item }}
 br
 
 h3 Supporting Examples
+p *ngFor *ngIf Stagger Code
 .flex-wrap
   fieldset
-    label.pad-h *ngFor
-    ul
-      li("*ngFor"="let item of list;let i = index;" "[@200]"="'fadeInLeft'")
-          |{{item}} - {{i}}
-          button("(click)"="list.splice(i,1)") X
+    label.pad-h *ngFor list with stagger toggle
+    ul("[@childStag]"="toggleNgForFx")
+      ng-container("*ngFor"="let item of list;let i = index;")
+        li.childFx("*ngIf"="!toggleNgForFx" "[@200]"="'fadeInLeft'")
+            |{{item}} - {{i}}
+            button("(click)"="list.splice(i,1)") X
     .flex
       input.flex-1("[(ngModel)]"="supportExampleAddItem")
       button("(click)"="list.push(supportExampleAddItem)") add
+      button("(click)"="toggleNgForFx=!toggleNgForFx") toggle
+br
+
+h3 ngFor ngIf Stagger Code
+pre.code-sample(ngNonBindable).
+  &lt;ul [@childStag]="toggleNgForFx"&gt;
+    &lt;ng-container *ngFor="let item of list;let i = index;"&gt;
+      &lt;li class="childFx" *ngIf="!toggleNgForFx" [@200]="'fadeInLeft'"&gt;
+          &#123;&#123;item&#125;&#125; - &#123;&#123;i&#125;&#125;
+          &lt;button (click)="list.splice(i,1)"&gt; X &lt;/button&gt;
+      &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;input class"flex-1" [(ngModel)]="supportExampleAddItem" /&gt;
+  &lt;button (click)="list.push(supportExampleAddItem)"&gt; add &lt;/button&gt;
+  &lt;button (click)="toggleNgForFx=!toggleNgForFx"&gt; toggle &lt;/button&gt;
 br
