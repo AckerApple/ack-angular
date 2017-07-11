@@ -5,6 +5,7 @@ import { Http } from '@angular/http';
 export declare class AckApi {
     http: Http;
     AuthError: EventEmitter<{}>;
+    ApiError: EventEmitter<{}>;
     AckCache: any;
     AckQue: any;
     config: {
