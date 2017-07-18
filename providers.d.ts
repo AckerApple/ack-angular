@@ -1,10 +1,14 @@
 export { Log } from "./Log";
-export { ErrorLog } from "./ErrorLog";
+import { Log } from "./Log";
 export { AckOffline } from "./AckOffline";
+import { AckOffline } from "./AckOffline";
 export { AckCache } from "./AckCache";
 export { AckQue } from "./AckQue";
+export { ErrorLog } from "./ErrorLog";
 export { AckApi } from "./AckApi";
-import { AckOffline } from "./AckOffline";
-import { Log } from "./Log";
 import { AckApi } from "./AckApi";
-export declare const providers: (typeof AckOffline | typeof AckApi | typeof Log)[];
+export { UrlVars } from "./UrlVars";
+import { UrlVars } from "./UrlVars";
+export { WindowService } from "./WindowService";
+import { WindowService } from "./WindowService";
+export declare const providers: (typeof AckOffline | typeof AckApi | typeof Log | typeof WindowService | typeof UrlVars)[];
