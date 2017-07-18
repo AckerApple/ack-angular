@@ -21,22 +21,22 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
   ,template: providerExamples
   ,animations:fxArray
 }) export class ProviderExamples {
-  public queArray = []
-  public processQueResults = []
-  public httpQueArray = []
-  public httpCache = {}
-  public cache
-  public error
-  public offlineStorage
-  public cacheStorage
-  public queStorage
-  public cacheSeconds:number = 20
-  public backOnlineAt
-  public viewHttpSub
-  public httpResponse
-  public httpError
-  public httpHeaderConfigArray=[]
-  public httpConfig={
+  queArray = []
+  processQueResults = []
+  httpQueArray = []
+  httpCache = {}
+  cache
+  error
+  offlineStorage
+  cacheStorage
+  queStorage
+  cacheSeconds:number = 20
+  backOnlineAt
+  viewHttpSub
+  httpResponse
+  httpError
+  httpHeaderConfigArray=[]
+  httpConfig={
     queModel:{
       name:'ackHttpTests', maxAge:15000
     },

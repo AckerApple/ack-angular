@@ -1,16 +1,26 @@
-export { Log } from "./Log";
-export { ErrorLog } from "./ErrorLog";
-export { AckOffline } from "./AckOffline";
-export { AckCache } from "./AckCache";
-export { AckQue } from "./AckQue";
-export { AckApi } from "./AckApi";
-
-import { AckOffline } from "./AckOffline";
-import { AckCache } from "./AckCache";
-import { AckQue } from "./AckQue";
-import { ErrorLog } from "./ErrorLog";
+export * from "./Log";
 import { Log } from "./Log";
+
+export * from "./AckOffline";
+import { AckOffline } from "./AckOffline";
+
+export * from "./AckCache";
+import { AckCache } from "./AckCache";
+
+export * from "./AckQue";
+import { AckQue } from "./AckQue";
+
+export * from "./ErrorLog";
+import { ErrorLog } from "./ErrorLog";
+
+export * from "./AckApi";
 import { AckApi } from "./AckApi";
+
+export * from "./UrlVars";
+import { UrlVars } from "./UrlVars";
+
+export * from "./WindowService";
+import { WindowService } from "./WindowService";
 
 export const providers = [
   Log,
@@ -18,5 +28,7 @@ export const providers = [
   AckOffline,
   AckCache,
   AckQue,
-  AckApi
+  AckApi,
+  UrlVars,
+  WindowService
 ]

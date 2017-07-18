@@ -90,6 +90,30 @@ export const string = "<div [(statusOnlineModel)]=\"statusOnlineModel\"></div><d
 "\n    this.logCount  = this.Log.log.length"+
 "\n  &#125;"+
 "\n&#125;"+
+"\n</pre></absolute-overflow-x></div></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>UrlVars</h3><div class=\"text-grey-2x\">Parse and get url query variables regardless of case sensativity</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xs hover-bg-warning\" (click)=\"viewUrlVars=!viewUrlVars\" [ngClass]=\"viewUrlVars?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"viewUrlVars\" [@500]=\"'fadeInUp'\"><h4 class=\"pad-h-sm margin-0\">Usage Example</h4><div class=\"pad-xs\"><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">import &#123; UrlVars &#125; from \"ack-angular\""+
+"\nimport &#123; Component &#125; from \"@angular/core\""+
+"\n"+
+"\n@Component(&#123;...&#125;)"+
+"\nexport class SomeClass&#123;"+
+"\n  token:any"+
+"\n"+
+"\n  constructor(public UrlVars:UrlVars)&#123;"+
+"\n    console.log('all parsed variables', this.UrlVars.vars)"+
+"\n    "+
+"\n    this.token = this.UrlVars.get('token')//case insensative variable fetch"+
+"\n  &#125;"+
+"\n&#125;"+
+"\n</pre></absolute-overflow-x></div></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>WindowService</h3><div class=\"text-grey-2x\">Proper dependency injection of window variable</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xs hover-bg-warning\" (click)=\"viewWindowService=!viewWindowService\" [ngClass]=\"viewWindowService?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"viewWindowService\" [@500]=\"'fadeInUp'\"><h4 class=\"pad-h-sm margin-0\">Usage Example</h4><div class=\"pad-xs\"><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">import &#123; WindowService &#125; from \"ack-angular\""+
+"\nimport &#123; Component &#125; from \"@angular/core\""+
+"\n"+
+"\n@Component(&#123;...&#125;)"+
+"\nexport class SomeClass&#123;"+
+"\n  token:any"+
+"\n"+
+"\n  constructor(public WindowService:WindowService)&#123;"+
+"\n    console.log('window', this.WindowService.nativeWindow)"+
+"\n  &#125;"+
+"\n&#125;"+
 "\n</pre></absolute-overflow-x></div></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>AckOffline</h3><div class=\"text-grey-2x\">Offline storage provided by <a class=\"text-calm\" href=\"https://www.npmjs.com/package/localforage\">localforage</a></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xs hover-bg-warning\" (click)=\"viewAckOffline=!viewAckOffline\" [ngClass]=\"viewAckOffline?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"viewAckOffline\" [@500]=\"'fadeInUp'\"><div class=\"strong pad-sm\">Memory Test</div><form class=\"pad-xs flex child-margin-xxs\" (ngSubmit)=\"setOffline(newOfflineStorage)\"><input class=\"flex-1\" [(ngModel)]=\"newOfflineStorage\" name=\"newOfflineStorage\" placeholder=\"put something into browser memory\"/><button (click)=\"setOffline(newOfflineStorage)\">set</button><button type=\"button\" (click)=\"clearOffline()\">clear</button></form><div class=\"text-xs pad-xs border-success text-success bg-success\" *ngIf=\"offlineStorage\" [@500]=\"'fadeInUp'\"><h5 class=\"margin-0\">Current Offline Storage</h5><div class=\"pad\">{{ offlineStorage|json }}</div></div><div class=\"text-xs pad-xs border-info text-info bg-info margin-bottom\"><ul><li>Above you can edit offline browser storage.</li><li>Come back later and your memory will still be there</li></ul></div><h4 class=\"pad-h-sm margin-0\">Usage Example</h4><div class=\"pad-xs\"><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">import &#123; AckOffline &#125; from \"ack-angular\""+
 "\nimport &#123; Component &#125; from \"@angular/core\""+
 "\n"+

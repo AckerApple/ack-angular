@@ -285,6 +285,62 @@ error-well([error]="error")
                 this.logCount  = this.Log.log.length
               &#125;
             &#125;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 UrlVars
+        .text-grey-2x
+          |Parse and get url query variables regardless of case sensativity
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewUrlVars=!viewUrlVars" "[ngClass]"="viewUrlVars?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewUrlVars" "[@500]"="'fadeInUp'")
+      h4.pad-h-sm.margin-0 Usage Example
+      .pad-xs
+        absolute-overflow-x
+          pre.code-sample.margin-0(ngNonBindable).
+            import &#123; UrlVars &#125; from "ack-angular"
+            import &#123; Component &#125; from "@angular/core"
+            
+            @Component(&#123;...&#125;)
+            export class SomeClass&#123;
+              token:any
+
+              constructor(public UrlVars:UrlVars)&#123;
+                console.log('all parsed variables', this.UrlVars.vars)
+                
+                this.token = this.UrlVars.get('token')//case insensative variable fetch
+              &#125;
+            &#125;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 WindowService
+        .text-grey-2x
+          |Proper dependency injection of window variable
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="viewWindowService=!viewWindowService" "[ngClass]"="viewWindowService?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewWindowService" "[@500]"="'fadeInUp'")
+      h4.pad-h-sm.margin-0 Usage Example
+      .pad-xs
+        absolute-overflow-x
+          pre.code-sample.margin-0(ngNonBindable).
+            import &#123; WindowService &#125; from "ack-angular"
+            import &#123; Component &#125; from "@angular/core"
+            
+            @Component(&#123;...&#125;)
+            export class SomeClass&#123;
+              token:any
+
+              constructor(public WindowService:WindowService)&#123;
+                console.log('window', this.WindowService.nativeWindow)
+              &#125;
+            &#125;
  
   .flex-1
     .border.border-grey-4x.border.border-bottom-0

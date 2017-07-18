@@ -1,29 +1,32 @@
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
+__export(require("./Log"));
 var Log_1 = require("./Log");
-exports.Log = Log_1.Log;
-var ErrorLog_1 = require("./ErrorLog");
-exports.ErrorLog = ErrorLog_1.ErrorLog;
+__export(require("./AckOffline"));
 var AckOffline_1 = require("./AckOffline");
-exports.AckOffline = AckOffline_1.AckOffline;
+__export(require("./AckCache"));
 var AckCache_1 = require("./AckCache");
-exports.AckCache = AckCache_1.AckCache;
+__export(require("./AckQue"));
 var AckQue_1 = require("./AckQue");
-exports.AckQue = AckQue_1.AckQue;
+__export(require("./ErrorLog"));
+var ErrorLog_1 = require("./ErrorLog");
+__export(require("./AckApi"));
 var AckApi_1 = require("./AckApi");
-exports.AckApi = AckApi_1.AckApi;
-var AckOffline_2 = require("./AckOffline");
-var AckCache_2 = require("./AckCache");
-var AckQue_2 = require("./AckQue");
-var ErrorLog_2 = require("./ErrorLog");
-var Log_2 = require("./Log");
-var AckApi_2 = require("./AckApi");
+__export(require("./UrlVars"));
+var UrlVars_1 = require("./UrlVars");
+__export(require("./WindowService"));
+var WindowService_1 = require("./WindowService");
 exports.providers = [
-    Log_2.Log,
-    ErrorLog_2.ErrorLog,
-    AckOffline_2.AckOffline,
-    AckCache_2.AckCache,
-    AckQue_2.AckQue,
-    AckApi_2.AckApi
+    Log_1.Log,
+    ErrorLog_1.ErrorLog,
+    AckOffline_1.AckOffline,
+    AckCache_1.AckCache,
+    AckQue_1.AckQue,
+    AckApi_1.AckApi,
+    UrlVars_1.UrlVars,
+    WindowService_1.WindowService
 ];
 //# sourceMappingURL=providers.js.map
