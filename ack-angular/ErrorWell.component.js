@@ -17,21 +17,21 @@ var ErrorWell = (function () {
             return error;
         return error.message || error.statusText || this.message;
     };
+    ErrorWell.decorators = [
+        { type: core_1.Component, args: [{
+                    selector: 'error-well',
+                    template: error_well_pug_1.string,
+                    animations: prefx_1.fxArray
+                },] },
+    ];
+    /** @nocollapse */
+    ErrorWell.ctorParameters = function () { return []; };
+    ErrorWell.propDecorators = {
+        'message': [{ type: core_1.Input },],
+        'error': [{ type: core_1.Input },],
+        'cssClasses': [{ type: core_1.Input },],
+    };
     return ErrorWell;
 }());
-ErrorWell.decorators = [
-    { type: core_1.Component, args: [{
-                selector: 'error-well',
-                template: error_well_pug_1.string,
-                animations: prefx_1.fxArray
-            },] },
-];
-/** @nocollapse */
-ErrorWell.ctorParameters = function () { return []; };
-ErrorWell.propDecorators = {
-    'message': [{ type: core_1.Input },],
-    'error': [{ type: core_1.Input },],
-    'cssClasses': [{ type: core_1.Input },],
-};
 exports.ErrorWell = ErrorWell;
 //# sourceMappingURL=ErrorWell.component.js.map

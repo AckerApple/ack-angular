@@ -39,12 +39,12 @@ var AckOffline = (function () {
         })
             .then(function () { return keys; });
     };
+    AckOffline.decorators = [
+        { type: core_1.Injectable },
+    ];
+    /** @nocollapse */
+    AckOffline.ctorParameters = function () { return []; };
     return AckOffline;
 }());
-AckOffline.decorators = [
-    { type: core_1.Injectable },
-];
-/** @nocollapse */
-AckOffline.ctorParameters = function () { return []; };
 exports.AckOffline = AckOffline;
 //# sourceMappingURL=AckOffline.js.map

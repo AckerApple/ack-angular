@@ -332,7 +332,7 @@ export class StatusOfflineModel{
 
   ngOnDestroy(){
     this.observer.disconnect()
-    window.removeEventListener(this.onResize)
+    window.removeEventListener('resize', this.onResize)
   }
 }
 
@@ -364,7 +364,7 @@ export class StatusOfflineModel{
   }
 
   ngOnDestroy(){
-    window.removeEventListener(this.onResize)
+    window.removeEventListener('resize', this.onResize)
   }
 }
 
@@ -384,7 +384,7 @@ export class StatusOfflineModel{
       this.screenScrollModelYChange.emit(this.screenScrollModelY)
     }.bind(this)
     this.onScroll()
-    window['addEventListener']("scroll", this.onScroll)
+    window.addEventListener("scroll", this.onScroll)
   }
 
   ngOnInit(){
@@ -392,7 +392,7 @@ export class StatusOfflineModel{
   }
 
   ngOnDestroy(){
-    window['removeEventListener']("scroll", this.onScroll)
+    window.removeEventListener("scroll", this.onScroll)
   }
 }
 
@@ -426,7 +426,7 @@ export class StatusOfflineModel{
   }
 
   ngOnDestroy(){
-    window.removeEventListener(this.onResize)
+    window.removeEventListener('resize', this.onResize)
   }
 }
 
@@ -459,7 +459,7 @@ export class StatusOfflineModel{
   }
 
   ngOnDestroy(){
-    window.removeEventListener(this.onResize)
+    window.removeEventListener('resize', this.onResize)
   }
 }
 
@@ -467,8 +467,8 @@ export class StatusOfflineModel{
 @Directive({
   selector: '[htmlWidthModel]'
 }) export class HtmlWidthModel{
-  public window
-  public onResize
+  window
+  onResize
 
   @Input() public htmlWidthModel
   @Output() public htmlWidthModelChange = new EventEmitter()
@@ -494,7 +494,7 @@ export class StatusOfflineModel{
   }
 
   ngOnDestroy(){
-    window.removeEventListener(this.onResize)
+    window.removeEventListener('resize', this.onResize)
   }
 }
 
@@ -527,7 +527,7 @@ export class StatusOfflineModel{
   }
 
   ngOnDestroy(){
-    window.removeEventListener(this.onResize)
+    window.removeEventListener('resize', this.onResize)
   }
 }
 
