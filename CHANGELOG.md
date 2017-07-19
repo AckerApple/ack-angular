@@ -1,6 +1,10 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.6.2] - 2017-07-19
+- Updated Angular from 4.2.6 to 4.3.0
+- Added new screen and scroll directives
+
 ## [0.5.5] - 2017-07-18
 - AckApi has ApiError EventEmitter
 - Updated ack-css-boot

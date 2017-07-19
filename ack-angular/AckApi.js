@@ -20,7 +20,10 @@ var AckApi = (function () {
         };
         this.AckCache = new AckCache_1.AckCache();
         this.AckQue = new AckQue_1.AckQue();
+        this.paramConfig();
     }
+    /** an empty function for inheritance to hook into */
+    AckApi.prototype.paramConfig = function () { };
     /** START HERE. Handlers must be registered before sending requests
       @options{maxTry:50}
     */

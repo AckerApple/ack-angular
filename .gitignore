@@ -1,4 +1,5 @@
 *.css.map
+*.js.map
 www/index.js.map
 etc
 styles.css.map

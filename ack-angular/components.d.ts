@@ -121,6 +121,21 @@ export declare class ElementWidthModel {
     setModel(): void;
     ngOnDestroy(): void;
 }
+export declare class ScreenScrollHeightDiff {
+    on: any;
+    screenScrollHeightDiff: any;
+    screenScrollHeightDiffChange: EventEmitter<{}>;
+    constructor();
+    apply(): void;
+    ngOnDestroy(): void;
+}
+export declare class ScreenScroll {
+    onScroll: any;
+    screenScroll: EventEmitter<{}>;
+    constructor();
+    ngOnInit(): void;
+    ngOnDestroy(): void;
+}
 export declare class ScreenScrollModelY {
     onScroll: any;
     screenScrollModelY: any;

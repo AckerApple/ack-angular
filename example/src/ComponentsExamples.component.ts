@@ -9,11 +9,12 @@ import {string as componentsExamples} from './templates/components-examples.pug'
   ,template: componentsExamples
   ,animations:fxArray
 }) export class ComponentsExamples {
-  public error
-  public contentArray = []
-  public modalBackgroundColor = 'rgba(255,255,255,0.95)'
-  public modalWrapStyle
-  public ackOptionArrayModal = [{key:'b'}]
+  screenScrollCount = 0
+  error
+  contentArray = []
+  modalBackgroundColor = 'rgba(255,255,255,0.95)'
+  modalWrapStyle
+  ackOptionArrayModal = [{key:'b'}]
 
   constructor(public PageScrollService:PageScrollService){}
   

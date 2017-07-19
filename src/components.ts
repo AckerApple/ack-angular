@@ -369,14 +369,66 @@ export class StatusOfflineModel{
 }
 
 @Directive({
-  //inputs:['screen-height-model'],
+  selector: '[screenScrollHeightDiff]'
+}) export class ScreenScrollHeightDiff{
+  on
+  @Input() screenScrollHeightDiff
+  @Output() screenScrollHeightDiffChange = new EventEmitter()
+
+  constructor(){
+    this.on = function(){
+      this.apply()
+    }.bind(this)
+
+    window.addEventListener("scroll", this.on)
+    window.addEventListener("resize", this.on)
+  }
+  
+  apply(){
+    this.screenScrollHeightDiff = document.body.scrollHeight - window.innerHeight
+    if(this.screenScrollHeightDiff<0)this.screenScrollHeightDiff=0
+    this.screenScrollHeightDiffChange.emit( this.screenScrollHeightDiff )
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener("scroll", this.on)
+    window.removeEventListener("resize", this.on)
+  }  
+}
+
+@Directive({
+  selector: '[screenScroll]'
+}) export class ScreenScroll{
+  //public window
+  onScroll
+
+  @Output() screenScroll = new EventEmitter()
+  
+  constructor(){
+    this.onScroll = function(){
+      this.screenScroll.emit({x:window['pageXOffset'], y:window['pageYOffset']})
+    }.bind(this)
+    this.onScroll()
+    window.addEventListener("scroll", this.onScroll)
+  }
+
+  ngOnInit(){
+    setTimeout(()=>this.onScroll(), 0)//two way bind often needs init override
+  }
+
+  ngOnDestroy(){
+    window.removeEventListener("scroll", this.onScroll)
+  }
+}
+
+@Directive({
   selector: '[screenScrollModelY]'
 }) export class ScreenScrollModelY{
   //public window
-  public onScroll
+  onScroll
 
-  @Input() public screenScrollModelY
-  @Output() public screenScrollModelYChange = new EventEmitter()
+  @Input() screenScrollModelY
+  @Output() screenScrollModelYChange = new EventEmitter()
   
   constructor(){
     this.onScroll = function(){
@@ -399,11 +451,11 @@ export class StatusOfflineModel{
 @Directive({
   selector: '[screenWidthModel]'
 }) export class ScreenWidthModel{
-  public window
-  public onResize
+  window
+  onResize
 
-  @Input() public screenWidthModel
-  @Output() public screenWidthModelChange = new EventEmitter()
+  @Input() screenWidthModel
+  @Output() screenWidthModelChange = new EventEmitter()
 
   constructor(){
     this.onResize = function(){
@@ -433,10 +485,10 @@ export class StatusOfflineModel{
 @Directive({
   selector: '[screenHeightModel]'
 }) export class ScreenHeightModel{
-  public onResize
+  onResize
 
-  @Input() public screenHeightModel
-  @Output() public screenHeightModelChange = new EventEmitter()
+  @Input() screenHeightModel
+  @Output() screenHeightModelChange = new EventEmitter()
 
   constructor(){
     this.onResize = function(){
@@ -470,8 +522,8 @@ export class StatusOfflineModel{
   window
   onResize
 
-  @Input() public htmlWidthModel
-  @Output() public htmlWidthModelChange = new EventEmitter()
+  @Input() htmlWidthModel
+  @Output() htmlWidthModelChange = new EventEmitter()
 
   constructor(){
     this.onResize = function(){
@@ -501,10 +553,10 @@ export class StatusOfflineModel{
 @Directive({
   selector: '[htmlHeightModel]'
 }) export class HtmlHeightModel{
-  public onResize
+  onResize
 
-  @Input() public htmlHeightModel
-  @Output() public htmlHeightModelChange = new EventEmitter()
+  @Input() htmlHeightModel
+  @Output() htmlHeightModelChange = new EventEmitter()
 
   constructor(){
     this.onResize = function(){
@@ -546,6 +598,8 @@ export const declarations = [
   ScreenScrollModelY,
   ScreenWidthModel,
   ScreenHeightModel,
+  ScreenScroll,
+  ScreenScrollHeightDiff,
   HtmlWidthModel,
   HtmlHeightModel,
   ShakeOn,

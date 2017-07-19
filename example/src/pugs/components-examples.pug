@@ -15,7 +15,13 @@ br
 h4.margin-bottom-0 Table of Contents
 ul
   li
-    a(href="#Common Components" pageScroll) Common Components
+    a(href="#Tags" pageScroll) Tags
+  li
+    a(href="#Expression Binds" pageScroll) Expression Binds
+  li
+    a(href="#One Way Binds" pageScroll) One Way Binds
+  li
+    a(href="#Two Way Binds" pageScroll) Two Way Binds
   li
     a(href="#Layout Components" pageScroll) Layout Components
   li
@@ -23,144 +29,8 @@ ul
 
 br
 
-h3.margin-bottom-0(id="Common Components") Common Components
+h3.margin-bottom-0(id="Tags") Tags
 .flex-wrap.child-margin-xxs
-  .flex-1
-    .border.border-grey-4x.border.border-bottom-0
-      .pad-h
-        h3 focusOn
-        .text-grey-2x.max-width-400
-          |element focus on demand
-        br
-    .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewFocusOn=!viewFocusOn" "[ngClass]"="viewFocusOn?'border-energized bg-energized':'border-info bg-info'")
-        |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewFocusOn" "[@500]"="'fadeInUp'")
-      .pad.text-center.flex-wrap.child-margin-xxs
-        div
-          button.text-lg((click)="focusOn=1") focus input
-        .flex-1
-          input.width-full.text-lg("[(focusOn)]"="focusOn" "(focusThen)"="focusOn=0" "[focusOnDelay]"="focusOnDelay" placeholder="focus target")
-        div
-          input.text-lg.width-100(type="number" "[(ngModel)]"="focusOnDelay" placeholder="delay")
-          |ms
-
-      h4.pad-sm.margin-0 Usage Example
-      absolute-overflow-x
-        pre.code-sample.margin-0(ngNonBindable).
-          &lt;button (click)="focusOn=1"&gt; focus input &lt;/button&gt;
-          &lt;input [(focusOn)]="focusOn" (focusThen)="focusOn=0" [focusOnDelay]="focusOnDelay" placeholder="focus target" /&gt;
-          &lt;input type="number" [(ngModel)]="focusOnDelay" placeholder="delay" /&gt;
-
-  .flex-1
-    .border.border-grey-4x.border.border-bottom-0
-      .pad-h
-        h3 selectOn
-        .text-grey-2x.max-width-400
-          |element select on demand
-        br
-    .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewSelectOn=!viewSelectOn" "[ngClass]"="viewSelectOn?'border-energized bg-energized':'border-info bg-info'")
-        |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewSelectOn" "[@500]"="'fadeInUp'")
-      .pad.text-center.flex-wrap.child-margin-xxs
-        div
-          button.text-lg((click)="selectOn=1") select input
-        .flex-1
-          input.width-full.text-lg("[(selectOn)]"="selectOn" "(selectThen)"="selectOn=0" "[selectOnDelay]"="selectOnDelay" placeholder="select target" value="test to select")
-        div
-          input.text-lg.width-100(type="number" "[(ngModel)]"="selectOnDelay" placeholder="delay")
-          |ms
-
-      h4.pad-sm.margin-0 Usage Example
-      absolute-overflow-x
-        pre.code-sample.margin-0(ngNonBindable).
-          &lt;button (click)="selectOn=1"&gt; select input &lt;/button&gt;
-          &lt;input [(selectOn)]="selectOn" (selectThen)="selectOn=0" [selectOnDelay]="selectOnDelay" placeholder="select target" value="test to select" /&gt;
-          &lt;input type="number" [(ngModel)]="selectOnDelay" placeholder="delay" /&gt;
-
-  .flex-1
-    .border.border-grey-4x.border.border-bottom-0
-      .pad-h
-        h3 var
-        .text-grey-2x.max-width-400
-          |Create local template variables
-        br
-    .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewVar=!viewVar" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
-        |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewVar" "[@500]"="'fadeInUp'")
-      .pad-sm
-        h4.margin-0 Demo
-        p.text-grey-3x.text-sm
-          |Each item in list below, has a localized variable
-        .flex-wrap.child-margin-xxs(#myVar="var" "[var]"="0")
-          button("(click)"="myVar.var=myVar.var+1") outsize memory {{ myVar.var }}
-          button(*ngFor="let i of [0,1,2,3]" "#myVar"="var" "[var]"="i" "(click)"="myVar.var=myVar.var+1")
-            |click count + index {{ myVar.var }}
-
-      h4.pad-sm.margin-0 Usage Example
-      absolute-overflow-x
-        pre.code-sample.margin-0(ngNonBindable).
-          &lt;div #myVar="var" [var]="0"&gt;
-            &lt;button (click)="myVar.var=myVar.var+1"&gt;
-              outsize memory &#123;&#123;&#123; myVar.var &#125;&#125;
-            &lt;/button&gt;
-            &lt;button *ngFor="let i of [0,1,2,3]" #myVar="var" [var]="i" (click)="myVar.var=myVar.var+1"&gt;
-              click count + index &#123;&#123; myVar.var &#125;&#125;
-            &lt;/button&gt;
-          &lt;/div&gt;
-
-  .flex-1
-    .border.border-grey-4x.border.border-bottom-0
-      div("[(statusOnlineModel)]"="statusOnlineModel")
-      .pad-h
-        h3 statusOnlineModel
-        .text-grey-2x.max-width-400
-          |Get browser window inner width. #[strong IS ONLINE] :
-          .inline-block.width-50 &nbsp;{{ statusOnlineModel }}
-        br
-    .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewStatusOnlineModel=!viewStatusOnlineModel" "[ngClass]"="viewStatusOnlineModel?'border-energized bg-energized':'border-info bg-info'")
-        |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewStatusOnlineModel" "[@500]"="'fadeInUp'")
-      .pad
-        .pad.bg-warning.border-warning.border.text-warning
-          |Completely turn off your internet and the online status will change.
-          br
-          |A delay is expected during transition from offline to online
-      h4.pad-sm.margin-0 Usage Example
-      absolute-overflow-x
-        pre.code-sample.margin-0(ngNonBindable).
-          &lt;div("[(statusOnlineModel)]"="statusOnlineModel")&gt;
-            |statusOnlineModel : {{ statusOnlineModel ? 'online' : 'offline'}}
-          &lt;/div&gt;
-
-  .flex-1
-    .border.border-grey-4x.border.border-bottom-0
-      div("[(statusOfflineModel)]"="statusOfflineModel")
-      .pad-h
-        h3 statusOfflineModel
-        .text-grey-2x.max-width-400
-          |Get browser window inner width. #[strong IS OFFLINE] :
-          .inline-block.width-50 &nbsp;{{ statusOfflineModel }}
-        br
-    .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewStatusOfflineModel=!viewStatusOfflineModel" "[ngClass]"="viewStatusOfflineModel?'border-energized bg-energized':'border-info bg-info'")
-        |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewStatusOfflineModel" "[@500]"="'fadeInUp'")
-      .pad
-        .pad.bg-warning.border-warning.border.text-warning
-        |Completely turn off your internet and the offline status will change
-        br
-        |A delay is expected during transition from offline to online
-      h4.pad-sm.margin-0 Usage Example
-      absolute-overflow-x
-        pre.code-sample.margin-0(ngNonBindable).
-          &lt;div("[(statusOfflineModel)]"="statusOfflineModel")&gt;
-            |statusOfflineModel : {{ statusOfflineModel ? 'offline' : 'online'}}
-          &lt;/div&gt;
-
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
@@ -316,124 +186,35 @@ h3.margin-bottom-0(id="Common Components") Common Components
             &lt;/ng-template&gt;
           &lt;/ack-options&gt;
           &lt;button (click)="showAckOptionsObjectModal=!showAckOptionsObjectModal") select options &lt;/button&gt;
+
+br
+
+h3.margin-bottom-0(id="Expression Binds") Expression Binds
+.flex-wrap.child-margin-xxs
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
-      div("[(screenScrollModelY)]"="screenScrollModelY")
+      div("(screenScroll)"="screenScrollCount=screenScrollCount+1")
       .pad-h
-        h3 screenScrollModelY
-        .text-grey-2x.max-width-400
-          |Get browser window inner width. Currently :
-          .inline-block.width-50 &nbsp;{{screenScrollModelY}}px
+        h3 (screenScroll)
+        .text-grey-2x
+          |Run expression on screen scroll. Scroll Event Count :
+          .inline-block.width-50 &nbsp;{{ screenScrollCount }}
         br
     .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewScreenScrollModelY=!viewScreenScrollModelY" "[ngClass]"="viewScreenScrollModelY?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewScreenScroll=!viewScreenScroll" "[ngClass]"="viewScreenScroll?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenScrollModelY" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenScroll" "[@500]"="'fadeInUp'")
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
-          &lt;div("[(screenScrollModelY)]"="screenScrollModelY")&gt;
-            |screenScrollModelY : {{ screenScrollModelY }}px
-          &lt;/div&gt;
-
-  .flex-1
-    .border.border-grey-4x.border.border-bottom-0
-      div("[(htmlWidthModel)]"="htmlWidthModel")
-      .pad-h
-        h3 htmlWidthModel
-        .text-grey-2x.max-width-400
-          |Get the browser document inner width. Currently : {{htmlWidthModel}}px
-        br
-    .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewHtmlWidthModel=!viewHtmlWidthModel" "[ngClass]"="viewHtmlWidthModel?'border-energized bg-energized':'border-info bg-info'")
-        |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewHtmlWidthModel" "[@500]"="'fadeInUp'")
-      h4.pad-sm.margin-0 Usage Example
-      absolute-overflow-x
-        pre.code-sample.margin-0(ngNonBindable).
-          &lt;div [(htmlWidthModel)]="htmlWidthModel"&gt;
-          &nbsp;&nbsp;htmlWidthModel : {{ htmlWidthModel }}px
-          &lt;/div&gt;
-
-  .flex-1
-    .border.border-grey-4x.border.border-bottom-0
-      div("[(htmlHeightModel)]"="htmlHeightModel")
-      .pad-h
-        h3 htmlHeightModel
-        .text-grey-2x.max-width-400
-          |Get the browser document inner height. Currently : {{htmlHeightModel}}px
-        br
-    .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewHtmlHeightModel=!viewHtmlHeightModel" "[ngClass]"="viewHtmlHeightModel?'border-energized bg-energized':'border-info bg-info'")
-        |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewHtmlHeightModel" "[@500]"="'fadeInUp'")
-      h4.pad-sm.margin-0 Usage Example
-      absolute-overflow-x
-        pre.code-sample.margin-0(ngNonBindable).
-          &lt;div "[(htmlHeightModel)]"="htmlHeightModel"&gt;
-          &nbsp;&nbsp;htmlHeightModel : {{ htmlHeightModel }}px
-          &lt;/div&gt;
-
-  .flex-1
-    .border.border-grey-4x.border.border-bottom-0
-      div("[(screenWidthModel)]"="screenWidthModel")
-      .pad-h
-        h3 screenWidthModel
-        .text-grey-2x.max-width-400
-          |Get the browser window inner width. Currently : {{screenWidthModel}}px
-        br
-    .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewScreenWidthModel=!viewScreenWidthModel" "[ngClass]"="viewScreenWidthModel?'border-energized bg-energized':'border-info bg-info'")
-        |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenWidthModel" "[@500]"="'fadeInUp'")
-      h4.pad-sm.margin-0 Usage Example
-      absolute-overflow-x
-        pre.code-sample.margin-0(ngNonBindable).
-          &lt;div [(screenWidthModel)]="screenWidthModel"&gt;
-          &nbsp;&nbsp;screenWidthModel : {{ screenWidthModel }}px
-          &lt;/div&gt;
-
-  .flex-1
-    .border.border-grey-4x.border.border-bottom-0
-      div("[(screenHeightModel)]"="screenHeightModel")
-      .pad-h
-        h3 screenHeightModel
-        .text-grey-2x.max-width-400
-          |Get the browser window inner height. Currently : {{screenHeightModel}}px
-        br
-    .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewScreenHeightModel=!viewScreenHeightModel" "[ngClass]"="viewScreenHeightModel?'border-energized bg-energized':'border-info bg-info'")
-        |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenHeightModel" "[@500]"="'fadeInUp'")
-      h4.pad-sm.margin-0 Usage Example
-      absolute-overflow-x
-        pre.code-sample.margin-0(ngNonBindable).
-          &lt;div "[(screenHeightModel)]"="screenHeightModel"&gt;
-          &nbsp;&nbsp;screenHeightModel : {{ screenHeightModel }}px
-          &lt;/div&gt;
-
-  .flex-1("[(elementHeightModel)]"="elementHeightModel")
-    .border.border-grey-4x.border.border-bottom-0
-      .pad-h
-        h3 elementHeightModel
-        .text-grey-2x.max-width-400
-          |Get the browser window inner height. Currently : {{elementHeightModel}}px
-        br
-    .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewElementHeightModel=!viewElementHeightModel" "[ngClass]"="viewElementHeightModel?'border-energized bg-energized':'border-info bg-info'")
-        |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewElementHeightModel" "[@500]"="'fadeInUp'")
-      h4.pad-sm.margin-0 Usage Example
-      absolute-overflow-x
-        pre.code-sample.margin-0(ngNonBindable).
-          &lt;div [(elementHeightModel)]="elementHeightModel"&gt;
-          &nbsp;&nbsp;elementHeightModel : {{ elementHeightModel }}px
+          &lt;div (screenScroll)="screenScrollCount=screenScrollCount?1:++screenScrollCount" &gt;
+          &nbsp;&nbsp;screenScroll count : {{ screenScrollCount }}
           &lt;/div&gt;
 
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
-        h3 onFormChanged
+        h3 (onFormChanged)
         .text-grey-2x.max-width-400
           |Capture a form tag onchange event
         br
@@ -463,7 +244,7 @@ h3.margin-bottom-0(id="Common Components") Common Components
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
-        h3 onFormAlter
+        h3 (onFormAlter)
         .text-grey-2x.max-width-400
           |Capture a form tag oninput event
         br
@@ -487,7 +268,7 @@ h3.margin-bottom-0(id="Common Components") Common Components
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
-        h3 onEnterKey
+        h3 (onEnterKey)
         .text-grey-2x.max-width-400
           |Capture keyUp events when enter key used
         br
@@ -509,7 +290,7 @@ h3.margin-bottom-0(id="Common Components") Common Components
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
-        h3 onEscapeKey
+        h3 (onEscapeKey)
         .text-grey-2x.max-width-400
           |Capture keyUp events when escape key used
         br
@@ -531,7 +312,7 @@ h3.margin-bottom-0(id="Common Components") Common Components
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
-        h3 preventBackKey
+        h3 (preventBackKey)
         .text-grey-2x.max-width-400
           |Prevent the use of the backspace key
         br
@@ -553,7 +334,7 @@ h3.margin-bottom-0(id="Common Components") Common Components
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
-        h3 preventEnterKey
+        h3 (preventEnterKey)
         .text-grey-2x.max-width-400
           |Prevent the use of the enter keys
         br
@@ -572,35 +353,100 @@ h3.margin-bottom-0(id="Common Components") Common Components
           &lt;span&gt; Enter Count : {{preventEnterCount || 0}} &lt;/span&gt;
           &lt;input type="text" (onEnterKey)="preventEnterCount=preventEnterCount==null?1:preventEnterCount+1" placeholder="type here and use enter key" /&gt;
 
+br
+
+h3.margin-bottom-0(id="One Way Binds") One Way Binds
+.flex-wrap.child-margin-xxs
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
-        h3 innerHtmlModel
+        h3 [var]
         .text-grey-2x.max-width-400
-          |Capture an elements innerHTML into a model
+          |Create local template variables
         br
     .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewInnerHtmlModel=!viewInnerHtmlModel" "[ngClass]"="viewInnerHtmlModel?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewVar=!viewVar" "[ngClass]"="viewVar?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewInnerHtmlModel" "[@500]"="'fadeInUp'")
-      h4.pad-sm.margin-0 Example
-      div("[(innerHtmlModel)]"="innerHtmlModel")
-        button("(click)"="contentArray.push('')") add content
-        span(*ngFor="let item of contentArray")
-          |&#10;
-          button("(click)"="contentArray.push('')") add content
-      absolute-overflow-x
-        pre.code-sample.margin-0 {{ innerHtmlModel }}
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewVar" "[@500]"="'fadeInUp'")
+      .pad-sm
+        h4.margin-0 Demo
+        p.text-grey-3x.text-sm
+          |Each item in list below, has a localized variable
+        .flex-wrap.child-margin-xxs(#myVar="var" "[var]"="0")
+          button("(click)"="myVar.var=myVar.var+1") outsize memory {{ myVar.var }}
+          button(*ngFor="let i of [0,1,2,3]" "#myVar"="var" "[var]"="i" "(click)"="myVar.var=myVar.var+1")
+            |click count + index {{ myVar.var }}
+
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
-          &lt;span&gt; Enter Count : {{preventEnterCount || 0}} &lt;/span&gt;
-          &lt;input type="text" (onEnterKey)="preventEnterCount=preventEnterCount==null?1:preventEnterCount+1" placeholder="type here and use enter key" /&gt;
+          &lt;div #myVar="var" [var]="0"&gt;
+            &lt;button (click)="myVar.var=myVar.var+1"&gt;
+              outsize memory &#123;&#123;&#123; myVar.var &#125;&#125;
+            &lt;/button&gt;
+            &lt;button *ngFor="let i of [0,1,2,3]" #myVar="var" [var]="i" (click)="myVar.var=myVar.var+1"&gt;
+              click count + index &#123;&#123; myVar.var &#125;&#125;
+            &lt;/button&gt;
+          &lt;/div&gt;
 
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
-        h3 shakeOn
+        h3 [focusOn]
+        .text-grey-2x.max-width-400
+          |element focus on demand
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewFocusOn=!viewFocusOn" "[ngClass]"="viewFocusOn?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewFocusOn" "[@500]"="'fadeInUp'")
+      .pad.text-center.flex-wrap.child-margin-xxs
+        div
+          button.text-lg((click)="focusOn=1") focus input
+        .flex-1
+          input.width-full.text-lg("[focusOn]"="focusOn" "(focusThen)"="focusOn=0" "[focusOnDelay]"="focusOnDelay" placeholder="focus target")
+        div
+          input.text-lg.width-100(type="number" "[(ngModel)]"="focusOnDelay" placeholder="delay")
+          |ms
+
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;button (click)="focusOn=1"&gt; focus input &lt;/button&gt;
+          &lt;input [focusOn]="focusOn" (focusThen)="focusOn=0" [focusOnDelay]="focusOnDelay" placeholder="focus target" /&gt;
+          &lt;input type="number" [(ngModel)]="focusOnDelay" placeholder="delay" /&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 [selectOn]
+        .text-grey-2x.max-width-400
+          |element select on demand
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewSelectOn=!viewSelectOn" "[ngClass]"="viewSelectOn?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewSelectOn" "[@500]"="'fadeInUp'")
+      .pad.text-center.flex-wrap.child-margin-xxs
+        div
+          button.text-lg((click)="selectOn=1") select input
+        .flex-1
+          input.width-full.text-lg("[selectOn]"="selectOn" "(selectThen)"="selectOn=0" "[selectOnDelay]"="selectOnDelay" placeholder="select target" value="test to select")
+        div
+          input.text-lg.width-100(type="number" "[(ngModel)]"="selectOnDelay" placeholder="delay")
+          |ms
+
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;button (click)="selectOn=1"&gt; select input &lt;/button&gt;
+          &lt;input [selectOn]="selectOn" (selectThen)="selectOn=0" [selectOnDelay]="selectOnDelay" placeholder="select target" value="test to select" /&gt;
+          &lt;input type="number" [(ngModel)]="selectOnDelay" placeholder="delay" /&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 [shakeOn]
         .text-grey-2x.max-width-400
           |Control an animated shaking effect on demand
         br
@@ -658,7 +504,225 @@ h3.margin-bottom-0(id="Common Components") Common Components
           &lt;/select&gt;
           &lt;input type="checkbox" id="shakeConstant" [(ngModel)]="shakeConstant" (change)="shakeOn=$event.target.checked" /&gt;
           &lt;input [(ngModel)]="shakeForMs" (change)="shakeOn=true" /&gt;
+
 br
+
+h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
+.flex-wrap.child-margin-xxs
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      div("[(statusOnlineModel)]"="statusOnlineModel")
+      .pad-h
+        h3 [(statusOnlineModel)]
+        .text-grey-2x.max-width-400
+          |Get browser window inner width. #[strong IS ONLINE] :
+          .inline-block.width-50 &nbsp;{{ statusOnlineModel }}
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewStatusOnlineModel=!viewStatusOnlineModel" "[ngClass]"="viewStatusOnlineModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewStatusOnlineModel" "[@500]"="'fadeInUp'")
+      .pad
+        .pad.bg-warning.border-warning.border.text-warning
+          |Completely turn off your internet and the online status will change.
+          br
+          |A delay is expected during transition from offline to online
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div("[(statusOnlineModel)]"="statusOnlineModel")&gt;
+            |statusOnlineModel : {{ statusOnlineModel ? 'online' : 'offline'}}
+          &lt;/div&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      div("[(statusOfflineModel)]"="statusOfflineModel")
+      .pad-h
+        h3 [(statusOfflineModel)]
+        .text-grey-2x.max-width-400
+          |Get browser window inner width. #[strong IS OFFLINE] :
+          .inline-block.width-50 &nbsp;{{ statusOfflineModel }}
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewStatusOfflineModel=!viewStatusOfflineModel" "[ngClass]"="viewStatusOfflineModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewStatusOfflineModel" "[@500]"="'fadeInUp'")
+      .pad
+        .pad.bg-warning.border-warning.border.text-warning
+        |Completely turn off your internet and the offline status will change
+        br
+        |A delay is expected during transition from offline to online
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div("[(statusOfflineModel)]"="statusOfflineModel")&gt;
+            |statusOfflineModel : {{ statusOfflineModel ? 'offline' : 'online'}}
+          &lt;/div&gt;
+
+  .width-full
+    .border.border-grey-4x.border.border-bottom-0
+      div("[(screenScrollHeightDiff)]"="screenScrollHeightDiff")
+      .pad-h
+        h3 [(screenScrollHeightDiff)]
+        .text-grey-2x
+          |Model of how many pixels overflow past the screen height (screenHeight - scrollHeight).
+          div
+            |Currently :
+            .inline-block.width-50 &nbsp;{{ screenScrollHeightDiff }}
+          .pad.text-grey-3x.text-smx resize window height to see change
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewScreenScrollHeightDiff=!viewScreenScrollHeightDiff" "[ngClass]"="viewScreenScrollHeightDiff?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenScrollHeightDiff" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div [(screenScrollHeightDiff)]="screenScrollHeightDiff" &gt;
+          &nbsp;&nbsp;screenScrollHeightDiff : {{ screenScrollHeightDiff }}
+          &lt;/div&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      div("[(screenScrollModelY)]"="screenScrollModelY")
+      .pad-h
+        h3 [(screenScrollModelY)]
+        .text-grey-2x.max-width-400
+          |Get browser window inner width. Currently :
+          .inline-block.width-50 &nbsp;{{screenScrollModelY}}px
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewScreenScrollModelY=!viewScreenScrollModelY" "[ngClass]"="viewScreenScrollModelY?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenScrollModelY" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div [(screenScrollModelY)]="screenScrollModelY" &gt;
+          &nbsp;&nbsp;screenScrollModelY : {{ screenScrollModelY }}px
+          &lt;/div&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      div("[(htmlWidthModel)]"="htmlWidthModel")
+      .pad-h
+        h3 [(htmlWidthModel)]
+        .text-grey-2x
+          |Get the browser document inner width. Currently : {{htmlWidthModel}}px
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewHtmlWidthModel=!viewHtmlWidthModel" "[ngClass]"="viewHtmlWidthModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewHtmlWidthModel" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div [(htmlWidthModel)]="htmlWidthModel"&gt;
+          &nbsp;&nbsp;htmlWidthModel : {{ htmlWidthModel }}px
+          &lt;/div&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      div("[(htmlHeightModel)]"="htmlHeightModel")
+      .pad-h
+        h3 [(htmlHeightModel)]
+        .text-grey-2x
+          |Get the browser document inner height. Currently : {{htmlHeightModel}}px
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewHtmlHeightModel=!viewHtmlHeightModel" "[ngClass]"="viewHtmlHeightModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewHtmlHeightModel" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div [(htmlHeightModel)]="htmlHeightModel"&gt;
+          &nbsp;&nbsp;htmlHeightModel : {{ htmlHeightModel }}px
+          &lt;/div&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      div("[(screenWidthModel)]"="screenWidthModel")
+      .pad-h
+        h3 [(screenWidthModel)]
+        .text-grey-2x.max-width-400
+          |Get the browser window inner width. Currently : {{screenWidthModel}}px
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewScreenWidthModel=!viewScreenWidthModel" "[ngClass]"="viewScreenWidthModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenWidthModel" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div [(screenWidthModel)]="screenWidthModel"&gt;
+          &nbsp;&nbsp;screenWidthModel : {{ screenWidthModel }}px
+          &lt;/div&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      div("[(screenHeightModel)]"="screenHeightModel")
+      .pad-h
+        h3 [(screenHeightModel)]
+        .text-grey-2x.max-width-400
+          |Get the browser window inner height. Currently : {{screenHeightModel}}px
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewScreenHeightModel=!viewScreenHeightModel" "[ngClass]"="viewScreenHeightModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenHeightModel" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div [(screenHeightModel)]="screenHeightModel"&gt;
+          &nbsp;&nbsp;screenHeightModel : {{ screenHeightModel }}px
+          &lt;/div&gt;
+
+  .flex-1("[(elementHeightModel)]"="elementHeightModel")
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 [(elementHeightModel)]
+        .text-grey-2x.max-width-400
+          |Get the browser window inner height. Currently : {{elementHeightModel}}px
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewElementHeightModel=!viewElementHeightModel" "[ngClass]"="viewElementHeightModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewElementHeightModel" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div [(elementHeightModel)]="elementHeightModel"&gt;
+          &nbsp;&nbsp;elementHeightModel : {{ elementHeightModel }}px
+          &lt;/div&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 [(innerHtmlModel)]
+        .text-grey-2x.max-width-400
+          |Capture an elements innerHTML into a model
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewInnerHtmlModel=!viewInnerHtmlModel" "[ngClass]"="viewInnerHtmlModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewInnerHtmlModel" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Example
+      div("[(innerHtmlModel)]"="innerHtmlModel")
+        button("(click)"="contentArray.push('')") add content
+        span(*ngFor="let item of contentArray")
+          |&#10;
+          button("(click)"="contentArray.push('')") add content
+      absolute-overflow-x
+        pre.code-sample.margin-0 {{ innerHtmlModel }}
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;span&gt; Enter Count : {{preventEnterCount || 0}} &lt;/span&gt;
+          &lt;input type="text" (onEnterKey)="preventEnterCount=preventEnterCount==null?1:preventEnterCount+1" placeholder="type here and use enter key" /&gt;
+
+br
+
 h3.margin-bottom-0(id="Layout Components") Layout Components
 .pad
   .pad.bg-warning.border-warning.text-warning.border

@@ -29,7 +29,11 @@ import { AckQue } from './AckQue';
   constructor(public http:Http){
     this.AckCache = new AckCache()
     this.AckQue = new AckQue()
+    this.paramConfig()
   }
+
+  /** an empty function for inheritance to hook into */
+  paramConfig(){}
 
   /** START HERE. Handlers must be registered before sending requests
     @options{maxTry:50}

@@ -18,6 +18,8 @@ export declare class AckApi {
         };
     };
     constructor(http: Http);
+    /** an empty function for inheritance to hook into */
+    paramConfig(): void;
     /** START HERE. Handlers must be registered before sending requests
       @options{maxTry:50}
     */

@@ -513,6 +513,68 @@ var ElementWidthModel = (function () {
     return ElementWidthModel;
 }());
 exports.ElementWidthModel = ElementWidthModel;
+var ScreenScrollHeightDiff = (function () {
+    function ScreenScrollHeightDiff() {
+        this.screenScrollHeightDiffChange = new core_1.EventEmitter();
+        this.on = function () {
+            this.apply();
+        }.bind(this);
+        window.addEventListener("scroll", this.on);
+        window.addEventListener("resize", this.on);
+    }
+    ScreenScrollHeightDiff.prototype.apply = function () {
+        this.screenScrollHeightDiff = document.body.scrollHeight - window.innerHeight;
+        if (this.screenScrollHeightDiff < 0)
+            this.screenScrollHeightDiff = 0;
+        this.screenScrollHeightDiffChange.emit(this.screenScrollHeightDiff);
+    };
+    ScreenScrollHeightDiff.prototype.ngOnDestroy = function () {
+        window.removeEventListener("scroll", this.on);
+        window.removeEventListener("resize", this.on);
+    };
+    ScreenScrollHeightDiff.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[screenScrollHeightDiff]'
+                },] },
+    ];
+    /** @nocollapse */
+    ScreenScrollHeightDiff.ctorParameters = function () { return []; };
+    ScreenScrollHeightDiff.propDecorators = {
+        'screenScrollHeightDiff': [{ type: core_1.Input },],
+        'screenScrollHeightDiffChange': [{ type: core_1.Output },],
+    };
+    return ScreenScrollHeightDiff;
+}());
+exports.ScreenScrollHeightDiff = ScreenScrollHeightDiff;
+var ScreenScroll = (function () {
+    function ScreenScroll() {
+        this.screenScroll = new core_1.EventEmitter();
+        this.onScroll = function () {
+            this.screenScroll.emit({ x: window['pageXOffset'], y: window['pageYOffset'] });
+        }.bind(this);
+        this.onScroll();
+        window.addEventListener("scroll", this.onScroll);
+    }
+    ScreenScroll.prototype.ngOnInit = function () {
+        var _this = this;
+        setTimeout(function () { return _this.onScroll(); }, 0); //two way bind often needs init override
+    };
+    ScreenScroll.prototype.ngOnDestroy = function () {
+        window.removeEventListener("scroll", this.onScroll);
+    };
+    ScreenScroll.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[screenScroll]'
+                },] },
+    ];
+    /** @nocollapse */
+    ScreenScroll.ctorParameters = function () { return []; };
+    ScreenScroll.propDecorators = {
+        'screenScroll': [{ type: core_1.Output },],
+    };
+    return ScreenScroll;
+}());
+exports.ScreenScroll = ScreenScroll;
 var ScreenScrollModelY = (function () {
     function ScreenScrollModelY() {
         this.screenScrollModelYChange = new core_1.EventEmitter();
@@ -532,7 +594,6 @@ var ScreenScrollModelY = (function () {
     };
     ScreenScrollModelY.decorators = [
         { type: core_1.Directive, args: [{
-                    //inputs:['screen-height-model'],
                     selector: '[screenScrollModelY]'
                 },] },
     ];
@@ -708,6 +769,8 @@ exports.declarations = [
     ScreenScrollModelY,
     ScreenWidthModel,
     ScreenHeightModel,
+    ScreenScroll,
+    ScreenScrollHeightDiff,
     HtmlWidthModel,
     HtmlHeightModel,
     ShakeOn_component_1.ShakeOn,
