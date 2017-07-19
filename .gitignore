@@ -1,3 +1,5 @@
+*.js.map
+*.css.map
 etc
 styles.css.map
 js_modules

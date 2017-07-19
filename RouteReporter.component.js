@@ -50,27 +50,27 @@ var RouteReporter = (function () {
     RouteReporter.prototype.tryBack = function (name, params) {
         this.RouteWatchReporter.tryBack(name, params);
     };
+    RouteReporter.parameters = [[
+            RouteWatchReporter_1.RouteWatchReporter
+        ]];
+    RouteReporter.decorators = [
+        { type: core_1.Directive, args: [{
+                    //inputs:['ref'],
+                    selector: 'route-reporter'
+                },] },
+    ];
+    /** @nocollapse */
+    RouteReporter.ctorParameters = function () { return [
+        { type: RouteWatchReporter_1.RouteWatchReporter, },
+    ]; };
+    RouteReporter.propDecorators = {
+        'stateChanger': [{ type: core_1.Output, args: ["onChange",] },],
+        'beforeChanger': [{ type: core_1.Output, args: ["beforeChange",] },],
+        'onLoad': [{ type: core_1.Input },],
+        'ref': [{ type: core_1.Input },],
+        'refChange': [{ type: core_1.Output },],
+    };
     return RouteReporter;
 }());
-RouteReporter.parameters = [[
-        RouteWatchReporter_1.RouteWatchReporter
-    ]];
-RouteReporter.decorators = [
-    { type: core_1.Directive, args: [{
-                //inputs:['ref'],
-                selector: 'route-reporter'
-            },] },
-];
-/** @nocollapse */
-RouteReporter.ctorParameters = function () { return [
-    { type: RouteWatchReporter_1.RouteWatchReporter, },
-]; };
-RouteReporter.propDecorators = {
-    'stateChanger': [{ type: core_1.Output, args: ["onChange",] },],
-    'beforeChanger': [{ type: core_1.Output, args: ["beforeChange",] },],
-    'onLoad': [{ type: core_1.Input },],
-    'ref': [{ type: core_1.Input },],
-    'refChange': [{ type: core_1.Output },],
-};
 exports.RouteReporter = RouteReporter;
 //# sourceMappingURL=RouteReporter.component.js.map

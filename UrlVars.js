@@ -28,14 +28,14 @@ var UrlVars = (function () {
         }
         return param;
     };
+    UrlVars.decorators = [
+        { type: core_1.Injectable },
+    ];
+    /** @nocollapse */
+    UrlVars.ctorParameters = function () { return [
+        { type: WindowService_1.WindowService, },
+    ]; };
     return UrlVars;
 }());
-UrlVars.decorators = [
-    { type: core_1.Injectable },
-];
-/** @nocollapse */
-UrlVars.ctorParameters = function () { return [
-    { type: WindowService_1.WindowService, },
-]; };
 exports.UrlVars = UrlVars;
 //# sourceMappingURL=UrlVars.js.map

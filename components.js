@@ -30,22 +30,22 @@ var FocusOn = (function () {
             }, this.focusOnDelay);
         }
     };
+    FocusOn.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[focusOn]'
+                },] },
+    ];
+    /** @nocollapse */
+    FocusOn.ctorParameters = function () { return [
+        { type: core_1.ElementRef, },
+    ]; };
+    FocusOn.propDecorators = {
+        'focusOn': [{ type: core_1.Input },],
+        'focusOnDelay': [{ type: core_1.Input },],
+        'focusThen': [{ type: core_1.Output },],
+    };
     return FocusOn;
 }());
-FocusOn.decorators = [
-    { type: core_1.Directive, args: [{
-                selector: '[focusOn]'
-            },] },
-];
-/** @nocollapse */
-FocusOn.ctorParameters = function () { return [
-    { type: core_1.ElementRef, },
-]; };
-FocusOn.propDecorators = {
-    'focusOn': [{ type: core_1.Input },],
-    'focusOnDelay': [{ type: core_1.Input },],
-    'focusThen': [{ type: core_1.Output },],
-};
 exports.FocusOn = FocusOn;
 var SelectOn = (function () {
     function SelectOn(element) {
@@ -62,39 +62,39 @@ var SelectOn = (function () {
             }, this.selectOnDelay);
         }
     };
+    SelectOn.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[selectOn]'
+                },] },
+    ];
+    /** @nocollapse */
+    SelectOn.ctorParameters = function () { return [
+        { type: core_1.ElementRef, },
+    ]; };
+    SelectOn.propDecorators = {
+        'selectOn': [{ type: core_1.Input },],
+        'selectOnDelay': [{ type: core_1.Input },],
+        'selectThen': [{ type: core_1.Output },],
+    };
     return SelectOn;
 }());
-SelectOn.decorators = [
-    { type: core_1.Directive, args: [{
-                selector: '[selectOn]'
-            },] },
-];
-/** @nocollapse */
-SelectOn.ctorParameters = function () { return [
-    { type: core_1.ElementRef, },
-]; };
-SelectOn.propDecorators = {
-    'selectOn': [{ type: core_1.Input },],
-    'selectOnDelay': [{ type: core_1.Input },],
-    'selectThen': [{ type: core_1.Output },],
-};
 exports.SelectOn = SelectOn;
 var VarDirective = (function () {
     function VarDirective() {
     }
+    VarDirective.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[var]',
+                    exportAs: 'var'
+                },] },
+    ];
+    /** @nocollapse */
+    VarDirective.ctorParameters = function () { return []; };
+    VarDirective.propDecorators = {
+        'var': [{ type: core_1.Input },],
+    };
     return VarDirective;
 }());
-VarDirective.decorators = [
-    { type: core_1.Directive, args: [{
-                selector: '[var]',
-                exportAs: 'var'
-            },] },
-];
-/** @nocollapse */
-VarDirective.ctorParameters = function () { return []; };
-VarDirective.propDecorators = {
-    'var': [{ type: core_1.Input },],
-};
 exports.VarDirective = VarDirective;
 var OnEnterKey = (function () {
     function OnEnterKey(element) {
@@ -108,18 +108,18 @@ var OnEnterKey = (function () {
             }
         });
     }
+    OnEnterKey.decorators = [
+        { type: core_1.Directive, args: [{ selector: '[onEnterKey]' },] },
+    ];
+    /** @nocollapse */
+    OnEnterKey.ctorParameters = function () { return [
+        { type: core_1.ElementRef, },
+    ]; };
+    OnEnterKey.propDecorators = {
+        'onEnterKey': [{ type: core_1.Output },],
+    };
     return OnEnterKey;
 }());
-OnEnterKey.decorators = [
-    { type: core_1.Directive, args: [{ selector: '[onEnterKey]' },] },
-];
-/** @nocollapse */
-OnEnterKey.ctorParameters = function () { return [
-    { type: core_1.ElementRef, },
-]; };
-OnEnterKey.propDecorators = {
-    'onEnterKey': [{ type: core_1.Output },],
-};
 exports.OnEnterKey = OnEnterKey;
 var OnEscapeKey = (function () {
     function OnEscapeKey(element) {
@@ -133,18 +133,18 @@ var OnEscapeKey = (function () {
             }
         });
     }
+    OnEscapeKey.decorators = [
+        { type: core_1.Directive, args: [{ selector: '[onEscapeKey]' },] },
+    ];
+    /** @nocollapse */
+    OnEscapeKey.ctorParameters = function () { return [
+        { type: core_1.ElementRef, },
+    ]; };
+    OnEscapeKey.propDecorators = {
+        'onEscapeKey': [{ type: core_1.Output },],
+    };
     return OnEscapeKey;
 }());
-OnEscapeKey.decorators = [
-    { type: core_1.Directive, args: [{ selector: '[onEscapeKey]' },] },
-];
-/** @nocollapse */
-OnEscapeKey.ctorParameters = function () { return [
-    { type: core_1.ElementRef, },
-]; };
-OnEscapeKey.propDecorators = {
-    'onEscapeKey': [{ type: core_1.Output },],
-};
 exports.OnEscapeKey = OnEscapeKey;
 /** Disallow keyboard access to the backspace key */
 var PreventBackKey = (function () {
@@ -163,18 +163,18 @@ var PreventBackKey = (function () {
             return yesNo;
         });
     }
+    PreventBackKey.decorators = [
+        { type: core_1.Directive, args: [{ selector: '[preventBackKey]' },] },
+    ];
+    /** @nocollapse */
+    PreventBackKey.ctorParameters = function () { return [
+        { type: core_1.ElementRef, },
+    ]; };
+    PreventBackKey.propDecorators = {
+        'preventBackKey': [{ type: core_1.Output },],
+    };
     return PreventBackKey;
 }());
-PreventBackKey.decorators = [
-    { type: core_1.Directive, args: [{ selector: '[preventBackKey]' },] },
-];
-/** @nocollapse */
-PreventBackKey.ctorParameters = function () { return [
-    { type: core_1.ElementRef, },
-]; };
-PreventBackKey.propDecorators = {
-    'preventBackKey': [{ type: core_1.Output },],
-};
 exports.PreventBackKey = PreventBackKey;
 /** Disallow keyboard access to the enter keys */
 var PreventEnterKey = (function () {
@@ -193,36 +193,36 @@ var PreventEnterKey = (function () {
             return yesNo;
         });
     }
+    PreventEnterKey.decorators = [
+        { type: core_1.Directive, args: [{ selector: '[preventEnterKey]' },] },
+    ];
+    /** @nocollapse */
+    PreventEnterKey.ctorParameters = function () { return [
+        { type: core_1.ElementRef, },
+    ]; };
+    PreventEnterKey.propDecorators = {
+        'preventEnterKey': [{ type: core_1.Output },],
+    };
     return PreventEnterKey;
 }());
-PreventEnterKey.decorators = [
-    { type: core_1.Directive, args: [{ selector: '[preventEnterKey]' },] },
-];
-/** @nocollapse */
-PreventEnterKey.ctorParameters = function () { return [
-    { type: core_1.ElementRef, },
-]; };
-PreventEnterKey.propDecorators = {
-    'preventEnterKey': [{ type: core_1.Output },],
-};
 exports.PreventEnterKey = PreventEnterKey;
 var InputHint = (function () {
     function InputHint() {
         this.hintStyle = { 'font-size': '75%', 'color': '#BBB' };
     }
+    InputHint.decorators = [
+        { type: core_1.Component, args: [{
+                    selector: 'input-hint',
+                    template: '<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
+                },] },
+    ];
+    /** @nocollapse */
+    InputHint.ctorParameters = function () { return []; };
+    InputHint.propDecorators = {
+        'hintStyle': [{ type: core_1.Input },],
+    };
     return InputHint;
 }());
-InputHint.decorators = [
-    { type: core_1.Component, args: [{
-                selector: 'input-hint',
-                template: '<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
-            },] },
-];
-/** @nocollapse */
-InputHint.ctorParameters = function () { return []; };
-InputHint.propDecorators = {
-    'hintStyle': [{ type: core_1.Input },],
-};
 exports.InputHint = InputHint;
 var StatusOnlineModel = (function () {
     function StatusOnlineModel() {
@@ -240,17 +240,17 @@ var StatusOnlineModel = (function () {
         window.removeEventListener("online", this.onChange);
         window.removeEventListener("offline", this.onChange);
     };
+    StatusOnlineModel.decorators = [
+        { type: core_1.Directive, args: [{ selector: '[statusOnlineModel]' },] },
+    ];
+    /** @nocollapse */
+    StatusOnlineModel.ctorParameters = function () { return []; };
+    StatusOnlineModel.propDecorators = {
+        'statusOnlineModel': [{ type: core_1.Input },],
+        'statusOnlineModelChange': [{ type: core_1.Output },],
+    };
     return StatusOnlineModel;
 }());
-StatusOnlineModel.decorators = [
-    { type: core_1.Directive, args: [{ selector: '[statusOnlineModel]' },] },
-];
-/** @nocollapse */
-StatusOnlineModel.ctorParameters = function () { return []; };
-StatusOnlineModel.propDecorators = {
-    'statusOnlineModel': [{ type: core_1.Input },],
-    'statusOnlineModelChange': [{ type: core_1.Output },],
-};
 exports.StatusOnlineModel = StatusOnlineModel;
 var StatusOfflineModel = (function () {
     function StatusOfflineModel() {
@@ -268,17 +268,17 @@ var StatusOfflineModel = (function () {
         window.removeEventListener("offline", this.onChange);
         window.removeEventListener("online", this.onChange);
     };
+    StatusOfflineModel.decorators = [
+        { type: core_1.Directive, args: [{ selector: '[statusOfflineModel]' },] },
+    ];
+    /** @nocollapse */
+    StatusOfflineModel.ctorParameters = function () { return []; };
+    StatusOfflineModel.propDecorators = {
+        'statusOfflineModel': [{ type: core_1.Input },],
+        'statusOfflineModelChange': [{ type: core_1.Output },],
+    };
     return StatusOfflineModel;
 }());
-StatusOfflineModel.decorators = [
-    { type: core_1.Directive, args: [{ selector: '[statusOfflineModel]' },] },
-];
-/** @nocollapse */
-StatusOfflineModel.ctorParameters = function () { return []; };
-StatusOfflineModel.propDecorators = {
-    'statusOfflineModel': [{ type: core_1.Input },],
-    'statusOfflineModelChange': [{ type: core_1.Output },],
-};
 exports.StatusOfflineModel = StatusOfflineModel;
 /** adds form element onchange listener via addEventListener('change') that calls onFormChanged scope argument */
 var OnFormChanged = (function () {
@@ -293,20 +293,20 @@ var OnFormChanged = (function () {
     OnFormChanged.prototype.ngOnDestroy = function () {
         this.element.nativeElement.removeEventListener('change', this.onChange);
     };
+    OnFormChanged.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[onFormChanged]' //Also try : onFormAlter
+                },] },
+    ];
+    /** @nocollapse */
+    OnFormChanged.ctorParameters = function () { return [
+        { type: core_1.ElementRef, },
+    ]; };
+    OnFormChanged.propDecorators = {
+        'onFormChanged': [{ type: core_1.Output },],
+    };
     return OnFormChanged;
 }());
-OnFormChanged.decorators = [
-    { type: core_1.Directive, args: [{
-                selector: '[onFormChanged]' //Also try : onFormAlter
-            },] },
-];
-/** @nocollapse */
-OnFormChanged.ctorParameters = function () { return [
-    { type: core_1.ElementRef, },
-]; };
-OnFormChanged.propDecorators = {
-    'onFormChanged': [{ type: core_1.Output },],
-};
 exports.OnFormChanged = OnFormChanged;
 var OnFormAlter = (function () {
     function OnFormAlter(element) {
@@ -322,47 +322,47 @@ var OnFormAlter = (function () {
         this.element.nativeElement.removeEventListener('change', this.onChange);
         this.element.nativeElement.removeEventListener('input', this.onChange);
     };
+    OnFormAlter.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[onFormAlter]'
+                },] },
+    ];
+    /** @nocollapse */
+    OnFormAlter.ctorParameters = function () { return [
+        { type: core_1.ElementRef, },
+    ]; };
+    OnFormAlter.propDecorators = {
+        'onFormAlter': [{ type: core_1.Output },],
+    };
     return OnFormAlter;
 }());
-OnFormAlter.decorators = [
-    { type: core_1.Directive, args: [{
-                selector: '[onFormAlter]'
-            },] },
-];
-/** @nocollapse */
-OnFormAlter.ctorParameters = function () { return [
-    { type: core_1.ElementRef, },
-]; };
-OnFormAlter.propDecorators = {
-    'onFormAlter': [{ type: core_1.Output },],
-};
 exports.OnFormAlter = OnFormAlter;
 var ReaderHeaderBody = (function () {
     function ReaderHeaderBody() {
     }
+    ReaderHeaderBody.decorators = [
+        { type: core_1.Component, args: [{
+                    selector: 'reader-header-body',
+                    template: reader_header_body_pug_1.string
+                },] },
+    ];
+    /** @nocollapse */
+    ReaderHeaderBody.ctorParameters = function () { return []; };
     return ReaderHeaderBody;
 }());
-ReaderHeaderBody.decorators = [
-    { type: core_1.Component, args: [{
-                selector: 'reader-header-body',
-                template: reader_header_body_pug_1.string
-            },] },
-];
-/** @nocollapse */
-ReaderHeaderBody.ctorParameters = function () { return []; };
 exports.ReaderHeaderBody = ReaderHeaderBody;
 var ReaderHeader = (function () {
     function ReaderHeader() {
     }
+    ReaderHeader.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: 'reader-header'
+                },] },
+    ];
+    /** @nocollapse */
+    ReaderHeader.ctorParameters = function () { return []; };
     return ReaderHeader;
 }());
-ReaderHeader.decorators = [
-    { type: core_1.Directive, args: [{
-                selector: 'reader-header'
-            },] },
-];
-/** @nocollapse */
-ReaderHeader.ctorParameters = function () { return []; };
 exports.ReaderHeader = ReaderHeader;
 var ReaderBody = (function () {
     //-static parameters = [[ElementRef]]
@@ -371,18 +371,18 @@ var ReaderBody = (function () {
         element.nativeElement.style.height = '100%';
         element.nativeElement.style.display = 'block';
     }
+    ReaderBody.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: "reader-body"
+                    //,parameters:[[ElementRef]]
+                },] },
+    ];
+    /** @nocollapse */
+    ReaderBody.ctorParameters = function () { return [
+        { type: core_1.ElementRef, },
+    ]; };
     return ReaderBody;
 }());
-ReaderBody.decorators = [
-    { type: core_1.Directive, args: [{
-                selector: "reader-body"
-                //,parameters:[[ElementRef]]
-            },] },
-];
-/** @nocollapse */
-ReaderBody.ctorParameters = function () { return [
-    { type: core_1.ElementRef, },
-]; };
 exports.ReaderBody = ReaderBody;
 var InnerHtmlModel = (function () {
     function InnerHtmlModel(element) {
@@ -411,21 +411,21 @@ var InnerHtmlModel = (function () {
     InnerHtmlModel.prototype.ngOnDestroy = function () {
         this.observer.disconnect();
     };
+    InnerHtmlModel.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[innerHtmlModel]'
+                },] },
+    ];
+    /** @nocollapse */
+    InnerHtmlModel.ctorParameters = function () { return [
+        { type: core_1.ElementRef, },
+    ]; };
+    InnerHtmlModel.propDecorators = {
+        'innerHtmlModel': [{ type: core_1.Input },],
+        'innerHtmlModelChange': [{ type: core_1.Output },],
+    };
     return InnerHtmlModel;
 }());
-InnerHtmlModel.decorators = [
-    { type: core_1.Directive, args: [{
-                selector: '[innerHtmlModel]'
-            },] },
-];
-/** @nocollapse */
-InnerHtmlModel.ctorParameters = function () { return [
-    { type: core_1.ElementRef, },
-]; };
-InnerHtmlModel.propDecorators = {
-    'innerHtmlModel': [{ type: core_1.Input },],
-    'innerHtmlModelChange': [{ type: core_1.Output },],
-};
 exports.InnerHtmlModel = InnerHtmlModel;
 var ElementHeightModel = (function () {
     function ElementHeightModel(element) {
@@ -459,23 +459,23 @@ var ElementHeightModel = (function () {
     };
     ElementHeightModel.prototype.ngOnDestroy = function () {
         this.observer.disconnect();
-        window.removeEventListener(this.onResize);
+        window.removeEventListener('resize', this.onResize);
+    };
+    ElementHeightModel.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[elementHeightModel]'
+                },] },
+    ];
+    /** @nocollapse */
+    ElementHeightModel.ctorParameters = function () { return [
+        { type: core_1.ElementRef, },
+    ]; };
+    ElementHeightModel.propDecorators = {
+        'elementHeightModel': [{ type: core_1.Input },],
+        'elementHeightModelChange': [{ type: core_1.Output },],
     };
     return ElementHeightModel;
 }());
-ElementHeightModel.decorators = [
-    { type: core_1.Directive, args: [{
-                selector: '[elementHeightModel]'
-            },] },
-];
-/** @nocollapse */
-ElementHeightModel.ctorParameters = function () { return [
-    { type: core_1.ElementRef, },
-]; };
-ElementHeightModel.propDecorators = {
-    'elementHeightModel': [{ type: core_1.Input },],
-    'elementHeightModelChange': [{ type: core_1.Output },],
-};
 exports.ElementHeightModel = ElementHeightModel;
 var ElementWidthModel = (function () {
     function ElementWidthModel(element) {
@@ -495,23 +495,23 @@ var ElementWidthModel = (function () {
         this.elementWidthModelChange.emit(this.elementWidthModel);
     };
     ElementWidthModel.prototype.ngOnDestroy = function () {
-        window.removeEventListener(this.onResize);
+        window.removeEventListener('resize', this.onResize);
+    };
+    ElementWidthModel.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[elementWidthModel]'
+                },] },
+    ];
+    /** @nocollapse */
+    ElementWidthModel.ctorParameters = function () { return [
+        { type: core_1.ElementRef, },
+    ]; };
+    ElementWidthModel.propDecorators = {
+        'elementWidthModel': [{ type: core_1.Input },],
+        'elementWidthModelChange': [{ type: core_1.Output },],
     };
     return ElementWidthModel;
 }());
-ElementWidthModel.decorators = [
-    { type: core_1.Directive, args: [{
-                selector: '[elementWidthModel]'
-            },] },
-];
-/** @nocollapse */
-ElementWidthModel.ctorParameters = function () { return [
-    { type: core_1.ElementRef, },
-]; };
-ElementWidthModel.propDecorators = {
-    'elementWidthModel': [{ type: core_1.Input },],
-    'elementWidthModelChange': [{ type: core_1.Output },],
-};
 exports.ElementWidthModel = ElementWidthModel;
 var ScreenScrollModelY = (function () {
     function ScreenScrollModelY() {
@@ -521,29 +521,29 @@ var ScreenScrollModelY = (function () {
             this.screenScrollModelYChange.emit(this.screenScrollModelY);
         }.bind(this);
         this.onScroll();
-        window['addEventListener']("scroll", this.onScroll);
+        window.addEventListener("scroll", this.onScroll);
     }
     ScreenScrollModelY.prototype.ngOnInit = function () {
         var _this = this;
         setTimeout(function () { return _this.onScroll(); }, 0); //two way bind often needs init override
     };
     ScreenScrollModelY.prototype.ngOnDestroy = function () {
-        window['removeEventListener']("scroll", this.onScroll);
+        window.removeEventListener("scroll", this.onScroll);
+    };
+    ScreenScrollModelY.decorators = [
+        { type: core_1.Directive, args: [{
+                    //inputs:['screen-height-model'],
+                    selector: '[screenScrollModelY]'
+                },] },
+    ];
+    /** @nocollapse */
+    ScreenScrollModelY.ctorParameters = function () { return []; };
+    ScreenScrollModelY.propDecorators = {
+        'screenScrollModelY': [{ type: core_1.Input },],
+        'screenScrollModelYChange': [{ type: core_1.Output },],
     };
     return ScreenScrollModelY;
 }());
-ScreenScrollModelY.decorators = [
-    { type: core_1.Directive, args: [{
-                //inputs:['screen-height-model'],
-                selector: '[screenScrollModelY]'
-            },] },
-];
-/** @nocollapse */
-ScreenScrollModelY.ctorParameters = function () { return []; };
-ScreenScrollModelY.propDecorators = {
-    'screenScrollModelY': [{ type: core_1.Input },],
-    'screenScrollModelYChange': [{ type: core_1.Output },],
-};
 exports.ScreenScrollModelY = ScreenScrollModelY;
 var ScreenWidthModel = (function () {
     function ScreenWidthModel() {
@@ -566,21 +566,21 @@ var ScreenWidthModel = (function () {
         this.screenWidthModelChange.emit(this.screenWidthModel);
     };
     ScreenWidthModel.prototype.ngOnDestroy = function () {
-        window.removeEventListener(this.onResize);
+        window.removeEventListener('resize', this.onResize);
+    };
+    ScreenWidthModel.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[screenWidthModel]'
+                },] },
+    ];
+    /** @nocollapse */
+    ScreenWidthModel.ctorParameters = function () { return []; };
+    ScreenWidthModel.propDecorators = {
+        'screenWidthModel': [{ type: core_1.Input },],
+        'screenWidthModelChange': [{ type: core_1.Output },],
     };
     return ScreenWidthModel;
 }());
-ScreenWidthModel.decorators = [
-    { type: core_1.Directive, args: [{
-                selector: '[screenWidthModel]'
-            },] },
-];
-/** @nocollapse */
-ScreenWidthModel.ctorParameters = function () { return []; };
-ScreenWidthModel.propDecorators = {
-    'screenWidthModel': [{ type: core_1.Input },],
-    'screenWidthModelChange': [{ type: core_1.Output },],
-};
 exports.ScreenWidthModel = ScreenWidthModel;
 var ScreenHeightModel = (function () {
     function ScreenHeightModel() {
@@ -603,21 +603,21 @@ var ScreenHeightModel = (function () {
         this.screenHeightModelChange.emit(this.screenHeightModel);
     };
     ScreenHeightModel.prototype.ngOnDestroy = function () {
-        window.removeEventListener(this.onResize);
+        window.removeEventListener('resize', this.onResize);
+    };
+    ScreenHeightModel.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[screenHeightModel]'
+                },] },
+    ];
+    /** @nocollapse */
+    ScreenHeightModel.ctorParameters = function () { return []; };
+    ScreenHeightModel.propDecorators = {
+        'screenHeightModel': [{ type: core_1.Input },],
+        'screenHeightModelChange': [{ type: core_1.Output },],
     };
     return ScreenHeightModel;
 }());
-ScreenHeightModel.decorators = [
-    { type: core_1.Directive, args: [{
-                selector: '[screenHeightModel]'
-            },] },
-];
-/** @nocollapse */
-ScreenHeightModel.ctorParameters = function () { return []; };
-ScreenHeightModel.propDecorators = {
-    'screenHeightModel': [{ type: core_1.Input },],
-    'screenHeightModelChange': [{ type: core_1.Output },],
-};
 exports.ScreenHeightModel = ScreenHeightModel;
 var HtmlWidthModel = (function () {
     function HtmlWidthModel() {
@@ -640,21 +640,21 @@ var HtmlWidthModel = (function () {
         this.htmlWidthModelChange.emit(this.htmlWidthModel);
     };
     HtmlWidthModel.prototype.ngOnDestroy = function () {
-        window.removeEventListener(this.onResize);
+        window.removeEventListener('resize', this.onResize);
+    };
+    HtmlWidthModel.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[htmlWidthModel]'
+                },] },
+    ];
+    /** @nocollapse */
+    HtmlWidthModel.ctorParameters = function () { return []; };
+    HtmlWidthModel.propDecorators = {
+        'htmlWidthModel': [{ type: core_1.Input },],
+        'htmlWidthModelChange': [{ type: core_1.Output },],
     };
     return HtmlWidthModel;
 }());
-HtmlWidthModel.decorators = [
-    { type: core_1.Directive, args: [{
-                selector: '[htmlWidthModel]'
-            },] },
-];
-/** @nocollapse */
-HtmlWidthModel.ctorParameters = function () { return []; };
-HtmlWidthModel.propDecorators = {
-    'htmlWidthModel': [{ type: core_1.Input },],
-    'htmlWidthModelChange': [{ type: core_1.Output },],
-};
 exports.HtmlWidthModel = HtmlWidthModel;
 var HtmlHeightModel = (function () {
     function HtmlHeightModel() {
@@ -677,21 +677,21 @@ var HtmlHeightModel = (function () {
         this.htmlHeightModelChange.emit(this.htmlHeightModel);
     };
     HtmlHeightModel.prototype.ngOnDestroy = function () {
-        window.removeEventListener(this.onResize);
+        window.removeEventListener('resize', this.onResize);
+    };
+    HtmlHeightModel.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[htmlHeightModel]'
+                },] },
+    ];
+    /** @nocollapse */
+    HtmlHeightModel.ctorParameters = function () { return []; };
+    HtmlHeightModel.propDecorators = {
+        'htmlHeightModel': [{ type: core_1.Input },],
+        'htmlHeightModelChange': [{ type: core_1.Output },],
     };
     return HtmlHeightModel;
 }());
-HtmlHeightModel.decorators = [
-    { type: core_1.Directive, args: [{
-                selector: '[htmlHeightModel]'
-            },] },
-];
-/** @nocollapse */
-HtmlHeightModel.ctorParameters = function () { return []; };
-HtmlHeightModel.propDecorators = {
-    'htmlHeightModel': [{ type: core_1.Input },],
-    'htmlHeightModelChange': [{ type: core_1.Output },],
-};
 exports.HtmlHeightModel = HtmlHeightModel;
 exports.declarations = [
     //directives

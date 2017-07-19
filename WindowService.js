@@ -10,12 +10,12 @@ var WindowService = (function () {
         enumerable: true,
         configurable: true
     });
+    WindowService.decorators = [
+        { type: core_1.Injectable },
+    ];
+    /** @nocollapse */
+    WindowService.ctorParameters = function () { return []; };
     return WindowService;
 }());
-WindowService.decorators = [
-    { type: core_1.Injectable },
-];
-/** @nocollapse */
-WindowService.ctorParameters = function () { return []; };
 exports.WindowService = WindowService;
 //# sourceMappingURL=WindowService.js.map

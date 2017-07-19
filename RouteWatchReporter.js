@@ -150,15 +150,15 @@ var RouteWatchReporter = (function () {
         $document.removeEventListener('mouseover', callbacks.isNotBackButton);
         $document.removeEventListener('mousedown', callbacks.isNotBackButton);
     };
+    RouteWatchReporter.decorators = [
+        { type: core_1.Injectable },
+    ];
+    /** @nocollapse */
+    RouteWatchReporter.ctorParameters = function () { return [
+        { type: router_1.Router, },
+        { type: router_1.ActivatedRoute, },
+    ]; };
     return RouteWatchReporter;
 }());
-RouteWatchReporter.decorators = [
-    { type: core_1.Injectable },
-];
-/** @nocollapse */
-RouteWatchReporter.ctorParameters = function () { return [
-    { type: router_1.Router, },
-    { type: router_1.ActivatedRoute, },
-]; };
 exports.RouteWatchReporter = RouteWatchReporter;
 //# sourceMappingURL=RouteWatchReporter.js.map
