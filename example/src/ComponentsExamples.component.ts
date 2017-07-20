@@ -15,6 +15,8 @@ import {string as componentsExamples} from './templates/components-examples.pug'
   modalBackgroundColor = 'rgba(255,255,255,0.95)'
   modalWrapStyle
   ackOptionArrayModal = [{key:'b'}]
+  arrayOfObjects=[{letter:'a'},{letter:'b'},{letter:'c'},{letter:'d'}]
+  selectedArray=[{letter:'c'}]
 
   constructor(public PageScrollService:PageScrollService){}
   

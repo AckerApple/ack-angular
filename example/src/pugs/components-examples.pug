@@ -33,6 +33,38 @@ h3.margin-bottom-0(id="Tags") Tags
 .flex-wrap.child-margin-xxs
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
+      div("(screenScroll)"="screenScrollCount=screenScrollCount+1")
+      .pad-h
+        h3 ack-array
+        .text-grey-2x
+          |Common array functionality available at a template level
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewAckArray=!viewAckArray" "[ngClass]"="viewAckArray?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewAckArray" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Demo Example
+      ack-array("[(ref)]"="Array" "[array]"="selectedArray" idKey="letter")
+      div(*ngFor="let item of arrayOfObjects;let i=index")
+        input(type="checkbox" "[checked]"="Array?.selected(item)" "(click)"="Array.toggle(item)" name="ackArray" id="ackArray{{i}}")
+        |&nbsp;&nbsp;{{ item | json }}
+      
+      h5.pad-sm.margin-0 Selected Array
+      absolute-overflow-x
+        pre.code-sample.margin-0.
+          {{ selectedArray | json }}
+
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;ack-array [(ref)]="Array" [array]="selectedArray" idKey="letter"&gt;&lt;/ack-array&gt;
+          &lt;div *ngFor="let item of arrayOfObjects"&gt;
+            &lt;input type="checkbox" [checked]="Array.selected(item)" (click)="Array.toggle(item)" /&gt;
+            &nbsp;&nbsp;{{ item | json }}
+          &lt;/div&gt;
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 ack-options
         .text-grey-2x.max-width-400
@@ -96,9 +128,16 @@ h3.margin-bottom-0(id="Tags") Tags
         .bg-white.border.border-grey-4x.pad-4x.radius-5
           |Sample Modal Dialog Window
           .text-xs.text-grey-2x.pad-h
-            |Animation provided by ack-angular-fx [@500]="'fadeInUp'"
+            |*ngIf driven modal with animation provided by ack-angular-fx [@500]="'fadeInUp'"
+      ack-modal("[(showModel)]"="showAckModalModel" "[(backgroundColor)]"="modalBackgroundColor" "[(wrapStyle)]"="modalWrapStyle")
+        .bg-white.border.border-grey-4x.pad-4x.radius-5
+          |Sample Modal Dialog Window
+          .text-xs.text-grey-2x.pad-h
+            |model driven modal with animation provided by ack-angular-fx [@500]="'fadeInUp'"
+
       .pad.text-center.flex-wrap.child-margin-xxs
         button.text-lg((click)="showAckModal=1") show modal
+        button.text-lg((click)="showAckModalModel=1") show modal by model
         .flex-1.flex-valign-center
           .height-30.pad-h-sm.bg-grey-5x.border.border-grey-4x.border-right-0
             |bg
@@ -122,7 +161,18 @@ h3.margin-bottom-0(id="Tags") Tags
         pre.code-sample.margin-0(ngNonBindable).
           &lt;ack-modal *ngIf="showAckModal" (onClose)="showAckModal=false" backgroundColor="rgba(255,255,255,0.95)"&gt;
             &lt;div style="background-color:white;padding:1em;"&gt;
-              |Sample Modal Dialog Window
+              Sample Modal Dialog Window
+            &lt;/div&gt;
+          &lt;/ack-model&gt;
+          &lt;button (click)="showAckModal=1"&gt; show modal &lt;/button&gt;
+
+      h4.pad-sm.margin-0 Model Usage Example
+      .text-grey-3x.text-smx Control modal display by a variable model
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;ack-modal [(showModel)]="showAckModal" backgroundColor="rgba(255,255,255,0.95)"&gt;
+            &lt;div style="background-color:white;padding:1em;"&gt;
+              Sample Modal Dialog Window
             &lt;/div&gt;
           &lt;/ack-model&gt;
           &lt;button (click)="showAckModal=1"&gt; show modal &lt;/button&gt;

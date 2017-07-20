@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AckModal_component_1 = require("./AckModal.component");
+var AckArray_directive_1 = require("./AckArray.directive");
 var AckOptions_component_1 = require("./AckOptions.component");
 var AckOptionsModal_component_1 = require("./AckOptionsModal.component");
 var reader_header_body_pug_1 = require("./templates/reader-header-body.pug");
@@ -787,7 +788,8 @@ exports.declarations = [
     InputHint,
     AckOptions_component_1.AckOptions,
     AckOptionsModal_component_1.AckOptionsModal,
-    AckModal_component_1.AckModal
+    AckModal_component_1.AckModal,
+    AckArray_directive_1.AckArray
     //ComponentHeader
     //...AckModals
 ];

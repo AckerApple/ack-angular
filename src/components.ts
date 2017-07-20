@@ -8,6 +8,7 @@ import {
 } from "@angular/core"
 
 import { AckModal } from "./AckModal.component"
+import { AckArray } from "./AckArray.directive"
 import { AckOptions } from "./AckOptions.component"
 import { AckOptionsModal } from "./AckOptionsModal.component"
 
@@ -617,7 +618,8 @@ export const declarations = [
   InputHint,
   AckOptions,
   AckOptionsModal,
-  AckModal
+  AckModal,
+  AckArray
   //ComponentHeader
   //...AckModals
 ]
