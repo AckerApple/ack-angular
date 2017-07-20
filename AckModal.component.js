@@ -1,25 +1,20 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var prefx_1 = require("./prefx");
 var ack_modal_pug_1 = require("./templates/ack-modal.pug");
 var AckModal = (function () {
     function AckModal(element) {
         var _this = this;
         this.element = element;
+        this.showModelMode = false;
         this.onClose = new core_1.EventEmitter();
         this.allowClose = true;
         this.backgroundColorChange = new core_1.EventEmitter();
         this.refChange = new core_1.EventEmitter();
+        this.showModelChange = new core_1.EventEmitter();
         //after possible double click, close on outside content click
         setTimeout(function () { return _this.clickListenForClose(); }, 400);
-        element.nativeElement.style.position = 'fixed';
-        element.nativeElement.style.top = 0;
-        element.nativeElement.style.left = 0;
-        element.nativeElement.style.zIndex = 20;
-        element.nativeElement.style.height = '100%';
-        element.nativeElement.style.width = '100%';
-        element.nativeElement.style.overflow = 'auto';
-        element.nativeElement.style.display = 'block';
     }
     AckModal.prototype.clickListenForClose = function () {
         var _this = this;
@@ -27,27 +22,35 @@ var AckModal = (function () {
             if (!_this.allowClose)
                 return false;
             var eTar = event.srcElement || event.toElement || event.target;
-            if (eTar == _this.element.nativeElement.children[0]) {
+            var isDirectChild = eTar == _this.element.nativeElement.children[0] || eTar == _this.element.nativeElement.children[0].children[0];
+            if (isDirectChild) {
                 _this.close();
             }
+            return true;
         });
     };
     AckModal.prototype.ngOnInit = function () {
         var _this = this;
         setTimeout(function () {
-            _this.ref = Object.assign(_this, _this.ref);
-            _this.refChange.emit(_this.ref);
+            _this.refChange.emit(_this);
+            if (_this.showModelChange.observers.length) {
+                _this.showModelMode = true;
+                _this.showModel = _this.showModel ? true : false;
+                _this.showModelChange.emit(_this.showModel);
+            }
             _this.backgroundColor = _this.backgroundColor || 'rgba(255,255,255,0.95)';
             _this.backgroundColorChange.emit(_this.backgroundColor);
         }, 0);
     };
     AckModal.prototype.close = function () {
+        this.showModelChange.emit(this.showModel = false);
         this.onClose.emit(this);
     };
     AckModal.decorators = [
         { type: core_1.Component, args: [{
                     selector: 'ack-modal',
-                    template: ack_modal_pug_1.string
+                    template: ack_modal_pug_1.string,
+                    animations: prefx_1.fxArray
                 },] },
     ];
     /** @nocollapse */
@@ -63,6 +66,8 @@ var AckModal = (function () {
         'backgroundColorChange': [{ type: core_1.Output },],
         'ref': [{ type: core_1.Input },],
         'refChange': [{ type: core_1.Output },],
+        'showModel': [{ type: core_1.Input },],
+        'showModelChange': [{ type: core_1.Output },],
     };
     return AckModal;
 }());
