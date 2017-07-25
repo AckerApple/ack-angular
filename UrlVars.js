@@ -8,9 +8,9 @@ var UrlVars = (function () {
         this.vars = this.parse();
     }
     UrlVars.prototype.parse = function () {
-        var regex = /[?&]([^=#]+)=([^&#]*)/g, url = this.WindowService.nativeWindow.location.href, params = {}, match;
+        var regex = /[?&]([^=#]+)(=([^&#]*))?/g, url = this.WindowService.nativeWindow.location.href, params = {}, match;
         while (match = regex.exec(url)) {
-            params[match[1]] = match[2];
+            params[match[1]] = match[2] == null ? true : match[2];
         }
         return params;
     };
