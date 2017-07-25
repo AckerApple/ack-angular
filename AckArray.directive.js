@@ -15,9 +15,10 @@ var AckArray = (function () {
     };
     AckArray.prototype.getCompareArray = function () {
         var _this = this;
-        if (this.idKey)
+        if (this.array && this.idKey) {
             return this.array.map(function (item) { return item[_this.idKey]; });
-        return this.array || [];
+        }
+        return [];
     };
     AckArray.prototype.selected = function (item) {
         return this.itemIndex(item) >= 0 ? true : false;
