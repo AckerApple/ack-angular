@@ -18,7 +18,7 @@ var AckArray = (function () {
         if (this.array && this.idKey) {
             return this.array.map(function (item) { return item[_this.idKey]; });
         }
-        return [];
+        return this.array || [];
     };
     AckArray.prototype.selected = function (item) {
         return this.itemIndex(item) >= 0 ? true : false;
