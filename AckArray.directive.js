@@ -4,6 +4,7 @@ var core_1 = require("@angular/core");
 var AckArray = (function () {
     function AckArray() {
         this.refChange = new core_1.EventEmitter();
+        this.arrayChange = new core_1.EventEmitter();
     }
     AckArray.prototype.ngOnInit = function () {
         var _this = this;
@@ -36,7 +37,9 @@ var AckArray = (function () {
         if (index >= 0) {
             return this.array.splice(index, 1);
         }
-        this.array = this.array || [];
+        if (!this.array) {
+            this.arrayChange.emit(this.array = []);
+        }
         this.array.push(item);
     };
     AckArray.decorators = [
@@ -48,9 +51,10 @@ var AckArray = (function () {
     AckArray.ctorParameters = function () { return []; };
     AckArray.propDecorators = {
         'idKey': [{ type: core_1.Input },],
-        'array': [{ type: core_1.Input },],
         'ref': [{ type: core_1.Input },],
         'refChange': [{ type: core_1.Output },],
+        'array': [{ type: core_1.Input },],
+        'arrayChange': [{ type: core_1.Output },],
     };
     return AckArray;
 }());

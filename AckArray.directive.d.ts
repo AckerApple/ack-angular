@@ -1,9 +1,10 @@
 import { EventEmitter } from '@angular/core';
 export declare class AckArray {
     idKey: any;
-    array: any[];
     ref: any;
     refChange: EventEmitter<{}>;
+    array: any[];
+    arrayChange: EventEmitter<{}>;
     ngOnInit(): void;
     getItemId(item: any): any;
     getCompareArray(): any[];
