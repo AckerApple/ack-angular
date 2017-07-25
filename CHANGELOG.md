@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.6.4] - 2017-07-25
+- AckArray now two-way binds array
+
 ## [0.6.2] - 2017-07-20
 - Added AckArray directive
 - Enhanced ack-modal to allow a showModel definition

@@ -4,9 +4,11 @@ import { EventEmitter, Output, Input, Directive } from '@angular/core'
   selector:'ack-array'
 }) export class AckArray {
   @Input() idKey
-  @Input() array:any[]
   @Input() ref
   @Output() refChange = new EventEmitter()
+
+  @Input() array:any[]
+  @Output() arrayChange = new EventEmitter()
 
   ngOnInit(){
     setTimeout(()=>this.refChange.emit(this), 0)
@@ -46,7 +48,10 @@ import { EventEmitter, Output, Input, Directive } from '@angular/core'
       return this.array.splice(index,1)
     }
 
-    this.array = this.array || []
+    if(!this.array){
+      this.arrayChange.emit( this.array=[] )
+    }
+    
     this.array.push( item )
   }
 }
