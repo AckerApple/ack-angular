@@ -19,7 +19,9 @@ import { EventEmitter, Output, Input, Directive } from '@angular/core'
   }
 
   getCompareArray(){
-    if(this.idKey)return this.array.map(item=>item[this.idKey])
+    if(this.array && this.idKey){
+      return this.array.map(item=>item[this.idKey])
+    }
 
     return this.array || []
   }

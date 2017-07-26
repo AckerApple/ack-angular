@@ -9,13 +9,13 @@ import { WindowService } from "./WindowService"
   }
 
   parse(){
-    var regex = /[?&]([^=#]+)=([^&#]*)/g,
+    var regex = /[?&]([^=#]+)(=([^&#]*))?/g,
         url = this.WindowService.nativeWindow.location.href,
         params = {},
         match;
 
     while(match = regex.exec(url)) {
-      params[match[1]] = match[2];
+      params[match[1]] = match[2]==null ? true : match[3]
     }
     return params
   }

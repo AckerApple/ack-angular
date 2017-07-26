@@ -44,7 +44,7 @@ h3.margin-bottom-0(id="Tags") Tags
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewAckArray" "[@500]"="'fadeInUp'")
       h4.pad-sm.margin-0 Demo Example
-      ack-array("[(ref)]"="Array" "[array]"="selectedArray" idKey="letter")
+      ack-array("[(ref)]"="Array" "[(array)]"="selectedArray" idKey="letter")
       div(*ngFor="let item of arrayOfObjects;let i=index")
         input(type="checkbox" "[checked]"="Array?.selected(item)" "(click)"="Array.toggle(item)" name="ackArray" id="ackArray{{i}}")
         |&nbsp;&nbsp;{{ item | json }}
@@ -57,7 +57,7 @@ h3.margin-bottom-0(id="Tags") Tags
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
-          &lt;ack-array [(ref)]="Array" [array]="selectedArray" idKey="letter"&gt;&lt;/ack-array&gt;
+          &lt;ack-array [(ref)]="Array" [(array)]="selectedArray" idKey="letter"&gt;&lt;/ack-array&gt;
           &lt;div *ngFor="let item of arrayOfObjects"&gt;
             &lt;input type="checkbox" [checked]="Array.selected(item)" (click)="Array.toggle(item)" /&gt;
             &nbsp;&nbsp;{{ item | json }}
