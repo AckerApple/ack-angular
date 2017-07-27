@@ -50,6 +50,11 @@ var AckArray = (function () {
         this.param().unshift(item);
         return this;
     };
+    AckArray.prototype.splice = function (x, y) {
+        if (y === void 0) { y = 1; }
+        this.param().splice(x, y);
+        return this;
+    };
     AckArray.prototype.param = function () {
         if (!this.array)
             this.arrayChange.emit(this.array = []);

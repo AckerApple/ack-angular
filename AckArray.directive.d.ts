@@ -13,5 +13,6 @@ export declare class AckArray {
     toggle(item: any): any[] | this;
     push(item: any): this;
     unshift(item: any): this;
+    splice(x: number, y?: number): this;
     param(): any[];
 }

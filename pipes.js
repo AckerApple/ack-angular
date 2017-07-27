@@ -46,6 +46,20 @@ var ForceArray = (function () {
     return ForceArray;
 }());
 exports.ForceArray = ForceArray;
+var ArrayOfObjects = (function () {
+    function ArrayOfObjects() {
+    }
+    ArrayOfObjects.prototype.transform = function (input, repeat, repeatValue) {
+        return pipes.arrayOfObjects(input, repeat, repeatValue);
+    };
+    ArrayOfObjects.decorators = [
+        { type: core_1.Pipe, args: [{ name: 'arrayOfObjects' },] },
+    ];
+    /** @nocollapse */
+    ArrayOfObjects.ctorParameters = function () { return []; };
+    return ArrayOfObjects;
+}());
+exports.ArrayOfObjects = ArrayOfObjects;
 var SafeUrl = (function () {
     function SafeUrl(domSanitizer) {
         this.domSanitizer = domSanitizer;
@@ -309,6 +323,7 @@ exports.declarations = [
     IndexTrack,
     Stringify,
     ForceArray,
+    ArrayOfObjects,
     SafeHtml,
     SafeUrl,
     SafeStyle,

@@ -2,6 +2,7 @@ export declare function numberToPhone(val: any): any;
 export declare function numberSuffix(val: any): "" | "st" | "nd" | "rd" | "th";
 /** if input is array returned otherwise array created with  */
 export declare function array(input: any, repeat?: number, repeatValue?: any): any;
+export declare function arrayOfObjects(input: any, repeat?: number, repeatValue?: any): any;
 export declare function markdownAnchor(input: string): string;
 export declare function textDownload(input: any): any;
 export declare function yesno(input: any): any;
