@@ -38,10 +38,22 @@ var AckArray = (function () {
         if (index >= 0) {
             return this.array.splice(index, 1);
         }
-        if (!this.array) {
-            this.arrayChange.emit(this.array = []);
-        }
+        this.param();
         this.array.push(item);
+        return this;
+    };
+    AckArray.prototype.push = function (item) {
+        this.param().push(item);
+        return this;
+    };
+    AckArray.prototype.unshift = function (item) {
+        this.param().unshift(item);
+        return this;
+    };
+    AckArray.prototype.param = function () {
+        if (!this.array)
+            this.arrayChange.emit(this.array = []);
+        return this.array;
     };
     AckArray.decorators = [
         { type: core_1.Directive, args: [{

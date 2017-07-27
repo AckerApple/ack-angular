@@ -10,5 +10,8 @@ export declare class AckArray {
     getCompareArray(): any[];
     selected(item: any): boolean;
     itemIndex(item: any): number;
-    toggle(item: any): any[];
+    toggle(item: any): any[] | this;
+    push(item: any): this;
+    unshift(item: any): this;
+    param(): any[];
 }
