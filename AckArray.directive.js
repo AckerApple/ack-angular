@@ -4,11 +4,41 @@ var core_1 = require("@angular/core");
 var AckArray = (function () {
     function AckArray() {
         this.refChange = new core_1.EventEmitter();
+        this.pages = [];
+        this.pagesChange = new core_1.EventEmitter();
+        this.pageAt = 0;
         this.arrayChange = new core_1.EventEmitter();
     }
     AckArray.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.refChange.emit(_this); }, 0);
+        setTimeout(function () {
+            _this.pages = _this.pages || [];
+            _this.createPages();
+            _this.refChange.emit(_this);
+        }, 0);
+    };
+    AckArray.prototype.ngOnChanges = function (changes) {
+        if (this.pages && changes.pageAt)
+            this.createPages();
+    };
+    AckArray.prototype.createPages = function () {
+        this.pages.length = 0;
+        if (!this.array || !this.array.length) {
+            this.pages[0] = this.array;
+            this.pagesChange.emit(this.pages);
+            return;
+        }
+        var pos = 0;
+        var last = this.array.length;
+        this.pages.push([]);
+        for (var x = 0; x < last; ++x) {
+            this.pages[pos].push(this.array[x]);
+            if (this.pages[pos].length == this.pageAt && x < last - 1) {
+                this.pages.push([]);
+                ++pos;
+            }
+        }
+        this.pagesChange.emit(this.pages);
     };
     AckArray.prototype.getItemId = function (item) {
         return this.idKey ? item[this.idKey] : item;
@@ -36,14 +66,13 @@ var AckArray = (function () {
     AckArray.prototype.toggle = function (item) {
         var index = this.itemIndex(item);
         if (index >= 0) {
-            return this.array.splice(index, 1);
+            return this.splice(index);
         }
-        this.param();
-        this.array.push(item);
-        return this;
+        return this.push(item);
     };
     AckArray.prototype.push = function (item) {
         this.param().push(item);
+        this.createPages();
         return this;
     };
     AckArray.prototype.unshift = function (item) {
@@ -53,6 +82,7 @@ var AckArray = (function () {
     AckArray.prototype.splice = function (x, y) {
         if (y === void 0) { y = 1; }
         this.param().splice(x, y);
+        this.createPages();
         return this;
     };
     AckArray.prototype.param = function () {
@@ -71,6 +101,9 @@ var AckArray = (function () {
         'idKey': [{ type: core_1.Input },],
         'ref': [{ type: core_1.Input },],
         'refChange': [{ type: core_1.Output },],
+        'pages': [{ type: core_1.Input },],
+        'pagesChange': [{ type: core_1.Output },],
+        'pageAt': [{ type: core_1.Input },],
         'array': [{ type: core_1.Input },],
         'arrayChange': [{ type: core_1.Output },],
     };
