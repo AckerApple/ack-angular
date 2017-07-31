@@ -8,6 +8,9 @@ export declare class Stringify {
 export declare class ForceArray {
     transform(input: any, repeat: any, repeatValue: any): any;
 }
+export declare class ArrayOfObjects {
+    transform(input: any, repeat: any, repeatValue: any): any;
+}
 export declare class SafeUrl {
     private domSanitizer;
     constructor(domSanitizer: DomSanitizer);

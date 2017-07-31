@@ -165,6 +165,37 @@ h3(id="Documentation") Documentation
       div(*ngFor="let item of simpleArray; let i=index; trackBy:index")
         input.width-full("[(ngModel)]"="simpleArray[i]")
 
+
+  .flex2.border-grey-6x.border
+    .pad-h
+      h3 arrayOfObjects
+      p.text-sm.text-grey-2x(ngNonBindable).
+        Param and cast an array into an array of &#123;value, index&#125; objects
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewArrayOfObjects=!viewArrayOfObjects" "[ngClass]"="viewArrayOfObjects?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewArrayOfObjects" "[@500]"="'fadeInUp'")
+      .pad-xs.text-warning.
+        Having troubles with *ngFor [(ngModel)] for simple array of strings? Try indexTrack, it's within ack-angular, first because it works far better
+      
+      .pad-xs.text-info.text-sm
+        |Simple arrays like ["a","b","c"] are hard to work with ngFor + ngModel. This pipe can help with that (not as well as indexTrack pipe)
+
+      strong With arrayOfObjects
+      div(*ngFor="let item of simpleArray|arrayOfObjects")
+        input.width-full("[(ngModel)]"="simpleArray[ item.index ]")
+
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div *ngFor="let item of simpleArray|arrayOfObjects"&gt;
+            &lt;input [(ngModel)]="simpleArray[ item.index ]" /&gt;
+          &lt;/div&gt;
+      br
+      strong.text-warning Without arrayOfObjects
+      .text-xs.text-grey-2x.pad-left-xs
+        |Inputs blur as you type in them
+      div(*ngFor="let item of simpleArray; let i=index; trackBy:index")
+        input.width-full("[(ngModel)]"="simpleArray[i]")
+
   .flex2.border-grey-6x.border
     .pad-h
       h3 array : repeat : repeatValue

@@ -49,6 +49,10 @@ export function array(input, repeat?:number, repeatValue?){
   return rtn
 }
 
+export function arrayOfObjects(input, repeat?:number, repeatValue?){
+  return array(input, repeat, repeatValue).map((v,i)=>({value:v, index:i}))
+}
+
 export function markdownAnchor(input:string){
   input = input.toString().replace(/&/gi, 'amp')//possibly unneeded
   input = input.toString().replace(/ /gi,'-')

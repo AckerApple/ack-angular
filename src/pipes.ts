@@ -26,6 +26,12 @@ import {
     }
   }
 
+  @Pipe({name: 'arrayOfObjects'}) export class ArrayOfObjects {
+    transform(input, repeat, repeatValue) {
+      return pipes.arrayOfObjects(input, repeat, repeatValue)
+    }
+  }
+
   @Pipe({name: 'safeUrl'}) export class SafeUrl {
     constructor(private domSanitizer: DomSanitizer) {}
     transform(input) {
@@ -123,6 +129,7 @@ export const declarations = [
   IndexTrack,
   Stringify,
   ForceArray,
+  ArrayOfObjects,
   SafeHtml,
   SafeUrl,
   SafeStyle,

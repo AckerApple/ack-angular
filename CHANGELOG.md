@@ -1,6 +1,13 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.6.12] - 2017-07-31
+- AckArray has paging functionality
+
+## [0.6.11] - 2017-07-27
+- More AckArray functionality
+- new pipe arrayOfObjects
+
 ## [0.6.4] - 2017-07-25
 - AckArray now two-way binds array
 

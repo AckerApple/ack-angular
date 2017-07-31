@@ -3,15 +3,54 @@ import { EventEmitter, Output, Input, Directive } from '@angular/core'
 @Directive({
   selector:'ack-array'
 }) export class AckArray {
+  
   @Input() idKey
+  
   @Input() ref
   @Output() refChange = new EventEmitter()
+  
+  @Input() pages = []
+  @Output() pagesChange = new EventEmitter()
+
+  @Input() pageAt:number = 0
 
   @Input() array:any[]
   @Output() arrayChange = new EventEmitter()
 
   ngOnInit(){
-    setTimeout(()=>this.refChange.emit(this), 0)
+    setTimeout(()=>{
+      this.pages = this.pages || []
+      this.createPages()
+      this.refChange.emit(this)
+    }, 0)
+  }
+
+  ngOnChanges(changes){
+    if(this.pages && changes.pageAt)this.createPages()
+  }
+
+  createPages(){
+    this.pages.length = 0
+
+    if(!this.array || !this.array.length){
+      this.pages[0] = this.array
+      this.pagesChange.emit(this.pages)
+      return
+    }
+
+    let pos = 0
+    const last = this.array.length
+    this.pages.push([])
+    for(let x=0; x < last; ++x){
+      this.pages[pos].push( this.array[x] )
+
+      if( this.pages[pos].length==this.pageAt && x<last-1 ){
+        this.pages.push([])
+        ++pos
+      }
+    }
+
+    this.pagesChange.emit(this.pages)
   }
 
   getItemId(item){
@@ -47,13 +86,31 @@ import { EventEmitter, Output, Input, Directive } from '@angular/core'
     const index = this.itemIndex(item)
 
     if(index>=0){
-      return this.array.splice(index,1)
-    }
-
-    if(!this.array){
-      this.arrayChange.emit( this.array=[] )
+      return this.splice(index)
     }
     
-    this.array.push( item )
+    return this.push( item )
+  }
+
+  push(item){
+    this.param().push(item)
+    this.createPages()
+    return this
+  }
+
+  unshift(item){
+    this.param().unshift(item)
+    return this
+  }
+
+  splice(x:number, y=1){
+    this.param().splice(x,y)
+    this.createPages()
+    return this
+  }
+
+  param(){
+    if(!this.array)this.arrayChange.emit( this.array=[] )
+    return this.array
   }
 }

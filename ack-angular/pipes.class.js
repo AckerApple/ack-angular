@@ -44,6 +44,10 @@ function array(input, repeat, repeatValue) {
     return rtn;
 }
 exports.array = array;
+function arrayOfObjects(input, repeat, repeatValue) {
+    return array(input, repeat, repeatValue).map(function (v, i) { return ({ value: v, index: i }); });
+}
+exports.arrayOfObjects = arrayOfObjects;
 function markdownAnchor(input) {
     input = input.toString().replace(/&/gi, 'amp'); //possibly unneeded
     input = input.toString().replace(/ /gi, '-');

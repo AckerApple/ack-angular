@@ -2,6 +2,7 @@ import { getServerTime } from "./functions"
 import { PageScrollService, PageScrollInstance } from 'ng2-page-scroll'
 import { Component } from '@angular/core';
 import { fxArray } from './prefx'
+import { array as arrayOfObjects } from './arrayOfObjects'
 
 import {string as componentsExamples} from './templates/components-examples.pug'
 @Component({
@@ -15,7 +16,8 @@ import {string as componentsExamples} from './templates/components-examples.pug'
   modalBackgroundColor = 'rgba(255,255,255,0.95)'
   modalWrapStyle
   ackOptionArrayModal = [{key:'b'}]
-  arrayOfObjects=[{letter:'a'},{letter:'b'},{letter:'c'},{letter:'d'}]
+  pageAt = 2
+  arrayOfObjects = arrayOfObjects
   selectedArray=[{letter:'c'}]
 
   constructor(public PageScrollService:PageScrollService){}
