@@ -4,9 +4,10 @@ var core_1 = require("@angular/core");
 var AckArray = (function () {
     function AckArray() {
         this.refChange = new core_1.EventEmitter();
+        this.page = 0;
+        this.pageAt = 0;
         this.pages = [];
         this.pagesChange = new core_1.EventEmitter();
-        this.pageAt = 0;
         this.arrayChange = new core_1.EventEmitter();
     }
     AckArray.prototype.ngOnInit = function () {
@@ -18,7 +19,7 @@ var AckArray = (function () {
         }, 0);
     };
     AckArray.prototype.ngOnChanges = function (changes) {
-        if (this.pages && changes.pageAt)
+        if (this.pages && (changes.pageAt || changes.array))
             this.createPages();
     };
     AckArray.prototype.createPages = function () {
@@ -101,9 +102,9 @@ var AckArray = (function () {
         'idKey': [{ type: core_1.Input },],
         'ref': [{ type: core_1.Input },],
         'refChange': [{ type: core_1.Output },],
+        'pageAt': [{ type: core_1.Input },],
         'pages': [{ type: core_1.Input },],
         'pagesChange': [{ type: core_1.Output },],
-        'pageAt': [{ type: core_1.Input },],
         'array': [{ type: core_1.Input },],
         'arrayChange': [{ type: core_1.Output },],
     };

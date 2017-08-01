@@ -3,9 +3,10 @@ export declare class AckArray {
     idKey: any;
     ref: any;
     refChange: EventEmitter<{}>;
+    page: number;
+    pageAt: number;
     pages: any[];
     pagesChange: EventEmitter<{}>;
-    pageAt: number;
     array: any[];
     arrayChange: EventEmitter<{}>;
     ngOnInit(): void;
