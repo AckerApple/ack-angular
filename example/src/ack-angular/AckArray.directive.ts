@@ -9,10 +9,10 @@ import { EventEmitter, Output, Input, Directive } from '@angular/core'
   @Input() ref
   @Output() refChange = new EventEmitter()
   
+  page:number = 0
+  @Input() pageAt:number = 0
   @Input() pages = []
   @Output() pagesChange = new EventEmitter()
-
-  @Input() pageAt:number = 0
 
   @Input() array:any[]
   @Output() arrayChange = new EventEmitter()
@@ -26,7 +26,7 @@ import { EventEmitter, Output, Input, Directive } from '@angular/core'
   }
 
   ngOnChanges(changes){
-    if(this.pages && changes.pageAt)this.createPages()
+    if(this.pages && (changes.pageAt || changes.array))this.createPages()
   }
 
   createPages(){

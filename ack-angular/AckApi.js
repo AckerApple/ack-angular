@@ -267,6 +267,14 @@ function upgradeConfig(cfg) {
             cfg.headers['Content-Type'] = undefined; //'multipart/form-data;'
         }
     }
+    //cast url variables nulls to empty-string
+    if (cfg.params) {
+        for (var key in cfg.params) {
+            if (cfg.params[key] == null) {
+                cfg.params[key] = '';
+            }
+        }
+    }
     return cfg;
 }
 //# sourceMappingURL=AckApi.js.map

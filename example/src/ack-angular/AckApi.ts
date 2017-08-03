@@ -307,5 +307,14 @@ function upgradeConfig(cfg){
     }
   }
 
+  //cast url variables nulls to empty-string
+  if(cfg.params){
+    for(let key in cfg.params){
+      if(cfg.params[key]==null){
+        cfg.params[key]=''
+      }
+    }
+  }
+
   return cfg
 }

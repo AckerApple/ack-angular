@@ -1,6 +1,11 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.6.14] - 2017-08-03
+### Fix
+- AckApi config.params if an object key==null it is set to empty-string instead
+- AckArray monitor array changes
+
 ## [0.6.12] - 2017-07-31
 - AckArray has paging functionality
 

@@ -126,6 +126,7 @@ function a(name){
   return invokeRotator( ackX[name] )
 }
 
+/** responsible for ack-angular pipe'in system into ackX */
 function invokeRotator(invoke){
   return function(v,call0,call1,call2){
     var newkey, subargs, key, item, rtn = invoke(v)
@@ -137,9 +138,12 @@ function invokeRotator(invoke){
 
       //array where 1st arg is method and subs are positional arguments
       if(key.constructor==Array){
-        newkey = key.shift()
-        subargs = key
-        key = newkey
+        key = []
+        key.push.apply(key, arguments[x])//clone array memory, do not touch original array
+        
+        newkey = key.shift()//first arg is name of key, remove it from array
+        subargs = key//what is left in array is the arguments
+        key = newkey//now the key string is finalized
       }
 
       item = rtn[key]
