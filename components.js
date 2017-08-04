@@ -464,13 +464,21 @@ var ElementSizeModel = (function () {
         setTimeout(function () { return _this.setModel(); }, 800);
     };
     ElementSizeModel.prototype.setModel = function () {
-        this.elementSizeModel = { width: this.element.nativeElement.offsetWidth, height: this.element.nativeElement.offsetHeight };
+        var _this = this;
+        this.elementSizeModel = this.elementSizeModel || {};
+        this.inChange = true;
+        this.elementSizeModel.width = this.element.nativeElement.offsetWidth;
+        this.elementSizeModel.height = this.element.nativeElement.offsetHeight;
         this.elementSizeModelChange.emit(this.elementSizeModel);
-        console.log('this.elementSizeModel', this.elementSizeModel);
+        setTimeout(function () { return _this.inChange = false; }, 0);
     };
     ElementSizeModel.prototype.ngOnChanges = function () {
         var _this = this;
-        setTimeout(function () { return _this.setModel(); }, 0);
+        setTimeout(function () {
+            if (!_this.inChange) {
+                _this.setModel();
+            }
+        }, 0);
     };
     ElementSizeModel.prototype.ngOnDestroy = function () {
         this.observer.disconnect();
