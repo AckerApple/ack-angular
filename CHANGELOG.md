@@ -1,8 +1,12 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.6.15] - 2017- (UNRELEASED)
+### Fixed
+- [(elementWidthModel)] ExpressionChanged error
+
 ## [0.6.14] - 2017-08-03
-### Fix
+### Fixed
 - AckApi config.params if an object key==null it is set to empty-string instead
 - AckArray monitor array changes
 

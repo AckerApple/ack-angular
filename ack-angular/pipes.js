@@ -257,6 +257,18 @@ var ADate = (function () {
     return ADate;
 }());
 exports.ADate = ADate;
+var AMath = (function () {
+    function AMath() {
+    }
+    AMath.prototype.transform = function () { return pipes.aMath.apply(pipes.aMath, arguments); };
+    AMath.decorators = [
+        { type: core_1.Pipe, args: [{ name: 'aMath' },] },
+    ];
+    /** @nocollapse */
+    AMath.ctorParameters = function () { return []; };
+    return AMath;
+}());
+exports.AMath = AMath;
 var ATime = (function () {
     function ATime() {
     }
@@ -338,6 +350,7 @@ exports.declarations = [
     TypeofPipe,
     ConsolePipe,
     ADate,
+    AMath,
     ATime,
     Ack,
     NumberToPhone,

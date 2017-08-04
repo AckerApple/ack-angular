@@ -291,14 +291,14 @@ export class StatusOfflineModel{
 }
 
 @Directive({
-  selector: '[elementHeightModel]'
-}) export class ElementHeightModel{
-  public onResize
-  public observer
-  public timeout
+  selector: '[elementSizeModel]'
+}) export class ElementSizeModel{
+  onResize
+  observer
+  timeout
 
-  @Input() public elementHeightModel
-  @Output() public elementHeightModelChange = new EventEmitter()
+  @Input() elementSizeModel
+  @Output() elementSizeModelChange = new EventEmitter()
 
   constructor(public element:ElementRef){
     this.onResize = function(){
@@ -321,14 +321,18 @@ export class StatusOfflineModel{
     this.observer.observe(this.element.nativeElement, config);
   }
 
-  ngOnChanges(){
-    setTimeout(()=>this.setModel(), 0)
+  ngAfterViewInit(){
+    setTimeout(()=>this.setModel(), 800)
   }
 
   setModel(){
-    this.elementHeightModel = this.element.nativeElement.offsetHeight
-    //this.element.nativeElement.style.border='1px solid red'
-    this.elementHeightModelChange.emit(this.elementHeightModel)
+    this.elementSizeModel = {width:this.element.nativeElement.offsetWidth, height:this.element.nativeElement.offsetHeight}
+    this.elementSizeModelChange.emit(this.elementSizeModel)
+    console.log('this.elementSizeModel',this.elementSizeModel)
+  }
+
+  ngOnChanges(){
+    setTimeout(()=>this.setModel(), 0)
   }
 
   ngOnDestroy(){
@@ -338,34 +342,26 @@ export class StatusOfflineModel{
 }
 
 @Directive({
+  selector: '[elementHeightModel]'
+}) export class ElementHeightModel extends ElementSizeModel{
+  @Input() elementHeightModel
+  @Output() elementHeightModelChange = new EventEmitter()
+
+  setModel(){
+    this.elementHeightModel = this.element.nativeElement.offsetHeight
+    this.elementHeightModelChange.emit(this.elementHeightModel)
+  }
+}
+
+@Directive({
   selector: '[elementWidthModel]'
-}) export class ElementWidthModel{
-  public onResize
-  public timeout
-
-  @Input() public elementWidthModel
-  @Output() public elementWidthModelChange = new EventEmitter()
-
-  constructor(public element:ElementRef){
-    this.onResize = function(){
-      this.setModel()
-    }.bind(this)
-
-    window.addEventListener('resize', this.onResize)
-    this.setModel()
-  }
-
-  ngOnChanges(){
-    this.setModel()
-  }
+}) export class ElementWidthModel extends ElementSizeModel{
+  @Input() elementWidthModel
+  @Output() elementWidthModelChange = new EventEmitter()
 
   setModel(){
     this.elementWidthModel = this.element.nativeElement.offsetWidth
     this.elementWidthModelChange.emit(this.elementWidthModel)
-  }
-
-  ngOnDestroy(){
-    window.removeEventListener('resize', this.onResize)
   }
 }
 
@@ -606,6 +602,7 @@ export const declarations = [
   ShakeOn,
   StatusOnlineModel,
   StatusOfflineModel,
+  ElementSizeModel,
   ElementWidthModel,
   ElementHeightModel,
 

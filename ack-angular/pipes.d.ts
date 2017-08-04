@@ -62,6 +62,9 @@ export declare class Numbers {
 export declare class ADate {
     transform(): any;
 }
+export declare class AMath {
+    transform(): any;
+}
 export declare class ATime {
     transform(): any;
 }

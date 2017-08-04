@@ -152,6 +152,7 @@ function invokeRotator(invoke) {
 }
 exports.aDate = a('date');
 exports.aTime = a('time');
+exports.aMath = invokeRotator(function () { return Math; });
 exports.ack = invokeRotator(ackX);
 // maybe deprecated . Remove in future releases
 exports.pipes = {
@@ -168,6 +169,7 @@ exports.pipes = {
     numberToPhone: numberToPhone,
     numberSuffix: numberSuffix,
     aDate: exports.aDate,
+    aMath: exports.aMath,
     aTime: exports.aTime,
     ack: exports.ack
 };

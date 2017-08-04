@@ -98,28 +98,28 @@ export declare class InnerHtmlModel {
     setModel(): void;
     ngOnDestroy(): void;
 }
-export declare class ElementHeightModel {
+export declare class ElementSizeModel {
     element: ElementRef;
     onResize: any;
     observer: any;
     timeout: any;
-    elementHeightModel: any;
-    elementHeightModelChange: EventEmitter<{}>;
+    elementSizeModel: any;
+    elementSizeModelChange: EventEmitter<{}>;
     constructor(element: ElementRef);
-    ngOnChanges(): void;
+    ngAfterViewInit(): void;
     setModel(): void;
+    ngOnChanges(): void;
     ngOnDestroy(): void;
 }
-export declare class ElementWidthModel {
-    element: ElementRef;
-    onResize: any;
-    timeout: any;
+export declare class ElementHeightModel extends ElementSizeModel {
+    elementHeightModel: any;
+    elementHeightModelChange: EventEmitter<{}>;
+    setModel(): void;
+}
+export declare class ElementWidthModel extends ElementSizeModel {
     elementWidthModel: any;
     elementWidthModelChange: EventEmitter<{}>;
-    constructor(element: ElementRef);
-    ngOnChanges(): void;
     setModel(): void;
-    ngOnDestroy(): void;
 }
 export declare class ScreenScrollHeightDiff {
     on: any;

@@ -161,24 +161,26 @@ function invokeRotator(invoke){
 
 export const aDate = a('date')
 export const aTime = a('time')
+export const aMath = invokeRotator( ()=>Math )
+
 export const ack = invokeRotator( ackX )
 
 // maybe deprecated . Remove in future releases
 export const pipes = {
-  array:array,
-  markdownAnchor:markdownAnchor,
-  textDownload:textDownload,
-  yesno:yesno,
-  yesNo:yesNo,
-  numbers:numbers,
-  capitalizeWords:capitalizeWords,
-  capitalize:capitalize,
-  capitalizeAfterSentence:capitalizeAfterSentence,
-  capitalizeOne:capitalizeOne,
+  array,
+  markdownAnchor,
+  textDownload,
+  yesno,
+  yesNo,
+  numbers,
+  capitalizeWords,
+  capitalize,
+  capitalizeAfterSentence,
+  capitalizeOne,
   numberToPhone,
   numberSuffix,
-  
-  aDate:aDate,
-  aTime:aTime,
-  ack:ack
+  aDate,
+  aMath,
+  aTime,
+  ack
 }
