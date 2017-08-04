@@ -23,10 +23,11 @@ var AckArray = (function () {
         }, 0);
     };
     AckArray.prototype.ngOnChanges = function (changes) {
+        var _this = this;
         if (this.pages && (changes.pageAt || changes.array)) {
             if (changes.array)
-                this.buildMap();
-            this.createPages();
+                setTimeout(function () { return _this.buildMap(); }, 0);
+            setTimeout(function () { return _this.createPages(); }, 0);
         }
     };
     AckArray.prototype.buildMap = function () {
