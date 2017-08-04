@@ -17,6 +17,7 @@ export declare function capitalizeAfterSentence(input: any): any;
 export declare function capitalizeOne(input: any): any;
 export declare const aDate: (v: any, call0: any, call1: any, call2: any) => any;
 export declare const aTime: (v: any, call0: any, call1: any, call2: any) => any;
+export declare const aMath: (v: any, call0: any, call1: any, call2: any) => any;
 export declare const ack: (v: any, call0: any, call1: any, call2: any) => any;
 export declare const pipes: {
     array: (input: any, repeat?: number, repeatValue?: any) => any;
@@ -32,6 +33,7 @@ export declare const pipes: {
     numberToPhone: (val: any) => any;
     numberSuffix: (val: any) => "" | "st" | "nd" | "rd" | "th";
     aDate: (v: any, call0: any, call1: any, call2: any) => any;
+    aMath: (v: any, call0: any, call1: any, call2: any) => any;
     aTime: (v: any, call0: any, call1: any, call2: any) => any;
     ack: (v: any, call0: any, call1: any, call2: any) => any;
 };
