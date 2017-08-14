@@ -9,8 +9,12 @@ export declare class AckArray {
     pagesChange: EventEmitter<{}>;
     array: any[];
     arrayChange: EventEmitter<{}>;
+    keyMap: any;
+    keyMapChange: EventEmitter<{}>;
     ngOnInit(): void;
     ngOnChanges(changes: any): void;
+    buildMap(): void;
+    only(item: any): void;
     createPages(): void;
     getItemId(item: any): any;
     getCompareArray(): any[];

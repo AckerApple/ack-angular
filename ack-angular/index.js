@@ -9,5 +9,7 @@ var components_1 = require("./components");
 exports.components = components_1.declarations;
 var pipes_1 = require("./pipes");
 exports.pipes = pipes_1.declarations;
+var ackX = require("ack-x/index-browser");
+exports.ack = ackX;
 __export(require("./providers"));
 //# sourceMappingURL=index.js.map

@@ -1,7 +1,14 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
-## [0.6.15] - 2017- (UNRELEASED)
+## [0.6.17] - 2017-08-04
+### Added
+- AckArray.only
+- AckArray.keyMap
+
+## [0.6.16] - 2017-08-04
+### Added
+- [(elementSizeModel)]
 ### Fixed
 - [(elementWidthModel)] ExpressionChanged error
 

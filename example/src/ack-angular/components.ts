@@ -296,6 +296,7 @@ export class StatusOfflineModel{
   onResize
   observer
   timeout
+  inChange
 
   @Input() elementSizeModel
   @Output() elementSizeModelChange = new EventEmitter()
@@ -326,13 +327,21 @@ export class StatusOfflineModel{
   }
 
   setModel(){
-    this.elementSizeModel = {width:this.element.nativeElement.offsetWidth, height:this.element.nativeElement.offsetHeight}
+    this.elementSizeModel = this.elementSizeModel || {}
+    this.inChange = true
+    this.elementSizeModel.width = this.element.nativeElement.offsetWidth
+    this.elementSizeModel.height = this.element.nativeElement.offsetHeight
     this.elementSizeModelChange.emit(this.elementSizeModel)
-    console.log('this.elementSizeModel',this.elementSizeModel)
+    
+    setTimeout(()=>this.inChange=false, 0)
   }
 
   ngOnChanges(){
-    setTimeout(()=>this.setModel(), 0)
+    setTimeout(()=>{
+      if(!this.inChange){
+        this.setModel()
+      }
+    }, 0)
   }
 
   ngOnDestroy(){

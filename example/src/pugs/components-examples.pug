@@ -58,6 +58,7 @@ h3.margin-bottom-0(id="Tags") Tags
         li unshift(item) - param and prepend item to array
         li splice(item) - remove item by index from array
         li param() - ensure array exists
+        li only(item) - reduce array down to only item argument
 
       .pad-sm
         h4.margin-0 Usage Example: Toggle Items
@@ -71,6 +72,16 @@ h3.margin-bottom-0(id="Tags") Tags
               &nbsp;&nbsp;{{ item | json }}
             &lt;/div&gt;
           &lt;/ng-container&gt;
+
+        .pad-sm
+          h4.margin-0 Usage Example: Map Items
+          .text-grey-2x Take an arbitrary array and create an object map
+        absolute-overflow-x
+          pre.code-sample.margin-0(ngNonBindable).
+            &lt;ack-array [(ref)]="Array" [(array)]="selectedArray" idKey="letter" "[(keyMap)]"="objectOfArrays"&gt;&lt;/ack-array&gt;
+            &lt;pre&gt;
+              {{ objectOfArrays | json}}
+            &lt;/pre&gt;
 
       .pad-sm
         h4.margin-0 Usage Example: Pages of Array
@@ -95,6 +106,7 @@ h3.margin-bottom-0(id="Tags") Tags
       -attrs.idKey = "letter"
       -attrs["[(pageAt)]"] = "pageAt"
       -attrs["[(pages)]"] = "arrayPages"
+      -attrs["[(keyMap)]"] = "arrayMap"
       ack-array&attributes(attrs)
 
       h5.pad-sm.margin-0 Example Array Adjusters
@@ -113,11 +125,19 @@ h3.margin-bottom-0(id="Tags") Tags
           select("[(ngModel)]"="pageAt")
             option(*ngFor="let page of [0,1,2,4,6,8]" "[value]"="page") {{page}}
       
+      //-just show the array we are working with
       h5.pad-sm.margin-0 Example Selected Array
       absolute-overflow-x
         pre.code-sample.margin-0.
           {{ selectedArray | json }}
+      
+      //-prove array to map works
+      h5.pad-sm.margin-0 Example Selected Map
+      absolute-overflow-x
+        pre.code-sample.margin-0.
+          {{ arrayMap | json }}
 
+      //- proces paging works
       .flex-wrap
         absolute-overflow-x.flex-1(*ngFor="let page of arrayPages;let x=index")
           h5.margin-0 Example Array.pages[{{ x+1 }}]
@@ -789,12 +809,30 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
           &nbsp;&nbsp;screenHeightModel : {{ screenHeightModel }}px
           &lt;/div&gt;
 
+  .flex-1("[(elementSizeModel)]"="elementSizeModel")
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 [(elementSizeModel)]
+        .text-grey-2x.max-width-400
+          |Get an elements size. Currently : {{ elementSizeModel?.width }}x{{elementSizeModel?.height }}
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewElementSizeModel=!viewElementSizeModel" "[ngClass]"="viewElementSizeModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewElementSizeModel" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div [(elementSizeModel)]="elementSizeModel"&gt;
+          &nbsp;&nbsp;elementSizeModel : {{ elementSizeModel?.width }}x{{ elementSizeModel?.height }}
+          &lt;/div&gt;
+
   .flex-1("[(elementHeightModel)]"="elementHeightModel")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 [(elementHeightModel)]
         .text-grey-2x.max-width-400
-          |Get the browser window inner height. Currently : {{elementHeightModel}}px
+          |Get an elements height. Currently : {{elementHeightModel}}px
         br
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="viewElementHeightModel=!viewElementHeightModel" "[ngClass]"="viewElementHeightModel?'border-energized bg-energized':'border-info bg-info'")
@@ -805,6 +843,24 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
         pre.code-sample.margin-0(ngNonBindable).
           &lt;div [(elementHeightModel)]="elementHeightModel"&gt;
           &nbsp;&nbsp;elementHeightModel : {{ elementHeightModel }}px
+          &lt;/div&gt;
+
+  .flex-1("[(elementWidthModel)]"="elementWidthModel")
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 [(elementWidthModel)]
+        .text-grey-2x.max-width-400
+          |Get an elements width. Currently : {{elementWidthModel}}px
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewElementWidthModel=!viewElementWidthModel" "[ngClass]"="viewElementWidthModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewElementWidthModel" "[@500]"="'fadeInUp'")
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div [(elementWidthModel)]="elementWidthModel"&gt;
+          &nbsp;&nbsp;elementWidthModel : {{ elementWidthModel }}px
           &lt;/div&gt;
 
   .flex-1

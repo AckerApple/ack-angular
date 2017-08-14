@@ -17,16 +17,44 @@ import { EventEmitter, Output, Input, Directive } from '@angular/core'
   @Input() array:any[]
   @Output() arrayChange = new EventEmitter()
 
+  //an system of creating an object by keys of array nodes
+  @Input() keyMap:any = {}
+  @Output() keyMapChange = new EventEmitter()
+
   ngOnInit(){
     setTimeout(()=>{
       this.pages = this.pages || []
       this.createPages()
+      this.buildMap()
       this.refChange.emit(this)
     }, 0)
   }
 
   ngOnChanges(changes){
-    if(this.pages && (changes.pageAt || changes.array))this.createPages()
+    if(this.pages && (changes.pageAt || changes.array)){
+      if(changes.array)setTimeout(()=>this.buildMap(), 0)
+      setTimeout(()=>this.createPages(), 0)
+    }
+  }
+
+  buildMap(){
+    if(!this.keyMapChange.observers.length || !this.array){
+      return this.keyMapChange.emit(this.keyMap={})
+    }
+
+    this.keyMap={}
+    for(let x=this.array.length-1; x >= 0; --x){
+      let key = this.getItemId(this.array[x])
+      this.keyMap[ key ] = this.array[x]
+    }
+    this.keyMapChange.emit(this.keyMap)
+  }
+    
+  only(item){
+    this.array.length = 0
+    this.array.push(item)
+    this.arrayChange.emit(this.array)
+    this.buildMap()
   }
 
   createPages(){
@@ -95,6 +123,7 @@ import { EventEmitter, Output, Input, Directive } from '@angular/core'
   push(item){
     this.param().push(item)
     this.createPages()
+    this.buildMap()
     return this
   }
 
@@ -106,6 +135,7 @@ import { EventEmitter, Output, Input, Directive } from '@angular/core'
   splice(x:number, y=1){
     this.param().splice(x,y)
     this.createPages()
+    this.buildMap()
     return this
   }
 

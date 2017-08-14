@@ -9,18 +9,43 @@ var AckArray = (function () {
         this.pages = [];
         this.pagesChange = new core_1.EventEmitter();
         this.arrayChange = new core_1.EventEmitter();
+        //an system of creating an object by keys of array nodes
+        this.keyMap = {};
+        this.keyMapChange = new core_1.EventEmitter();
     }
     AckArray.prototype.ngOnInit = function () {
         var _this = this;
         setTimeout(function () {
             _this.pages = _this.pages || [];
             _this.createPages();
+            _this.buildMap();
             _this.refChange.emit(_this);
         }, 0);
     };
     AckArray.prototype.ngOnChanges = function (changes) {
-        if (this.pages && (changes.pageAt || changes.array))
-            this.createPages();
+        var _this = this;
+        if (this.pages && (changes.pageAt || changes.array)) {
+            if (changes.array)
+                setTimeout(function () { return _this.buildMap(); }, 0);
+            setTimeout(function () { return _this.createPages(); }, 0);
+        }
+    };
+    AckArray.prototype.buildMap = function () {
+        if (!this.keyMapChange.observers.length || !this.array) {
+            return this.keyMapChange.emit(this.keyMap = {});
+        }
+        this.keyMap = {};
+        for (var x = this.array.length - 1; x >= 0; --x) {
+            var key = this.getItemId(this.array[x]);
+            this.keyMap[key] = this.array[x];
+        }
+        this.keyMapChange.emit(this.keyMap);
+    };
+    AckArray.prototype.only = function (item) {
+        this.array.length = 0;
+        this.array.push(item);
+        this.arrayChange.emit(this.array);
+        this.buildMap();
     };
     AckArray.prototype.createPages = function () {
         this.pages.length = 0;
@@ -74,6 +99,7 @@ var AckArray = (function () {
     AckArray.prototype.push = function (item) {
         this.param().push(item);
         this.createPages();
+        this.buildMap();
         return this;
     };
     AckArray.prototype.unshift = function (item) {
@@ -84,6 +110,7 @@ var AckArray = (function () {
         if (y === void 0) { y = 1; }
         this.param().splice(x, y);
         this.createPages();
+        this.buildMap();
         return this;
     };
     AckArray.prototype.param = function () {
@@ -107,6 +134,8 @@ var AckArray = (function () {
         'pagesChange': [{ type: core_1.Output },],
         'array': [{ type: core_1.Input },],
         'arrayChange': [{ type: core_1.Output },],
+        'keyMap': [{ type: core_1.Input },],
+        'keyMapChange': [{ type: core_1.Output },],
     };
     return AckArray;
 }());

@@ -103,6 +103,7 @@ export declare class ElementSizeModel {
     onResize: any;
     observer: any;
     timeout: any;
+    inChange: any;
     elementSizeModel: any;
     elementSizeModelChange: EventEmitter<{}>;
     constructor(element: ElementRef);
