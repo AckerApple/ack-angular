@@ -1,5 +1,6 @@
+export declare function between(input: any, a: any, b: any): boolean;
 export declare function numberToPhone(val: any): any;
-export declare function numberSuffix(val: any): "" | "st" | "nd" | "rd" | "th";
+export declare function numberSuffix(val: any, rtnVal?: boolean): string;
 /** if input is array returned otherwise array created with  */
 export declare function array(input: any, repeat?: number, repeatValue?: any): any;
 export declare function arrayOfObjects(input: any, repeat?: number, repeatValue?: any): any;
@@ -31,9 +32,10 @@ export declare const pipes: {
     capitalizeAfterSentence: (input: any) => any;
     capitalizeOne: (input: any) => any;
     numberToPhone: (val: any) => any;
-    numberSuffix: (val: any) => "" | "st" | "nd" | "rd" | "th";
+    numberSuffix: (val: any, rtnVal?: boolean) => string;
     aDate: (v: any, call0: any, call1: any, call2: any) => any;
     aMath: (v: any, call0: any, call1: any, call2: any) => any;
     aTime: (v: any, call0: any, call1: any, call2: any) => any;
     ack: (v: any, call0: any, call1: any, call2: any) => any;
+    between: (input: any, a: any, b: any) => boolean;
 };

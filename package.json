@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "0.6.19",
+  "version": "0.6.20",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -25,16 +25,16 @@
   "homepage": "https://github.com/AckerApple/ack-angular#readme",
   "jsDependencies": {
     "reflect-metadata": "^0.1.10",
-    "rxjs": "^5.4.0",
-    "zone.js": "^0.8.11",
-    "ack-angular-fx": "^1.1.2",
-    "@angular/common": "^4.3.0",
-    "@angular/core": "^4.3.0",
-    "@angular/platform-browser": "^4.3.0",
-    "@angular/platform-browser-dynamic": "^4.3.0",
+    "rxjs": "^5.4.3",
+    "zone.js": "^0.8.16",
+    "ack-angular-fx": "^1.2.6",
+    "@angular/common": "^4.3.4",
+    "@angular/core": "^4.3.4",
+    "@angular/platform-browser": "^4.3.4",
+    "@angular/platform-browser-dynamic": "^4.3.4",
     "localforage": "^1.5.0",
     "ack-x": "^1.2.22",
-    "@angular/http": "^4.3.0",
-    "@angular/forms": "^4.3.0"
+    "@angular/http": "^4.3.4",
+    "@angular/forms": "^4.3.4"
   }
 }
