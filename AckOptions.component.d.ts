@@ -4,16 +4,18 @@ export declare class AckOptions {
     stylize: boolean;
     multiple: boolean;
     toggleable: boolean;
+    templateRef: TemplateRef<any>;
     model: any;
     modelChange: EventEmitter<{}>;
-    templateRef: TemplateRef<any>;
-    private ref;
+    ref: any;
     refChange: EventEmitter<{}>;
     arrayKey: string;
     modelKey: string;
     arrayToModelKey: string;
     ngOnInit(): void;
     selectItem(item: any): void;
+    emitChange(): void;
+    fireFormEvents(form: any): void;
     getArrayItemModel(item: any): any;
     getArrayItemValue(item: any): any;
     getModelValueToArrayItem(modelValue: any): any;
@@ -25,3 +27,4 @@ export declare class AckOptions {
         'hover-bg-grey-5x': boolean;
     };
 }
+export declare function getParentByTagName(node: any, tagname: any): any;

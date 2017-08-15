@@ -5,7 +5,13 @@ function getWindow() { return window; }
 var WindowService = (function () {
     function WindowService() {
     }
+    Object.defineProperty(WindowService.prototype, "nativeElement", {
+        get: function () { return getWindow(); },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(WindowService.prototype, "nativeWindow", {
+        //deprecated
         get: function () { return getWindow(); },
         enumerable: true,
         configurable: true

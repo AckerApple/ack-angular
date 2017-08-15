@@ -12,11 +12,12 @@ var AckOptions = (function () {
         this.modelChange = new core_1.EventEmitter();
         this.refChange = new core_1.EventEmitter();
     }
+    //constructor(public ElementRef:ElementRef){}
     AckOptions.prototype.ngOnInit = function () {
         var _this = this;
         setTimeout(function () {
-            _this.ref = Object.assign(_this, _this.ref);
-            _this.refChange.emit(_this.ref);
+            //this.ref = Object.assign(this,this.ref)
+            _this.refChange.emit(_this);
         }, 0);
     };
     AckOptions.prototype.selectItem = function (item) {
@@ -38,7 +39,21 @@ var AckOptions = (function () {
                 this.model = this.getArrayItemModel(item);
             }
         }
+        this.emitChange();
+    };
+    AckOptions.prototype.emitChange = function () {
         this.modelChange.emit(this.model);
+        var form = getParentByTagName(this.templateRef.elementRef.nativeElement, 'form');
+        if (form)
+            this.fireFormEvents(form);
+    };
+    AckOptions.prototype.fireFormEvents = function (form) {
+        var event = document.createEvent("HTMLEvents");
+        event.initEvent("input", true, true);
+        form.dispatchEvent(event);
+        event = document.createEvent("HTMLEvents");
+        event.initEvent("change", true, true);
+        form.dispatchEvent(event);
     };
     AckOptions.prototype.getArrayItemModel = function (item) {
         if (this.arrayToModelKey != null) {
@@ -115,9 +130,9 @@ var AckOptions = (function () {
         'stylize': [{ type: core_1.Input },],
         'multiple': [{ type: core_1.Input },],
         'toggleable': [{ type: core_1.Input },],
+        'templateRef': [{ type: core_1.ContentChild, args: [core_1.TemplateRef,] }, { type: core_1.Input },],
         'model': [{ type: core_1.Input },],
         'modelChange': [{ type: core_1.Output },],
-        'templateRef': [{ type: core_1.ContentChild, args: [core_1.TemplateRef,] }, { type: core_1.Input },],
         'ref': [{ type: core_1.Input },],
         'refChange': [{ type: core_1.Output },],
         'arrayKey': [{ type: core_1.Input },],
@@ -127,4 +142,19 @@ var AckOptions = (function () {
     return AckOptions;
 }());
 exports.AckOptions = AckOptions;
+function getParentByTagName(node, tagname) {
+    var parent;
+    if (node === null || tagname === '')
+        return;
+    parent = node.parentNode;
+    tagname = tagname.toUpperCase();
+    while (parent && parent.tagName !== "HTML") {
+        if (parent.tagName === tagname) {
+            return parent;
+        }
+        parent = parent.parentNode;
+    }
+    return;
+}
+exports.getParentByTagName = getParentByTagName;
 //# sourceMappingURL=AckOptions.component.js.map
