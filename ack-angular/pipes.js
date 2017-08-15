@@ -112,7 +112,20 @@ var SafeStyle = (function () {
 }());
 exports.SafeStyle = SafeStyle;
 /* end: only this file */
-//use with bypassSecurityTrustResourceUrl for href
+/** (input>=a && input<=b) || (input>=b && input<=a) */
+var Between = (function () {
+    function Between() {
+    }
+    Between.prototype.transform = function (input, a, b) { return pipes.between(input, a, b); };
+    Between.decorators = [
+        { type: core_1.Pipe, args: [{ name: 'between' },] },
+    ];
+    /** @nocollapse */
+    Between.ctorParameters = function () { return []; };
+    return Between;
+}());
+exports.Between = Between;
+/** use with bypassSecurityTrustResourceUrl for href */
 var TextDownload = (function () {
     function TextDownload() {
     }
@@ -140,7 +153,7 @@ exports.NumberToPhone = NumberToPhone;
 var NumberSuffix = (function () {
     function NumberSuffix() {
     }
-    NumberSuffix.prototype.transform = function (input) { return pipes.numberSuffix(input); };
+    NumberSuffix.prototype.transform = function (input, rtnInput) { return pipes.numberSuffix(input, rtnInput); };
     NumberSuffix.decorators = [
         { type: core_1.Pipe, args: [{ name: 'numberSuffix' },] },
     ];
@@ -356,6 +369,7 @@ exports.declarations = [
     NumberToPhone,
     NumberSuffix,
     Bit,
-    BooleanPipe
+    BooleanPipe,
+    Between
 ];
 //# sourceMappingURL=pipes.js.map

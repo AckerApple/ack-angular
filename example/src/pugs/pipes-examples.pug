@@ -91,8 +91,20 @@ h3(id="Documentation") Documentation
 
   .flex2.border-grey-6x.border
     .pad-h
+      h3 between
+      p.text-sm.text-grey-2x (input &gt;= a &amp;&amp; input &lt;= b) || (input &lt;= a &amp;&amp; input &gt;= b)
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewBetween=!viewBetween" "[ngClass]"="viewBetween?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewBetween" "[@500]"="'fadeInUp'")
+      absolute-overflow-x
+        pre.code-sample.margin-0
+          span(ngNonBindable) {{ 10 | between : 5 : 15 }}
+          span.pad-h == {{ 10 | between : 5 : 15 }}
+
+  .flex2.border-grey-6x.border
+    .pad-h
       h3 numberSuffix
-      p.text-sm.text-grey-2x returns suffix for a given number
+      p.text-sm.text-grey-2x suffix for a given number {{ 1|numberSuffix:1 }} {{ 2|numberSuffix:1 }} {{ 3|numberSuffix:1 }}
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewNumberSuffix=!viewNumberSuffix" "[ngClass]"="viewNumberSuffix?'border-energized bg-energized':'border-info bg-info'")
       |view details
     div(*ngIf="viewNumberSuffix" "[@500]"="'fadeInUp'")
@@ -102,8 +114,8 @@ h3(id="Documentation") Documentation
             span(ngNonBindable) 1{{ 1 | numberSuffix }}
             span.pad-h == 1{{ 1 | numberSuffix }}
           div
-            span(ngNonBindable) 2{{ '2' | numberSuffix }}
-            span.pad-h == 2{{ '2' | numberSuffix }}
+            span(ngNonBindable) {{ 2 | numberSuffix : true }}
+            span.pad-h == {{ 2 | numberSuffix : true }}
           div
             span(ngNonBindable) 0{{ '0' | numberSuffix }}
             span.pad-h == 0{{ '0' | numberSuffix }}
@@ -114,8 +126,8 @@ h3(id="Documentation") Documentation
             span(ngNonBindable) 13{{ '13' | numberSuffix }}
             span.pad-h == 13{{ '13' | numberSuffix }}
           div
-            span(ngNonBindable) 33{{ '33' | numberSuffix }}
-            span.pad-h == 33{{ '33' | numberSuffix }}
+            span(ngNonBindable) {{ '33' | numberSuffix : 1 }}
+            span.pad-h == {{ '33' | numberSuffix : 1 }}
 
   .flex2.border-grey-6x.border
     .pad-h

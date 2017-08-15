@@ -54,7 +54,13 @@ import {
   }
 /* end: only this file */
 
-//use with bypassSecurityTrustResourceUrl for href
+
+/** (input>=a && input<=b) || (input>=b && input<=a) */
+@Pipe({name: 'between'}) export class Between {
+  transform(input, a, b) {return pipes.between(input, a, b)}
+}
+
+/** use with bypassSecurityTrustResourceUrl for href */
 @Pipe({name: 'textDownload'}) export class TextDownload {
   transform(input:string){return pipes.textDownload(input)}
 }
@@ -64,7 +70,7 @@ import {
 }
 
 @Pipe({name: 'numberSuffix'}) export class NumberSuffix {
-  transform(input:string){return pipes.numberSuffix(input)}
+  transform(input:string, rtnInput){return pipes.numberSuffix(input, rtnInput)}
 }
 
 @Pipe({name: 'markdownAnchor'}) export class MarkdownAnchor {
@@ -154,5 +160,6 @@ export const declarations = [
   NumberToPhone,
   NumberSuffix,
   Bit,
-  BooleanPipe
+  BooleanPipe,
+  Between
 ]

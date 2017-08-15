@@ -1,6 +1,11 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.6.20] - 2017-08-15
+### Added
+- between pipe
+- numberSuffix pipe now accept extra argument to return value with suffix
+
 ## [0.6.17] - 2017-08-04
 ### Added
 - AckArray.only

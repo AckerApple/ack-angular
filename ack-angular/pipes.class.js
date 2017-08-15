@@ -1,6 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var ackX = require("ack-x/index-browser");
+function between(input, a, b) {
+    if (a == null || b == null)
+        return false;
+    return (input >= a && input <= b) || (input <= a && input >= b) ? true : false;
+}
+exports.between = between;
 function numberToPhone(val) {
     if (val == null || !val)
         return val;
@@ -10,21 +16,23 @@ function numberToPhone(val) {
     return '(' + val.substring(0, 3) + ') ' + val.substring(3, 6) + '-' + val.substring(6, 10);
 }
 exports.numberToPhone = numberToPhone;
-function numberSuffix(val) {
+function numberSuffix(val, rtnVal) {
+    if (rtnVal === void 0) { rtnVal = false; }
+    var rtn = rtnVal ? val : '';
     val = Number(val);
     if (!val || isNaN(val))
         return '';
     var j = val % 10, k = val % 100;
     if (j == 1 && k != 11) {
-        return "st";
+        return rtn + "st";
     }
     if (j == 2 && k != 12) {
-        return "nd";
+        return rtn + "nd";
     }
     if (j == 3 && k != 13) {
-        return "rd";
+        return rtn + "rd";
     }
-    return "th";
+    return rtn + "th";
 }
 exports.numberSuffix = numberSuffix;
 /** if input is array returned otherwise array created with  */
@@ -171,6 +179,7 @@ exports.pipes = {
     aDate: exports.aDate,
     aMath: exports.aMath,
     aTime: exports.aTime,
-    ack: exports.ack
+    ack: exports.ack,
+    between: between
 };
 //# sourceMappingURL=pipes.class.js.map

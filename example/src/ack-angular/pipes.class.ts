@@ -1,5 +1,11 @@
 import * as ackX from "ack-x/index-browser"
 
+
+export function between(input, a, b) {
+  if(a==null || b==null)return false
+  return (input >= a && input <= b) || (input <= a && input >= b) ? true : false
+}
+
 export function numberToPhone(val){
     if (val == null || !val)return val
     
@@ -10,7 +16,8 @@ export function numberToPhone(val){
     return '(' + val.substring(0, 3) + ') ' + val.substring(3, 6) + '-' + val.substring(6, 10)
 }
 
-export function numberSuffix(val){
+export function numberSuffix(val, rtnVal=false){
+  var rtn = rtnVal ? val : ''
   val = Number(val)
 
   if(!val || isNaN(val))return ''
@@ -18,15 +25,15 @@ export function numberSuffix(val){
   var j = val % 10,
       k = val % 100;
   if (j == 1 && k != 11) {
-      return "st";
+      return rtn+"st";
   }
   if (j == 2 && k != 12) {
-      return "nd";
+      return rtn+"nd";
   }
   if (j == 3 && k != 13) {
-      return "rd";
+      return rtn+"rd";
   }
-  return "th";
+  return rtn+"th";
 }
 
 /** if input is array returned otherwise array created with  */
@@ -182,5 +189,6 @@ export const pipes = {
   aDate,
   aMath,
   aTime,
-  ack
+  ack,
+  between
 }

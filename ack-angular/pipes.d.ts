@@ -26,6 +26,11 @@ export declare class SafeStyle {
     constructor(domSanitizer: DomSanitizer);
     transform(input: any): SafeStyler;
 }
+/** (input>=a && input<=b) || (input>=b && input<=a) */
+export declare class Between {
+    transform(input: any, a: any, b: any): boolean;
+}
+/** use with bypassSecurityTrustResourceUrl for href */
 export declare class TextDownload {
     transform(input: string): any;
 }
@@ -33,7 +38,7 @@ export declare class NumberToPhone {
     transform(input: string): any;
 }
 export declare class NumberSuffix {
-    transform(input: string): "" | "st" | "nd" | "rd" | "th";
+    transform(input: string, rtnInput: any): string;
 }
 export declare class MarkdownAnchor {
     transform(input: string): string;
