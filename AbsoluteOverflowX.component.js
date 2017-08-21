@@ -15,6 +15,7 @@ var AbsoluteOverflowX = (function () {
     AbsoluteOverflowX.ctorParameters = function () { return []; };
     AbsoluteOverflowX.propDecorators = {
         'scrollBars': [{ type: core_1.Input },],
+        'wrapClass': [{ type: core_1.Input },],
     };
     return AbsoluteOverflowX;
 }());
