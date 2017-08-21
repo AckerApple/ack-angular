@@ -6,5 +6,6 @@ import { string as absoluteOverflowX } from "./templates/absolute-overflow-x.pug
   template:absoluteOverflowX
 }) export class AbsoluteOverflowX{
   elementHeightModel
-  @Input() public scrollBars
+  @Input() scrollBars
+  @Input() wrapClass
 }

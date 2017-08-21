@@ -25,6 +25,9 @@ import { UrlVars } from "./UrlVars";
 export { WindowService } from "./WindowService";
 import { WindowService } from "./WindowService";
 
+export { DocumentService } from "./DocumentService";
+import { DocumentService } from "./DocumentService";
+
 export const providers = [
   Log,
   ErrorLog,
@@ -33,5 +36,6 @@ export const providers = [
   AckQue,
   AckApi,
   UrlVars,
-  WindowService
+  WindowService,
+  DocumentService
 ]

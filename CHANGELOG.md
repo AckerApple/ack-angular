@@ -1,6 +1,10 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.6.22] - 2017-08-21
+### Added
+- more class attributes to absolute-overflow-x
+
 ## [0.6.20] - 2017-08-15
 ### Added
 - between pipe

@@ -1,6 +1,9 @@
 .pos-rel
-  //-"[ngClass]"="{'no-scroll-bars':!scrollBars}"
-  .overflow.pos-abs.width-full("[(elementHeightModel)]"="elementHeightModel")
+  -attrs={};
+  -attrs["[(elementHeightModel)]"] = "elementHeightModel"
+  -attrs["[ngClass]"] = "wrapClass"
+  -attrs["[class.no-scroll-bars]"] = "!scrollBars && scrollBars!=null"
+  .overflow.pos-abs.width-full&attributes(attrs)
     ng-content
   .invisible([ngStyle]="{'height.px':elementHeightModel}" style="overflow:hidden;")
     |&nbsp;

@@ -26,6 +26,9 @@ var UrlVars_2 = require("./UrlVars");
 var WindowService_1 = require("./WindowService");
 exports.WindowService = WindowService_1.WindowService;
 var WindowService_2 = require("./WindowService");
+var DocumentService_1 = require("./DocumentService");
+exports.DocumentService = DocumentService_1.DocumentService;
+var DocumentService_2 = require("./DocumentService");
 exports.providers = [
     Log_2.Log,
     ErrorLog_2.ErrorLog,
@@ -34,6 +37,7 @@ exports.providers = [
     AckQue_2.AckQue,
     AckApi_2.AckApi,
     UrlVars_2.UrlVars,
-    WindowService_2.WindowService
+    WindowService_2.WindowService,
+    DocumentService_2.DocumentService
 ];
 //# sourceMappingURL=providers.js.map

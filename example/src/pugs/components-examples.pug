@@ -482,7 +482,7 @@ h3.margin-bottom-0(id="Expression Binds") Expression Binds
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
           &lt;span&gt; Enter Count : {{preventEnterCount || 0}} &lt;/span&gt;
-          &lt;input type="text" (onEnterKey)="preventEnterCount=preventEnterCount==null?1:preventEnterCount+1" placeholder="type here and use enter key" /&gt;
+          &lt;input type="text" (preventEnterKey)="preventEnterCount=preventEnterCount==null?1:preventEnterCount+1" placeholder="type here and use enter key" /&gt;
 
 br
 

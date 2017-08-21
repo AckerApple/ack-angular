@@ -14,24 +14,29 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   selector:'ack-options',
   template:ackOptions
 }) export class AckOptions{
-  @Input() public array = []
-  @Input() public stylize = true
-  @Input() public multiple = false
-  @Input() public toggleable = false//multiple must be false
-  @Input() public model
-  @Output() public modelChange = new EventEmitter()
-  @ContentChild(TemplateRef) @Input() public templateRef:TemplateRef<any>
-  @Input() private ref
-  @Output() public refChange = new EventEmitter()
+  @Input() array = []
+  @Input() stylize = true
+  @Input() multiple = false
+  @Input() toggleable = false//multiple must be false
+
+  @ContentChild(TemplateRef) @Input() templateRef:TemplateRef<any>
+
+  @Input() model
+  @Output() modelChange = new EventEmitter()
   
-  @Input() public arrayKey:string
-  @Input() public modelKey:string
-  @Input() public arrayToModelKey:string
+  @Input() ref
+  @Output() refChange = new EventEmitter()
+  
+  @Input() arrayKey:string
+  @Input() modelKey:string
+  @Input() arrayToModelKey:string
+
+  //constructor(public ElementRef:ElementRef){}
 
   ngOnInit(){
     setTimeout(()=>{
-      this.ref = Object.assign(this,this.ref)
-      this.refChange.emit(this.ref)
+      //this.ref = Object.assign(this,this.ref)
+      this.refChange.emit(this)
     }, 0)
   }
 
@@ -52,7 +57,24 @@ import { string as ackOptions } from "./templates/ack-options.pug"
         this.model = this.getArrayItemModel(item)
       }
     }
+
+    this.emitChange()
+  }
+
+  emitChange(){
     this.modelChange.emit(this.model)
+    const form = getParentByTagName(this.templateRef.elementRef.nativeElement,'form')
+    if(form)this.fireFormEvents(form)
+  }
+
+  fireFormEvents(form){
+    let event = document.createEvent("HTMLEvents");
+    event.initEvent("input", true, true);
+    form.dispatchEvent(event)
+
+    event = document.createEvent("HTMLEvents");
+    event.initEvent("change", true, true);
+    form.dispatchEvent(event)
   }
 
   getArrayItemModel(item){
@@ -121,4 +143,20 @@ import { string as ackOptions } from "./templates/ack-options.pug"
       'hover-bg-grey-5x' : this.stylize && !selected
     }
   }
+}
+
+export function getParentByTagName(node, tagname) {
+  let parent;
+  if (node === null || tagname === '') return;
+  parent  = node.parentNode;
+  tagname = tagname.toUpperCase();
+
+  while (parent && parent.tagName !== "HTML") {
+    if (parent.tagName === tagname) {
+      return parent;
+    }
+    parent = parent.parentNode;
+  }
+
+  return;
 }
