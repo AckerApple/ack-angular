@@ -11,8 +11,13 @@ export declare class RouteReporter {
     onLoad: any;
     ref: any;
     refChange: EventEmitter<{}>;
+    stateName: any;
+    stateNameChange: EventEmitter<{}>;
+    params: any;
+    paramsChange: EventEmitter<{}>;
     constructor(RouteWatchReporter: RouteWatchReporter);
     ngOnDestroy(): void;
+    emit(): void;
     ngOnInit(): void;
     goBackTo(name: any, params: any): void;
     tryBack(name: any, params: any): void;

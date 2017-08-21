@@ -8,12 +8,14 @@ var RouteReporter = (function () {
     function RouteReporter(RouteWatchReporter) {
         var _this = this;
         this.RouteWatchReporter = RouteWatchReporter;
-        //public isBackButton
-        //public isNotBackButton
-        //public mouseover
+        //isBackButton
+        //isNotBackButton
+        //mouseover
         this.stateChanger = new core_1.EventEmitter();
         this.beforeChanger = new core_1.EventEmitter();
         this.refChange = new core_1.EventEmitter();
+        this.stateNameChange = new core_1.EventEmitter();
+        this.paramsChange = new core_1.EventEmitter();
         this.$document = document;
         this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
         RouteWatchReporter.router.events.subscribe(function (event) {
@@ -21,7 +23,7 @@ var RouteReporter = (function () {
             if (event.constructor == router_1.NavigationEnd) {
                 _this.beforeChanger.emit(_this.RouteWatchReporter);
                 //allow one process to occur before reporting state has changed
-                setTimeout(function () { return _this.stateChanger.emit(_this.RouteWatchReporter); }, 0);
+                setTimeout(function () { return _this.emit(); }, 0);
             }
         });
         RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
@@ -29,12 +31,21 @@ var RouteReporter = (function () {
     RouteReporter.prototype.ngOnDestroy = function () {
         this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks);
     };
+    RouteReporter.prototype.emit = function () {
+        this.stateChanger.emit(this.RouteWatchReporter);
+        if (this.RouteWatchReporter.current) {
+            if (this.RouteWatchReporter.current.config) {
+                this.stateNameChange.emit(this.stateName = this.RouteWatchReporter.current.config.name);
+            }
+            this.paramsChange.emit(this.params = this.RouteWatchReporter.current.params);
+        }
+    };
     RouteReporter.prototype.ngOnInit = function () {
         var _this = this;
         setTimeout(function () {
             _this.ref = _this.RouteWatchReporter;
             _this.refChange.emit(_this.ref);
-            _this.stateChanger.emit(_this.RouteWatchReporter);
+            _this.emit();
         }, 0);
         if (this.onLoad) {
             this.onLoad({
@@ -69,6 +80,10 @@ var RouteReporter = (function () {
         'onLoad': [{ type: core_1.Input },],
         'ref': [{ type: core_1.Input },],
         'refChange': [{ type: core_1.Output },],
+        'stateName': [{ type: core_1.Input },],
+        'stateNameChange': [{ type: core_1.Output },],
+        'params': [{ type: core_1.Input },],
+        'paramsChange': [{ type: core_1.Output },],
     };
     return RouteReporter;
 }());
