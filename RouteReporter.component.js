@@ -35,7 +35,8 @@ var RouteReporter = (function () {
         this.stateChanger.emit(this.RouteWatchReporter);
         if (this.RouteWatchReporter.current) {
             if (this.RouteWatchReporter.current.config) {
-                this.stateNameChange.emit(this.stateName = this.RouteWatchReporter.current.config.name);
+                var name_1 = this.RouteWatchReporter.current.config.name || this.RouteWatchReporter.current.config.path;
+                this.stateNameChange.emit(this.stateName = name_1);
             }
             this.paramsChange.emit(this.params = this.RouteWatchReporter.current.params);
         }
