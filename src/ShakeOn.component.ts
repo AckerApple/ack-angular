@@ -10,30 +10,29 @@ import {
 @Directive({
   selector:'[shakeOn]'
 }) export class ShakeOn {
-  public timeout
+  timeout
 
-  @Input() public shakeConstant = false
+  @Input() shakeConstant = false
 
-  @Input() public shakeOn
-  @Output() public shakeThen = new EventEmitter()
+  @Input() shakeOn
+  @Output() shakeThen = new EventEmitter()
 
-  @Input() public shakeForMs
-  @Output() public shakeForMsChange = new EventEmitter()
+  @Input() shakeForMs
+  @Output() shakeForMsChange = new EventEmitter()
 
-  @Input() public shakeType
-  @Output() public shakeTypeChange = new EventEmitter()
+  @Input() shakeType
+  @Output() shakeTypeChange = new EventEmitter()
   
-  @Input() public shakeRef
-  @Output() public shakeRefChange = new EventEmitter()
+  @Input() shakeRef
+  @Output() shakeRefChange = new EventEmitter()
   
-  public shakeTypes = [
+  shakeTypes = [
     'shake-slow','shake-hard','shake-little','shake-horizontal',
     'shake-vertical','shake-rotate','shake-opacity','shake-crazy',
     'shake-chunk'
   ]
 
-  constructor(public element:ElementRef){
-  }
+  constructor(public element:ElementRef){}
 
   ngOnInit(){
     setTimeout(()=>this.update(), 0)

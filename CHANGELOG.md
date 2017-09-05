@@ -1,6 +1,10 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.6.24] - 2017-09-05
+### Updated
+- ack-css-boot
+
 ## [0.6.22] - 2017-08-21
 ### Added
 - more class attributes to absolute-overflow-x

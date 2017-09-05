@@ -978,20 +978,34 @@ h3(id="Complex Components") Complex Components
     .pad-h
       h3 route-reporter
       .text-grey-2x.max-width-400
-        |Get in tune with your document route states using @angular/router
+        |Get in tune with router states when using @angular/router
       br
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="viewRouteReporter=!viewRouteReporter" "[ngClass]"="viewRouteReporter?'border-energized bg-energized':'border-info bg-info'")
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewRouteReporter" "[@500]"="'fadeInUp'")
-      .pad Requirements
-        ul
-          li route-reporter
+      .pad Bindings
+        table(cellPadding="0" cellSpacing="0" border="0")
+          tr
+            td [(ref)]
+            td Creates a reference to the RouteReporter component
+          tr
+            td [(stateName)]
+            td Creates a reference to the current routes designated name. Name is path if name is undefined in route config
+          tr
+            td [(params)]
+            td Creates a reference to the current route's params
+          tr
+            td (beforeChange)
+            td Expression bind called before route changes
+          tr
+            td (onChange)
+            td Expression bind called when route changes
       route-reporter("[(ref)]"="routeState")
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
-          &lt;route-reporter [(ref)]="" (beforeChange)="" (onChange)=""&gt;
+          &lt;route-reporter [(ref)]="" [(stateName)]="" [(params)]="" (beforeChange)="" (onChange)=""&gt;
       h4.pad-sm.margin-0 ref example
       absolute-overflow-x
         pre.code-sample.margin-0

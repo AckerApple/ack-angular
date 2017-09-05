@@ -7,22 +7,28 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
   //inputs:['ref'],
   selector: 'route-reporter'
 }) export class RouteReporter{
-  public $document
-  public $scope
+  $document
+  $scope
   static parameters = [[
     RouteWatchReporter
   ]]
-  public docCallbacks
-  //public isBackButton
-  //public isNotBackButton
-  //public mouseover
+  docCallbacks
+  //isBackButton
+  //isNotBackButton
+  //mouseover
 
-  @Output("onChange") public stateChanger = new EventEmitter()
-  @Output("beforeChange") public beforeChanger = new EventEmitter()
-  @Input() public onLoad
-  @Input() public ref//variable reference
-  @Output() public refChange = new EventEmitter()
+  @Output("onChange") stateChanger = new EventEmitter()
+  @Output("beforeChange") beforeChanger = new EventEmitter()
+  @Input() onLoad
+  @Input() ref//variable reference
+  @Output() refChange = new EventEmitter()
 
+  @Input() stateName
+  @Output() stateNameChange = new EventEmitter()
+
+  @Input() params
+  @Output() paramsChange = new EventEmitter()
+  
   constructor(public RouteWatchReporter:RouteWatchReporter){
     this.$document = document
     this.docCallbacks = RouteWatchReporter.getDocumentCallbacks()
@@ -33,7 +39,7 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
         this.beforeChanger.emit( this.RouteWatchReporter )
 
         //allow one process to occur before reporting state has changed
-        setTimeout(()=>this.stateChanger.emit( this.RouteWatchReporter ), 0)
+        setTimeout(()=>this.emit(), 0)
       }
     })
 
@@ -44,11 +50,24 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
     this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks)
   }
 
+  emit(){
+    this.stateChanger.emit( this.RouteWatchReporter )
+ 
+    if( this.RouteWatchReporter.current ){
+      if( this.RouteWatchReporter.current.config ){
+        const name = this.RouteWatchReporter.current.config.name || this.RouteWatchReporter.current.config.path
+        this.stateNameChange.emit( this.stateName=name )
+      }
+
+      this.paramsChange.emit( this.params=this.RouteWatchReporter.current.params )
+    }
+  }
+
   ngOnInit(){
     setTimeout(()=>{
       this.ref = this.RouteWatchReporter
       this.refChange.emit(this.ref)
-      this.stateChanger.emit(this.RouteWatchReporter)
+      this.emit()
     }, 0)
 
     if(this.onLoad){
@@ -58,6 +77,7 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
         current:this.RouteWatchReporter.current
       })
     }
+
   }
 
   goBackTo(name, params){
