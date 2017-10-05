@@ -21,10 +21,7 @@
     ]
   },
   "exclude": [
-    "node_modules"
-  ],
-  "files": [
-    "./index.ts"
+    "node_modules","**/*.spec.ts"
   ],
   "angularCompilerOptions": {
     "genDir": "../temp/factories"
