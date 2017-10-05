@@ -1,4 +1,4 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.string = "<div class=\"pos-rel\"><div class=\"overflow pos-abs width-full\" [(elementHeightModel)]=\"elementHeightModel\" [ngClass]=\"wrapClass\" [class.no-scroll-bars]=\"!scrollBars && scrollBars!=null\"><ng-content></ng-content></div><div class=\"invisible\" [ngStyle]=\"{'height.px':elementHeightModel}\" style=\"overflow:hidden;\">&nbsp;</div></div>";
+exports.string = "<div [ngStyle]=\"{position:active?'relative':null}\"><div [(elementHeightModel)]=\"elementHeightModel\" [ngClass]=\"wrapClass\" [class.no-scroll-bars]=\"active && !scrollBars && scrollBars!=null\" [ngStyle]=\"active ? {overflow:'auto',position:'absolute',width:'100%'} : {}\"><ng-content></ng-content></div><div *ngIf=\"active\" [ngStyle]=\"{'height.px':elementHeightModel}\" style=\"visibility:hidden;overflow:hidden;\">&nbsp;</div></div>";
 //# sourceMappingURL=absolute-overflow-x.pug.js.map

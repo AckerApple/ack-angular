@@ -8,6 +8,7 @@ var AckOptions = (function () {
         this.array = [];
         this.stylize = true;
         this.multiple = false;
+        //@Input() modelIsArray = false//support array of options to model-array, that array only allows a length of one
         this.toggleable = false; //multiple must be false
         this.modelChange = new core_1.EventEmitter();
         this.refChange = new core_1.EventEmitter();

@@ -3,7 +3,6 @@ export declare class AckArray {
     idKey: any;
     ref: any;
     refChange: EventEmitter<{}>;
-    page: number;
     pageAt: number;
     pages: any[];
     pagesChange: EventEmitter<{}>;

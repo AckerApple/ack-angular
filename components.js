@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AckModal_component_1 = require("./AckModal.component");
+var AckModal_component_1 = require("./components/AckModal.component");
 var AckArray_directive_1 = require("./AckArray.directive");
 var AckOptions_component_1 = require("./AckOptions.component");
 var AckOptionsModal_component_1 = require("./AckOptionsModal.component");

@@ -4,6 +4,7 @@ var core_1 = require("@angular/core");
 var absolute_overflow_x_pug_1 = require("./templates/absolute-overflow-x.pug");
 var AbsoluteOverflowX = (function () {
     function AbsoluteOverflowX() {
+        this.active = true;
     }
     AbsoluteOverflowX.decorators = [
         { type: core_1.Component, args: [{
@@ -16,6 +17,7 @@ var AbsoluteOverflowX = (function () {
     AbsoluteOverflowX.propDecorators = {
         'scrollBars': [{ type: core_1.Input },],
         'wrapClass': [{ type: core_1.Input },],
+        'active': [{ type: core_1.Input },],
     };
     return AbsoluteOverflowX;
 }());

@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/toPromise';
 import { EventEmitter } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 /** Http util with offline config for request failures */
 export declare class AckApi {
     http: Http;
@@ -57,7 +57,7 @@ export declare class AckApi {
         headers:{}//when sending a file 'Content-Type':undefined so that no content-type header is sent
       }
     */
-    _fetch(cfg: any): Promise<any>;
+    _fetch(cfg: any): Promise<Response>;
     processFetchByConfig(response: any, request: any): any;
     httpFailByConfig(e: any, cfg: any): Promise<never>;
     requestResponseToCache(request: any, output: any): any;
