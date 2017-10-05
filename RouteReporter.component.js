@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var RouteWatchReporter_1 = require("./RouteWatchReporter");
 var router_1 = require("@angular/router");
-var RouteReporter = (function () {
+var RouteReporter = /** @class */ (function () {
     function RouteReporter(RouteWatchReporter) {
         var _this = this;
         this.RouteWatchReporter = RouteWatchReporter;
@@ -16,6 +16,7 @@ var RouteReporter = (function () {
         this.refChange = new core_1.EventEmitter();
         this.stateNameChange = new core_1.EventEmitter();
         this.paramsChange = new core_1.EventEmitter();
+        this.stateChange = new core_1.EventEmitter();
         this.$document = document;
         this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
         RouteWatchReporter.router.events.subscribe(function (event) {
@@ -34,6 +35,7 @@ var RouteReporter = (function () {
     RouteReporter.prototype.emit = function () {
         this.stateChanger.emit(this.RouteWatchReporter);
         if (this.RouteWatchReporter.current) {
+            this.stateChange.emit(this.RouteWatchReporter.current);
             if (this.RouteWatchReporter.current.config) {
                 var name_1 = this.RouteWatchReporter.current.config.name || this.RouteWatchReporter.current.config.path;
                 this.stateNameChange.emit(this.stateName = name_1);
@@ -85,8 +87,9 @@ var RouteReporter = (function () {
         'stateNameChange': [{ type: core_1.Output },],
         'params': [{ type: core_1.Input },],
         'paramsChange': [{ type: core_1.Output },],
+        'state': [{ type: core_1.Input },],
+        'stateChange': [{ type: core_1.Output },],
     };
     return RouteReporter;
 }());
 exports.RouteReporter = RouteReporter;
-//# sourceMappingURL=RouteReporter.component.js.map

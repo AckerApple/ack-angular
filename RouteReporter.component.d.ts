@@ -4,7 +4,7 @@ export declare class RouteReporter {
     RouteWatchReporter: RouteWatchReporter;
     $document: any;
     $scope: any;
-    static parameters: typeof RouteWatchReporter[][];
+    static parameters: (typeof RouteWatchReporter)[][];
     docCallbacks: any;
     stateChanger: EventEmitter<{}>;
     beforeChanger: EventEmitter<{}>;
@@ -15,6 +15,8 @@ export declare class RouteReporter {
     stateNameChange: EventEmitter<{}>;
     params: any;
     paramsChange: EventEmitter<{}>;
+    state: any;
+    stateChange: EventEmitter<{}>;
     constructor(RouteWatchReporter: RouteWatchReporter);
     ngOnDestroy(): void;
     emit(): void;

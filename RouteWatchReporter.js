@@ -8,7 +8,7 @@ var core_1 = require("@angular/core");
  - Has 99% accuracy of knowing if OS back or forward button has been used
    - Their is no web event for knowing if OS button is used.
 */
-var RouteWatchReporter = (function () {
+var RouteWatchReporter = /** @class */ (function () {
     //public stateService : StateService
     //public activatedRoute : ActivatedRoute
     //static parameters = [[Router, ActivatedRoute]]
@@ -161,4 +161,3 @@ var RouteWatchReporter = (function () {
     return RouteWatchReporter;
 }());
 exports.RouteWatchReporter = RouteWatchReporter;
-//# sourceMappingURL=RouteWatchReporter.js.map

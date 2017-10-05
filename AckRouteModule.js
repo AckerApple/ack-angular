@@ -4,7 +4,7 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var RouteWatchReporter_1 = require("./RouteWatchReporter");
 var RouteReporter_component_1 = require("./RouteReporter.component");
-var AckRouteModule = (function () {
+var AckRouteModule = /** @class */ (function () {
     function AckRouteModule() {
     }
     AckRouteModule.decorators = [
@@ -20,4 +20,3 @@ var AckRouteModule = (function () {
     return AckRouteModule;
 }());
 exports.AckRouteModule = AckRouteModule;
-//# sourceMappingURL=AckRouteModule.js.map
