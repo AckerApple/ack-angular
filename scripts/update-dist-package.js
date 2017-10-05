@@ -1,7 +1,7 @@
 const fs = require('fs')
 
 const rootPack = require('../package.json')
-const packPath = require.resolve('../ack-angular/package.json')
+const packPath = require.resolve('../dist/package.json')
 const pack = require(packPath)
 
 pack.version = rootPack.version
