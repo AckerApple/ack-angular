@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var localForage = require("localforage");
 var core_1 = require("@angular/core");
 /** Offline storage provided by localforage */
-var AckOffline = (function () {
+var AckOffline = /** @class */ (function () {
     function AckOffline() {
         this.prefix = "offline";
     }
@@ -47,4 +47,3 @@ var AckOffline = (function () {
     return AckOffline;
 }());
 exports.AckOffline = AckOffline;
-//# sourceMappingURL=AckOffline.js.map

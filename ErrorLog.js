@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ErrorLog = (function () {
+var ErrorLog = /** @class */ (function () {
     function ErrorLog() {
         this.log = [];
         this.maxLog = 30;
@@ -101,4 +101,3 @@ function logObToErrorObject(log) {
 function getDateTimeString() {
     return (function (d) { return (('0' + (d.getMonth() + 1)).slice(-2) + '/' + ('0' + d.getDate()).slice(-2) + '/' + d.getFullYear()); })(new Date()) + ' ' + (function (d) { var h = d.getHours(), t = 'AM', m = d.getMinutes(); var mn = m < 10 ? '0' + m : m; h = h >= 12 ? (t = 'PM', h - 12 || 12) : h == 0 ? 12 : h; return ('0' + h).slice(-2) + ':' + ('0' + mn).slice(-2) + ' ' + t; })(new Date());
 }
-//# sourceMappingURL=ErrorLog.js.map

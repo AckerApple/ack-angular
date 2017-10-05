@@ -12,4 +12,3 @@ exports.pipes = pipes_1.declarations;
 var ackX = require("ack-x/index-browser");
 exports.ack = ackX;
 __export(require("./providers"));
-//# sourceMappingURL=index.js.map

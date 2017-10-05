@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 function getWindow() { return window; }
-var WindowService = (function () {
+var WindowService = /** @class */ (function () {
     function WindowService() {
     }
     Object.defineProperty(WindowService.prototype, "nativeElement", {
@@ -24,4 +24,3 @@ var WindowService = (function () {
     return WindowService;
 }());
 exports.WindowService = WindowService;
-//# sourceMappingURL=WindowService.js.map

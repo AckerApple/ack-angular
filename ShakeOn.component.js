@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 /** runs shake instructions when condition returns a truthy value */
-var ShakeOn = (function () {
+var ShakeOn = /** @class */ (function () {
     function ShakeOn(element) {
         this.element = element;
         this.shakeConstant = false;
@@ -120,4 +120,3 @@ function removeClass(el, className) {
     }
 }
 exports.removeClass = removeClass;
-//# sourceMappingURL=ShakeOn.component.js.map

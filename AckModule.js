@@ -9,7 +9,7 @@ var providers_1 = require("./providers");
 var components_1 = require("./components");
 var pipes_1 = require("./pipes");
 var declarations = components_1.declarations.concat(pipes_1.declarations);
-var AckModule = (function () {
+var AckModule = /** @class */ (function () {
     function AckModule() {
     }
     AckModule.decorators = [
@@ -32,4 +32,3 @@ var AckModule = (function () {
     return AckModule;
 }());
 exports.AckModule = AckModule;
-//# sourceMappingURL=AckModule.js.map

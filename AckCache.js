@@ -13,7 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AckOffline_1 = require("./AckOffline");
 /** Cache logic that provides timestamping and timingout using AckOffline as storage */
-var AckCache = (function (_super) {
+var AckCache = /** @class */ (function (_super) {
     __extends(AckCache, _super);
     function AckCache() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -151,4 +151,3 @@ var AckCache = (function (_super) {
     return AckCache;
 }(AckOffline_1.AckOffline));
 exports.AckCache = AckCache;
-//# sourceMappingURL=AckCache.js.map

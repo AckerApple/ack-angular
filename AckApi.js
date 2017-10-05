@@ -6,7 +6,7 @@ var http_1 = require("@angular/http");
 var AckCache_1 = require("./AckCache");
 var AckQue_1 = require("./AckQue");
 /** Http util with offline config for request failures */
-var AckApi = (function () {
+var AckApi = /** @class */ (function () {
     function AckApi(http) {
         this.http = http;
         this.AuthError = new core_1.EventEmitter();
@@ -277,4 +277,3 @@ function upgradeConfig(cfg) {
     }
     return cfg;
 }
-//# sourceMappingURL=AckApi.js.map

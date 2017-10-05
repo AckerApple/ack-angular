@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var pipes_class_1 = require("./pipes.class");
 var core_1 = require("@angular/core");
 var ack_options_pug_1 = require("./templates/ack-options.pug");
-var AckOptions = (function () {
+var AckOptions = /** @class */ (function () {
     function AckOptions() {
         this.array = [];
         this.stylize = true;
@@ -158,4 +158,3 @@ function getParentByTagName(node, tagname) {
     return;
 }
 exports.getParentByTagName = getParentByTagName;
-//# sourceMappingURL=AckOptions.component.js.map

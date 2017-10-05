@@ -26,7 +26,7 @@ var ErrorWell_component_1 = require("./ErrorWell.component");
 var ErrorWell_component_2 = require("./ErrorWell.component");
 exports.ErrorWell = ErrorWell_component_2.ErrorWell;
 //@Directive({selector:'component-header'}) export class ComponentHeader {}
-var FocusOn = (function () {
+var FocusOn = /** @class */ (function () {
     function FocusOn(element) {
         this.element = element;
         this.focusOnDelay = 0;
@@ -58,7 +58,7 @@ var FocusOn = (function () {
     return FocusOn;
 }());
 exports.FocusOn = FocusOn;
-var SelectOn = (function () {
+var SelectOn = /** @class */ (function () {
     function SelectOn(element) {
         this.element = element;
         this.selectOnDelay = 0;
@@ -90,7 +90,7 @@ var SelectOn = (function () {
     return SelectOn;
 }());
 exports.SelectOn = SelectOn;
-var VarDirective = (function () {
+var VarDirective = /** @class */ (function () {
     function VarDirective() {
     }
     VarDirective.decorators = [
@@ -107,7 +107,7 @@ var VarDirective = (function () {
     return VarDirective;
 }());
 exports.VarDirective = VarDirective;
-var OnEnterKey = (function () {
+var OnEnterKey = /** @class */ (function () {
     function OnEnterKey(element) {
         var _this = this;
         this.element = element;
@@ -132,7 +132,7 @@ var OnEnterKey = (function () {
     return OnEnterKey;
 }());
 exports.OnEnterKey = OnEnterKey;
-var OnEscapeKey = (function () {
+var OnEscapeKey = /** @class */ (function () {
     function OnEscapeKey(element) {
         var _this = this;
         this.element = element;
@@ -158,7 +158,7 @@ var OnEscapeKey = (function () {
 }());
 exports.OnEscapeKey = OnEscapeKey;
 /** Disallow keyboard access to the backspace key */
-var PreventBackKey = (function () {
+var PreventBackKey = /** @class */ (function () {
     function PreventBackKey(element) {
         var _this = this;
         this.element = element;
@@ -188,7 +188,7 @@ var PreventBackKey = (function () {
 }());
 exports.PreventBackKey = PreventBackKey;
 /** Disallow keyboard access to the enter keys */
-var PreventEnterKey = (function () {
+var PreventEnterKey = /** @class */ (function () {
     function PreventEnterKey(element) {
         var _this = this;
         this.element = element;
@@ -217,7 +217,7 @@ var PreventEnterKey = (function () {
     return PreventEnterKey;
 }());
 exports.PreventEnterKey = PreventEnterKey;
-var InputHint = (function () {
+var InputHint = /** @class */ (function () {
     function InputHint() {
         this.hintStyle = { 'font-size': '75%', 'color': '#BBB' };
     }
@@ -235,7 +235,7 @@ var InputHint = (function () {
     return InputHint;
 }());
 exports.InputHint = InputHint;
-var StatusOnlineModel = (function () {
+var StatusOnlineModel = /** @class */ (function () {
     function StatusOnlineModel() {
         var _this = this;
         this.statusOnlineModelChange = new core_1.EventEmitter();
@@ -263,7 +263,7 @@ var StatusOnlineModel = (function () {
     return StatusOnlineModel;
 }());
 exports.StatusOnlineModel = StatusOnlineModel;
-var StatusOfflineModel = (function () {
+var StatusOfflineModel = /** @class */ (function () {
     function StatusOfflineModel() {
         var _this = this;
         this.statusOfflineModelChange = new core_1.EventEmitter();
@@ -292,7 +292,7 @@ var StatusOfflineModel = (function () {
 }());
 exports.StatusOfflineModel = StatusOfflineModel;
 /** adds form element onchange listener via addEventListener('change') that calls onFormChanged scope argument */
-var OnFormChanged = (function () {
+var OnFormChanged = /** @class */ (function () {
     function OnFormChanged(element) {
         this.element = element;
         this.onFormChanged = new core_1.EventEmitter();
@@ -319,7 +319,7 @@ var OnFormChanged = (function () {
     return OnFormChanged;
 }());
 exports.OnFormChanged = OnFormChanged;
-var OnFormAlter = (function () {
+var OnFormAlter = /** @class */ (function () {
     function OnFormAlter(element) {
         this.element = element;
         this.onFormAlter = new core_1.EventEmitter();
@@ -348,7 +348,7 @@ var OnFormAlter = (function () {
     return OnFormAlter;
 }());
 exports.OnFormAlter = OnFormAlter;
-var ReaderHeaderBody = (function () {
+var ReaderHeaderBody = /** @class */ (function () {
     function ReaderHeaderBody() {
     }
     ReaderHeaderBody.decorators = [
@@ -362,7 +362,7 @@ var ReaderHeaderBody = (function () {
     return ReaderHeaderBody;
 }());
 exports.ReaderHeaderBody = ReaderHeaderBody;
-var ReaderHeader = (function () {
+var ReaderHeader = /** @class */ (function () {
     function ReaderHeader() {
     }
     ReaderHeader.decorators = [
@@ -375,7 +375,7 @@ var ReaderHeader = (function () {
     return ReaderHeader;
 }());
 exports.ReaderHeader = ReaderHeader;
-var ReaderBody = (function () {
+var ReaderBody = /** @class */ (function () {
     //-static parameters = [[ElementRef]]
     function ReaderBody(element) {
         this.element = element;
@@ -395,7 +395,7 @@ var ReaderBody = (function () {
     return ReaderBody;
 }());
 exports.ReaderBody = ReaderBody;
-var InnerHtmlModel = (function () {
+var InnerHtmlModel = /** @class */ (function () {
     function InnerHtmlModel(element) {
         var _this = this;
         this.element = element;
@@ -438,7 +438,7 @@ var InnerHtmlModel = (function () {
     return InnerHtmlModel;
 }());
 exports.InnerHtmlModel = InnerHtmlModel;
-var ElementSizeModel = (function () {
+var ElementSizeModel = /** @class */ (function () {
     function ElementSizeModel(element) {
         var _this = this;
         this.element = element;
@@ -500,7 +500,7 @@ var ElementSizeModel = (function () {
     return ElementSizeModel;
 }());
 exports.ElementSizeModel = ElementSizeModel;
-var ElementHeightModel = (function (_super) {
+var ElementHeightModel = /** @class */ (function (_super) {
     __extends(ElementHeightModel, _super);
     function ElementHeightModel() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -525,7 +525,7 @@ var ElementHeightModel = (function (_super) {
     return ElementHeightModel;
 }(ElementSizeModel));
 exports.ElementHeightModel = ElementHeightModel;
-var ElementWidthModel = (function (_super) {
+var ElementWidthModel = /** @class */ (function (_super) {
     __extends(ElementWidthModel, _super);
     function ElementWidthModel() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -550,7 +550,7 @@ var ElementWidthModel = (function (_super) {
     return ElementWidthModel;
 }(ElementSizeModel));
 exports.ElementWidthModel = ElementWidthModel;
-var ScreenScrollHeightDiff = (function () {
+var ScreenScrollHeightDiff = /** @class */ (function () {
     function ScreenScrollHeightDiff() {
         this.screenScrollHeightDiffChange = new core_1.EventEmitter();
         this.on = function () {
@@ -583,7 +583,7 @@ var ScreenScrollHeightDiff = (function () {
     return ScreenScrollHeightDiff;
 }());
 exports.ScreenScrollHeightDiff = ScreenScrollHeightDiff;
-var ScreenScroll = (function () {
+var ScreenScroll = /** @class */ (function () {
     function ScreenScroll() {
         this.screenScroll = new core_1.EventEmitter();
         this.onScroll = function () {
@@ -612,7 +612,7 @@ var ScreenScroll = (function () {
     return ScreenScroll;
 }());
 exports.ScreenScroll = ScreenScroll;
-var ScreenScrollModelY = (function () {
+var ScreenScrollModelY = /** @class */ (function () {
     function ScreenScrollModelY() {
         this.screenScrollModelYChange = new core_1.EventEmitter();
         this.onScroll = function () {
@@ -643,7 +643,7 @@ var ScreenScrollModelY = (function () {
     return ScreenScrollModelY;
 }());
 exports.ScreenScrollModelY = ScreenScrollModelY;
-var ScreenWidthModel = (function () {
+var ScreenWidthModel = /** @class */ (function () {
     function ScreenWidthModel() {
         var _this = this;
         this.screenWidthModelChange = new core_1.EventEmitter();
@@ -680,7 +680,7 @@ var ScreenWidthModel = (function () {
     return ScreenWidthModel;
 }());
 exports.ScreenWidthModel = ScreenWidthModel;
-var ScreenHeightModel = (function () {
+var ScreenHeightModel = /** @class */ (function () {
     function ScreenHeightModel() {
         var _this = this;
         this.screenHeightModelChange = new core_1.EventEmitter();
@@ -717,7 +717,7 @@ var ScreenHeightModel = (function () {
     return ScreenHeightModel;
 }());
 exports.ScreenHeightModel = ScreenHeightModel;
-var HtmlWidthModel = (function () {
+var HtmlWidthModel = /** @class */ (function () {
     function HtmlWidthModel() {
         var _this = this;
         this.htmlWidthModelChange = new core_1.EventEmitter();
@@ -754,7 +754,7 @@ var HtmlWidthModel = (function () {
     return HtmlWidthModel;
 }());
 exports.HtmlWidthModel = HtmlWidthModel;
-var HtmlHeightModel = (function () {
+var HtmlHeightModel = /** @class */ (function () {
     function HtmlHeightModel() {
         var _this = this;
         this.htmlHeightModelChange = new core_1.EventEmitter();
@@ -830,4 +830,3 @@ exports.declarations = [
     //ComponentHeader
     //...AckModals
 ];
-//# sourceMappingURL=components.js.map

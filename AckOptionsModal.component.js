@@ -13,7 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AckOptions_component_1 = require("./AckOptions.component");
 var ack_options_modal_pug_1 = require("./templates/ack-options-modal.pug");
-var AckOptionsModal = (function (_super) {
+var AckOptionsModal = /** @class */ (function (_super) {
     __extends(AckOptionsModal, _super);
     /* omitted ack-modal inputs
     @Input() private ref
@@ -67,4 +67,3 @@ var AckOptionsModal = (function (_super) {
     return AckOptionsModal;
 }(AckOptions_component_1.AckOptions));
 exports.AckOptionsModal = AckOptionsModal;
-//# sourceMappingURL=AckOptionsModal.component.js.map

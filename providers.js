@@ -40,4 +40,3 @@ exports.providers = [
     WindowService_2.WindowService,
     DocumentService_2.DocumentService
 ];
-//# sourceMappingURL=providers.js.map

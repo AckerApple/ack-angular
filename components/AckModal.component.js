@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var prefx_1 = require("../prefx");
 var ack_modal_pug_1 = require("./templates/ack-modal.pug");
-var AckModal = (function () {
+var AckModal = /** @class */ (function () {
     function AckModal(element) {
         var _this = this;
         this.element = element;
@@ -72,4 +72,3 @@ var AckModal = (function () {
     return AckModal;
 }());
 exports.AckModal = AckModal;
-//# sourceMappingURL=AckModal.component.js.map

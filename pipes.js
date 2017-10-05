@@ -4,7 +4,7 @@ var core_1 = require("@angular/core");
 var pipes = require("./pipes.class");
 var platform_browser_1 = require("@angular/platform-browser");
 /* ONLY THIS FILE */
-var IndexTrack = (function () {
+var IndexTrack = /** @class */ (function () {
     function IndexTrack() {
     }
     IndexTrack.prototype.transform = function () {
@@ -18,7 +18,7 @@ var IndexTrack = (function () {
     return IndexTrack;
 }());
 exports.IndexTrack = IndexTrack;
-var Stringify = (function () {
+var Stringify = /** @class */ (function () {
     function Stringify() {
     }
     Stringify.prototype.transform = function (input, spaces) {
@@ -32,7 +32,7 @@ var Stringify = (function () {
     return Stringify;
 }());
 exports.Stringify = Stringify;
-var ForceArray = (function () {
+var ForceArray = /** @class */ (function () {
     function ForceArray() {
     }
     ForceArray.prototype.transform = function (input, repeat, repeatValue) {
@@ -46,7 +46,7 @@ var ForceArray = (function () {
     return ForceArray;
 }());
 exports.ForceArray = ForceArray;
-var ArrayOfObjects = (function () {
+var ArrayOfObjects = /** @class */ (function () {
     function ArrayOfObjects() {
     }
     ArrayOfObjects.prototype.transform = function (input, repeat, repeatValue) {
@@ -60,7 +60,7 @@ var ArrayOfObjects = (function () {
     return ArrayOfObjects;
 }());
 exports.ArrayOfObjects = ArrayOfObjects;
-var SafeUrl = (function () {
+var SafeUrl = /** @class */ (function () {
     function SafeUrl(domSanitizer) {
         this.domSanitizer = domSanitizer;
     }
@@ -77,7 +77,7 @@ var SafeUrl = (function () {
     return SafeUrl;
 }());
 exports.SafeUrl = SafeUrl;
-var SafeHtml = (function () {
+var SafeHtml = /** @class */ (function () {
     function SafeHtml(domSanitizer) {
         this.domSanitizer = domSanitizer;
     }
@@ -94,7 +94,7 @@ var SafeHtml = (function () {
     return SafeHtml;
 }());
 exports.SafeHtml = SafeHtml;
-var SafeStyle = (function () {
+var SafeStyle = /** @class */ (function () {
     function SafeStyle(domSanitizer) {
         this.domSanitizer = domSanitizer;
     }
@@ -113,7 +113,7 @@ var SafeStyle = (function () {
 exports.SafeStyle = SafeStyle;
 /* end: only this file */
 /** (input>=a && input<=b) || (input>=b && input<=a) */
-var Between = (function () {
+var Between = /** @class */ (function () {
     function Between() {
     }
     Between.prototype.transform = function (input, a, b) { return pipes.between(input, a, b); };
@@ -126,7 +126,7 @@ var Between = (function () {
 }());
 exports.Between = Between;
 /** use with bypassSecurityTrustResourceUrl for href */
-var TextDownload = (function () {
+var TextDownload = /** @class */ (function () {
     function TextDownload() {
     }
     TextDownload.prototype.transform = function (input) { return pipes.textDownload(input); };
@@ -138,7 +138,7 @@ var TextDownload = (function () {
     return TextDownload;
 }());
 exports.TextDownload = TextDownload;
-var NumberToPhone = (function () {
+var NumberToPhone = /** @class */ (function () {
     function NumberToPhone() {
     }
     NumberToPhone.prototype.transform = function (input) { return pipes.numberToPhone(input); };
@@ -150,7 +150,7 @@ var NumberToPhone = (function () {
     return NumberToPhone;
 }());
 exports.NumberToPhone = NumberToPhone;
-var NumberSuffix = (function () {
+var NumberSuffix = /** @class */ (function () {
     function NumberSuffix() {
     }
     NumberSuffix.prototype.transform = function (input, rtnInput) { return pipes.numberSuffix(input, rtnInput); };
@@ -162,7 +162,7 @@ var NumberSuffix = (function () {
     return NumberSuffix;
 }());
 exports.NumberSuffix = NumberSuffix;
-var MarkdownAnchor = (function () {
+var MarkdownAnchor = /** @class */ (function () {
     function MarkdownAnchor() {
     }
     MarkdownAnchor.prototype.transform = function (input) { return pipes.markdownAnchor(input); };
@@ -174,7 +174,7 @@ var MarkdownAnchor = (function () {
     return MarkdownAnchor;
 }());
 exports.MarkdownAnchor = MarkdownAnchor;
-var Capitalize = (function () {
+var Capitalize = /** @class */ (function () {
     function Capitalize() {
     }
     Capitalize.prototype.transform = function (input) { return pipes.capitalize(input); };
@@ -186,7 +186,7 @@ var Capitalize = (function () {
     return Capitalize;
 }());
 exports.Capitalize = Capitalize;
-var CapitalizeWords = (function () {
+var CapitalizeWords = /** @class */ (function () {
     function CapitalizeWords() {
     }
     CapitalizeWords.prototype.transform = function (input) { return pipes.capitalizeWords(input); };
@@ -198,7 +198,7 @@ var CapitalizeWords = (function () {
     return CapitalizeWords;
 }());
 exports.CapitalizeWords = CapitalizeWords;
-var Yesno = (function () {
+var Yesno = /** @class */ (function () {
     function Yesno() {
     }
     Yesno.prototype.transform = function (input) { return pipes.yesno(input); };
@@ -210,7 +210,7 @@ var Yesno = (function () {
     return Yesno;
 }());
 exports.Yesno = Yesno;
-var YesNo = (function () {
+var YesNo = /** @class */ (function () {
     function YesNo() {
     }
     YesNo.prototype.transform = function (input) { return pipes.yesNo(input); };
@@ -222,7 +222,7 @@ var YesNo = (function () {
     return YesNo;
 }());
 exports.YesNo = YesNo;
-var BooleanPipe = (function () {
+var BooleanPipe = /** @class */ (function () {
     function BooleanPipe() {
     }
     BooleanPipe.prototype.transform = function (input) { return pipes.boolean(input); };
@@ -234,7 +234,7 @@ var BooleanPipe = (function () {
     return BooleanPipe;
 }());
 exports.BooleanPipe = BooleanPipe;
-var Bit = (function () {
+var Bit = /** @class */ (function () {
     function Bit() {
     }
     Bit.prototype.transform = function (input) { return pipes.bit(input); };
@@ -246,7 +246,7 @@ var Bit = (function () {
     return Bit;
 }());
 exports.Bit = Bit;
-var Numbers = (function () {
+var Numbers = /** @class */ (function () {
     function Numbers() {
     }
     Numbers.prototype.transform = function (input) { return pipes.numbers(input); };
@@ -258,7 +258,7 @@ var Numbers = (function () {
     return Numbers;
 }());
 exports.Numbers = Numbers;
-var ADate = (function () {
+var ADate = /** @class */ (function () {
     function ADate() {
     }
     ADate.prototype.transform = function () { return pipes.aDate.apply(pipes.aDate, arguments); };
@@ -270,7 +270,7 @@ var ADate = (function () {
     return ADate;
 }());
 exports.ADate = ADate;
-var AMath = (function () {
+var AMath = /** @class */ (function () {
     function AMath() {
     }
     AMath.prototype.transform = function () { return pipes.aMath.apply(pipes.aMath, arguments); };
@@ -282,7 +282,7 @@ var AMath = (function () {
     return AMath;
 }());
 exports.AMath = AMath;
-var ATime = (function () {
+var ATime = /** @class */ (function () {
     function ATime() {
     }
     ATime.prototype.transform = function () { return pipes.aTime.apply(pipes.aTime, arguments); };
@@ -294,7 +294,7 @@ var ATime = (function () {
     return ATime;
 }());
 exports.ATime = ATime;
-var Ack = (function () {
+var Ack = /** @class */ (function () {
     function Ack() {
     }
     Ack.prototype.transform = function () { return pipes.ack.apply(pipes.ack, arguments); };
@@ -306,7 +306,7 @@ var Ack = (function () {
     return Ack;
 }());
 exports.Ack = Ack;
-var Keys = (function () {
+var Keys = /** @class */ (function () {
     function Keys() {
     }
     Keys.prototype.transform = function (input) {
@@ -320,7 +320,7 @@ var Keys = (function () {
     return Keys;
 }());
 exports.Keys = Keys;
-var TypeofPipe = (function () {
+var TypeofPipe = /** @class */ (function () {
     function TypeofPipe() {
     }
     TypeofPipe.prototype.transform = function (input) { return typeof (input); };
@@ -332,7 +332,7 @@ var TypeofPipe = (function () {
     return TypeofPipe;
 }());
 exports.TypeofPipe = TypeofPipe;
-var ConsolePipe = (function () {
+var ConsolePipe = /** @class */ (function () {
     function ConsolePipe() {
     }
     ConsolePipe.prototype.transform = function () { return console.log.apply(console, arguments); };
@@ -372,4 +372,3 @@ exports.declarations = [
     BooleanPipe,
     Between
 ];
-//# sourceMappingURL=pipes.js.map

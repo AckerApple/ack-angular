@@ -13,7 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AckOffline_1 = require("./AckOffline");
 /** Que data based processes by associating name based handlers */
-var AckQue = (function (_super) {
+var AckQue = /** @class */ (function (_super) {
     __extends(AckQue, _super);
     function AckQue() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -170,4 +170,3 @@ var AckQue = (function (_super) {
     return AckQue;
 }(AckOffline_1.AckOffline));
 exports.AckQue = AckQue;
-//# sourceMappingURL=AckQue.js.map

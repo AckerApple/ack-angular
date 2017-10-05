@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AckArray = (function () {
+var AckArray = /** @class */ (function () {
     function AckArray() {
         this.refChange = new core_1.EventEmitter();
         //convenient memory for current page, may not be needed
@@ -142,4 +142,3 @@ var AckArray = (function () {
     return AckArray;
 }());
 exports.AckArray = AckArray;
-//# sourceMappingURL=AckArray.directive.js.map

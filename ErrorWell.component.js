@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var prefx_1 = require("./prefx");
 var error_well_pug_1 = require("./templates/error-well.pug");
-var ErrorWell = (function () {
+var ErrorWell = /** @class */ (function () {
     function ErrorWell() {
         this.message = 'Unexpected Error Occured';
     }
@@ -34,4 +34,3 @@ var ErrorWell = (function () {
     return ErrorWell;
 }());
 exports.ErrorWell = ErrorWell;
-//# sourceMappingURL=ErrorWell.component.js.map

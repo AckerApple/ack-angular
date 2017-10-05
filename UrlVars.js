@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var WindowService_1 = require("./WindowService");
-var UrlVars = (function () {
+var UrlVars = /** @class */ (function () {
     function UrlVars(WindowService) {
         this.WindowService = WindowService;
         this.vars = this.parse();
@@ -38,4 +38,3 @@ var UrlVars = (function () {
     return UrlVars;
 }());
 exports.UrlVars = UrlVars;
-//# sourceMappingURL=UrlVars.js.map
