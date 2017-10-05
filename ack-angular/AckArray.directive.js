@@ -4,7 +4,9 @@ var core_1 = require("@angular/core");
 var AckArray = (function () {
     function AckArray() {
         this.refChange = new core_1.EventEmitter();
-        this.page = 0;
+        //convenient memory for current page, may not be needed
+        //@Input() page:number = 0
+        //@Output() pageChange:EventEmitter<number> = new EventEmitter()
         this.pageAt = 0;
         this.pages = [];
         this.pagesChange = new core_1.EventEmitter();

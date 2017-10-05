@@ -8,4 +8,5 @@ import { string as absoluteOverflowX } from "./templates/absolute-overflow-x.pug
   elementHeightModel
   @Input() scrollBars
   @Input() wrapClass
+  @Input() active = true
 }

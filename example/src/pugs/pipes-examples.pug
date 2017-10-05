@@ -377,6 +377,32 @@ h3(id="Documentation") Documentation
           span(ngNonBindable) {{ 0 | aTime:'now':'date' }}
           span.pad-h-sm ==
           span {{ 0 | aDate:'now':'date':'getTime' }}
+  
+  .flex2.border-grey-6x.border
+    .pad-h
+      h3 aMath
+      p.text-sm.text-grey-2x A connection to Javascript Math functions
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewAMath=!viewAMath" "[ngClass]"="viewAMath?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewAMath" "[@500]"="'fadeInUp'")
+      absolute-overflow-x
+        pre.code-sample.margin-0
+          span(ngNonBindable) {{ 2.2 | aMath:'ceil' }}
+          span.pad-h-sm ==
+          span {{ 2.2 | aMath:'ceil' }}
+  
+  .flex2.border-grey-6x.border
+    .pad-h
+      h3 ack
+      p.text-sm.text-grey-2x A connection to objectifying functions
+    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="viewAck=!viewAck" "[ngClass]"="viewAck?'border-energized bg-energized':'border-info bg-info'")
+      |view details
+    div(*ngIf="viewAck" "[@500]"="'fadeInUp'")
+      absolute-overflow-x
+        pre.code-sample.margin-0
+          span(ngNonBindable) {{ 2.2 | ack:'Math':'ceil' }}
+          span.pad-h-sm ==
+          span {{ 2.2 | ack:'Math':'ceil' }}
 
 
 h3.margin-bottom-0 More Pipe Examples

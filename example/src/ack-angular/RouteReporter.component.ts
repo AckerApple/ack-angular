@@ -28,6 +28,9 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
 
   @Input() params
   @Output() paramsChange = new EventEmitter()
+
+  @Input() state
+  @Output() stateChange = new EventEmitter()
   
   constructor(public RouteWatchReporter:RouteWatchReporter){
     this.$document = document
@@ -54,6 +57,8 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
     this.stateChanger.emit( this.RouteWatchReporter )
  
     if( this.RouteWatchReporter.current ){
+      this.stateChange.emit( this.RouteWatchReporter.current )
+      
       if( this.RouteWatchReporter.current.config ){
         const name = this.RouteWatchReporter.current.config.name || this.RouteWatchReporter.current.config.path
         this.stateNameChange.emit( this.stateName=name )

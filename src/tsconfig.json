@@ -1,25 +1,32 @@
 {
   "compilerOptions": {
+    "outDir": "../dist",
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "sourceMap": true,
-    "inlineSources": true,
     "emitDecoratorMetadata": true,
-    "baseUrl": "src",
     "experimentalDecorators": true,
+    "sourceMap": false,
     "noEmitHelpers": false,
-    "allowJs": false,
-    "allowSyntheticDefaultImports": true,
     "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true,
-    "lib": ["es2015", "dom"],
-    "outDir": "../ack-angular",
-    "declaration": true
+    "declaration": true,
+    "skipLibCheck": true,
+    "stripInternal": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "lib": ["dom", "es2015"],
+    "types": [],
+    "typeRoots": [
+      "../node_modules/@types"
+    ]
   },
-  "exclude": ["node_modules"],
+  "exclude": [
+    "node_modules"
+  ],
+  "files": [
+    "./index.ts"
+  ],
   "angularCompilerOptions": {
-    "skipMetadataEmit" : false,
-    "skipTemplateCodegen" : true
+    "genDir": "../temp/factories"
   }
 }

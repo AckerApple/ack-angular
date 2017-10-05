@@ -1,9 +1,16 @@
-.pos-rel
-  -attrs={};
+div([ngStyle]="{position:active?'relative':null}")
+  -attrs = {};
   -attrs["[(elementHeightModel)]"] = "elementHeightModel"
   -attrs["[ngClass]"] = "wrapClass"
-  -attrs["[class.no-scroll-bars]"] = "!scrollBars && scrollBars!=null"
-  .overflow.pos-abs.width-full&attributes(attrs)
+  -attrs["[class.no-scroll-bars]"] = "active && !scrollBars && scrollBars!=null"
+  -attrs["[ngStyle]"] = 'active ? {overflow:\'auto\',position:\'absolute\',width:\'100%\'} : {}'
+  div&attributes(attrs)
     ng-content
-  .invisible([ngStyle]="{'height.px':elementHeightModel}" style="overflow:hidden;")
+  
+  //-height maintainer while actual content is position absolute
+  -attrs = {};
+  -attrs["*ngIf"] = "active"
+  -attrs["[ngStyle]"] = "{'height.px':elementHeightModel}"
+  -attrs.style = "visibility:hidden;overflow:hidden;"
+  div&attributes(attrs)
     |&nbsp;

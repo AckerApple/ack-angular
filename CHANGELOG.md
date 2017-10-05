@@ -1,6 +1,14 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.6.26] - 2017-10-05
+### Added
+- [(state)] to route-reporter
+
+## [0.6.25] - 2017-09-25
+### Updated
+- absolute-overflow-x now has an active bindable input
+
 ## [0.6.24] - 2017-09-05
 ### Updated
 - ack-css-boot

@@ -9,7 +9,10 @@ import { EventEmitter, Output, Input, Directive } from '@angular/core'
   @Input() ref
   @Output() refChange = new EventEmitter()
   
-  page:number = 0
+  //convenient memory for current page, may not be needed
+  //@Input() page:number = 0
+  //@Output() pageChange:EventEmitter<number> = new EventEmitter()
+
   @Input() pageAt:number = 0
   @Input() pages = []
   @Output() pagesChange = new EventEmitter()

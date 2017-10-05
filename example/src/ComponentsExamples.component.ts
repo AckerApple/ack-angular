@@ -19,6 +19,7 @@ import {string as componentsExamples} from './templates/components-examples.pug'
   pageAt = 2
   arrayOfObjects = arrayOfObjects
   selectedArray=[{letter:'c'}]
+  absoluteOverflowXActive = true//control the absolute-overflow-x example
 
   constructor(public PageScrollService:PageScrollService){}
   

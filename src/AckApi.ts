@@ -182,7 +182,7 @@ import { AckQue } from './AckQue';
       headers:{}//when sending a file 'Content-Type':undefined so that no content-type header is sent
     }
   */
-  _fetch(cfg) {
+  _fetch(cfg):Promise<Response> {
     upgradeConfig(cfg)
 
     const request = new Request(cfg)//cfg

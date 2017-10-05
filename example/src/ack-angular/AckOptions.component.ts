@@ -17,6 +17,7 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   @Input() array = []
   @Input() stylize = true
   @Input() multiple = false
+  //@Input() modelIsArray = false//support array of options to model-array, that array only allows a length of one
   @Input() toggleable = false//multiple must be false
 
   @ContentChild(TemplateRef) @Input() templateRef:TemplateRef<any>
@@ -43,7 +44,7 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   selectItem(item){
     const value = this.getArrayItemValue(item)
 
-    if(this.multiple){
+    if( this.multiple ){// || this.modelIsArray
       const modelIndex = this.modelIndex( item )
       if(modelIndex>=0){
         this.model.splice(modelIndex, 1)
