@@ -8,7 +8,7 @@
 
     a.text-blue.underline.text-xs(*ngIf="error && (error|typeof)!='string'" "(click)"="moreDetails=!moreDetails")
       |details
-    a.text-blue.underline.text-xs(*ngIf="error" "(click)"="errorClose=error")
+    a.text-blue.underline.text-xs(*ngIf="error && closable" "(click)"="errorClose=error")
       |close
 
   div(*ngIf="moreDetails" "[@200]"="'fadeInUp'")
