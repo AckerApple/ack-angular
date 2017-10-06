@@ -6,6 +6,7 @@ var error_well_pug_1 = require("./templates/error-well.pug");
 var ErrorWell = /** @class */ (function () {
     function ErrorWell() {
         this.message = 'Unexpected Error Occured';
+        this.closable = true;
     }
     ErrorWell.prototype.ngOnInit = function () {
         this.cssClasses = this.cssClasses || 'bg-danger border border-danger text-danger';
@@ -30,6 +31,7 @@ var ErrorWell = /** @class */ (function () {
         'message': [{ type: core_1.Input },],
         'error': [{ type: core_1.Input },],
         'cssClasses': [{ type: core_1.Input },],
+        'closable': [{ type: core_1.Input },],
     };
     return ErrorWell;
 }());

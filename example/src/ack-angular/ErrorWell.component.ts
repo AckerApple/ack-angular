@@ -7,10 +7,11 @@ import { string as errorWell } from "./templates/error-well.pug"
   template:errorWell,
   animations:prefx
 }) export class ErrorWell{
+  errorClose
   @Input() message:string = 'Unexpected Error Occured'
   @Input() error
   @Input() cssClasses:string
-  errorClose
+  @Input() closable = true
 
   ngOnInit(){
     this.cssClasses = this.cssClasses || 'bg-danger border border-danger text-danger'
