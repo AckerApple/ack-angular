@@ -16,10 +16,10 @@ export declare function capitalizeWords(input: any): any;
 export declare function capitalize(input: any): any;
 export declare function capitalizeAfterSentence(input: any): any;
 export declare function capitalizeOne(input: any): any;
-export declare const aDate: (v: any, call0: any, call1: any, call2: any) => any;
-export declare const aTime: (v: any, call0: any, call1: any, call2: any) => any;
-export declare const aMath: (v: any, call0: any, call1: any, call2: any) => any;
-export declare const ack: (v: any, call0: any, call1: any, call2: any) => any;
+export declare const aDate: (v: any, call0?: any, call1?: any, call2?: any) => any;
+export declare const aTime: (v: any, call0?: any, call1?: any, call2?: any) => any;
+export declare const aMath: (v: any, call0?: any, call1?: any, call2?: any) => any;
+export declare const ack: (v: any, call0?: any, call1?: any, call2?: any) => any;
 export declare const pipes: {
     array: (input: any, repeat?: number, repeatValue?: any) => any;
     markdownAnchor: (input: string) => string;
@@ -33,9 +33,9 @@ export declare const pipes: {
     capitalizeOne: (input: any) => any;
     numberToPhone: (val: any) => any;
     numberSuffix: (val: any, rtnVal?: boolean) => string;
-    aDate: (v: any, call0: any, call1: any, call2: any) => any;
-    aMath: (v: any, call0: any, call1: any, call2: any) => any;
-    aTime: (v: any, call0: any, call1: any, call2: any) => any;
-    ack: (v: any, call0: any, call1: any, call2: any) => any;
+    aDate: (v: any, call0?: any, call1?: any, call2?: any) => any;
+    aMath: (v: any, call0?: any, call1?: any, call2?: any) => any;
+    aTime: (v: any, call0?: any, call1?: any, call2?: any) => any;
+    ack: (v: any, call0?: any, call1?: any, call2?: any) => any;
     between: (input: any, a: any, b: any) => boolean;
 };
