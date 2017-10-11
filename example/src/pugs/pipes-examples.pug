@@ -400,9 +400,9 @@ h3(id="Documentation") Documentation
     div(*ngIf="viewAck" "[@500]"="'fadeInUp'")
       absolute-overflow-x
         pre.code-sample.margin-0
-          span(ngNonBindable) {{ 2.2 | ack:'Math':'ceil' }}
+          span(ngNonBindable) {{ 0 | ack:'date':'toUtc':'date':'toString' }}
           span.pad-h-sm ==
-          span {{ 2.2 | ack:'Math':'ceil' }}
+          span {{ 0 | ack:'date':'toUtc':'date':'toString' }}
 
 
 h3.margin-bottom-0 More Pipe Examples

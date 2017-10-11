@@ -1,5 +1,7 @@
 import { Pipe } from '@angular/core';
+
 import * as pipes from "./pipes.class"
+
 import {
   SafeHtml as SafeHtmler,//must be exported for AOT
   SafeStyle as SafeStyler,//must be exported for AOT

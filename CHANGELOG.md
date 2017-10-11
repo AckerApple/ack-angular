@@ -1,6 +1,10 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.6.32] - 2017-10-11
+- fixed aMath and ack pipes
+- updated acx-x, which had breaking changes but they should effect here
+
 ## [0.6.26] - 2017-10-05
 ### Added
 - [(state)] to route-reporter

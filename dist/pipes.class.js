@@ -133,8 +133,25 @@ function a(name) {
 }
 /** responsible for ack-angular pipe'in system into ackX */
 function invokeRotator(invoke) {
+    var isF = typeof invoke == 'function';
+    var invoker = isF ? function (args) {
+        return invoke(args[0]);
+    } : function (args) {
+        var rtn = invoke[args[1]](args[0]);
+        for (var x = 0; x < args.length; ++x) {
+            if (x < 1) {
+                delete args[x];
+            }
+            else {
+                args[x - 1] = args[x];
+            }
+        }
+        args.length = args.length - 2;
+        return rtn;
+    };
     return function (v, call0, call1, call2) {
-        var newkey, subargs, key, item, rtn = invoke(v);
+        var newkey, subargs, key, item;
+        var rtn = invoker(arguments);
         //loop extra arguments as property collectors
         for (var x = 1; x < arguments.length; ++x) {
             key = arguments[x];
@@ -160,7 +177,7 @@ function invokeRotator(invoke) {
 }
 exports.aDate = a('date');
 exports.aTime = a('time');
-exports.aMath = invokeRotator(function () { return Math; });
+exports.aMath = invokeRotator(Math);
 exports.ack = invokeRotator(ackX);
 // maybe deprecated . Remove in future releases
 exports.pipes = {

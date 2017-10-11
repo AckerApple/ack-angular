@@ -1,6 +1,5 @@
 import * as ackX from "ack-x/index-browser"
 
-
 export function between(input, a, b) {
   if(a==null || b==null)return false
   return (input >= a && input <= b) || (input <= a && input >= b) ? true : false
@@ -129,14 +128,35 @@ export function capitalizeOne(input:any) {
   return (!!input) ? input.replace(reg, function(txt:any){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()}) : ''
 }
 
-function a(name){
+function a(name:string){
   return invokeRotator( ackX[name] )
 }
 
 /** responsible for ack-angular pipe'in system into ackX */
-function invokeRotator(invoke){
-  return function(v,call0,call1,call2){
-    var newkey, subargs, key, item, rtn = invoke(v)
+function invokeRotator(invoke:any){
+  const isF = typeof invoke=='function'
+
+  const invoker:Function = isF ? function(args:any[]){
+    return invoke( args[0] )
+  } : function(args:any[]){
+    const rtn = invoke[ args[1] ]( args[0] )
+
+    for(let x=0; x<args.length; ++x){
+      if( x<1 ){
+        delete args[x]        
+      }else{
+        args[ x-1 ] = args[x]
+      }
+    }
+
+    args.length = args.length - 2
+
+    return rtn
+  }
+
+  return function(v, call0?, call1?, call2?){
+    var newkey, subargs, key, item
+    var rtn = invoker(arguments)
 
     //loop extra arguments as property collectors
     for(var x=1; x < arguments.length; ++x){
@@ -168,8 +188,7 @@ function invokeRotator(invoke){
 
 export const aDate = a('date')
 export const aTime = a('time')
-export const aMath = invokeRotator( ()=>Math )
-
+export const aMath = invokeRotator( Math )
 export const ack = invokeRotator( ackX )
 
 // maybe deprecated . Remove in future releases
