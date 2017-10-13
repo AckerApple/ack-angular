@@ -1001,25 +1001,39 @@ h3(id="Complex Components") Complex Components
             td [(params)]
             td Creates a reference to the current route's params
           tr
+            td [(query)]
+            td Creates a reference to the current route's query params
+          tr
             td (beforeChange)
             td Expression bind called before route changes
           tr
             td (onChange)
             td Expression bind called when route changes
-      route-reporter("[(ref)]"="routeState")
+      route-reporter("[(ref)]"="routeState" "[(query)]"="query" "[(stateName)]"="stateName")
       h4.pad-sm.margin-0 Usage Example
-      absolute-overflow-x
-        pre.code-sample.margin-0(ngNonBindable).
-          &lt;route-reporter [(ref)]="" [(stateName)]="" [(params)]="" (beforeChange)="" (onChange)=""&gt;
-      h4.pad-sm.margin-0 ref example
       absolute-overflow-x
         pre.code-sample.margin-0
           div(ngNonBindable).
-            &lt;route-reporter [(ref)]="routeState" &gt;
+            &lt;route-reporter
+              [(ref)]       = "routeState"
+              [(query)]     = "query"
+              [(stateName)] = "stateName"
+            &gt;&lt;/route-reporter&gt;
+
           div
             span(ngNonBindable) {{ routeState?.current.config.name }}
             span &nbsp;==&nbsp;
             span {{ routeState?.current.config.name }}
+          
+          div
+            span(ngNonBindable) {{ stateName }}
+            span &nbsp;==&nbsp;
+            span {{ stateName }}
+          
+          div
+            span(ngNonBindable) {{ query | json }}
+            span &nbsp;==&nbsp;
+            span {{ query | json }}
   //-.flex-1.border.border-grey-4x.border
     .pad-h
       h3 ui-route-reporter
