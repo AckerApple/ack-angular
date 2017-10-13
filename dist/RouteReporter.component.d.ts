@@ -15,12 +15,14 @@ export declare class RouteReporter {
     stateNameChange: EventEmitter<{}>;
     params: any;
     paramsChange: EventEmitter<{}>;
+    query: any;
+    queryChange: EventEmitter<{}>;
     state: any;
     stateChange: EventEmitter<{}>;
     constructor(RouteWatchReporter: RouteWatchReporter);
+    ngOnInit(): void;
     ngOnDestroy(): void;
     emit(): void;
-    ngOnInit(): void;
     goBackTo(name: any, params: any): void;
     tryBack(name: any, params: any): void;
 }

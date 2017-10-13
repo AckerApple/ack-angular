@@ -29,6 +29,9 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
   @Input() params
   @Output() paramsChange = new EventEmitter()
 
+  @Input() query
+  @Output() queryChange = new EventEmitter()
+
   @Input() state
   @Output() stateChange = new EventEmitter()
   
@@ -49,6 +52,28 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
     RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks)
   }
 
+  ngOnInit(){
+    setTimeout(()=>{
+      this.ref = this.RouteWatchReporter
+      this.refChange.emit(this.ref)
+      this.emit()
+    }, 0)
+
+    if(this.onLoad){
+      this.onLoad({
+        state:this.RouteWatchReporter.current,
+        params:this.RouteWatchReporter.current.params,
+        current:this.RouteWatchReporter.current
+      })
+    }
+
+    if( this.queryChange.observers.length ){
+      this.RouteWatchReporter
+      .activatedRoute.queryParams
+      .subscribe( query=>this.queryChange.emit(query) )
+    }
+  }
+
   ngOnDestroy(){
     this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks)
   }
@@ -66,23 +91,6 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
 
       this.paramsChange.emit( this.params=this.RouteWatchReporter.current.params )
     }
-  }
-
-  ngOnInit(){
-    setTimeout(()=>{
-      this.ref = this.RouteWatchReporter
-      this.refChange.emit(this.ref)
-      this.emit()
-    }, 0)
-
-    if(this.onLoad){
-      this.onLoad({
-        state:this.RouteWatchReporter.current,
-        params:this.RouteWatchReporter.current.params,
-        current:this.RouteWatchReporter.current
-      })
-    }
-
   }
 
   goBackTo(name, params){
