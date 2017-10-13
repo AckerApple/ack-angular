@@ -8,9 +8,6 @@ var RouteReporter = /** @class */ (function () {
     function RouteReporter(RouteWatchReporter) {
         var _this = this;
         this.RouteWatchReporter = RouteWatchReporter;
-        //isBackButton
-        //isNotBackButton
-        //mouseover
         this.stateChanger = new core_1.EventEmitter();
         this.beforeChanger = new core_1.EventEmitter();
         this.refChange = new core_1.EventEmitter();
@@ -36,6 +33,11 @@ var RouteReporter = /** @class */ (function () {
             _this.ref = _this.RouteWatchReporter;
             _this.refChange.emit(_this.ref);
             _this.emit();
+            if (_this.queryChange.observers.length) {
+                _this.querySub = _this.RouteWatchReporter
+                    .activatedRoute.queryParams
+                    .subscribe(function (query) { return _this.queryChange.emit(query); });
+            }
         }, 0);
         if (this.onLoad) {
             this.onLoad({
@@ -44,14 +46,12 @@ var RouteReporter = /** @class */ (function () {
                 current: this.RouteWatchReporter.current
             });
         }
-        if (this.queryChange.observers.length) {
-            this.RouteWatchReporter
-                .activatedRoute.queryParams
-                .subscribe(function (query) { return _this.queryChange.emit(query); });
-        }
     };
     RouteReporter.prototype.ngOnDestroy = function () {
         this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks);
+        if (this.queryChange.observers.length) {
+            this.querySub.unsubscribe();
+        }
     };
     RouteReporter.prototype.emit = function () {
         this.stateChanger.emit(this.RouteWatchReporter);
