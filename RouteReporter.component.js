@@ -16,6 +16,7 @@ var RouteReporter = /** @class */ (function () {
         this.refChange = new core_1.EventEmitter();
         this.stateNameChange = new core_1.EventEmitter();
         this.paramsChange = new core_1.EventEmitter();
+        this.queryChange = new core_1.EventEmitter();
         this.stateChange = new core_1.EventEmitter();
         this.$document = document;
         this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
@@ -29,20 +30,6 @@ var RouteReporter = /** @class */ (function () {
         });
         RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
     }
-    RouteReporter.prototype.ngOnDestroy = function () {
-        this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks);
-    };
-    RouteReporter.prototype.emit = function () {
-        this.stateChanger.emit(this.RouteWatchReporter);
-        if (this.RouteWatchReporter.current) {
-            this.stateChange.emit(this.RouteWatchReporter.current);
-            if (this.RouteWatchReporter.current.config) {
-                var name_1 = this.RouteWatchReporter.current.config.name || this.RouteWatchReporter.current.config.path;
-                this.stateNameChange.emit(this.stateName = name_1);
-            }
-            this.paramsChange.emit(this.params = this.RouteWatchReporter.current.params);
-        }
-    };
     RouteReporter.prototype.ngOnInit = function () {
         var _this = this;
         setTimeout(function () {
@@ -56,6 +43,25 @@ var RouteReporter = /** @class */ (function () {
                 params: this.RouteWatchReporter.current.params,
                 current: this.RouteWatchReporter.current
             });
+        }
+        if (this.queryChange.observers.length) {
+            this.RouteWatchReporter
+                .activatedRoute.queryParams
+                .subscribe(function (query) { return _this.queryChange.emit(query); });
+        }
+    };
+    RouteReporter.prototype.ngOnDestroy = function () {
+        this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks);
+    };
+    RouteReporter.prototype.emit = function () {
+        this.stateChanger.emit(this.RouteWatchReporter);
+        if (this.RouteWatchReporter.current) {
+            this.stateChange.emit(this.RouteWatchReporter.current);
+            if (this.RouteWatchReporter.current.config) {
+                var name_1 = this.RouteWatchReporter.current.config.name || this.RouteWatchReporter.current.config.path;
+                this.stateNameChange.emit(this.stateName = name_1);
+            }
+            this.paramsChange.emit(this.params = this.RouteWatchReporter.current.params);
         }
     };
     RouteReporter.prototype.goBackTo = function (name, params) {
@@ -87,6 +93,8 @@ var RouteReporter = /** @class */ (function () {
         'stateNameChange': [{ type: core_1.Output },],
         'params': [{ type: core_1.Input },],
         'paramsChange': [{ type: core_1.Output },],
+        'query': [{ type: core_1.Input },],
+        'queryChange': [{ type: core_1.Output },],
         'state': [{ type: core_1.Input },],
         'stateChange': [{ type: core_1.Output },],
     };
