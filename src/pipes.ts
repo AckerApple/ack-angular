@@ -125,6 +125,14 @@ import {
 
 @Pipe({name: 'keys'}) export class Keys {
   transform(input:any){
+    const type = typeof(input)=='object'
+    const isOb = input && type
+    const isArray = isOb && input.constructor == Array
+    
+    if(isArray){
+      return input.map((value,index)=>index)
+    }
+    
     return input ? Object.keys(input) : []
   }
 }

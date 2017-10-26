@@ -6,8 +6,9 @@ import { AckQue } from './AckQue';
 
 /** Http util with offline config for request failures */
 @Injectable() export class AckApi{
-  AuthError = new EventEmitter()
-  ApiError = new EventEmitter()
+  response:EventEmitter<Response> = new EventEmitter()
+  AuthError:EventEmitter<Error> = new EventEmitter()
+  ApiError:EventEmitter<Error> = new EventEmitter()
   AckCache
   AckQue
   config:{
@@ -189,6 +190,7 @@ import { AckQue } from './AckQue';
 
     return this.http.request( request )
     .toPromise()
+    .then( response=>this.response.emit(response) )//let subscribers of all responses know we got one
     .then( response=>this.processFetchByConfig(response,cfg) )
     .catch( e=>this.httpFailByConfig(e,cfg) )
   }

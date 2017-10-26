@@ -5,6 +5,8 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var AckModule_1 = require("./AckModule");
 exports.AckModule = AckModule_1.AckModule;
+var RouteWatchReporter_1 = require("./RouteWatchReporter");
+exports.RouteWatchReporter = RouteWatchReporter_1.RouteWatchReporter;
 var components_1 = require("./components");
 exports.components = components_1.declarations;
 var pipes_1 = require("./pipes");

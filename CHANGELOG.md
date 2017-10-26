@@ -1,6 +1,12 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [0.6.36] - 2017-10-26
+- AckApi has response emitter
+
+## [0.6.35] - 2017-10-16
+- Pipes filter keys now returns array numbers if input variable is Array
+
 ## [0.6.33] - 2017-10-13
 - added [(query)] to route-reporter
 

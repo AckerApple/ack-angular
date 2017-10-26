@@ -17,6 +17,8 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
   //isNotBackButton
   //mouseover
 
+  querySub
+
   @Output("onChange") stateChanger = new EventEmitter()
   @Output("beforeChange") beforeChanger = new EventEmitter()
   @Input() onLoad
@@ -57,6 +59,12 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
       this.ref = this.RouteWatchReporter
       this.refChange.emit(this.ref)
       this.emit()
+
+      if( this.queryChange.observers.length ){
+        this.querySub = this.RouteWatchReporter
+        .activatedRoute.queryParams
+        .subscribe( query=>this.queryChange.emit(query) )
+      }
     }, 0)
 
     if(this.onLoad){
@@ -66,16 +74,14 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
         current:this.RouteWatchReporter.current
       })
     }
-
-    if( this.queryChange.observers.length ){
-      this.RouteWatchReporter
-      .activatedRoute.queryParams
-      .subscribe( query=>this.queryChange.emit(query) )
-    }
   }
 
   ngOnDestroy(){
     this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks)
+
+    if( this.queryChange.observers.length ){
+      this.querySub.unsubscribe()
+    }
   }
 
   emit(){

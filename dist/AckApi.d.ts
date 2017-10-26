@@ -4,8 +4,9 @@ import { Http, Response } from '@angular/http';
 /** Http util with offline config for request failures */
 export declare class AckApi {
     http: Http;
-    AuthError: EventEmitter<{}>;
-    ApiError: EventEmitter<{}>;
+    response: EventEmitter<Response>;
+    AuthError: EventEmitter<Error>;
+    ApiError: EventEmitter<Error>;
     AckCache: any;
     AckQue: any;
     config: {

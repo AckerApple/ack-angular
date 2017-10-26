@@ -6,6 +6,7 @@ export declare class RouteReporter {
     $scope: any;
     static parameters: (typeof RouteWatchReporter)[][];
     docCallbacks: any;
+    querySub: any;
     stateChanger: EventEmitter<{}>;
     beforeChanger: EventEmitter<{}>;
     onLoad: any;

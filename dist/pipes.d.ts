@@ -77,7 +77,7 @@ export declare class Ack {
     transform(): any;
 }
 export declare class Keys {
-    transform(input: any): string[];
+    transform(input: any): any;
 }
 export declare class TypeofPipe {
     transform(input: any): "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function";
