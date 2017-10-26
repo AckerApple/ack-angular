@@ -59,7 +59,7 @@ export declare class AckApi {
       }
     */
     _fetch(cfg: any): Promise<Response>;
-    processFetchByConfig(response: any, request: any): any;
+    processFetchByConfig(response: any, request: any): Promise<any>;
     httpFailByConfig(e: any, cfg: any): Promise<never>;
     requestResponseToCache(request: any, output: any): any;
     /**

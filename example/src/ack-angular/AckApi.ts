@@ -190,12 +190,13 @@ import { AckQue } from './AckQue';
 
     return this.http.request( request )
     .toPromise()
-    .then( response=>this.response.emit(response) )//let subscribers of all responses know we got one
     .then( response=>this.processFetchByConfig(response,cfg) )
     .catch( e=>this.httpFailByConfig(e,cfg) )
   }
 
-  processFetchByConfig(response, request){
+  processFetchByConfig(response, request):Promise<any>{
+    this.response.emit(response)//let subscribers of all responses know we got one
+    
     const data = response['_body']//response['data'] || 
     const isJson = data && response.headers.get('Content-Type')=='application/json'
 
@@ -213,7 +214,7 @@ import { AckQue } from './AckQue';
       .then( ()=>output )
     }
 
-    return output
+    return Promise.resolve( output )
   }
 
   httpFailByConfig(e,cfg){
