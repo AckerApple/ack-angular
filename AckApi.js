@@ -9,6 +9,7 @@ var AckQue_1 = require("./AckQue");
 var AckApi = /** @class */ (function () {
     function AckApi(http) {
         this.http = http;
+        this.response = new core_1.EventEmitter();
         this.AuthError = new core_1.EventEmitter();
         this.ApiError = new core_1.EventEmitter();
         this.config = {
@@ -156,6 +157,7 @@ var AckApi = /** @class */ (function () {
         var request = new http_1.Request(cfg); //cfg
         return this.http.request(request)
             .toPromise()
+            .then(function (response) { return _this.response.emit(response); }) //let subscribers of all responses know we got one
             .then(function (response) { return _this.processFetchByConfig(response, cfg); })
             .catch(function (e) { return _this.httpFailByConfig(e, cfg); });
     };

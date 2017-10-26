@@ -310,6 +310,12 @@ var Keys = /** @class */ (function () {
     function Keys() {
     }
     Keys.prototype.transform = function (input) {
+        var type = typeof (input) == 'object';
+        var isOb = input && type;
+        var isArray = isOb && input.constructor == Array;
+        if (isArray) {
+            return input.map(function (value, index) { return index; });
+        }
         return input ? Object.keys(input) : [];
     };
     Keys.decorators = [
