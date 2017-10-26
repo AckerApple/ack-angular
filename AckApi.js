@@ -157,11 +157,11 @@ var AckApi = /** @class */ (function () {
         var request = new http_1.Request(cfg); //cfg
         return this.http.request(request)
             .toPromise()
-            .then(function (response) { return _this.response.emit(response); }) //let subscribers of all responses know we got one
             .then(function (response) { return _this.processFetchByConfig(response, cfg); })
             .catch(function (e) { return _this.httpFailByConfig(e, cfg); });
     };
     AckApi.prototype.processFetchByConfig = function (response, request) {
+        this.response.emit(response); //let subscribers of all responses know we got one
         var data = response['_body']; //response['data'] || 
         var isJson = data && response.headers.get('Content-Type') == 'application/json';
         if (isJson && !response['data']) {
@@ -176,7 +176,7 @@ var AckApi = /** @class */ (function () {
             return this.requestResponseToCache(request, output)
                 .then(function () { return output; });
         }
-        return output;
+        return Promise.resolve(output);
     };
     AckApi.prototype.httpFailByConfig = function (e, cfg) {
         var isReduceData = cfg.catch == null || cfg.catch == 'data';
