@@ -68,8 +68,10 @@ var AckArray = /** @class */ (function () {
         }
         this.pagesChange.emit(this.pages);
     };
-    AckArray.prototype.getItemId = function (item) {
-        return this.idKey ? item[this.idKey] : item;
+    //looks up id or the item itself is an ID
+    AckArray.prototype.getItemId = function (item, itemIndexName) {
+        itemIndexName = itemIndexName || this.idKey;
+        return itemIndexName ? item[itemIndexName] : item;
     };
     AckArray.prototype.getCompareArray = function () {
         var _this = this;
@@ -81,9 +83,9 @@ var AckArray = /** @class */ (function () {
     AckArray.prototype.selected = function (item) {
         return this.itemIndex(item) >= 0 ? true : false;
     };
-    AckArray.prototype.itemIndex = function (item) {
+    AckArray.prototype.itemIndex = function (item, itemIndexName) {
         var array = this.getCompareArray();
-        var itemId = this.getItemId(item);
+        var itemId = this.getItemId(item, itemIndexName);
         for (var x = array.length - 1; x >= 0; --x) {
             if (itemId == array[x]) {
                 return x;
