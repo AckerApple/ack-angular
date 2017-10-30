@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "0.6.37",
+  "version": "0.6.38",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -67,7 +67,7 @@
     "@angular/router": "^4.3.4",
     "@types/jasmine": "^2.6.0",
     "ack-angular-fx": "^1.2.6",
-    "ack-css-boot": "^1.2.43",
+    "ack-css-boot": "^1.2.44",
     "ack-pug-bundler": "^1.3.8",
     "ack-sass": "^1.1.0",
     "ack-webpack": "^1.1.36",
