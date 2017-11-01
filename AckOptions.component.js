@@ -112,11 +112,17 @@ var AckOptions = /** @class */ (function () {
     };
     AckOptions.prototype.getItemClass = function (item) {
         var selected = this.isItemSelected(item);
-        return {
-            'cursor-pointer pad-h pad-v-sm border-grey-6x border-bottom': this.stylize,
-            'bg-warning': this.stylize && selected,
-            'hover-bg-grey-5x': this.stylize && !selected
-        };
+        var string = '';
+        if (this.stylize) {
+            string += 'cursor-pointer pad-h pad-v-sm border-grey-6x border-bottom ';
+        }
+        if (this.stylize && selected) {
+            string += 'bg-warning ';
+        }
+        if (this.stylize && !selected) {
+            string += 'hover-bg-grey-5x ';
+        }
+        return string;
     };
     AckOptions.decorators = [
         { type: core_1.Component, args: [{
