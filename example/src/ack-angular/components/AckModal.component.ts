@@ -53,7 +53,6 @@ import { string as ackModal } from "./templates/ack-modal.pug"
   ngOnInit(){
     setTimeout(()=>{
       this.refChange.emit( this )
-
       if(this.showModelChange.observers.length){
         this.showModelMode = true
         this.showModel = this.showModel ? true : false

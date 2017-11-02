@@ -15,6 +15,9 @@
     "lib": ["es2015", "dom"],
     "outDir": "aot"
   },
+  "include":[
+    "../package.json",
+  ],
   "files": [
     "typings.d.ts",
     "src/app.module.ts"

@@ -1,5 +1,5 @@
 //-variables
-div("[(statusOnlineModel)]"="statusOnlineModel")
+ng-container("[(statusOnlineModel)]"="statusOnlineModel")
 
 .pad-h
   p.margin-bottom-0 Import Example
@@ -24,9 +24,9 @@ error-well([error]="error")
           |Http util with offline config for request failures
         br
     .text-center
-      a.block.border.pad-xs.hover-bg-warning("(click)"="viewAckApi=!viewAckApi" "[ngClass]"="viewAckApi?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xs.hover-bg-warning("(click)"="views.ackApi=!views.ackApi" "[ngClass]"="views.ackApi?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewAckApi" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.ackApi" "[@500]"="'fadeInUp'")
       .strong.pad-sm Http Tester
       .pad-xs
         .flex-center.flex-valign-center.child-pad-xxs
@@ -40,7 +40,11 @@ error-well([error]="error")
               option(value="DELETE") DELETE
           .flex-1
             label url
-            input.block.width-full.min-width-300.text-md("[(ngModel)]"="httpConfig.url" name="httpConfig.url" "(onEnterKey)"="sendHttp()")
+            input.block.width-full.min-width-300.text-md(
+              "[(ngModel)]"="httpConfig.url"
+              name="httpConfig.url"
+              "(enterKey)"="sendHttp()"
+            )
           div
             label &nbsp;
             div
@@ -48,15 +52,15 @@ error-well([error]="error")
                 |request
         .margin-top-xs.pad-xxs.bg-white.border.border-grey-6x
           .flex-center.child-margin-xxs.child-pad-h-xs.text-center
-            a.flex-1.border("(click)"="viewHttpSub=viewHttpSub=='body'?null:'body'" "[ngClass]"="viewHttpSub=='body'?'bg-energized border-energized':'bg-info text-info border-info'")
+            a.flex-1.border("(click)"="views.httpSub=views.httpSub=='body'?null:'body'" "[ngClass]"="views.httpSub=='body'?'bg-energized border-energized':'bg-info text-info border-info'")
               |request body
-            a.pos-rel.flex-1.border("(click)"="viewHttpSub=viewHttpSub=='headers'?null:'headers';loadHttpHeaderConfigArray();" "[ngClass]"="viewHttpSub=='headers'?'bg-energized border-energized':'bg-info text-info border-info'")
+            a.pos-rel.flex-1.border("(click)"="views.httpSub=views.httpSub=='headers'?null:'headers';loadHttpHeaderConfigArray();" "[ngClass]"="views.httpSub=='headers'?'bg-energized border-energized':'bg-info text-info border-info'")
               .pos-abs.pad-xxs.right-0.text-white(style="line-height:20px")
                 .font-fixed-width.radius-half.height-20.width-20.bg-grey-3x.pad-h-xxs
                   |{{ httpHeaderConfigArray.length }}
               .pad-h-lg
                 |request headers
-            a.pos-rel.flex-1.border("(click)"="viewHttpSub=viewHttpSub=='queModel'?null:'queModel';" "[ngClass]"="viewHttpSub=='queModel'?'bg-energized border-energized':'bg-info text-info border-info'")
+            a.pos-rel.flex-1.border("(click)"="views.httpSub=views.httpSub=='queModel'?null:'queModel';" "[ngClass]"="views.httpSub=='queModel'?'bg-energized border-energized':'bg-info text-info border-info'")
               .pos-abs.pad-xxs.left-0.text-white(style="line-height:20px")
                 .inline-block.font-fixed-width.radius-half.height-20.width-20.bg-grey-3x.pad-h-xxs
                   |{{ httpQueArray.length || 0 }}
@@ -67,14 +71,14 @@ error-well([error]="error")
 
 
           //-request body
-          .pad-xs(*ngIf="viewHttpSub=='body'" "[@500]"="'fadeInUp'")
+          .pad-xs(*ngIf="views.httpSub=='body'" "[@500]"="'fadeInUp'")
             select.width-full("[(ngModel)]"="httpConfig.headers['Content-Type']" name="httpConfig.headers['Content-Type']")
               option(value="text/plain") text/plain
               option(value="application/json") application/json
             textarea.width-full.height-100("[(ngModel)]"="httpConfig.body" name="httpConfig.data" placeholder="transmit data here")
 
           //-request headers
-          .pad-xs(*ngIf="viewHttpSub=='headers'" "[@500]"="'fadeInUp'")
+          .pad-xs(*ngIf="views.httpSub=='headers'" "[@500]"="'fadeInUp'")
             .flex.child-margin-xxs.child-pad-xxs(*ngFor="let item of httpHeaderConfigArray; let i = index" "[@200]"="'fadeInUp'")
               input.flex-1("[(ngModel)]"="item.name" placeholder="name" "(change)"="readHttpHeaderConfigArray()")
               input.flex-1("[(ngModel)]"="item.value" placeholder="value" "(change)"="readHttpHeaderConfigArray()")
@@ -84,7 +88,7 @@ error-well([error]="error")
                 |add
 
           //- QUE CACHE model
-          .pad-xs(*ngIf="viewHttpSub=='queModel'" "[@500]"="'fadeInUp'")
+          .pad-xs(*ngIf="views.httpSub=='queModel'" "[@500]"="'fadeInUp'")
             //- QUE
             div(*ngIf="httpConfig.method=='GET'" "[@500]"="'fadeInUp'")
               .text-grey-2x Cache GET requests.
@@ -221,9 +225,9 @@ error-well([error]="error")
           |Smart error logging for single page apps
         br
     .text-center
-      a.block.border.pad-xs.hover-bg-warning("(click)"="viewErrorLog=!viewErrorLog" "[ngClass]"="viewErrorLog?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xs.hover-bg-warning("(click)"="views.errorLog=!views.errorLog" "[ngClass]"="views.errorLog?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewErrorLog" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.errorLog" "[@500]"="'fadeInUp'")
       .strong.pad-sm Error Tester
       form.flex-center.flex-valign-center.child-margin-xs
         span.margin-right-0 maxLog:
@@ -259,9 +263,9 @@ error-well([error]="error")
           |Smart logging for single page apps
         br
     .text-center
-      a.block.border.pad-xs.hover-bg-warning("(click)"="viewLog=!viewLog" "[ngClass]"="viewLog?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xs.hover-bg-warning("(click)"="views.log=!views.log" "[ngClass]"="views.log?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewLog" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.log" "[@500]"="'fadeInUp'")
       .strong.pad-sm Log Tester
       form.flex-center.flex-valign-center.child-margin-xs
         span.margin-right-0 maxLog:
@@ -294,9 +298,9 @@ error-well([error]="error")
           |Parse and get url query variables regardless of case sensativity
         br
     .text-center
-      a.block.border.pad-xs.hover-bg-warning("(click)"="viewUrlVars=!viewUrlVars" "[ngClass]"="viewUrlVars?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xs.hover-bg-warning("(click)"="views.urlVars=!views.urlVars" "[ngClass]"="views.urlVars?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewUrlVars" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.urlVars" "[@500]"="'fadeInUp'")
       h4.pad-h-sm.margin-0 Usage Example
       .pad-xs
         absolute-overflow-x
@@ -323,9 +327,9 @@ error-well([error]="error")
           |Proper dependency injection of window variable
         br
     .text-center
-      a.block.border.pad-xs.hover-bg-warning("(click)"="viewWindowService=!viewWindowService" "[ngClass]"="viewWindowService?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xs.hover-bg-warning("(click)"="views.windowService=!views.windowService" "[ngClass]"="views.windowService?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewWindowService" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.windowService" "[@500]"="'fadeInUp'")
       h4.pad-h-sm.margin-0 Usage Example
       .pad-xs
         absolute-overflow-x
@@ -350,9 +354,9 @@ error-well([error]="error")
           |Offline storage provided by #[a.text-calm(href="https://www.npmjs.com/package/localforage") localforage]
         br
     .text-center
-      a.block.border.pad-xs.hover-bg-warning("(click)"="viewAckOffline=!viewAckOffline" "[ngClass]"="viewAckOffline?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xs.hover-bg-warning("(click)"="views.ackOffline=!views.ackOffline" "[ngClass]"="views.ackOffline?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewAckOffline" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.ackOffline" "[@500]"="'fadeInUp'")
       .strong.pad-sm Memory Test
       form.pad-xs.flex.child-margin-xxs("(ngSubmit)"="setOffline(newOfflineStorage)")
         input.flex-1("[(ngModel)]"="newOfflineStorage" name="newOfflineStorage" placeholder="put something into browser memory")
@@ -404,9 +408,9 @@ error-well([error]="error")
           |Offline storage used with expires and maxAge cache control options
         br
     .text-center
-      a.block.border.pad-xs.hover-bg-warning("(click)"="viewAckCache=!viewAckCache" "[ngClass]"="viewAckCache?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xs.hover-bg-warning("(click)"="views.ackCache=!views.ackCache" "[ngClass]"="views.ackCache?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewAckCache" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.ackCache" "[@500]"="'fadeInUp'")
       .strong.pad-sm Cache Test
       form.pad-xs.flex.child-margin-xxs("(ngSubmit)"="setCache(cacheStorage, cacheSeconds)")
         input.flex-1("[(ngModel)]"="cacheStorage" name="cacheStorage" placeholder="put something expirable into browser memory")
@@ -461,9 +465,9 @@ error-well([error]="error")
           |Offline storage used to provide association between data and data-processors
         br
     .text-center
-      a.block.border.pad-xs.hover-bg-warning("(click)"="viewAckQue=!viewAckQue" "[ngClass]"="viewAckQue?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xs.hover-bg-warning("(click)"="views.ackQue=!views.ackQue" "[ngClass]"="views.ackQue?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewAckQue" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.ackQue" "[@500]"="'fadeInUp'")
       .pad-sm.strong Que Test
       form.flex.child-margin-xxs(*ngFor="let item of queArray; let i=index" "[@200]"="'fadeInUp'")
         .text-xs.pad-h-xs {{i}}

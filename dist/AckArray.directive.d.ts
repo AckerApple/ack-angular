@@ -15,10 +15,10 @@ export declare class AckArray {
     buildMap(): void;
     only(item: any): void;
     createPages(): void;
-    getItemId(item: any): any;
+    getItemId(item: any, itemIndexName?: string): any;
     getCompareArray(): any[];
     selected(item: any): boolean;
-    itemIndex(item: any): number;
+    itemIndex(item: any, itemIndexName?: string): number;
     toggle(item: any): this;
     push(item: any): this;
     unshift(item: any): this;

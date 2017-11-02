@@ -1,19 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AckArray = /** @class */ (function () {
+var AckArray = (function () {
     function AckArray() {
-        this.refChange = new core_1.EventEmitter();
-        //convenient memory for current page, may not be needed
-        //@Input() page:number = 0
-        //@Output() pageChange:EventEmitter<number> = new EventEmitter()
-        this.pageAt = 0;
-        this.pages = [];
-        this.pagesChange = new core_1.EventEmitter();
-        this.arrayChange = new core_1.EventEmitter();
-        //an system of creating an object by keys of array nodes
-        this.keyMap = {};
-        this.keyMapChange = new core_1.EventEmitter();
     }
     AckArray.prototype.ngOnInit = function () {
         var _this = this;
@@ -68,8 +57,9 @@ var AckArray = /** @class */ (function () {
         }
         this.pagesChange.emit(this.pages);
     };
-    AckArray.prototype.getItemId = function (item) {
-        return this.idKey ? item[this.idKey] : item;
+    AckArray.prototype.getItemId = function (item, itemIndexName) {
+        itemIndexName = itemIndexName || this.idKey;
+        return itemIndexName ? item[itemIndexName] : item;
     };
     AckArray.prototype.getCompareArray = function () {
         var _this = this;
@@ -81,9 +71,9 @@ var AckArray = /** @class */ (function () {
     AckArray.prototype.selected = function (item) {
         return this.itemIndex(item) >= 0 ? true : false;
     };
-    AckArray.prototype.itemIndex = function (item) {
+    AckArray.prototype.itemIndex = function (item, itemIndexName) {
         var array = this.getCompareArray();
-        var itemId = this.getItemId(item);
+        var itemId = this.getItemId(item, itemIndexName);
         for (var x = array.length - 1; x >= 0; --x) {
             if (itemId == array[x]) {
                 return x;
@@ -119,25 +109,6 @@ var AckArray = /** @class */ (function () {
         if (!this.array)
             this.arrayChange.emit(this.array = []);
         return this.array;
-    };
-    AckArray.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: 'ack-array'
-                },] },
-    ];
-    /** @nocollapse */
-    AckArray.ctorParameters = function () { return []; };
-    AckArray.propDecorators = {
-        'idKey': [{ type: core_1.Input },],
-        'ref': [{ type: core_1.Input },],
-        'refChange': [{ type: core_1.Output },],
-        'pageAt': [{ type: core_1.Input },],
-        'pages': [{ type: core_1.Input },],
-        'pagesChange': [{ type: core_1.Output },],
-        'array': [{ type: core_1.Input },],
-        'arrayChange': [{ type: core_1.Output },],
-        'keyMap': [{ type: core_1.Input },],
-        'keyMapChange': [{ type: core_1.Output },],
     };
     return AckArray;
 }());

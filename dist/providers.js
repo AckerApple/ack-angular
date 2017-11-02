@@ -1,6 +1,4 @@
 "use strict";
-//DO NOT * 
-//export * from "./Log";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Log_1 = require("./Log");
 exports.Log = Log_1.Log;

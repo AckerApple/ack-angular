@@ -16,7 +16,6 @@ import { RouteReporter } from "./ack-angular/RouteReporter.component"
 import { AckModule } from "./ack-angular"
 
 import * as packJson from "../../package.json"
-//const packJson = {version:'0.0.0'}
 
 import * as ackFx from 'ack-angular-fx'
 import { fxArray } from './prefx'
@@ -43,8 +42,13 @@ import { declarations as states, routing } from "./states.object"
   //,template:'Hello World<router-outlet></router-outlet>'
   //,template:'Hello World<div *ngIf="show" [@500]="\'slideInRight\'">Inner Content</div>'
 }) export class AppComponent {
-  public panelAnim = 'slideInRight'
-  public version = packJson['version']
+  panelAnim = 'slideInRight'
+  version = packJson['version']
+  screenWidthModel
+  routeReporter
+  stateName
+  isSwaping
+  isBackMode
 
   ngAfterViewInit(){
     console.log('Total Wire Time:', Date.now()-strapTime+'ms')
@@ -83,7 +87,8 @@ import {string as pipesExamples} from './templates/pipes-examples.pug'
   ,template: pipesExamples
   ,animations:fxArray
 }) export class PipesExamples {
-  public simpleArray = ['a','b','c']
+  views:any = {}
+  simpleArray = ['a','b','c']
 
   constructor(public PageScrollService:PageScrollService){}
 
@@ -118,14 +123,14 @@ export const declarations = [
 //ackFx.upgradeComponents(declarations)
 //console.log('FX Load Time', Date.now()-fxLoadTime+'ms')
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports:[
     BrowserModule
     ,BrowserAnimationsModule
     ,FormsModule
-    ,HttpModule
+    ,HttpClientModule
     //,UIRouterModule.forRoot(routeConfig)
     ,routing
     ,Ng2PageScrollModule.forRoot()

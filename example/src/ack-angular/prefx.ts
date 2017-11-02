@@ -6,7 +6,7 @@ query('.childFx', [
 stagger(50, [
 animateChild()])], {
   "optional": true,
-  "limit": 500
+  "limit": 300
 })])]),
 trigger('childStag', [
 transition('* => *', [
@@ -14,7 +14,7 @@ query('.childFx', [
 stagger(100, [
 animateChild()])], {
   "optional": true,
-  "limit": 500
+  "limit": 300
 })])]),
 trigger('childStag200', [
 transition('* => *', [
@@ -22,7 +22,7 @@ query('.childFx', [
 stagger(200, [
 animateChild()])], {
   "optional": true,
-  "limit": 500
+  "limit": 300
 })])]),
 trigger('childStag300', [
 transition('* => *', [
@@ -30,7 +30,7 @@ query('.childFx', [
 stagger(300, [
 animateChild()])], {
   "optional": true,
-  "limit": 500
+  "limit": 300
 })])]),
 trigger('childStag400', [
 transition('* => *', [
@@ -38,7 +38,7 @@ query('.childFx', [
 stagger(400, [
 animateChild()])], {
   "optional": true,
-  "limit": 500
+  "limit": 300
 })])]),
 trigger('childStag500', [
 transition('* => *', [
@@ -46,7 +46,7 @@ query('.childFx', [
 stagger(500, [
 animateChild()])], {
   "optional": true,
-  "limit": 500
+  "limit": 300
 })])]),
 trigger('200', [
 transition('zoomInUp => void, * => zoomOutUp', [
@@ -282,11 +282,11 @@ state('bounceOutDown',
 style({"display":"none"})),
 state('bounceOut', 
 style({"display":"none"})),
-transition('fadeInUp => void, * => fadeOutUp', [
+transition('fadeInUp => void, fadeInUp => hidden, * => fadeOutUp', [
 animate('200ms 0ms linear', keyframes([
 style({"opacity":1,"transform":"translate3d(0, 0, 0)","offset":0}),
 style({"opacity":0,"transform":"translate3d(0, -100%, 0)","offset":1})]))]),
-transition('* => fadeInUp', [
+transition('* => fadeInUp, hidden => fadeInUp', [
 animate('200ms 0ms linear', keyframes([
 style({"opacity":0,"transform":"translate3d(0, 100%, 0)","offset":0}),
 style({"opacity":1,"transform":"translate3d(0, 0, 0)","offset":1})]))]),

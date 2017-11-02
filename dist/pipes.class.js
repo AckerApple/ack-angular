@@ -35,7 +35,6 @@ function numberSuffix(val, rtnVal) {
     return rtn + "th";
 }
 exports.numberSuffix = numberSuffix;
-/** if input is array returned otherwise array created with  */
 function array(input, repeat, repeatValue) {
     var isArray = input != null && input.constructor == Array;
     var rtn = isArray ? input : [];
@@ -57,13 +56,12 @@ function arrayOfObjects(input, repeat, repeatValue) {
 }
 exports.arrayOfObjects = arrayOfObjects;
 function markdownAnchor(input) {
-    input = input.toString().replace(/&/gi, 'amp'); //possibly unneeded
+    input = input.toString().replace(/&/gi, 'amp');
     input = input.toString().replace(/ /gi, '-');
     input = input.replace(/[^a-z0-9_-]/gi, '');
     return input.toLowerCase();
 }
 exports.markdownAnchor = markdownAnchor;
-//use with bypassSecurityTrustResourceUrl for href
 function textDownload(input) {
     if (input == null)
         return input;
@@ -111,7 +109,6 @@ function capitalizeWords(input) {
     return (!!input) ? input.replace(reg, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); }) : '';
 }
 exports.capitalizeWords = capitalizeWords;
-/** each sentence word is capitalized */
 function capitalize(input) {
     input = exports.pipes.capitalizeOne(input);
     var reg = /[.?!][\s\r\t]+\w/g;
@@ -131,7 +128,6 @@ exports.capitalizeOne = capitalizeOne;
 function a(name) {
     return invokeRotator(ackX[name]);
 }
-/** responsible for ack-angular pipe'in system into ackX */
 function invokeRotator(invoke) {
     var isF = typeof invoke == 'function';
     var invoker = isF ? function (args) {
@@ -152,17 +148,15 @@ function invokeRotator(invoke) {
     return function (v, call0, call1, call2) {
         var newkey, subargs, key, item;
         var rtn = invoker(arguments);
-        //loop extra arguments as property collectors
         for (var x = 1; x < arguments.length; ++x) {
             key = arguments[x];
             subargs = [];
-            //array where 1st arg is method and subs are positional arguments
             if (key.constructor == Array) {
                 key = [];
-                key.push.apply(key, arguments[x]); //clone array memory, do not touch original array
-                newkey = key.shift(); //first arg is name of key, remove it from array
-                subargs = key; //what is left in array is the arguments
-                key = newkey; //now the key string is finalized
+                key.push.apply(key, arguments[x]);
+                newkey = key.shift();
+                subargs = key;
+                key = newkey;
             }
             item = rtn[key];
             if (item && item.constructor == Function) {
@@ -179,7 +173,6 @@ exports.aDate = a('date');
 exports.aTime = a('time');
 exports.aMath = invokeRotator(Math);
 exports.ack = invokeRotator(ackX);
-// maybe deprecated . Remove in future releases
 exports.pipes = {
     array: array,
     markdownAnchor: markdownAnchor,

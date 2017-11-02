@@ -9,4 +9,5 @@ import { string as absoluteOverflowX } from "./templates/absolute-overflow-x.pug
   @Input() scrollBars
   @Input() wrapClass
   @Input() active = true
+  @Input() overflow:'auto'|'none'|'hidden'|'scroll' = 'auto'
 }

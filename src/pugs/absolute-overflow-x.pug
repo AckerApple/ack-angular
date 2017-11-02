@@ -1,16 +1,15 @@
 div([ngStyle]="{position:active?'relative':null}")
-  -attrs = {};
-  -attrs["[(elementHeightModel)]"] = "elementHeightModel"
-  -attrs["[ngClass]"] = "wrapClass"
-  -attrs["[class.no-scroll-bars]"] = "active && !scrollBars && scrollBars!=null"
-  -attrs["[ngStyle]"] = 'active ? {overflow:\'auto\',position:\'absolute\',width:\'100%\'} : {}'
-  div&attributes(attrs)
+  div(
+    "[(elementHeightModel)]" = "elementHeightModel"
+    "[ngClass]" = "wrapClass"
+    "[class.no-scroll-bars]" = "active && !scrollBars && scrollBars!=null"
+    "[ngStyle]" = 'active ? {overflow:overflow,position:\'absolute\',width:\'100%\'} : {}'
+  )
     ng-content
   
   //-height maintainer while actual content is position absolute
-  -attrs = {};
-  -attrs["*ngIf"] = "active"
-  -attrs["[ngStyle]"] = "{'height.px':elementHeightModel}"
-  -attrs.style = "visibility:hidden;overflow:hidden;"
-  div&attributes(attrs)
-    |&nbsp;
+  div(
+    *ngIf = "active"
+    "[ngStyle]" = "{'height.px':elementHeightModel}"
+    style = "visibility:hidden;overflow:hidden;"
+  ) &nbsp;

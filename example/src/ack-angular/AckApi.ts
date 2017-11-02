@@ -1,12 +1,13 @@
 import 'rxjs/add/operator/toPromise';
 import { Injectable, EventEmitter } from '@angular/core';
-import { Http, Response, Request } from '@angular/http';
+import { HttpClient, HttpRequest, HttpResponse, HttpEvent } from '@angular/common/http'
+
 import { AckCache } from './AckCache';
 import { AckQue } from './AckQue';
 
 /** Http util with offline config for request failures */
 @Injectable() export class AckApi{
-  response:EventEmitter<Response> = new EventEmitter()
+  response:EventEmitter<HttpResponse<HttpEvent<Event>>> = new EventEmitter()
   AuthError:EventEmitter<Error> = new EventEmitter()
   ApiError:EventEmitter<Error> = new EventEmitter()
   AckCache
@@ -27,7 +28,7 @@ import { AckQue } from './AckQue';
     }
   }
 
-  constructor(public http:Http){
+  constructor(public HttpClient:HttpClient){
     this.AckCache = new AckCache()
     this.AckQue = new AckQue()
     this.paramConfig()
@@ -183,12 +184,17 @@ import { AckQue } from './AckQue';
       headers:{}//when sending a file 'Content-Type':undefined so that no content-type header is sent
     }
   */
-  _fetch(cfg):Promise<Response> {
+  _fetch(cfg):Promise<HttpResponse<HttpEvent<Event>>> {
     upgradeConfig(cfg)
 
-    const request = new Request(cfg)//cfg
-
-    return this.http.request( request )
+    const request = new HttpRequest(
+      cfg.method,
+      cfg.url,
+      cfg.body,
+      cfg
+    )//cfg
+ 
+    return this.HttpClient.request( request )
     .toPromise()
     .then( response=>this.processFetchByConfig(response,cfg) )
     .catch( e=>this.httpFailByConfig(e,cfg) )
@@ -300,6 +306,8 @@ import { AckQue } from './AckQue';
 /** prevent angular1 from assuming the header to send is application/json */
 function upgradeConfig(cfg){
   cfg.method = cfg.method || 'GET'
+
+  cfg.reportProgress = cfg.reportProgress || false
 
   const isFormData = cfg.data && FormData && cfg.data.constructor==FormData
   if(isFormData){

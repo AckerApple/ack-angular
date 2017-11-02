@@ -1,24 +1,23 @@
--attrs = {};
--attrs["[(ref)]"] = "ackModal"
--attrs["(onClose)"] = "onClose.emit($event)"
--attrs["[allowClose]"] = "allowClose"
--attrs["[wrapStyle]"] = "wrapStyle"
--attrs["[wrapCellStyle]"] = "wrapCellStyle"
--attrs["[backgroundColor]"] = "backgroundColor"
--attrs["(backgroundColorChange)"] = "backgroundColorChange.emit($event)"
-ack-modal&attributes(attrs)
+ack-modal(
+  "[(ref)]" = "ackModal"
+  "(onClose)" = "onClose.emit($event)"
+  "[allowClose]" = "allowClose"
+  "[wrapStyle]" = "wrapStyle"
+  "[wrapCellStyle]" = "wrapCellStyle"
+  "[backgroundColor]" = "backgroundColor"
+  "(backgroundColorChange)" = "backgroundColorChange.emit($event)"
+)
   ng-content
-  //-ng-content(select="component-header")
   .border-grey-6x.border.bg-white
-    -attrs = {};
-    -attrs["[(ref)]"] = "ackOptions"
-    -attrs["[array]"] = "array"
-    -attrs["[(model)]"] = "model"
-    -attrs["[multiple]"] = "multiple"
-    -attrs["[toggleable]"] = "toggleable"
-    -attrs["[stylize]"] = "stylize"
-    -attrs["[templateRef]"] = "templateRef"
-    -attrs["[arrayKey]"] = "arrayKey"
-    -attrs["[arrayToModelKey]"] = "arrayToModelKey"
-    -attrs["[modelKey]"] = "modelKey"
-    ack-options&attributes(attrs)
+    ack-options(
+      "[(ref)]" = "ackOptions"
+      "[array]" = "array"
+      "[(model)]" = "model"
+      "[multiple]" = "multiple"
+      "[toggleable]" = "toggleable"
+      "[stylize]" = "stylize"
+      "[inputTemplateRefs]" = "templateRefs"
+      "[arrayKey]" = "arrayKey"
+      "[arrayToModelKey]" = "arrayToModelKey"
+      "[modelKey]" = "modelKey"
+    )

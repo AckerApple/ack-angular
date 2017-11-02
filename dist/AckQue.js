@@ -12,30 +12,21 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AckOffline_1 = require("./AckOffline");
-/** Que data based processes by associating name based handlers */
-var AckQue = /** @class */ (function (_super) {
+var AckQue = (function (_super) {
     __extends(AckQue, _super);
     function AckQue() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.prefix = "offline-que";
-        _this.handlers = [];
-        return _this;
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-    /** processes with associated that are typically awaiting internet access to complete processing */
     AckQue.prototype.get = function (name) {
         return _super.prototype.get.call(this, name)
             .then(function (data) { return data && data['que'] ? data['que'] : []; });
     };
-    /** aka get */
     AckQue.prototype.getQue = function (name) {
         return this.get(name);
     };
-    /** aka set */
     AckQue.prototype.setQue = function (name, que) {
         return this.set(name, que);
     };
-    /* deprecated : clearQue(name)... Call clear(name) */
-    /** add to qued data. Typically when offline, add post/put requests here and process them when back online */
     AckQue.prototype.que = function (name, queData) {
         var _this = this;
         return _super.prototype.get.call(this, name)
@@ -53,10 +44,6 @@ var AckQue = /** @class */ (function (_super) {
             return _super.prototype.set.call(_this, name, data);
         });
     };
-    /** merge new que data overtop of existing que
-      @name:string
-      @que
-    */
     AckQue.prototype.set = function (name, queData) {
         return this.que(name, queData);
     };
@@ -83,12 +70,10 @@ var AckQue = /** @class */ (function (_super) {
             .then(function () { return _this.setQue(name, mem.array); })
             .then(function () { return mem.result; });
     };
-    /** Most important. When a que of data-tasks is being processed, the approperiate handler must be registered here */
     AckQue.prototype.registerHandler = function (name, handler) {
         this.handlers.push({ name: name, handler: handler });
         return this;
     };
-    /** aka registerHandler */
     AckQue.prototype.registerQueHandler = function (name, handler) {
         return this.registerHandler(name, handler);
     };
@@ -107,7 +92,6 @@ var AckQue = /** @class */ (function (_super) {
                 return this.handlers[i];
         }
     };
-    /** return functions */
     AckQue.prototype.getQueHandlerByName = function (name) {
         var hand = this.getQueHandDefByName(name);
         if (hand)
@@ -116,9 +100,6 @@ var AckQue = /** @class */ (function (_super) {
     AckQue.prototype.handleQued = function (name, qued, handler) {
         return Promise.resolve(handler(qued));
     };
-    /** gets array of qued data and processes all and then clears que
-      @hand{name, handler}
-    */
     AckQue.prototype.processQuedHandler = function (hand) {
         var _this = this;
         var results = [];
@@ -143,12 +124,10 @@ var AckQue = /** @class */ (function (_super) {
         var _this = this;
         return function (data) { return _this.handleQued(name, data, handler); };
     };
-    /** call manually in app when back online */
     AckQue.prototype.processQue = function (name) {
         var handler = this.getQueHandDefByName(name);
         return handler ? this.processQuedHandler(handler) : Promise.resolve();
     };
-    /** call manually in app when back online and sure you want to process all ques */
     AckQue.prototype.processAllQues = function () {
         var _this = this;
         var results = [], promises = [];
@@ -159,14 +138,9 @@ var AckQue = /** @class */ (function (_super) {
             .then(function (proms) {
             var results = [];
             proms.forEach(function (subArray) { return results.push.apply(results, subArray); });
-            return Promise.all(results); //array of arrays is now one array
+            return Promise.all(results);
         });
     };
-    AckQue.decorators = [
-        { type: core_1.Injectable },
-    ];
-    /** @nocollapse */
-    AckQue.ctorParameters = function () { return []; };
     return AckQue;
 }(AckOffline_1.AckOffline));
 exports.AckQue = AckQue;

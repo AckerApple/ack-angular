@@ -1,6 +1,20 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.0.0] - 2017-11-02
+### BREAKING CHANGES
+- Using Angular5 and Angular5 maybe required to use this package
+- (onFormChanged) is now (formChanged)
+- (onFormAlter) is now (formAlter)
+- (onEnterKey) is now (enterKey)
+- (onEscapeKey) is now (escapeKey)
+
+## [0.6.40] - 2017-11-01
+- Fix unknown endless-loop in AckOptions when trying to get ngClass object. It's now a string thats returned
+
+## [0.6.39] - 2017-10-30
+- AckArray itemIndex() now allows defining alternate id
+
 ## [0.6.36] - 2017-10-26
 - AckApi has response emitter
 

@@ -21,6 +21,8 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
   ,template: providerExamples
   ,animations:fxArray
 }) export class ProviderExamples {
+  views:any = {}
+  statusOnlineModel:boolean
   queArray = []
   processQueResults = []
   httpQueArray = []

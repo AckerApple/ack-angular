@@ -13,56 +13,32 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AckOptions_component_1 = require("./AckOptions.component");
 var ack_options_modal_pug_1 = require("./templates/ack-options-modal.pug");
-var AckOptionsModal = /** @class */ (function (_super) {
+var AckOptionsModal = (function (_super) {
     __extends(AckOptionsModal, _super);
-    /* omitted ack-modal inputs
-    @Input() private ref
-    @Output() public refChange = new EventEmitter()
-    */
-    function AckOptionsModal(element) {
-        var _this = _super.call(this) || this;
-        _this.element = element;
-        _this.allowClose = true;
-        _this.onClose = new core_1.EventEmitter();
-        _this.backgroundColorChange = new core_1.EventEmitter();
-        element.nativeElement.style.position = 'fixed';
-        element.nativeElement.style.top = 0;
-        element.nativeElement.style.left = 0;
-        element.nativeElement.style.zIndex = 20;
-        element.nativeElement.style.height = '100%';
-        element.nativeElement.style.width = '100%';
-        element.nativeElement.style.overflow = 'auto';
-        element.nativeElement.style.display = 'block';
-        return _this;
+    function AckOptionsModal() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     AckOptionsModal.prototype.ngAfterViewInit = function () {
         var _this = this;
-        setTimeout(function () {
-            _this.ackOptions.modelChange.subscribe(function (model) {
-                if (model && !_this.multiple && _this.ackModal) {
-                    _this.ackModal.close();
-                }
-                _this.modelChange.emit(_this.model);
-            });
-        }, 0);
+        _super.prototype.ngAfterViewInit.call(this);
+        this.ElementRef.nativeElement.style.position = 'fixed';
+        this.ElementRef.nativeElement.style.top = 0;
+        this.ElementRef.nativeElement.style.left = 0;
+        this.ElementRef.nativeElement.style.zIndex = 20;
+        this.ElementRef.nativeElement.style.height = '100%';
+        this.ElementRef.nativeElement.style.width = '100%';
+        this.ElementRef.nativeElement.style.overflow = 'auto';
+        this.ElementRef.nativeElement.style.display = 'block';
+        setTimeout(function () { return _this.subscribeModelChange(); }, 0);
     };
-    AckOptionsModal.decorators = [
-        { type: core_1.Component, args: [{
-                    selector: 'ack-options-modal',
-                    template: ack_options_modal_pug_1.string
-                },] },
-    ];
-    /** @nocollapse */
-    AckOptionsModal.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    AckOptionsModal.propDecorators = {
-        'allowClose': [{ type: core_1.Input },],
-        'onClose': [{ type: core_1.Output },],
-        'wrapStyle': [{ type: core_1.Input },],
-        'wrapCellStyle': [{ type: core_1.Input },],
-        'backgroundColor': [{ type: core_1.Input },],
-        'backgroundColorChange': [{ type: core_1.Output },],
+    AckOptionsModal.prototype.subscribeModelChange = function () {
+        var _this = this;
+        this.ackOptions.modelChange.subscribe(function (model) {
+            if (model && !_this.multiple && _this.ackModal) {
+                _this.ackModal.close();
+            }
+            _this.modelChange.emit(_this.model);
+        });
     };
     return AckOptionsModal;
 }(AckOptions_component_1.AckOptions));

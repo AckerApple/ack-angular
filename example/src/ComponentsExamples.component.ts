@@ -10,11 +10,30 @@ import {string as componentsExamples} from './templates/components-examples.pug'
   ,template: componentsExamples
   ,animations:fxArray
 }) export class ComponentsExamples {
+  views:any = {}
+  absoluteOverflowX
+  elementWidthModel
+  elementHeightModel
+  htmlWidthModel
+  htmlHeightModel
+  screenScrollModelY
+  screenScrollHeightDiff
+  screenWidthModel
+  screenHeightModel
+  elementSizeModel
+  viewShakeOn
+  viewSelectOn
+  viewScreenHeightModel
+  viewScreenWidthModel
+  statusOnlineModel
+  statusOfflineModel
   screenScrollCount = 0
+  escapeCountKey
   error
   contentArray = []
   modalBackgroundColor = 'rgba(255,255,255,0.95)'
   modalWrapStyle
+  ackOptionArray = []
   ackOptionArrayModal = [{key:'b'}]
   pageAt = 2
   arrayOfObjects = arrayOfObjects

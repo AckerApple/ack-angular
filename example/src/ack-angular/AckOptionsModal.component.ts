@@ -2,8 +2,7 @@ import {
   Component,
   Input,
   Output,
-  EventEmitter,
-  ElementRef
+  EventEmitter
 } from "@angular/core"
 import { AckOptions } from "./AckOptions.component"
 
@@ -12,46 +11,38 @@ import { string as ackOptionsModal } from "./templates/ack-options-modal.pug"
   selector:'ack-options-modal',
   template:ackOptionsModal
 }) export class AckOptionsModal extends AckOptions{
-  public ackModal
-  public ackOptions
+  ackModal
+  ackOptions
   
-  @Input() public allowClose = true
-  @Output() public onClose = new EventEmitter()
-  @Input() public wrapStyle
-  @Input() public wrapCellStyle
-  @Input() public backgroundColor
-  @Output() public backgroundColorChange = new EventEmitter()
-  /* omitted ack-modal inputs
-  @Input() private ref
-  @Output() public refChange = new EventEmitter()
-  */
-
-
-
-
-  
-  constructor(public element:ElementRef){
-    super()
-
-    element.nativeElement.style.position = 'fixed'
-    element.nativeElement.style.top = 0
-    element.nativeElement.style.left = 0
-    element.nativeElement.style.zIndex = 20;
-    element.nativeElement.style.height = '100%';
-    element.nativeElement.style.width = '100%'
-    element.nativeElement.style.overflow = 'auto';
-    element.nativeElement.style.display = 'block';
-  }
+  @Input() allowClose = true
+  @Output() onClose = new EventEmitter()
+  @Input() wrapStyle
+  @Input() wrapCellStyle
+  @Input() backgroundColor
+  @Output() backgroundColorChange = new EventEmitter()
 
   ngAfterViewInit(){
-    setTimeout(()=>{    
-      this.ackOptions.modelChange.subscribe(model=>{
-        if(model && !this.multiple && this.ackModal){
-          this.ackModal.close()
-        }
+    super.ngAfterViewInit()
 
-        this.modelChange.emit( this.model )
-      })
-    }, 0)
+    this.ElementRef.nativeElement.style.position = 'fixed'
+    this.ElementRef.nativeElement.style.top = 0
+    this.ElementRef.nativeElement.style.left = 0
+    this.ElementRef.nativeElement.style.zIndex = 20;
+    this.ElementRef.nativeElement.style.height = '100%';
+    this.ElementRef.nativeElement.style.width = '100%'
+    this.ElementRef.nativeElement.style.overflow = 'auto';
+    this.ElementRef.nativeElement.style.display = 'block';
+
+    setTimeout(()=>this.subscribeModelChange(), 0)
+  }
+
+  subscribeModelChange(){
+    this.ackOptions.modelChange.subscribe(model=>{
+      if(model && !this.multiple && this.ackModal){
+        this.ackModal.close()
+      }
+
+      this.modelChange.emit( this.model )
+    })
   }
 }

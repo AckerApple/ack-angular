@@ -1,26 +1,29 @@
-import { Component, NgModule } from '@angular/core';
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { AckModule } from '../AckModule';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Component, NgModule } from '@angular/core'
+import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { AckModule } from '../AckModule'
+import { AckModal } from './AckModal.component'
+import { fxArray } from '../prefx'
 
 @Component({
   selector: 'container',
-  template: 'nothing'
-  //template: '<ack-modal [(ref)]="ackModal"></ack-modal>'
+  template: '<ack-modal [(ref)]="AckModal"></ack-modal>'
+  //,animations: fxArray
 })
-export class ContainerComponent {}
-
-@NgModule({
-  imports: [ AckModule ],
-  declarations: [ ContainerComponent ]
-}) export class AppModule {
-  //ackModal
+export class ContainerComponent {
+  AckModal:AckModal
 }
 
-describe('ack-modal', () => {
+@NgModule({
+  imports: [ BrowserAnimationsModule, AckModule ],
+  declarations: [ ContainerComponent ]
+}) export class AppModule {}
+
+describe('ack-modal', ()=>{
   let fixture: ComponentFixture<ContainerComponent>;
   let component:any
   
-  beforeEach(async(() => {
+  beforeEach(done=>{
     TestBed.configureTestingModule({imports: [AppModule]})
 
     TestBed.compileComponents()
@@ -29,21 +32,13 @@ describe('ack-modal', () => {
       fixture.detectChanges()
       component = fixture.componentInstance
     })
-  }));
+    .then( ()=>new Promise((res,rej)=>setTimeout(()=>res(), 0)) )//tick for [(ref)] to process
+    .then(done).catch(done.fail)
+  })
 
   it('inits', ()=>{
     expect(fixture).not.toBeNull()
     expect(component).not.toBeNull()
-
-    //console.log('x', component.ackModal)
-    //expect(component.ackModal).not.toBeNull()
-  })
-
-  it('inits2', ()=>{
-    expect(fixture).not.toBeNull()
-    expect(component).not.toBeNull()
-
-    //console.log('x', component.ackModal)
-    //expect(component.ackModal).not.toBeNull()
+    expect(component.AckModal).not.toBeNull()
   })
 })

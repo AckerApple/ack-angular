@@ -11,6 +11,5 @@ export declare class ErrorLog {
     objectifyError(err: any): {
         data?: any;
     };
-    /** same as reject but uses native throw instead of native Promise.reject */
     rethrow(err: any): void;
 }

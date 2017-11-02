@@ -25,12 +25,9 @@ exports.ShakeOn = ShakeOn_component_2.ShakeOn;
 var ErrorWell_component_1 = require("./ErrorWell.component");
 var ErrorWell_component_2 = require("./ErrorWell.component");
 exports.ErrorWell = ErrorWell_component_2.ErrorWell;
-//@Directive({selector:'component-header'}) export class ComponentHeader {}
-var FocusOn = /** @class */ (function () {
+var FocusOn = (function () {
     function FocusOn(element) {
         this.element = element;
-        this.focusOnDelay = 0;
-        this.focusThen = new core_1.EventEmitter();
     }
     FocusOn.prototype.ngOnChanges = function (changes) {
         var _this = this;
@@ -41,28 +38,12 @@ var FocusOn = /** @class */ (function () {
             }, this.focusOnDelay);
         }
     };
-    FocusOn.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[focusOn]'
-                },] },
-    ];
-    /** @nocollapse */
-    FocusOn.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    FocusOn.propDecorators = {
-        'focusOn': [{ type: core_1.Input },],
-        'focusOnDelay': [{ type: core_1.Input },],
-        'focusThen': [{ type: core_1.Output },],
-    };
     return FocusOn;
 }());
 exports.FocusOn = FocusOn;
-var SelectOn = /** @class */ (function () {
+var SelectOn = (function () {
     function SelectOn(element) {
         this.element = element;
-        this.selectOnDelay = 0;
-        this.selectThen = new core_1.EventEmitter();
     }
     SelectOn.prototype.ngOnChanges = function (changes) {
         var _this = this;
@@ -73,96 +54,47 @@ var SelectOn = /** @class */ (function () {
             }, this.selectOnDelay);
         }
     };
-    SelectOn.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[selectOn]'
-                },] },
-    ];
-    /** @nocollapse */
-    SelectOn.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    SelectOn.propDecorators = {
-        'selectOn': [{ type: core_1.Input },],
-        'selectOnDelay': [{ type: core_1.Input },],
-        'selectThen': [{ type: core_1.Output },],
-    };
     return SelectOn;
 }());
 exports.SelectOn = SelectOn;
-var VarDirective = /** @class */ (function () {
+var VarDirective = (function () {
     function VarDirective() {
     }
-    VarDirective.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[var]',
-                    exportAs: 'var'
-                },] },
-    ];
-    /** @nocollapse */
-    VarDirective.ctorParameters = function () { return []; };
-    VarDirective.propDecorators = {
-        'var': [{ type: core_1.Input },],
-    };
     return VarDirective;
 }());
 exports.VarDirective = VarDirective;
-var OnEnterKey = /** @class */ (function () {
-    function OnEnterKey(element) {
+var EnterKey = (function () {
+    function EnterKey(element) {
         var _this = this;
         this.element = element;
-        this.onEnterKey = new core_1.EventEmitter();
         element.nativeElement.addEventListener('keydown', function (event) {
             var yesNo = [13, 10].indexOf(event.which || event.keyCode) >= 0;
             if (yesNo) {
-                _this.onEnterKey.emit(event);
+                _this.enterKey.emit(event);
             }
         });
     }
-    OnEnterKey.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[onEnterKey]' },] },
-    ];
-    /** @nocollapse */
-    OnEnterKey.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    OnEnterKey.propDecorators = {
-        'onEnterKey': [{ type: core_1.Output },],
-    };
-    return OnEnterKey;
+    return EnterKey;
 }());
-exports.OnEnterKey = OnEnterKey;
-var OnEscapeKey = /** @class */ (function () {
-    function OnEscapeKey(element) {
+exports.EnterKey = EnterKey;
+var EscapeKey = (function () {
+    function EscapeKey(element) {
         var _this = this;
         this.element = element;
-        this.onEscapeKey = new core_1.EventEmitter();
         element.nativeElement.addEventListener('keydown', function (event) {
             var code = event.which || event.keyCode;
             if (code == 27) {
-                _this.onEscapeKey.emit(event);
+                _this.escapeKey.emit(event);
             }
         });
     }
-    OnEscapeKey.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[onEscapeKey]' },] },
-    ];
-    /** @nocollapse */
-    OnEscapeKey.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    OnEscapeKey.propDecorators = {
-        'onEscapeKey': [{ type: core_1.Output },],
-    };
-    return OnEscapeKey;
+    return EscapeKey;
 }());
-exports.OnEscapeKey = OnEscapeKey;
-/** Disallow keyboard access to the backspace key */
-var PreventBackKey = /** @class */ (function () {
+exports.EscapeKey = EscapeKey;
+var PreventBackKey = (function () {
     function PreventBackKey(element) {
         var _this = this;
         this.element = element;
-        this.preventBackKey = new core_1.EventEmitter();
         element.nativeElement.addEventListener('keydown', function (event) {
             var yesNo = [8].indexOf(event.which || event.keyCode) < 0;
             if (!yesNo) {
@@ -174,25 +106,13 @@ var PreventBackKey = /** @class */ (function () {
             return yesNo;
         });
     }
-    PreventBackKey.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[preventBackKey]' },] },
-    ];
-    /** @nocollapse */
-    PreventBackKey.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    PreventBackKey.propDecorators = {
-        'preventBackKey': [{ type: core_1.Output },],
-    };
     return PreventBackKey;
 }());
 exports.PreventBackKey = PreventBackKey;
-/** Disallow keyboard access to the enter keys */
-var PreventEnterKey = /** @class */ (function () {
+var PreventEnterKey = (function () {
     function PreventEnterKey(element) {
         var _this = this;
         this.element = element;
-        this.preventEnterKey = new core_1.EventEmitter();
         element.nativeElement.addEventListener('keydown', function (event) {
             var yesNo = [13, 10].indexOf(event.which || event.keyCode) < 0;
             if (!yesNo) {
@@ -204,41 +124,18 @@ var PreventEnterKey = /** @class */ (function () {
             return yesNo;
         });
     }
-    PreventEnterKey.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[preventEnterKey]' },] },
-    ];
-    /** @nocollapse */
-    PreventEnterKey.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    PreventEnterKey.propDecorators = {
-        'preventEnterKey': [{ type: core_1.Output },],
-    };
     return PreventEnterKey;
 }());
 exports.PreventEnterKey = PreventEnterKey;
-var InputHint = /** @class */ (function () {
+var InputHint = (function () {
     function InputHint() {
-        this.hintStyle = { 'font-size': '75%', 'color': '#BBB' };
     }
-    InputHint.decorators = [
-        { type: core_1.Component, args: [{
-                    selector: 'input-hint',
-                    template: '<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
-                },] },
-    ];
-    /** @nocollapse */
-    InputHint.ctorParameters = function () { return []; };
-    InputHint.propDecorators = {
-        'hintStyle': [{ type: core_1.Input },],
-    };
     return InputHint;
 }());
 exports.InputHint = InputHint;
-var StatusOnlineModel = /** @class */ (function () {
+var StatusOnlineModel = (function () {
     function StatusOnlineModel() {
         var _this = this;
-        this.statusOnlineModelChange = new core_1.EventEmitter();
         this.onChange = function () {
             this.statusOnlineModel = navigator.onLine;
             this.statusOnlineModelChange.emit(this.statusOnlineModel);
@@ -251,22 +148,12 @@ var StatusOnlineModel = /** @class */ (function () {
         window.removeEventListener("online", this.onChange);
         window.removeEventListener("offline", this.onChange);
     };
-    StatusOnlineModel.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[statusOnlineModel]' },] },
-    ];
-    /** @nocollapse */
-    StatusOnlineModel.ctorParameters = function () { return []; };
-    StatusOnlineModel.propDecorators = {
-        'statusOnlineModel': [{ type: core_1.Input },],
-        'statusOnlineModelChange': [{ type: core_1.Output },],
-    };
     return StatusOnlineModel;
 }());
 exports.StatusOnlineModel = StatusOnlineModel;
-var StatusOfflineModel = /** @class */ (function () {
+var StatusOfflineModel = (function () {
     function StatusOfflineModel() {
         var _this = this;
-        this.statusOfflineModelChange = new core_1.EventEmitter();
         this.onChange = function () {
             this.statusOfflineModel = !navigator.onLine;
             this.statusOfflineModelChange.emit(this.statusOfflineModel);
@@ -279,50 +166,26 @@ var StatusOfflineModel = /** @class */ (function () {
         window.removeEventListener("offline", this.onChange);
         window.removeEventListener("online", this.onChange);
     };
-    StatusOfflineModel.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[statusOfflineModel]' },] },
-    ];
-    /** @nocollapse */
-    StatusOfflineModel.ctorParameters = function () { return []; };
-    StatusOfflineModel.propDecorators = {
-        'statusOfflineModel': [{ type: core_1.Input },],
-        'statusOfflineModelChange': [{ type: core_1.Output },],
-    };
     return StatusOfflineModel;
 }());
 exports.StatusOfflineModel = StatusOfflineModel;
-/** adds form element onchange listener via addEventListener('change') that calls onFormChanged scope argument */
-var OnFormChanged = /** @class */ (function () {
-    function OnFormChanged(element) {
+var FormChanged = (function () {
+    function FormChanged(element) {
         this.element = element;
-        this.onFormChanged = new core_1.EventEmitter();
         this.onChange = function (event) {
-            this.onFormChanged.emit(event);
+            this.formChanged.emit(event);
         }.bind(this);
         element.nativeElement.addEventListener('change', this.onChange);
     }
-    OnFormChanged.prototype.ngOnDestroy = function () {
+    FormChanged.prototype.ngOnDestroy = function () {
         this.element.nativeElement.removeEventListener('change', this.onChange);
     };
-    OnFormChanged.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[onFormChanged]' //Also try : onFormAlter
-                },] },
-    ];
-    /** @nocollapse */
-    OnFormChanged.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    OnFormChanged.propDecorators = {
-        'onFormChanged': [{ type: core_1.Output },],
-    };
-    return OnFormChanged;
+    return FormChanged;
 }());
-exports.OnFormChanged = OnFormChanged;
-var OnFormAlter = /** @class */ (function () {
+exports.FormChanged = FormChanged;
+var OnFormAlter = (function () {
     function OnFormAlter(element) {
         this.element = element;
-        this.onFormAlter = new core_1.EventEmitter();
         this.onChange = function (event) {
             this.onFormAlter.emit(event);
         }.bind(this);
@@ -333,73 +196,34 @@ var OnFormAlter = /** @class */ (function () {
         this.element.nativeElement.removeEventListener('change', this.onChange);
         this.element.nativeElement.removeEventListener('input', this.onChange);
     };
-    OnFormAlter.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[onFormAlter]'
-                },] },
-    ];
-    /** @nocollapse */
-    OnFormAlter.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    OnFormAlter.propDecorators = {
-        'onFormAlter': [{ type: core_1.Output },],
-    };
     return OnFormAlter;
 }());
 exports.OnFormAlter = OnFormAlter;
-var ReaderHeaderBody = /** @class */ (function () {
+var ReaderHeaderBody = (function () {
     function ReaderHeaderBody() {
     }
-    ReaderHeaderBody.decorators = [
-        { type: core_1.Component, args: [{
-                    selector: 'reader-header-body',
-                    template: reader_header_body_pug_1.string
-                },] },
-    ];
-    /** @nocollapse */
-    ReaderHeaderBody.ctorParameters = function () { return []; };
     return ReaderHeaderBody;
 }());
 exports.ReaderHeaderBody = ReaderHeaderBody;
-var ReaderHeader = /** @class */ (function () {
+var ReaderHeader = (function () {
     function ReaderHeader() {
     }
-    ReaderHeader.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: 'reader-header'
-                },] },
-    ];
-    /** @nocollapse */
-    ReaderHeader.ctorParameters = function () { return []; };
     return ReaderHeader;
 }());
 exports.ReaderHeader = ReaderHeader;
-var ReaderBody = /** @class */ (function () {
-    //-static parameters = [[ElementRef]]
+var ReaderBody = (function () {
     function ReaderBody(element) {
         this.element = element;
         element.nativeElement.style.height = '100%';
         element.nativeElement.style.display = 'block';
     }
-    ReaderBody.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: "reader-body"
-                    //,parameters:[[ElementRef]]
-                },] },
-    ];
-    /** @nocollapse */
-    ReaderBody.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
     return ReaderBody;
 }());
 exports.ReaderBody = ReaderBody;
-var InnerHtmlModel = /** @class */ (function () {
+var InnerHtmlModel = (function () {
     function InnerHtmlModel(element) {
         var _this = this;
         this.element = element;
-        this.innerHtmlModelChange = new core_1.EventEmitter();
         this.observer = new MutationObserver(function () { return _this.setModel(); });
         var config = {
             attributes: true,
@@ -408,8 +232,6 @@ var InnerHtmlModel = /** @class */ (function () {
             subtree: true
         };
         this.observer.observe(this.element.nativeElement, config);
-        //this.element.nativeElement.addEventListener("mouseup",()=>this.setModel())
-        //this.element.nativeElement.addEventListener("keyup",()=>this.setModel())
     }
     InnerHtmlModel.prototype.ngOnChanges = function () {
         var _this = this;
@@ -422,27 +244,13 @@ var InnerHtmlModel = /** @class */ (function () {
     InnerHtmlModel.prototype.ngOnDestroy = function () {
         this.observer.disconnect();
     };
-    InnerHtmlModel.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[innerHtmlModel]'
-                },] },
-    ];
-    /** @nocollapse */
-    InnerHtmlModel.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    InnerHtmlModel.propDecorators = {
-        'innerHtmlModel': [{ type: core_1.Input },],
-        'innerHtmlModelChange': [{ type: core_1.Output },],
-    };
     return InnerHtmlModel;
 }());
 exports.InnerHtmlModel = InnerHtmlModel;
-var ElementSizeModel = /** @class */ (function () {
+var ElementSizeModel = (function () {
     function ElementSizeModel(element) {
         var _this = this;
         this.element = element;
-        this.elementSizeModelChange = new core_1.EventEmitter();
         this.onResize = function () {
             this.setModel();
         }.bind(this);
@@ -484,75 +292,35 @@ var ElementSizeModel = /** @class */ (function () {
         this.observer.disconnect();
         window.removeEventListener('resize', this.onResize);
     };
-    ElementSizeModel.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[elementSizeModel]'
-                },] },
-    ];
-    /** @nocollapse */
-    ElementSizeModel.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    ElementSizeModel.propDecorators = {
-        'elementSizeModel': [{ type: core_1.Input },],
-        'elementSizeModelChange': [{ type: core_1.Output },],
-    };
     return ElementSizeModel;
 }());
 exports.ElementSizeModel = ElementSizeModel;
-var ElementHeightModel = /** @class */ (function (_super) {
+var ElementHeightModel = (function (_super) {
     __extends(ElementHeightModel, _super);
     function ElementHeightModel() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.elementHeightModelChange = new core_1.EventEmitter();
-        return _this;
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     ElementHeightModel.prototype.setModel = function () {
         this.elementHeightModel = this.element.nativeElement.offsetHeight;
         this.elementHeightModelChange.emit(this.elementHeightModel);
     };
-    ElementHeightModel.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[elementHeightModel]'
-                },] },
-    ];
-    /** @nocollapse */
-    ElementHeightModel.ctorParameters = function () { return []; };
-    ElementHeightModel.propDecorators = {
-        'elementHeightModel': [{ type: core_1.Input },],
-        'elementHeightModelChange': [{ type: core_1.Output },],
-    };
     return ElementHeightModel;
 }(ElementSizeModel));
 exports.ElementHeightModel = ElementHeightModel;
-var ElementWidthModel = /** @class */ (function (_super) {
+var ElementWidthModel = (function (_super) {
     __extends(ElementWidthModel, _super);
     function ElementWidthModel() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.elementWidthModelChange = new core_1.EventEmitter();
-        return _this;
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     ElementWidthModel.prototype.setModel = function () {
         this.elementWidthModel = this.element.nativeElement.offsetWidth;
         this.elementWidthModelChange.emit(this.elementWidthModel);
     };
-    ElementWidthModel.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[elementWidthModel]'
-                },] },
-    ];
-    /** @nocollapse */
-    ElementWidthModel.ctorParameters = function () { return []; };
-    ElementWidthModel.propDecorators = {
-        'elementWidthModel': [{ type: core_1.Input },],
-        'elementWidthModelChange': [{ type: core_1.Output },],
-    };
     return ElementWidthModel;
 }(ElementSizeModel));
 exports.ElementWidthModel = ElementWidthModel;
-var ScreenScrollHeightDiff = /** @class */ (function () {
+var ScreenScrollHeightDiff = (function () {
     function ScreenScrollHeightDiff() {
-        this.screenScrollHeightDiffChange = new core_1.EventEmitter();
         this.on = function () {
             this.apply();
         }.bind(this);
@@ -569,23 +337,11 @@ var ScreenScrollHeightDiff = /** @class */ (function () {
         window.removeEventListener("scroll", this.on);
         window.removeEventListener("resize", this.on);
     };
-    ScreenScrollHeightDiff.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[screenScrollHeightDiff]'
-                },] },
-    ];
-    /** @nocollapse */
-    ScreenScrollHeightDiff.ctorParameters = function () { return []; };
-    ScreenScrollHeightDiff.propDecorators = {
-        'screenScrollHeightDiff': [{ type: core_1.Input },],
-        'screenScrollHeightDiffChange': [{ type: core_1.Output },],
-    };
     return ScreenScrollHeightDiff;
 }());
 exports.ScreenScrollHeightDiff = ScreenScrollHeightDiff;
-var ScreenScroll = /** @class */ (function () {
+var ScreenScroll = (function () {
     function ScreenScroll() {
-        this.screenScroll = new core_1.EventEmitter();
         this.onScroll = function () {
             this.screenScroll.emit({ x: window['pageXOffset'], y: window['pageYOffset'] });
         }.bind(this);
@@ -594,27 +350,16 @@ var ScreenScroll = /** @class */ (function () {
     }
     ScreenScroll.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.onScroll(); }, 0); //two way bind often needs init override
+        setTimeout(function () { return _this.onScroll(); }, 0);
     };
     ScreenScroll.prototype.ngOnDestroy = function () {
         window.removeEventListener("scroll", this.onScroll);
     };
-    ScreenScroll.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[screenScroll]'
-                },] },
-    ];
-    /** @nocollapse */
-    ScreenScroll.ctorParameters = function () { return []; };
-    ScreenScroll.propDecorators = {
-        'screenScroll': [{ type: core_1.Output },],
-    };
     return ScreenScroll;
 }());
 exports.ScreenScroll = ScreenScroll;
-var ScreenScrollModelY = /** @class */ (function () {
+var ScreenScrollModelY = (function () {
     function ScreenScrollModelY() {
-        this.screenScrollModelYChange = new core_1.EventEmitter();
         this.onScroll = function () {
             this.screenScrollModelY = window['pageYOffset'];
             this.screenScrollModelYChange.emit(this.screenScrollModelY);
@@ -624,29 +369,17 @@ var ScreenScrollModelY = /** @class */ (function () {
     }
     ScreenScrollModelY.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.onScroll(); }, 0); //two way bind often needs init override
+        setTimeout(function () { return _this.onScroll(); }, 0);
     };
     ScreenScrollModelY.prototype.ngOnDestroy = function () {
         window.removeEventListener("scroll", this.onScroll);
     };
-    ScreenScrollModelY.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[screenScrollModelY]'
-                },] },
-    ];
-    /** @nocollapse */
-    ScreenScrollModelY.ctorParameters = function () { return []; };
-    ScreenScrollModelY.propDecorators = {
-        'screenScrollModelY': [{ type: core_1.Input },],
-        'screenScrollModelYChange': [{ type: core_1.Output },],
-    };
     return ScreenScrollModelY;
 }());
 exports.ScreenScrollModelY = ScreenScrollModelY;
-var ScreenWidthModel = /** @class */ (function () {
+var ScreenWidthModel = (function () {
     function ScreenWidthModel() {
         var _this = this;
-        this.screenWidthModelChange = new core_1.EventEmitter();
         this.onResize = function () {
             if (this.screenWidthModel !== window.innerWidth) {
                 this.setModel();
@@ -657,7 +390,7 @@ var ScreenWidthModel = /** @class */ (function () {
     }
     ScreenWidthModel.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.onResize(); }, 0); //two way bind often needs init override
+        setTimeout(function () { return _this.onResize(); }, 0);
     };
     ScreenWidthModel.prototype.setModel = function () {
         this.screenWidthModel = window.innerWidth;
@@ -666,24 +399,12 @@ var ScreenWidthModel = /** @class */ (function () {
     ScreenWidthModel.prototype.ngOnDestroy = function () {
         window.removeEventListener('resize', this.onResize);
     };
-    ScreenWidthModel.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[screenWidthModel]'
-                },] },
-    ];
-    /** @nocollapse */
-    ScreenWidthModel.ctorParameters = function () { return []; };
-    ScreenWidthModel.propDecorators = {
-        'screenWidthModel': [{ type: core_1.Input },],
-        'screenWidthModelChange': [{ type: core_1.Output },],
-    };
     return ScreenWidthModel;
 }());
 exports.ScreenWidthModel = ScreenWidthModel;
-var ScreenHeightModel = /** @class */ (function () {
+var ScreenHeightModel = (function () {
     function ScreenHeightModel() {
         var _this = this;
-        this.screenHeightModelChange = new core_1.EventEmitter();
         this.onResize = function () {
             if (this.screenHeightModel !== window.innerHeight) {
                 this.setModel();
@@ -694,7 +415,7 @@ var ScreenHeightModel = /** @class */ (function () {
     }
     ScreenHeightModel.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.onResize(); }, 0); //two way bind often needs init override
+        setTimeout(function () { return _this.onResize(); }, 0);
     };
     ScreenHeightModel.prototype.setModel = function () {
         this.screenHeightModel = window.innerHeight;
@@ -703,24 +424,12 @@ var ScreenHeightModel = /** @class */ (function () {
     ScreenHeightModel.prototype.ngOnDestroy = function () {
         window.removeEventListener('resize', this.onResize);
     };
-    ScreenHeightModel.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[screenHeightModel]'
-                },] },
-    ];
-    /** @nocollapse */
-    ScreenHeightModel.ctorParameters = function () { return []; };
-    ScreenHeightModel.propDecorators = {
-        'screenHeightModel': [{ type: core_1.Input },],
-        'screenHeightModelChange': [{ type: core_1.Output },],
-    };
     return ScreenHeightModel;
 }());
 exports.ScreenHeightModel = ScreenHeightModel;
-var HtmlWidthModel = /** @class */ (function () {
+var HtmlWidthModel = (function () {
     function HtmlWidthModel() {
         var _this = this;
-        this.htmlWidthModelChange = new core_1.EventEmitter();
         this.onResize = function () {
             if (this.htmlWidthModel !== window.document.documentElement.clientWidth) {
                 this.setModel();
@@ -731,7 +440,7 @@ var HtmlWidthModel = /** @class */ (function () {
     }
     HtmlWidthModel.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.onResize(); }, 0); //two way bind often needs init override
+        setTimeout(function () { return _this.onResize(); }, 0);
     };
     HtmlWidthModel.prototype.setModel = function () {
         this.htmlWidthModel = window.document.documentElement.clientWidth;
@@ -740,24 +449,12 @@ var HtmlWidthModel = /** @class */ (function () {
     HtmlWidthModel.prototype.ngOnDestroy = function () {
         window.removeEventListener('resize', this.onResize);
     };
-    HtmlWidthModel.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[htmlWidthModel]'
-                },] },
-    ];
-    /** @nocollapse */
-    HtmlWidthModel.ctorParameters = function () { return []; };
-    HtmlWidthModel.propDecorators = {
-        'htmlWidthModel': [{ type: core_1.Input },],
-        'htmlWidthModelChange': [{ type: core_1.Output },],
-    };
     return HtmlWidthModel;
 }());
 exports.HtmlWidthModel = HtmlWidthModel;
-var HtmlHeightModel = /** @class */ (function () {
+var HtmlHeightModel = (function () {
     function HtmlHeightModel() {
         var _this = this;
-        this.htmlHeightModelChange = new core_1.EventEmitter();
         this.onResize = function () {
             if (this.htmlHeightModel !== window.document.documentElement.clientHeight) {
                 this.setModel();
@@ -768,7 +465,7 @@ var HtmlHeightModel = /** @class */ (function () {
     }
     HtmlHeightModel.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.onResize(); }, 0); //two way bind often needs init override
+        setTimeout(function () { return _this.onResize(); }, 0);
     };
     HtmlHeightModel.prototype.setModel = function () {
         this.htmlHeightModel = window.document.documentElement.clientHeight;
@@ -777,30 +474,18 @@ var HtmlHeightModel = /** @class */ (function () {
     HtmlHeightModel.prototype.ngOnDestroy = function () {
         window.removeEventListener('resize', this.onResize);
     };
-    HtmlHeightModel.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[htmlHeightModel]'
-                },] },
-    ];
-    /** @nocollapse */
-    HtmlHeightModel.ctorParameters = function () { return []; };
-    HtmlHeightModel.propDecorators = {
-        'htmlHeightModel': [{ type: core_1.Input },],
-        'htmlHeightModelChange': [{ type: core_1.Output },],
-    };
     return HtmlHeightModel;
 }());
 exports.HtmlHeightModel = HtmlHeightModel;
 exports.declarations = [
-    //directives
     SelectOn,
     FocusOn,
     VarDirective,
     InnerHtmlModel,
     OnFormAlter,
-    OnFormChanged,
-    OnEnterKey,
-    OnEscapeKey,
+    FormChanged,
+    EnterKey,
+    EscapeKey,
     PreventBackKey,
     PreventEnterKey,
     ScreenScrollModelY,
@@ -816,7 +501,6 @@ exports.declarations = [
     ElementSizeModel,
     ElementWidthModel,
     ElementHeightModel,
-    //components
     ReaderHeaderBody,
     ReaderHeader,
     ReaderBody,
@@ -827,6 +511,4 @@ exports.declarations = [
     AckOptionsModal_component_1.AckOptionsModal,
     AckModal_component_1.AckModal,
     AckArray_directive_1.AckArray
-    //ComponentHeader
-    //...AckModals
 ];

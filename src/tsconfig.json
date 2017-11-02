@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "rootDir": ".",
+    "removeComments": true,
     "outDir": "../dist",
     "target": "es5",
     "module": "commonjs",
@@ -15,15 +17,16 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "lib": ["dom", "es2015"],
-    "types": [],
     "typeRoots": [
       "../node_modules/@types"
     ]
   },
-  "exclude": [
-    "node_modules","**/*.spec.ts"
+  "files":[
+    "./index.ts"
   ],
-  "angularCompilerOptions": {
-    "genDir": "../temp/factories"
-  }
+  "exclude": [
+    "**/node_modules",
+    "../node_modules",
+    "**/*.spec.ts"
+  ]
 }

@@ -84,8 +84,10 @@ import { EventEmitter, Output, Input, Directive } from '@angular/core'
     this.pagesChange.emit(this.pages)
   }
 
-  getItemId(item){
-    return this.idKey ? item[this.idKey] : item
+  //looks up id or the item itself is an ID
+  getItemId(item, itemIndexName?:string):any{
+    itemIndexName = itemIndexName || this.idKey
+    return itemIndexName ? item[itemIndexName] : item
   }
 
   getCompareArray(){
@@ -100,9 +102,9 @@ import { EventEmitter, Output, Input, Directive } from '@angular/core'
     return this.itemIndex(item) >= 0 ? true : false
   }
 
-  itemIndex(item){
+  itemIndex(item, itemIndexName?:string){
     const array = this.getCompareArray()
-    const itemId = this.getItemId(item)
+    const itemId = this.getItemId(item, itemIndexName)
     
     for(let x=array.length-1; x >= 0; --x){
       if(itemId==array[x]){

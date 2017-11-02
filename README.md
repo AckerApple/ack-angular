@@ -52,7 +52,7 @@ npm install --save-dev web-animations-js ack-angular-fx ack-angular
 
 Full Install
 ```bash
-npm install --save-dev reflect-metadata @angular/common @angular/core @angular/forms @angular/http @angular/animations rxjs zone.js
+npm install --save-dev reflect-metadata @angular/common @angular/core @angular/forms @angular/animations rxjs zone.js
 ```
 
 ## Importing into Project

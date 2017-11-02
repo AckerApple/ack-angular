@@ -1,7 +1,8 @@
 import { array } from "./pipes.class"
 
 import {
-  ContentChild,
+  ElementRef,
+  ContentChildren,
   TemplateRef,
   Component,
   Input,
@@ -20,7 +21,9 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   //@Input() modelIsArray = false//support array of options to model-array, that array only allows a length of one
   @Input() toggleable = false//multiple must be false
 
-  @ContentChild(TemplateRef) @Input() templateRef:TemplateRef<any>
+  templateRef:TemplateRef<any>
+  @ContentChildren(TemplateRef) templateRefs:any//TemplateRef<any>[]
+  @Input() inputTemplateRefs:any//TemplateRef<any>[]
 
   @Input() model
   @Output() modelChange = new EventEmitter()
@@ -32,13 +35,31 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   @Input() modelKey:string
   @Input() arrayToModelKey:string
 
-  //constructor(public ElementRef:ElementRef){}
+  constructor(public ElementRef:ElementRef){}
 
   ngOnInit(){
     setTimeout(()=>{
       //this.ref = Object.assign(this,this.ref)
       this.refChange.emit(this)
     }, 0)
+  }
+
+  ngAfterViewInit(){
+    setTimeout(()=>this.applyTemplates(), 0)
+  }
+
+  applyTemplates(){
+    const refs = this.inputTemplateRefs && this.inputTemplateRefs._results ? this.inputTemplateRefs : this.templateRefs
+
+    for(let x=refs._results.length-1; x >= 0; --x){
+      if( refs._results[x]._def.references.option ){
+        this.templateRef = refs._results[x]
+      }
+    }
+    
+    if( !this.templateRef && refs.length ){
+      this.templateRef = refs._results[ this.templateRefs.length-1 ]
+    }
   }
 
   selectItem(item){
@@ -63,8 +84,9 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   }
 
   emitChange(){
-    this.modelChange.emit(this.model)
-    const form = getParentByTagName(this.templateRef.elementRef.nativeElement,'form')
+    this.modelChange.emit( this.model )
+
+    const form = getParentByTagName(this.ElementRef.nativeElement,'form')
     if(form)this.fireFormEvents(form)
   }
 
@@ -136,7 +158,7 @@ import { string as ackOptions } from "./templates/ack-options.pug"
     return this.modelIndex(item)>=0
   }
 
-  getItemClass(item){
+  getItemClass(item):string{
     const selected = this.isItemSelected(item)
     let string = ''
     

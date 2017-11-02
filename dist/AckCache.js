@@ -12,13 +12,10 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AckOffline_1 = require("./AckOffline");
-/** Cache logic that provides timestamping and timingout using AckOffline as storage */
-var AckCache = /** @class */ (function (_super) {
+var AckCache = (function (_super) {
     __extends(AckCache, _super);
     function AckCache() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.prefix = "offline-cache";
-        return _this;
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     AckCache.prototype.validate = function (data, config) {
         var exists = data !== null && typeof data.cache !== "undefined";
@@ -41,7 +38,6 @@ var AckCache = /** @class */ (function (_super) {
         options.param = options.param || [];
         return this.getCache(name, options);
     };
-    /** aka param */
     AckCache.prototype.paramCache = function (name, options) {
         return this.param(name, options);
     };
@@ -50,19 +46,12 @@ var AckCache = /** @class */ (function (_super) {
         return this.paramCache(name, options)
             .then(function (items) { return _this.setCache(name, items); });
     };
-    /** aka paramSave */
     AckCache.prototype.paramSaveCache = function (name, options) {
         return this.paramSave(name, options);
     };
-    /**
-      @options{
-        expires:Date||number - Exact date of expiration
-        maxAge:number -
-      }
-    */
     AckCache.prototype.cacheToReturn = function (name, data, options) {
         if (data['cache'] == null && data['_timestamp'] == null) {
-            return Promise.resolve(data); //bad data catch
+            return Promise.resolve(data);
         }
         var expires = data['expires'] || options.expires;
         var maxAge = data['maxAge'] || options.maxAge;
@@ -76,9 +65,6 @@ var AckCache = /** @class */ (function (_super) {
                 .then(function () {
                 if (options.param)
                     return Promise.resolve(options.param);
-                /*const err = new Error('Cache expired for '+name)
-                err['code'] = 401
-                return Promise.reject( err )*/
             });
         }
         return Promise.resolve(data['cache']);
@@ -106,11 +92,9 @@ var AckCache = /** @class */ (function (_super) {
             return;
         });
     };
-    /** aka get */
     AckCache.prototype.getCache = function (name, options) {
         return this.get(name, options);
     };
-    /** paste cache over cache, leave all else alone */
     AckCache.prototype.dataOptionsCache = function (allCache, options, cache) {
         options = options || {};
         var newOptions = {};
@@ -139,15 +123,9 @@ var AckCache = /** @class */ (function (_super) {
             .then(function (allCache) { return _this.dataOptionsCache(allCache, options, cache); })
             .then(function (data) { return _super.prototype.set.call(_this, name, data); });
     };
-    /** aka set */
     AckCache.prototype.setCache = function (name, cache, options) {
         return this.set(name, options);
     };
-    AckCache.decorators = [
-        { type: core_1.Injectable },
-    ];
-    /** @nocollapse */
-    AckCache.ctorParameters = function () { return []; };
     return AckCache;
 }(AckOffline_1.AckOffline));
 exports.AckCache = AckCache;

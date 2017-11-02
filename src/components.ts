@@ -69,27 +69,28 @@ export { ErrorWell } from "./ErrorWell.component"
   @Input() var:any;
 }
 
-@Directive({selector:'[onEnterKey]'})
-export class OnEnterKey{
-  @Output() public onEnterKey = new EventEmitter()
+@Directive({selector:'[enterKey]'})
+export class EnterKey{
+  @Output() enterKey:EventEmitter<Event> = new EventEmitter()
   constructor(public element:ElementRef){
     element.nativeElement.addEventListener('keydown', (event)=>{
       var yesNo = [13,10].indexOf(event.which||event.keyCode)>=0
       if(yesNo){
-        this.onEnterKey.emit(event)
+        this.enterKey.emit(event)
       }
     })
   }
 }
 
-@Directive({selector:'[onEscapeKey]'})
-export class OnEscapeKey{
-  @Output() public onEscapeKey = new EventEmitter()
+@Directive({selector:'[escapeKey]'})
+export class EscapeKey{
+  @Output() escapeKey:EventEmitter<Event> = new EventEmitter()
+  
   constructor(public element:ElementRef){
     element.nativeElement.addEventListener('keydown', (event)=>{
       const code = event.which||event.keyCode
       if(code==27){
-        this.onEscapeKey.emit(event)
+        this.escapeKey.emit(event)
       }
     })
   }
@@ -98,7 +99,7 @@ export class OnEscapeKey{
 /** Disallow keyboard access to the backspace key */
 @Directive({selector:'[preventBackKey]'})
 export class PreventBackKey {
-  @Output() public preventBackKey = new EventEmitter()
+  @Output() preventBackKey = new EventEmitter()
   constructor(public element:ElementRef){
     element.nativeElement.addEventListener('keydown', (event)=>{
       var yesNo = [8].indexOf(event.which||event.keyCode)<0
@@ -116,7 +117,7 @@ export class PreventBackKey {
 /** Disallow keyboard access to the enter keys */
 @Directive({selector:'[preventEnterKey]'})
 export class PreventEnterKey{
-  @Output() public preventEnterKey = new EventEmitter()
+  @Output() preventEnterKey = new EventEmitter()
   constructor(public element:ElementRef){
     element.nativeElement.addEventListener('keydown', (event)=>{
       var yesNo = [13,10].indexOf(event.which||event.keyCode)<0
@@ -135,14 +136,14 @@ export class PreventEnterKey{
   selector:'input-hint',
   template:'<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
 }) export class InputHint {
-  @Input() public hintStyle = {'font-size':'75%','color':'#BBB'}
+  @Input() hintStyle = {'font-size':'75%','color':'#BBB'}
 }
 
 @Directive({selector:'[statusOnlineModel]'})
 export class StatusOnlineModel{
   public onChange
-  @Input() public statusOnlineModel
-  @Output() public statusOnlineModelChange = new EventEmitter()
+  @Input() statusOnlineModel
+  @Output() statusOnlineModelChange = new EventEmitter()
 
   constructor(){
     this.onChange = function(){
@@ -164,8 +165,8 @@ export class StatusOnlineModel{
 @Directive({selector:'[statusOfflineModel]'})
 export class StatusOfflineModel{
   public onChange
-  @Input() public statusOfflineModel
-  @Output() public statusOfflineModelChange = new EventEmitter()
+  @Input() statusOfflineModel
+  @Output() statusOfflineModelChange = new EventEmitter()
 
   constructor(){
     this.onChange = function(){
@@ -184,18 +185,18 @@ export class StatusOfflineModel{
   }
 }
 
-/** adds form element onchange listener via addEventListener('change') that calls onFormChanged scope argument */
+/** adds form element onchange listener via addEventListener('change') that calls formChanged scope argument */
 @Directive({
-  selector:'[onFormChanged]'//Also try : onFormAlter
-}) export class OnFormChanged{
+  selector:'[formChanged]'//Also try : onFormAlter
+}) export class FormChanged{
   //static parameters = [[ElementRef]]
-  public onChange
+  onChange
 
-  @Output() public onFormChanged = new EventEmitter()
+  @Output() formChanged = new EventEmitter()
 
   constructor(public element:ElementRef){
     this.onChange = function(event){
-      this.onFormChanged.emit(event)
+      this.formChanged.emit(event)
     }.bind(this)
 
     element.nativeElement.addEventListener('change',this.onChange)
@@ -212,7 +213,7 @@ export class StatusOfflineModel{
   //-static parameters = [[ElementRef]]
   public onChange
 
-  @Output() public onFormAlter = new EventEmitter()
+  @Output() onFormAlter = new EventEmitter()
 
   constructor(public element:ElementRef){
     this.onChange = function(event){
@@ -258,8 +259,8 @@ export class StatusOfflineModel{
   public observer
   public timeout
 
-  @Input() public innerHtmlModel
-  @Output() public innerHtmlModelChange = new EventEmitter()
+  @Input() innerHtmlModel
+  @Output() innerHtmlModelChange = new EventEmitter()
 
   constructor(public element:ElementRef){
     this.observer = new MutationObserver( ()=>this.setModel() )
@@ -596,9 +597,9 @@ export const declarations = [
   VarDirective,
   InnerHtmlModel,
   OnFormAlter,
-  OnFormChanged,
-  OnEnterKey,
-  OnEscapeKey,
+  FormChanged,
+  EnterKey,
+  EscapeKey,
   PreventBackKey,
   PreventEnterKey,
   ScreenScrollModelY,

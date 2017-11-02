@@ -9,6 +9,8 @@ import * as ackFx from 'ack-angular-fx'
   ,animations: fxArray
   //,animations:[]
 }) export class AnimationExamples {
+  toggleNgForFx
+  supportExampleAddItem
   list = ['abc','defg','hij','klm','opq','rst','uvx','yz']
   delayArray = ackFx.delayArray
 }

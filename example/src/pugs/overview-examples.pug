@@ -48,10 +48,10 @@ h3.margin-bottom-0(id="Import AckModule") Import AckModule
     import &#123; AckModule &#125; from "ack-angular"
     import &#123; NgModule &#125; from '@angular/core';
     import &#123; FormsModule &#125; from '@angular/forms';
-    import &#123; HttpModule &#125; from '@angular/http';
+    import &#123; HttpClientModule &#125; from '@angular/common/http';
 
     @NgModule(&#123;
-      imports:[ AckModule, FormsModule, HttpModule ]
+      imports:[ AckModule, FormsModule, HttpClientModule ]
     &#125;)
 
   .pad-xxs
@@ -69,7 +69,7 @@ ul
     li reflect-metadata
     li @angular/core
     li @angular/forms
-    li @angular/http
+    li @angular/common/http
   li jsDependencies
   ul
     li
