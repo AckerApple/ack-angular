@@ -1,4 +1,5 @@
 import { EventEmitter, ElementRef } from "@angular/core";
+import { AckOptions } from "./AckOptions.component";
 export { AbsoluteOverflowX } from "./AbsoluteOverflowX.component";
 export { ShakeOn } from "./ShakeOn.component";
 export { ErrorWell } from "./ErrorWell.component";
@@ -21,23 +22,21 @@ export declare class SelectOn {
 export declare class VarDirective {
     var: any;
 }
-export declare class OnEnterKey {
+export declare class EnterKey {
     element: ElementRef;
-    onEnterKey: EventEmitter<{}>;
+    enterKey: EventEmitter<Event>;
     constructor(element: ElementRef);
 }
-export declare class OnEscapeKey {
+export declare class EscapeKey {
     element: ElementRef;
-    onEscapeKey: EventEmitter<{}>;
+    escapeKey: EventEmitter<Event>;
     constructor(element: ElementRef);
 }
-/** Disallow keyboard access to the backspace key */
 export declare class PreventBackKey {
     element: ElementRef;
     preventBackKey: EventEmitter<{}>;
     constructor(element: ElementRef);
 }
-/** Disallow keyboard access to the enter keys */
 export declare class PreventEnterKey {
     element: ElementRef;
     preventEnterKey: EventEmitter<{}>;
@@ -63,11 +62,10 @@ export declare class StatusOfflineModel {
     constructor();
     ngOnDestroy(): void;
 }
-/** adds form element onchange listener via addEventListener('change') that calls onFormChanged scope argument */
-export declare class OnFormChanged {
+export declare class FormChanged {
     element: ElementRef;
     onChange: any;
-    onFormChanged: EventEmitter<{}>;
+    formChanged: EventEmitter<{}>;
     constructor(element: ElementRef);
     ngOnDestroy(): void;
 }
@@ -183,4 +181,4 @@ export declare class HtmlHeightModel {
     setModel(): void;
     ngOnDestroy(): void;
 }
-export declare const declarations: (typeof ReaderHeaderBody | typeof ReaderBody)[];
+export declare const declarations: (typeof AckOptions | typeof ReaderHeaderBody | typeof ReaderBody)[];

@@ -26,11 +26,9 @@ export declare class SafeStyle {
     constructor(domSanitizer: DomSanitizer);
     transform(input: any): SafeStyler;
 }
-/** (input>=a && input<=b) || (input>=b && input<=a) */
 export declare class Between {
     transform(input: any, a: any, b: any): boolean;
 }
-/** use with bypassSecurityTrustResourceUrl for href */
 export declare class TextDownload {
     transform(input: string): any;
 }

@@ -10,7 +10,7 @@ exports.fxArray = [
                 ])
             ], {
                 "optional": true,
-                "limit": 500
+                "limit": 300
             })
         ])
     ]),
@@ -22,7 +22,7 @@ exports.fxArray = [
                 ])
             ], {
                 "optional": true,
-                "limit": 500
+                "limit": 300
             })
         ])
     ]),
@@ -34,7 +34,7 @@ exports.fxArray = [
                 ])
             ], {
                 "optional": true,
-                "limit": 500
+                "limit": 300
             })
         ])
     ]),
@@ -46,7 +46,7 @@ exports.fxArray = [
                 ])
             ], {
                 "optional": true,
-                "limit": 500
+                "limit": 300
             })
         ])
     ]),
@@ -58,7 +58,7 @@ exports.fxArray = [
                 ])
             ], {
                 "optional": true,
-                "limit": 500
+                "limit": 300
             })
         ])
     ]),
@@ -70,7 +70,7 @@ exports.fxArray = [
                 ])
             ], {
                 "optional": true,
-                "limit": 500
+                "limit": 300
             })
         ])
     ]),
@@ -373,13 +373,13 @@ exports.fxArray = [
         animations_1.state('bounceOutLeft', animations_1.style({ "display": "none" })),
         animations_1.state('bounceOutDown', animations_1.style({ "display": "none" })),
         animations_1.state('bounceOut', animations_1.style({ "display": "none" })),
-        animations_1.transition('fadeInUp => void, * => fadeOutUp', [
+        animations_1.transition('fadeInUp => void, fadeInUp => hidden, * => fadeOutUp', [
             animations_1.animate('200ms 0ms linear', animations_1.keyframes([
                 animations_1.style({ "opacity": 1, "transform": "translate3d(0, 0, 0)", "offset": 0 }),
                 animations_1.style({ "opacity": 0, "transform": "translate3d(0, -100%, 0)", "offset": 1 })
             ]))
         ]),
-        animations_1.transition('* => fadeInUp', [
+        animations_1.transition('* => fadeInUp, hidden => fadeInUp', [
             animations_1.animate('200ms 0ms linear', animations_1.keyframes([
                 animations_1.style({ "opacity": 0, "transform": "translate3d(0, 100%, 0)", "offset": 0 }),
                 animations_1.style({ "opacity": 1, "transform": "translate3d(0, 0, 0)", "offset": 1 })

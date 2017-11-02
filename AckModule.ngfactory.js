@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = require("@angular/core");
+var i1 = require("./AckModule");
+var i2 = require("@angular/common");
+var i3 = require("@angular/forms");
+var i4 = require("@angular/common/http");
+var i5 = require("./Log");
+var i6 = require("./ErrorLog");
+var i7 = require("./AckOffline");
+var i8 = require("./AckCache");
+var i9 = require("./AckQue");
+var i10 = require("./AckApi");
+var i11 = require("./WindowService");
+var i12 = require("./UrlVars");
+var i13 = require("./DocumentService");
+var AckModuleNgFactory = i0.ɵcmf(i1.AckModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, []], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i2.NgLocalization, i2.NgLocaleLocalization, [i0.LOCALE_ID, [2, i2.ɵa]]), i0.ɵmpd(4608, i3.ɵi, i3.ɵi, []), i0.ɵmpd(4608, i4.HttpXsrfTokenExtractor, i4.ɵg, [i2.DOCUMENT, i0.PLATFORM_ID, i4.ɵe]), i0.ɵmpd(4608, i4.ɵh, i4.ɵh, [i4.HttpXsrfTokenExtractor, i4.ɵf]), i0.ɵmpd(5120, i4.HTTP_INTERCEPTORS, function (p0_0) { return [p0_0]; }, [i4.ɵh]), i0.ɵmpd(4608, i4.ɵd, i4.ɵd, []), i0.ɵmpd(6144, i4.XhrFactory, null, [i4.ɵd]), i0.ɵmpd(4608, i4.HttpXhrBackend, i4.HttpXhrBackend, [i4.XhrFactory]), i0.ɵmpd(6144, i4.HttpBackend, null, [i4.HttpXhrBackend]), i0.ɵmpd(5120, i4.HttpHandler, i4.ɵinterceptingHandler, [i4.HttpBackend, [2, i4.HTTP_INTERCEPTORS]]), i0.ɵmpd(4608, i4.HttpClient, i4.HttpClient, [i4.HttpHandler]), i0.ɵmpd(4608, i5.Log, i5.Log, []), i0.ɵmpd(4608, i6.ErrorLog, i6.ErrorLog, []), i0.ɵmpd(4608, i7.AckOffline, i7.AckOffline, []), i0.ɵmpd(4608, i8.AckCache, i8.AckCache, []), i0.ɵmpd(4608, i9.AckQue, i9.AckQue, []), i0.ɵmpd(4608, i10.AckApi, i10.AckApi, [i4.HttpClient]), i0.ɵmpd(4608, i11.WindowService, i11.WindowService, []), i0.ɵmpd(4608, i12.UrlVars, i12.UrlVars, [i11.WindowService]), i0.ɵmpd(4608, i13.DocumentService, i13.DocumentService, []), i0.ɵmpd(512, i2.CommonModule, i2.CommonModule, []), i0.ɵmpd(512, i3.ɵba, i3.ɵba, []), i0.ɵmpd(512, i3.FormsModule, i3.FormsModule, []), i0.ɵmpd(512, i4.HttpClientXsrfModule, i4.HttpClientXsrfModule, []), i0.ɵmpd(512, i4.HttpClientModule, i4.HttpClientModule, []), i0.ɵmpd(512, i1.AckModule, i1.AckModule, []), i0.ɵmpd(256, i4.ɵe, "XSRF-TOKEN", []), i0.ɵmpd(256, i4.ɵf, "X-XSRF-TOKEN", [])]); });
+exports.AckModuleNgFactory = AckModuleNgFactory;

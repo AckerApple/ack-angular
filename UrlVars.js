@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var WindowService_1 = require("./WindowService");
-var UrlVars = /** @class */ (function () {
+var UrlVars = (function () {
     function UrlVars(WindowService) {
         this.WindowService = WindowService;
         this.vars = this.parse();
@@ -14,13 +14,11 @@ var UrlVars = /** @class */ (function () {
         }
         return params;
     };
-    /** case in-sensative variable fetch */
     UrlVars.prototype.get = function (name, param) {
         if (!name)
             return;
         if (this.vars && this.vars[name] != null)
             return this.vars[name];
-        //case insensative search
         var lcase = name.toLowerCase();
         for (var key in this.vars) {
             if (lcase == key.toLowerCase())
@@ -28,13 +26,6 @@ var UrlVars = /** @class */ (function () {
         }
         return param;
     };
-    UrlVars.decorators = [
-        { type: core_1.Injectable },
-    ];
-    /** @nocollapse */
-    UrlVars.ctorParameters = function () { return [
-        { type: WindowService_1.WindowService, },
-    ]; };
     return UrlVars;
 }());
 exports.UrlVars = UrlVars;

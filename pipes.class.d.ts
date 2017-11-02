@@ -1,7 +1,6 @@
 export declare function between(input: any, a: any, b: any): boolean;
 export declare function numberToPhone(val: any): any;
 export declare function numberSuffix(val: any, rtnVal?: boolean): string;
-/** if input is array returned otherwise array created with  */
 export declare function array(input: any, repeat?: number, repeatValue?: any): any;
 export declare function arrayOfObjects(input: any, repeat?: number, repeatValue?: any): any;
 export declare function markdownAnchor(input: string): string;
@@ -12,7 +11,6 @@ export declare function boolean(input: any): boolean;
 export declare function bit(input: any): 1 | 0;
 export declare function numbers(input: any): any;
 export declare function capitalizeWords(input: any): any;
-/** each sentence word is capitalized */
 export declare function capitalize(input: any): any;
 export declare function capitalizeAfterSentence(input: any): any;
 export declare function capitalizeOne(input: any): any;
