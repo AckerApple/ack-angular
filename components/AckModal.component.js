@@ -7,6 +7,12 @@ var AckModal = (function () {
     function AckModal(element) {
         var _this = this;
         this.element = element;
+        this.showModelMode = false;
+        this.onClose = new core_1.EventEmitter();
+        this.allowClose = true;
+        this.backgroundColorChange = new core_1.EventEmitter();
+        this.refChange = new core_1.EventEmitter();
+        this.showModelChange = new core_1.EventEmitter();
         setTimeout(function () { return _this.clickListenForClose(); }, 400);
     }
     AckModal.prototype.clickListenForClose = function () {
@@ -38,6 +44,28 @@ var AckModal = (function () {
     AckModal.prototype.close = function () {
         this.showModelChange.emit(this.showModel = false);
         this.onClose.emit(this);
+    };
+    AckModal.decorators = [
+        { type: core_1.Component, args: [{
+                    selector: 'ack-modal',
+                    template: ack_modal_pug_1.string,
+                    animations: prefx_1.fxArray
+                },] },
+    ];
+    AckModal.ctorParameters = function () { return [
+        { type: core_1.ElementRef, },
+    ]; };
+    AckModal.propDecorators = {
+        'onClose': [{ type: core_1.Output },],
+        'wrapStyle': [{ type: core_1.Input },],
+        'wrapCellStyle': [{ type: core_1.Input },],
+        'allowClose': [{ type: core_1.Input },],
+        'backgroundColor': [{ type: core_1.Input },],
+        'backgroundColorChange': [{ type: core_1.Output },],
+        'ref': [{ type: core_1.Input },],
+        'refChange': [{ type: core_1.Output },],
+        'showModel': [{ type: core_1.Input },],
+        'showModelChange': [{ type: core_1.Output },],
     };
     return AckModal;
 }());

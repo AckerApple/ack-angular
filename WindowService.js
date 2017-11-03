@@ -15,6 +15,10 @@ var WindowService = (function () {
         enumerable: true,
         configurable: true
     });
+    WindowService.decorators = [
+        { type: core_1.Injectable },
+    ];
+    WindowService.ctorParameters = function () { return []; };
     return WindowService;
 }());
 exports.WindowService = WindowService;

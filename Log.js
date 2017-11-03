@@ -3,6 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var Log = (function () {
     function Log() {
+        this.log = [];
+        this.maxLog = 80;
     }
     Log.prototype.add = function (e, toConsole) {
         var ob = this.paramAudit(e, toConsole);
@@ -27,6 +29,10 @@ var Log = (function () {
         e['datetime'] = e['datetime'] || getDateTimeString();
         return e;
     };
+    Log.decorators = [
+        { type: core_1.Injectable },
+    ];
+    Log.ctorParameters = function () { return []; };
     return Log;
 }());
 exports.Log = Log;

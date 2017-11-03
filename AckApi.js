@@ -2,12 +2,22 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 require("rxjs/add/operator/toPromise");
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/common/http");
+var http_1 = require("@angular/http");
 var AckCache_1 = require("./AckCache");
 var AckQue_1 = require("./AckQue");
 var AckApi = (function () {
     function AckApi(HttpClient) {
         this.HttpClient = HttpClient;
+        this.response = new core_1.EventEmitter();
+        this.AuthError = new core_1.EventEmitter();
+        this.ApiError = new core_1.EventEmitter();
+        this.config = {
+            method: 'GET',
+            baseUrl: '',
+            $http: {
+                headers: {}
+            }
+        };
         this.AckCache = new AckCache_1.AckCache();
         this.AckQue = new AckQue_1.AckQue();
         this.paramConfig();
@@ -112,7 +122,7 @@ var AckApi = (function () {
     AckApi.prototype._fetch = function (cfg) {
         var _this = this;
         upgradeConfig(cfg);
-        var request = new http_1.HttpRequest(cfg.method, cfg.url, cfg.body, cfg);
+        var request = new http_1.Request(cfg);
         return this.HttpClient.request(request)
             .toPromise()
             .then(function (response) { return _this.processFetchByConfig(response, cfg); })
@@ -190,6 +200,12 @@ var AckApi = (function () {
         cfg.url = path;
         return this.request(cfg);
     };
+    AckApi.decorators = [
+        { type: core_1.Injectable },
+    ];
+    AckApi.ctorParameters = function () { return [
+        { type: http_1.Http, },
+    ]; };
     return AckApi;
 }());
 exports.AckApi = AckApi;

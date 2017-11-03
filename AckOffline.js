@@ -4,6 +4,7 @@ var localForage = require("localforage");
 var core_1 = require("@angular/core");
 var AckOffline = (function () {
     function AckOffline() {
+        this.prefix = "offline";
     }
     AckOffline.prototype.set = function (name, data) {
         if (data && data.constructor == Object)
@@ -33,6 +34,10 @@ var AckOffline = (function () {
         })
             .then(function () { return keys; });
     };
+    AckOffline.decorators = [
+        { type: core_1.Injectable },
+    ];
+    AckOffline.ctorParameters = function () { return []; };
     return AckOffline;
 }());
 exports.AckOffline = AckOffline;

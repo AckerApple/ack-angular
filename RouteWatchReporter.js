@@ -7,6 +7,12 @@ var RouteWatchReporter = (function () {
         var _this = this;
         this.router = router;
         this.activatedRoute = activatedRoute;
+        this.current = {};
+        this.historyPos = 0;
+        this.isNextBackMode = false;
+        this.isNextBackHistory = false;
+        this.isBackMode = false;
+        this.isOsAction = false;
         this.activatedRoute = activatedRoute;
         this.$window = function () { return window; };
         this.$history = [];
@@ -132,6 +138,13 @@ var RouteWatchReporter = (function () {
         $document.removeEventListener('mouseover', callbacks.isNotBackButton);
         $document.removeEventListener('mousedown', callbacks.isNotBackButton);
     };
+    RouteWatchReporter.decorators = [
+        { type: core_1.Injectable },
+    ];
+    RouteWatchReporter.ctorParameters = function () { return [
+        { type: router_1.Router, },
+        { type: router_1.ActivatedRoute, },
+    ]; };
     return RouteWatchReporter;
 }());
 exports.RouteWatchReporter = RouteWatchReporter;

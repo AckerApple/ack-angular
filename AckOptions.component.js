@@ -6,6 +6,12 @@ var ack_options_pug_1 = require("./templates/ack-options.pug");
 var AckOptions = (function () {
     function AckOptions(ElementRef) {
         this.ElementRef = ElementRef;
+        this.array = [];
+        this.stylize = true;
+        this.multiple = false;
+        this.toggleable = false;
+        this.modelChange = new core_1.EventEmitter();
+        this.refChange = new core_1.EventEmitter();
     }
     AckOptions.prototype.ngOnInit = function () {
         var _this = this;
@@ -130,6 +136,30 @@ var AckOptions = (function () {
             string += 'hover-bg-grey-5x ';
         }
         return string;
+    };
+    AckOptions.decorators = [
+        { type: core_1.Component, args: [{
+                    selector: 'ack-options',
+                    template: ack_options_pug_1.string
+                },] },
+    ];
+    AckOptions.ctorParameters = function () { return [
+        { type: core_1.ElementRef, },
+    ]; };
+    AckOptions.propDecorators = {
+        'array': [{ type: core_1.Input },],
+        'stylize': [{ type: core_1.Input },],
+        'multiple': [{ type: core_1.Input },],
+        'toggleable': [{ type: core_1.Input },],
+        'templateRefs': [{ type: core_1.ContentChildren, args: [core_1.TemplateRef,] },],
+        'inputTemplateRefs': [{ type: core_1.Input },],
+        'model': [{ type: core_1.Input },],
+        'modelChange': [{ type: core_1.Output },],
+        'ref': [{ type: core_1.Input },],
+        'refChange': [{ type: core_1.Output },],
+        'arrayKey': [{ type: core_1.Input },],
+        'modelKey': [{ type: core_1.Input },],
+        'arrayToModelKey': [{ type: core_1.Input },],
     };
     return AckOptions;
 }());
