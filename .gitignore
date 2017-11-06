@@ -7,6 +7,7 @@ etc
 styles.css.map
 js_modules
 .ack-webpack-temp
+temp/
 aot/
 .DS_Store
 updaters

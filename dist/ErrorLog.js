@@ -3,6 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ErrorLog = (function () {
     function ErrorLog() {
+        this.log = [];
+        this.maxLog = 30;
     }
     ErrorLog.prototype.monitorWindow = function (win) {
         var _this = this;
@@ -72,6 +74,10 @@ var ErrorLog = (function () {
         var e = this.add(err);
         throw e;
     };
+    ErrorLog.decorators = [
+        { type: core_1.Injectable },
+    ];
+    ErrorLog.ctorParameters = function () { return []; };
     return ErrorLog;
 }());
 exports.ErrorLog = ErrorLog;

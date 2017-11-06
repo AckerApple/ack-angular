@@ -26,6 +26,12 @@ var UrlVars = (function () {
         }
         return param;
     };
+    UrlVars.decorators = [
+        { type: core_1.Injectable },
+    ];
+    UrlVars.ctorParameters = function () { return [
+        { type: WindowService_1.WindowService, },
+    ]; };
     return UrlVars;
 }());
 exports.UrlVars = UrlVars;

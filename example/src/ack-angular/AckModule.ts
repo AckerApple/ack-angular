@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule }   from '@angular/forms';
-import{ HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+//import{ HttpClientModule } from '@angular/common/http';
 //import { Ng2PageScrollModule } from 'ng2-page-scroll';
 
 import { providers } from "./providers";
@@ -15,13 +16,19 @@ const declarations = [...components, ...pipes]
   imports:[
     CommonModule
     ,FormsModule
-    ,HttpClientModule
+    ,HttpModule
+    //,HttpClientModule
     //,AckOffline
     //,BrowserAnimationsModule
     //,Ng2PageScrollModule.forRoot()
   ]
   ,declarations: declarations
   ,providers:providers,
-  exports:[FormsModule, HttpClientModule, ...declarations]
+  exports:[
+    FormsModule,
+    HttpModule,
+    //HttpClientModule,
+    ...declarations
+   ]
 }) export class AckModule {}
 

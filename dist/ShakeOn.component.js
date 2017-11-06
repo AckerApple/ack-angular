@@ -4,6 +4,16 @@ var core_1 = require("@angular/core");
 var ShakeOn = (function () {
     function ShakeOn(element) {
         this.element = element;
+        this.shakeConstant = false;
+        this.shakeThen = new core_1.EventEmitter();
+        this.shakeForMsChange = new core_1.EventEmitter();
+        this.shakeTypeChange = new core_1.EventEmitter();
+        this.shakeRefChange = new core_1.EventEmitter();
+        this.shakeTypes = [
+            'shake-slow', 'shake-hard', 'shake-little', 'shake-horizontal',
+            'shake-vertical', 'shake-rotate', 'shake-opacity', 'shake-crazy',
+            'shake-chunk'
+        ];
     }
     ShakeOn.prototype.ngOnInit = function () {
         var _this = this;
@@ -60,6 +70,25 @@ var ShakeOn = (function () {
                 _this.shakeThen.emit(_this);
             }, this.shakeForMs);
         }
+    };
+    ShakeOn.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[shakeOn]'
+                },] },
+    ];
+    ShakeOn.ctorParameters = function () { return [
+        { type: core_1.ElementRef, },
+    ]; };
+    ShakeOn.propDecorators = {
+        'shakeConstant': [{ type: core_1.Input },],
+        'shakeOn': [{ type: core_1.Input },],
+        'shakeThen': [{ type: core_1.Output },],
+        'shakeForMs': [{ type: core_1.Input },],
+        'shakeForMsChange': [{ type: core_1.Output },],
+        'shakeType': [{ type: core_1.Input },],
+        'shakeTypeChange': [{ type: core_1.Output },],
+        'shakeRef': [{ type: core_1.Input },],
+        'shakeRefChange': [{ type: core_1.Output },],
     };
     return ShakeOn;
 }());

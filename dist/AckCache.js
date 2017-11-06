@@ -15,7 +15,9 @@ var AckOffline_1 = require("./AckOffline");
 var AckCache = (function (_super) {
     __extends(AckCache, _super);
     function AckCache() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.prefix = "offline-cache";
+        return _this;
     }
     AckCache.prototype.validate = function (data, config) {
         var exists = data !== null && typeof data.cache !== "undefined";
@@ -126,6 +128,10 @@ var AckCache = (function (_super) {
     AckCache.prototype.setCache = function (name, cache, options) {
         return this.set(name, options);
     };
+    AckCache.decorators = [
+        { type: core_1.Injectable },
+    ];
+    AckCache.ctorParameters = function () { return []; };
     return AckCache;
 }(AckOffline_1.AckOffline));
 exports.AckCache = AckCache;

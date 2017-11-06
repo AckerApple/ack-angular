@@ -1,6 +1,12 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.0.1] - 2017-11-03
+### BREAKING CHANGES
+- Cannot get Angular5 to work in other packages. Back to 4.4.6
+- @angular/cli downgraded from 1.5.0 to 1.4.4
+
+
 ## [1.0.0] - 2017-11-02
 ### BREAKING CHANGES
 - Using Angular5 and Angular5 maybe required to use this package

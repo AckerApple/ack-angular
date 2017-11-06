@@ -3,6 +3,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AckArray = (function () {
     function AckArray() {
+        this.refChange = new core_1.EventEmitter();
+        this.pageAt = 0;
+        this.pages = [];
+        this.pagesChange = new core_1.EventEmitter();
+        this.arrayChange = new core_1.EventEmitter();
+        this.keyMap = {};
+        this.keyMapChange = new core_1.EventEmitter();
     }
     AckArray.prototype.ngOnInit = function () {
         var _this = this;
@@ -109,6 +116,24 @@ var AckArray = (function () {
         if (!this.array)
             this.arrayChange.emit(this.array = []);
         return this.array;
+    };
+    AckArray.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: 'ack-array'
+                },] },
+    ];
+    AckArray.ctorParameters = function () { return []; };
+    AckArray.propDecorators = {
+        'idKey': [{ type: core_1.Input },],
+        'ref': [{ type: core_1.Input },],
+        'refChange': [{ type: core_1.Output },],
+        'pageAt': [{ type: core_1.Input },],
+        'pages': [{ type: core_1.Input },],
+        'pagesChange': [{ type: core_1.Output },],
+        'array': [{ type: core_1.Input },],
+        'arrayChange': [{ type: core_1.Output },],
+        'keyMap': [{ type: core_1.Input },],
+        'keyMapChange': [{ type: core_1.Output },],
     };
     return AckArray;
 }());

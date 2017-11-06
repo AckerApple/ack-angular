@@ -10,6 +10,10 @@ var DocumentService = (function () {
         enumerable: true,
         configurable: true
     });
+    DocumentService.decorators = [
+        { type: core_1.Injectable },
+    ];
+    DocumentService.ctorParameters = function () { return []; };
     return DocumentService;
 }());
 exports.DocumentService = DocumentService;

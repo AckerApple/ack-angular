@@ -16,7 +16,11 @@ var ack_options_modal_pug_1 = require("./templates/ack-options-modal.pug");
 var AckOptionsModal = (function (_super) {
     __extends(AckOptionsModal, _super);
     function AckOptionsModal() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.allowClose = true;
+        _this.onClose = new core_1.EventEmitter();
+        _this.backgroundColorChange = new core_1.EventEmitter();
+        return _this;
     }
     AckOptionsModal.prototype.ngAfterViewInit = function () {
         var _this = this;
@@ -39,6 +43,21 @@ var AckOptionsModal = (function (_super) {
             }
             _this.modelChange.emit(_this.model);
         });
+    };
+    AckOptionsModal.decorators = [
+        { type: core_1.Component, args: [{
+                    selector: 'ack-options-modal',
+                    template: ack_options_modal_pug_1.string
+                },] },
+    ];
+    AckOptionsModal.ctorParameters = function () { return []; };
+    AckOptionsModal.propDecorators = {
+        'allowClose': [{ type: core_1.Input },],
+        'onClose': [{ type: core_1.Output },],
+        'wrapStyle': [{ type: core_1.Input },],
+        'wrapCellStyle': [{ type: core_1.Input },],
+        'backgroundColor': [{ type: core_1.Input },],
+        'backgroundColorChange': [{ type: core_1.Output },],
     };
     return AckOptionsModal;
 }(AckOptions_component_1.AckOptions));

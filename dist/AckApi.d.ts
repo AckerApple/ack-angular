@@ -1,9 +1,9 @@
 import 'rxjs/add/operator/toPromise';
 import { EventEmitter } from '@angular/core';
-import { HttpClient, HttpResponse, HttpEvent } from '@angular/common/http';
+import { Http, Response } from '@angular/http';
 export declare class AckApi {
-    HttpClient: HttpClient;
-    response: EventEmitter<HttpResponse<HttpEvent<Event>>>;
+    HttpClient: Http;
+    response: EventEmitter<Response>;
     AuthError: EventEmitter<Error>;
     ApiError: EventEmitter<Error>;
     AckCache: any;
@@ -17,7 +17,7 @@ export declare class AckApi {
             headers: any;
         };
     };
-    constructor(HttpClient: HttpClient);
+    constructor(HttpClient: Http);
     paramConfig(): void;
     registerHandler(name: any, handler?: any, options?: any): this;
     getQue(name: any): any;
@@ -30,7 +30,7 @@ export declare class AckApi {
     requestQueModel(request: any): any;
     processCacheGet(cache: any, cfg: any): any;
     postRequestFail(e: any, request: any): any;
-    _fetch(cfg: any): Promise<HttpResponse<HttpEvent<Event>>>;
+    _fetch(cfg: any): Promise<Response>;
     processFetchByConfig(response: any, request: any): Promise<any>;
     httpFailByConfig(e: any, cfg: any): Promise<never>;
     requestResponseToCache(request: any, output: any): any;

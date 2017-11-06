@@ -15,7 +15,10 @@ var AckOffline_1 = require("./AckOffline");
 var AckQue = (function (_super) {
     __extends(AckQue, _super);
     function AckQue() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.prefix = "offline-que";
+        _this.handlers = [];
+        return _this;
     }
     AckQue.prototype.get = function (name) {
         return _super.prototype.get.call(this, name)
@@ -141,6 +144,10 @@ var AckQue = (function (_super) {
             return Promise.all(results);
         });
     };
+    AckQue.decorators = [
+        { type: core_1.Injectable },
+    ];
+    AckQue.ctorParameters = function () { return []; };
     return AckQue;
 }(AckOffline_1.AckOffline));
 exports.AckQue = AckQue;

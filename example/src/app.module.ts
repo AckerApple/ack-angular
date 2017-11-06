@@ -123,14 +123,17 @@ export const declarations = [
 //ackFx.upgradeComponents(declarations)
 //console.log('FX Load Time', Date.now()-fxLoadTime+'ms')
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+
+import { HttpModule } from '@angular/http';
+//import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports:[
     BrowserModule
     ,BrowserAnimationsModule
     ,FormsModule
-    ,HttpClientModule
+    ,HttpModule
+    //,HttpClientModule
     //,UIRouterModule.forRoot(routeConfig)
     ,routing
     ,Ng2PageScrollModule.forRoot()

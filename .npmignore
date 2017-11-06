@@ -9,6 +9,7 @@ aot/
 updaters/
 example/
 test/
+temp/
 .gitignore
 tsconfig.json
 .npmignore
