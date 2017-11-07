@@ -1,4 +1,4 @@
-import { array } from "./pipes.class"
+import { array } from "../pipes.class"
 
 import {
   ElementRef,

@@ -9,19 +9,19 @@ import {
 
 import { AckModal } from "./components/AckModal.component"
 import { AckArray } from "./AckArray.directive"
-import { AckOptions } from "./AckOptions.component"
-import { AckOptionsModal } from "./AckOptionsModal.component"
+import { AckOptions } from "./components/AckOptions.component"
+import { AckOptionsModal } from "./components/AckOptionsModal.component"
 
-import { string as readerHeaderBody } from "./templates/reader-header-body.pug"
+import { AbsoluteOverflowX } from "./components/AbsoluteOverflowX.component"
+export { AbsoluteOverflowX } from "./components/AbsoluteOverflowX.component"
 
-import { AbsoluteOverflowX } from "./AbsoluteOverflowX.component"
-export { AbsoluteOverflowX } from "./AbsoluteOverflowX.component"
+import { ShakeOn } from "./ShakeOn.directive"
+export { ShakeOn } from "./ShakeOn.directive"
 
-import { ShakeOn } from "./ShakeOn.component"
-export { ShakeOn } from "./ShakeOn.component"
+import { ErrorWell } from "./components/ErrorWell.component"
+export { ErrorWell } from "./components/ErrorWell.component"
 
-import { ErrorWell } from "./ErrorWell.component"
-export { ErrorWell } from "./ErrorWell.component"
+import { ReaderHeaderBody, ReaderHeader, ReaderBody } from "./components/ReaderHeaderBody.component"
 //@Directive({selector:'component-header'}) export class ComponentHeader {}
 
 @Directive({
@@ -230,27 +230,6 @@ export class StatusOfflineModel{
   }
 }
 
-
-@Component({
-  selector:'reader-header-body',
-  template:readerHeaderBody
-}) export class ReaderHeaderBody {}
-
-@Directive({
-  selector:'reader-header'
-}) export class ReaderHeader {}
-
-@Directive({
-  selector:"reader-body"
-  //,parameters:[[ElementRef]]
-}) export class ReaderBody {
-  //-static parameters = [[ElementRef]]
-
-  constructor(public element: ElementRef){
-    element.nativeElement.style.height = '100%';
-    element.nativeElement.style.display = 'block';
-  }
-}
 
 @Directive({
   selector: '[innerHtmlModel]'

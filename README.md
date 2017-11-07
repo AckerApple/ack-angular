@@ -78,11 +78,11 @@ If you attempt to import any of the following, certain dependencies must have al
 
 ```javascript
 //requires @angular/router imports
-import { RouteReporter } from "ack-angular/RouteReporter.component"
+import { RouteReporter } from "ack-angular/RouteReporter.directive"
 import { RouteWatchReporter } from "ack-angular/RouteWatchReporter"
 
 //requires ui-router-ng2 imports : broken as of 3/29/17 when @angular released 4.0.0
-import { UiRouteReporter } from "ack-angular/UiRouteReporter.component"
+import { UiRouteReporter } from "ack-angular/UiRouteReporter.directive"
 import { UiRouteWatchReporter } from "ack-angular/UiRouteWatchReporter"
 ```
 
@@ -94,15 +94,15 @@ If you import the following files, make sure you have installed it's dependencie
 - ack-angular/**fx.ts**
   - Import Example : `import * as fx from "ack-angular/fx"`
   - Dependency Install : `npm install ack-angular-fx --save-dev`
-- ack-angular/**RouteReporter.component.ts**
-  - Import Example : `import { RouteReporter } from "ack-angular/RouteReporter.component"`
+- ack-angular/**RouteReporter.directive.ts**
+  - Import Example : `import { RouteReporter } from "ack-angular/RouteReporter.directive"`
   - Dependency Install `npm install @angular/router --save-dev`
 - ack-angular/**RouteWatchReporter.ts**
   - Import Example : `import { RouteWatchReporter } from "ack-angular/RouteWatchReporter"`
   - Dependency Install `npm install @angular/router --save-dev`
-- ack-angular/**UiRouteReporter.component.ts**
+- ack-angular/**UiRouteReporter.directive.ts**
   - **broken** as of 3/29/17 when @angular released 4.0.0
-  - Import Example : `import { UiRouteReporter } from "ack-angular/UiRouteReporter.component"`
+  - Import Example : `import { UiRouteReporter } from "ack-angular/UiRouteReporter.directive"`
   - Dependency Install `npm install ui-router-ng2 --save-dev`
 - ack-angular/**UiRouteWatchReporter.ts**
   - **broken** as of 3/29/17 when @angular released 4.0.0
@@ -154,7 +154,7 @@ A directive that exposes @angular/router metadata for use in a component templat
 ```javascript
 import { RouterModule } from '@angular/router';
 import { RouteWatchReporter } from "ack-angular/RouteWatchReporter"
-import { RouteReporter } from "ack-angular/RouteReporter.component"
+import { RouteReporter } from "ack-angular/RouteReporter.directive"
 import { NgModule } from '@angular/core';
 
 @NgModule({
@@ -172,7 +172,7 @@ A directive that exposes ui-router-ng2 route metadata for use in a component tem
 ```javascript
 import { UIRouterModule } from "ui-router-ng2";
 import { UiRouteWatchReporter } from "ack-angular/UiRouteWatchReporter"
-import { UiRouteReporter } from "ack-angular/UiRouteReporter.component"
+import { UiRouteReporter } from "ack-angular/UiRouteReporter.directive"
 import { NgModule } from '@angular/core';
 
 @NgModule({

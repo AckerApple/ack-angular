@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RouteWatchReporter } from "./RouteWatchReporter"
-import { RouteReporter } from "./RouteReporter.component"
+import { RouteReporter } from "./RouteReporter.directive"
 
 @NgModule({
   imports:[CommonModule]

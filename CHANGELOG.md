@@ -1,6 +1,10 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.1.0] - 2017-11-07
+- absolute-overflow-x has a condensed layout
+- moved component files around. May affect direct import. If file not found error, target components folder
+
 ## [1.0.3] - 2017-11-03
 - Typescript 2.6.1 again for round 2
 

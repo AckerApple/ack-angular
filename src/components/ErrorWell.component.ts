@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core"
-import { fxArray as prefx } from "./prefx"
+import { fxArray as prefx } from "../prefx"
 import { string as errorWell } from "./templates/error-well.pug"
 
 @Component({
