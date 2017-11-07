@@ -14,4 +14,4 @@ import { UrlVars } from "./UrlVars";
 export { WindowService } from "./WindowService";
 export { DocumentService } from "./DocumentService";
 import { DocumentService } from "./DocumentService";
-export declare const providers: (typeof Log | typeof AckOffline | typeof AckCache | typeof AckQue | typeof AckApi | typeof UrlVars | typeof DocumentService)[];
+export declare const providers: (typeof AckOffline | typeof AckCache | typeof AckQue | typeof AckApi | typeof Log | typeof UrlVars | typeof DocumentService)[];
