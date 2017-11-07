@@ -13,18 +13,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AckModal_component_1 = require("./components/AckModal.component");
 var AckArray_directive_1 = require("./AckArray.directive");
-var AckOptions_component_1 = require("./AckOptions.component");
-var AckOptionsModal_component_1 = require("./AckOptionsModal.component");
-var reader_header_body_pug_1 = require("./templates/reader-header-body.pug");
-var AbsoluteOverflowX_component_1 = require("./AbsoluteOverflowX.component");
-var AbsoluteOverflowX_component_2 = require("./AbsoluteOverflowX.component");
+var AckOptions_component_1 = require("./components/AckOptions.component");
+var AckOptionsModal_component_1 = require("./components/AckOptionsModal.component");
+var AbsoluteOverflowX_component_1 = require("./components/AbsoluteOverflowX.component");
+var AbsoluteOverflowX_component_2 = require("./components/AbsoluteOverflowX.component");
 exports.AbsoluteOverflowX = AbsoluteOverflowX_component_2.AbsoluteOverflowX;
-var ShakeOn_component_1 = require("./ShakeOn.component");
-var ShakeOn_component_2 = require("./ShakeOn.component");
-exports.ShakeOn = ShakeOn_component_2.ShakeOn;
-var ErrorWell_component_1 = require("./ErrorWell.component");
-var ErrorWell_component_2 = require("./ErrorWell.component");
+var ShakeOn_directive_1 = require("./ShakeOn.directive");
+var ShakeOn_directive_2 = require("./ShakeOn.directive");
+exports.ShakeOn = ShakeOn_directive_2.ShakeOn;
+var ErrorWell_component_1 = require("./components/ErrorWell.component");
+var ErrorWell_component_2 = require("./components/ErrorWell.component");
 exports.ErrorWell = ErrorWell_component_2.ErrorWell;
+var ReaderHeaderBody_component_1 = require("./components/ReaderHeaderBody.component");
 var FocusOn = (function () {
     function FocusOn(element) {
         this.element = element;
@@ -332,48 +332,6 @@ var OnFormAlter = (function () {
     return OnFormAlter;
 }());
 exports.OnFormAlter = OnFormAlter;
-var ReaderHeaderBody = (function () {
-    function ReaderHeaderBody() {
-    }
-    ReaderHeaderBody.decorators = [
-        { type: core_1.Component, args: [{
-                    selector: 'reader-header-body',
-                    template: reader_header_body_pug_1.string
-                },] },
-    ];
-    ReaderHeaderBody.ctorParameters = function () { return []; };
-    return ReaderHeaderBody;
-}());
-exports.ReaderHeaderBody = ReaderHeaderBody;
-var ReaderHeader = (function () {
-    function ReaderHeader() {
-    }
-    ReaderHeader.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: 'reader-header'
-                },] },
-    ];
-    ReaderHeader.ctorParameters = function () { return []; };
-    return ReaderHeader;
-}());
-exports.ReaderHeader = ReaderHeader;
-var ReaderBody = (function () {
-    function ReaderBody(element) {
-        this.element = element;
-        element.nativeElement.style.height = '100%';
-        element.nativeElement.style.display = 'block';
-    }
-    ReaderBody.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: "reader-body"
-                },] },
-    ];
-    ReaderBody.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    return ReaderBody;
-}());
-exports.ReaderBody = ReaderBody;
 var InnerHtmlModel = (function () {
     function InnerHtmlModel(element) {
         var _this = this;
@@ -775,15 +733,15 @@ exports.declarations = [
     ScreenScrollHeightDiff,
     HtmlWidthModel,
     HtmlHeightModel,
-    ShakeOn_component_1.ShakeOn,
+    ShakeOn_directive_1.ShakeOn,
     StatusOnlineModel,
     StatusOfflineModel,
     ElementSizeModel,
     ElementWidthModel,
     ElementHeightModel,
-    ReaderHeaderBody,
-    ReaderHeader,
-    ReaderBody,
+    ReaderHeaderBody_component_1.ReaderHeaderBody,
+    ReaderHeaderBody_component_1.ReaderHeader,
+    ReaderHeaderBody_component_1.ReaderBody,
     ErrorWell_component_1.ErrorWell,
     AbsoluteOverflowX_component_1.AbsoluteOverflowX,
     InputHint,

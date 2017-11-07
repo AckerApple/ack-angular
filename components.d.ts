@@ -1,8 +1,10 @@
 import { EventEmitter, ElementRef } from "@angular/core";
-import { AckOptions } from "./AckOptions.component";
-export { AbsoluteOverflowX } from "./AbsoluteOverflowX.component";
-export { ShakeOn } from "./ShakeOn.component";
-export { ErrorWell } from "./ErrorWell.component";
+import { AckOptions } from "./components/AckOptions.component";
+import { AbsoluteOverflowX } from "./components/AbsoluteOverflowX.component";
+export { AbsoluteOverflowX } from "./components/AbsoluteOverflowX.component";
+export { ShakeOn } from "./ShakeOn.directive";
+export { ErrorWell } from "./components/ErrorWell.component";
+import { ReaderHeaderBody, ReaderBody } from "./components/ReaderHeaderBody.component";
 export declare class FocusOn {
     element: ElementRef;
     focusOn: any;
@@ -75,14 +77,6 @@ export declare class OnFormAlter {
     onFormAlter: EventEmitter<{}>;
     constructor(element: ElementRef);
     ngOnDestroy(): void;
-}
-export declare class ReaderHeaderBody {
-}
-export declare class ReaderHeader {
-}
-export declare class ReaderBody {
-    element: ElementRef;
-    constructor(element: ElementRef);
 }
 export declare class InnerHtmlModel {
     element: ElementRef;
@@ -181,4 +175,4 @@ export declare class HtmlHeightModel {
     setModel(): void;
     ngOnDestroy(): void;
 }
-export declare const declarations: (typeof AckOptions | typeof ReaderHeaderBody | typeof ReaderBody)[];
+export declare const declarations: (typeof AckOptions | typeof AbsoluteOverflowX | typeof ReaderHeaderBody | typeof ReaderBody)[];
