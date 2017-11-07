@@ -1,6 +1,12 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.0.3] - 2017-11-03
+- Typescript 2.6.1 again for round 2
+
+## [1.0.2] - 2017-11-03
+- Back to Typescript 2.4.2 as 2.6.1 is causing issue for dependents
+
 ## [1.0.1] - 2017-11-03
 ### BREAKING CHANGES
 - Cannot get Angular5 to work in other packages. Back to 4.4.6

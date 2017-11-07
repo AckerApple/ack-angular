@@ -16,7 +16,7 @@
     "outDir": "aot"
   },
   "include":[
-    "../package.json",
+    "../package.json"
   ],
   "files": [
     "typings.d.ts",

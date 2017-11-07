@@ -31,7 +31,7 @@ var AckOptions = (function () {
             }
         }
         if (!this.templateRef && refs.length) {
-            this.templateRef = refs._results[this.templateRefs.length - 1];
+            this.templateRef = refs._results[refs.length - 1];
         }
     };
     AckOptions.prototype.selectItem = function (item) {
