@@ -148,7 +148,9 @@ var AckApi = (function () {
                     reject(timeoutError);
                 }, cfg.timeout);
             }
-        });
+        })
+            .then(function (response) { return _this.processFetchByConfig(response, cfg); })
+            .catch(function (e) { return _this.httpFailByConfig(e, cfg); });
     };
     AckApi.prototype.processFetchByConfig = function (response, request) {
         this.response.emit(response);
