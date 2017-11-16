@@ -1,4 +1,12 @@
 "use strict";
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
@@ -20,10 +28,11 @@ var AckApi = (function () {
         this.AuthError = new core_1.EventEmitter();
         this.ApiError = new core_1.EventEmitter();
         this.config = {
-            method: 'GET',
             baseUrl: '',
             $http: {
-                headers: {}
+                method: 'GET',
+                headers: {},
+                timeout: 6500
             }
         };
         this.AckCache = new AckCache_1.AckCache();
@@ -56,14 +65,10 @@ var AckApi = (function () {
         return this.AckCache.clear(name);
     };
     AckApi.prototype.request = function (config) {
-        var defaults = {
-            method: 'GET',
-            headers: {},
-            timeout: 6500
-        };
+        var defaults = __assign({}, this.config.$http);
+        defaults.headers = __assign({}, this.config.$http.headers);
         var request = Object.assign(defaults, (config || {}));
         request.url = this.config.baseUrl + request.url;
-        Object.assign(request.headers, this.config.$http.headers);
         if (request.queModel) {
             return this.requestQueModel(request);
         }

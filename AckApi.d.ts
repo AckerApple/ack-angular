@@ -15,7 +15,7 @@ export interface offlineMeta {
 }
 export interface httpOptions {
     url: string;
-    method?: string;
+    method?: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' | string;
     headers?: any;
     timeout?: number;
     queModel?: httpQueModel | string;
@@ -23,10 +23,7 @@ export interface httpOptions {
     promise?: 'response' | 'all' | 'data';
 }
 export interface apiConfig {
-    promise?: 'all' | 'data';
-    method?: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' | string;
     baseUrl?: string;
-    params?: object;
     $http?: httpOptions;
 }
 export declare function TimeOutError(message: any): void;
