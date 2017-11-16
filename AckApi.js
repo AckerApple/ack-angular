@@ -139,9 +139,19 @@ var AckApi = (function () {
         upgradeConfig(cfg);
         var request = new http_1.Request(cfg);
         return new Promise(function (resolve, reject) {
-            var req = _this.HttpClient.request(request).subscribe(function (res) { return resolve(res); });
+            var resolved = false;
+            var req = _this.HttpClient.request(request)
+                .subscribe(function (res) {
+                resolved = true;
+                resolve(res);
+            }, function (err) {
+                resolved = true;
+                reject(err);
+            });
             if (cfg.timeout) {
                 setTimeout(function () {
+                    if (resolved)
+                        return;
                     req.unsubscribe();
                     var timeoutError = new TimeOutError('Request timed out. Server did NOT respond timely enough');
                     timeoutError.timeout = cfg.timeout;

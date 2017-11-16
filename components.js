@@ -12,6 +12,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AckModal_component_1 = require("./components/AckModal.component");
+var AckCloseIcon_component_1 = require("./components/AckCloseIcon.component");
 var AckArray_directive_1 = require("./AckArray.directive");
 var AckOptions_component_1 = require("./components/AckOptions.component");
 var AckOptionsModal_component_1 = require("./components/AckOptionsModal.component");
@@ -739,6 +740,7 @@ exports.declarations = [
     ElementSizeModel,
     ElementWidthModel,
     ElementHeightModel,
+    AckCloseIcon_component_1.AckCloseIcon,
     ReaderHeaderBody_component_1.ReaderHeaderBody,
     ReaderHeaderBody_component_1.ReaderHeader,
     ReaderHeaderBody_component_1.ReaderBody,
