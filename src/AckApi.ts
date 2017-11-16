@@ -239,6 +239,8 @@ TimeOutError.prototype = Object.create(Error.prototype)
         }, cfg.timeout)
       }
     })
+    .then( (response:Response)=>this.processFetchByConfig(response,cfg) )
+    .catch( e=>this.httpFailByConfig(e,cfg) )
 
 /*
     return 
