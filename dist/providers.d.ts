@@ -7,7 +7,7 @@ import { AckCache } from "./AckCache";
 export { AckQue } from "./AckQue";
 import { AckQue } from "./AckQue";
 export { ErrorLog } from "./ErrorLog";
-export { AckApi } from "./AckApi";
+export * from "./AckApi";
 import { AckApi } from "./AckApi";
 export { UrlVars } from "./UrlVars";
 import { UrlVars } from "./UrlVars";

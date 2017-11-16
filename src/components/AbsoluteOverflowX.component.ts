@@ -13,7 +13,16 @@ import { string as absoluteOverflowX } from "./templates/absolute-overflow-x.pug
 
   constructor(public ElementRef:ElementRef){}
 
+  ngOnInit(){
+    this.checkDisplay()
+  }
+
   ngOnChanges(changes){
+    this.checkDisplay()
+  }
+  
+  checkDisplay(){
+    this.ElementRef.nativeElement.style.display = 'block'
     this.ElementRef.nativeElement.style.position = this.active ? 'relative' : 'static'
   }
 }

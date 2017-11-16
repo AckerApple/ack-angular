@@ -16,7 +16,7 @@ import { AckQue } from "./AckQue";
 export { ErrorLog } from "./ErrorLog";
 import { ErrorLog } from "./ErrorLog";
 
-export { AckApi } from "./AckApi";
+export * from "./AckApi";
 import { AckApi } from "./AckApi";
 
 export { UrlVars } from "./UrlVars";

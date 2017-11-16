@@ -1,4 +1,4 @@
-import 'rxjs/add/operator/toPromise';
+//import 'rxjs/add/operator/toPromise';
 import { Injectable, EventEmitter } from '@angular/core';
 
 import { Http, Response, Request } from '@angular/http';
@@ -7,6 +7,48 @@ import { Http, Response, Request } from '@angular/http';
 
 import { AckCache } from './AckCache';
 import { AckQue } from './AckQue';
+
+export interface httpQueModel{
+  name          : string
+  maxTry?       : number
+  expires?      : number
+  maxAge?       : number
+  allowExpired? : boolean
+}
+
+export interface offlineMeta{
+  offlineId?   : number
+  lastAttempt? : Date
+  attempts?    : number
+  maxTry?      : number
+}
+
+export interface httpOptions{
+  url          : string
+  method?      : string
+  headers?     : any
+  timeout?     : number
+  queModel?    : httpQueModel|string
+  offlineMeta? : offlineMeta
+  promise?     : 'response'|'all'|'data'//typically just the body data is promised. Anything but data returns response
+}
+
+export interface apiConfig{
+  promise? : 'all'|'data'//typically just the body data is promised
+  method?  : 'GET'|'POST'|'PUT'|'PATCH'|'DELETE'|string
+  baseUrl? : string
+  params?  : object//query vars
+  $http?   : httpOptions
+}
+
+export function TimeOutError(message){
+  Error["captureStackTrace"](this, this.constructor);
+  this.name = this.constructor.name;
+  this.status = 401;
+  this.code = "credentials_required";
+  this.message = message || "No authorization token was found";
+}
+TimeOutError.prototype = Object.create(Error.prototype)
 
 /** Http util with offline config for request failures */
 @Injectable() export class AckApi{
@@ -18,15 +60,7 @@ import { AckQue } from './AckQue';
   ApiError:EventEmitter<Error> = new EventEmitter()
   AckCache
   AckQue
-  config:{
-    promise?:string,
-    method:string,
-    baseUrl:string,
-    params?:object,//query vars
-    $http:{
-      headers:any
-    }
-  } = {
+  config:apiConfig = <apiConfig>{
     method:'GET',
     baseUrl:'',
     $http:{
@@ -46,31 +80,29 @@ import { AckQue } from './AckQue';
   /** START HERE. Handlers must be registered before sending requests
     @options{maxTry:50}
   */
-  registerHandler(name, handler?, options?){
+  registerHandler(name:string, handler?:(config:httpOptions)=>any, options?:offlineMeta){
     options = options || {maxTry:50}
-    handler = handler || (config=>{
-      return this.request(config)
-    })
+    handler = handler || (config=>this.request(config))
     this.AckQue.registerHandler(name, handler)
     return this
   }
 
-  getQue(name){
+  getQue(name:string){
     return this.AckQue.get(name)
   }
 
-  getCache(name){
+  getCache(name:string){
     return this.AckCache.get(name)
   }
 
   /** when back online, run this function */
-  processQue(name){
+  processQue(name:string){
     this.AckQue.paramHandler(name,config=>this._fetch(config))
     return this.AckQue.processQue(name)
   }
 
   /** clears POST/PUT/PATCH/DELETE que */
-  clearQue(name){
+  clearQue(name:string){
     return this.AckQue.clear(name)
     //.then( ()=>this.AckCache.clear(name) )
   }
@@ -81,22 +113,13 @@ import { AckQue } from './AckQue';
   }
 
   /** method all request transactions tunnel thru to instead try for cache first
-    @config - {
-      url:string
-      method:string - GET,POST,DELETE,PUT
-      queModel:{
-        name, maxTry:50, expires||maxAge, allowExpired
-      }
-    }
-
     HINT: @config.queModel, when defined:
       - POST/PUT/PATCH requests goto que if they fail.
       - GET responses are cached with optional expires or maxAge option
   */
-  request(config) {
-    const defaults = {
+  request(config:httpOptions){
+    const defaults:httpOptions = <httpOptions>{
       method:'GET',
-      //url:this.config.baseUrl+config.url,
       headers:{},
       timeout: 6500//4000//8000
     }
@@ -107,15 +130,16 @@ import { AckQue } from './AckQue';
     Object.assign(request.headers, this.config.$http.headers)//enforced config/defaults
 
     //has cache instructions?
-    if(request.queModel){
+    if( request.queModel ){
       return this.requestQueModel(request)
     }
 
     return this._fetch(request)
   }
 
-  getCacheByNamedRequest(request){
-    return this.AckCache.get(request.queModel.name)
+  getCacheByNamedRequest(request:httpOptions){
+    const queModel = <httpQueModel>request.queModel
+    return this.AckCache.get( queModel.name )
     .then(routes=>{
       routes = routes || {}
       return routes[request.url]
@@ -123,35 +147,36 @@ import { AckQue } from './AckQue';
     .then(cache=>this.processCacheGet(cache,request))
   }
 
-  requestQueModel(request){
-    if(request.queModel && request.queModel.constructor==String){
-      request.queModel = { name:request.queModel }
+  requestQueModel(request:httpOptions){
+    let queModel = <httpQueModel>request.queModel
+    if(queModel && queModel.constructor==String){
+      request.queModel = queModel = <httpQueModel>{ name:request.queModel }
     }
 
     if (request.method === "GET") {
       return this.getCacheByNamedRequest(request)
     }
 
-    this.AckQue.paramHandler(request.queModel.name,config=>this._fetch(config))
+    this.AckQue.paramHandler(queModel.name,config=>this._fetch(config))
 
     //request is a PUT, POST, PATCH, or DELETE
     return this._fetch(request)
-    //if fail, save config for later
-    .catch( e=>this.postRequestFail(e,request) )
+    .catch( e=>this.postRequestFail(e,request) )//if fail, save config for later
   }
 
-  processCacheGet(cache,cfg){
+  processCacheGet(cache, cfg:httpOptions){
     if(cache==null)return this._fetch(cfg)
 
-    return this.AckCache.cacheToReturn(cfg.queModel.name,cache,cfg.queModel)
+    const queModel = <httpQueModel>cfg.queModel
+    return this.AckCache.cacheToReturn(queModel.name, cache, queModel)
     .then(rtn=>{
       const willExpire = rtn && this.AckCache.optionsKillCache(cfg.queModel)
 
-      if(!willExpire){
+      if( !willExpire ){
         console.log('AckApi fetched cache that will never expire. Set queModel.expires=0 or queModel.maxAge=0 to avoid this message')
       }
 
-      if(rtn!=null){
+      if( rtn!=null ){
         return rtn
       }
 
@@ -159,12 +184,12 @@ import { AckQue } from './AckQue';
     })
   }
 
-  postRequestFail(e,request){
+  postRequestFail(e, request:httpOptions){
     const saveWorthy = e.status == 0 || e.status == -1 || e.status == 503
 
     if(!saveWorthy)return Promise.reject(e)
 
-    request.offlineMeta = request.offlineMeta || {}
+    request.offlineMeta = request.offlineMeta || <offlineMeta>{}
     request.offlineMeta.offlineId = Date.now()
     request.offlineMeta.lastAttempt = new Date()
     request.offlineMeta.attempts = request.offlineMeta.attempts==null ? 1 : ++request.offlineMeta.attempts
@@ -176,7 +201,8 @@ import { AckQue } from './AckQue';
     if(tryAgainLater){
       const requestSave = Object.assign({}, request)
       delete requestSave.queModel//only used for GET method
-      return this.AckQue.set(request.queModel.name, requestSave)
+      const queModel = <httpQueModel>request.queModel
+      return this.AckQue.set(queModel.name, requestSave)
       .then( ()=>Promise.reject(e) )
     }
 
@@ -191,24 +217,39 @@ import { AckQue } from './AckQue';
     }
   */
   //Angular 5 : Promise<HttpResponse<HttpEvent<Event>>>
-  _fetch(cfg):Promise<Response> {
+  _fetch(cfg:httpOptions):Promise<Response> {
     upgradeConfig(cfg)
 
-    const request = new Request(cfg)
+    const request = new Request( cfg )
     /*const request = new HttpRequest(
       cfg.method,
       cfg.url,
       cfg.body,
       cfg
     )*/
- 
-    return this.HttpClient.request( request )
+
+    return new Promise((resolve,reject)=>{
+      const req = this.HttpClient.request( request ).subscribe(res=>resolve(res))
+
+      if( cfg.timeout ){
+        setTimeout(()=>{
+          req.unsubscribe()
+          const timeoutError = new TimeOutError('Request timed out. Server did NOT respond timely enough')
+          timeoutError.timeout = cfg.timeout
+          reject( timeoutError )
+        }, cfg.timeout)
+      }
+    })
+
+/*
+    return 
     .toPromise()
     .then( response=>this.processFetchByConfig(response,cfg) )
     .catch( e=>this.httpFailByConfig(e,cfg) )
+*/
   }
 
-  processFetchByConfig(response, request):Promise<any>{
+  processFetchByConfig(response:Response, request:httpOptions):Promise<any>{
     this.response.emit(response)//let subscribers of all responses know we got one
     
     const data = response['_body']//response['data'] || 

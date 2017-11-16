@@ -7,7 +7,8 @@ import {
   AckOffline,
   AckCache,
   AckQue,
-  AckApi
+  AckApi,
+  httpOptions
 } from "./ack-angular"
 
 import { fxArray } from './prefx'
@@ -38,7 +39,7 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
   httpResponse
   httpError
   httpHeaderConfigArray=[]
-  httpConfig={
+  httpConfig:httpOptions={
     queModel:{
       name:'ackHttpTests', maxAge:15000
     },
@@ -97,7 +98,7 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
       this.httpError = new Error('Offline mode detected. Request qued')
       promise = this.AckApi.AckQue.set('ackHttpTests', this.httpConfig)
     }else{
-      promise = this.AckApi.request(this.httpConfig)
+      promise = this.AckApi.request( this.httpConfig )
       .then(res=>{
         this.httpResponse = res
         delete this.httpError

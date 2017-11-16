@@ -1,4 +1,7 @@
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
 var Log_1 = require("./Log");
 exports.Log = Log_1.Log;
@@ -15,9 +18,8 @@ var AckQue_2 = require("./AckQue");
 var ErrorLog_1 = require("./ErrorLog");
 exports.ErrorLog = ErrorLog_1.ErrorLog;
 var ErrorLog_2 = require("./ErrorLog");
+__export(require("./AckApi"));
 var AckApi_1 = require("./AckApi");
-exports.AckApi = AckApi_1.AckApi;
-var AckApi_2 = require("./AckApi");
 var UrlVars_1 = require("./UrlVars");
 exports.UrlVars = UrlVars_1.UrlVars;
 var UrlVars_2 = require("./UrlVars");
@@ -33,7 +35,7 @@ exports.providers = [
     AckOffline_2.AckOffline,
     AckCache_2.AckCache,
     AckQue_2.AckQue,
-    AckApi_2.AckApi,
+    AckApi_1.AckApi,
     UrlVars_2.UrlVars,
     WindowService_2.WindowService,
     DocumentService_2.DocumentService

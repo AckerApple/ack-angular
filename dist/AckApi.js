@@ -1,10 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-require("rxjs/add/operator/toPromise");
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var AckCache_1 = require("./AckCache");
 var AckQue_1 = require("./AckQue");
+function TimeOutError(message) {
+    Error["captureStackTrace"](this, this.constructor);
+    this.name = this.constructor.name;
+    this.status = 401;
+    this.code = "credentials_required";
+    this.message = message || "No authorization token was found";
+}
+exports.TimeOutError = TimeOutError;
+TimeOutError.prototype = Object.create(Error.prototype);
 var AckApi = (function () {
     function AckApi(HttpClient) {
         this.HttpClient = HttpClient;
@@ -26,9 +34,7 @@ var AckApi = (function () {
     AckApi.prototype.registerHandler = function (name, handler, options) {
         var _this = this;
         options = options || { maxTry: 50 };
-        handler = handler || (function (config) {
-            return _this.request(config);
-        });
+        handler = handler || (function (config) { return _this.request(config); });
         this.AckQue.registerHandler(name, handler);
         return this;
     };
@@ -65,7 +71,8 @@ var AckApi = (function () {
     };
     AckApi.prototype.getCacheByNamedRequest = function (request) {
         var _this = this;
-        return this.AckCache.get(request.queModel.name)
+        var queModel = request.queModel;
+        return this.AckCache.get(queModel.name)
             .then(function (routes) {
             routes = routes || {};
             return routes[request.url];
@@ -74,13 +81,14 @@ var AckApi = (function () {
     };
     AckApi.prototype.requestQueModel = function (request) {
         var _this = this;
-        if (request.queModel && request.queModel.constructor == String) {
-            request.queModel = { name: request.queModel };
+        var queModel = request.queModel;
+        if (queModel && queModel.constructor == String) {
+            request.queModel = queModel = { name: request.queModel };
         }
         if (request.method === "GET") {
             return this.getCacheByNamedRequest(request);
         }
-        this.AckQue.paramHandler(request.queModel.name, function (config) { return _this._fetch(config); });
+        this.AckQue.paramHandler(queModel.name, function (config) { return _this._fetch(config); });
         return this._fetch(request)
             .catch(function (e) { return _this.postRequestFail(e, request); });
     };
@@ -88,7 +96,8 @@ var AckApi = (function () {
         var _this = this;
         if (cache == null)
             return this._fetch(cfg);
-        return this.AckCache.cacheToReturn(cfg.queModel.name, cache, cfg.queModel)
+        var queModel = cfg.queModel;
+        return this.AckCache.cacheToReturn(queModel.name, cache, queModel)
             .then(function (rtn) {
             var willExpire = rtn && _this.AckCache.optionsKillCache(cfg.queModel);
             if (!willExpire) {
@@ -114,7 +123,8 @@ var AckApi = (function () {
         if (tryAgainLater) {
             var requestSave = Object.assign({}, request);
             delete requestSave.queModel;
-            return this.AckQue.set(request.queModel.name, requestSave)
+            var queModel = request.queModel;
+            return this.AckQue.set(queModel.name, requestSave)
                 .then(function () { return Promise.reject(e); });
         }
         return Promise.reject(e);
@@ -123,10 +133,17 @@ var AckApi = (function () {
         var _this = this;
         upgradeConfig(cfg);
         var request = new http_1.Request(cfg);
-        return this.HttpClient.request(request)
-            .toPromise()
-            .then(function (response) { return _this.processFetchByConfig(response, cfg); })
-            .catch(function (e) { return _this.httpFailByConfig(e, cfg); });
+        return new Promise(function (resolve, reject) {
+            var req = _this.HttpClient.request(request).subscribe(function (res) { return resolve(res); });
+            if (cfg.timeout) {
+                setTimeout(function () {
+                    req.unsubscribe();
+                    var timeoutError = new TimeOutError('Request timed out. Server did NOT respond timely enough');
+                    timeoutError.timeout = cfg.timeout;
+                    reject(timeoutError);
+                }, cfg.timeout);
+            }
+        });
     };
     AckApi.prototype.processFetchByConfig = function (response, request) {
         this.response.emit(response);

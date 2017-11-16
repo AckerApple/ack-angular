@@ -8,7 +8,14 @@ var AbsoluteOverflowX = (function () {
         this.active = true;
         this.overflow = 'auto';
     }
+    AbsoluteOverflowX.prototype.ngOnInit = function () {
+        this.checkDisplay();
+    };
     AbsoluteOverflowX.prototype.ngOnChanges = function (changes) {
+        this.checkDisplay();
+    };
+    AbsoluteOverflowX.prototype.checkDisplay = function () {
+        this.ElementRef.nativeElement.style.display = 'block';
         this.ElementRef.nativeElement.style.position = this.active ? 'relative' : 'static';
     };
     AbsoluteOverflowX.decorators = [
