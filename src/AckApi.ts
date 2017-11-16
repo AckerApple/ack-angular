@@ -25,7 +25,7 @@ export interface offlineMeta{
 
 export interface httpOptions{
   url          : string
-  method?      : string
+  method?      : 'GET'|'POST'|'PUT'|'PATCH'|'DELETE'|string
   headers?     : any
   timeout?     : number
   queModel?    : httpQueModel|string
@@ -34,10 +34,9 @@ export interface httpOptions{
 }
 
 export interface apiConfig{
-  promise? : 'all'|'data'//typically just the body data is promised
-  method?  : 'GET'|'POST'|'PUT'|'PATCH'|'DELETE'|string
+  //promise? : 'all'|'data'//typically just the body data is promised
   baseUrl? : string
-  params?  : object//query vars
+  //params?  : object//query vars
   $http?   : httpOptions
 }
 
@@ -61,10 +60,11 @@ TimeOutError.prototype = Object.create(Error.prototype)
   AckCache
   AckQue
   config:apiConfig = <apiConfig>{
-    method:'GET',
     baseUrl:'',
     $http:{
-      headers:{}
+      method:'GET',
+      headers:{},
+      timeout: 6500//4000//8000
     }
   }
 
@@ -118,16 +118,15 @@ TimeOutError.prototype = Object.create(Error.prototype)
       - GET responses are cached with optional expires or maxAge option
   */
   request(config:httpOptions){
-    const defaults:httpOptions = <httpOptions>{
-      method:'GET',
-      headers:{},
-      timeout: 6500//4000//8000
-    }
+    const defaults:httpOptions = { ...this.config.$http }
+
+    defaults.headers = { ...this.config.$http.headers }//cause a deeper clone and break memory ref with apiConfig.$http
 
     const request = Object.assign(defaults, (config||{}))
     request.url = this.config.baseUrl + request.url
 
-    Object.assign(request.headers, this.config.$http.headers)//enforced config/defaults
+    //removed 11/16/2017
+    //Object.assign(request.headers, this.config.$http.headers)//enforced config/defaults . apiConfig act as an overwriter of headers
 
     //has cache instructions?
     if( request.queModel ){
