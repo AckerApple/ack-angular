@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.1.7] - 2017-11-16
+- (onFormAlter) is now officialy (formAlter)
+
 ## [1.1.3] - 2017-11-16
 - proper timeout of HttpClient request in AckApi
 - A lot more typing in AckApi

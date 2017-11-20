@@ -1,10 +1,11 @@
 {
   "name": "ack-angular",
-  "version": "1.1.5",
+  "version": "1.1.7",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
+    "start": "ack-reload -d example/www",
     "build:index": "pug example/src/index.pug --out example/www/",
     "build:css": "npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example",
     "build:css:ack-css-boot": "ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production",
@@ -14,8 +15,9 @@
     "install:example": "npm install --prefix example",
     "test": "ng test --browser PhantomJS --single-run",
     "test:watch": "ng test",
-    "build:dist": "ngc --declaration --project src",
-    "watch:dist": "watch \"npm-run-all build:dist compile:aot\" src/ --ignoreDirectoryPattern=/pugs/",
+    "build:dist": "npm-run-all build:assets:src build:dist:js",
+    "build:dist:js": "ngc --declaration --project src",
+    "watch:dist": "watch \"npm-run-all build:dist:js compile:aot\" src/ --ignoreDirectoryPattern=/pugs/",
     "ack-webpack": "ack-webpack",
     "build:assets": "npm-run-all build:assets:src build:assets:example",
     "build:assets:src": "ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts",
@@ -32,7 +34,7 @@
     "copy:src": "ncp src example/src/ack-angular",
     "copy:package": "ncp package.json example/src/ack-angular/package.json",
     "build:js": "ack-webpack example/index.aot.ts example/www/index.js --production --project tsconfig.json --modules ../",
-    "build": "npm-run-all build:index build:css build:assets compile:dist:package compile:prefx build:dist compile:aot build:js",
+    "build": "npm-run-all build:index build:css build:assets compile:dist:package compile:prefx build:dist:js compile:aot build:js",
     "compile:dist:package": "node scripts/update-dist-package.js"
   },
   "repository": {

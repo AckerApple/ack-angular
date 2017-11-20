@@ -8,6 +8,7 @@ import {
 } from "@angular/core"
 
 import { AckModal } from "./components/AckModal.component"
+import { AckCloseIcon } from "./components/AckCloseIcon.component"
 import { AckArray } from "./AckArray.directive"
 import { AckOptions } from "./components/AckOptions.component"
 import { AckOptionsModal } from "./components/AckOptionsModal.component"
@@ -187,7 +188,7 @@ export class StatusOfflineModel{
 
 /** adds form element onchange listener via addEventListener('change') that calls formChanged scope argument */
 @Directive({
-  selector:'[formChanged]'//Also try : onFormAlter
+  selector:'[formChanged]'//Also try : (formAlter) directive that watches the form "input" event
 }) export class FormChanged{
   //static parameters = [[ElementRef]]
   onChange
@@ -207,17 +208,17 @@ export class StatusOfflineModel{
   }
 }
 
+/** when ever change or input form event triggered, bindings are called */
 @Directive({
-  selector:'[onFormAlter]'
-}) export class OnFormAlter{
+  selector:'[formAlter]'
+}) export class FormAlter{
   //-static parameters = [[ElementRef]]
-  public onChange
-
-  @Output() onFormAlter = new EventEmitter()
+  onChange:(Event)=>void
+  @Output() formAlter = new EventEmitter()
 
   constructor(public element:ElementRef){
     this.onChange = function(event){
-      this.onFormAlter.emit(event)
+      this.formAlter.emit(event)
     }.bind(this)
 
     element.nativeElement.addEventListener('input',this.onChange)
@@ -575,7 +576,7 @@ export const declarations = [
   FocusOn,
   VarDirective,
   InnerHtmlModel,
-  OnFormAlter,
+  FormAlter,
   FormChanged,
   EnterKey,
   EscapeKey,
@@ -596,6 +597,7 @@ export const declarations = [
   ElementHeightModel,
 
   //components
+  AckCloseIcon,
   ReaderHeaderBody,
   ReaderHeader,
   ReaderBody,

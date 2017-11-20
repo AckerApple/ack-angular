@@ -12,6 +12,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AckModal_component_1 = require("./components/AckModal.component");
+var AckCloseIcon_component_1 = require("./components/AckCloseIcon.component");
 var AckArray_directive_1 = require("./AckArray.directive");
 var AckOptions_component_1 = require("./components/AckOptions.component");
 var AckOptionsModal_component_1 = require("./components/AckOptionsModal.component");
@@ -304,34 +305,34 @@ var FormChanged = (function () {
     return FormChanged;
 }());
 exports.FormChanged = FormChanged;
-var OnFormAlter = (function () {
-    function OnFormAlter(element) {
+var FormAlter = (function () {
+    function FormAlter(element) {
         this.element = element;
-        this.onFormAlter = new core_1.EventEmitter();
+        this.formAlter = new core_1.EventEmitter();
         this.onChange = function (event) {
-            this.onFormAlter.emit(event);
+            this.formAlter.emit(event);
         }.bind(this);
         element.nativeElement.addEventListener('input', this.onChange);
         element.nativeElement.addEventListener('change', this.onChange);
     }
-    OnFormAlter.prototype.ngOnDestroy = function () {
+    FormAlter.prototype.ngOnDestroy = function () {
         this.element.nativeElement.removeEventListener('change', this.onChange);
         this.element.nativeElement.removeEventListener('input', this.onChange);
     };
-    OnFormAlter.decorators = [
+    FormAlter.decorators = [
         { type: core_1.Directive, args: [{
-                    selector: '[onFormAlter]'
+                    selector: '[formAlter]'
                 },] },
     ];
-    OnFormAlter.ctorParameters = function () { return [
+    FormAlter.ctorParameters = function () { return [
         { type: core_1.ElementRef, },
     ]; };
-    OnFormAlter.propDecorators = {
-        'onFormAlter': [{ type: core_1.Output },],
+    FormAlter.propDecorators = {
+        'formAlter': [{ type: core_1.Output },],
     };
-    return OnFormAlter;
+    return FormAlter;
 }());
-exports.OnFormAlter = OnFormAlter;
+exports.FormAlter = FormAlter;
 var InnerHtmlModel = (function () {
     function InnerHtmlModel(element) {
         var _this = this;
@@ -720,7 +721,7 @@ exports.declarations = [
     FocusOn,
     VarDirective,
     InnerHtmlModel,
-    OnFormAlter,
+    FormAlter,
     FormChanged,
     EnterKey,
     EscapeKey,
@@ -739,6 +740,7 @@ exports.declarations = [
     ElementSizeModel,
     ElementWidthModel,
     ElementHeightModel,
+    AckCloseIcon_component_1.AckCloseIcon,
     ReaderHeaderBody_component_1.ReaderHeaderBody,
     ReaderHeaderBody_component_1.ReaderHeader,
     ReaderHeaderBody_component_1.ReaderBody,

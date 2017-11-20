@@ -228,10 +228,19 @@ TimeOutError.prototype = Object.create(Error.prototype)
     )*/
 
     return new Promise((resolve,reject)=>{
-      const req = this.HttpClient.request( request ).subscribe(res=>resolve(res))
+      let resolved = false
+      const req = this.HttpClient.request( request )
+      .subscribe(res=>{
+        resolved=true
+        resolve(res)
+      },err=>{
+        resolved=true
+        reject(err)
+      })
 
       if( cfg.timeout ){
         setTimeout(()=>{
+          if(resolved)return
           req.unsubscribe()
           const timeoutError = new TimeOutError('Request timed out. Server did NOT respond timely enough')
           timeoutError.timeout = cfg.timeout

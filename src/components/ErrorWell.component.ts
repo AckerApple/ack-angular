@@ -12,6 +12,7 @@ import { string as errorWell } from "./templates/error-well.pug"
   @Input() error
   @Input() cssClasses:string
   @Input() closable = true
+  @Input() allowDetails:boolean = true
 
   ngOnInit(){
     this.cssClasses = this.cssClasses || 'bg-danger border border-danger text-danger'

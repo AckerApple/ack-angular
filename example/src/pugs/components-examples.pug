@@ -31,6 +31,29 @@ br
 
 h3.margin-bottom-0(id="Tags") Tags
 .flex-wrap.child-margin-xxs
+
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 ack-close-icon
+        .text-grey-2x.max-width-400
+          |A super convenient html based close icon. No img refs. No style sheet refs
+          ack-close-icon
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning(
+        "(click)"="views.ackCloseIcon=!views.ackCloseIcon"
+        "[ngClass]"="views.ackCloseIcon?'border-energized bg-energized':'border-info bg-info'"
+      )
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.ackCloseIcon" "[@500]"="'fadeInUp'")
+      .pad
+        ack-close-icon("(click)"="views.ackCloseIcon=false")
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;ack-close-icon (click)="views.ackCloseIcon=false"&gt;&lt;/ack-close-icon&gt;
+
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       div("(screenScroll)"="screenScrollCount=screenScrollCount+1")
@@ -40,7 +63,10 @@ h3.margin-bottom-0(id="Tags") Tags
           |Common array functionality available at a template level
         br
     .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="views.ackArray=!views.ackArray" "[ngClass]"="views.ackArray?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xxs.hover-bg-warning(
+        "(click)"="views.ackArray=!views.ackArray"
+        "[ngClass]"="views.ackArray?'border-energized bg-energized':'border-info bg-info'"
+      )
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.ackArray" "[@500]"="'fadeInUp'")
       h4.pad-sm.margin-0 Bind Documentation
@@ -1013,8 +1039,11 @@ h3.margin-bottom-0(id="Layout Components") Layout Components
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
-          &lt;error-well [error]="error" [closable]="1"&gt;&lt;/error-well&gt;
-          &lt;button("(click)"="causeError()") cause error &lt;/button&gt;
+          &lt;error-well [error]="error"&gt;&lt;/error-well&gt;
+      h4.pad-sm.margin-0 Advanced Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;error-well [error]="error" [closable]="1" [allowDetails]="1"&gt;&lt;/error-well&gt;
 
 br
 h3(id="Complex Components") Complex Components

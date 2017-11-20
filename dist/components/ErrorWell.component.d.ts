@@ -4,6 +4,7 @@ export declare class ErrorWell {
     error: any;
     cssClasses: string;
     closable: boolean;
+    allowDetails: boolean;
     ngOnInit(): void;
     getErrorMessage(error: any): any;
 }
