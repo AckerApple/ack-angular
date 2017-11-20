@@ -72,10 +72,10 @@ export declare class FormChanged {
     constructor(element: ElementRef);
     ngOnDestroy(): void;
 }
-export declare class OnFormAlter {
+export declare class FormAlter {
     element: ElementRef;
-    onChange: any;
-    onFormAlter: EventEmitter<{}>;
+    onChange: (Event) => void;
+    formAlter: EventEmitter<{}>;
     constructor(element: ElementRef);
     ngOnDestroy(): void;
 }

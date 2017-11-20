@@ -305,34 +305,34 @@ var FormChanged = (function () {
     return FormChanged;
 }());
 exports.FormChanged = FormChanged;
-var OnFormAlter = (function () {
-    function OnFormAlter(element) {
+var FormAlter = (function () {
+    function FormAlter(element) {
         this.element = element;
-        this.onFormAlter = new core_1.EventEmitter();
+        this.formAlter = new core_1.EventEmitter();
         this.onChange = function (event) {
-            this.onFormAlter.emit(event);
+            this.formAlter.emit(event);
         }.bind(this);
         element.nativeElement.addEventListener('input', this.onChange);
         element.nativeElement.addEventListener('change', this.onChange);
     }
-    OnFormAlter.prototype.ngOnDestroy = function () {
+    FormAlter.prototype.ngOnDestroy = function () {
         this.element.nativeElement.removeEventListener('change', this.onChange);
         this.element.nativeElement.removeEventListener('input', this.onChange);
     };
-    OnFormAlter.decorators = [
+    FormAlter.decorators = [
         { type: core_1.Directive, args: [{
-                    selector: '[onFormAlter]'
+                    selector: '[formAlter]'
                 },] },
     ];
-    OnFormAlter.ctorParameters = function () { return [
+    FormAlter.ctorParameters = function () { return [
         { type: core_1.ElementRef, },
     ]; };
-    OnFormAlter.propDecorators = {
-        'onFormAlter': [{ type: core_1.Output },],
+    FormAlter.propDecorators = {
+        'formAlter': [{ type: core_1.Output },],
     };
-    return OnFormAlter;
+    return FormAlter;
 }());
-exports.OnFormAlter = OnFormAlter;
+exports.FormAlter = FormAlter;
 var InnerHtmlModel = (function () {
     function InnerHtmlModel(element) {
         var _this = this;
@@ -721,7 +721,7 @@ exports.declarations = [
     FocusOn,
     VarDirective,
     InnerHtmlModel,
-    OnFormAlter,
+    FormAlter,
     FormChanged,
     EnterKey,
     EscapeKey,
