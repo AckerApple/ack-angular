@@ -1,6 +1,12 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.2.0] - 2017-11-28
+- que cache now takes http params into account
+- Breaking Changes
+  - AckApi.offlineMeta is now AckApi.sendFailMeta
+  - AckApi.queModel is now AckApi.offlineModel
+
 ## [1.1.7] - 2017-11-16
 - (onFormAlter) is now officialy (formAlter)
 

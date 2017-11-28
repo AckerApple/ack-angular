@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AckOffline } from './AckOffline';
 
+export interface handlerConfig{
+  name:string
+  handler:(qued:any)=>any
+}
+
 /** Que data based processes by associating name based handlers */
 @Injectable() export class AckQue extends AckOffline{
-  public prefix:string="offline-que"
-  public handlers = []
+  prefix:string="offline-que"
+  handlers = []
   
   /** processes with associated that are typically awaiting internet access to complete processing */
   get(name) {
@@ -13,19 +18,19 @@ import { AckOffline } from './AckOffline';
   }
 
   /** aka get */
-  getQue(name){
+  getQue(name:string){
     return this.get(name)
   }
 
   /** aka set */
-  setQue(name, que){
+  setQue(name:string, que){
     return this.set(name, que)
   }
 
   /* deprecated : clearQue(name)... Call clear(name) */
 
   /** add to qued data. Typically when offline, add post/put requests here and process them when back online */
-  que(name, queData) {
+  que(name:string, queData) {
     return super.get(name)
     .then(data => {
       data = data || {}
@@ -47,11 +52,11 @@ import { AckOffline } from './AckOffline';
     @name:string
     @que
   */
-  set(name, queData) {
+  set(name:string, queData) {
     return this.que(name, queData)
   }
 
-  dequeByIndex(name, index){
+  dequeByIndex(name:string, index:number){
     return this.getQue(name)
     .then(array=>{
       array.splice(index, 1)
@@ -60,7 +65,7 @@ import { AckOffline } from './AckOffline';
     .then( array=>this.setQue(name, array) )
   }
 
-  processQuedByIndex(name, index){
+  processQuedByIndex(name:string, index:number){
     const handler = this.getQueHandlerByName(name)
     const mem = {item:null, array:null, result:null}
 
@@ -76,17 +81,17 @@ import { AckOffline } from './AckOffline';
   }
 
   /** Most important. When a que of data-tasks is being processed, the approperiate handler must be registered here */
-  registerHandler(name, handler){
+  registerHandler(name:string, handler:(qued:any)=>any){
     this.handlers.push({name, handler})
     return this
   }
 
   /** aka registerHandler */
-  registerQueHandler(name, handler){
+  registerQueHandler(name:string, handler:(qued:any)=>any){
     return this.registerHandler(name, handler)
   }
 
-  paramHandler(name, handler) {
+  paramHandler(name:string, handler:(qued:any)=>any) {
     for(let x=this.handlers.length-1; x >= 0; --x){
       if(this.handlers[x].name==name){
         return this
@@ -96,7 +101,7 @@ import { AckOffline } from './AckOffline';
     return this
   }
 
-  getQueHandDefByName(name){
+  getQueHandDefByName(name:string){
     for(let i=this.handlers.length-1; i >= 0; --i){
       if(this.handlers[i].name==name)return this.handlers[i]
     }
@@ -108,19 +113,17 @@ import { AckOffline } from './AckOffline';
     if(hand)return hand.handler
   }
 
-  handleQued(name, qued, handler){
+  handleQued(name:string, qued:any, handler:(qued:any)=>any){
     return Promise.resolve( handler(qued) )
   }
 
-  /** gets array of qued data and processes all and then clears que
-    @hand{name, handler}
-  */
-  processQuedHandler( hand:{name:string,handler} ) : Promise<any>{
+  /** gets array of qued data and processes all and then clears que */
+  processQuedHandler( hand:handlerConfig ) : Promise<any>{
     const results = []
     const mem = {que:[]}
     const eachHandle = this.eachHandler(hand.name, hand.handler)
 
-    return this.get(hand.name)
+    return this.get( hand.name )
     .then( que=>mem.que=que )
     .then( ()=>this.clear(hand.name) )
     .then(()=>{
@@ -137,7 +140,7 @@ import { AckOffline } from './AckOffline';
     .then( ()=>results )
   }
 
-  eachHandler(name, handler){
+  eachHandler(name:string, handler:(qued:any)=>any){
     return data=>this.handleQued(name, data, handler)
   }
 

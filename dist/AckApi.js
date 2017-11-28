@@ -27,6 +27,8 @@ var AckApi = (function () {
         this.response = new core_1.EventEmitter();
         this.AuthError = new core_1.EventEmitter();
         this.ApiError = new core_1.EventEmitter();
+        this.AckCache = new AckCache_1.AckCache();
+        this.AckQue = new AckQue_1.AckQue();
         this.config = {
             baseUrl: '',
             $http: {
@@ -35,8 +37,6 @@ var AckApi = (function () {
                 timeout: 6500
             }
         };
-        this.AckCache = new AckCache_1.AckCache();
-        this.AckQue = new AckQue_1.AckQue();
         this.paramConfig();
     }
     AckApi.prototype.paramConfig = function () { };
@@ -69,31 +69,44 @@ var AckApi = (function () {
         defaults.headers = __assign({}, this.config.$http.headers);
         var request = Object.assign(defaults, (config || {}));
         request.url = this.config.baseUrl + request.url;
-        if (request.queModel) {
-            return this.requestQueModel(request);
+        if (request.offlineModel) {
+            return this.requestOfflineModel(request);
         }
         return this._fetch(request);
     };
     AckApi.prototype.getCacheByNamedRequest = function (request) {
         var _this = this;
-        var queModel = request.queModel;
-        return this.AckCache.get(queModel.name)
+        var offlineModel = request.offlineModel;
+        return this.AckCache.get(offlineModel.name)
             .then(function (routes) {
             routes = routes || {};
-            return routes[request.url];
+            var cacheName = _this.getSotageNameByRequest(request);
+            console.log('cacheName', cacheName, routes[cacheName], routes);
+            return routes[cacheName];
         })
             .then(function (cache) { return _this.processCacheGet(cache, request); });
     };
-    AckApi.prototype.requestQueModel = function (request) {
+    AckApi.prototype.getSotageNameByRequest = function (request) {
+        if (request.params) {
+            var paramKeys = Object.keys(request.params);
+            if (!paramKeys.length)
+                return request.url;
+            var url_1 = request.url + (request.url.search(/\?/) >= 0 ? '&' : '?');
+            paramKeys.sort().forEach(function (name) { return url_1 += name + '=' + request.params[name] + '&'; });
+            return url_1.substring(0, url_1.length - 1);
+        }
+        return request.url;
+    };
+    AckApi.prototype.requestOfflineModel = function (request) {
         var _this = this;
-        var queModel = request.queModel;
-        if (queModel && queModel.constructor == String) {
-            request.queModel = queModel = { name: request.queModel };
+        var offlineModel = request.offlineModel;
+        if (offlineModel && offlineModel.constructor == String) {
+            request.offlineModel = offlineModel = { name: request.offlineModel };
         }
         if (request.method === "GET") {
             return this.getCacheByNamedRequest(request);
         }
-        this.AckQue.paramHandler(queModel.name, function (config) { return _this._fetch(config); });
+        this.AckQue.paramHandler(offlineModel.name, function (config) { return _this._fetch(config); });
         return this._fetch(request)
             .catch(function (e) { return _this.postRequestFail(e, request); });
     };
@@ -101,12 +114,12 @@ var AckApi = (function () {
         var _this = this;
         if (cache == null)
             return this._fetch(cfg);
-        var queModel = cfg.queModel;
-        return this.AckCache.cacheToReturn(queModel.name, cache, queModel)
+        var offlineModel = cfg.offlineModel;
+        return this.AckCache.cacheToReturn(offlineModel.name, cache, offlineModel)
             .then(function (rtn) {
-            var willExpire = rtn && _this.AckCache.optionsKillCache(cfg.queModel);
+            var willExpire = rtn && _this.AckCache.optionsKillCache(offlineModel);
             if (!willExpire) {
-                console.log('AckApi fetched cache that will never expire. Set queModel.expires=0 or queModel.maxAge=0 to avoid this message');
+                console.log('AckApi fetched cache that will never expire. Set offlineModel.expires=0 or offlineModel.maxAge=0 to avoid this message');
             }
             if (rtn != null) {
                 return rtn;
@@ -118,18 +131,18 @@ var AckApi = (function () {
         var saveWorthy = e.status == 0 || e.status == -1 || e.status == 503;
         if (!saveWorthy)
             return Promise.reject(e);
-        request.offlineMeta = request.offlineMeta || {};
-        request.offlineMeta.offlineId = Date.now();
-        request.offlineMeta.lastAttempt = new Date();
-        request.offlineMeta.attempts = request.offlineMeta.attempts == null ? 1 : ++request.offlineMeta.attempts;
-        request.offlineMeta.maxTry = request.offlineMeta.maxTry || 50;
-        var tryAgainLater = request.offlineMeta.maxTry && request.offlineMeta.attempts <= request.offlineMeta.maxTry;
-        e.offlineMeta = request.offlineMeta;
+        request.sendFailMeta = request.sendFailMeta || {};
+        request.sendFailMeta.offlineId = Date.now();
+        request.sendFailMeta.lastAttempt = new Date();
+        request.sendFailMeta.attempts = request.sendFailMeta.attempts == null ? 1 : ++request.sendFailMeta.attempts;
+        request.sendFailMeta.maxTry = request.sendFailMeta.maxTry || 50;
+        var tryAgainLater = request.sendFailMeta.maxTry && request.sendFailMeta.attempts <= request.sendFailMeta.maxTry;
+        e.sendFailMeta = request.sendFailMeta;
         if (tryAgainLater) {
             var requestSave = Object.assign({}, request);
-            delete requestSave.queModel;
-            var queModel = request.queModel;
-            return this.AckQue.set(queModel.name, requestSave)
+            delete requestSave.offlineModel;
+            var offlineModel = request.offlineModel;
+            return this.AckQue.set(offlineModel.name, requestSave)
                 .then(function () { return Promise.reject(e); });
         }
         return Promise.reject(e);
@@ -174,7 +187,7 @@ var AckApi = (function () {
         }
         var isDataMode = !request.promise || request.promise == 'data';
         var output = isDataMode ? (response['data'] || data) : response;
-        if (request.method === "GET" && request.queModel) {
+        if (request.method === "GET" && request.offlineModel) {
             return this.requestResponseToCache(request, output)
                 .then(function () { return output; });
         }
@@ -198,12 +211,13 @@ var AckApi = (function () {
     };
     AckApi.prototype.requestResponseToCache = function (request, output) {
         var _this = this;
-        var cachename = request.queModel.name || request.queModel;
+        var cachename = request.offlineModel.name || request.offlineModel;
         return this.AckCache.get(cachename)
             .then(function (routes) {
             routes = routes || {};
-            routes[request.url] = { cache: output };
-            _this.AckCache.dataOptionsCache(routes[request.url], request.queModel, output);
+            var cacheName = _this.getSotageNameByRequest(request);
+            routes[cacheName] = { cache: output };
+            _this.AckCache.dataOptionsCache(routes[request.url], request.offlineModel, output);
             return routes;
         })
             .then(function (routes) { return _this.AckCache.set(cachename, routes); });
@@ -246,13 +260,6 @@ exports.AckApi = AckApi;
 function upgradeConfig(cfg) {
     cfg.method = cfg.method || 'GET';
     cfg.reportProgress = cfg.reportProgress || false;
-    var isFormData = cfg.data && FormData && cfg.data.constructor == FormData;
-    if (isFormData) {
-        var preventAutoContentType = !cfg.headers || Object.keys(cfg.headers).filter(function (h) { return h.search(/content-type/i) < 0; });
-        if (preventAutoContentType) {
-            cfg.headers['Content-Type'] = undefined;
-        }
-    }
     if (cfg.params) {
         for (var key in cfg.params) {
             if (cfg.params[key] == null) {

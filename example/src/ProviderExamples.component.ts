@@ -40,7 +40,7 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
   httpError
   httpHeaderConfigArray=[]
   httpConfig:httpOptions={
-    queModel:{
+    offlineModel:{
       name:'ackHttpTests', maxAge:15000
     },
     promise:'response',
@@ -217,7 +217,7 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
     .then(()=>this.reloadData())
   }
 
-  setCache(value, seconds){
+  setCache(value:any, seconds:number){
     const expires = new Date( Date.now()+(seconds*1000) ).getTime()
     return this.AckCache.set('ackNgCacheTest', value, {expires:expires})
     .then(()=>this.readCache())

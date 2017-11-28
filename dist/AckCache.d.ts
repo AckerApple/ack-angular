@@ -1,20 +1,28 @@
 import { AckOffline } from './AckOffline';
+export interface cacheModel {
+    name?: string;
+    maxTry?: number;
+    expires?: number;
+    maxAge?: number;
+    allowExpired?: boolean;
+    param?: object;
+}
 export declare class AckCache extends AckOffline {
     prefix: string;
     validate(data: any, config: any): boolean;
-    optionsKillCache(options: any): boolean;
-    hasMaxAged(stamp: any, maxAge: any): boolean;
-    hasExpired(stamp: any, expires: any): boolean;
-    param(name: any, options: any): Promise<any>;
-    paramCache(name: any, options: any): Promise<any>;
-    paramSave(name: any, options: any): Promise<any>;
-    paramSaveCache(name: any, options: any): Promise<any>;
-    cacheToReturn(name: any, data: any, options: any): Promise<any>;
+    optionsKillCache(options: cacheModel): boolean;
+    hasMaxAged(stamp: number, maxAge: number): boolean;
+    hasExpired(stamp: number, expires: number): boolean;
+    param(name: string, options?: cacheModel): Promise<any>;
+    paramCache(name: string, options: cacheModel): Promise<any>;
+    paramSave(name: string, options: cacheModel): Promise<any>;
+    paramSaveCache(name: string, options: cacheModel): Promise<any>;
+    cacheToReturn(name: string, data: any, options: cacheModel): any;
     selfDestructData(name: any, data: any): Promise<void>;
     dataDestructReady(data: any): boolean;
-    get(name: any, options?: any): Promise<any>;
-    getCache(name: any, options: any): Promise<any>;
-    dataOptionsCache(allCache: any, options: any, cache: any): any;
-    set(name: any, cache: any, options?: any): Promise<any>;
-    setCache(name: any, cache: any, options?: any): Promise<any>;
+    get(name: string, options?: cacheModel): Promise<any>;
+    getCache(name: string, options?: cacheModel): Promise<any>;
+    dataOptionsCache(allCache: any, options: cacheModel, cache: any): any;
+    set(name: string, cache: any, options?: cacheModel): Promise<any>;
+    setCache(name: string, cache: any, options?: cacheModel): Promise<any>;
 }
