@@ -4,8 +4,8 @@ import { AckOffline } from './AckOffline';
 export interface cacheModel{
   name?         : string
   maxTry?       : number
-  expires?      : number
-  maxAge?       : number
+  expires?      : number//exact date of expiration
+  maxAge?       : number//how old until expiration
   allowExpired? : boolean
   param?        : object//when cache not defined, use this
 }
