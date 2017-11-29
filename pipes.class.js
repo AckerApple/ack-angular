@@ -38,12 +38,11 @@ exports.numberSuffix = numberSuffix;
 function array(input, repeat, repeatValue) {
     var isArray = input != null && input.constructor == Array;
     var rtn = isArray ? input : [];
-    var useRepeat = repeatValue != null;
-    if (!useRepeat && !isArray && input != null) {
+    if (!repeat && !isArray && input != null) {
         rtn.push(input);
     }
-    if ((useRepeat || !isArray) && repeat && !isNaN(Number(repeat))) {
-        var val = useRepeat ? repeatValue : input;
+    if (!isNaN(Number(repeat))) {
+        var val = typeof (repeatValue) === 'undefined' ? input : repeatValue;
         while (rtn.length < repeat) {
             rtn.push(val);
         }
