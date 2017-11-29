@@ -136,7 +136,6 @@ TimeOutError.prototype = Object.create(Error.prototype)
     .then(routes=>{
       routes = routes || {}
       const cacheName = this.getSotageNameByRequest(request)
-console.log('cacheName', cacheName, routes[cacheName], routes)
       return routes[ cacheName ]//get cache by url
     })
     .then(cache=>this.processCacheGet(cache,request))

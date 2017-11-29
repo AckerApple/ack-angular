@@ -81,7 +81,6 @@ var AckApi = (function () {
             .then(function (routes) {
             routes = routes || {};
             var cacheName = _this.getSotageNameByRequest(request);
-            console.log('cacheName', cacheName, routes[cacheName], routes);
             return routes[cacheName];
         })
             .then(function (cache) { return _this.processCacheGet(cache, request); });
