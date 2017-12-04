@@ -15,7 +15,7 @@ import { string as ackOptionsModal } from "./templates/ack-options-modal.pug"
   ackOptions
   
   @Input() allowClose = true
-  @Output() onClose = new EventEmitter()
+  @Output() close = new EventEmitter()
   @Input() wrapStyle
   @Input() wrapCellStyle
   @Input() backgroundColor

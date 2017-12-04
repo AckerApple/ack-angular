@@ -231,12 +231,21 @@ h3.margin-bottom-0(id="Tags") Tags
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.ackModal=!views.ackModal" "[ngClass]"="views.ackModal?'border-energized bg-energized':'border-info bg-info'")
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.ackModal" "[@500]"="'fadeInUp'")
-      ack-modal("*ngIf"="showAckModal" "(onClose)"="showAckModal=false" "[(backgroundColor)]"="modalBackgroundColor" "[(wrapStyle)]"="modalWrapStyle")
+      ack-modal(
+        "*ngIf"="showAckModal"
+        "(close)"="showAckModal=false"
+        "[(backgroundColor)]"="modalBackgroundColor"
+        "[(wrapStyle)]"="modalWrapStyle"
+      )
         .bg-white.border.border-grey-4x.pad-4x.radius-5
           |Sample Modal Dialog Window
           .text-xs.text-grey-2x.pad-h
             |*ngIf driven modal with animation provided by ack-angular-fx [@500]="'fadeInUp'"
-      ack-modal("[(showModel)]"="showAckModalModel" "[(backgroundColor)]"="modalBackgroundColor" "[(wrapStyle)]"="modalWrapStyle")
+      ack-modal(
+        "[(showModel)]"="showAckModalModel"
+        "[(backgroundColor)]"="modalBackgroundColor"
+        "[(wrapStyle)]"="modalWrapStyle"
+      )
         .bg-white.border.border-grey-4x.pad-4x.radius-5
           |Sample Modal Dialog Window
           .text-xs.text-grey-2x.pad-h
@@ -257,8 +266,9 @@ h3.margin-bottom-0(id="Tags") Tags
       .pad-sm
         h4 Properties
         ul
-          li onClose
-          li wrapCellStyle
+          li (close)
+          li [wrapStyle]
+          li [wrapCellStyle]
           li allowClose = true
           li backgroundColor
           li ref
@@ -266,7 +276,7 @@ h3.margin-bottom-0(id="Tags") Tags
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
-          &lt;ack-modal *ngIf="showAckModal" (onClose)="showAckModal=false" backgroundColor="rgba(255,255,255,0.95)"&gt;
+          &lt;ack-modal *ngIf="showAckModal" (close)="showAckModal=false" backgroundColor="rgba(255,255,255,0.95)"&gt;
             &lt;div style="background-color:white;padding:1em;"&gt;
               Sample Modal Dialog Window
             &lt;/div&gt;
@@ -304,7 +314,7 @@ h3.margin-bottom-0(id="Tags") Tags
         div(*ngIf="ackOptionStringModal" "[@500]"="'fadeInUp'")
           strong Selected Option:
           |&nbsp;{{ ackOptionStringModal }}
-        ack-options-modal(*ngIf="showAckOptionsStringModal" "[@500]"="'fadeInUp'" allowClose="0" "(onClose)"="showAckOptionsStringModal=0" "[array]"="['option 0','option 1','option 2']" "[(model)]"="ackOptionStringModal" toggleable="1")
+        ack-options-modal(*ngIf="showAckOptionsStringModal" "[@500]"="'fadeInUp'" allowClose="0" "(close)"="showAckOptionsStringModal=0" "[array]"="['option 0','option 1','option 2']" "[(model)]"="ackOptionStringModal" toggleable="1")
           .pad-right-3x Select Something Below
         button("(click)"="showAckOptionsStringModal=!showAckOptionsStringModal") select option
         hr
@@ -317,7 +327,7 @@ h3.margin-bottom-0(id="Tags") Tags
         ack-options-modal(
           *ngIf = "showAckOptionsObjectModal"
           "[@500]" = "'fadeInUp'"
-          "(onClose)" = "showAckOptionsObjectModal=0"
+          "(close)" = "showAckOptionsObjectModal=0"
           "[array]" = "[{name:'red',key:'r'},{name:'blue',key:'b'},{name:'green',key:'g'}]"
           "[(model)]" = "ackOptionArrayModal"
           multiple = "1"
@@ -343,7 +353,7 @@ h3.margin-bottom-0(id="Tags") Tags
             *ngIf      = "showAckOptionsStringModal"
             [@500]     = "'fadeInUp'"
             allowClose = "0"
-            (onClose)  = "showAckOptionsStringModal=0"
+            (close)  = "showAckOptionsStringModal=0"
             [array]    = "['x','y','z']"
             [(model)]  = "ackOptionStringModal"
             toggleable
@@ -364,7 +374,7 @@ h3.margin-bottom-0(id="Tags") Tags
           &lt;ack-options-modal
             *ngIf           = "showAckOptionsObjectModal"
             [@500]          = "'fadeInUp'"
-            (onClose)       = "showAckOptionsObjectModal=0"
+            (close)         = "showAckOptionsObjectModal=0"
             [array]         = "[&#123;name:'red'&#125;,&#123;name:'blue'&#125;,&#123;name:'green'&#125;]"
             [(model)]       = "ackOptionArrayModal"
             arrayKey        = "name"

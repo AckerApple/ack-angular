@@ -236,14 +236,20 @@ h3(id="Documentation") Documentation
           span(ngNonBindable) {{ 'a' | array }}
           span.pad-h == {{ 'a' | array | stringify }}
           br
-          span(ngNonBindable) {{ 'a' | array:3 }}
-          span.pad-h == {{ 'a' | array:3 | stringify }}
+          span(ngNonBindable) {{ 'a' | array : 3 }}
+          span.pad-h == {{ 'a' | array : 3 | stringify }}
           br
-          span(ngNonBindable) {{ ['a'] | array:3:1 }}
+          span(ngNonBindable) {{ ['a'] | array : 3 : 1 }}
           span.pad-h == {{ ['a'] | array:3:1 | stringify }}
           br
-          span(ngNonBindable) {{ 'a' | array:3:1 }}
-          span.pad-h == {{ 'a' | array:3:1 | stringify }}
+          span(ngNonBindable) {{ 'a' | array : 3 : 1 }}
+          span.pad-h == {{ 'a' | array : 3 : 1 | stringify }}
+          br
+          span(ngNonBindable) {{ 0 | array : 3 : 'b' }}
+          span.pad-h == {{ 0 | array : 3 : 'b' | stringify }}
+          br
+          span(ngNonBindable) {{ 'c' | array : 3 }}
+          span.pad-h == {{ 'c' | array : 3 | stringify }}
 
   .flex2.border-grey-6x.border
     .pad-h

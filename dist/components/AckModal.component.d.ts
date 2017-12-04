@@ -2,7 +2,7 @@ import { EventEmitter, ElementRef } from "@angular/core";
 export declare class AckModal {
     element: ElementRef;
     showModelMode: boolean;
-    onClose: EventEmitter<{}>;
+    close: EventEmitter<{}>;
     wrapStyle: any;
     wrapCellStyle: any;
     allowClose: boolean;
@@ -15,5 +15,5 @@ export declare class AckModal {
     constructor(element: ElementRef);
     clickListenForClose(): void;
     ngOnInit(): void;
-    close(): void;
+    fireClose(): void;
 }

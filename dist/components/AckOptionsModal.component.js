@@ -18,7 +18,7 @@ var AckOptionsModal = (function (_super) {
     function AckOptionsModal() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.allowClose = true;
-        _this.onClose = new core_1.EventEmitter();
+        _this.close = new core_1.EventEmitter();
         _this.backgroundColorChange = new core_1.EventEmitter();
         return _this;
     }
@@ -53,7 +53,7 @@ var AckOptionsModal = (function (_super) {
     AckOptionsModal.ctorParameters = function () { return []; };
     AckOptionsModal.propDecorators = {
         'allowClose': [{ type: core_1.Input },],
-        'onClose': [{ type: core_1.Output },],
+        'close': [{ type: core_1.Output },],
         'wrapStyle': [{ type: core_1.Input },],
         'wrapCellStyle': [{ type: core_1.Input },],
         'backgroundColor': [{ type: core_1.Input },],

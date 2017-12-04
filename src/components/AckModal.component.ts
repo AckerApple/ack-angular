@@ -16,7 +16,7 @@ import { string as ackModal } from "./templates/ack-modal.pug"
   animations:fxArray
 }) export class AckModal{
   showModelMode = false
-  @Output() onClose = new EventEmitter()
+  @Output() close = new EventEmitter()
   //@Input() size:string//'full' or null
   @Input() wrapStyle
   @Input() wrapCellStyle
@@ -43,7 +43,7 @@ import { string as ackModal } from "./templates/ack-modal.pug"
       const isDirectChild = eTar == this.element.nativeElement.children[0] || eTar == this.element.nativeElement.children[0].children[0]
       
       if( isDirectChild ){
-        this.close()
+        this.fireClose()
       }
 
       return true
@@ -64,8 +64,8 @@ import { string as ackModal } from "./templates/ack-modal.pug"
     }, 0)
   }
 
-  close(){
+  fireClose(){
     this.showModelChange.emit( this.showModel=false )
-    this.onClose.emit(this)
+    this.close.emit(this)
   }
 }

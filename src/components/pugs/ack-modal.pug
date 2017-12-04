@@ -16,12 +16,12 @@ div(
       "[ngStyle]"="wrapStyle"
     )
       tr
-        td("(click)"="allowClose?close():0")
+        td("(click)"="allowClose?fireClose():0")
       tr
         td(valign="top" "[ngStyle]"="wrapCellStyle")
           div(*ngIf="allowClose" style="position:relative")
             div(style="position:absolute;bottom:-17px;right:-16px;border:1px solid #DDD;border-radius:50%;z-index:20")
-              ack-close-icon("(click)"="close()")
+              ack-close-icon("(click)"="fireClose()")
           ng-content
       tr
-        td("(click)"="allowClose?close():0")
+        td("(click)"="allowClose?fireClose():0")

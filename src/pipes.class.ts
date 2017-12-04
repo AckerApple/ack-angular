@@ -39,14 +39,13 @@ export function numberSuffix(val, rtnVal=false){
 export function array(input, repeat?:number, repeatValue?){
   const isArray = input!=null && input.constructor == Array
   let rtn = isArray ? input : []
-  const useRepeat = repeatValue!=null
   
-  if(!useRepeat && !isArray && input!=null){
+  if(!repeat && !isArray && input!=null){
     rtn.push(input)
   }
 
-  if((useRepeat || !isArray) && repeat && !isNaN(Number(repeat))){
-    const val = useRepeat ? repeatValue : input 
+  if( !isNaN(Number(repeat)) ){
+    const val = typeof(repeatValue)==='undefined' ? input : repeatValue
     while(rtn.length<repeat){
       rtn.push( val )
     }

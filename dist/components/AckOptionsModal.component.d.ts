@@ -4,7 +4,7 @@ export declare class AckOptionsModal extends AckOptions {
     ackModal: any;
     ackOptions: any;
     allowClose: boolean;
-    onClose: EventEmitter<{}>;
+    close: EventEmitter<{}>;
     wrapStyle: any;
     wrapCellStyle: any;
     backgroundColor: any;
