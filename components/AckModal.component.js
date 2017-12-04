@@ -8,7 +8,7 @@ var AckModal = (function () {
         var _this = this;
         this.element = element;
         this.showModelMode = false;
-        this.onClose = new core_1.EventEmitter();
+        this.close = new core_1.EventEmitter();
         this.allowClose = true;
         this.backgroundColorChange = new core_1.EventEmitter();
         this.refChange = new core_1.EventEmitter();
@@ -23,7 +23,7 @@ var AckModal = (function () {
             var eTar = event.srcElement || event.toElement || event.target;
             var isDirectChild = eTar == _this.element.nativeElement.children[0] || eTar == _this.element.nativeElement.children[0].children[0];
             if (isDirectChild) {
-                _this.close();
+                _this.fireClose();
             }
             return true;
         });
@@ -41,9 +41,9 @@ var AckModal = (function () {
             _this.backgroundColorChange.emit(_this.backgroundColor);
         }, 0);
     };
-    AckModal.prototype.close = function () {
+    AckModal.prototype.fireClose = function () {
         this.showModelChange.emit(this.showModel = false);
-        this.onClose.emit(this);
+        this.close.emit(this);
     };
     AckModal.decorators = [
         { type: core_1.Component, args: [{
@@ -56,7 +56,7 @@ var AckModal = (function () {
         { type: core_1.ElementRef, },
     ]; };
     AckModal.propDecorators = {
-        'onClose': [{ type: core_1.Output },],
+        'close': [{ type: core_1.Output },],
         'wrapStyle': [{ type: core_1.Input },],
         'wrapCellStyle': [{ type: core_1.Input },],
         'allowClose': [{ type: core_1.Input },],
