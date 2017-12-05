@@ -4,7 +4,7 @@ export declare class RouteReporter {
     RouteWatchReporter: RouteWatchReporter;
     $document: any;
     $scope: any;
-    static parameters: (typeof RouteWatchReporter)[][];
+    static parameters: typeof RouteWatchReporter[][];
     docCallbacks: any;
     querySub: any;
     stateChanger: EventEmitter<{}>;

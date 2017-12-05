@@ -50,9 +50,9 @@ var FocusOn = (function () {
         { type: core_1.ElementRef, },
     ]; };
     FocusOn.propDecorators = {
-        'focusOn': [{ type: core_1.Input },],
-        'focusOnDelay': [{ type: core_1.Input },],
-        'focusThen': [{ type: core_1.Output },],
+        "focusOn": [{ type: core_1.Input },],
+        "focusOnDelay": [{ type: core_1.Input },],
+        "focusThen": [{ type: core_1.Output },],
     };
     return FocusOn;
 }());
@@ -81,9 +81,9 @@ var SelectOn = (function () {
         { type: core_1.ElementRef, },
     ]; };
     SelectOn.propDecorators = {
-        'selectOn': [{ type: core_1.Input },],
-        'selectOnDelay': [{ type: core_1.Input },],
-        'selectThen': [{ type: core_1.Output },],
+        "selectOn": [{ type: core_1.Input },],
+        "selectOnDelay": [{ type: core_1.Input },],
+        "selectThen": [{ type: core_1.Output },],
     };
     return SelectOn;
 }());
@@ -99,7 +99,7 @@ var VarDirective = (function () {
     ];
     VarDirective.ctorParameters = function () { return []; };
     VarDirective.propDecorators = {
-        'var': [{ type: core_1.Input },],
+        "var": [{ type: core_1.Input },],
     };
     return VarDirective;
 }());
@@ -123,7 +123,7 @@ var EnterKey = (function () {
         { type: core_1.ElementRef, },
     ]; };
     EnterKey.propDecorators = {
-        'enterKey': [{ type: core_1.Output },],
+        "enterKey": [{ type: core_1.Output },],
     };
     return EnterKey;
 }());
@@ -147,7 +147,7 @@ var EscapeKey = (function () {
         { type: core_1.ElementRef, },
     ]; };
     EscapeKey.propDecorators = {
-        'escapeKey': [{ type: core_1.Output },],
+        "escapeKey": [{ type: core_1.Output },],
     };
     return EscapeKey;
 }());
@@ -175,7 +175,7 @@ var PreventBackKey = (function () {
         { type: core_1.ElementRef, },
     ]; };
     PreventBackKey.propDecorators = {
-        'preventBackKey': [{ type: core_1.Output },],
+        "preventBackKey": [{ type: core_1.Output },],
     };
     return PreventBackKey;
 }());
@@ -203,7 +203,7 @@ var PreventEnterKey = (function () {
         { type: core_1.ElementRef, },
     ]; };
     PreventEnterKey.propDecorators = {
-        'preventEnterKey': [{ type: core_1.Output },],
+        "preventEnterKey": [{ type: core_1.Output },],
     };
     return PreventEnterKey;
 }());
@@ -220,7 +220,7 @@ var InputHint = (function () {
     ];
     InputHint.ctorParameters = function () { return []; };
     InputHint.propDecorators = {
-        'hintStyle': [{ type: core_1.Input },],
+        "hintStyle": [{ type: core_1.Input },],
     };
     return InputHint;
 }());
@@ -246,8 +246,8 @@ var StatusOnlineModel = (function () {
     ];
     StatusOnlineModel.ctorParameters = function () { return []; };
     StatusOnlineModel.propDecorators = {
-        'statusOnlineModel': [{ type: core_1.Input },],
-        'statusOnlineModelChange': [{ type: core_1.Output },],
+        "statusOnlineModel": [{ type: core_1.Input },],
+        "statusOnlineModelChange": [{ type: core_1.Output },],
     };
     return StatusOnlineModel;
 }());
@@ -273,8 +273,8 @@ var StatusOfflineModel = (function () {
     ];
     StatusOfflineModel.ctorParameters = function () { return []; };
     StatusOfflineModel.propDecorators = {
-        'statusOfflineModel': [{ type: core_1.Input },],
-        'statusOfflineModelChange': [{ type: core_1.Output },],
+        "statusOfflineModel": [{ type: core_1.Input },],
+        "statusOfflineModelChange": [{ type: core_1.Output },],
     };
     return StatusOfflineModel;
 }());
@@ -300,7 +300,7 @@ var FormChanged = (function () {
         { type: core_1.ElementRef, },
     ]; };
     FormChanged.propDecorators = {
-        'formChanged': [{ type: core_1.Output },],
+        "formChanged": [{ type: core_1.Output },],
     };
     return FormChanged;
 }());
@@ -328,7 +328,7 @@ var FormAlter = (function () {
         { type: core_1.ElementRef, },
     ]; };
     FormAlter.propDecorators = {
-        'formAlter': [{ type: core_1.Output },],
+        "formAlter": [{ type: core_1.Output },],
     };
     return FormAlter;
 }());
@@ -367,8 +367,8 @@ var InnerHtmlModel = (function () {
         { type: core_1.ElementRef, },
     ]; };
     InnerHtmlModel.propDecorators = {
-        'innerHtmlModel': [{ type: core_1.Input },],
-        'innerHtmlModelChange': [{ type: core_1.Output },],
+        "innerHtmlModel": [{ type: core_1.Input },],
+        "innerHtmlModelChange": [{ type: core_1.Output },],
     };
     return InnerHtmlModel;
 }());
@@ -428,8 +428,8 @@ var ElementSizeModel = (function () {
         { type: core_1.ElementRef, },
     ]; };
     ElementSizeModel.propDecorators = {
-        'elementSizeModel': [{ type: core_1.Input },],
-        'elementSizeModelChange': [{ type: core_1.Output },],
+        "elementSizeModel": [{ type: core_1.Input },],
+        "elementSizeModelChange": [{ type: core_1.Output },],
     };
     return ElementSizeModel;
 }());
@@ -452,8 +452,8 @@ var ElementHeightModel = (function (_super) {
     ];
     ElementHeightModel.ctorParameters = function () { return []; };
     ElementHeightModel.propDecorators = {
-        'elementHeightModel': [{ type: core_1.Input },],
-        'elementHeightModelChange': [{ type: core_1.Output },],
+        "elementHeightModel": [{ type: core_1.Input },],
+        "elementHeightModelChange": [{ type: core_1.Output },],
     };
     return ElementHeightModel;
 }(ElementSizeModel));
@@ -476,8 +476,8 @@ var ElementWidthModel = (function (_super) {
     ];
     ElementWidthModel.ctorParameters = function () { return []; };
     ElementWidthModel.propDecorators = {
-        'elementWidthModel': [{ type: core_1.Input },],
-        'elementWidthModelChange': [{ type: core_1.Output },],
+        "elementWidthModel": [{ type: core_1.Input },],
+        "elementWidthModelChange": [{ type: core_1.Output },],
     };
     return ElementWidthModel;
 }(ElementSizeModel));
@@ -508,8 +508,8 @@ var ScreenScrollHeightDiff = (function () {
     ];
     ScreenScrollHeightDiff.ctorParameters = function () { return []; };
     ScreenScrollHeightDiff.propDecorators = {
-        'screenScrollHeightDiff': [{ type: core_1.Input },],
-        'screenScrollHeightDiffChange': [{ type: core_1.Output },],
+        "screenScrollHeightDiff": [{ type: core_1.Input },],
+        "screenScrollHeightDiffChange": [{ type: core_1.Output },],
     };
     return ScreenScrollHeightDiff;
 }());
@@ -537,7 +537,7 @@ var ScreenScroll = (function () {
     ];
     ScreenScroll.ctorParameters = function () { return []; };
     ScreenScroll.propDecorators = {
-        'screenScroll': [{ type: core_1.Output },],
+        "screenScroll": [{ type: core_1.Output },],
     };
     return ScreenScroll;
 }());
@@ -566,8 +566,8 @@ var ScreenScrollModelY = (function () {
     ];
     ScreenScrollModelY.ctorParameters = function () { return []; };
     ScreenScrollModelY.propDecorators = {
-        'screenScrollModelY': [{ type: core_1.Input },],
-        'screenScrollModelYChange': [{ type: core_1.Output },],
+        "screenScrollModelY": [{ type: core_1.Input },],
+        "screenScrollModelYChange": [{ type: core_1.Output },],
     };
     return ScreenScrollModelY;
 }());
@@ -602,8 +602,8 @@ var ScreenWidthModel = (function () {
     ];
     ScreenWidthModel.ctorParameters = function () { return []; };
     ScreenWidthModel.propDecorators = {
-        'screenWidthModel': [{ type: core_1.Input },],
-        'screenWidthModelChange': [{ type: core_1.Output },],
+        "screenWidthModel": [{ type: core_1.Input },],
+        "screenWidthModelChange": [{ type: core_1.Output },],
     };
     return ScreenWidthModel;
 }());
@@ -638,8 +638,8 @@ var ScreenHeightModel = (function () {
     ];
     ScreenHeightModel.ctorParameters = function () { return []; };
     ScreenHeightModel.propDecorators = {
-        'screenHeightModel': [{ type: core_1.Input },],
-        'screenHeightModelChange': [{ type: core_1.Output },],
+        "screenHeightModel": [{ type: core_1.Input },],
+        "screenHeightModelChange": [{ type: core_1.Output },],
     };
     return ScreenHeightModel;
 }());
@@ -674,8 +674,8 @@ var HtmlWidthModel = (function () {
     ];
     HtmlWidthModel.ctorParameters = function () { return []; };
     HtmlWidthModel.propDecorators = {
-        'htmlWidthModel': [{ type: core_1.Input },],
-        'htmlWidthModelChange': [{ type: core_1.Output },],
+        "htmlWidthModel": [{ type: core_1.Input },],
+        "htmlWidthModelChange": [{ type: core_1.Output },],
     };
     return HtmlWidthModel;
 }());
@@ -710,8 +710,8 @@ var HtmlHeightModel = (function () {
     ];
     HtmlHeightModel.ctorParameters = function () { return []; };
     HtmlHeightModel.propDecorators = {
-        'htmlHeightModel': [{ type: core_1.Input },],
-        'htmlHeightModelChange': [{ type: core_1.Output },],
+        "htmlHeightModel": [{ type: core_1.Input },],
+        "htmlHeightModelChange": [{ type: core_1.Output },],
     };
     return HtmlHeightModel;
 }());

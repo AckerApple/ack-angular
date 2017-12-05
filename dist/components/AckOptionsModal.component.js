@@ -52,12 +52,12 @@ var AckOptionsModal = (function (_super) {
     ];
     AckOptionsModal.ctorParameters = function () { return []; };
     AckOptionsModal.propDecorators = {
-        'allowClose': [{ type: core_1.Input },],
-        'close': [{ type: core_1.Output },],
-        'wrapStyle': [{ type: core_1.Input },],
-        'wrapCellStyle': [{ type: core_1.Input },],
-        'backgroundColor': [{ type: core_1.Input },],
-        'backgroundColorChange': [{ type: core_1.Output },],
+        "allowClose": [{ type: core_1.Input },],
+        "close": [{ type: core_1.Output },],
+        "wrapStyle": [{ type: core_1.Input },],
+        "wrapCellStyle": [{ type: core_1.Input },],
+        "backgroundColor": [{ type: core_1.Input },],
+        "backgroundColorChange": [{ type: core_1.Output },],
     };
     return AckOptionsModal;
 }(AckOptions_component_1.AckOptions));

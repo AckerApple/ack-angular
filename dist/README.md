@@ -1,5 +1,5 @@
 # ack-angular
-Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2
+Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular
 
 > Demos and Examples : [tap here](https://ackerapple.github.io/ack-angular/)
 
@@ -222,4 +222,4 @@ After running the build command:
 ## Resources
 - [Examples and Docs](https://ackerapple.github.io/ack-angular/)
 - [Repository](https://github.com/AckerApple/ack-angular)
-- [Angular2 Cheatsheet](https://angular.io/docs/ts/latest/guide/cheatsheet.html)
+- [Angular Cheatsheet](https://angular.io/docs/ts/latest/guide/cheatsheet.html)
