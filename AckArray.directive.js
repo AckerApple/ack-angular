@@ -124,16 +124,16 @@ var AckArray = (function () {
     ];
     AckArray.ctorParameters = function () { return []; };
     AckArray.propDecorators = {
-        'idKey': [{ type: core_1.Input },],
-        'ref': [{ type: core_1.Input },],
-        'refChange': [{ type: core_1.Output },],
-        'pageAt': [{ type: core_1.Input },],
-        'pages': [{ type: core_1.Input },],
-        'pagesChange': [{ type: core_1.Output },],
-        'array': [{ type: core_1.Input },],
-        'arrayChange': [{ type: core_1.Output },],
-        'keyMap': [{ type: core_1.Input },],
-        'keyMapChange': [{ type: core_1.Output },],
+        "idKey": [{ type: core_1.Input },],
+        "ref": [{ type: core_1.Input },],
+        "refChange": [{ type: core_1.Output },],
+        "pageAt": [{ type: core_1.Input },],
+        "pages": [{ type: core_1.Input },],
+        "pagesChange": [{ type: core_1.Output },],
+        "array": [{ type: core_1.Input },],
+        "arrayChange": [{ type: core_1.Output },],
+        "keyMap": [{ type: core_1.Input },],
+        "keyMapChange": [{ type: core_1.Output },],
     };
     return AckArray;
 }());

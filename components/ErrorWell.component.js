@@ -28,11 +28,11 @@ var ErrorWell = (function () {
     ];
     ErrorWell.ctorParameters = function () { return []; };
     ErrorWell.propDecorators = {
-        'message': [{ type: core_1.Input },],
-        'error': [{ type: core_1.Input },],
-        'cssClasses': [{ type: core_1.Input },],
-        'closable': [{ type: core_1.Input },],
-        'allowDetails': [{ type: core_1.Input },],
+        "message": [{ type: core_1.Input },],
+        "error": [{ type: core_1.Input },],
+        "cssClasses": [{ type: core_1.Input },],
+        "closable": [{ type: core_1.Input },],
+        "allowDetails": [{ type: core_1.Input },],
     };
     return ErrorWell;
 }());

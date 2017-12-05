@@ -79,19 +79,19 @@ var RouteReporter = (function () {
         { type: RouteWatchReporter_1.RouteWatchReporter, },
     ]; };
     RouteReporter.propDecorators = {
-        'stateChanger': [{ type: core_1.Output, args: ["onChange",] },],
-        'beforeChanger': [{ type: core_1.Output, args: ["beforeChange",] },],
-        'onLoad': [{ type: core_1.Input },],
-        'ref': [{ type: core_1.Input },],
-        'refChange': [{ type: core_1.Output },],
-        'stateName': [{ type: core_1.Input },],
-        'stateNameChange': [{ type: core_1.Output },],
-        'params': [{ type: core_1.Input },],
-        'paramsChange': [{ type: core_1.Output },],
-        'query': [{ type: core_1.Input },],
-        'queryChange': [{ type: core_1.Output },],
-        'state': [{ type: core_1.Input },],
-        'stateChange': [{ type: core_1.Output },],
+        "stateChanger": [{ type: core_1.Output, args: ["onChange",] },],
+        "beforeChanger": [{ type: core_1.Output, args: ["beforeChange",] },],
+        "onLoad": [{ type: core_1.Input },],
+        "ref": [{ type: core_1.Input },],
+        "refChange": [{ type: core_1.Output },],
+        "stateName": [{ type: core_1.Input },],
+        "stateNameChange": [{ type: core_1.Output },],
+        "params": [{ type: core_1.Input },],
+        "paramsChange": [{ type: core_1.Output },],
+        "query": [{ type: core_1.Input },],
+        "queryChange": [{ type: core_1.Output },],
+        "state": [{ type: core_1.Input },],
+        "stateChange": [{ type: core_1.Output },],
     };
     return RouteReporter;
 }());
