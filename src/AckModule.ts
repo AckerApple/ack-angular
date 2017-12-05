@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 //import { Ng2PageScrollModule } from 'ng2-page-scroll';
 
 import { providers } from "./providers";
-import { declarations as components } from "./components";
+import { declarations as components } from "./declarations";
 import { declarations as pipes } from "./pipes";
 
 const declarations = [...components, ...pipes]

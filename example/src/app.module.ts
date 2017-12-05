@@ -15,7 +15,11 @@ import { RouteReporter } from "./ack-angular/RouteReporter.directive"
 //import { pipes, components as ackComponents } from "ack-angular"
 import { AckModule } from "./ack-angular"
 
-import * as packJson from "../../package.json"
+//Angular4
+//import * as packJson from "../../package.json"
+
+//Angular5
+import * as packJson from "../../../../package.json"
 
 import * as ackFx from 'ack-angular-fx'
 import { fxArray } from './prefx'

@@ -1,7 +1,7 @@
 export { AckModule } from "./AckModule";
 export { RouteWatchReporter } from "./RouteWatchReporter";
 
-export { declarations as components } from "./components";
+export { declarations as components } from "./declarations";
 export { declarations as pipes } from "./pipes";
 
 import * as ackX from "ack-x/index-browser"

@@ -68,7 +68,7 @@ import { pipes, components } from "ack-angular"
 
 //save as above
 import { declarations as pipes } from "ack-angular/pipes"
-import { declarations as components } from "ack-angular/components"
+import { declarations as components } from "ack-angular/declarations"
 ```
 
 #### Dependency Based Import Examples
@@ -138,7 +138,7 @@ Directives and Components making development life more joyful
 Include one file and access several
 
 ```javascript
-import { pipes as ackPipes , components as ackComps } from "ack-angular/components";
+import { pipes as ackPipes , components as ackComps } from "ack-angular/declarations";
 import { NgModule } from '@angular/core';
 
 @NgModule({
