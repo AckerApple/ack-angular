@@ -12,6 +12,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AckModal_component_1 = require("./components/AckModal.component");
+var AckModalLayout_component_1 = require("./components/AckModalLayout.component");
 var AckCloseIcon_component_1 = require("./components/AckCloseIcon.component");
 var AckArray_directive_1 = require("./AckArray.directive");
 var AckOptions_component_1 = require("./components/AckOptions.component");
@@ -26,68 +27,9 @@ var ErrorWell_component_1 = require("./components/ErrorWell.component");
 var ErrorWell_component_2 = require("./components/ErrorWell.component");
 exports.ErrorWell = ErrorWell_component_2.ErrorWell;
 var ReaderHeaderBody_component_1 = require("./components/ReaderHeaderBody.component");
-var FocusOn = (function () {
-    function FocusOn(element) {
-        this.element = element;
-        this.focusOnDelay = 0;
-        this.focusThen = new core_1.EventEmitter();
-    }
-    FocusOn.prototype.ngOnChanges = function (changes) {
-        var _this = this;
-        if (changes.focusOn && changes.focusOn.currentValue) {
-            setTimeout(function () {
-                _this.element.nativeElement.focus();
-                _this.focusThen.emit();
-            }, this.focusOnDelay);
-        }
-    };
-    FocusOn.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[focusOn]'
-                },] },
-    ];
-    FocusOn.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    FocusOn.propDecorators = {
-        "focusOn": [{ type: core_1.Input },],
-        "focusOnDelay": [{ type: core_1.Input },],
-        "focusThen": [{ type: core_1.Output },],
-    };
-    return FocusOn;
-}());
-exports.FocusOn = FocusOn;
-var SelectOn = (function () {
-    function SelectOn(element) {
-        this.element = element;
-        this.selectOnDelay = 0;
-        this.selectThen = new core_1.EventEmitter();
-    }
-    SelectOn.prototype.ngOnChanges = function (changes) {
-        var _this = this;
-        if (changes.selectOn && changes.selectOn.currentValue) {
-            setTimeout(function () {
-                _this.element.nativeElement.select();
-                _this.selectThen.emit();
-            }, this.selectOnDelay);
-        }
-    };
-    SelectOn.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[selectOn]'
-                },] },
-    ];
-    SelectOn.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    SelectOn.propDecorators = {
-        "selectOn": [{ type: core_1.Input },],
-        "selectOnDelay": [{ type: core_1.Input },],
-        "selectThen": [{ type: core_1.Output },],
-    };
-    return SelectOn;
-}());
-exports.SelectOn = SelectOn;
+var FocusOn_directive_1 = require("./directives/FocusOn.directive");
+var SelectOn_directive_1 = require("./directives/SelectOn.directive");
+var AckFixedElementStage_component_1 = require("./components/AckFixedElementStage.component");
 var VarDirective = (function () {
     function VarDirective() {
     }
@@ -572,153 +514,13 @@ var ScreenScrollModelY = (function () {
     return ScreenScrollModelY;
 }());
 exports.ScreenScrollModelY = ScreenScrollModelY;
-var ScreenWidthModel = (function () {
-    function ScreenWidthModel() {
-        var _this = this;
-        this.screenWidthModelChange = new core_1.EventEmitter();
-        this.onResize = function () {
-            if (this.screenWidthModel !== window.innerWidth) {
-                this.setModel();
-            }
-        }.bind(this);
-        window.addEventListener('resize', this.onResize);
-        setTimeout(function () { return _this.setModel(); }, 0);
-    }
-    ScreenWidthModel.prototype.ngOnInit = function () {
-        var _this = this;
-        setTimeout(function () { return _this.onResize(); }, 0);
-    };
-    ScreenWidthModel.prototype.setModel = function () {
-        this.screenWidthModel = window.innerWidth;
-        this.screenWidthModelChange.emit(this.screenWidthModel);
-    };
-    ScreenWidthModel.prototype.ngOnDestroy = function () {
-        window.removeEventListener('resize', this.onResize);
-    };
-    ScreenWidthModel.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[screenWidthModel]'
-                },] },
-    ];
-    ScreenWidthModel.ctorParameters = function () { return []; };
-    ScreenWidthModel.propDecorators = {
-        "screenWidthModel": [{ type: core_1.Input },],
-        "screenWidthModelChange": [{ type: core_1.Output },],
-    };
-    return ScreenWidthModel;
-}());
-exports.ScreenWidthModel = ScreenWidthModel;
-var ScreenHeightModel = (function () {
-    function ScreenHeightModel() {
-        var _this = this;
-        this.screenHeightModelChange = new core_1.EventEmitter();
-        this.onResize = function () {
-            if (this.screenHeightModel !== window.innerHeight) {
-                this.setModel();
-            }
-        }.bind(this);
-        window.addEventListener('resize', this.onResize);
-        setTimeout(function () { return _this.onResize(); }, 0);
-    }
-    ScreenHeightModel.prototype.ngOnInit = function () {
-        var _this = this;
-        setTimeout(function () { return _this.onResize(); }, 0);
-    };
-    ScreenHeightModel.prototype.setModel = function () {
-        this.screenHeightModel = window.innerHeight;
-        this.screenHeightModelChange.emit(this.screenHeightModel);
-    };
-    ScreenHeightModel.prototype.ngOnDestroy = function () {
-        window.removeEventListener('resize', this.onResize);
-    };
-    ScreenHeightModel.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[screenHeightModel]'
-                },] },
-    ];
-    ScreenHeightModel.ctorParameters = function () { return []; };
-    ScreenHeightModel.propDecorators = {
-        "screenHeightModel": [{ type: core_1.Input },],
-        "screenHeightModelChange": [{ type: core_1.Output },],
-    };
-    return ScreenHeightModel;
-}());
-exports.ScreenHeightModel = ScreenHeightModel;
-var HtmlWidthModel = (function () {
-    function HtmlWidthModel() {
-        var _this = this;
-        this.htmlWidthModelChange = new core_1.EventEmitter();
-        this.onResize = function () {
-            if (this.htmlWidthModel !== window.document.documentElement.clientWidth) {
-                this.setModel();
-            }
-        }.bind(this);
-        window.addEventListener('resize', this.onResize);
-        setTimeout(function () { return _this.setModel(); }, 0);
-    }
-    HtmlWidthModel.prototype.ngOnInit = function () {
-        var _this = this;
-        setTimeout(function () { return _this.onResize(); }, 0);
-    };
-    HtmlWidthModel.prototype.setModel = function () {
-        this.htmlWidthModel = window.document.documentElement.clientWidth;
-        this.htmlWidthModelChange.emit(this.htmlWidthModel);
-    };
-    HtmlWidthModel.prototype.ngOnDestroy = function () {
-        window.removeEventListener('resize', this.onResize);
-    };
-    HtmlWidthModel.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[htmlWidthModel]'
-                },] },
-    ];
-    HtmlWidthModel.ctorParameters = function () { return []; };
-    HtmlWidthModel.propDecorators = {
-        "htmlWidthModel": [{ type: core_1.Input },],
-        "htmlWidthModelChange": [{ type: core_1.Output },],
-    };
-    return HtmlWidthModel;
-}());
-exports.HtmlWidthModel = HtmlWidthModel;
-var HtmlHeightModel = (function () {
-    function HtmlHeightModel() {
-        var _this = this;
-        this.htmlHeightModelChange = new core_1.EventEmitter();
-        this.onResize = function () {
-            if (this.htmlHeightModel !== window.document.documentElement.clientHeight) {
-                this.setModel();
-            }
-        }.bind(this);
-        window.addEventListener('resize', this.onResize);
-        setTimeout(function () { return _this.onResize(); }, 0);
-    }
-    HtmlHeightModel.prototype.ngOnInit = function () {
-        var _this = this;
-        setTimeout(function () { return _this.onResize(); }, 0);
-    };
-    HtmlHeightModel.prototype.setModel = function () {
-        this.htmlHeightModel = window.document.documentElement.clientHeight;
-        this.htmlHeightModelChange.emit(this.htmlHeightModel);
-    };
-    HtmlHeightModel.prototype.ngOnDestroy = function () {
-        window.removeEventListener('resize', this.onResize);
-    };
-    HtmlHeightModel.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[htmlHeightModel]'
-                },] },
-    ];
-    HtmlHeightModel.ctorParameters = function () { return []; };
-    HtmlHeightModel.propDecorators = {
-        "htmlHeightModel": [{ type: core_1.Input },],
-        "htmlHeightModelChange": [{ type: core_1.Output },],
-    };
-    return HtmlHeightModel;
-}());
-exports.HtmlHeightModel = HtmlHeightModel;
+var ScreenWidthModel_directive_1 = require("./directives/ScreenWidthModel.directive");
+var ScreenHeightModel_directive_1 = require("./directives/ScreenHeightModel.directive");
+var HtmlWidthModel_directive_1 = require("./directives/HtmlWidthModel.directive");
+var HtmlHeightModel_directive_1 = require("./directives/HtmlHeightModel.directive");
 exports.declarations = [
-    SelectOn,
-    FocusOn,
+    SelectOn_directive_1.SelectOn,
+    FocusOn_directive_1.FocusOn,
     VarDirective,
     InnerHtmlModel,
     FormAlter,
@@ -728,12 +530,12 @@ exports.declarations = [
     PreventBackKey,
     PreventEnterKey,
     ScreenScrollModelY,
-    ScreenWidthModel,
-    ScreenHeightModel,
+    ScreenWidthModel_directive_1.ScreenWidthModel,
+    ScreenHeightModel_directive_1.ScreenHeightModel,
     ScreenScroll,
     ScreenScrollHeightDiff,
-    HtmlWidthModel,
-    HtmlHeightModel,
+    HtmlWidthModel_directive_1.HtmlWidthModel,
+    HtmlHeightModel_directive_1.HtmlHeightModel,
     ShakeOn_directive_1.ShakeOn,
     StatusOnlineModel,
     StatusOfflineModel,
@@ -750,5 +552,7 @@ exports.declarations = [
     AckOptions_component_1.AckOptions,
     AckOptionsModal_component_1.AckOptionsModal,
     AckModal_component_1.AckModal,
-    AckArray_directive_1.AckArray
+    AckModalLayout_component_1.AckModalLayout,
+    AckArray_directive_1.AckArray,
+    AckFixedElementStage_component_1.AckFixedElementStage
 ];

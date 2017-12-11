@@ -57,7 +57,7 @@ export declare class BooleanPipe {
     transform(input: any): boolean;
 }
 export declare class Bit {
-    transform(input: any): 1 | 0;
+    transform(input: any): 0 | 1;
 }
 export declare class Numbers {
     transform(input: any): any;

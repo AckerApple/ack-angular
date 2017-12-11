@@ -1,4 +1,6 @@
 import { EventEmitter, ElementRef } from "@angular/core";
+import { AckModal } from "./components/AckModal.component";
+import { AckModalLayout } from "./components/AckModalLayout.component";
 import { AckCloseIcon } from "./components/AckCloseIcon.component";
 import { AckOptions } from "./components/AckOptions.component";
 import { AbsoluteOverflowX } from "./components/AbsoluteOverflowX.component";
@@ -6,22 +8,7 @@ export { AbsoluteOverflowX } from "./components/AbsoluteOverflowX.component";
 export { ShakeOn } from "./ShakeOn.directive";
 export { ErrorWell } from "./components/ErrorWell.component";
 import { ReaderBody } from "./components/ReaderHeaderBody.component";
-export declare class FocusOn {
-    element: ElementRef;
-    focusOn: any;
-    focusOnDelay: number;
-    focusThen: EventEmitter<{}>;
-    constructor(element: ElementRef);
-    ngOnChanges(changes: any): void;
-}
-export declare class SelectOn {
-    element: ElementRef;
-    selectOn: any;
-    selectOnDelay: number;
-    selectThen: EventEmitter<{}>;
-    constructor(element: ElementRef);
-    ngOnChanges(changes: any): void;
-}
+import { AckFixedElementStage } from "./components/AckFixedElementStage.component";
 export declare class VarDirective {
     var: any;
 }
@@ -138,42 +125,4 @@ export declare class ScreenScrollModelY {
     ngOnInit(): void;
     ngOnDestroy(): void;
 }
-export declare class ScreenWidthModel {
-    window: any;
-    onResize: any;
-    screenWidthModel: any;
-    screenWidthModelChange: EventEmitter<{}>;
-    constructor();
-    ngOnInit(): void;
-    setModel(): void;
-    ngOnDestroy(): void;
-}
-export declare class ScreenHeightModel {
-    onResize: any;
-    screenHeightModel: any;
-    screenHeightModelChange: EventEmitter<{}>;
-    constructor();
-    ngOnInit(): void;
-    setModel(): void;
-    ngOnDestroy(): void;
-}
-export declare class HtmlWidthModel {
-    window: any;
-    onResize: any;
-    htmlWidthModel: any;
-    htmlWidthModelChange: EventEmitter<{}>;
-    constructor();
-    ngOnInit(): void;
-    setModel(): void;
-    ngOnDestroy(): void;
-}
-export declare class HtmlHeightModel {
-    onResize: any;
-    htmlHeightModel: any;
-    htmlHeightModelChange: EventEmitter<{}>;
-    constructor();
-    ngOnInit(): void;
-    setModel(): void;
-    ngOnDestroy(): void;
-}
-export declare const declarations: (typeof AckCloseIcon | typeof AckOptions | typeof AbsoluteOverflowX | typeof ReaderBody)[];
+export declare const declarations: (typeof AckModalLayout | typeof AckModal | typeof AckCloseIcon | typeof AckOptions | typeof AbsoluteOverflowX | typeof ReaderBody | typeof AckFixedElementStage)[];
