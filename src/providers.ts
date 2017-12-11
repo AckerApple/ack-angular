@@ -1,36 +1,37 @@
-//DO NOT * 
-//export * from "./Log";
+export { Log } from "./providers/Log";
+import { Log } from "./providers/Log";
 
-export { Log } from "./Log";
-import { Log } from "./Log";
+export { AckApp } from "./providers/AckApp";
+import { AckApp } from "./providers/AckApp";
 
-export { AckOffline } from "./AckOffline";
-import { AckOffline } from "./AckOffline";
+export { AckOffline } from "./providers/AckOffline";
+import { AckOffline } from "./providers/AckOffline";
 
-export { AckCache } from "./AckCache";
-import { AckCache } from "./AckCache";
+export { AckCache } from "./providers/AckCache";
+import { AckCache } from "./providers/AckCache";
 
-export { AckQue } from "./AckQue";
-import { AckQue } from "./AckQue";
+export { AckQue } from "./providers/AckQue";
+import { AckQue } from "./providers/AckQue";
 
-export { ErrorLog } from "./ErrorLog";
-import { ErrorLog } from "./ErrorLog";
+export { ErrorLog } from "./providers/ErrorLog";
+import { ErrorLog } from "./providers/ErrorLog";
 
-export * from "./AckApi";
-import { AckApi } from "./AckApi";
+export * from "./providers/AckApi";
+import { AckApi } from "./providers/AckApi";
 
-export { UrlVars } from "./UrlVars";
-import { UrlVars } from "./UrlVars";
+export { UrlVars } from "./providers/UrlVars";
+import { UrlVars } from "./providers/UrlVars";
 
-export { WindowService } from "./WindowService";
-import { WindowService } from "./WindowService";
+export { WindowService } from "./providers/WindowService";
+import { WindowService } from "./providers/WindowService";
 
-export { DocumentService } from "./DocumentService";
-import { DocumentService } from "./DocumentService";
+export { DocumentService } from "./providers/DocumentService";
+import { DocumentService } from "./providers/DocumentService";
 
 export const providers = [
   Log,
   ErrorLog,
+  AckApp,
   AckOffline,
   AckCache,
   AckQue,

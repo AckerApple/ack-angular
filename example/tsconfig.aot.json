@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "../aot",
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
@@ -12,19 +13,22 @@
     "allowJs": true,
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
-    "lib": ["es2015", "dom"],
-    "outDir": "aot"
+    "lib": ["es2015", "dom"]
   },
+  "exclude": [
+    "node_modules",
+    "../node_modules",
+    "../node_modules/**"
+  ],
   "include":[
     "../package.json"
   ],
   "files": [
     "typings.d.ts",
-    "src/app.module.ts"
+    "index.ts"
   ],
   "angularCompilerOptions": {
-    "genDir": "aot",
-    "skipMetadataEmit" : true,
-    "entryModule": "app.module#AppModule"
+    "skipMetadataEmit" : false,
+    "skipTemplateCodegen" : true
   }
 }

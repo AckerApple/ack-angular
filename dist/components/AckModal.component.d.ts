@@ -1,19 +1,18 @@
 import { EventEmitter, ElementRef } from "@angular/core";
+import { AckApp } from "../providers/AckApp";
 export declare class AckModal {
     element: ElementRef;
-    showModelMode: boolean;
-    close: EventEmitter<{}>;
+    AckApp: AckApp;
+    layout: ElementRef;
+    isModelMode: boolean;
     wrapStyle: any;
     wrapCellStyle: any;
     allowClose: boolean;
-    backgroundColor: any;
-    backgroundColorChange: EventEmitter<{}>;
-    ref: any;
-    refChange: EventEmitter<{}>;
-    showModel: any;
+    backgroundColor: string;
+    showModel: boolean;
     showModelChange: EventEmitter<{}>;
-    constructor(element: ElementRef);
-    clickListenForClose(): void;
+    close: EventEmitter<{}>;
+    constructor(element: ElementRef, AckApp: AckApp);
     ngOnInit(): void;
-    fireClose(): void;
+    ngOnDestroy(): void;
 }

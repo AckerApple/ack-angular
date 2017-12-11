@@ -184,7 +184,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
       const willExpire = rtn && this.AckCache.optionsKillCache( offlineModel )
 
       if( !willExpire ){
-        console.log('AckApi fetched cache that will never expire. Set offlineModel.expires=0 or offlineModel.maxAge=0 to avoid this message')
+        console.log('AckApi fetched cache that will never expire. Set offlineModel.expires=0 or offlineModel.maxAge=0 to avoid this message', rtn)
       }
 
       if( rtn!=null ){

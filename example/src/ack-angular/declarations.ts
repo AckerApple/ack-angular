@@ -8,6 +8,7 @@ import {
 } from "@angular/core"
 
 import { AckModal } from "./components/AckModal.component"
+import { AckModalLayout } from "./components/AckModalLayout.component"
 import { AckCloseIcon } from "./components/AckCloseIcon.component"
 import { AckArray } from "./AckArray.directive"
 import { AckOptions } from "./components/AckOptions.component"
@@ -25,43 +26,9 @@ export { ErrorWell } from "./components/ErrorWell.component"
 import { ReaderHeaderBody, ReaderHeader, ReaderBody } from "./components/ReaderHeaderBody.component"
 //@Directive({selector:'component-header'}) export class ComponentHeader {}
 
-@Directive({
-  selector:'[focusOn]'
-}) export class FocusOn{
-  @Input() focusOn
-  @Input() focusOnDelay=0
-  @Output() focusThen = new EventEmitter()
-
-  constructor(public element:ElementRef){}
-
-  ngOnChanges(changes){
-    if(changes.focusOn && changes.focusOn.currentValue){
-      setTimeout(()=>{
-        this.element.nativeElement.focus();
-        this.focusThen.emit();
-      }, this.focusOnDelay);
-    }
-  }
-}
-
-@Directive({
-  selector:'[selectOn]'
-}) export class SelectOn{
-  @Input() selectOn
-  @Input() selectOnDelay=0
-  @Output() selectThen = new EventEmitter()
-
-  constructor(public element:ElementRef){}
-
-  ngOnChanges(changes){
-    if(changes.selectOn && changes.selectOn.currentValue){
-      setTimeout(()=>{
-        this.element.nativeElement.select();
-        this.selectThen.emit();
-      }, this.selectOnDelay);
-    }
-  }
-}
+import { FocusOn } from "./directives/FocusOn.directive"
+import { SelectOn } from "./directives/SelectOn.directive"
+import { AckFixedElementStage } from "./components/AckFixedElementStage.component"
 
 @Directive({
   selector: '[var]',
@@ -435,140 +402,10 @@ export class StatusOfflineModel{
   }
 }
 
-@Directive({
-  selector: '[screenWidthModel]'
-}) export class ScreenWidthModel{
-  window
-  onResize
-
-  @Input() screenWidthModel
-  @Output() screenWidthModelChange = new EventEmitter()
-
-  constructor(){
-    this.onResize = function(){
-      if(this.screenWidthModel !== window.innerWidth){
-        this.setModel()
-      }
-    }.bind(this)
-
-    window.addEventListener('resize', this.onResize)
-    setTimeout(()=>this.setModel(), 0)
-  }
-
-  ngOnInit(){
-    setTimeout(()=>this.onResize(), 0)//two way bind often needs init override
-  }
-
-  setModel(){
-    this.screenWidthModel = window.innerWidth
-    this.screenWidthModelChange.emit(this.screenWidthModel)
-  }
-
-  ngOnDestroy(){
-    window.removeEventListener('resize', this.onResize)
-  }
-}
-
-@Directive({
-  selector: '[screenHeightModel]'
-}) export class ScreenHeightModel{
-  onResize
-
-  @Input() screenHeightModel
-  @Output() screenHeightModelChange = new EventEmitter()
-
-  constructor(){
-    this.onResize = function(){
-      if(this.screenHeightModel !== window.innerHeight){
-        this.setModel()
-      }
-    }.bind(this)
-
-    window.addEventListener('resize', this.onResize)
-    setTimeout(()=>this.onResize(), 0)
-  }
-
-  ngOnInit(){
-    setTimeout(()=>this.onResize(), 0)//two way bind often needs init override
-  }
-
-  setModel(){
-    this.screenHeightModel = window.innerHeight
-    this.screenHeightModelChange.emit(this.screenHeightModel)
-  }
-
-  ngOnDestroy(){
-    window.removeEventListener('resize', this.onResize)
-  }
-}
-
-
-@Directive({
-  selector: '[htmlWidthModel]'
-}) export class HtmlWidthModel{
-  window
-  onResize
-
-  @Input() htmlWidthModel
-  @Output() htmlWidthModelChange = new EventEmitter()
-
-  constructor(){
-    this.onResize = function(){
-      if(this.htmlWidthModel !== window.document.documentElement.clientWidth){
-        this.setModel()
-      }
-    }.bind(this)
-
-    window.addEventListener('resize', this.onResize)
-    setTimeout(()=>this.setModel(), 0)
-  }
-
-  ngOnInit(){
-    setTimeout(()=>this.onResize(), 0)//two way bind often needs init override
-  }
-
-  setModel(){
-    this.htmlWidthModel = window.document.documentElement.clientWidth
-    this.htmlWidthModelChange.emit(this.htmlWidthModel)
-  }
-
-  ngOnDestroy(){
-    window.removeEventListener('resize', this.onResize)
-  }
-}
-
-@Directive({
-  selector: '[htmlHeightModel]'
-}) export class HtmlHeightModel{
-  onResize
-
-  @Input() htmlHeightModel
-  @Output() htmlHeightModelChange = new EventEmitter()
-
-  constructor(){
-    this.onResize = function(){
-      if(this.htmlHeightModel !== window.document.documentElement.clientHeight){
-        this.setModel()
-      }
-    }.bind(this)
-
-    window.addEventListener('resize', this.onResize)
-    setTimeout(()=>this.onResize(), 0)
-  }
-
-  ngOnInit(){
-    setTimeout(()=>this.onResize(), 0)//two way bind often needs init override
-  }
-
-  setModel(){
-    this.htmlHeightModel = window.document.documentElement.clientHeight
-    this.htmlHeightModelChange.emit(this.htmlHeightModel)
-  }
-
-  ngOnDestroy(){
-    window.removeEventListener('resize', this.onResize)
-  }
-}
+import { ScreenWidthModel } from "./directives/ScreenWidthModel.directive"
+import { ScreenHeightModel } from "./directives/ScreenHeightModel.directive"
+import { HtmlWidthModel } from "./directives/HtmlWidthModel.directive"
+import { HtmlHeightModel } from "./directives/HtmlHeightModel.directive"
 
 export const declarations = [
   //directives
@@ -607,7 +444,9 @@ export const declarations = [
   AckOptions,
   AckOptionsModal,
   AckModal,
-  AckArray
+  AckModalLayout,
+  AckArray,
+  AckFixedElementStage
   //ComponentHeader
   //...AckModals
 ]

@@ -1,7 +1,24 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
-## [1.3.1] - 2017-12-05
+## [1.4.0] - 2017-12-11
+- Added ack-modal-layout
+- Added ack-fixed-element-stage
+- Added ack-modal logic to use ack-fixed-element-stage for display
+- Added AckApp provider
+- BREAKING CHANGES
+  - AckModal aka ack-modal no longer has [(ref)] bindings
+  - The following files have been moved from src/ to src/providers/
+    - AckApi.ts
+    - AckApp.ts
+    - AckCache.ts
+    - AckOffline.ts
+    - AckQue.ts
+    - DocumentService.ts
+    - ErrorLog.ts
+    - Log.ts
+    - UrlVars.ts
+    - WindowService.ts
 
 ## [1.3.0] - 2017-12-05
 - BREAKING CHANGES

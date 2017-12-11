@@ -7,7 +7,7 @@ import { fxArray } from '../prefx'
 
 @Component({
   selector: 'container',
-  template: '<ack-modal [(ref)]="AckModal"></ack-modal>'
+  template: '<ack-modal></ack-modal>'
   //,animations: fxArray
 })
 export class ContainerComponent {
@@ -39,6 +39,6 @@ describe('ack-modal', ()=>{
   it('inits', ()=>{
     expect(fixture).not.toBeNull()
     expect(component).not.toBeNull()
-    expect(component.AckModal).not.toBeNull()
+    //expect(component.AckModal).not.toBeNull()
   })
 })

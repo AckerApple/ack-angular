@@ -3,12 +3,7 @@ import 'reflect-metadata'
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
 import { enableProdMode } from "@angular/core"
 
-//Angular 4
-//import { AppModuleNgFactory } from './aot/src/app.module.ngfactory'
-
-//Angular 5
 import { AppModuleNgFactory } from './aot/example/src/app.module.ngfactory'
-
 import { supportDocument } from 'ack-angular-fx/web-animations.min'
 
 supportDocument(document)

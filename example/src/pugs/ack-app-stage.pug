@@ -3,7 +3,9 @@ mixin top
     br
     a.text-xs(href="#top" pageScroll) top
 
-div("[(htmlWidthModel)]"="screenWidthModel")
+ack-fixed-element-stage.border-5.border-assertive
+
+ng-container("[(htmlWidthModel)]"="screenWidthModel")
 
 route-reporter("[(ref)]"="routeReporter" "(beforeChange)"="panelAnim=$event.isBackMode?'slideInLeft':'slideInRight';isBackMode=$event.isBackMode;" "(onChange)"="stateName=$event.current.config.name")
 

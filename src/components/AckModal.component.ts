@@ -1,71 +1,53 @@
 import {
+  //NgContent,
   Directive,
   Component,
   Input,
   Output,
   EventEmitter,
-  ElementRef
+  ElementRef,
+  
+  TemplateRef,
+  ViewChild,
 } from "@angular/core"
 
-import { fxArray } from "../prefx"
-import { string as ackModal } from "./templates/ack-modal.pug"
+import { AckModalLayout } from "./AckModalLayout.component"
+import { AckApp } from "../providers/AckApp"
+import { string } from "./templates/ack-modal.pug"
 
 @Component({
   selector:'ack-modal',
-  template:ackModal,
-  animations:fxArray
+  template:string
+  //,animations:fxArray
 }) export class AckModal{
-  showModelMode = false
-  @Output() close = new EventEmitter()
-  //@Input() size:string//'full' or null
-  @Input() wrapStyle
-  @Input() wrapCellStyle
-  @Input() allowClose = true
-  @Input() backgroundColor
-  @Output() backgroundColorChange = new EventEmitter()
-  
-  @Input() ref
-  @Output() refChange = new EventEmitter()
-  
-  @Input() showModel
+  @ViewChild(TemplateRef) layout: ElementRef
+
+  //one way binds
+  @Input() isModelMode:boolean
+  @Input() wrapStyle:any
+  @Input() wrapCellStyle:any
+  @Input() allowClose:boolean = true
+  @Input() backgroundColor:string
+
+  //two way binds
+  @Input() showModel:boolean
   @Output() showModelChange = new EventEmitter()
+  
+  //one way expression binds
+  @Output() close = new EventEmitter()
 
-  constructor(public element:ElementRef){
-    //after possible double click, close on outside content click
-    setTimeout(()=>this.clickListenForClose(), 400)
-  }
-
-  clickListenForClose(){
-    this.element.nativeElement.addEventListener('click', event=>{
-      if(!this.allowClose)return false
-
-      const eTar = event.srcElement || event.toElement || event.target
-      const isDirectChild = eTar == this.element.nativeElement.children[0] || eTar == this.element.nativeElement.children[0].children[0]
-      
-      if( isDirectChild ){
-        this.fireClose()
-      }
-
-      return true
-    })
-  }
+  constructor( public element:ElementRef, public AckApp:AckApp ){}
 
   ngOnInit(){
-    setTimeout(()=>{
-      this.refChange.emit( this )
-      if(this.showModelChange.observers.length){
-        this.showModelMode = true
-        this.showModel = this.showModel ? true : false
-        this.showModelChange.emit( this.showModel )
-      }
-
-      this.backgroundColor = this.backgroundColor || 'rgba(255,255,255,0.95)'
-      this.backgroundColorChange.emit(this.backgroundColor)
-    }, 0)
+    if( this.AckApp.fixedElementStage ){
+      this.AckApp.registerModal(this)
+    }else if( !this.AckApp.warnedFixElements ){
+      this.AckApp.warnedFixElements = true
+      console.warn('Please put the element tag <ack-fixed-element-stage> inside your app so <ack-modal> renders properly amongst other elements')
+    }
   }
 
-  fireClose(){
-    this.showModelChange.emit( this.showModel=false )
-    this.close.emit(this)
+  ngOnDestroy(){
+    this.AckApp.unregisterModal(this)
   }
 }

@@ -228,23 +228,25 @@ h3.margin-bottom-0(id="Tags") Tags
           |Open simple dialog modal
         br
     .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="views.ackModal=!views.ackModal" "[ngClass]"="views.ackModal?'border-energized bg-energized':'border-info bg-info'")
-        |view details
+      a.block.border.pad-xxs.hover-bg-warning(
+        "(click)"   = "views.ackModal=!views.ackModal"
+        "[ngClass]" = "views.ackModal?'border-energized bg-energized':'border-info bg-info'"
+      ) view details
     .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.ackModal" "[@500]"="'fadeInUp'")
       ack-modal(
-        "*ngIf"="showAckModal"
-        "(close)"="showAckModal=false"
-        "[(backgroundColor)]"="modalBackgroundColor"
-        "[(wrapStyle)]"="modalWrapStyle"
+        *ngIf                 = "showAckModal"
+        "(close)"             = "showAckModal=false"
+        "[(backgroundColor)]" = "modalBackgroundColor"
+        "[(wrapStyle)]"       = "modalWrapStyle"
       )
         .bg-white.border.border-grey-4x.pad-4x.radius-5
           |Sample Modal Dialog Window
           .text-xs.text-grey-2x.pad-h
             |*ngIf driven modal with animation provided by ack-angular-fx [@500]="'fadeInUp'"
       ack-modal(
-        "[(showModel)]"="showAckModalModel"
-        "[(backgroundColor)]"="modalBackgroundColor"
-        "[(wrapStyle)]"="modalWrapStyle"
+        "[(showModel)]"       = "showAckModalModel"
+        "[(backgroundColor)]" = "modalBackgroundColor"
+        "[(wrapStyle)]"       = "modalWrapStyle"
       )
         .bg-white.border.border-grey-4x.pad-4x.radius-5
           |Sample Modal Dialog Window
@@ -271,7 +273,7 @@ h3.margin-bottom-0(id="Tags") Tags
           li [wrapCellStyle]
           li allowClose = true
           li backgroundColor
-          li ref
+          li [(showModel)]
 
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x

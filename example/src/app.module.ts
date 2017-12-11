@@ -8,19 +8,10 @@ import {
 } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { RouteWatchReporter } from "./ack-angular/RouteWatchReporter"
 import { RouteReporter } from "./ack-angular/RouteReporter.directive"
-
-//import { pipes, components as ackComponents } from "ack-angular"
 import { AckModule } from "./ack-angular"
-
-//Angular4
-//import * as packJson from "../../package.json"
-
-//Angular5
-import * as packJson from "../../../../package.json"
-
+import * as packJson from "../../package.json"
 import * as ackFx from 'ack-angular-fx'
 import { fxArray } from './prefx'
 
