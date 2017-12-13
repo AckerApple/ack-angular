@@ -12,12 +12,17 @@ var AckModal = (function () {
         this.close = new core_1.EventEmitter();
     }
     AckModal.prototype.ngOnInit = function () {
+        this.determineStage();
+    };
+    AckModal.prototype.determineStage = function () {
+        if (this.inline)
+            return;
         if (this.AckApp.fixedElementStage) {
             this.AckApp.registerModal(this);
         }
         else if (!this.AckApp.warnedFixElements) {
             this.AckApp.warnedFixElements = true;
-            console.warn('Please put the element tag <ack-fixed-element-stage> inside your app so <ack-modal> renders properly amongst other elements');
+            console.warn('Please put the element tag <ack-fixed-element-stage> inside your app so <ack-modal> renders properly amongst other elements. OR set <ack-modal inline="true">');
         }
     };
     AckModal.prototype.ngOnDestroy = function () {
@@ -35,6 +40,7 @@ var AckModal = (function () {
     ]; };
     AckModal.propDecorators = {
         "layout": [{ type: core_1.ViewChild, args: [core_1.TemplateRef,] },],
+        "inline": [{ type: core_1.Input },],
         "isModelMode": [{ type: core_1.Input },],
         "wrapStyle": [{ type: core_1.Input },],
         "wrapCellStyle": [{ type: core_1.Input },],

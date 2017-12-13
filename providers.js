@@ -9,6 +9,9 @@ var Log_2 = require("./providers/Log");
 var AckApp_1 = require("./providers/AckApp");
 exports.AckApp = AckApp_1.AckApp;
 var AckApp_2 = require("./providers/AckApp");
+var Prompts_1 = require("./providers/Prompts");
+exports.Prompts = Prompts_1.Prompts;
+var Prompts_2 = require("./providers/Prompts");
 var AckOffline_1 = require("./providers/AckOffline");
 exports.AckOffline = AckOffline_1.AckOffline;
 var AckOffline_2 = require("./providers/AckOffline");
@@ -42,5 +45,6 @@ exports.providers = [
     AckApi_1.AckApi,
     UrlVars_2.UrlVars,
     WindowService_2.WindowService,
-    DocumentService_2.DocumentService
+    DocumentService_2.DocumentService,
+    Prompts_2.Prompts
 ];

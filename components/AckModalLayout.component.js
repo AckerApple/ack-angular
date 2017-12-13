@@ -9,9 +9,9 @@ var AckModalLayout = (function () {
         var _this = this;
         this.element = element;
         this.AckApp = AckApp;
-        this.isModelMode = false;
         this.close = new core_1.EventEmitter();
         this.allowClose = true;
+        this.isModelMode = false;
         this.showModelChange = new core_1.EventEmitter();
         setTimeout(function () { return _this.clickListenForClose(); }, 400);
     }
@@ -53,12 +53,12 @@ var AckModalLayout = (function () {
         { type: AckApp_1.AckApp, },
     ]; };
     AckModalLayout.propDecorators = {
-        "isModelMode": [{ type: core_1.Input },],
         "close": [{ type: core_1.Output },],
         "wrapStyle": [{ type: core_1.Input },],
         "wrapCellStyle": [{ type: core_1.Input },],
         "allowClose": [{ type: core_1.Input },],
         "backgroundColor": [{ type: core_1.Input },],
+        "isModelMode": [{ type: core_1.Input },],
         "showModel": [{ type: core_1.Input },],
         "showModelChange": [{ type: core_1.Output },],
     };
