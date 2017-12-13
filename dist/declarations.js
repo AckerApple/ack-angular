@@ -18,18 +18,23 @@ var AckArray_directive_1 = require("./AckArray.directive");
 var AckOptions_component_1 = require("./components/AckOptions.component");
 var AckOptionsModal_component_1 = require("./components/AckOptionsModal.component");
 var AbsoluteOverflowX_component_1 = require("./components/AbsoluteOverflowX.component");
-var AbsoluteOverflowX_component_2 = require("./components/AbsoluteOverflowX.component");
-exports.AbsoluteOverflowX = AbsoluteOverflowX_component_2.AbsoluteOverflowX;
-var ShakeOn_directive_1 = require("./ShakeOn.directive");
-var ShakeOn_directive_2 = require("./ShakeOn.directive");
-exports.ShakeOn = ShakeOn_directive_2.ShakeOn;
 var ErrorWell_component_1 = require("./components/ErrorWell.component");
-var ErrorWell_component_2 = require("./components/ErrorWell.component");
-exports.ErrorWell = ErrorWell_component_2.ErrorWell;
 var ReaderHeaderBody_component_1 = require("./components/ReaderHeaderBody.component");
+var AckFixedElementStage_component_1 = require("./components/AckFixedElementStage.component");
+var ShakeOn_directive_1 = require("./directives/ShakeOn.directive");
 var FocusOn_directive_1 = require("./directives/FocusOn.directive");
 var SelectOn_directive_1 = require("./directives/SelectOn.directive");
-var AckFixedElementStage_component_1 = require("./components/AckFixedElementStage.component");
+var InnerHtmlModel_directive_1 = require("./directives/InnerHtmlModel.directive");
+var ElementSizeModel_directive_1 = require("./directives/ElementSizeModel.directive");
+var ScreenScrollHeightDiff_directive_1 = require("./directives/ScreenScrollHeightDiff.directive");
+var ScreenScroll_directive_1 = require("./directives/ScreenScroll.directive");
+var ScreenScrollModelY_directive_1 = require("./directives/ScreenScrollModelY.directive");
+var ScreenWidthModel_directive_1 = require("./directives/ScreenWidthModel.directive");
+var ScreenHeightModel_directive_1 = require("./directives/ScreenHeightModel.directive");
+var HtmlWidthModel_directive_1 = require("./directives/HtmlWidthModel.directive");
+var HtmlHeightModel_directive_1 = require("./directives/HtmlHeightModel.directive");
+var StatusOnlineModel_directive_1 = require("./directives/StatusOnlineModel.directive");
+var StatusOfflineModel_directive_1 = require("./directives/StatusOfflineModel.directive");
 var VarDirective = (function () {
     function VarDirective() {
     }
@@ -167,60 +172,6 @@ var InputHint = (function () {
     return InputHint;
 }());
 exports.InputHint = InputHint;
-var StatusOnlineModel = (function () {
-    function StatusOnlineModel() {
-        var _this = this;
-        this.statusOnlineModelChange = new core_1.EventEmitter();
-        this.onChange = function () {
-            this.statusOnlineModel = navigator.onLine;
-            this.statusOnlineModelChange.emit(this.statusOnlineModel);
-        }.bind(this);
-        window.addEventListener("online", this.onChange);
-        window.addEventListener("offline", this.onChange);
-        setTimeout(function () { return _this.onChange(); }, 0);
-    }
-    StatusOnlineModel.prototype.ngOnDestroy = function () {
-        window.removeEventListener("online", this.onChange);
-        window.removeEventListener("offline", this.onChange);
-    };
-    StatusOnlineModel.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[statusOnlineModel]' },] },
-    ];
-    StatusOnlineModel.ctorParameters = function () { return []; };
-    StatusOnlineModel.propDecorators = {
-        "statusOnlineModel": [{ type: core_1.Input },],
-        "statusOnlineModelChange": [{ type: core_1.Output },],
-    };
-    return StatusOnlineModel;
-}());
-exports.StatusOnlineModel = StatusOnlineModel;
-var StatusOfflineModel = (function () {
-    function StatusOfflineModel() {
-        var _this = this;
-        this.statusOfflineModelChange = new core_1.EventEmitter();
-        this.onChange = function () {
-            this.statusOfflineModel = !navigator.onLine;
-            this.statusOfflineModelChange.emit(this.statusOfflineModel);
-        }.bind(this);
-        window.addEventListener("offline", this.onChange);
-        window.addEventListener("online", this.onChange);
-        setTimeout(function () { return _this.onChange(); }, 0);
-    }
-    StatusOfflineModel.prototype.ngOnDestroy = function () {
-        window.removeEventListener("offline", this.onChange);
-        window.removeEventListener("online", this.onChange);
-    };
-    StatusOfflineModel.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[statusOfflineModel]' },] },
-    ];
-    StatusOfflineModel.ctorParameters = function () { return []; };
-    StatusOfflineModel.propDecorators = {
-        "statusOfflineModel": [{ type: core_1.Input },],
-        "statusOfflineModelChange": [{ type: core_1.Output },],
-    };
-    return StatusOfflineModel;
-}());
-exports.StatusOfflineModel = StatusOfflineModel;
 var FormChanged = (function () {
     function FormChanged(element) {
         this.element = element;
@@ -275,107 +226,6 @@ var FormAlter = (function () {
     return FormAlter;
 }());
 exports.FormAlter = FormAlter;
-var InnerHtmlModel = (function () {
-    function InnerHtmlModel(element) {
-        var _this = this;
-        this.element = element;
-        this.innerHtmlModelChange = new core_1.EventEmitter();
-        this.observer = new MutationObserver(function () { return _this.setModel(); });
-        var config = {
-            attributes: true,
-            childList: true,
-            characterData: true,
-            subtree: true
-        };
-        this.observer.observe(this.element.nativeElement, config);
-    }
-    InnerHtmlModel.prototype.ngOnChanges = function () {
-        var _this = this;
-        setTimeout(function () { return _this.setModel(); }, 0);
-    };
-    InnerHtmlModel.prototype.setModel = function () {
-        this.innerHtmlModel = this.element.nativeElement.innerHTML;
-        this.innerHtmlModelChange.emit(this.innerHtmlModel);
-    };
-    InnerHtmlModel.prototype.ngOnDestroy = function () {
-        this.observer.disconnect();
-    };
-    InnerHtmlModel.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[innerHtmlModel]'
-                },] },
-    ];
-    InnerHtmlModel.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    InnerHtmlModel.propDecorators = {
-        "innerHtmlModel": [{ type: core_1.Input },],
-        "innerHtmlModelChange": [{ type: core_1.Output },],
-    };
-    return InnerHtmlModel;
-}());
-exports.InnerHtmlModel = InnerHtmlModel;
-var ElementSizeModel = (function () {
-    function ElementSizeModel(element) {
-        var _this = this;
-        this.element = element;
-        this.elementSizeModelChange = new core_1.EventEmitter();
-        this.onResize = function () {
-            this.setModel();
-        }.bind(this);
-        window.addEventListener('resize', this.onResize);
-        setTimeout(function () { return _this.setModel(); }, 0);
-        this.observer = new MutationObserver(function () {
-            _this.setModel();
-        });
-        var config = {
-            attributes: true,
-            childList: true,
-            characterData: true,
-            subtree: true
-        };
-        this.observer.observe(this.element.nativeElement, config);
-    }
-    ElementSizeModel.prototype.ngAfterViewInit = function () {
-        var _this = this;
-        setTimeout(function () { return _this.setModel(); }, 800);
-    };
-    ElementSizeModel.prototype.setModel = function () {
-        var _this = this;
-        this.elementSizeModel = this.elementSizeModel || {};
-        this.inChange = true;
-        this.elementSizeModel.width = this.element.nativeElement.offsetWidth;
-        this.elementSizeModel.height = this.element.nativeElement.offsetHeight;
-        this.elementSizeModelChange.emit(this.elementSizeModel);
-        setTimeout(function () { return _this.inChange = false; }, 0);
-    };
-    ElementSizeModel.prototype.ngOnChanges = function () {
-        var _this = this;
-        setTimeout(function () {
-            if (!_this.inChange) {
-                _this.setModel();
-            }
-        }, 0);
-    };
-    ElementSizeModel.prototype.ngOnDestroy = function () {
-        this.observer.disconnect();
-        window.removeEventListener('resize', this.onResize);
-    };
-    ElementSizeModel.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[elementSizeModel]'
-                },] },
-    ];
-    ElementSizeModel.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
-    ElementSizeModel.propDecorators = {
-        "elementSizeModel": [{ type: core_1.Input },],
-        "elementSizeModelChange": [{ type: core_1.Output },],
-    };
-    return ElementSizeModel;
-}());
-exports.ElementSizeModel = ElementSizeModel;
 var ElementHeightModel = (function (_super) {
     __extends(ElementHeightModel, _super);
     function ElementHeightModel() {
@@ -398,7 +248,7 @@ var ElementHeightModel = (function (_super) {
         "elementHeightModelChange": [{ type: core_1.Output },],
     };
     return ElementHeightModel;
-}(ElementSizeModel));
+}(ElementSizeModel_directive_1.ElementSizeModel));
 exports.ElementHeightModel = ElementHeightModel;
 var ElementWidthModel = (function (_super) {
     __extends(ElementWidthModel, _super);
@@ -422,124 +272,30 @@ var ElementWidthModel = (function (_super) {
         "elementWidthModelChange": [{ type: core_1.Output },],
     };
     return ElementWidthModel;
-}(ElementSizeModel));
+}(ElementSizeModel_directive_1.ElementSizeModel));
 exports.ElementWidthModel = ElementWidthModel;
-var ScreenScrollHeightDiff = (function () {
-    function ScreenScrollHeightDiff() {
-        this.screenScrollHeightDiffChange = new core_1.EventEmitter();
-        this.on = function () {
-            this.apply();
-        }.bind(this);
-        window.addEventListener("scroll", this.on);
-        window.addEventListener("resize", this.on);
-    }
-    ScreenScrollHeightDiff.prototype.apply = function () {
-        this.screenScrollHeightDiff = document.body.scrollHeight - window.innerHeight;
-        if (this.screenScrollHeightDiff < 0)
-            this.screenScrollHeightDiff = 0;
-        this.screenScrollHeightDiffChange.emit(this.screenScrollHeightDiff);
-    };
-    ScreenScrollHeightDiff.prototype.ngOnDestroy = function () {
-        window.removeEventListener("scroll", this.on);
-        window.removeEventListener("resize", this.on);
-    };
-    ScreenScrollHeightDiff.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[screenScrollHeightDiff]'
-                },] },
-    ];
-    ScreenScrollHeightDiff.ctorParameters = function () { return []; };
-    ScreenScrollHeightDiff.propDecorators = {
-        "screenScrollHeightDiff": [{ type: core_1.Input },],
-        "screenScrollHeightDiffChange": [{ type: core_1.Output },],
-    };
-    return ScreenScrollHeightDiff;
-}());
-exports.ScreenScrollHeightDiff = ScreenScrollHeightDiff;
-var ScreenScroll = (function () {
-    function ScreenScroll() {
-        this.screenScroll = new core_1.EventEmitter();
-        this.onScroll = function () {
-            this.screenScroll.emit({ x: window['pageXOffset'], y: window['pageYOffset'] });
-        }.bind(this);
-        this.onScroll();
-        window.addEventListener("scroll", this.onScroll);
-    }
-    ScreenScroll.prototype.ngOnInit = function () {
-        var _this = this;
-        setTimeout(function () { return _this.onScroll(); }, 0);
-    };
-    ScreenScroll.prototype.ngOnDestroy = function () {
-        window.removeEventListener("scroll", this.onScroll);
-    };
-    ScreenScroll.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[screenScroll]'
-                },] },
-    ];
-    ScreenScroll.ctorParameters = function () { return []; };
-    ScreenScroll.propDecorators = {
-        "screenScroll": [{ type: core_1.Output },],
-    };
-    return ScreenScroll;
-}());
-exports.ScreenScroll = ScreenScroll;
-var ScreenScrollModelY = (function () {
-    function ScreenScrollModelY() {
-        this.screenScrollModelYChange = new core_1.EventEmitter();
-        this.onScroll = function () {
-            this.screenScrollModelY = window['pageYOffset'];
-            this.screenScrollModelYChange.emit(this.screenScrollModelY);
-        }.bind(this);
-        this.onScroll();
-        window.addEventListener("scroll", this.onScroll);
-    }
-    ScreenScrollModelY.prototype.ngOnInit = function () {
-        var _this = this;
-        setTimeout(function () { return _this.onScroll(); }, 0);
-    };
-    ScreenScrollModelY.prototype.ngOnDestroy = function () {
-        window.removeEventListener("scroll", this.onScroll);
-    };
-    ScreenScrollModelY.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[screenScrollModelY]'
-                },] },
-    ];
-    ScreenScrollModelY.ctorParameters = function () { return []; };
-    ScreenScrollModelY.propDecorators = {
-        "screenScrollModelY": [{ type: core_1.Input },],
-        "screenScrollModelYChange": [{ type: core_1.Output },],
-    };
-    return ScreenScrollModelY;
-}());
-exports.ScreenScrollModelY = ScreenScrollModelY;
-var ScreenWidthModel_directive_1 = require("./directives/ScreenWidthModel.directive");
-var ScreenHeightModel_directive_1 = require("./directives/ScreenHeightModel.directive");
-var HtmlWidthModel_directive_1 = require("./directives/HtmlWidthModel.directive");
-var HtmlHeightModel_directive_1 = require("./directives/HtmlHeightModel.directive");
 exports.declarations = [
     SelectOn_directive_1.SelectOn,
     FocusOn_directive_1.FocusOn,
     VarDirective,
-    InnerHtmlModel,
+    InnerHtmlModel_directive_1.InnerHtmlModel,
     FormAlter,
     FormChanged,
     EnterKey,
     EscapeKey,
     PreventBackKey,
     PreventEnterKey,
-    ScreenScrollModelY,
+    ScreenScrollModelY_directive_1.ScreenScrollModelY,
     ScreenWidthModel_directive_1.ScreenWidthModel,
     ScreenHeightModel_directive_1.ScreenHeightModel,
-    ScreenScroll,
-    ScreenScrollHeightDiff,
+    ScreenScroll_directive_1.ScreenScroll,
+    ScreenScrollHeightDiff_directive_1.ScreenScrollHeightDiff,
     HtmlWidthModel_directive_1.HtmlWidthModel,
     HtmlHeightModel_directive_1.HtmlHeightModel,
     ShakeOn_directive_1.ShakeOn,
-    StatusOnlineModel,
-    StatusOfflineModel,
-    ElementSizeModel,
+    StatusOnlineModel_directive_1.StatusOnlineModel,
+    StatusOfflineModel_directive_1.StatusOfflineModel,
+    ElementSizeModel_directive_1.ElementSizeModel,
     ElementWidthModel,
     ElementHeightModel,
     AckCloseIcon_component_1.AckCloseIcon,

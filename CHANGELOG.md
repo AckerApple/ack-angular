@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.4.1] - 2017-12-11
+- Added Prompts
+
 ## [1.4.0] - 2017-12-11
 - Added ack-modal-layout
 - Added ack-fixed-element-stage

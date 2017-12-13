@@ -3,74 +3,74 @@ mixin top
     br
     a.text-xs(href="#top" pageScroll) top
 
-ack-fixed-element-stage.border-5.border-assertive
 
 ng-container("[(htmlWidthModel)]"="screenWidthModel")
-
 route-reporter("[(ref)]"="routeReporter" "(beforeChange)"="panelAnim=$event.isBackMode?'slideInLeft':'slideInRight';isBackMode=$event.isBackMode;" "(onChange)"="stateName=$event.current.config.name")
-
 router-outlet
 
-reader-header-body.font-helvetica
-  reader-header
-    .bg-energized.border-grey-3x.border-left-1.border-right-1(id="top")
-      .pad.flex-valign-center.flex-wrap
-        h1.margin-0
-          span.text-sm 🚴
-          |&nbsp;ack-angular
-        span.text-right.flex-1.text-white
-          |v{{ version }}
+.font-helvetica
+  ack-fixed-element-stage
 
-      .flex-wrap.flex-evenly.bg-info.child-pad-sm.text-center.text-2x.strong.child-hover-bg-warning
-        a.no-a-style.flex-1.border-right.border-white([ngClass]="{'bg-energized':stateName=='overview'}" href="#/overview")
-          |Overview
-        a.no-a-style.flex-1.border-right.border-white([ngClass]="{'bg-energized':stateName=='components'}" href="#/components")
-          |Components
-        a.no-a-style.flex-1.border-right.border-white([ngClass]="{'bg-energized':stateName=='pipes'}" href="#/pipes")
-          |Pipes
-        //-a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='services'}" href="#/services")
-          |Services
-        a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='animations'}" href="#/animations")
-          |Animations
-        a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='providers'}" href="#/providers")
-          |Providers    
-        a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='jjswoz'}" href="#/jjswoz")
-          |JJ's WoZ
+  reader-header-body
+    reader-header
+      .bg-energized.border-grey-3x.border-left-1.border-right-1(id="top")
+        .pad.flex-valign-center.flex-wrap
+          h1.margin-0
+            span.text-sm 🚴
+            |&nbsp;ack-angular
+          span.text-right.flex-1.text-white
+            |v{{ version }}
 
-  reader-body.line-height-2x(style="font-size:16px;")
-    .height-full.bg-white.border-grey-3x.border-left-1.border-right-1("[ngStyle]"="isSwaping?{'overflow-x':'hidden'}:null")
-      .pos-rel.text-left.height-full.pad-top-lg("[ngStyle]"="{'max-width':screenWidthModel+'px'}" "[ngClass]"="screenWidthModel>900?'child-pad-h-lg':'child-pad-h-sm'")
-        div(*ngIf="stateName=='overview'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
-          h2.margin-top-0 Overview
-          overview-examples
-          +top
+        .flex-wrap.flex-evenly.bg-info.child-pad-sm.text-center.text-2x.strong.child-hover-bg-warning
+          a.no-a-style.flex-1.border-right.border-white([ngClass]="{'bg-energized':stateName=='overview'}" href="#/overview")
+            |Overview
+          a.no-a-style.flex-1.border-right.border-white([ngClass]="{'bg-energized':stateName=='components'}" href="#/components")
+            |Components
+          a.no-a-style.flex-1.border-right.border-white([ngClass]="{'bg-energized':stateName=='pipes'}" href="#/pipes")
+            |Pipes
+          //-a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='services'}" href="#/services")
+            |Services
+          a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='animations'}" href="#/animations")
+            |Animations
+          a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='providers'}" href="#/providers")
+            |Providers    
+          a.no-a-style.flex-1([ngClass]="{'bg-energized':stateName=='jjswoz'}" href="#/jjswoz")
+            |JJ's WoZ
 
-        div(*ngIf="stateName=='components'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
-          h2.margin-top-0 Components
-          components-examples
-          +top
+    reader-body.line-height-2x(style="font-size:16px;")
+      .height-full.bg-white.border-grey-3x.border-left-1.border-right-1("[ngStyle]"="isSwaping?{'overflow-x':'hidden'}:null")
+        .pos-rel.text-left.height-full.pad-top-lg("[ngStyle]"="{'max-width':screenWidthModel+'px'}" "[ngClass]"="screenWidthModel>900?'child-pad-h-lg':'child-pad-h-sm'")
+          div(*ngIf="stateName=='overview'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+            h2.margin-top-0 Overview
+            overview-examples
+            +top
 
-        div(*ngIf="stateName=='pipes'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
-          h2.margin-top-0 Pipes
-          pipes-examples
-          +top
+          div(*ngIf="stateName=='components'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+            h2.margin-top-0 Components
+            components-examples
+            +top
 
-        //-div(*ngIf="stateName=='services'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
-          h2.margin-top-0 Services
-          services-examples
-          +top
+          div(*ngIf="stateName=='pipes'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+            h2.margin-top-0 Pipes
+            pipes-examples
+            +top
 
-        div(*ngIf="stateName=='animations'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
-          h2.margin-top-0 Animations
-          animation-examples
-          +top
+          //-div(*ngIf="stateName=='services'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+            h2.margin-top-0 Services
+            services-examples
+            +top
 
-        div(*ngIf="stateName=='providers'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
-          h2.margin-top-0 Providers
-          provider-examples
-          +top
-        
-        div(*ngIf="stateName=='jjswoz'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
-          h2.margin-top-0 Jersey Jack's The Wizard of Oz
-          jjs-woz
-          +top
+          div(*ngIf="stateName=='animations'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+            h2.margin-top-0 Animations
+            animation-examples
+            +top
+
+          div(*ngIf="stateName=='providers'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+            h2.margin-top-0 Providers
+            provider-examples
+            +top
+          
+          div(*ngIf="stateName=='jjswoz'" "[@absoluteSwap500]"="panelAnim" "(@absoluteSwap500.start)"="isSwaping=1" "(@absoluteSwap500.done)"="isSwaping=0")
+            h2.margin-top-0 Jersey Jack's The Wizard of Oz
+            jjs-woz
+            +top

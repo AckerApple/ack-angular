@@ -1,10 +1,13 @@
-import { Injectable, ElementRef, EventEmitter } from '@angular/core';
-import { AckModal } from '../components/AckModal.component';
+import { Injectable, ElementRef, EventEmitter } from "@angular/core";
+import { AckModal } from "../components/AckModal.component";
+import { prompt, Prompts } from "./Prompts";
 
 @Injectable() export class AckApp{
   warnedFixElements:boolean = true
   fixedElementStage:ElementRef
   modals:AckModal[] = []
+
+  constructor(public prompts:Prompts){}
 
   registerModal(modal:AckModal):AckApp{
     this.modals.push(modal)

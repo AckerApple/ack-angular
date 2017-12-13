@@ -23,6 +23,7 @@ import { string } from "./templates/ack-modal.pug"
   @ViewChild(TemplateRef) layout: ElementRef
 
   //one way binds
+  @Input() inline:boolean
   @Input() isModelMode:boolean
   @Input() wrapStyle:any
   @Input() wrapCellStyle:any
@@ -39,11 +40,17 @@ import { string } from "./templates/ack-modal.pug"
   constructor( public element:ElementRef, public AckApp:AckApp ){}
 
   ngOnInit(){
+    this.determineStage()
+  }
+
+  determineStage():void{
+    if(this.inline)return
+
     if( this.AckApp.fixedElementStage ){
       this.AckApp.registerModal(this)
     }else if( !this.AckApp.warnedFixElements ){
       this.AckApp.warnedFixElements = true
-      console.warn('Please put the element tag <ack-fixed-element-stage> inside your app so <ack-modal> renders properly amongst other elements')
+      console.warn('Please put the element tag <ack-fixed-element-stage> inside your app so <ack-modal> renders properly amongst other elements. OR set <ack-modal inline="true">')
     }
   }
 

@@ -16,6 +16,47 @@ ng-container("[(statusOnlineModel)]"="statusOnlineModel")
 error-well([error]="error")
 
 .flex-wrap.child-margin-xxs
+  //-Prompts
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 Prompts
+        .text-grey-2x Modal driven prompts to require user confirmation
+        br
+    .text-center
+      a.block.border.pad-xs.hover-bg-warning("(click)"="views.confirm=!views.confirm" "[ngClass]"="views.confirm?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.confirm" "[@500]"="'fadeInUp'")
+      .bg-info.pad.text-info
+        |This component requires the element &lt;ack-fixed-element-stage&gt; to be present somewhere in your app
+
+      .pad.flex-wrap.child-margin-xxs.child-border.child-radius-3.child-pad-h
+        a.bg-warning("(click)"="runAlert()") alert
+        a.bg-info("(click)"="runConfirm()") confirm
+
+      h4.pad-h-sm.margin-h-0.margin-bottom-0 Usage Example
+      .pad-xs
+        absolute-overflow-x
+          pre.code-sample.margin-0(ngNonBindable).
+            import &#123; Prompts &#125; from "./ack-angular"
+
+            class MyClass&#123;
+              constructor(public prompts:Prompts)&#123;&#125;
+            
+              runConfirm():EventEmitter&lt;boolean&gt;&#123;
+                return this.prompts.confirm('This is a confirm example')
+                .subscribe(result=&gt;console.log('result of confirm:' +result))
+              &#125;
+
+              runAlert():EventEmitter&lt;boolean&gt;&#123;
+                return this.prompts.alert('This is an alert example')
+                .subscribe(result=&gt;console.log('alert prompt closed'))
+              &#125;
+            &#125;
+
+
+
+  //-AckApi
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
@@ -217,6 +258,7 @@ error-well([error]="error")
                 .catch( e=&gt;console.error(e) )
               &#125;
             &#125;
+  //-ErrorLog
   .flex-1
     .border.border-grey-4x.border.border-bottom-0
       .pad-h

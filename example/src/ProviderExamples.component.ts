@@ -1,4 +1,4 @@
-import { Component } from "@angular/core"
+import { Component, EventEmitter } from "@angular/core"
 import { PageScrollService, PageScrollInstance } from 'ng2-page-scroll'
 
 import {
@@ -8,6 +8,7 @@ import {
   AckCache,
   AckQue,
   AckApi,
+  Prompts,
   httpOptions
 } from "./ack-angular"
 
@@ -24,14 +25,14 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
 }) export class ProviderExamples {
   views:any = {}
   statusOnlineModel:boolean
-  queArray = []
-  processQueResults = []
-  httpQueArray = []
+  queArray:any[] = []
+  processQueResults:any[] = []
+  httpQueArray:any[] = []
   httpCache = {}
   cache
-  error
-  offlineStorage
-  cacheStorage
+  error:Error
+  offlineStorage:any
+  cacheStorage:any
   queStorage
   cacheSeconds:number = 20
   backOnlineAt
@@ -58,7 +59,8 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
     public AckOffline:AckOffline,
     public AckCache:AckCache,
     public AckQue:AckQue,
-    public AckApi:AckApi
+    public AckApi:AckApi,
+    public Prompts:Prompts
   ){
     this.ErrorLog.monitorWindow()
     this.AckQue.registerHandler('ackNgQueTest', item=>this.processQueItem(item))
@@ -270,6 +272,16 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
     .then( results=>this.processQueResults.push.apply(this.processQueResults, results))
     .then( ()=>this.readQue() )
     .catch( e=>this.error=e )
+  }
+
+  runConfirm():EventEmitter<boolean>{
+    return this.Prompts.confirm('This is a confirm example')
+    .subscribe(result=>console.log('result of confirm:' +result))
+  }
+
+  runAlert():EventEmitter<boolean>{
+    return this.Prompts.alert('This is an alert example')
+    .subscribe(result=>console.log('alert prompt closed'))
   }
 }
 

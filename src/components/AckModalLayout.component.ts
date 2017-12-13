@@ -17,12 +17,13 @@ import { string } from "./templates/ack-modal-layout.pug"
   template:string,
   animations:fxArray
 }) export class AckModalLayout{
-  @Input() isModelMode:boolean = false  
   @Output() close:EventEmitter<AckModalLayout> = new EventEmitter()
   @Input() wrapStyle:any
   @Input() wrapCellStyle:any
   @Input() allowClose:boolean = true
   @Input() backgroundColor:any
+  
+  @Input() isModelMode:boolean = false  
   @Input() showModel:boolean
   @Output() showModelChange:EventEmitter<boolean> = new EventEmitter()
   //@Input() template:ElementRef<any>

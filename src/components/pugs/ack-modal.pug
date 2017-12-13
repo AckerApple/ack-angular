@@ -13,4 +13,4 @@ ng-template
     ng-content
 
 //-if no ack-fixed-element-stage tag present, then render in-place
-ng-template(*ngIf="!AckApp.fixedElementStage" "[ngTemplateOutlet]"="layout")
+ng-template(*ngIf="!AckApp.fixedElementStage || inline" "[ngTemplateOutlet]"="layout")

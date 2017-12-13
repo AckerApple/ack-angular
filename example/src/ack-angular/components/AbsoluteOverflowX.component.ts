@@ -1,9 +1,9 @@
 import { ElementRef, Component,Input } from "@angular/core"
+import { string } from "./templates/absolute-overflow-x.pug"
 
-import { string as absoluteOverflowX } from "./templates/absolute-overflow-x.pug"
 @Component({
   selector:'absolute-overflow-x',
-  template:absoluteOverflowX
+  template:string
 }) export class AbsoluteOverflowX{
   elementHeightModel:number
   @Input() scrollBars:boolean|any

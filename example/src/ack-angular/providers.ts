@@ -4,6 +4,9 @@ import { Log } from "./providers/Log";
 export { AckApp } from "./providers/AckApp";
 import { AckApp } from "./providers/AckApp";
 
+export { Prompts } from "./providers/Prompts";
+import { Prompts } from "./providers/Prompts";
+
 export { AckOffline } from "./providers/AckOffline";
 import { AckOffline } from "./providers/AckOffline";
 
@@ -38,5 +41,6 @@ export const providers = [
   AckApi,
   UrlVars,
   WindowService,
-  DocumentService
+  DocumentService,
+  Prompts
 ]

@@ -4,6 +4,7 @@ export declare class AckModal {
     element: ElementRef;
     AckApp: AckApp;
     layout: ElementRef;
+    inline: boolean;
     isModelMode: boolean;
     wrapStyle: any;
     wrapCellStyle: any;
@@ -14,5 +15,6 @@ export declare class AckModal {
     close: EventEmitter<{}>;
     constructor(element: ElementRef, AckApp: AckApp);
     ngOnInit(): void;
+    determineStage(): void;
     ngOnDestroy(): void;
 }

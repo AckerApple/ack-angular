@@ -1,8 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var Prompts_1 = require("./Prompts");
 var AckApp = (function () {
-    function AckApp() {
+    function AckApp(prompts) {
+        this.prompts = prompts;
         this.warnedFixElements = true;
         this.modals = [];
     }
@@ -22,7 +24,9 @@ var AckApp = (function () {
     AckApp.decorators = [
         { type: core_1.Injectable },
     ];
-    AckApp.ctorParameters = function () { return []; };
+    AckApp.ctorParameters = function () { return [
+        { type: Prompts_1.Prompts, },
+    ]; };
     return AckApp;
 }());
 exports.AckApp = AckApp;
