@@ -303,7 +303,7 @@ h3.margin-bottom-0(id="Tags") Tags
           li (close)
           li [wrapStyle]
           li [wrapCellStyle]
-          li allowClose = true
+          li [allowClose] = true
           li backgroundColor
           li [(showModel)]
 
@@ -399,12 +399,12 @@ h3.margin-bottom-0(id="Tags") Tags
           &lt;/div&gt;
 
           &lt;ack-options-modal
-            *ngIf      = "showAckOptionsStringModal"
-            [@500]     = "'fadeInUp'"
-            allowClose = "0"
-            (close)    = "showAckOptionsStringModal=0"
-            [array]    = "['x','y','z']"
-            [(model)]  = "ackOptionStringModal"
+            *ngIf        = "showAckOptionsStringModal"
+            [@500]       = "'fadeInUp'"
+            [allowClose] = "0"
+            (close)      = "showAckOptionsStringModal=0"
+            [array]      = "['x','y','z']"
+            [(model)]    = "ackOptionStringModal"
             toggleable
           &gt;
             &lt;div style="padding-right:30px;"&gt;Select Something Below&lt;/div&gt;

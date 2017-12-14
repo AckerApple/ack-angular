@@ -90,7 +90,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
   }
 
   /** when back online, run this function */
-  processQue(name:string){
+  processQue(name:string):Promise<any>{
     this.AckQue.paramHandler(name,config=>this._fetch(config))
     return this.AckQue.processQue(name)
   }
@@ -111,7 +111,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
       - POST/PUT/PATCH requests goto que if they fail.
       - GET responses are cached with optional expires or maxAge option
   */
-  request(config:httpOptions):Promise<Response>{
+  request(config:httpOptions):Promise<Response|any>{
     const defaults:httpOptions = { ...this.config.$http }
 
     defaults.headers = { ...this.config.$http.headers }//cause a deeper clone and break memory ref with apiConfig.$http
@@ -156,7 +156,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
     return request.url
   }
 
-  requestOfflineModel(request:httpOptions):Promise<Response>{
+  requestOfflineModel(request:httpOptions):Promise<Response|any>{
     let offlineModel = <cacheModel>request.offlineModel
     
     if(offlineModel && offlineModel.constructor==String){
@@ -174,7 +174,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
     .catch( e=>this.postRequestFail(e,request) )//if fail, save config for later
   }
 
-  processCacheGet(cache:any, cfg:httpOptions):Promise<Response>{
+  processCacheGet(cache:any, cfg:httpOptions):Promise<Response|any>{
     if(cache==null)return this._fetch(cfg)
 
     const offlineModel = <cacheModel>cfg.offlineModel
@@ -228,7 +228,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
     }
   */
   //Angular 5 : Promise<HttpResponse<HttpEvent<Event>>>
-  _fetch(cfg:httpOptions):Promise<Response> {
+  _fetch(cfg:httpOptions):Promise<Response|any> {
     upgradeConfig(cfg)
 
     const request = new Request( cfg )
@@ -271,7 +271,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
 */
   }
 
-  processFetchByConfig(response:Response, request:httpOptions):Promise<any>{
+  processFetchByConfig(response:Response, request:httpOptions):Promise<Response|any>{
     this.response.emit(response)//let subscribers of all responses know we got one
     
     const data = response['_body']//response['data'] || 
@@ -327,14 +327,14 @@ TimeOutError.prototype = Object.create(Error.prototype)
     .then(routes=>this.AckCache.set(cachename, routes))
   }
   
-  get(path:string, config?:httpOptions) {
+  get(path:string, config?:httpOptions):Promise<Response|any>{
     const cfg = Object.assign({}, config)
     cfg.method = "GET"
     cfg.url = path
     return this.request( cfg )
   }
 
-  post(path:string, data:any, config?:httpOptions) {
+  post(path:string, data:any, config?:httpOptions):Promise<Response|any>{
     const cfg = Object.assign({}, config)
     cfg.method = "POST"
     //cfg.data = data
@@ -343,14 +343,14 @@ TimeOutError.prototype = Object.create(Error.prototype)
     return this.request( cfg )
   }
 
-  delete(path:string, config?:httpOptions) {
+  delete(path:string, config?:httpOptions):Promise<Response|any>{
     const cfg = Object.assign({}, config)
     cfg.method = "DELETE"
     cfg.url = path
     return this.request( cfg )
   }
 
-  put(path, data, config?) {
+  put(path, data, config?):Promise<Response|any>{
     const cfg = Object.assign({}, config)
     cfg.method = "PUT"
     //cfg.data = data

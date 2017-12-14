@@ -41,18 +41,18 @@ export declare class AckApi {
     processQue(name: string): Promise<any>;
     clearQue(name: string): Promise<void>;
     clearCache(name: any): Promise<void>;
-    request(config: httpOptions): Promise<Response>;
-    getCacheByNamedRequest(request: httpOptions): Promise<Response>;
+    request(config: httpOptions): Promise<Response | any>;
+    getCacheByNamedRequest(request: httpOptions): Promise<any>;
     getSotageNameByRequest(request: httpOptions): string;
-    requestOfflineModel(request: httpOptions): Promise<Response>;
-    processCacheGet(cache: any, cfg: httpOptions): Promise<Response>;
+    requestOfflineModel(request: httpOptions): Promise<Response | any>;
+    processCacheGet(cache: any, cfg: httpOptions): Promise<Response | any>;
     postRequestFail(e: any, request: httpOptions): Promise<never>;
-    _fetch(cfg: httpOptions): Promise<Response>;
-    processFetchByConfig(response: Response, request: httpOptions): Promise<any>;
+    _fetch(cfg: httpOptions): Promise<Response | any>;
+    processFetchByConfig(response: Response, request: httpOptions): Promise<Response | any>;
     httpFailByConfig(e: any, cfg: any): Promise<never>;
     requestResponseToCache(request: any, output: any): Promise<any>;
-    get(path: string, config?: httpOptions): Promise<Response>;
-    post(path: string, data: any, config?: httpOptions): Promise<Response>;
-    delete(path: string, config?: httpOptions): Promise<Response>;
-    put(path: any, data: any, config?: any): Promise<Response>;
+    get(path: string, config?: httpOptions): Promise<Response | any>;
+    post(path: string, data: any, config?: httpOptions): Promise<Response | any>;
+    delete(path: string, config?: httpOptions): Promise<Response | any>;
+    put(path: any, data: any, config?: any): Promise<Response | any>;
 }
