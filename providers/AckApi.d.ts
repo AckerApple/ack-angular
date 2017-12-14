@@ -17,7 +17,7 @@ export interface httpOptions {
     timeout?: number;
     offlineModel?: cacheModel | string;
     sendFailMeta?: sendFailMeta;
-    promise?: 'response' | 'all' | 'data';
+    promise?: 'response' | 'all' | 'data' | string;
     reportProgress?: boolean;
 }
 export interface apiConfig {
