@@ -12,6 +12,7 @@ var AckModalLayout = (function () {
         this.close = new core_1.EventEmitter();
         this.allowClose = true;
         this.isModelMode = false;
+        this.showModel = true;
         this.showModelChange = new core_1.EventEmitter();
         setTimeout(function () { return _this.clickListenForClose(); }, 400);
     }
