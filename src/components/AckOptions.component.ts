@@ -16,8 +16,8 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   template:ackOptions
 }) export class AckOptions{
   @Input() array = []
-  @Input() stylize = true
-  @Input() multiple = false
+  @Input() stylize:boolean = true
+  @Input() multiple:boolean = false
   //@Input() modelIsArray = false//support array of options to model-array, that array only allows a length of one
   @Input() toggleable = false//multiple must be false
 

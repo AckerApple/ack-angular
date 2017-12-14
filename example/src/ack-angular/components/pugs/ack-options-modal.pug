@@ -1,6 +1,9 @@
 ack-modal(
   "(close)"                 = "close.emit($event)"
   "[allowClose]"            = "allowClose"
+  "[showModel]"             = "showModel"
+  "(showModelChange)"       = "showModelChange.emit($event)"
+  "[isModelMode]"           = "showModelChange.observers.length"
   "[wrapStyle]"             = "wrapStyle"
   "[wrapCellStyle]"         = "wrapCellStyle"
   "[backgroundColor]"       = "backgroundColor"
@@ -11,7 +14,8 @@ ack-modal(
     ack-options(
       "[(ref)]"             = "ackOptions"
       "[array]"             = "array"
-      "[(model)]"           = "model"
+      "[model]"             = "model"
+      "(modelChange)"       = "fireModelChange($event)"
       "[multiple]"          = "multiple"
       "[toggleable]"        = "toggleable"
       "[stylize]"           = "stylize"

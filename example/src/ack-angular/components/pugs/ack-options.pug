@@ -1,6 +1,7 @@
 div("[ngClass]"="{'border-grey-6x border-top':stylize}")
+//-style      = "cursor:pointer;"
 div(
-  *ngFor    = "let item of array|array"
+  *ngFor      = "let item of array|array"
   "(click)"   = "selectItem(item)"
   "[ngClass]" = "getItemClass(item)"
 )

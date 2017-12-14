@@ -2,7 +2,7 @@
 ng-template
   ack-modal-layout(
     "(close)"           = "close.emit($event)"
-    "[isModelMode]"     = "isModelMode || showModelChange.observers.length"
+    "[isModelMode]"     = "isModelMode==null ? showModelChange.observers.length : isModelMode"
     "[showModel]"       = "showModel"
     "(showModelChange)" = "showModelChange.emit(showModel=$event)"
     "[backgroundColor]" = "backgroundColor"

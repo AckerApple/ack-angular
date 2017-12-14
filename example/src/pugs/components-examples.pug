@@ -350,10 +350,23 @@ h3.margin-bottom-0(id="Tags") Tags
         div(*ngIf="ackOptionStringModal" "[@500]"="'fadeInUp'")
           strong Selected Option:
           |&nbsp;{{ ackOptionStringModal }}
-        ack-options-modal(*ngIf="showAckOptionsStringModal" "[@500]"="'fadeInUp'" allowClose="0" "(close)"="showAckOptionsStringModal=0" "[array]"="['option 0','option 1','option 2']" "[(model)]"="ackOptionStringModal" toggleable="1")
+        
+        //-SELECT ONE
+        ack-options-modal(
+          *ngIf          = "showAckOptionsStringModal"
+          "[@500]"       = "'fadeInUp'"
+          "[allowClose]" = 0
+          "(close)"      = "showAckOptionsStringModal=0"
+          "[array]"      = "['option 0','option 1','option 2']"
+          "[(model)]"    = "ackOptionStringModal"
+          toggleable     = 1
+        )
           .pad-right-3x Select Something Below
         button("(click)"="showAckOptionsStringModal=!showAckOptionsStringModal") select option
+        
         hr
+
+        //-SELECT MULTIPLE
         strong Multiple Example
         div(*ngIf="ackOptionArrayModal?.length" "[@500]"="'fadeInUp'")
           div
@@ -361,17 +374,17 @@ h3.margin-bottom-0(id="Tags") Tags
           absolute-overflow-x
             pre.code-sample {{ ackOptionArrayModal | json }}
         ack-options-modal(
-          *ngIf = "showAckOptionsObjectModal"
-          "[@500]" = "'fadeInUp'"
-          "(close)" = "showAckOptionsObjectModal=0"
-          "[array]" = "[{name:'red',key:'r'},{name:'blue',key:'b'},{name:'green',key:'g'}]"
-          "[(model)]" = "ackOptionArrayModal"
-          multiple = "1"
-          arrayKey = "key"
+          *ngIf           = "showAckOptionsObjectModal"
+          "[@500]"        = "'fadeInUp'"
+          "(close)"       = "showAckOptionsObjectModal=0"
+          "[array]"       = "[{name:'red',key:'r'},{name:'blue',key:'b'},{name:'green',key:'g'}]"
+          "[(model)]"     = "ackOptionArrayModal"
+          multiple        = "1"
+          arrayKey        = "key"
           arrayToModelKey = ""
-          modelKey = "key"
+          modelKey        = "key"
         )
-          .pad-right-3x.text-grey(*ngIf="ackOptionArrayModal.length<2")
+          .pad-right-3x.text-grey
             |Select Multiple Things Below
 
           ng-template(#option="" let-item="item")
@@ -389,7 +402,7 @@ h3.margin-bottom-0(id="Tags") Tags
             *ngIf      = "showAckOptionsStringModal"
             [@500]     = "'fadeInUp'"
             allowClose = "0"
-            (close)  = "showAckOptionsStringModal=0"
+            (close)    = "showAckOptionsStringModal=0"
             [array]    = "['x','y','z']"
             [(model)]  = "ackOptionStringModal"
             toggleable
@@ -417,7 +430,7 @@ h3.margin-bottom-0(id="Tags") Tags
             arrayToModelKey = "key"
             multiple
           &gt;
-            &lt;div *ngIf="ackOptionArrayModal.length<2" style="padding-right:30px;"&gt;
+            &lt;div style="padding-right:30px;"&gt;
               Select Multiple Things Below
             &lt;/div&gt;
             &lt;ng-template let-item="item"&gt;

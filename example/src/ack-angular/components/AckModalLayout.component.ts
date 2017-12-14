@@ -24,7 +24,7 @@ import { string } from "./templates/ack-modal-layout.pug"
   @Input() backgroundColor:any
   
   @Input() isModelMode:boolean = false  
-  @Input() showModel:boolean
+  @Input() showModel:boolean = true
   @Output() showModelChange:EventEmitter<boolean> = new EventEmitter()
   //@Input() template:ElementRef<any>
 

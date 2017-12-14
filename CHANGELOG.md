@@ -1,7 +1,10 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
-## [1.4.1] - 2017-12-11
+## [1.4.2] - 2017-12-14
+- Adjusted and fixed ack-options-modal
+
+## [1.4.1] - 2017-12-13
 - Added Prompts
 
 ## [1.4.0] - 2017-12-11

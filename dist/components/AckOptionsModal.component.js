@@ -20,29 +20,14 @@ var AckOptionsModal = (function (_super) {
         _this.allowClose = true;
         _this.close = new core_1.EventEmitter();
         _this.backgroundColorChange = new core_1.EventEmitter();
+        _this.showModel = true;
+        _this.showModelChange = new core_1.EventEmitter();
         return _this;
     }
-    AckOptionsModal.prototype.ngAfterViewInit = function () {
-        var _this = this;
-        _super.prototype.ngAfterViewInit.call(this);
-        this.ElementRef.nativeElement.style.position = 'fixed';
-        this.ElementRef.nativeElement.style.top = 0;
-        this.ElementRef.nativeElement.style.left = 0;
-        this.ElementRef.nativeElement.style.zIndex = 20;
-        this.ElementRef.nativeElement.style.height = '100%';
-        this.ElementRef.nativeElement.style.width = '100%';
-        this.ElementRef.nativeElement.style.overflow = 'auto';
-        this.ElementRef.nativeElement.style.display = 'block';
-        setTimeout(function () { return _this.subscribeModelChange(); }, 0);
-    };
-    AckOptionsModal.prototype.subscribeModelChange = function () {
-        var _this = this;
-        this.ackOptions.modelChange.subscribe(function (model) {
-            if (model && !_this.multiple && _this.ackModal) {
-                _this.ackModal.close();
-            }
-            _this.modelChange.emit(_this.model);
-        });
+    AckOptionsModal.prototype.fireModelChange = function (model) {
+        if (!this.multiple)
+            this.close.emit();
+        this.modelChange.emit(model);
     };
     AckOptionsModal.decorators = [
         { type: core_1.Component, args: [{
@@ -53,11 +38,13 @@ var AckOptionsModal = (function (_super) {
     AckOptionsModal.ctorParameters = function () { return []; };
     AckOptionsModal.propDecorators = {
         "allowClose": [{ type: core_1.Input },],
-        "close": [{ type: core_1.Output },],
         "wrapStyle": [{ type: core_1.Input },],
         "wrapCellStyle": [{ type: core_1.Input },],
+        "close": [{ type: core_1.Output },],
         "backgroundColor": [{ type: core_1.Input },],
         "backgroundColorChange": [{ type: core_1.Output },],
+        "showModel": [{ type: core_1.Input },],
+        "showModelChange": [{ type: core_1.Output },],
     };
     return AckOptionsModal;
 }(AckOptions_component_1.AckOptions));
