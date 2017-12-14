@@ -25,7 +25,7 @@ export interface httpOptions{
   timeout?        : number
   offlineModel?   : cacheModel|string
   sendFailMeta?   : sendFailMeta
-  promise?        : 'response'|'all'|'data'//typically just the body data is promised. Anything but data returns response
+  promise?        : 'response'|'all'|'data'|string//typically just the body data is promised. Anything but data returns response
   reportProgress? : boolean
 }
 
