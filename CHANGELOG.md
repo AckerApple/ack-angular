@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.4.5] - 2017-12-15
+- Fixed ack-modal when used with `*ngIf`
+
 ## [1.4.2] - 2017-12-14
 - Adjusted and fixed ack-options-modal
 

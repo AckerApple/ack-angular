@@ -1,5 +1,5 @@
 div(
-  *ngIf    = "showModel"
+  *ngIf    = "showModel || !isModelMode"
   "[@200]" = "'fadeInUp'"
   style    = "position:fixed;top:0;left:0;z-index:20;height:100%;width:100%;overflow:auto;"
 )

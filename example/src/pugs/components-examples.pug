@@ -286,8 +286,8 @@ h3.margin-bottom-0(id="Tags") Tags
             |model driven modal with animation provided by ack-angular-fx [@500]="'fadeInUp'"
 
       .pad.text-center.flex-wrap.child-margin-xxs
-        button.text-lg((click)="showAckModal=1") show modal
-        button.text-lg((click)="showAckModalModel=1") show modal by model
+        button.text-lg((click)="showAckModal=1") *ngIf show modal
+        button.text-lg((click)="showAckModalModel=1") modal by [(showModel)]
         .flex-1.flex-valign-center
           .height-30.pad-h-sm.bg-grey-5x.border.border-grey-4x.border-right-0
             |bg
