@@ -65,3 +65,27 @@ import {
     window.removeEventListener('resize', this.onResize)
   }
 }
+
+@Directive({
+  selector: '[elementHeightModel]'
+}) export class ElementHeightModel extends ElementSizeModel{
+  @Input() elementHeightModel
+  @Output() elementHeightModelChange = new EventEmitter()
+
+  setModel(){
+    this.elementHeightModel = this.element.nativeElement.offsetHeight
+    this.elementHeightModelChange.emit(this.elementHeightModel)
+  }
+}
+
+@Directive({
+  selector: '[elementWidthModel]'
+}) export class ElementWidthModel extends ElementSizeModel{
+  @Input() elementWidthModel
+  @Output() elementWidthModelChange = new EventEmitter()
+
+  setModel(){
+    this.elementWidthModel = this.element.nativeElement.offsetWidth
+    this.elementWidthModelChange.emit(this.elementWidthModel)
+  }
+}

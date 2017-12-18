@@ -33,7 +33,7 @@ h3.margin-bottom-0(id="Tags") Tags
 .flex-wrap.child-margin-xxs
 
   //-ack-fixed-element-stage
-  .flex-1
+  .flex-1([class.width-full]="views.ackFixedElmStage")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 ack-fixed-element-stage
@@ -445,7 +445,41 @@ br
 
 h3.margin-bottom-0(id="Expression Binds") Expression Binds
 .flex-wrap.child-margin-xxs
-  .flex-1
+
+  .flex-1([class.width-full]="views.init")
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 (init)
+        .text-grey-2x.max-width-400
+          |execute expression at render
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="views.init=!views.init" "[ngClass]"="views.init?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.init" "[@500]"="'fadeInUp'")
+      div(*ngFor="let item of initArray;let i=index" "(init)"="item.name=item.name || 'no-name-'+(item.value+1)")
+        |init val {{i}} {{ item.name }}
+
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          @Component(&#123;
+            selector: 'example'
+            ,template: `
+              &lt;div
+                *ngFor="let item of initArray;let i=index"
+                (init)="item.name=item.name || 'no-name-'+(item.value+1)"
+              &gt;
+                init val &#123;&#123;i&#125;&#125; &#123;&#123; item.name &#125;&#125;
+              &lt;/div&gt;
+            `
+          &#125;) export class Example &#123;
+            initArray = [&#123;value:0&#125;,&#123;value:1&#125;,&#123;value:2&#125;]
+          &#125;
+
+
+
+  .flex-1([class.width-full]="views.screenScroll")
     .border.border-grey-4x.border.border-bottom-0
       div("(screenScroll)"="screenScrollCount=screenScrollCount+1")
       .pad-h
@@ -465,7 +499,7 @@ h3.margin-bottom-0(id="Expression Binds") Expression Binds
           &nbsp;&nbsp;screenScroll count : {{ screenScrollCount }}
           &lt;/div&gt;
 
-  .flex-1
+  .flex-1([class.width-full]="views.formChanged")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 (formChanged)
@@ -495,7 +529,7 @@ h3.margin-bottom-0(id="Expression Binds") Expression Binds
             &lt;input type="radio" name="fcTest" /&gt;
           &lt;/form&gt;
 
-  .flex-1
+  .flex-1([class.width-full]="views.formAlter")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 (formAlter)
@@ -519,7 +553,7 @@ h3.margin-bottom-0(id="Expression Binds") Expression Binds
             &lt;input type="text" /&gt;
           &lt;/form&gt;
 
-  .flex-1
+  .flex-1([class.width-full]="views.enterKey")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 (enterKey)
@@ -541,7 +575,7 @@ h3.margin-bottom-0(id="Expression Binds") Expression Binds
           &lt;span&gt; Enter Count : {{enterCountKey || 0}} &lt;/span&gt;
           &lt;input type="text" (enterKey)="enterCountKey=enterCountKey==null?1:enterCountKey+1" placeholder="type here and use enter key" /&gt;
 
-  .flex-1
+  .flex-1([class.width-full]="views.escapeKey")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 (escapeKey)
@@ -563,7 +597,7 @@ h3.margin-bottom-0(id="Expression Binds") Expression Binds
           &lt;span&gt; Escape Count : {{escapeCountKey || 0}} &lt;/span&gt;
           &lt;input type="text" (escapeKey)="escapeCountKey=escapeCountKey==null?1:escapeCountKey+1" placeholder="type here and use escape key" /&gt;
 
-  .flex-1
+  .flex-1([class.width-full]="views.preventBackKey")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 (preventBackKey)
@@ -585,7 +619,7 @@ h3.margin-bottom-0(id="Expression Binds") Expression Binds
           &lt;span&gt; Backspace Count : {{backspaceCount || 0}} &lt;/span&gt;
           &lt;input type="text" (preventBackKey)="backspaceCount=backspaceCount==null?1:backspaceCount+1" placeholder="type here and then use backspace key" /&gt;
 
-  .flex-1
+  .flex-1([class.width-full]="views.preventEnterKey")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 (preventEnterKey)
@@ -611,7 +645,8 @@ br
 
 h3.margin-bottom-0(id="One Way Binds") One Way Binds
 .flex-wrap.child-margin-xxs
-  .flex-1
+  
+  .flex-1([class.width-full]="views.Var")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 [var]
@@ -643,7 +678,7 @@ h3.margin-bottom-0(id="One Way Binds") One Way Binds
             &lt;/button&gt;
           &lt;/div&gt;
 
-  .flex-1
+  .flex-1([class.width-full]="views.focusOn")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 [focusOn]
@@ -670,7 +705,7 @@ h3.margin-bottom-0(id="One Way Binds") One Way Binds
           &lt;input [focusOn]="focusOn" (focusThen)="focusOn=0" [focusOnDelay]="focusOnDelay" placeholder="focus target" /&gt;
           &lt;input type="number" [(ngModel)]="focusOnDelay" placeholder="delay" /&gt;
 
-  .flex-1
+  .flex-1([class.width-full]="views.selectOn")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 [selectOn]
@@ -678,9 +713,9 @@ h3.margin-bottom-0(id="One Way Binds") One Way Binds
           |element select on demand
         br
     .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewSelectOn=!viewSelectOn" "[ngClass]"="viewSelectOn?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="views.selectOn=!views.selectOn" "[ngClass]"="views.selectOn?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewSelectOn" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.selectOn" "[@500]"="'fadeInUp'")
       .pad.text-center.flex-wrap.child-margin-xxs
         div
           button.text-lg((click)="selectOn=1") select input
@@ -697,7 +732,7 @@ h3.margin-bottom-0(id="One Way Binds") One Way Binds
           &lt;input [selectOn]="selectOn" (selectThen)="selectOn=0" [selectOnDelay]="selectOnDelay" placeholder="select target" value="test to select" /&gt;
           &lt;input type="number" [(ngModel)]="selectOnDelay" placeholder="delay" /&gt;
 
-  .flex-1
+  .flex-1([class.width-full]="views.shakeOn")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 [shakeOn]
@@ -705,9 +740,9 @@ h3.margin-bottom-0(id="One Way Binds") One Way Binds
           |Control an animated shaking effect on demand
         br
     .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="viewShakeOn=!viewShakeOn" "[ngClass]"="viewShakeOn?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="views.shakeOn=!views.shakeOn" "[ngClass]"="views.shakeOn?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewShakeOn" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.shakeOn" "[@500]"="'fadeInUp'")
       .pad
         .pad-xs.bg-warning.border-warning.text-warning.border
           |You will need to &lt;link&gt; one of two style sheets:
@@ -763,7 +798,8 @@ br
 
 h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
 .flex-wrap.child-margin-xxs
-  .flex-1
+  
+  .flex-1([class.width-full]="views.statusOnlineModel")
     .border.border-grey-4x.border.border-bottom-0
       div("[(statusOnlineModel)]"="statusOnlineModel")
       .pad-h
@@ -788,7 +824,7 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
             |statusOnlineModel : {{ statusOnlineModel ? 'online' : 'offline'}}
           &lt;/div&gt;
 
-  .flex-1
+  .flex-1([class.width-full]="views.statusOfflineModel")
     .border.border-grey-4x.border.border-bottom-0
       div("[(statusOfflineModel)]"="statusOfflineModel")
       .pad-h
@@ -813,7 +849,7 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
             |statusOfflineModel : {{ statusOfflineModel ? 'offline' : 'online'}}
           &lt;/div&gt;
 
-  .width-full
+  .flex-1([class.width-full]="views.screenScrollHeightDiff")
     .border.border-grey-4x.border.border-bottom-0
       div("[(screenScrollHeightDiff)]"="screenScrollHeightDiff")
       .pad-h
@@ -836,7 +872,7 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
           &nbsp;&nbsp;screenScrollHeightDiff : {{ screenScrollHeightDiff }}
           &lt;/div&gt;
 
-  .flex-1
+  .flex-1([class.width-full]="views.screenScrollModelY")
     .border.border-grey-4x.border.border-bottom-0
       div("[(screenScrollModelY)]"="screenScrollModelY")
       .pad-h
@@ -856,7 +892,7 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
           &nbsp;&nbsp;screenScrollModelY : {{ screenScrollModelY }}px
           &lt;/div&gt;
 
-  .flex-1
+  .flex-1([class.width-full]="views.htmlWidthModel")
     .border.border-grey-4x.border.border-bottom-0
       div("[(htmlWidthModel)]"="htmlWidthModel")
       .pad-h
@@ -875,13 +911,13 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
           &nbsp;&nbsp;htmlWidthModel : {{ htmlWidthModel }}px
           &lt;/div&gt;
 
-  .flex-1
+  .flex-1([class.width-full]="views.htmlHeightModel")
     .border.border-grey-4x.border.border-bottom-0
       div("[(htmlHeightModel)]"="htmlHeightModel")
       .pad-h
         h3 [(htmlHeightModel)]
         .text-grey-2x
-          |Get the browser document inner height. Currently : {{htmlHeightModel}}px
+          |Get the browser document inner height. Currently : {{ htmlHeightModel }}px
         br
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.htmlHeightModel=!views.htmlHeightModel" "[ngClass]"="views.htmlHeightModel?'border-energized bg-energized':'border-info bg-info'")
@@ -894,13 +930,13 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
           &nbsp;&nbsp;htmlHeightModel : {{ htmlHeightModel }}px
           &lt;/div&gt;
 
-  .flex-1
+  .flex-1([class.width-full]="views.screenWidthModel")
     .border.border-grey-4x.border.border-bottom-0
       div("[(screenWidthModel)]"="screenWidthModel")
       .pad-h
         h3 [(screenWidthModel)]
         .text-grey-2x.max-width-400
-          |Get the browser window inner width. Currently : {{screenWidthModel}}px
+          |Get the browser window inner width. Currently : {{ screenWidthModel }}px
         br
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="viewScreenWidthModel=!viewScreenWidthModel" "[ngClass]"="viewScreenWidthModel?'border-energized bg-energized':'border-info bg-info'")
@@ -913,7 +949,7 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
           &nbsp;&nbsp;screenWidthModel : {{ screenWidthModel }}px
           &lt;/div&gt;
 
-  .flex-1
+  .flex-1([class.width-full]="views.screenHeightModel")
     .border.border-grey-4x.border.border-bottom-0
       div("[(screenHeightModel)]"="screenHeightModel")
       .pad-h
@@ -932,7 +968,7 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
           &nbsp;&nbsp;screenHeightModel : {{ screenHeightModel }}px
           &lt;/div&gt;
 
-  .flex-1("[(elementSizeModel)]"="elementSizeModel")
+  .flex-1([class.width-full]="views.elementSizeModel" "[(elementSizeModel)]"="elementSizeModel")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 [(elementSizeModel)]
@@ -950,7 +986,7 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
           &nbsp;&nbsp;elementSizeModel : {{ elementSizeModel?.width }}x{{ elementSizeModel?.height }}
           &lt;/div&gt;
 
-  .flex-1("[(elementHeightModel)]"="elementHeightModel")
+  .flex-1([class.width-full]="views.elementHeightModel" "[(elementHeightModel)]"="elementHeightModel")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 [(elementHeightModel)]
@@ -968,7 +1004,7 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
           &nbsp;&nbsp;elementHeightModel : {{ elementHeightModel }}px
           &lt;/div&gt;
 
-  .flex-1("[(elementWidthModel)]"="elementWidthModel")
+  .flex-1([class.width-full]="views.elementWidthModel" "[(elementWidthModel)]"="elementWidthModel")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 [(elementWidthModel)]
@@ -986,7 +1022,7 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
           &nbsp;&nbsp;elementWidthModel : {{ elementWidthModel }}px
           &lt;/div&gt;
 
-  .flex-1
+  .flex-1([class.width-full]="views.innerHtmlModel")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 [(innerHtmlModel)]
@@ -1010,7 +1046,8 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
         pre.code-sample.margin-0(ngNonBindable).
           &lt;span&gt; Enter Count : {{preventEnterCount || 0}} &lt;/span&gt;
           &lt;input type="text" (enterKey)="preventEnterCount=preventEnterCount==null?1:preventEnterCount+1" placeholder="type here and use enter key" /&gt;
-  .flex-1
+  
+  .flex-1([class.width-full]="views.absoluteOverflowX")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 absolute-overflow-x
@@ -1018,9 +1055,9 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
           |Control pre and nowrap elements x-axis overflow
         br
     .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="absoluteOverflowX=!absoluteOverflowX" "[ngClass]"="absoluteOverflowX?'border-energized bg-energized':'border-info bg-info'")
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="views.absoluteOverflowX=!views.absoluteOverflowX" "[ngClass]"="views.absoluteOverflowX?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="absoluteOverflowX" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.absoluteOverflowX" "[@500]"="'fadeInUp'")
       .pad
         .pad.bg-info.text-info.text-info
           |Often, pre elements and nowrap styles, make it hard to contronl x-axis overflow.
@@ -1066,8 +1103,10 @@ h3.margin-bottom-0(id="Layout Components") Layout Components
       li ack-angular/ack-angular.css
       li - or -
       li ack-angular/ack-css-boot.css
+
 .flex-wrap.child-margin-xxs
-  .flex-1
+  
+  .flex-1([class.width-full]="views.errorWell")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 error-well
@@ -1109,7 +1148,8 @@ h3(id="Complex Components") Complex Components
 .pad-h
   p.margin-bottom-0 Components that have additional dependencies or restrictions
 .flex-wrap.child-margin-xxs
-  .flex-1.border.border-grey-4x.border
+  
+  .flex-1.border.border-grey-4x.border([class.width-full]="views.routeReporter")
     .pad-h
       h3 route-reporter
       .text-grey-2x.max-width-400

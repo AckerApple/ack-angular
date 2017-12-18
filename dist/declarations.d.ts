@@ -6,7 +6,6 @@ import { AckOptions } from "./components/AckOptions.component";
 import { AbsoluteOverflowX } from "./components/AbsoluteOverflowX.component";
 import { ReaderBody } from "./components/ReaderHeaderBody.component";
 import { AckFixedElementStage } from "./components/AckFixedElementStage.component";
-import { ElementSizeModel } from "./directives/ElementSizeModel.directive";
 export declare class VarDirective {
     var: any;
 }
@@ -49,15 +48,5 @@ export declare class FormAlter {
     formAlter: EventEmitter<{}>;
     constructor(element: ElementRef);
     ngOnDestroy(): void;
-}
-export declare class ElementHeightModel extends ElementSizeModel {
-    elementHeightModel: any;
-    elementHeightModelChange: EventEmitter<{}>;
-    setModel(): void;
-}
-export declare class ElementWidthModel extends ElementSizeModel {
-    elementWidthModel: any;
-    elementWidthModelChange: EventEmitter<{}>;
-    setModel(): void;
 }
 export declare const declarations: (typeof AckModalLayout | typeof AckModal | typeof AckCloseIcon | typeof AckOptions | typeof AbsoluteOverflowX | typeof ReaderBody | typeof AckFixedElementStage)[];

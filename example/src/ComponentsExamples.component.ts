@@ -10,6 +10,7 @@ import {string as componentsExamples} from './templates/components-examples.pug'
   ,template: componentsExamples
   ,animations:fxArray
 }) export class ComponentsExamples {
+  initArray = [{value:0},{value:1},{value:2}]
   views:any = {}
   absoluteOverflowX
   elementWidthModel

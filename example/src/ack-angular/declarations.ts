@@ -22,9 +22,10 @@ import { AckFixedElementStage } from "./components/AckFixedElementStage.componen
 //DIRECTIVES
 import { ShakeOn } from "./directives/ShakeOn.directive"
 import { FocusOn } from "./directives/FocusOn.directive"
+import { Init } from "./directives/Init.directive"
 import { SelectOn } from "./directives/SelectOn.directive"
 import { InnerHtmlModel } from "./directives/InnerHtmlModel.directive"
-import { ElementSizeModel } from "./directives/ElementSizeModel.directive"
+import { ElementSizeModel, ElementHeightModel, ElementWidthModel } from "./directives/ElementSizeModel.directive"
 import { ScreenScrollHeightDiff } from "./directives/ScreenScrollHeightDiff.directive"
 import { ScreenScroll } from "./directives/ScreenScroll.directive"
 import { ScreenScrollModelY } from "./directives/ScreenScrollModelY.directive"
@@ -158,31 +159,9 @@ export class PreventEnterKey{
   }
 }
 
-@Directive({
-  selector: '[elementHeightModel]'
-}) export class ElementHeightModel extends ElementSizeModel{
-  @Input() elementHeightModel
-  @Output() elementHeightModelChange = new EventEmitter()
-
-  setModel(){
-    this.elementHeightModel = this.element.nativeElement.offsetHeight
-    this.elementHeightModelChange.emit(this.elementHeightModel)
-  }
-}
-
-@Directive({
-  selector: '[elementWidthModel]'
-}) export class ElementWidthModel extends ElementSizeModel{
-  @Input() elementWidthModel
-  @Output() elementWidthModelChange = new EventEmitter()
-
-  setModel(){
-    this.elementWidthModel = this.element.nativeElement.offsetWidth
-    this.elementWidthModelChange.emit(this.elementWidthModel)
-  }
-}
 
 export const declarations = [
+  Init,
   SelectOn,
   FocusOn,
   VarDirective,
