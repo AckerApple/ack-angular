@@ -1,14 +1,4 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AckModal_component_1 = require("./components/AckModal.component");
@@ -23,6 +13,7 @@ var ReaderHeaderBody_component_1 = require("./components/ReaderHeaderBody.compon
 var AckFixedElementStage_component_1 = require("./components/AckFixedElementStage.component");
 var ShakeOn_directive_1 = require("./directives/ShakeOn.directive");
 var FocusOn_directive_1 = require("./directives/FocusOn.directive");
+var Init_directive_1 = require("./directives/Init.directive");
 var SelectOn_directive_1 = require("./directives/SelectOn.directive");
 var InnerHtmlModel_directive_1 = require("./directives/InnerHtmlModel.directive");
 var ElementSizeModel_directive_1 = require("./directives/ElementSizeModel.directive");
@@ -226,55 +217,8 @@ var FormAlter = (function () {
     return FormAlter;
 }());
 exports.FormAlter = FormAlter;
-var ElementHeightModel = (function (_super) {
-    __extends(ElementHeightModel, _super);
-    function ElementHeightModel() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.elementHeightModelChange = new core_1.EventEmitter();
-        return _this;
-    }
-    ElementHeightModel.prototype.setModel = function () {
-        this.elementHeightModel = this.element.nativeElement.offsetHeight;
-        this.elementHeightModelChange.emit(this.elementHeightModel);
-    };
-    ElementHeightModel.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[elementHeightModel]'
-                },] },
-    ];
-    ElementHeightModel.ctorParameters = function () { return []; };
-    ElementHeightModel.propDecorators = {
-        "elementHeightModel": [{ type: core_1.Input },],
-        "elementHeightModelChange": [{ type: core_1.Output },],
-    };
-    return ElementHeightModel;
-}(ElementSizeModel_directive_1.ElementSizeModel));
-exports.ElementHeightModel = ElementHeightModel;
-var ElementWidthModel = (function (_super) {
-    __extends(ElementWidthModel, _super);
-    function ElementWidthModel() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.elementWidthModelChange = new core_1.EventEmitter();
-        return _this;
-    }
-    ElementWidthModel.prototype.setModel = function () {
-        this.elementWidthModel = this.element.nativeElement.offsetWidth;
-        this.elementWidthModelChange.emit(this.elementWidthModel);
-    };
-    ElementWidthModel.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[elementWidthModel]'
-                },] },
-    ];
-    ElementWidthModel.ctorParameters = function () { return []; };
-    ElementWidthModel.propDecorators = {
-        "elementWidthModel": [{ type: core_1.Input },],
-        "elementWidthModelChange": [{ type: core_1.Output },],
-    };
-    return ElementWidthModel;
-}(ElementSizeModel_directive_1.ElementSizeModel));
-exports.ElementWidthModel = ElementWidthModel;
 exports.declarations = [
+    Init_directive_1.Init,
     SelectOn_directive_1.SelectOn,
     FocusOn_directive_1.FocusOn,
     VarDirective,
@@ -296,8 +240,8 @@ exports.declarations = [
     StatusOnlineModel_directive_1.StatusOnlineModel,
     StatusOfflineModel_directive_1.StatusOfflineModel,
     ElementSizeModel_directive_1.ElementSizeModel,
-    ElementWidthModel,
-    ElementHeightModel,
+    ElementSizeModel_directive_1.ElementWidthModel,
+    ElementSizeModel_directive_1.ElementHeightModel,
     AckCloseIcon_component_1.AckCloseIcon,
     ReaderHeaderBody_component_1.ReaderHeaderBody,
     ReaderHeaderBody_component_1.ReaderHeader,

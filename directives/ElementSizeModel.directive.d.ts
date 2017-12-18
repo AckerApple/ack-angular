@@ -13,3 +13,13 @@ export declare class ElementSizeModel {
     ngOnChanges(): void;
     ngOnDestroy(): void;
 }
+export declare class ElementHeightModel extends ElementSizeModel {
+    elementHeightModel: any;
+    elementHeightModelChange: EventEmitter<{}>;
+    setModel(): void;
+}
+export declare class ElementWidthModel extends ElementSizeModel {
+    elementWidthModel: any;
+    elementWidthModelChange: EventEmitter<{}>;
+    setModel(): void;
+}
