@@ -15,9 +15,9 @@ var AckQue_1 = require("./AckQue");
 function TimeOutError(message) {
     Error["captureStackTrace"](this, this.constructor);
     this.name = this.constructor.name;
-    this.status = 401;
-    this.code = "credentials_required";
-    this.message = message || "No authorization token was found";
+    this.status = 504;
+    this.code = "gateway_timeout";
+    this.message = message || "The server did not respond in a timely manner";
 }
 exports.TimeOutError = TimeOutError;
 TimeOutError.prototype = Object.create(Error.prototype);
