@@ -6,14 +6,14 @@ var ScreenHeightModel = (function () {
         var _this = this;
         this.screenHeightModelChange = new core_1.EventEmitter();
         this.onResize = function () {
-            if (this.screenHeightModel !== window.innerHeight) {
-                this.setModel();
+            if (_this.screenHeightModel !== window.innerHeight) {
+                _this.setModel();
             }
-        }.bind(this);
+        };
         window.addEventListener('resize', this.onResize);
         setTimeout(function () { return _this.onResize(); }, 0);
     }
-    ScreenHeightModel.prototype.ngOnInit = function () {
+    ScreenHeightModel.prototype.ngDoCheck = function () {
         var _this = this;
         setTimeout(function () { return _this.onResize(); }, 0);
     };

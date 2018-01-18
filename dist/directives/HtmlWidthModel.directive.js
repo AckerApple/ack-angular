@@ -6,14 +6,14 @@ var HtmlWidthModel = (function () {
         var _this = this;
         this.htmlWidthModelChange = new core_1.EventEmitter();
         this.onResize = function () {
-            if (this.htmlWidthModel !== window.document.documentElement.clientWidth) {
-                this.setModel();
+            if (_this.htmlWidthModel !== window.document.documentElement.clientWidth) {
+                _this.setModel();
             }
-        }.bind(this);
+        };
         window.addEventListener('resize', this.onResize);
         setTimeout(function () { return _this.setModel(); }, 0);
     }
-    HtmlWidthModel.prototype.ngOnInit = function () {
+    HtmlWidthModel.prototype.ngDoCheck = function () {
         var _this = this;
         setTimeout(function () { return _this.onResize(); }, 0);
     };

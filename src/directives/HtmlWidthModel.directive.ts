@@ -15,17 +15,17 @@ import {
   @Output() htmlWidthModelChange = new EventEmitter()
 
   constructor(){
-    this.onResize = function(){
+    this.onResize = ()=>{
       if(this.htmlWidthModel !== window.document.documentElement.clientWidth){
         this.setModel()
       }
-    }.bind(this)
+    }
 
     window.addEventListener('resize', this.onResize)
     setTimeout(()=>this.setModel(), 0)
   }
 
-  ngOnInit(){
+  ngDoCheck(){
     setTimeout(()=>this.onResize(), 0)//two way bind often needs init override
   }
 

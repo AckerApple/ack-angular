@@ -14,17 +14,17 @@ import {
   @Output() screenHeightModelChange:EventEmitter<number> = new EventEmitter()
 
   constructor(){
-    this.onResize = function(){
+    this.onResize = ()=>{
       if(this.screenHeightModel !== window.innerHeight){
         this.setModel()
       }
-    }.bind(this)
+    }
 
     window.addEventListener('resize', this.onResize)
     setTimeout(()=>this.onResize(), 0)
   }
 
-  ngOnInit(){
+  ngDoCheck(){
     setTimeout(()=>this.onResize(), 0)//two way bind often needs init override
   }
 
