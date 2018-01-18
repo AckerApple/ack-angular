@@ -1,10 +1,8 @@
 import { EventEmitter } from "@angular/core";
-export declare class HtmlHeightModel {
-    onResize: any;
+import { HtmlSizeWatcher } from "./HtmlSizeWatcher";
+export declare class HtmlHeightModel extends HtmlSizeWatcher {
     htmlHeightModel: any;
     htmlHeightModelChange: EventEmitter<{}>;
-    constructor();
-    ngOnInit(): void;
+    hasChanged(): boolean;
     setModel(): void;
-    ngOnDestroy(): void;
 }
