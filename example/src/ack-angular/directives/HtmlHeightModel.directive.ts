@@ -4,36 +4,20 @@ import {
   Output,
   EventEmitter
 } from "@angular/core"
+import { HtmlSizeWatcher } from "./HtmlSizeWatcher"
 
 @Directive({
   selector: '[htmlHeightModel]'
-}) export class HtmlHeightModel{
-  onResize
-
+}) export class HtmlHeightModel extends HtmlSizeWatcher{
   @Input() htmlHeightModel
   @Output() htmlHeightModelChange = new EventEmitter()
 
-  constructor(){
-    this.onResize = function(){
-      if(this.htmlHeightModel !== window.document.documentElement.clientHeight){
-        this.setModel()
-      }
-    }.bind(this)
-
-    window.addEventListener('resize', this.onResize)
-    setTimeout(()=>this.onResize(), 0)
-  }
-
-  ngOnInit(){
-    setTimeout(()=>this.onResize(), 0)//two way bind often needs init override
+  hasChanged(){
+    return this.htmlHeightModel !== window.document.documentElement.clientHeight
   }
 
   setModel(){
     this.htmlHeightModel = window.document.documentElement.clientHeight
     this.htmlHeightModelChange.emit(this.htmlHeightModel)
-  }
-
-  ngOnDestroy(){
-    window.removeEventListener('resize', this.onResize)
   }
 }

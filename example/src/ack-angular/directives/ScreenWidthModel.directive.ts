@@ -4,37 +4,20 @@ import {
   Output,
   EventEmitter
 } from "@angular/core"
+import { HtmlSizeWatcher } from "./HtmlSizeWatcher"
 
 @Directive({
   selector: '[screenWidthModel]'
-}) export class ScreenWidthModel{
-  window:any
-  onResize:()=>any
-
+}) export class ScreenWidthModel extends HtmlSizeWatcher{
   @Input() screenWidthModel:number
   @Output() screenWidthModelChange:EventEmitter<number> = new EventEmitter()
 
-  constructor(){
-    this.onResize = ()=>{
-      if(this.screenWidthModel !== window.innerWidth){
-        this.setModel()
-      }
-    }
-
-    window.addEventListener('resize', this.onResize)
-    setTimeout(()=>this.setModel(), 0)
-  }
-
-  ngDoCheck(){
-    setTimeout(()=>this.onResize(), 0)//two way bind often needs init override
+  hasChanged(){
+    return this.screenWidthModel !== window.innerWidth
   }
 
   setModel(){
     this.screenWidthModel = window.innerWidth
     this.screenWidthModelChange.emit(this.screenWidthModel)
-  }
-
-  ngOnDestroy(){
-    window.removeEventListener('resize', this.onResize)
   }
 }

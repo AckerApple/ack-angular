@@ -1,11 +1,8 @@
 import { EventEmitter } from "@angular/core";
-export declare class HtmlWidthModel {
-    window: any;
-    onResize: any;
+import { HtmlSizeWatcher } from "./HtmlSizeWatcher";
+export declare class HtmlWidthModel extends HtmlSizeWatcher {
     htmlWidthModel: any;
     htmlWidthModelChange: EventEmitter<{}>;
-    constructor();
-    ngDoCheck(): void;
+    hasChanged(): boolean;
     setModel(): void;
-    ngOnDestroy(): void;
 }

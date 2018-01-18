@@ -1,8 +1,8 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
-## [1.4.8] - 2017-12-28
-- All window width/height model components run ngDoCheck
+## [1.4.9] - 2017-12-28
+- All window width/height model components run scroll
 
 ## [1.4.7] - 2017-12-28
 - Fixed AckApi timeout error from 401 to 504
