@@ -116,8 +116,8 @@ var AckApi = (function () {
         var offlineModel = cfg.offlineModel;
         return this.AckCache.cacheToReturn(offlineModel.name, cache, offlineModel)
             .then(function (rtn) {
-            var willExpire = rtn && _this.AckCache.optionsKillCache(offlineModel);
-            if (!willExpire) {
+            var willExpire = _this.AckCache.optionsKillCache(offlineModel);
+            if (rtn && !willExpire) {
                 console.log('AckApi fetched cache that will never expire. Set offlineModel.expires=0 or offlineModel.maxAge=0 to avoid this message', rtn);
             }
             if (rtn != null) {

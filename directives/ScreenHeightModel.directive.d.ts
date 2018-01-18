@@ -4,7 +4,7 @@ export declare class ScreenHeightModel {
     screenHeightModel: number;
     screenHeightModelChange: EventEmitter<number>;
     constructor();
-    ngOnInit(): void;
+    ngDoCheck(): void;
     setModel(): void;
     ngOnDestroy(): void;
 }

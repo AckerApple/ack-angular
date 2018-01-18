@@ -5,7 +5,7 @@ export declare class ScreenWidthModel {
     screenWidthModel: number;
     screenWidthModelChange: EventEmitter<number>;
     constructor();
-    ngOnInit(): void;
+    ngDoCheck(): void;
     setModel(): void;
     ngOnDestroy(): void;
 }

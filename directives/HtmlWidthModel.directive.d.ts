@@ -5,7 +5,7 @@ export declare class HtmlWidthModel {
     htmlWidthModel: any;
     htmlWidthModelChange: EventEmitter<{}>;
     constructor();
-    ngOnInit(): void;
+    ngDoCheck(): void;
     setModel(): void;
     ngOnDestroy(): void;
 }

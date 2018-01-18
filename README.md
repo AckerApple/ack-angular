@@ -7,7 +7,10 @@ Extra special directives, components, providers and pipes to aide in tackling ev
 
 > AngularJs 1.5+ code : [ack-angularjs](https://github.com/AckerApple/ack-angularjs)
 
-### Table of Contents
+
+<details>
+  <summary>Table of Contents</summary>
+
 - [Install](#install)
   - [Install jsDependencies via ack-webpack](#install-jsdependencies-via-ack-webpack)
   - [Manually Install Dependencies](#manually-install-dependencies)
@@ -18,6 +21,8 @@ Extra special directives, components, providers and pipes to aide in tackling ev
 - [Work on This Project](#work-on-this-project)
   - [Building Example](#building-example)
 - [Resources](#install)
+
+</details>
 
 # Install
 
