@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.4.10] - 2018-01-24
+- Improved Prompts styling
+
 ## [1.4.9] - 2017-12-28
 - All window width/height model components run scroll
 
