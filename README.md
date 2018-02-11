@@ -1,7 +1,10 @@
 # ack-angular
-Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular
+Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular. [Demos and Examples here](https://ackerapple.github.io/ack-angular/)
 
-> Demos and Examples : [tap here](https://ackerapple.github.io/ack-angular/)
+[![hire me](https://ackerapple.github.io/resume/assets/images/hire-me-badge.svg)](https://ackerapple.github.io/resume/)
+[![npm version](https://badge.fury.io/js/ack-angular.svg)](http://badge.fury.io/js/ack-angular)
+[![npm downloads](https://img.shields.io/npm/dm/ack-angular.svg)](https://npmjs.org/ack-angular)
+[![Dependency Status](https://david-dm.org/ackerapple/ack-angular.svg)](https://david-dm.org/ackerapple/ack-angular)
 
 > Source Repository : [src branch here](https://github.com/AckerApple/ack-angular/tree/src)
 
