@@ -80,11 +80,16 @@ import { Injectable } from '@angular/core';
   }
 
   isParamsMatch(toParams, otherParams){
+    if( !toParams || !otherParams ){    
+      return false
+    }
+
     for(let x in toParams){
       if(toParams[x]!=otherParams[x]){
         return false
       }
     }
+
     return true
   }
 

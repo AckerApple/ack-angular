@@ -62,6 +62,9 @@ var RouteWatchReporter = (function () {
         return isNameMatch && this.isParamsMatch(toParams, $history[this.historyPos - 1].params);
     };
     RouteWatchReporter.prototype.isParamsMatch = function (toParams, otherParams) {
+        if (!toParams || !otherParams) {
+            return false;
+        }
         for (var x in toParams) {
             if (toParams[x] != otherParams[x]) {
                 return false;
