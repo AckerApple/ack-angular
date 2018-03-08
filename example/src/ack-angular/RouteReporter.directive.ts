@@ -25,17 +25,20 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
   @Input() ref//variable reference
   @Output() refChange = new EventEmitter()
 
-  @Input() stateName
-  @Output() stateNameChange = new EventEmitter()
+  @Input() stateName:string
+  @Output() stateNameChange:EventEmitter<any> = new EventEmitter()
 
-  @Input() params
-  @Output() paramsChange = new EventEmitter()
+  @Input() params:any
+  @Output() paramsChange:EventEmitter<any> = new EventEmitter()
 
-  @Input() query
-  @Output() queryChange = new EventEmitter()
+  @Input() data:any
+  @Output() dataChange:EventEmitter<any> = new EventEmitter()
 
-  @Input() state
-  @Output() stateChange = new EventEmitter()
+  @Input() query:any
+  @Output() queryChange:EventEmitter<any> = new EventEmitter()
+
+  @Input() state:any
+  @Output() stateChange:EventEmitter<any> = new EventEmitter()
   
   constructor(public RouteWatchReporter:RouteWatchReporter){
     this.$document = document
@@ -95,6 +98,7 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
         this.stateNameChange.emit( this.stateName=name )
       }
 
+      this.dataChange.emit( this.data=this.RouteWatchReporter.current.config.data )
       this.paramsChange.emit( this.params=this.RouteWatchReporter.current.params )
     }
   }

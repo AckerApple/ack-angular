@@ -43,7 +43,7 @@ import { Injectable } from '@angular/core';
     let target = this.activatedRoute
     while(target.firstChild)target=target.firstChild
     return {
-      config:target.routeConfig,
+      config:target.routeConfig || target,
       params:target.snapshot.params
       //...target.routeConfig//may want to do away with this
     }
@@ -52,7 +52,7 @@ import { Injectable } from '@angular/core';
   getCurrentConfig():any{
     let target = this.activatedRoute
     while(target.firstChild)target=target.firstChild
-    return target.routeConfig
+    return target.routeConfig || target
   }
 
   getCurrentParams():any{
@@ -109,6 +109,8 @@ import { Injectable } from '@angular/core';
     }
 
     const $history = this.$history
+
+    if(!toState)return
 
     if(isForward){
       --this.historyPos

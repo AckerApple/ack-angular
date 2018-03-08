@@ -12,6 +12,7 @@ var RouteReporter = (function () {
         this.refChange = new core_1.EventEmitter();
         this.stateNameChange = new core_1.EventEmitter();
         this.paramsChange = new core_1.EventEmitter();
+        this.dataChange = new core_1.EventEmitter();
         this.queryChange = new core_1.EventEmitter();
         this.stateChange = new core_1.EventEmitter();
         this.$document = document;
@@ -58,6 +59,7 @@ var RouteReporter = (function () {
                 var name_1 = this.RouteWatchReporter.current.config.name || this.RouteWatchReporter.current.config.path;
                 this.stateNameChange.emit(this.stateName = name_1);
             }
+            this.dataChange.emit(this.data = this.RouteWatchReporter.current.config.data);
             this.paramsChange.emit(this.params = this.RouteWatchReporter.current.params);
         }
     };
@@ -88,6 +90,8 @@ var RouteReporter = (function () {
         "stateNameChange": [{ type: core_1.Output },],
         "params": [{ type: core_1.Input },],
         "paramsChange": [{ type: core_1.Output },],
+        "data": [{ type: core_1.Input },],
+        "dataChange": [{ type: core_1.Output },],
         "query": [{ type: core_1.Input },],
         "queryChange": [{ type: core_1.Output },],
         "state": [{ type: core_1.Input },],
