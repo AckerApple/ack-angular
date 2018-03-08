@@ -30,7 +30,7 @@ var RouteWatchReporter = (function () {
         while (target.firstChild)
             target = target.firstChild;
         return {
-            config: target.routeConfig,
+            config: target.routeConfig || target,
             params: target.snapshot.params
         };
     };
@@ -38,7 +38,7 @@ var RouteWatchReporter = (function () {
         var target = this.activatedRoute;
         while (target.firstChild)
             target = target.firstChild;
-        return target.routeConfig;
+        return target.routeConfig || target;
     };
     RouteWatchReporter.prototype.getCurrentParams = function () {
         var target = this.activatedRoute;
@@ -88,6 +88,8 @@ var RouteWatchReporter = (function () {
             this.isBackMode = this.isNextBackMode || (this.isOsAction && isBackHistory);
         }
         var $history = this.$history;
+        if (!toState)
+            return;
         if (isForward) {
             --this.historyPos;
         }
