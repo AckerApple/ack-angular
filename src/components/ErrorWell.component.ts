@@ -1,11 +1,11 @@
 import { Component, Input } from "@angular/core"
-import { fxArray as prefx } from "../prefx"
+import { fxArray } from "ack-angular-fx"
 import { string as errorWell } from "./templates/error-well.pug"
 
 @Component({
   selector:'error-well',
   template:errorWell,
-  animations:prefx
+  animations:fxArray
 }) export class ErrorWell{
   errorClose
   @Input() message:string = 'Unexpected Error Occured'

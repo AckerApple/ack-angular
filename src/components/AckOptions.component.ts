@@ -1,5 +1,4 @@
 import { array } from "../pipes.class"
-
 import {
   ElementRef,
   ContentChildren,
@@ -9,8 +8,9 @@ import {
   Output,
   EventEmitter
 } from "@angular/core"
-
+import { TemplateReader } from "../TemplateReader.class"
 import { string as ackOptions } from "./templates/ack-options.pug"
+
 @Component({
   selector:'ack-options',
   template:ackOptions
@@ -21,7 +21,13 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   //@Input() modelIsArray = false//support array of options to model-array, that array only allows a length of one
   @Input() toggleable = false//multiple must be false
 
-  templateRef:TemplateRef<any>
+  TemplateReader:TemplateReader = new TemplateReader({
+    lastTemplateName:"templateRef",
+    types:{
+      templateRef:"option"
+    }
+  })
+
   @ContentChildren(TemplateRef) templateRefs:any//TemplateRef<any>[]
   @Input() inputTemplateRefs:any//TemplateRef<any>[]
 
@@ -45,21 +51,14 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   }
 
   ngAfterViewInit(){
-    setTimeout(()=>this.applyTemplates(), 0)
-  }
-
-  applyTemplates(){
-    const refs = this.inputTemplateRefs && this.inputTemplateRefs._results ? this.inputTemplateRefs : this.templateRefs
-
-    for(let x=refs._results.length-1; x >= 0; --x){
-      if( refs._results[x]._def.references.option ){
-        this.templateRef = refs._results[x]
+    setTimeout(()=>{
+      if( this.inputTemplateRefs ){
+        this.TemplateReader.readTemplates(this.inputTemplateRefs)
       }
-    }
-    
-    if( !this.templateRef && refs.length ){
-      this.templateRef = refs._results[ refs.length-1 ]
-    }
+      if( this.templateRefs ){
+        this.TemplateReader.readTemplates(this.templateRefs)
+      }
+    }, 0)
   }
 
   selectItem(item){

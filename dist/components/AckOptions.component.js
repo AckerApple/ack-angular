@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var pipes_class_1 = require("../pipes.class");
 var core_1 = require("@angular/core");
+var TemplateReader_class_1 = require("../TemplateReader.class");
 var ack_options_pug_1 = require("./templates/ack-options.pug");
 var AckOptions = (function () {
     function AckOptions(ElementRef) {
@@ -10,6 +11,12 @@ var AckOptions = (function () {
         this.stylize = true;
         this.multiple = false;
         this.toggleable = false;
+        this.TemplateReader = new TemplateReader_class_1.TemplateReader({
+            lastTemplateName: "templateRef",
+            types: {
+                templateRef: "option"
+            }
+        });
         this.modelChange = new core_1.EventEmitter();
         this.refChange = new core_1.EventEmitter();
     }
@@ -21,18 +28,14 @@ var AckOptions = (function () {
     };
     AckOptions.prototype.ngAfterViewInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.applyTemplates(); }, 0);
-    };
-    AckOptions.prototype.applyTemplates = function () {
-        var refs = this.inputTemplateRefs && this.inputTemplateRefs._results ? this.inputTemplateRefs : this.templateRefs;
-        for (var x = refs._results.length - 1; x >= 0; --x) {
-            if (refs._results[x]._def.references.option) {
-                this.templateRef = refs._results[x];
+        setTimeout(function () {
+            if (_this.inputTemplateRefs) {
+                _this.TemplateReader.readTemplates(_this.inputTemplateRefs);
             }
-        }
-        if (!this.templateRef && refs.length) {
-            this.templateRef = refs._results[refs.length - 1];
-        }
+            if (_this.templateRefs) {
+                _this.TemplateReader.readTemplates(_this.templateRefs);
+            }
+        }, 0);
     };
     AckOptions.prototype.selectItem = function (item) {
         var value = this.getArrayItemValue(item);

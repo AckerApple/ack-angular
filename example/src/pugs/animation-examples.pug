@@ -1,3 +1,5 @@
+h2.margin-top-0 Animations
+
 p.text-grey-2x Make an app far more beautiful when changing scenery
 
 |Currently, all animations are provided by #[a(href="https://npmjs.org/ack-angular-fx") ack-angular-fx]
@@ -13,27 +15,23 @@ ul.child-pad-xxs
     a(href="#Import Example" pageScroll) Import Example
   li
     a(href="#Usage Example" pageScroll) Usage Example
-  li
-    a(href="#Swap Example" pageScroll) Swap Example
-  li
-    a(href="#Supported Definitions" pageScroll) Supported Definitions
 
 h3(id="Import Example") Import Example
 pre.code-sample(ngNonBindable).
   import &#123; Component &#125; from '@angular/core'
-  import &#123; ackAnimations &#125; from 'ack-angular/fx'
+  import &#123; fxArray &#125; from 'ack-angular/fx'
   import &#123; BrowserModule &#125; from '@angular/platform-browser'
   import &#123; BrowserAnimationsModule &#125; from '@angular/platform-browser/animations';
 
   @Component(&#123;
     selector: 'app-tag'
     ,template: 'Hello Template'
-    ,animations: ackAnimations
+    ,animations: fxArray
   &#125;) class AppComponent &#123;&#125;
 
   @NgModule(&#123;
     imports : [ BrowserModule, BrowserAnimationsModule ]
-    declarations : [ AppComponent, ...ackPipes.declarations ],
+    declarations : [ AppComponent ],
     boostrap : [ AppComponent ]
   &#125;) export class AppModule &#123;&#125;
 
@@ -41,45 +39,10 @@ h3(id="Usage Example") Usage Example
 pre.code-sample(ngNonBindable).
   &lt;button "(click)"="viewDets=!viewDets")&gt; view details &lt;/button&gt;
   
-  &lt;div [*ngIf]="viewDets" [@200]="'slideInLeft'"&gt;
+  &lt;div *ngIf="viewDets" [@slideInLeft]="1"&gt;
     &lt;p&gt;This is some goooooood animated content right here&lt;/p&gt;
     &lt;p&gt;You should try it.&lt;/p&gt;
   &lt;/div&gt;
-br
-
-h3(id="Swap Example") Swap Example
-p.text-grey-2x Animate swapping elements using @absoluteSwap. Behind the scene, during animation, the following is styles are applied position:absolute;width:100%;overflow:hidden;
-pre.code-sample(ngNonBindable).
-  &lt;button "(click)"="viewDets='default'")&gt; view default &lt;/button&gt;
-  &lt;button "(click)"="viewDets='other'")&gt; view other &lt;/button&gt;
-  
-  &lt;div style="position:relative;"&gt;
-    &lt;div [*ngIf]="!viewDets || viewDets=='default'" [@absoluteSwap]="'slideInLeft'"&gt;
-      &lt;p&gt;This is some goooooood animated content right here&lt;/p&gt;
-      &lt;p&gt;You should try it.&lt;/p&gt;
-    &lt;/div&gt;
-
-    &lt;div [*ngIf]="!viewDets || viewDets=='other'" [@absoluteSwap]="'slideInLeft'"&gt;
-      &lt;p&gt;This is some goooooood animated content right here&lt;/p&gt;
-      &lt;p&gt;You should try it.&lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-br
-
-h3(id="Supported Definitions") Supported Definitions
-.flex-wrap
-  .pad
-    ul
-      li("*ngFor"="let item of delayArray")
-        |{{ item }}
-  .pad
-    ul
-      li absoluteSwap
-      li("*ngFor"="let item of delayArray") absoluteSwap{{ item }}
-  .pad
-    ul
-      li childStag
-      li("*ngFor"="let item of [50,100,200,300,400,500]") childStag{{ item }}
 br
 
 h3 Supporting Examples
@@ -89,7 +52,7 @@ p *ngFor *ngIf Stagger Code
     label.pad-h *ngFor list with stagger toggle
     ul("[@childStag]"="toggleNgForFx")
       ng-container("*ngFor"="let item of list;let i = index;")
-        li.childFx("*ngIf"="!toggleNgForFx" "[@200]"="'fadeInLeft'")
+        li.childFx("*ngIf"="!toggleNgForFx" "[@fadeInLeft]"=1)
             |{{item}} - {{i}}
             button("(click)"="list.splice(i,1)") X
     .flex

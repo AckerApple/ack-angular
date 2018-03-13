@@ -1,6 +1,12 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.5.0] - 2018-03-13
+- Upgraded Angular
+- Upgraded ack-angular-fx
+- Breaking Changes
+  - Old deprecated ack-angular-fx triggers no longer supported
+
 ## [1.4.14] - 2018-03-08
 - Added [(data)] to route-reporter
 

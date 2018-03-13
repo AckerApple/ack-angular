@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var prefx_1 = require("../prefx");
+var ack_angular_fx_1 = require("ack-angular-fx");
 var error_well_pug_1 = require("./templates/error-well.pug");
 var ErrorWell = (function () {
     function ErrorWell() {
@@ -23,7 +23,7 @@ var ErrorWell = (function () {
         { type: core_1.Component, args: [{
                     selector: 'error-well',
                     template: error_well_pug_1.string,
-                    animations: prefx_1.fxArray
+                    animations: ack_angular_fx_1.fxArray
                 },] },
     ];
     ErrorWell.ctorParameters = function () { return []; };

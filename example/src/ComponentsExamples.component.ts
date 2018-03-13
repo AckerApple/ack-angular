@@ -1,7 +1,7 @@
 import { getServerTime } from "./functions"
 import { PageScrollService, PageScrollInstance } from 'ng2-page-scroll'
 import { Component } from '@angular/core';
-import { fxArray } from './prefx'
+import { fxArray } from 'ack-angular-fx'
 import { array as arrayOfObjects } from './arrayOfObjects'
 
 import {string as componentsExamples} from './templates/components-examples.pug'

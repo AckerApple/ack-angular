@@ -3,12 +3,10 @@ import { Component, NgModule } from '@angular/core'
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { AckModule } from '../AckModule'
 import { AckModal } from './AckModal.component'
-import { fxArray } from '../prefx'
 
 @Component({
   selector: 'container',
   template: '<ack-modal></ack-modal>'
-  //,animations: fxArray
 })
 export class ContainerComponent {
   AckModal:AckModal

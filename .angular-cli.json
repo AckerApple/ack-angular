@@ -4,14 +4,32 @@
   },
   "apps": [
     {
+      "name": "example",
+      "root": "example/src",
+      "outDir": "example/www",
+      "index": "index.html",
+      "main": "index.ts",
+      "tsconfig": "tsconfig.json",
+      "prefix": "",
+      "assets":[
+        "styles.css",
+        "wizard75.png",
+        "WoZ.mp3",
+        "favicon.ico",
+        "test.json",
+        "manifest.json",
+        "assets/**"
+      ]
+    },
+    {
+      "name": "test",
       "root": "test",
       "outDir": "test",
       "index": "index.html",
       "main": "main.ts",
       "test": "test.ts",
       "tsconfig": "tsconfig.json",
-      "prefix": "",
-      "mobile": false
+      "prefix": ""
     }
   ],
   "addons": [],

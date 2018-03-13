@@ -1,3 +1,5 @@
+h2.margin-top-0 Pipes
+
 p.text-sm.text-grey-2x Decorate and filter output via Pipes
 
 p.margin-bottom-0 Import Example
@@ -24,7 +26,7 @@ h3(id="Documentation") Documentation
       p.text-sm.text-grey-2x Cast string to a data:text/plain uri
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.SafeUrl=!views.SafeUrl" "[ngClass]"="views.SafeUrl?'border-energized bg-energized':'border-info bg-info'")
       |view details
-    div(*ngIf="views.SafeUrl" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.SafeUrl" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0
           span(ngNonBindable).
@@ -39,7 +41,7 @@ h3(id="Documentation") Documentation
       p.text-sm.text-grey-2x Cast string to safe style
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.safeStyle=!views.safeStyle" "[ngClass]"="views.safeStyle?'border-energized bg-energized':'border-info bg-info'")
       |view details
-    div(*ngIf="views.safeStyle" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.safeStyle" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0
           span(ngNonBindable).
@@ -54,7 +56,7 @@ h3(id="Documentation") Documentation
       p.text-sm.text-grey-2x Cast string to safe html
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.safeHtml=!views.safeHtml" "[ngClass]"="views.safeHtml?'border-energized bg-energized':'border-info bg-info'")
       |view details
-    div(*ngIf="views.safeHtml" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.safeHtml" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0
           span(ngNonBindable).
@@ -74,7 +76,7 @@ h3(id="Documentation") Documentation
       "[ngClass]"="views.markdownAnchor?'border-energized bg-energized':'border-info bg-info'"
     )
       |view details
-    div(*ngIf="views.markdownAnchor" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.markdownAnchor" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0
           span(ngNonBindable) {{ 'Usage Examples' | markdownAnchor }}
@@ -89,7 +91,7 @@ h3(id="Documentation") Documentation
       "[ngClass]"="views.typeof?'border-energized bg-energized':'border-info bg-info'"
     )
       |view details
-    div(*ngIf="views.typeof" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.typeof" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0
           span(ngNonBindable) {{ 0 | typeof }}
@@ -104,7 +106,7 @@ h3(id="Documentation") Documentation
       "[ngClass]"="views.between?'border-energized bg-energized':'border-info bg-info'"
     )
       |view details
-    div(*ngIf="views.between" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.between" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0
           span(ngNonBindable) {{ 10 | between : 5 : 15 }}
@@ -118,7 +120,7 @@ h3(id="Documentation") Documentation
       "(click)"="views.numberSuffix=!views.numberSuffix"
       "[ngClass]"="views.numberSuffix?'border-energized bg-energized':'border-info bg-info'"
     ) view details
-    div(*ngIf="views.numberSuffix" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.numberSuffix" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0
           div
@@ -148,7 +150,7 @@ h3(id="Documentation") Documentation
       "(click)"="views.numberToPhone=!views.numberToPhone"
       "[ngClass]"="views.numberToPhone?'border-energized bg-energized':'border-info bg-info'"
     ) view details
-    div(*ngIf="views.numberToPhone" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.numberToPhone" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0
           div
@@ -173,7 +175,7 @@ h3(id="Documentation") Documentation
       "[ngClass]"="views.indexOf?'border-energized bg-energized':'border-info bg-info'"
     )
       |view details
-    div(*ngIf="views.indexOf" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.indexOf" "[@fadeInUp]"=1)
       .pad-xs.text-info.text-sm
         |Simple arrays like ["a","b","c"] are hard to work with ngFor + ngModel
 
@@ -201,7 +203,7 @@ h3(id="Documentation") Documentation
         Param and cast an array into an array of &#123;value, index&#125; objects
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.arrayOfObjects=!views.arrayOfObjects" "[ngClass]"="views.arrayOfObjects?'border-energized bg-energized':'border-info bg-info'")
       |view details
-    div(*ngIf="views.arrayOfObjects" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.arrayOfObjects" "[@fadeInUp]"=1)
       .pad-xs.text-warning.
         Having troubles with *ngFor [(ngModel)] for simple array of strings? Try indexTrack, it's within ack-angular, first because it works far better
       
@@ -230,7 +232,7 @@ h3(id="Documentation") Documentation
       p.text-sm.text-grey-2x Force any variable to array
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.array=!views.array" "[ngClass]"="views.array?'border-energized bg-energized':'border-info bg-info'")
       |view details
-    div(*ngIf="views.array" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.array" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0
           span(ngNonBindable) {{ 'a' | array }}
@@ -257,7 +259,7 @@ h3(id="Documentation") Documentation
       p.text-sm.text-grey-2x console log result of native console.log() function
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.console=!views.console" "[ngClass]"="views.console?'border-energized bg-energized':'border-info bg-info'")
       |view details
-    div(*ngIf="views.console" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.console" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
           {{ 'message1' | console : 'message2' }}
@@ -268,7 +270,7 @@ h3(id="Documentation") Documentation
       p.text-sm.text-grey-2x Each sentence leading word is capitalized
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.capitalize=!views.capitalize" "[ngClass]"="views.capitalize?'border-energized bg-energized':'border-info bg-info'")
       |view details
-    div(*ngIf="views.capitalize" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.capitalize" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
           {{ 'how do you do?' | capitalize }} == How do you do?
@@ -279,7 +281,7 @@ h3(id="Documentation") Documentation
       p.text-sm.text-grey-2x Every word is capitalized
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.capitalizeWords=!views.capitalizeWords" "[ngClass]"="views.capitalizeWords?'border-energized bg-energized':'border-info bg-info'")
       |view details
-    div(*ngIf="views.capitalizeWords" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.capitalizeWords" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
           {{ 'how do you do?' | capitalizeWords }} == How Do You Do?
@@ -290,7 +292,7 @@ h3(id="Documentation") Documentation
       p.text-sm.text-grey-2x Truthy value converts to: 1. Otherwise: 0
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.bit=!views.bit" "[ngClass]"="views.bit?'border-energized bg-energized':'border-info bg-info'")
       |view details
-    div(*ngIf="views.bit" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.bit" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0
           div
@@ -312,7 +314,7 @@ h3(id="Documentation") Documentation
       p.text-sm.text-grey-2x Truthy value converts to: true. Otherwise: false
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.boolean=!views.boolean" "[ngClass]"="views.boolean?'border-energized bg-energized':'border-info bg-info'")
       |view details
-    div(*ngIf="views.boolean" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.boolean" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0
           div
@@ -334,7 +336,7 @@ h3(id="Documentation") Documentation
       p.text-sm.text-grey-2x Truthy value converts to: yes. Otherwise: no
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.yesno=!views.yesno" "[ngClass]"="views.yesno?'border-energized bg-energized':'border-info bg-info'")
       |view details
-    div(*ngIf="views.yesno" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.yesno" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
           {{ 'true' | yesno }} == yes
@@ -345,7 +347,7 @@ h3(id="Documentation") Documentation
       p.text-sm.text-grey-2x Truthy value converts to: Yes. Otherwise: No
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.yesNo=!views.yesNo" "[ngClass]"="views.yesNo?'border-energized bg-energized':'border-info bg-info'")
       |view details
-    div(*ngIf="views.yesNo" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.yesNo" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
           {{ 1 | YesNo }} == Yes
@@ -356,7 +358,7 @@ h3(id="Documentation") Documentation
       p.text-sm.text-grey-2x Removes anything not a number from a string
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.numbers=!views.numbers" "[ngClass]"="views.numbers?'border-energized bg-energized':'border-info bg-info'")
       |view details
-    div(*ngIf="views.numbers" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.numbers" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
           {{ 'sam123acb456xyz' | numbers }} == 123456
@@ -367,7 +369,7 @@ h3(id="Documentation") Documentation
       p.text-sm.text-grey-2x List of keys for an Object
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.keys=!views.keys" "[ngClass]"="views.keys?'border-energized bg-energized':'border-info bg-info'")
       |view details
-    div(*ngIf="views.keys" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.keys" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0
           span(ngNonBindable) {{ {x:1,y:2,z:3} | keys }}
@@ -380,7 +382,7 @@ h3(id="Documentation") Documentation
       p.text-sm.text-grey-2x A different approach @ date decorating
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.aDate=!views.aDate" "[ngClass]"="views.aDate?'border-energized bg-energized':'border-info bg-info'")
       |view details
-    div(*ngIf="views.aDate" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.aDate" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0
           span(ngNonBindable) {{ 0 | aDate:'now':'date' }}
@@ -393,7 +395,7 @@ h3(id="Documentation") Documentation
       p.text-sm.text-grey-2x A different approach @ time decorating
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.aTime=!views.aTime" "[ngClass]"="views.aTime?'border-energized bg-energized':'border-info bg-info'")
       |view details
-    div(*ngIf="views.aTime" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.aTime" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0
           span(ngNonBindable) {{ 0 | aTime:'now':'date' }}
@@ -406,7 +408,7 @@ h3(id="Documentation") Documentation
       p.text-sm.text-grey-2x A connection to Javascript Math functions
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.aMath=!views.aMath" "[ngClass]"="views.aMath?'border-energized bg-energized':'border-info bg-info'")
       |view details
-    div(*ngIf="views.aMath" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.aMath" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0
           span(ngNonBindable) {{ 2.2 | aMath:'ceil' }}
@@ -419,7 +421,7 @@ h3(id="Documentation") Documentation
       p.text-sm.text-grey-2x A connection to objectifying functions
     a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.ack=!views.ack" "[ngClass]"="views.ack?'border-energized bg-energized':'border-info bg-info'")
       |view details
-    div(*ngIf="views.ack" "[@500]"="'fadeInUp'")
+    div(*ngIf="views.ack" "[@fadeInUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0
           span(ngNonBindable) {{ 0 | ack:'date':'toUtc':'date':'toString' }}

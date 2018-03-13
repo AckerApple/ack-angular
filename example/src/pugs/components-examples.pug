@@ -1,3 +1,5 @@
+h2.margin-top-0 Components
+
 .pad-h
   p.margin-bottom-0 Import Example
   .pad-h.text-warning.text-xs
@@ -207,9 +209,14 @@ h3.margin-bottom-0(id="Tags") Tags
           |Array of choosable options tied to a model
         br
     .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="views.ackOptions=!views.ackOptions" "[ngClass]"="views.ackOptions?'border-energized bg-energized':'border-info bg-info'")
-        |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.ackOptions" "[@500]"="'fadeInUp'")
+      a.block.border.pad-xxs.hover-bg-warning(
+        "(click)"   = "views.ackOptions=!views.ackOptions"
+        "[ngClass]" = "views.ackOptions?'border-energized bg-energized':'border-info bg-info'"
+      ) view details
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf    = "views.ackOptions"
+      "[@500]" = "'fadeInUp'"
+    )
       .pad-sm
         h4.margin-0 Demo
         p.text-grey-3x.text-sm
@@ -217,7 +224,11 @@ h3.margin-bottom-0(id="Tags") Tags
         div(*ngIf="ackOptionString" "[@500]"="'fadeInUp'")
           strong Selected Option:
           |&nbsp;{{ ackOptionString }}
-        ack-options("[array]"="['x','y','z']" "[(model)]"="ackOptionString" toggleable=1)
+        ack-options(
+          "[array]"   = "['x','y','z']"
+          "[(model)]" = "ackOptionString"
+          toggleable  = 1
+        )
         hr
         strong Multiple Example
         div(*ngIf="ackOptionArray?.length" "[@500]"="'fadeInUp'")
@@ -225,7 +236,11 @@ h3.margin-bottom-0(id="Tags") Tags
             strong Selected Options:
           absolute-overflow-x
             pre.code-sample {{ ackOptionArray | json }}
-        ack-options("[array]"="[{name:'x'},{name:'y'},{name:'z'}]" "[(model)]"="ackOptionArray" multiple=1)
+        ack-options(
+          "[array]"   = "[{name:'x'},{name:'y'},{name:'z'}]"
+          "[(model)]" = "ackOptionArray"
+          multiple    = 1
+        )
           ng-template(#option="" let-item="item")
             div &bull; name:{{ item.name }}
       h4.pad-sm.margin-0 Usage Example
@@ -336,9 +351,14 @@ h3.margin-bottom-0(id="Tags") Tags
           |Array of choosable options, in a modal, tied to a model
         br
     .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="views.ackOptionsModal=!views.ackOptionsModal" "[ngClass]"="views.ackOptionsModal?'border-energized bg-energized':'border-info bg-info'")
-        |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.ackOptionsModal" "[@500]"="'fadeInUp'")
+      a.block.border.pad-xxs.hover-bg-warning(
+        "(click)"   = "views.ackOptionsModal=!views.ackOptionsModal"
+        "[ngClass]" = "views.ackOptionsModal?'border-energized bg-energized':'border-info bg-info'"
+      ) view details
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf    = "views.ackOptionsModal"
+      "[@500]" = "'fadeInUp'"
+    )
       .bg-info.pad.text-info
         |This component requires the element &lt;ack-fixed-element-stage&gt; to be present somewhere in your app
       .pad

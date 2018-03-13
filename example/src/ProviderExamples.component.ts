@@ -10,9 +10,9 @@ import {
   AckApi,
   Prompts,
   httpOptions
-} from "./ack-angular"
+} from "../../src"
 
-import { fxArray } from './prefx'
+import { fxArray } from 'ack-angular-fx'
 import { string as providerExamples } from './templates/provider-examples.pug'
 
 const pathing = window.location.pathname.split('/').slice(0,-1).join('/')
