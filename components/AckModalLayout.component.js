@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AckApp_1 = require("../providers/AckApp");
-var prefx_1 = require("../prefx");
+var ack_angular_fx_1 = require("ack-angular-fx");
 var ack_modal_layout_pug_1 = require("./templates/ack-modal-layout.pug");
 var AckModalLayout = (function () {
     function AckModalLayout(element, AckApp) {
@@ -46,7 +46,7 @@ var AckModalLayout = (function () {
         { type: core_1.Component, args: [{
                     selector: 'ack-modal-layout',
                     template: ack_modal_layout_pug_1.string,
-                    animations: prefx_1.fxArray
+                    animations: ack_angular_fx_1.fxArray
                 },] },
     ];
     AckModalLayout.ctorParameters = function () { return [

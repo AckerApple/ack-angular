@@ -1,11 +1,12 @@
-import { ElementRef, TemplateRef, EventEmitter } from "@angular/core";
+import { ElementRef, EventEmitter } from "@angular/core";
+import { TemplateReader } from "../TemplateReader.class";
 export declare class AckOptions {
     ElementRef: ElementRef;
     array: any[];
     stylize: boolean;
     multiple: boolean;
     toggleable: boolean;
-    templateRef: TemplateRef<any>;
+    TemplateReader: TemplateReader;
     templateRefs: any;
     inputTemplateRefs: any;
     model: any;
@@ -18,7 +19,6 @@ export declare class AckOptions {
     constructor(ElementRef: ElementRef);
     ngOnInit(): void;
     ngAfterViewInit(): void;
-    applyTemplates(): void;
     selectItem(item: any): void;
     emitChange(): void;
     fireFormEvents(form: any): void;
