@@ -14,7 +14,8 @@ var AckOptions = (function () {
         this.TemplateReader = new TemplateReader_class_1.TemplateReader({
             lastTemplateName: "templateRef",
             types: {
-                templateRef: "option"
+                option: "templateRef",
+                selected: "selected"
             }
         });
         this.modelChange = new core_1.EventEmitter();
