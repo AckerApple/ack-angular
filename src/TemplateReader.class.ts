@@ -3,7 +3,7 @@ import {
 } from '@angular/core'
 
 export interface types{
-  [index:string]:string
+  [index:string]:string// #ref : this.name
 }
 
 export interface templates{

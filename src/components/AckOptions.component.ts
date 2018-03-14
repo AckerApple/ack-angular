@@ -24,7 +24,8 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   TemplateReader:TemplateReader = new TemplateReader({
     lastTemplateName:"templateRef",
     types:{
-      templateRef:"option"
+      option:"templateRef",
+      selected:"selected"
     }
   })
 

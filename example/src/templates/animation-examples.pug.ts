@@ -21,7 +21,7 @@ export const string = "<h2 class=\"margin-top-0\">Animations</h2><p class=\"text
 "\n  &lt;p&gt;You should try it.&lt;/p&gt;"+
 "\n&lt;/div&gt;</pre><br/><h3>Supporting Examples</h3><p>*ngFor *ngIf Stagger Code</p><div class=\"flex-wrap\"><fieldset><label class=\"pad-h\">*ngFor list with stagger toggle</label><ul [@childStag]=\"toggleNgForFx\"><ng-container *ngFor=\"let item of list;let i = index;\"><li class=\"childFx\" *ngIf=\"!toggleNgForFx\" [@fadeInLeft]=\"1\">{{item}} - {{i}}<button (click)=\"list.splice(i,1)\">X</button></li></ng-container></ul><div class=\"flex\"><input class=\"flex-1\" [(ngModel)]=\"supportExampleAddItem\"/><button (click)=\"list.push(supportExampleAddItem)\">add</button><button (click)=\"toggleNgForFx=!toggleNgForFx\">toggle</button></div></fieldset></div><br/><h3>ngFor ngIf Stagger Code</h3><pre class=\"code-sample\" ngNonBindable=\"ngNonBindable\">&lt;ul [@childStag]=\"toggleNgForFx\"&gt;"+
 "\n  &lt;ng-container *ngFor=\"let item of list;let i = index;\"&gt;"+
-"\n    &lt;li class=\"childFx\" *ngIf=\"!toggleNgForFx\" [@200]=\"'fadeInLeft'\"&gt;"+
+"\n    &lt;li class=\"childFx\" *ngIf=\"!toggleNgForFx\" [@fadeInLeft]=\"1\"&gt;"+
 "\n        &#123;&#123;item&#125;&#125; - &#123;&#123;i&#125;&#125;"+
 "\n        &lt;button (click)=\"list.splice(i,1)\"&gt; X &lt;/button&gt;"+
 "\n    &lt;/li&gt;"+

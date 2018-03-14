@@ -19,15 +19,15 @@ ul
   li
     a(href="#Tags" pageScroll) Tags
   li
-    a(href="#Expression Binds" pageScroll) Expression Binds
+    a(href="#ExpressionBinds" pageScroll) Expression Binds
   li
-    a(href="#One Way Binds" pageScroll) One Way Binds
+    a(href="#OneWayBinds" pageScroll) One Way Binds
   li
-    a(href="#Two Way Binds" pageScroll) Two Way Binds
+    a(href="#TwoWayBinds" pageScroll) Two Way Binds
   li
-    a(href="#Layout Components" pageScroll) Layout Components
+    a(href="#LayoutComponents" pageScroll) Layout Components
   li
-    a(href="#Complex Components" pageScroll) Complex Components
+    a(href="#ComplexComponents" pageScroll) Complex Components
 
 br
 
@@ -47,7 +47,10 @@ h3.margin-bottom-0(id="Tags") Tags
         "(click)"="views.ackFixedElmStage=!views.ackFixedElmStage"
         "[ngClass]"="views.ackFixedElmStage?'border-energized bg-energized':'border-info bg-info'"
       ) view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.ackFixedElmStage" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.ackFixedElmStage"
+      "[@fadeInUp]"=1
+    )
       .pad
         |Use ONLY ONE time. This is a display control component for other components. It has no natural display until position fixed elements, such as modals, need to be rendered to screen.
       h4.pad-sm.margin-0 Usage Example
@@ -76,7 +79,10 @@ h3.margin-bottom-0(id="Tags") Tags
         "[ngClass]"="views.ackCloseIcon?'border-energized bg-energized':'border-info bg-info'"
       )
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.ackCloseIcon" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.ackCloseIcon"
+      "[@fadeInUp]"=1
+    )
       .pad
         ack-close-icon("(click)"="views.ackCloseIcon=false")
       h4.pad-sm.margin-0 Usage Example
@@ -99,7 +105,10 @@ h3.margin-bottom-0(id="Tags") Tags
         "[ngClass]"="views.ackArray?'border-energized bg-energized':'border-info bg-info'"
       )
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.ackArray" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.ackArray"
+      "[@fadeInUp]"=1
+    )
       h4.pad-sm.margin-0 Bind Documentation
       ul
         li [(array)] - main array to stem functionality from
@@ -215,13 +224,13 @@ h3.margin-bottom-0(id="Tags") Tags
       ) view details
     .border.border-top-0.border-grey-4x.bg-stable(
       *ngIf    = "views.ackOptions"
-      "[@500]" = "'fadeInUp'"
+      "[@fadeInUp]" = 1
     )
       .pad-sm
         h4.margin-0 Demo
         p.text-grey-3x.text-sm
           |Each item in list the below is selectable
-        div(*ngIf="ackOptionString" "[@500]"="'fadeInUp'")
+        div(*ngIf="ackOptionString" "[@fadeInUp]"=1)
           strong Selected Option:
           |&nbsp;{{ ackOptionString }}
         ack-options(
@@ -231,7 +240,7 @@ h3.margin-bottom-0(id="Tags") Tags
         )
         hr
         strong Multiple Example
-        div(*ngIf="ackOptionArray?.length" "[@500]"="'fadeInUp'")
+        div(*ngIf="ackOptionArray?.length" "[@fadeInUp]"=1)
           div
             strong Selected Options:
           absolute-overflow-x
@@ -243,6 +252,8 @@ h3.margin-bottom-0(id="Tags") Tags
         )
           ng-template(#option="" let-item="item")
             div &bull; name:{{ item.name }}
+          ng-template(#selected="" let-item="item")
+            .bold &bull; name:{{ item.name }}
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
@@ -262,6 +273,9 @@ h3.margin-bottom-0(id="Tags") Tags
             &lt;ng-template #option let-item="item"&gt;
               &lt;div&gt; &amp;bull; name:&#123;&#123; item.name &#125;&#125; &lt;/div&gt;
             &lt;/ng-template&gt;
+            &lt;ng-template #selected let-item="item"&gt;
+              &lt;div style="font-weight:bold"&gt; &amp;bull; name:&#123;&#123; item.name &#125;&#125; &lt;/div&gt;
+            &lt;/ng-template&gt;
           &lt;/ack-options&gt;
 
   .flex-1
@@ -276,7 +290,10 @@ h3.margin-bottom-0(id="Tags") Tags
         "(click)"   = "views.ackModal=!views.ackModal"
         "[ngClass]" = "views.ackModal?'border-energized bg-energized':'border-info bg-info'"
       ) view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.ackModal" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.ackModal"
+      "[@fadeInUp]"=1
+    )
       .bg-info.pad.text-info
         |This component requires the element &lt;ack-fixed-element-stage&gt; to be present somewhere in your app
 
@@ -289,7 +306,7 @@ h3.margin-bottom-0(id="Tags") Tags
         .bg-white.border.border-grey-4x.pad-4x.radius-5
           |Sample Modal Dialog Window
           .text-xs.text-grey-2x.pad-h
-            |*ngIf driven modal with animation provided by ack-angular-fx [@500]="'fadeInUp'"
+            |*ngIf driven modal with animation provided by ack-angular-fx [@fadeInUp]="1"
       ack-modal(
         "[(showModel)]"       = "showAckModalModel"
         "[(backgroundColor)]" = "modalBackgroundColor"
@@ -298,7 +315,7 @@ h3.margin-bottom-0(id="Tags") Tags
         .bg-white.border.border-grey-4x.pad-4x.radius-5
           |Sample Modal Dialog Window
           .text-xs.text-grey-2x.pad-h
-            |model driven modal with animation provided by ack-angular-fx [@500]="'fadeInUp'"
+            |model driven modal with animation provided by ack-angular-fx [@fadeInUp]="1"
 
       .pad.text-center.flex-wrap.child-margin-xxs
         button.text-lg((click)="showAckModal=1") *ngIf show modal
@@ -357,7 +374,7 @@ h3.margin-bottom-0(id="Tags") Tags
       ) view details
     .border.border-top-0.border-grey-4x.bg-stable(
       *ngIf    = "views.ackOptionsModal"
-      "[@500]" = "'fadeInUp'"
+      "[@fadeInUp]" = 1
     )
       .bg-info.pad.text-info
         |This component requires the element &lt;ack-fixed-element-stage&gt; to be present somewhere in your app
@@ -367,18 +384,17 @@ h3.margin-bottom-0(id="Tags") Tags
         h4.margin-0 Demo
         p.text-grey-3x.text-sm
           |Each item in list the below is selectable
-        div(*ngIf="ackOptionStringModal" "[@500]"="'fadeInUp'")
+        div(*ngIf="ackOptionStringModal" "[@fadeInUp]"=1)
           strong Selected Option:
           |&nbsp;{{ ackOptionStringModal }}
         
         //-SELECT ONE
         ack-options-modal(
-          *ngIf          = "showAckOptionsStringModal"
-          "[@500]"       = "'fadeInUp'"
+          "[(showModel)]"= "showAckOptionsStringModal"
           "[allowClose]" = 0
-          "(close)"      = "showAckOptionsStringModal=0"
           "[array]"      = "['option 0','option 1','option 2']"
           "[(model)]"    = "ackOptionStringModal"
+          "(modelChange)"= "showAckOptionsStringModal=0"
           toggleable     = 1
         )
           .pad-right-3x Select Something Below
@@ -388,15 +404,13 @@ h3.margin-bottom-0(id="Tags") Tags
 
         //-SELECT MULTIPLE
         strong Multiple Example
-        div(*ngIf="ackOptionArrayModal?.length" "[@500]"="'fadeInUp'")
+        div(*ngIf="ackOptionArrayModal?.length" "[@fadeInUp]"=1)
           div
             strong Selected Options:
           absolute-overflow-x
             pre.code-sample {{ ackOptionArrayModal | json }}
         ack-options-modal(
-          *ngIf           = "showAckOptionsObjectModal"
-          "[@500]"        = "'fadeInUp'"
-          "(close)"       = "showAckOptionsObjectModal=0"
+          "[(showModel)]" = "showAckOptionsObjectModal"
           "[array]"       = "[{name:'red',key:'r'},{name:'blue',key:'b'},{name:'green',key:'g'}]"
           "[(model)]"     = "ackOptionArrayModal"
           multiple        = "1"
@@ -407,8 +421,11 @@ h3.margin-bottom-0(id="Tags") Tags
           .pad-right-3x.text-grey
             |Select Multiple Things Below
 
+          ng-template(#selected="" let-item="item")
+            .bold &bull; name:{{ item.name }}
           ng-template(#option="" let-item="item")
             div &bull; name:{{ item.name }}
+
         button("(click)"="showAckOptionsObjectModal=!showAckOptionsObjectModal") select options
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
@@ -419,12 +436,11 @@ h3.margin-bottom-0(id="Tags") Tags
           &lt;/div&gt;
 
           &lt;ack-options-modal
-            *ngIf        = "showAckOptionsStringModal"
-            [@500]       = "'fadeInUp'"
+            [(showModel)]= "showAckOptionsStringModal"
             [allowClose] = "0"
-            (close)      = "showAckOptionsStringModal=0"
             [array]      = "['x','y','z']"
             [(model)]    = "ackOptionStringModal"
+            (modelChange)= "showAckOptionsStringModal=0"
             toggleable
           &gt;
             &lt;div style="padding-right:30px;"&gt;Select Something Below&lt;/div&gt;
@@ -441,9 +457,7 @@ h3.margin-bottom-0(id="Tags") Tags
           &lt;/div&gt;
           
           &lt;ack-options-modal
-            *ngIf           = "showAckOptionsObjectModal"
-            [@500]          = "'fadeInUp'"
-            (close)         = "showAckOptionsObjectModal=0"
+            [(showModel)]   = "showAckOptionsObjectModal"
             [array]         = "[&#123;name:'red'&#125;,&#123;name:'blue'&#125;,&#123;name:'green'&#125;]"
             [(model)]       = "ackOptionArrayModal"
             arrayKey        = "name"
@@ -456,6 +470,9 @@ h3.margin-bottom-0(id="Tags") Tags
             &lt;ng-template let-item="item"&gt;
               &lt;div&gt; &amp;bull; name:&#123;&#123; item.name &#125;&#125; &lt;/div&gt;
             &lt;/ng-template&gt;
+            &lt;ng-template #selected let-item="item"&gt;
+              &lt;div style="font-weight:bold"&gt; &amp;bull; name:&#123;&#123; item.name &#125;&#125; &lt;/div&gt;
+            &lt;/ng-template&gt;
           &lt;/ack-options-modal&gt;
           &lt;button (click)="showAckOptionsObjectModal=!showAckOptionsObjectModal")&gt;
             select options
@@ -463,7 +480,7 @@ h3.margin-bottom-0(id="Tags") Tags
 
 br
 
-h3.margin-bottom-0(id="Expression Binds") Expression Binds
+h3.margin-bottom-0(id="ExpressionBinds") Expression Binds
 .flex-wrap.child-margin-xxs
 
   .flex-1([class.width-full]="views.init")
@@ -476,7 +493,10 @@ h3.margin-bottom-0(id="Expression Binds") Expression Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.init=!views.init" "[ngClass]"="views.init?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.init" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.init"
+      "[@fadeInUp]"=1
+    )
       div(*ngFor="let item of initArray;let i=index" "(init)"="item.name=item.name || 'no-name-'+(item.value+1)")
         |init val {{i}} {{ item.name }}
 
@@ -511,7 +531,10 @@ h3.margin-bottom-0(id="Expression Binds") Expression Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.screenScroll=!views.screenScroll" "[ngClass]"="views.screenScroll?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.screenScroll" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.screenScroll"
+      "[@fadeInUp]"=1
+    )
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
@@ -529,7 +552,10 @@ h3.margin-bottom-0(id="Expression Binds") Expression Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.formChanged=!views.formChanged" "[ngClass]"="views.formChanged?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.formChanged" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.formChanged"
+      "[@fadeInUp]"=1
+    )
       h4.pad-sm.margin-0 Example
       form.pad("(formChanged)"="formChanges=formChanges==null?1:formChanges+1")
         span Change Count : {{formChanges || 0}} :
@@ -559,7 +585,10 @@ h3.margin-bottom-0(id="Expression Binds") Expression Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.formAlter=!views.formAlter" "[ngClass]"="views.formAlter?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.formAlter" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.formAlter"
+      "[@fadeInUp]"=1
+    )
       .pad.text-info Fires for every form input alteration and NOT just after a change occurred
       h4.pad-sm.margin-0 Example
       form.pad("(formAlter)"="formAlters=formAlters==null?1:formAlters+1")
@@ -583,7 +612,10 @@ h3.margin-bottom-0(id="Expression Binds") Expression Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.enterKey=!views.enterKey" "[ngClass]"="views.enterKey?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.enterKey" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.enterKey"
+      "[@fadeInUp]"=1
+    )
       .pad.text-info Fires for every onKeyUp event where enter key was pressed
       h4.pad-sm.margin-0 Example
       .flex.child-margin-xs.pad-xs
@@ -605,7 +637,10 @@ h3.margin-bottom-0(id="Expression Binds") Expression Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.escapeKey=!views.escapeKey" "[ngClass]"="views.escapeKey?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.escapeKey" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.escapeKey"
+      "[@fadeInUp]"=1
+    )
       .pad.text-info Fires for every onKeyUp event where enter key was pressed
       h4.pad-sm.margin-0 Example
       .flex.child-margin-xs.pad-xs
@@ -627,7 +662,10 @@ h3.margin-bottom-0(id="Expression Binds") Expression Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.preventBackKey=!views.preventBackKey" "[ngClass]"="views.preventBackKey?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.preventBackKey" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.preventBackKey"
+      "[@fadeInUp]"=1
+    )
       .pad.text-info Prevents and fires every onKeyUp event where backspace key was pressed
       h4.pad-sm.margin-0 Example
       .flex.child-margin-xs.pad-xs
@@ -649,7 +687,10 @@ h3.margin-bottom-0(id="Expression Binds") Expression Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.preventEnterKey=!views.preventEnterKey" "[ngClass]"="views.preventEnterKey?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.preventEnterKey" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.preventEnterKey"
+      "[@fadeInUp]"=1
+    )
       .pad.text-info Prevents and fires every onKeyUp event where enter key was pressed
       h4.pad-sm.margin-0 Example
       .flex.child-margin-xs.pad-xs
@@ -663,7 +704,7 @@ h3.margin-bottom-0(id="Expression Binds") Expression Binds
 
 br
 
-h3.margin-bottom-0(id="One Way Binds") One Way Binds
+h3.margin-bottom-0(id="OneWayBinds") One Way Binds
 .flex-wrap.child-margin-xxs
   
   .flex-1([class.width-full]="views.Var")
@@ -676,7 +717,10 @@ h3.margin-bottom-0(id="One Way Binds") One Way Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.Var=!views.Var" "[ngClass]"="views.Var?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.Var" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.Var"
+      "[@fadeInUp]"=1
+    )
       .pad-sm
         h4.margin-0 Demo
         p.text-grey-3x.text-sm
@@ -708,7 +752,10 @@ h3.margin-bottom-0(id="One Way Binds") One Way Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.focusOn=!views.focusOn" "[ngClass]"="views.focusOn?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.focusOn" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.focusOn"
+      "[@fadeInUp]"=1
+    )
       .pad.text-center.flex-wrap.child-margin-xxs
         div
           button.text-lg((click)="focusOn=1") focus input
@@ -735,7 +782,10 @@ h3.margin-bottom-0(id="One Way Binds") One Way Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.selectOn=!views.selectOn" "[ngClass]"="views.selectOn?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.selectOn" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.selectOn"
+      "[@fadeInUp]"=1
+    )
       .pad.text-center.flex-wrap.child-margin-xxs
         div
           button.text-lg((click)="selectOn=1") select input
@@ -762,7 +812,10 @@ h3.margin-bottom-0(id="One Way Binds") One Way Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.shakeOn=!views.shakeOn" "[ngClass]"="views.shakeOn?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.shakeOn" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.shakeOn"
+      "[@fadeInUp]"=1
+    )
       .pad
         .pad-xs.bg-warning.border-warning.text-warning.border
           |You will need to &lt;link&gt; one of two style sheets:
@@ -790,7 +843,12 @@ h3.margin-bottom-0(id="One Way Binds") One Way Binds
         div
           label &nbsp;
           div
-            input(type="checkbox" id="shakeConstant" "[(ngModel)]"="shakeConstant" "(change)"="shakeOn=$event.target.checked")
+            input(
+              type="checkbox"
+              id="shakeConstant"
+              "[(ngModel)]"="shakeConstant"
+              "(change)"="shakeOn=$event.target.checked"
+            )
             |&nbsp;
             label(for="shakeConstant") shakeConstant
         div
@@ -816,7 +874,7 @@ h3.margin-bottom-0(id="One Way Binds") One Way Binds
 
 br
 
-h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
+h3.margin-bottom-0(id="TwoWayBinds") Two Way Binds
 .flex-wrap.child-margin-xxs
   
   .flex-1([class.width-full]="views.statusOnlineModel")
@@ -831,7 +889,10 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.statusOnlineModel=!views.statusOnlineModel" "[ngClass]"="views.statusOnlineModel?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.statusOnlineModel" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.statusOnlineModel"
+      "[@fadeInUp]"=1
+    )
       .pad
         .pad.bg-warning.border-warning.border.text-warning
           |Completely turn off your internet and the online status will change.
@@ -856,7 +917,10 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.statusOfflineModel=!views.statusOfflineModel" "[ngClass]"="views.statusOfflineModel?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.statusOfflineModel" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.statusOfflineModel"
+      "[@fadeInUp]"=1
+    )
       .pad
         .pad.bg-warning.border-warning.border.text-warning
         |Completely turn off your internet and the offline status will change
@@ -884,7 +948,10 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.screenScrollHeightDiff=!views.screenScrollHeightDiff" "[ngClass]"="views.screenScrollHeightDiff?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.screenScrollHeightDiff" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.screenScrollHeightDiff"
+      "[@fadeInUp]"=1
+    )
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
@@ -902,9 +969,14 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
           .inline-block.width-50 &nbsp;{{screenScrollModelY}}px
         br
     .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="views.screenScrollModelY=!views.screenScrollModelY" "[ngClass]"="views.screenScrollModelY?'border-energized bg-energized':'border-info bg-info'")
-        |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.screenScrollModelY" "[@500]"="'fadeInUp'")
+      a.block.border.pad-xxs.hover-bg-warning(
+        "(click)"="views.screenScrollModelY=!views.screenScrollModelY"
+        "[ngClass]"="views.screenScrollModelY?'border-energized bg-energized':'border-info bg-info'"
+      ) view details
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.screenScrollModelY"
+      "[@fadeInUp]"=1
+    )
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
@@ -923,7 +995,10 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.htmlWidthModel=!views.htmlWidthModel" "[ngClass]"="views.htmlWidthModel?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.htmlWidthModel" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.htmlWidthModel"
+      "[@fadeInUp]"=1
+    )
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
@@ -942,7 +1017,10 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.htmlHeightModel=!views.htmlHeightModel" "[ngClass]"="views.htmlHeightModel?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.htmlHeightModel" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.htmlHeightModel"
+      "[@fadeInUp]"=1
+    )
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
@@ -961,7 +1039,10 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="viewScreenWidthModel=!viewScreenWidthModel" "[ngClass]"="viewScreenWidthModel?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenWidthModel" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="viewScreenWidthModel"
+      "[@fadeInUp]"=1
+    )
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
@@ -980,7 +1061,10 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="viewScreenHeightModel=!viewScreenHeightModel" "[ngClass]"="viewScreenHeightModel?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="viewScreenHeightModel" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="viewScreenHeightModel"
+      "[@fadeInUp]"=1
+    )
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
@@ -998,7 +1082,10 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.elementSizeModel=!views.elementSizeModel" "[ngClass]"="views.elementSizeModel?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.elementSizeModel" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.elementSizeModel"
+      "[@fadeInUp]"=1
+    )
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
@@ -1016,7 +1103,10 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.elementHeightModel=!views.elementHeightModel" "[ngClass]"="views.elementHeightModel?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.elementHeightModel" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.elementHeightModel"
+      "[@fadeInUp]"=1
+    )
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
@@ -1034,7 +1124,10 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.elementWidthModel=!views.elementWidthModel" "[ngClass]"="views.elementWidthModel?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.elementWidthModel" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.elementWidthModel"
+      "[@fadeInUp]"=1
+    )
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
@@ -1052,7 +1145,10 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.innerHtmlModel=!views.innerHtmlModel" "[ngClass]"="views.innerHtmlModel?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.innerHtmlModel" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.innerHtmlModel"
+      "[@fadeInUp]"=1
+    )
       h4.pad-sm.margin-0 Example
       div("[(innerHtmlModel)]"="innerHtmlModel")
         button("(click)"="contentArray.push('')") add content
@@ -1077,7 +1173,10 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.absoluteOverflowX=!views.absoluteOverflowX" "[ngClass]"="views.absoluteOverflowX?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.absoluteOverflowX" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.absoluteOverflowX"
+      "[@fadeInUp]"=1
+    )
       .pad
         .pad.bg-info.text-info.text-info
           |Often, pre elements and nowrap styles, make it hard to contronl x-axis overflow.
@@ -1102,7 +1201,11 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
             |&nbsp;&nbsp;This PRE ELEMENT content all runs on one line flat out for as long as I can stand to stand typing at a Veridesk in Delray Beach, FL. Not that long it turns out...
             |&lt;/pre&gt;
         label(for="absoluteOverflowXActive")
-          input(type="checkbox" "[(ngModel)]"="absoluteOverflowXActive" id="absoluteOverflowXActive")
+          input(
+            type="checkbox"
+            "[(ngModel)]"="absoluteOverflowXActive"
+            id="absoluteOverflowXActive"
+          )
           |&nbsp;&nbsp;Overflow On/Off "active" Toggle
         h4.pad-sm.margin-0 Usage Example
         absolute-overflow-x
@@ -1115,7 +1218,7 @@ h3.margin-bottom-0(id="Two Way Binds") Two Way Binds
 
 br
 
-h3.margin-bottom-0(id="Layout Components") Layout Components
+h3.margin-bottom-0(id="LayoutComponents") Layout Components
 .pad
   .pad.bg-warning.border-warning.text-warning.border
     |You will need to &lt;link&gt; one of two style sheets:
@@ -1136,7 +1239,10 @@ h3.margin-bottom-0(id="Layout Components") Layout Components
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.errorWell=!views.errorWell" "[ngClass]"="views.errorWell?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.errorWell" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.errorWell"
+      "[@fadeInUp]"=1
+    )
       h4.pad-sm.margin-0 Example
       .pad
         select(name="cssClasses" "[(ngModel)]"="cssClasses")
@@ -1164,7 +1270,7 @@ h3.margin-bottom-0(id="Layout Components") Layout Components
           &lt;error-well [error]="error" [closable]="1" [allowDetails]="1"&gt;&lt;/error-well&gt;
 
 br
-h3(id="Complex Components") Complex Components
+h3(id="ComplexComponents") Complex Components
 .pad-h
   p.margin-bottom-0 Components that have additional dependencies or restrictions
 .flex-wrap.child-margin-xxs
@@ -1178,7 +1284,10 @@ h3(id="Complex Components") Complex Components
     .text-center
       a.block.border.pad-xxs.hover-bg-warning("(click)"="views.routeReporter=!views.routeReporter" "[ngClass]"="views.routeReporter?'border-energized bg-energized':'border-info bg-info'")
         |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.routeReporter" "[@500]"="'fadeInUp'")
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.routeReporter"
+      "[@fadeInUp]"=1
+    )
       .pad Bindings
         table(cellPadding="2" cellSpacing="0" border="0")
           tr
@@ -1227,26 +1336,3 @@ h3(id="Complex Components") Complex Components
             span(ngNonBindable) {{ query | json }}
             span &nbsp;==&nbsp;
             span {{ query | json }}
-  //-.flex-1.border.border-grey-4x.border
-    .pad-h
-      h3 ui-route-reporter
-      .text-grey-2x.max-width-400
-        |Get in tune with your document route states using ui-router-ng2
-      br
-    .text-center
-      .border.pad-xxs("(click)"="views.uiRouteReporter=!views.uiRouteReporter" "[ngClass]"="views.uiRouteReporter?'border-energized bg-energized':'border-info bg-info'")
-        |view details
-    .border.border-top-0.border-grey-4x.bg-stable(*ngIf="views.uiRouteReporter" "[@500]"="'fadeInUp'")
-      .pad Requirements
-        ul
-          li ui-router-ng2
-      h4.pad-sm.margin-0 Usage Example
-      absolute-overflow-x
-        pre.code-sample.margin-0(ngNonBindable).
-          &lt;ui-route-reporter [(ref)]="" (beforeChange)="" (onChange)=""&gt;
-      h4.pad-sm.margin-0 ref example
-      absolute-overflow-x
-        pre.code-sample.margin-0(ngNonBindable).
-          &lt;ui-route-reporter [(ref)]="routeState" &gt;
-          -----------------------------------------
-          routeState:{{ routeState|json }}

@@ -65,7 +65,7 @@ h3 ngFor ngIf Stagger Code
 pre.code-sample(ngNonBindable).
   &lt;ul [@childStag]="toggleNgForFx"&gt;
     &lt;ng-container *ngFor="let item of list;let i = index;"&gt;
-      &lt;li class="childFx" *ngIf="!toggleNgForFx" [@200]="'fadeInLeft'"&gt;
+      &lt;li class="childFx" *ngIf="!toggleNgForFx" [@fadeInLeft]="1"&gt;
           &#123;&#123;item&#125;&#125; - &#123;&#123;i&#125;&#125;
           &lt;button (click)="list.splice(i,1)"&gt; X &lt;/button&gt;
       &lt;/li&gt;

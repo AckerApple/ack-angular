@@ -1,6 +1,10 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.5.2] - 2018-03-14
+- ack-options now has #selected template
+- Fixed component examples
+
 ## [1.5.0] - 2018-03-13
 - Upgraded Angular
 - Upgraded ack-angular-fx

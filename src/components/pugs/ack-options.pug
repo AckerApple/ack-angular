@@ -6,7 +6,12 @@ div(
   "[ngClass]" = "getItemClass(item)"
 )
   ng-template(
-    *ngIf = "TemplateReader.templates.templateRef"
+    *ngIf = "TemplateReader.templates.selected && isItemSelected(item)"
+    "[ngTemplateOutlet]" = "TemplateReader.templates.selected"
+    "[ngTemplateOutletContext]" = "{item:item}"
+  )
+  ng-template(
+    *ngIf = "TemplateReader.templates.templateRef && (!TemplateReader.templates.selected || !isItemSelected(item))"
     "[ngTemplateOutlet]" = "TemplateReader.templates.templateRef"
     "[ngTemplateOutletContext]" = "{item:item, selected:isItemSelected(item)}"
   )
