@@ -10,6 +10,7 @@ var AckOptions = (function () {
         this.array = [];
         this.stylize = true;
         this.multiple = false;
+        this.modelAsArray = false;
         this.toggleable = false;
         this.TemplateReader = new TemplateReader_class_1.TemplateReader({
             lastTemplateName: "templateRef",
@@ -40,13 +41,19 @@ var AckOptions = (function () {
     };
     AckOptions.prototype.selectItem = function (item) {
         var value = this.getArrayItemValue(item);
-        if (this.multiple) {
+        var isArrayMode = this.multiple || this.modelAsArray;
+        if (isArrayMode) {
             var modelIndex = this.modelIndex(item);
             if (modelIndex >= 0) {
                 this.model.splice(modelIndex, 1);
             }
             else {
                 this.model.push(this.getArrayItemModel(item));
+            }
+            if (this.max) {
+                while (this.model.length > this.max) {
+                    this.model.shift();
+                }
             }
         }
         else {
@@ -154,6 +161,8 @@ var AckOptions = (function () {
         "array": [{ type: core_1.Input },],
         "stylize": [{ type: core_1.Input },],
         "multiple": [{ type: core_1.Input },],
+        "modelAsArray": [{ type: core_1.Input },],
+        "max": [{ type: core_1.Input },],
         "toggleable": [{ type: core_1.Input },],
         "templateRefs": [{ type: core_1.ContentChildren, args: [core_1.TemplateRef,] },],
         "inputTemplateRefs": [{ type: core_1.Input },],

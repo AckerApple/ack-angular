@@ -1635,7 +1635,7 @@ webpackContext.id = "./node_modules/moment/locale recursive ^\\.\\/.*$";
 /***/ "./package.json":
 /***/ (function(module, exports) {
 
-module.exports = {"name":"ack-angular","version":"1.5.2","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve --output-hashing=none --sourcemaps=true --app=example","build:js":"ng build --output-hashing=none --sourcemaps=true --app=example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng2","angular2","angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular/animations":"^5.2.8","@angular/cli":"^1.7.3","@angular/common":"^5.2.8","@angular/compiler":"^5.2.8","@angular/compiler-cli":"^5.2.8","@angular/core":"^5.2.8","@angular/forms":"^5.2.8","@angular/http":"^5.2.8","@angular/platform-browser":"^5.2.8","@angular/platform-browser-dynamic":"^5.2.8","@angular/router":"^5.2.8","@types/jasmine":"^2.8.6","ack-angular-fx":"^2.1.1","ack-css-boot":"^1.2.46","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.3.23","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.0","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^1.4.2","karma-jasmine":"^1.1.1","karma-jasmine-html-reporter":"^0.2.2","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.6.0","ng2-page-scroll":"^4.0.0-beta.12","npm-run-all":"^4.1.2","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^5.5.7","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.4.2","zone.js":"^0.8.20"},"private":true}
+module.exports = {"name":"ack-angular","version":"1.5.3","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve --output-hashing=none --sourcemaps=true --app=example","build:js":"ng build --output-hashing=none --sourcemaps=true --app=example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng2","angular2","angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular/animations":"^5.2.8","@angular/cli":"^1.7.3","@angular/common":"^5.2.8","@angular/compiler":"^5.2.8","@angular/compiler-cli":"^5.2.8","@angular/core":"^5.2.8","@angular/forms":"^5.2.8","@angular/http":"^5.2.8","@angular/platform-browser":"^5.2.8","@angular/platform-browser-dynamic":"^5.2.8","@angular/router":"^5.2.8","@types/jasmine":"^2.8.6","ack-angular-fx":"^2.1.1","ack-css-boot":"^1.2.46","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.3.23","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.0","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^1.4.2","karma-jasmine":"^1.1.1","karma-jasmine-html-reporter":"^0.2.2","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.6.0","ng2-page-scroll":"^4.0.0-beta.12","npm-run-all":"^4.1.2","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^5.5.7","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.4.2","zone.js":"^0.8.20"},"private":true}
 
 /***/ }),
 
@@ -2640,7 +2640,7 @@ var AckOptions = (function () {
         this.array = [];
         this.stylize = true;
         this.multiple = false;
-        //@Input() modelIsArray = false//support array of options to model-array, that array only allows a length of one
+        this.modelAsArray = false;
         this.toggleable = false; //multiple must be false
         this.TemplateReader = new TemplateReader_class_1.TemplateReader({
             lastTemplateName: "templateRef",
@@ -2672,13 +2672,19 @@ var AckOptions = (function () {
     };
     AckOptions.prototype.selectItem = function (item) {
         var value = this.getArrayItemValue(item);
-        if (this.multiple) {
+        var isArrayMode = this.multiple || this.modelAsArray;
+        if (isArrayMode) {
             var modelIndex = this.modelIndex(item);
             if (modelIndex >= 0) {
                 this.model.splice(modelIndex, 1);
             }
             else {
                 this.model.push(this.getArrayItemModel(item));
+            }
+            if (this.max) {
+                while (this.model.length > this.max) {
+                    this.model.shift();
+                }
             }
         }
         else {
@@ -2787,6 +2793,14 @@ var AckOptions = (function () {
     ], AckOptions.prototype, "multiple", void 0);
     __decorate([
         core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckOptions.prototype, "modelAsArray", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], AckOptions.prototype, "max", void 0);
+    __decorate([
+        core_1.Input(),
         __metadata("design:type", Object)
     ], AckOptions.prototype, "toggleable", void 0);
     __decorate([
@@ -2803,15 +2817,15 @@ var AckOptions = (function () {
     ], AckOptions.prototype, "model", void 0);
     __decorate([
         core_1.Output(),
-        __metadata("design:type", Object)
+        __metadata("design:type", core_1.EventEmitter)
     ], AckOptions.prototype, "modelChange", void 0);
     __decorate([
         core_1.Input(),
-        __metadata("design:type", Object)
+        __metadata("design:type", AckOptions)
     ], AckOptions.prototype, "ref", void 0);
     __decorate([
         core_1.Output(),
-        __metadata("design:type", Object)
+        __metadata("design:type", core_1.EventEmitter)
     ], AckOptions.prototype, "refChange", void 0);
     __decorate([
         core_1.Input(),
@@ -3123,7 +3137,7 @@ exports.string = "<ng-template><ack-modal-layout (close)=\"close.emit($event)\" 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.string = "<ack-modal (close)=\"close.emit($event)\" [allowClose]=\"allowClose\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit($event)\" [isModelMode]=\"showModelChange.observers.length\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [backgroundColor]=\"backgroundColor\" (backgroundColorChange)=\"backgroundColorChange.emit($event)\"><ng-content></ng-content><div class=\"border-grey-6x border bg-white\"><ack-options [(ref)]=\"ackOptions\" [array]=\"array\" [model]=\"model\" (modelChange)=\"fireModelChange($event)\" [multiple]=\"multiple\" [toggleable]=\"toggleable\" [stylize]=\"stylize\" [inputTemplateRefs]=\"templateRefs\" [arrayKey]=\"arrayKey\" [arrayToModelKey]=\"arrayToModelKey\" [modelKey]=\"modelKey\"></ack-options></div></ack-modal>";
+exports.string = "<ack-modal (close)=\"close.emit($event)\" [allowClose]=\"allowClose\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit($event)\" [isModelMode]=\"showModelChange.observers.length\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [backgroundColor]=\"backgroundColor\" (backgroundColorChange)=\"backgroundColorChange.emit($event)\"><ng-content></ng-content><div class=\"border-grey-6x border bg-white\"><ack-options [(ref)]=\"ackOptions\" [array]=\"array\" [max]=\"max\" [modelAsArray]=\"modelAsArray\" [model]=\"model\" (modelChange)=\"fireModelChange($event)\" [multiple]=\"multiple\" [toggleable]=\"toggleable\" [stylize]=\"stylize\" [inputTemplateRefs]=\"templateRefs\" [arrayKey]=\"arrayKey\" [arrayToModelKey]=\"arrayToModelKey\" [modelKey]=\"modelKey\"></ack-options></div></ack-modal>";
 
 
 /***/ }),

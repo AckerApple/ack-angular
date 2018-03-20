@@ -1,8 +1,7 @@
 import { EventEmitter } from "@angular/core";
 import { AckOptions } from "./AckOptions.component";
 export declare class AckOptionsModal extends AckOptions {
-    ackModal: any;
-    ackOptions: any;
+    ackOptions: AckOptions;
     allowClose: boolean;
     wrapStyle: any;
     wrapCellStyle: any;

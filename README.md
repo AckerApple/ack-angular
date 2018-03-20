@@ -8,9 +8,6 @@ Extra special directives, components, providers and pipes to aide in tackling ev
 
 > Source Repository : [src branch here](https://github.com/AckerApple/ack-angular/tree/src)
 
-> AngularJs 1.5+ code : [ack-angularjs](https://github.com/AckerApple/ack-angularjs)
-
-
 <details>
   <summary>Table of Contents</summary>
 

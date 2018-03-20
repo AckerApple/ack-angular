@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.5.3] - 2018-03-20
+- Added max and modelAsArray for inputs ack-options-modal
+
 ## [1.5.2] - 2018-03-14
 - ack-options now has #selected template
 - Fixed component examples

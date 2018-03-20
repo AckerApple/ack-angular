@@ -11,8 +11,8 @@ import { string as ackOptionsModal } from "./templates/ack-options-modal.pug"
   selector:'ack-options-modal',
   template:ackOptionsModal
 }) export class AckOptionsModal extends AckOptions{
-  ackModal
-  ackOptions
+  //ackModal
+  ackOptions:AckOptions
   
   //one way binds
   @Input() allowClose:boolean = true

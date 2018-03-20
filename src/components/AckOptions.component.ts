@@ -18,7 +18,8 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   @Input() array = []
   @Input() stylize:boolean = true
   @Input() multiple:boolean = false
-  //@Input() modelIsArray = false//support array of options to model-array, that array only allows a length of one
+  @Input() modelAsArray:boolean = false
+  @Input() max:number
   @Input() toggleable = false//multiple must be false
 
   TemplateReader:TemplateReader = new TemplateReader({
@@ -32,11 +33,11 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   @ContentChildren(TemplateRef) templateRefs:any//TemplateRef<any>[]
   @Input() inputTemplateRefs:any//TemplateRef<any>[]
 
-  @Input() model
-  @Output() modelChange = new EventEmitter()
+  @Input() model:any
+  @Output() modelChange:EventEmitter<any> = new EventEmitter()
   
-  @Input() ref
-  @Output() refChange = new EventEmitter()
+  @Input() ref:AckOptions
+  @Output() refChange:EventEmitter<AckOptions> = new EventEmitter()
   
   @Input() arrayKey:string
   @Input() modelKey:string
@@ -64,13 +65,20 @@ import { string as ackOptions } from "./templates/ack-options.pug"
 
   selectItem(item){
     const value = this.getArrayItemValue(item)
+    const isArrayMode = this.multiple || this.modelAsArray
 
-    if( this.multiple ){// || this.modelIsArray
+    if( isArrayMode ){
       const modelIndex = this.modelIndex( item )
       if(modelIndex>=0){
         this.model.splice(modelIndex, 1)
       }else{
         this.model.push( this.getArrayItemModel(item) )
+      }
+
+      if(this.max){
+        while(this.model.length > this.max){
+          this.model.shift()
+        }
       }
     }else{
       if(this.toggleable && this.model==value){
