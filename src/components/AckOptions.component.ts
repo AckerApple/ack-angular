@@ -17,10 +17,10 @@ import { string as ackOptions } from "./templates/ack-options.pug"
 }) export class AckOptions{
   @Input() array = []
   @Input() stylize:boolean = true
-  @Input() multiple:boolean = false
-  @Input() modelAsArray:boolean = false
+  @Input() multiple:boolean
+  @Input() modelAsArray:boolean
   @Input() max:number
-  @Input() toggleable = false//multiple must be false
+  @Input() toggleable:boolean
 
   TemplateReader:TemplateReader = new TemplateReader({
     lastTemplateName:"templateRef",

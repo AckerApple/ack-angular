@@ -254,6 +254,16 @@ h3.margin-bottom-0(id="Tags") Tags
             div &bull; name:{{ item.name }}
           ng-template(#selected="" let-item="item")
             .bold &bull; name:{{ item.name }}
+
+      h4.pad-sm.margin-0 Properties
+      ul
+        li [array]
+        li [stylize]:boolean = true
+        li [multiple]:boolean
+        li [modelAsArray]:boolean
+        li [max]:number
+        li [toggleable]:boolean
+
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
@@ -335,9 +345,9 @@ h3.margin-bottom-0(id="Tags") Tags
           li (close)
           li [wrapStyle]
           li [wrapCellStyle]
-          li [allowClose] = true
-          li backgroundColor
-          li [(showModel)]
+          li [allowClose]:boolean = true
+          li [backgroundColor]
+          li [(showModel)]:boolean
 
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
@@ -427,6 +437,22 @@ h3.margin-bottom-0(id="Tags") Tags
             div &bull; name:{{ item.name }}
 
         button("(click)"="showAckOptionsObjectModal=!showAckOptionsObjectModal") select options
+
+      h4.pad-sm.margin-0 Properties
+      ul
+        li [array]
+        li [stylize]:boolean = true
+        li [multiple]:boolean
+        li [modelAsArray]:boolean
+        li [max]:number
+        li [toggleable]:boolean
+        li (close)
+        li [wrapStyle]
+        li [wrapCellStyle]
+        li [allowClose]:boolean = true
+        li [backgroundColor]
+        li [(showModel)]:boolean
+
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).

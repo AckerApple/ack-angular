@@ -9,9 +9,6 @@ var AckOptions = (function () {
         this.ElementRef = ElementRef;
         this.array = [];
         this.stylize = true;
-        this.multiple = false;
-        this.modelAsArray = false;
-        this.toggleable = false;
         this.TemplateReader = new TemplateReader_class_1.TemplateReader({
             lastTemplateName: "templateRef",
             types: {
