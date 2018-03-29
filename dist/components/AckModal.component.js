@@ -39,7 +39,8 @@ var AckModal = (function () {
         { type: AckApp_1.AckApp, },
     ]; };
     AckModal.propDecorators = {
-        "layout": [{ type: core_1.ViewChild, args: [core_1.TemplateRef,] },],
+        "body": [{ type: core_1.ContentChild, args: ['body',] },],
+        "layout": [{ type: core_1.ViewChild, args: ['placeholder',] },],
         "inline": [{ type: core_1.Input },],
         "isModelMode": [{ type: core_1.Input },],
         "wrapStyle": [{ type: core_1.Input },],

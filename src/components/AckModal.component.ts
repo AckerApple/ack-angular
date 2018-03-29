@@ -1,5 +1,6 @@
+
 import {
-  //NgContent,
+  ContentChild,
   Directive,
   Component,
   Input,
@@ -20,7 +21,8 @@ import { string } from "./templates/ack-modal.pug"
   template:string
   //,animations:fxArray
 }) export class AckModal{
-  @ViewChild(TemplateRef) layout: ElementRef
+  @ContentChild('body') body:TemplateRef<any>
+  @ViewChild('placeholder') layout: ElementRef
 
   //one way binds
   @Input() inline:boolean

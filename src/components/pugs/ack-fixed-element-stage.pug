@@ -23,4 +23,7 @@ ng-container(*ngFor="let prompt of AckApp.prompts.prompts;let i=index")
 
 
 ng-container(*ngFor="let modal of AckApp.modals;let i=index")
-  ng-template("[ngTemplateOutlet]"="modal.layout")
+  ng-container(*ngIf="!modal.isModelMode || modal.showModel")
+    ng-template(
+      "[ngTemplateOutlet]" = "modal.layout"
+    )

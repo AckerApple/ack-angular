@@ -1,8 +1,9 @@
-import { EventEmitter, ElementRef } from "@angular/core";
+import { EventEmitter, ElementRef, TemplateRef } from "@angular/core";
 import { AckApp } from "../providers/AckApp";
 export declare class AckModal {
     element: ElementRef;
     AckApp: AckApp;
+    body: TemplateRef<any>;
     layout: ElementRef;
     inline: boolean;
     isModelMode: boolean;
