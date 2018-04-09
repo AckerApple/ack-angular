@@ -16,6 +16,10 @@ function numberToPhone(val) {
     return '(' + val.substring(0, 3) + ') ' + val.substring(3, 6) + '-' + val.substring(6, 10);
 }
 exports.numberToPhone = numberToPhone;
+function toNumber(val) {
+    return Number(numbers(val, "."));
+}
+exports.toNumber = toNumber;
 function numberSuffix(val, rtnVal) {
     if (rtnVal === void 0) { rtnVal = false; }
     var rtn = rtnVal ? val : '';
@@ -99,8 +103,17 @@ function bit(input) {
     return boolean(input) ? 1 : 0;
 }
 exports.bit = bit;
-function numbers(input) {
-    return input ? String(input).replace(/[^0-9]/g, '') : input;
+function numbers(input, safeChars) {
+    var xString = '[^0-9';
+    if (safeChars) {
+        if (safeChars.length > 4) {
+            safeChars = safeChars.substring(0, 4);
+        }
+        xString += safeChars;
+    }
+    xString += ']';
+    var regX = new RegExp(xString, 'g');
+    return input ? String(input).replace(regX, '') : input;
 }
 exports.numbers = numbers;
 function capitalizeWords(input) {
@@ -183,6 +196,7 @@ exports.pipes = {
     capitalize: capitalize,
     capitalizeAfterSentence: capitalizeAfterSentence,
     capitalizeOne: capitalizeOne,
+    toNumber: toNumber,
     numberToPhone: numberToPhone,
     numberSuffix: numberSuffix,
     aDate: exports.aDate,
