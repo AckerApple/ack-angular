@@ -5,6 +5,7 @@ var AckModal_component_1 = require("./components/AckModal.component");
 var AckModalLayout_component_1 = require("./components/AckModalLayout.component");
 var AckCloseIcon_component_1 = require("./components/AckCloseIcon.component");
 var AckArray_directive_1 = require("./AckArray.directive");
+var AckAggregate_directive_1 = require("./AckAggregate.directive");
 var AckOptions_component_1 = require("./components/AckOptions.component");
 var AckOptionsModal_component_1 = require("./components/AckOptionsModal.component");
 var AbsoluteOverflowX_component_1 = require("./components/AbsoluteOverflowX.component");
@@ -254,5 +255,6 @@ exports.declarations = [
     AckModal_component_1.AckModal,
     AckModalLayout_component_1.AckModalLayout,
     AckArray_directive_1.AckArray,
+    AckAggregate_directive_1.AckAggregate,
     AckFixedElementStage_component_1.AckFixedElementStage
 ];
