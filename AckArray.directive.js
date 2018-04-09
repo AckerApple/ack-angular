@@ -25,20 +25,22 @@ var AckArray = (function () {
         }
     };
     AckArray.prototype.ngAfterViewInit = function () {
+        var _this = this;
         if (this.AckAggregates) {
             this.pushAggregates(this.AckAggregates);
-            this.loop();
         }
         this.inited = true;
+        setTimeout(function () { return _this.loop(); }, 0);
     };
     AckArray.prototype.ngOnChanges = function (changes) {
-        var loop = false;
-        if (changes.pageAt || changes.array) {
+        var _this = this;
+        var loop = changes.array ? true : false;
+        if (changes.pageAt) {
             this.pushCreatePages();
             loop = true;
         }
         if (this.inited && loop) {
-            this.loop();
+            setTimeout(function () { return _this.loop(); }, 0);
         }
     };
     AckArray.prototype.pushAggregates = function (aggs) {
@@ -96,11 +98,6 @@ var AckArray = (function () {
         if (this.pushed.createPages)
             return;
         this.pushed.createPages = true;
-        if (!this.array || !this.array.length) {
-            this.pages[0] = this.array;
-            this.pagesChange.emit(this.pages);
-            return;
-        }
         var pos = 0;
         var last = this.array.length;
         this.loopStart.subscribe(function () {
