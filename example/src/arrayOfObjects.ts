@@ -1,19 +1,19 @@
 export const array = [{
-  letter:'a'
+  letter:'a', number:1
 },{
-  letter:'b'
+  letter:'b', number:2
 },{
-  letter:'c'
+  letter:'c', number:3
 },{
-  letter:'d'
+  letter:'d', number:4
 },{
-  letter:'e'
+  letter:'e', number:5
 },{
-  letter:'f'
+  letter:'f', number:6
 },{
-  letter:'g'
+  letter:'g', number:7
 },{
-  letter:'h'
+  letter:'h', number:8
 },{
-  letter:'i'
+  letter:'i', number:9
 }]

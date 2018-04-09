@@ -1,6 +1,13 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.5.6] - 2018-04-03
+- Added ack-aggregate
+- Added more ack-array documentations
+
+## [1.5.5] - 2018-04-03
+- Changed server cannot connect message
+
 ## [1.5.3] - 2018-03-20
 - Added max and modelAsArray for inputs ack-options-modal
 

@@ -12,6 +12,7 @@ import { AckModal } from "./components/AckModal.component"
 import { AckModalLayout } from "./components/AckModalLayout.component"
 import { AckCloseIcon } from "./components/AckCloseIcon.component"
 import { AckArray } from "./AckArray.directive"
+import { AckAggregate } from "./AckAggregate.directive"
 import { AckOptions } from "./components/AckOptions.component"
 import { AckOptionsModal } from "./components/AckOptionsModal.component"
 import { AbsoluteOverflowX } from "./components/AbsoluteOverflowX.component"
@@ -197,5 +198,6 @@ export const declarations = [
   AckModal,
   AckModalLayout,
   AckArray,
+  AckAggregate,
   AckFixedElementStage
 ]

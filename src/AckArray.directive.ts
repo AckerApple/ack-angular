@@ -1,20 +1,27 @@
-import { EventEmitter, Output, Input, Directive } from '@angular/core'
+import {
+  EventEmitter, Output, Input,
+  ContentChildren, Directive
+} from "@angular/core"
+import { AckAggregate } from "./AckAggregate.directive"
+
+export interface loop{
+  index:number
+  item:any
+}
 
 @Directive({
   selector:'ack-array'
 }) export class AckArray {
+  inited:boolean
+  pushed:any = {}
   
   @Input() idKey
   
   @Input() ref
   @Output() refChange = new EventEmitter()
   
-  //convenient memory for current page, may not be needed
-  //@Input() page:number = 0
-  //@Output() pageChange:EventEmitter<number> = new EventEmitter()
-
   @Input() pageAt:number = 0
-  @Input() pages = []
+  @Input() pages:any[]
   @Output() pagesChange = new EventEmitter()
 
   @Input() array:any[]
@@ -24,44 +31,107 @@ import { EventEmitter, Output, Input, Directive } from '@angular/core'
   @Input() keyMap:any = {}
   @Output() keyMapChange = new EventEmitter()
 
+  loopStart:EventEmitter<void> = new EventEmitter()
+  loopEach:EventEmitter<loop> = new EventEmitter()
+  loopEnd:EventEmitter<void> = new EventEmitter()
+
+  @ContentChildren(AckAggregate) AckAggregates:AckAggregate[]
+
   ngOnInit(){
     setTimeout(()=>{
-      this.pages = this.pages || []
-      this.createPages()
-      this.buildMap()
       this.refChange.emit(this)
     }, 0)
+
+    if( this.keyMapChange.observers.length ){
+      this.pushCreateMap()
+    }
+  }
+
+  ngAfterViewInit(){   
+    if( this.AckAggregates ){
+      this.pushAggregates( this.AckAggregates )
+      this.loop()
+    }
+
+    this.inited = true
   }
 
   ngOnChanges(changes){
-    if(this.pages && (changes.pageAt || changes.array)){
-      if(changes.array)setTimeout(()=>this.buildMap(), 0)
-      setTimeout(()=>this.createPages(), 0)
-    }
-  }
+    let loop = false
 
-  buildMap(){
-    if(!this.keyMapChange.observers.length || !this.array){
-      return this.keyMapChange.emit(this.keyMap={})
+    if( changes.pageAt || changes.array ){
+      this.pushCreatePages()
+      loop = true
     }
-
-    this.keyMap={}
-    for(let x=this.array.length-1; x >= 0; --x){
-      let key = this.getItemId(this.array[x])
-      this.keyMap[ key ] = this.array[x]
-    }
-    this.keyMapChange.emit(this.keyMap)
-  }
     
-  only(item){
-    this.array.length = 0
-    this.array.push(item)
-    this.arrayChange.emit(this.array)
-    this.buildMap()
+    if( this.inited && loop ){
+      this.loop()
+    }
   }
 
-  createPages(){
-    this.pages.length = 0
+  pushAggregates( aggs:AckAggregate[] ){
+    aggs.forEach(agg=>{
+      let memory
+      switch( agg.type ){
+        //default is to sum
+        default:{
+          this.loopStart.subscribe( ()=>memory=0 )
+
+          this.loopEach.subscribe(loop=>{
+            const value = this.getItemValueByKeys(loop.item, agg.keys)
+            if( value ){
+              memory = memory + value
+            }
+          })
+
+          this.loopEnd.subscribe(()=>{
+            agg.output = memory
+            agg.outputChange.emit( memory )
+          })
+        }
+      }
+    })
+  }
+
+  getItemValueByKeys(item, keys:string[]){
+    for(let  x=0;  x < keys.length; ++ x){
+      let keyName = keys[x]
+      item = item[keyName]
+      if( item==null )return null
+    }
+    return item
+  }
+
+  loop(){
+    this.loopStart.emit()
+
+    const last = this.array.length
+    for(let x=0; x < last; ++x){
+      this.loopEach.emit({index:x, item:this.array[x]})
+    }
+    
+    this.loopEnd.emit()
+  }
+
+  pushCreateMap(){
+    if( this.pushed.createMap )return
+
+    this.pushed.createMap = true
+    
+    this.loopStart.subscribe(()=>this.keyMap={})
+    
+    this.loopEach.subscribe(ob=>{
+      let key = this.getItemId( ob.item )
+      this.keyMap[ key ] = ob.item
+    })
+    
+    this.loopEnd.subscribe(()=>this.keyMapChange.emit(this.keyMap))    
+  }
+
+  pushCreatePages(){
+    if( this.pushed.createPages )return
+
+    this.pushed.createPages = true
 
     if(!this.array || !this.array.length){
       this.pages[0] = this.array
@@ -70,18 +140,37 @@ import { EventEmitter, Output, Input, Directive } from '@angular/core'
     }
 
     let pos = 0
-    const last = this.array.length
-    this.pages.push([])
-    for(let x=0; x < last; ++x){
-      this.pages[pos].push( this.array[x] )
+    let last = this.array.length
 
-      if( this.pages[pos].length==this.pageAt && x<last-1 ){
+    this.loopStart.subscribe(()=>{
+      pos = 0
+      last = this.array.length
+      this.pages = this.pages || []
+      this.pages.length = 0//dont break binding if pages remembered
+      this.pages.push([])
+    })
+    
+
+    this.loopEach.subscribe(ob=>{
+      this.pages[pos].push( ob.item )
+
+      if( this.pages[pos].length==this.pageAt && ob.index<last-1 ){
         this.pages.push([])
         ++pos
       }
-    }
+    })
 
-    this.pagesChange.emit(this.pages)
+    this.loopEnd.subscribe(()=>{
+      this.pagesChange.emit(this.pages)
+    })
+  }
+
+  //reduce array down to one item
+  only(item){
+    this.array.length = 0
+    this.array.push(item)
+    this.arrayChange.emit(this.array)
+    this.loop()
   }
 
   //looks up id or the item itself is an ID
@@ -127,8 +216,7 @@ import { EventEmitter, Output, Input, Directive } from '@angular/core'
 
   push(item){
     this.param().push(item)
-    this.createPages()
-    this.buildMap()
+    this.loop()
     return this
   }
 
@@ -139,8 +227,7 @@ import { EventEmitter, Output, Input, Directive } from '@angular/core'
 
   splice(x:number, y=1){
     this.param().splice(x,y)
-    this.createPages()
-    this.buildMap()
+    this.loop()
     return this
   }
 

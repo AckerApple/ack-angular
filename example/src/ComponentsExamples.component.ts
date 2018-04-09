@@ -3,8 +3,13 @@ import { PageScrollService, PageScrollInstance } from 'ng2-page-scroll'
 import { Component } from '@angular/core';
 import { fxArray } from 'ack-angular-fx'
 import { array as arrayOfObjects } from './arrayOfObjects'
-
 import {string as componentsExamples} from './templates/components-examples.pug'
+
+export interface selected{
+  letter:string
+  number:number
+}
+
 @Component({
   selector: 'components-examples'
   ,template: componentsExamples
@@ -38,7 +43,12 @@ import {string as componentsExamples} from './templates/components-examples.pug'
   ackOptionArrayModal = [{key:'b'}]
   pageAt = 2
   arrayOfObjects = arrayOfObjects
-  selectedArray=[{letter:'c'}]
+  selectedArray:selected[] = [
+    arrayOfObjects[2],
+    arrayOfObjects[4],
+    arrayOfObjects[6],
+    arrayOfObjects[8] 
+  ]
   absoluteOverflowXActive = true//control the absolute-overflow-x example
 
   constructor(public PageScrollService:PageScrollService){}

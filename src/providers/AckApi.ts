@@ -37,11 +37,11 @@ export interface apiConfig{
 }
 
 export function TimeOutError(message){
-  Error["captureStackTrace"](this, this.constructor);
-  this.name = this.constructor.name;
-  this.status = 504;
-  this.code = "gateway_timeout";
-  this.message = message || "The server did not respond in a timely manner";
+  Error["captureStackTrace"](this, this.constructor)
+  this.name = this.constructor.name
+  this.status = 504
+  this.code = "gateway_timeout"
+  this.message = message || "Could not connect to server or server did not respond in a timely manner. Please check internet connection and then try again."
 }
 TimeOutError.prototype = Object.create(Error.prototype)
 
