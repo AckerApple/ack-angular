@@ -124,7 +124,12 @@ var ComponentsExamples = (function () {
         this.ackOptionArrayModal = [{ key: 'b' }];
         this.pageAt = 2;
         this.arrayOfObjects = arrayOfObjects_1.array;
-        this.selectedArray = [{ letter: 'c' }];
+        this.selectedArray = [
+            arrayOfObjects_1.array[2],
+            arrayOfObjects_1.array[4],
+            arrayOfObjects_1.array[6],
+            arrayOfObjects_1.array[8]
+        ];
         this.absoluteOverflowXActive = true; //control the absolute-overflow-x example
     }
     ComponentsExamples.prototype.causeError = function () {
@@ -644,23 +649,23 @@ console.log('Ng Define Time', Date.now() - window['strapTime'] + 'ms', '@', func
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.array = [{
-        letter: 'a'
+        letter: 'a', number: 1
     }, {
-        letter: 'b'
+        letter: 'b', number: 2
     }, {
-        letter: 'c'
+        letter: 'c', number: 3
     }, {
-        letter: 'd'
+        letter: 'd', number: 4
     }, {
-        letter: 'e'
+        letter: 'e', number: 5
     }, {
-        letter: 'f'
+        letter: 'f', number: 6
     }, {
-        letter: 'g'
+        letter: 'g', number: 7
     }, {
-        letter: 'h'
+        letter: 'h', number: 8
     }, {
-        letter: 'i'
+        letter: 'i', number: 9
     }];
 
 
@@ -835,7 +840,8 @@ exports.string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"pad-h\"
     "\n@NgModule(&#123;" +
     "\n  declarations:ackDecs" +
     "\n&#125;)" +
-    "\n</pre></div><br/><h4 class=\"margin-bottom-0\">Table of Contents</h4><ul><li><a href=\"#Tags\" pageScroll=\"pageScroll\">Tags</a></li><li><a href=\"#ExpressionBinds\" pageScroll=\"pageScroll\">Expression Binds</a></li><li><a href=\"#OneWayBinds\" pageScroll=\"pageScroll\">One Way Binds</a></li><li><a href=\"#TwoWayBinds\" pageScroll=\"pageScroll\">Two Way Binds</a></li><li><a href=\"#LayoutComponents\" pageScroll=\"pageScroll\">Layout Components</a></li><li><a href=\"#ComplexComponents\" pageScroll=\"pageScroll\">Complex Components</a></li></ul><br/><h3 class=\"margin-bottom-0\" id=\"Tags\">Tags</h3><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1\" [class.width-full]=\"views.ackFixedElmStage\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>ack-fixed-element-stage</h3><div class=\"text-grey-2x max-width-400\">Required to use such components as &lt;ack-model&gt;, &lt;ack-options-modal&gt;, and the Confirm provider</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackFixedElmStage=!views.ackFixedElmStage\" [ngClass]=\"views.ackFixedElmStage?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackFixedElmStage\" [@fadeInUp]=\"1\"><div class=\"pad\">Use ONLY ONE time. This is a display control component for other components. It has no natural display until position fixed elements, such as modals, need to be rendered to screen.</div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;!DOCTYPE html&gt;" +
+    "\n</pre></div><br/><h4 class=\"margin-bottom-0\">Table of Contents</h4><ul><li><a href=\"#Tags\" pageScroll=\"pageScroll\">Tags</a></li><li><a href=\"#ExpressionBinds\" pageScroll=\"pageScroll\">Expression Binds</a></li><li><a href=\"#OneWayBinds\" pageScroll=\"pageScroll\">One Way Binds</a></li><li><a href=\"#TwoWayBinds\" pageScroll=\"pageScroll\">Two Way Binds</a></li><li><a href=\"#LayoutComponents\" pageScroll=\"pageScroll\">Layout Components</a></li><li><a href=\"#ComplexComponents\" pageScroll=\"pageScroll\">Complex Components" +
+    "\n</a></li></ul><br/><h3 class=\"margin-bottom-0\" id=\"Tags\">Tags</h3><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1\" [class.width-full]=\"views.ackFixedElmStage\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>ack-fixed-element-stage</h3><div class=\"text-grey-2x max-width-400\">Required to use such components as &lt;ack-model&gt;, &lt;ack-options-modal&gt;, and the Confirm provider</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackFixedElmStage=!views.ackFixedElmStage\" [ngClass]=\"views.ackFixedElmStage?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackFixedElmStage\" [@fadeInUp]=\"1\"><div class=\"pad\">Use ONLY ONE time. This is a display control component for other components. It has no natural display until position fixed elements, such as modals, need to be rendered to screen.</div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;!DOCTYPE html&gt;" +
     "\n&lt;html lang=\"en\"&gt;" +
     "\n  &lt;head&gt;&lt;/head&gt;" +
     "\n  &lt;body&gt;" +
@@ -843,28 +849,35 @@ exports.string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"pad-h\"
     "\n  &lt;/body&gt;" +
     "\n&lt;/html&gt;" +
     "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>ack-close-icon</h3><div class=\"text-grey-2x max-width-400\">A super convenient html based close icon. No img refs. No style sheet refs<ack-close-icon></ack-close-icon></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackCloseIcon=!views.ackCloseIcon\" [ngClass]=\"views.ackCloseIcon?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackCloseIcon\" [@fadeInUp]=\"1\"><div class=\"pad\"><ack-close-icon (click)=\"views.ackCloseIcon=false\"></ack-close-icon></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-close-icon (click)=\"views.ackCloseIcon=false\"&gt;&lt;/ack-close-icon&gt;" +
-    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div (screenScroll)=\"screenScrollCount=screenScrollCount+1\"></div><div class=\"pad-h\"><h3>ack-array</h3><div class=\"text-grey-2x\">Common array functionality available at a template level</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackArray=!views.ackArray\" [ngClass]=\"views.ackArray?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackArray\" [@fadeInUp]=\"1\"><h4 class=\"pad-sm margin-0\">Bind Documentation</h4><ul><li>[(array)] - main array to stem functionality from</li><li>[idKey] - pointer to each array node id field</li><li>([ref]) - pointer to AckArray class</li><li>[pageAt] - what number to break array into page buckets</li><li>([pages]) - buckets of arrays based on pageAt</li></ul><h4 class=\"pad-sm margin-0\">API Documentation</h4><ul><li>toggle(item) - adds or removes item based on existence</li><li>push(item) - param and append item to array</li><li>unshift(item) - param and prepend item to array</li><li>splice(item) - remove item by index from array</li><li>param() - ensure array exists</li><li>only(item) - reduce array down to only item argument</li></ul><div class=\"pad-sm\"><h4 class=\"margin-0\">Usage Example: Toggle Items</h4><div class=\"text-grey-2x\">Take an arbitrary array (arrayOfObjects in demo) and allow a system of toggling selections</div></div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-array [(ref)]=\"Array\" [(array)]=\"selectedArray\" idKey=\"letter\"&gt;&lt;/ack-array&gt;" +
+    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div (screenScroll)=\"screenScrollCount=screenScrollCount+1\"></div><div class=\"pad-h\"><h3>ack-array</h3><div class=\"text-grey-2x\">Common array functionality available at a template level</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackArray=!views.ackArray\" [ngClass]=\"views.ackArray?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackArray\" [@fadeInUp]=\"1\"><ack-array [(ref)]=\"Array\" [(array)]=\"selectedArray\" idKey=\"letter\" [(pageAt)]=\"pageAt\" [(pages)]=\"arrayPages\" [(keyMap)]=\"arrayMap\"><ack-aggregate type=\"sum\" [keys]=\"['number']\" [(output)]=\"sumNumber\"></ack-aggregate></ack-array><h4 class=\"pad-sm margin-0\">Bind Documentation</h4><ul><li>[(array)] - main array to stem functionality from</li><li>[idKey] - pointer to each array node id field</li><li>([ref]) - pointer to AckArray class</li><li>[pageAt] - what number to break array into page buckets</li><li>([pages]) - buckets of arrays based on pageAt</li></ul><h4 class=\"pad-sm margin-0\">API Documentation</h4><ul><li>toggle(item) - adds or removes item based on existence</li><li>push(item) - param and append item to array</li><li>unshift(item) - param and prepend item to array</li><li>splice(item) - remove item by index from array</li><li>param() - ensure array exists</li><li>only(item) - reduce array down to only item argument</li></ul><div class=\"pad-sm\"><h4 class=\"margin-0\">Usage Example: Toggle Items</h4><div class=\"text-grey-2x\">Take an arbitrary array (arrayOfObjects in demo) and allow a system of toggling selections</div></div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-array [(ref)]=\"Array\" [(array)]=\"selectedArray\" idKey=\"letter\"&gt;&lt;/ack-array&gt;" +
     "\n&lt;ng-container *ngIf=\"Array&gt;" +
     "\n  &lt;div *ngFor=\"let item of arrayOfObjects\"&gt;" +
     "\n    &lt;input type=\"checkbox\" [checked]=\"Array.selected(item)\" (click)=\"Array.toggle(item)\" /&gt;" +
     "\n    &nbsp;&nbsp;{{ item | json }}" +
     "\n  &lt;/div&gt;" +
     "\n&lt;/ng-container&gt;" +
-    "\n</pre><div class=\"pad-sm\"><h4 class=\"margin-0\">Usage Example: Map Items</h4><div class=\"text-grey-2x\">Take an arbitrary array and create an object map</div></div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-array [(ref)]=\"Array\" [(array)]=\"selectedArray\" idKey=\"letter\" \"[(keyMap)]\"=\"objectOfArrays\"&gt;&lt;/ack-array&gt;" +
+    "\n</pre></absolute-overflow-x><h5 class=\"pad-sm margin-0\">Example Array Adjusters</h5><div class=\"pad-left text-grey-2x\">Use the checkboxes below to alter the original array</div><div class=\"flex-wrap child-margin-xs\"><div *ngFor=\"let item of arrayOfObjects;let i=index\"><input type=\"checkbox\" [checked]=\"Array?.selected(item)\" (click)=\"Array.toggle(item)\" name=\"ackArray\" id=\"ackArray{{i}}\"/>&nbsp;{{ item | json }}</div></div><h5 class=\"pad-sm margin-0\">Example Selected Array</h5><absolute-overflow-x><pre class=\"code-sample margin-0\">{{ selectedArray | json }}" +
+    "\n</pre></absolute-overflow-x><div class=\"pad-sm\"><h4 class=\"margin-0\">Usage Example: Map Items</h4><div class=\"text-grey-2x\">Take an arbitrary array and create an object map</div></div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-array" +
+    "\n  [(array)]  = \"selectedArray\"" +
+    "\n  idKey      = \"letter\"" +
+    "\n  [(keyMap)] = \"objectOfArrays\"&gt;" +
+    "\n&lt;/ack-array&gt;" +
     "\n&lt;pre&gt;" +
     "\n  {{ objectOfArrays | json}}" +
     "\n&lt;/pre&gt;" +
-    "\n</pre></absolute-overflow-x></absolute-overflow-x><div class=\"pad-sm\"><h4 class=\"margin-0\">Usage Example: Pages of Array</h4><div class=\"text-grey-2x\">Break array into buckets of results</div></div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-array [(ref)]=\"Array\" [(array)]=\"largeArray\" pageAt=\"20\"&gt;&lt;/ack-array&gt;" +
-    "\n&lt;ng-container *ngIf=\"Array&gt;" +
-    "\n  Total Pages : {{ Array.pages.length }}" +
-    "\n  &lt;div *ngFor=\"let page of Array.pages;let page=index\"&gt;" +
-    "\n    Page {{page}} = {{ item | json }}" +
-    "\n  &lt;/div&gt;" +
-    "\n&lt;/ng-container&gt;" +
-    "\n</pre></absolute-overflow-x><div class=\"pad-sm\"><h4 class=\"margin-0\">Demo Example</h4><div class=\"text-grey-2x\">A full featured example using a combination of techiniques</div></div><ack-array [(ref)]=\"Array\" [(array)]=\"selectedArray\" idKey=\"letter\" [(pageAt)]=\"pageAt\" [(pages)]=\"arrayPages\" [(keyMap)]=\"arrayMap\"></ack-array><h5 class=\"pad-sm margin-0\">Example Array Adjusters</h5><div class=\"flex-wrap child-margin-xs\"><div *ngFor=\"let item of arrayOfObjects;let i=index\"><input type=\"checkbox\" [checked]=\"Array?.selected(item)\" (click)=\"Array.toggle(item)\" name=\"ackArray\" id=\"ackArray{{i}}\"/>&nbsp;{{ item | json }}</div><div>pageAt:<select [(ngModel)]=\"pageAt\"><option *ngFor=\"let page of [0,1,2,4,6,8]\" [value]=\"page\">{{page}}</option></select></div></div><h5 class=\"pad-sm margin-0\">Example Selected Array</h5><absolute-overflow-x><pre class=\"code-sample margin-0\">{{ selectedArray | json }}" +
     "\n</pre></absolute-overflow-x><h5 class=\"pad-sm margin-0\">Example Selected Map</h5><absolute-overflow-x><pre class=\"code-sample margin-0\">{{ arrayMap | json }}" +
-    "\n</pre></absolute-overflow-x><div class=\"flex-wrap\"><absolute-overflow-x class=\"flex-1\" *ngFor=\"let page of arrayPages;let x=index\"><h5 class=\"margin-0\">Example Array.pages[{{ x+1 }}]</h5><pre class=\"code-sample margin-0\">{{ page | json }}" +
-    "\n</pre></absolute-overflow-x></div></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>ack-options</h3><div class=\"text-grey-2x max-width-400\">Array of choosable options tied to a model</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackOptions=!views.ackOptions\" [ngClass]=\"views.ackOptions?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackOptions\" [@fadeInUp]=\"1\"><div class=\"pad-sm\"><h4 class=\"margin-0\">Demo</h4><p class=\"text-grey-3x text-sm\">Each item in list the below is selectable</p><div *ngIf=\"ackOptionString\" [@fadeInUp]=\"1\"><strong>Selected Option:</strong>&nbsp;{{ ackOptionString }}</div><ack-options [array]=\"['x','y','z']\" [(model)]=\"ackOptionString\" toggleable=\"1\"></ack-options><hr/><strong>Multiple Example</strong><div *ngIf=\"ackOptionArray?.length\" [@fadeInUp]=\"1\"><div><strong>Selected Options:</strong></div><absolute-overflow-x><pre class=\"code-sample\">{{ ackOptionArray | json }}</pre></absolute-overflow-x></div><ack-options [array]=\"[{name:'x'},{name:'y'},{name:'z'}]\" [(model)]=\"ackOptionArray\" multiple=\"1\"><ng-template #option=\"\" let-item=\"item\"><div>&bull; name:{{ item.name }}</div></ng-template><ng-template #selected=\"\" let-item=\"item\"><div class=\"bold\">&bull; name:{{ item.name }}</div></ng-template></ack-options></div><h4 class=\"pad-sm margin-0\">Properties</h4><ul><li>[array]</li><li>[stylize]:boolean = true</li><li>[multiple]:boolean</li><li>[modelAsArray]:boolean</li><li>[max]:number</li><li>[toggleable]:boolean</li></ul><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div *ngIf=\"ackOptionString\"&gt;" +
+    "\n</pre></absolute-overflow-x><div class=\"pad-sm\"><h4 class=\"margin-0\">Usage Example: Pages of Array</h4><div class=\"text-grey-2x\">Break array into buckets of results</div></div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-array [(array)]=\"largeArray\" [(pages)]=\"pages\" pageAt=\"20\"&gt;&lt;/ack-array&gt;" +
+    "\nTotal Pages : {{ pages?.length }}" +
+    "\n&lt;div *ngFor=\"let page of pages;let page=index\"&gt;" +
+    "\n  Page {{ page }} = {{ item | json }}" +
+    "\n&lt;/div&gt;" +
+    "\n</pre></absolute-overflow-x><div class=\"text-center bg-grey-4x pad-xxs margin-xxs\"><strong>pageAt:</strong><select [(ngModel)]=\"pageAt\"><option *ngFor=\"let page of [0,1,2,4,6,8]\" [value]=\"page\">{{page}}</option></select></div><div class=\"flex-wrap child-margin-xxs\"><absolute-overflow-x class=\"flex-1\" *ngFor=\"let page of arrayPages;let x=index\"><h5 class=\"margin-0\">Example pages[{{ x+1 }}]</h5><pre class=\"code-sample margin-0\">{{ page | json }}" +
+    "\n</pre></absolute-overflow-x></div><div class=\"pad-sm\"><h4 class=\"margin-0\">Usage Example: Aggregates</h4><div class=\"text-grey-2x\">Sum an array</div></div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-array [(array)]=\"[&#123;parentOb:&#123;childOb:&#123;value:33&#125;&#125;&#125;]\"&gt;" +
+    "\n  &lt;ack-aggregate type=\"sum\" [(output)]=\"sumAmount\" keys=\"['parentOb','childOb','value']\"&gt;&lt;/ack-aggregate&gt;" +
+    "\n&lt;/ack-array&gt;" +
+    "\n" +
+    "\nYour sum of &#123;&#123; sumAmount &#125;&#125; should be equal to 33</pre></absolute-overflow-x><div class=\"pad-xxs\">Your sum is {{ sumNumber }}" +
+    "\n</div></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>ack-options</h3><div class=\"text-grey-2x max-width-400\">Array of choosable options tied to a model</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackOptions=!views.ackOptions\" [ngClass]=\"views.ackOptions?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackOptions\" [@fadeInUp]=\"1\"><div class=\"pad-sm\"><h4 class=\"margin-0\">Demo</h4><p class=\"text-grey-3x text-sm\">Each item in list the below is selectable</p><div *ngIf=\"ackOptionString\" [@fadeInUp]=\"1\"><strong>Selected Option:</strong>&nbsp;{{ ackOptionString }}</div><ack-options [array]=\"['x','y','z']\" [(model)]=\"ackOptionString\" toggleable=\"1\"></ack-options><hr/><strong>Multiple Example</strong><div *ngIf=\"ackOptionArray?.length\" [@fadeInUp]=\"1\"><div><strong>Selected Options:</strong></div><absolute-overflow-x><pre class=\"code-sample\">{{ ackOptionArray | json }}</pre></absolute-overflow-x></div><ack-options [array]=\"[{name:'x'},{name:'y'},{name:'z'}]\" [(model)]=\"ackOptionArray\" multiple=\"1\"><ng-template #option=\"\" let-item=\"item\"><div>&bull; name:{{ item.name }}</div></ng-template><ng-template #selected=\"\" let-item=\"item\"><div class=\"bold\">&bull; name:{{ item.name }}</div></ng-template></ack-options></div><h4 class=\"pad-sm margin-0\">Properties</h4><ul><li>[array]</li><li>[stylize]:boolean = true</li><li>[multiple]:boolean</li><li>[modelAsArray]:boolean</li><li>[max]:number</li><li>[toggleable]:boolean</li></ul><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div *ngIf=\"ackOptionString\"&gt;" +
     "\n  &lt;strong&gt; Selected Option: &lt;/strong&gt;" +
     "\n  &#123;&#123; ackOptionString &#125;&#125;" +
     "\n&lt;/div&gt;" +
@@ -1635,7 +1648,55 @@ webpackContext.id = "./node_modules/moment/locale recursive ^\\.\\/.*$";
 /***/ "./package.json":
 /***/ (function(module, exports) {
 
-module.exports = {"name":"ack-angular","version":"1.5.3","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve --output-hashing=none --sourcemaps=true --app=example","build:js":"ng build --output-hashing=none --sourcemaps=true --app=example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng2","angular2","angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular/animations":"^5.2.8","@angular/cli":"^1.7.3","@angular/common":"^5.2.8","@angular/compiler":"^5.2.8","@angular/compiler-cli":"^5.2.8","@angular/core":"^5.2.8","@angular/forms":"^5.2.8","@angular/http":"^5.2.8","@angular/platform-browser":"^5.2.8","@angular/platform-browser-dynamic":"^5.2.8","@angular/router":"^5.2.8","@types/jasmine":"^2.8.6","ack-angular-fx":"^2.1.1","ack-css-boot":"^1.2.46","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.3.23","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.0","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^1.4.2","karma-jasmine":"^1.1.1","karma-jasmine-html-reporter":"^0.2.2","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.6.0","ng2-page-scroll":"^4.0.0-beta.12","npm-run-all":"^4.1.2","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^5.5.7","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.4.2","zone.js":"^0.8.20"},"private":true}
+module.exports = {"name":"ack-angular","version":"1.5.6","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve --port 4201 --output-hashing=none --sourcemaps=true --app=example","build:js":"ng build --output-hashing=none --sourcemaps=true --app=example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng2","angular2","angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular/animations":"^5.2.8","@angular/cli":"^1.7.3","@angular/common":"^5.2.8","@angular/compiler":"^5.2.8","@angular/compiler-cli":"^5.2.8","@angular/core":"^5.2.8","@angular/forms":"^5.2.8","@angular/http":"^5.2.8","@angular/platform-browser":"^5.2.8","@angular/platform-browser-dynamic":"^5.2.8","@angular/router":"^5.2.8","@types/jasmine":"^2.8.6","ack-angular-fx":"^2.1.1","ack-css-boot":"^1.2.47","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.3.23","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.0","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^1.4.2","karma-jasmine":"^1.1.1","karma-jasmine-html-reporter":"^0.2.2","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.6.0","ng2-page-scroll":"^4.0.0-beta.12","npm-run-all":"^4.1.2","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^5.5.7","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.4.2","zone.js":"^0.8.20"},"private":true}
+
+/***/ }),
+
+/***/ "./src/AckAggregate.directive.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var AckAggregate = (function () {
+    function AckAggregate() {
+        this.outputChange = new core_1.EventEmitter();
+    }
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], AckAggregate.prototype, "type", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Array)
+    ], AckAggregate.prototype, "keys", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], AckAggregate.prototype, "output", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckAggregate.prototype, "outputChange", void 0);
+    AckAggregate = __decorate([
+        core_1.Directive({
+            selector: 'ack-aggregate'
+        })
+    ], AckAggregate);
+    return AckAggregate;
+}());
+exports.AckAggregate = AckAggregate;
+
 
 /***/ }),
 
@@ -1655,56 +1716,103 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var AckAggregate_directive_1 = __webpack_require__("./src/AckAggregate.directive.ts");
 var AckArray = (function () {
     function AckArray() {
+        this.pushed = {};
         this.refChange = new core_1.EventEmitter();
-        //convenient memory for current page, may not be needed
-        //@Input() page:number = 0
-        //@Output() pageChange:EventEmitter<number> = new EventEmitter()
         this.pageAt = 0;
-        this.pages = [];
         this.pagesChange = new core_1.EventEmitter();
         this.arrayChange = new core_1.EventEmitter();
         //an system of creating an object by keys of array nodes
         this.keyMap = {};
         this.keyMapChange = new core_1.EventEmitter();
+        this.loopStart = new core_1.EventEmitter();
+        this.loopEach = new core_1.EventEmitter();
+        this.loopEnd = new core_1.EventEmitter();
     }
     AckArray.prototype.ngOnInit = function () {
         var _this = this;
         setTimeout(function () {
-            _this.pages = _this.pages || [];
-            _this.createPages();
-            _this.buildMap();
             _this.refChange.emit(_this);
         }, 0);
+        if (this.keyMapChange.observers.length) {
+            this.pushCreateMap();
+        }
+    };
+    AckArray.prototype.ngAfterViewInit = function () {
+        if (this.AckAggregates) {
+            this.pushAggregates(this.AckAggregates);
+            this.loop();
+        }
+        this.inited = true;
     };
     AckArray.prototype.ngOnChanges = function (changes) {
+        var loop = false;
+        if (changes.pageAt || changes.array) {
+            this.pushCreatePages();
+            loop = true;
+        }
+        if (this.inited && loop) {
+            this.loop();
+        }
+    };
+    AckArray.prototype.pushAggregates = function (aggs) {
         var _this = this;
-        if (this.pages && (changes.pageAt || changes.array)) {
-            if (changes.array)
-                setTimeout(function () { return _this.buildMap(); }, 0);
-            setTimeout(function () { return _this.createPages(); }, 0);
-        }
+        aggs.forEach(function (agg) {
+            var memory;
+            switch (agg.type) {
+                //default is to sum
+                default: {
+                    _this.loopStart.subscribe(function () { return memory = 0; });
+                    _this.loopEach.subscribe(function (loop) {
+                        var value = _this.getItemValueByKeys(loop.item, agg.keys);
+                        if (value) {
+                            memory = memory + value;
+                        }
+                    });
+                    _this.loopEnd.subscribe(function () {
+                        agg.output = memory;
+                        agg.outputChange.emit(memory);
+                    });
+                }
+            }
+        });
     };
-    AckArray.prototype.buildMap = function () {
-        if (!this.keyMapChange.observers.length || !this.array) {
-            return this.keyMapChange.emit(this.keyMap = {});
+    AckArray.prototype.getItemValueByKeys = function (item, keys) {
+        for (var x = 0; x < keys.length; ++x) {
+            var keyName = keys[x];
+            item = item[keyName];
+            if (item == null)
+                return null;
         }
-        this.keyMap = {};
-        for (var x = this.array.length - 1; x >= 0; --x) {
-            var key = this.getItemId(this.array[x]);
-            this.keyMap[key] = this.array[x];
+        return item;
+    };
+    AckArray.prototype.loop = function () {
+        this.loopStart.emit();
+        var last = this.array.length;
+        for (var x = 0; x < last; ++x) {
+            this.loopEach.emit({ index: x, item: this.array[x] });
         }
-        this.keyMapChange.emit(this.keyMap);
+        this.loopEnd.emit();
     };
-    AckArray.prototype.only = function (item) {
-        this.array.length = 0;
-        this.array.push(item);
-        this.arrayChange.emit(this.array);
-        this.buildMap();
+    AckArray.prototype.pushCreateMap = function () {
+        var _this = this;
+        if (this.pushed.createMap)
+            return;
+        this.pushed.createMap = true;
+        this.loopStart.subscribe(function () { return _this.keyMap = {}; });
+        this.loopEach.subscribe(function (ob) {
+            var key = _this.getItemId(ob.item);
+            _this.keyMap[key] = ob.item;
+        });
+        this.loopEnd.subscribe(function () { return _this.keyMapChange.emit(_this.keyMap); });
     };
-    AckArray.prototype.createPages = function () {
-        this.pages.length = 0;
+    AckArray.prototype.pushCreatePages = function () {
+        var _this = this;
+        if (this.pushed.createPages)
+            return;
+        this.pushed.createPages = true;
         if (!this.array || !this.array.length) {
             this.pages[0] = this.array;
             this.pagesChange.emit(this.pages);
@@ -1712,15 +1820,30 @@ var AckArray = (function () {
         }
         var pos = 0;
         var last = this.array.length;
-        this.pages.push([]);
-        for (var x = 0; x < last; ++x) {
-            this.pages[pos].push(this.array[x]);
-            if (this.pages[pos].length == this.pageAt && x < last - 1) {
-                this.pages.push([]);
+        this.loopStart.subscribe(function () {
+            pos = 0;
+            last = _this.array.length;
+            _this.pages = _this.pages || [];
+            _this.pages.length = 0; //dont break binding if pages remembered
+            _this.pages.push([]);
+        });
+        this.loopEach.subscribe(function (ob) {
+            _this.pages[pos].push(ob.item);
+            if (_this.pages[pos].length == _this.pageAt && ob.index < last - 1) {
+                _this.pages.push([]);
                 ++pos;
             }
-        }
-        this.pagesChange.emit(this.pages);
+        });
+        this.loopEnd.subscribe(function () {
+            _this.pagesChange.emit(_this.pages);
+        });
+    };
+    //reduce array down to one item
+    AckArray.prototype.only = function (item) {
+        this.array.length = 0;
+        this.array.push(item);
+        this.arrayChange.emit(this.array);
+        this.loop();
     };
     //looks up id or the item itself is an ID
     AckArray.prototype.getItemId = function (item, itemIndexName) {
@@ -1756,8 +1879,7 @@ var AckArray = (function () {
     };
     AckArray.prototype.push = function (item) {
         this.param().push(item);
-        this.createPages();
-        this.buildMap();
+        this.loop();
         return this;
     };
     AckArray.prototype.unshift = function (item) {
@@ -1767,8 +1889,7 @@ var AckArray = (function () {
     AckArray.prototype.splice = function (x, y) {
         if (y === void 0) { y = 1; }
         this.param().splice(x, y);
-        this.createPages();
-        this.buildMap();
+        this.loop();
         return this;
     };
     AckArray.prototype.param = function () {
@@ -1794,7 +1915,7 @@ var AckArray = (function () {
     ], AckArray.prototype, "pageAt", void 0);
     __decorate([
         core_1.Input(),
-        __metadata("design:type", Object)
+        __metadata("design:type", Array)
     ], AckArray.prototype, "pages", void 0);
     __decorate([
         core_1.Output(),
@@ -1816,6 +1937,10 @@ var AckArray = (function () {
         core_1.Output(),
         __metadata("design:type", Object)
     ], AckArray.prototype, "keyMapChange", void 0);
+    __decorate([
+        core_1.ContentChildren(AckAggregate_directive_1.AckAggregate),
+        __metadata("design:type", Array)
+    ], AckArray.prototype, "AckAggregates", void 0);
     AckArray = __decorate([
         core_1.Directive({
             selector: 'ack-array'
@@ -2450,7 +2575,11 @@ var AckModal = (function () {
         this.AckApp.unregisterModal(this);
     };
     __decorate([
-        core_1.ViewChild(core_1.TemplateRef),
+        core_1.ContentChild('body'),
+        __metadata("design:type", core_1.TemplateRef)
+    ], AckModal.prototype, "body", void 0);
+    __decorate([
+        core_1.ViewChild('placeholder'),
         __metadata("design:type", core_1.ElementRef
         //one way binds
         )
@@ -3101,7 +3230,7 @@ exports.string = "<div [(elementHeightModel)]=\"elementHeightModel\" [ngClass]=\
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.string = "<ng-container *ngFor=\"let prompt of AckApp.prompts.prompts;let i=index\"><ack-modal-layout [allowClose]=\"0\"><div style=\"text-align:left;max-width:900px;border:1px solid #DDD;border-radius:5px;margin:1em;padding:1em;background-color:white;\"><h3 *ngIf=\"prompt.title\" style=\"margin-top:0;\">{{ prompt.title }}</h3><div style=\"padding-right:1em;\">{{ prompt.message }}</div><br/><br/><div style=\"text-align:right;\"><a *ngIf=\"prompt.type=='confirm'\" (click)=\"prompt.emitter.emit(false)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;margin-right:.5em;\">Cancel</a><a (click)=\"prompt.emitter.emit(true)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;\" [ngStyle]=\"{'font-weight':prompt.type=='confirm' ? 'bold' : null}\">OK</a></div></div></ack-modal-layout></ng-container><ng-container *ngFor=\"let modal of AckApp.modals;let i=index\"><ng-template [ngTemplateOutlet]=\"modal.layout\"></ng-template></ng-container>";
+exports.string = "<ng-container *ngFor=\"let prompt of AckApp.prompts.prompts;let i=index\"><ack-modal-layout [allowClose]=\"0\"><div style=\"text-align:left;max-width:900px;border:1px solid #DDD;border-radius:5px;margin:1em;padding:1em;background-color:white;\"><h3 *ngIf=\"prompt.title\" style=\"margin-top:0;\">{{ prompt.title }}</h3><div style=\"padding-right:1em;\">{{ prompt.message }}</div><br/><br/><div style=\"text-align:right;\"><a *ngIf=\"prompt.type=='confirm'\" (click)=\"prompt.emitter.emit(false)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;margin-right:.5em;\">Cancel</a><a (click)=\"prompt.emitter.emit(true)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;\" [ngStyle]=\"{'font-weight':prompt.type=='confirm' ? 'bold' : null}\">OK</a></div></div></ack-modal-layout></ng-container><ng-container *ngFor=\"let modal of AckApp.modals;let i=index\"><ng-container *ngIf=\"!modal.isModelMode || modal.showModel\"><ng-template [ngTemplateOutlet]=\"modal.layout\"></ng-template></ng-container></ng-container>";
 
 
 /***/ }),
@@ -3123,7 +3252,7 @@ exports.string = "<div *ngIf=\"showModel || !isModelMode\" [@fadeInUp]=\"1\" sty
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.string = "<ng-template><ack-modal-layout (close)=\"close.emit($event)\" [isModelMode]=\"isModelMode==null ? showModelChange.observers.length : isModelMode\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit(showModel=$event)\" [backgroundColor]=\"backgroundColor\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [allowClose]=\"allowClose\"><ng-content></ng-content></ack-modal-layout></ng-template><ng-template *ngIf=\"!AckApp.fixedElementStage || inline\" [ngTemplateOutlet]=\"layout\"></ng-template>";
+exports.string = "<ng-template #placeholder=\"\"><ack-modal-layout (close)=\"close.emit($event)\" [isModelMode]=\"isModelMode==null ? showModelChange.observers.length : isModelMode\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit(showModel=$event)\" [backgroundColor]=\"backgroundColor\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [allowClose]=\"allowClose\"><ng-template [ngTemplateOutlet]=\"body\"></ng-template><ng-content *ngIf=\"!body\"></ng-content></ack-modal-layout></ng-template><ng-template *ngIf=\"!AckApp.fixedElementStage || inline\" [ngTemplateOutlet]=\"layout\"></ng-template>";
 
 
 /***/ }),
@@ -3193,6 +3322,7 @@ var AckModal_component_1 = __webpack_require__("./src/components/AckModal.compon
 var AckModalLayout_component_1 = __webpack_require__("./src/components/AckModalLayout.component.ts");
 var AckCloseIcon_component_1 = __webpack_require__("./src/components/AckCloseIcon.component.ts");
 var AckArray_directive_1 = __webpack_require__("./src/AckArray.directive.ts");
+var AckAggregate_directive_1 = __webpack_require__("./src/AckAggregate.directive.ts");
 var AckOptions_component_1 = __webpack_require__("./src/components/AckOptions.component.ts");
 var AckOptionsModal_component_1 = __webpack_require__("./src/components/AckOptionsModal.component.ts");
 var AbsoluteOverflowX_component_1 = __webpack_require__("./src/components/AbsoluteOverflowX.component.ts");
@@ -3441,6 +3571,7 @@ exports.declarations = [
     AckModal_component_1.AckModal,
     AckModalLayout_component_1.AckModalLayout,
     AckArray_directive_1.AckArray,
+    AckAggregate_directive_1.AckAggregate,
     AckFixedElementStage_component_1.AckFixedElementStage
 ];
 
@@ -5182,7 +5313,7 @@ function TimeOutError(message) {
     this.name = this.constructor.name;
     this.status = 504;
     this.code = "gateway_timeout";
-    this.message = message || "The server did not respond in a timely manner";
+    this.message = message || "Could not connect to server or server did not respond in a timely manner. Please check internet connection and then try again.";
 }
 exports.TimeOutError = TimeOutError;
 TimeOutError.prototype = Object.create(Error.prototype);
