@@ -17,7 +17,7 @@ function numberToPhone(val) {
 }
 exports.numberToPhone = numberToPhone;
 function toNumber(val) {
-    return Number(val);
+    return Number(numbers(val, "."));
 }
 exports.toNumber = toNumber;
 function numberSuffix(val, rtnVal) {
@@ -103,8 +103,17 @@ function bit(input) {
     return boolean(input) ? 1 : 0;
 }
 exports.bit = bit;
-function numbers(input) {
-    return input ? String(input).replace(/[^0-9]/g, '') : input;
+function numbers(input, safeChars) {
+    var xString = '[^0-9';
+    if (safeChars) {
+        if (safeChars.length > 4) {
+            safeChars = safeChars.substring(0, 4);
+        }
+        xString += safeChars;
+    }
+    xString += ']';
+    var regX = new RegExp(xString, 'g');
+    return input ? String(input).replace(regX, '') : input;
 }
 exports.numbers = numbers;
 function capitalizeWords(input) {

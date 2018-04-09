@@ -10,7 +10,7 @@ export declare function yesno(input: any): any;
 export declare function yesNo(input: any): any;
 export declare function boolean(input: any): boolean;
 export declare function bit(input: any): 0 | 1;
-export declare function numbers(input: any): any;
+export declare function numbers(input: any, safeChars?: string): any;
 export declare function capitalizeWords(input: any): any;
 export declare function capitalize(input: any): any;
 export declare function capitalizeAfterSentence(input: any): any;
@@ -25,7 +25,7 @@ export declare const pipes: {
     textDownload: (input: any) => any;
     yesno: (input: any) => any;
     yesNo: (input: any) => any;
-    numbers: (input: any) => any;
+    numbers: (input: any, safeChars?: string) => any;
     capitalizeWords: (input: any) => any;
     capitalize: (input: any) => any;
     capitalizeAfterSentence: (input: any) => any;

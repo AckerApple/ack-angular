@@ -16,7 +16,7 @@ export function numberToPhone(val){
 }
 
 export function toNumber(val){
-    return Number(val)
+    return Number( numbers(val, ".") )
 }
 
 export function numberSuffix(val, rtnVal=false){
@@ -105,8 +105,24 @@ export function bit(input:any){
   return boolean(input) ? 1 : 0;
 }
 
-export function numbers(input:any){
-  return input ? String(input).replace(/[^0-9]/g,'') : input
+export function numbers(
+  input:any,
+  safeChars?:string//upto 4 acceptable characters
+){
+  let xString = '[^0-9'
+  
+  if( safeChars ){
+    if( safeChars.length>4 ){
+      safeChars = safeChars.substring(0, 4)//do not allow safeChars to create a maliscous regx
+    }
+
+    xString += safeChars
+  }
+
+  xString += ']'
+  const regX = new RegExp(xString, 'g')
+  
+  return input ? String(input).replace(regX,'') : input
 }
 
 export function capitalizeWords(input:any){
