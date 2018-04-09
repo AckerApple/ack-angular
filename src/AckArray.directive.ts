@@ -50,22 +50,22 @@ export interface loop{
   ngAfterViewInit(){   
     if( this.AckAggregates ){
       this.pushAggregates( this.AckAggregates )
-      this.loop()
     }
 
     this.inited = true
+    setTimeout(()=>this.loop(), 0)
   }
 
   ngOnChanges(changes){
-    let loop = false
+    let loop = changes.array ? true : false
 
-    if( changes.pageAt || changes.array ){
+    if( changes.pageAt ){
       this.pushCreatePages()
       loop = true
     }
     
     if( this.inited && loop ){
-      this.loop()
+      setTimeout(()=>this.loop(), 0)
     }
   }
 
@@ -133,12 +133,6 @@ export interface loop{
 
     this.pushed.createPages = true
 
-    if(!this.array || !this.array.length){
-      this.pages[0] = this.array
-      this.pagesChange.emit(this.pages)
-      return
-    }
-
     let pos = 0
     let last = this.array.length
 
@@ -161,7 +155,7 @@ export interface loop{
     })
 
     this.loopEnd.subscribe(()=>{
-      this.pagesChange.emit(this.pages)
+      this.pagesChange.emit( this.pages )
     })
   }
 
