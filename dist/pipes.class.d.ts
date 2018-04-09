@@ -1,5 +1,6 @@
 export declare function between(input: any, a: any, b: any): boolean;
 export declare function numberToPhone(val: any): any;
+export declare function toNumber(val: any): number;
 export declare function numberSuffix(val: any, rtnVal?: boolean): string;
 export declare function array(input: any, repeat?: number, repeatValue?: any): any;
 export declare function arrayOfObjects(input: any, repeat?: number, repeatValue?: any): any;
@@ -29,6 +30,7 @@ export declare const pipes: {
     capitalize: (input: any) => any;
     capitalizeAfterSentence: (input: any) => any;
     capitalizeOne: (input: any) => any;
+    toNumber: (val: any) => number;
     numberToPhone: (val: any) => any;
     numberSuffix: (val: any, rtnVal?: boolean) => string;
     aDate: (v: any, call0?: any, call1?: any, call2?: any) => any;

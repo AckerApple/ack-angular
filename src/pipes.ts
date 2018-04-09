@@ -71,6 +71,10 @@ import {
   transform(input:string){return pipes.numberToPhone(input)}
 }
 
+@Pipe({name: 'toNumber'}) export class toNumber {
+  transform(input:string){return pipes.toNumber(input)}
+}
+
 @Pipe({name: 'numberSuffix'}) export class NumberSuffix {
   transform(input:string, rtnInput){return pipes.numberSuffix(input, rtnInput)}
 }
@@ -103,6 +107,7 @@ import {
   transform(input:any){return pipes.bit(input)}
 }
 
+//get and return all numbers inside a string
 @Pipe({name: 'numbers'}) export class Numbers {
   transform(input:any){return pipes.numbers(input)}
 }
@@ -159,7 +164,6 @@ export const declarations = [
   CapitalizeWords,
   Yesno,
   YesNo,
-  Numbers,
   Keys,
   TypeofPipe,
   ConsolePipe,
@@ -167,6 +171,8 @@ export const declarations = [
   AMath,
   ATime,
   Ack,
+  Numbers,
+  toNumber,
   NumberToPhone,
   NumberSuffix,
   Bit,

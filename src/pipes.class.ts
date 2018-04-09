@@ -15,6 +15,10 @@ export function numberToPhone(val){
     return '(' + val.substring(0, 3) + ') ' + val.substring(3, 6) + '-' + val.substring(6, 10)
 }
 
+export function toNumber(val){
+    return Number(val)
+}
+
 export function numberSuffix(val, rtnVal=false){
   var rtn = rtnVal ? val : ''
   val = Number(val)
@@ -190,7 +194,7 @@ export const aTime = a('time')
 export const aMath = invokeRotator( Math )
 export const ack = invokeRotator( ackX )
 
-// maybe deprecated . Remove in future releases
+// maybe deprecated . Remove in future releases. Just an array ref of all pipes
 export const pipes = {
   array,
   markdownAnchor,
@@ -202,6 +206,7 @@ export const pipes = {
   capitalize,
   capitalizeAfterSentence,
   capitalizeOne,
+  toNumber,
   numberToPhone,
   numberSuffix,
   aDate,

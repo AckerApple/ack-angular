@@ -136,6 +136,17 @@ var NumberToPhone = (function () {
     return NumberToPhone;
 }());
 exports.NumberToPhone = NumberToPhone;
+var toNumber = (function () {
+    function toNumber() {
+    }
+    toNumber.prototype.transform = function (input) { return pipes.toNumber(input); };
+    toNumber.decorators = [
+        { type: core_1.Pipe, args: [{ name: 'toNumber' },] },
+    ];
+    toNumber.ctorParameters = function () { return []; };
+    return toNumber;
+}());
+exports.toNumber = toNumber;
 var NumberSuffix = (function () {
     function NumberSuffix() {
     }
@@ -334,7 +345,6 @@ exports.declarations = [
     CapitalizeWords,
     Yesno,
     YesNo,
-    Numbers,
     Keys,
     TypeofPipe,
     ConsolePipe,
@@ -342,6 +352,8 @@ exports.declarations = [
     AMath,
     ATime,
     Ack,
+    Numbers,
+    toNumber,
     NumberToPhone,
     NumberSuffix,
     Bit,

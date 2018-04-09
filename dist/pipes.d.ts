@@ -35,6 +35,9 @@ export declare class TextDownload {
 export declare class NumberToPhone {
     transform(input: string): any;
 }
+export declare class toNumber {
+    transform(input: string): number;
+}
 export declare class NumberSuffix {
     transform(input: string, rtnInput: any): string;
 }

@@ -1,7 +1,8 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
-## [1.5.7] - 2018-04-09
+## [1.5.8] - 2018-04-09
+- Added toNumber pipe
 - Added ack-aggregate
 - Added more ack-array documentations
 
