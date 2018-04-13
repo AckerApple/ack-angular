@@ -13,13 +13,12 @@ var ScrollPastFixed = (function () {
     ScrollPastFixed.prototype.init = function () {
         var _this = this;
         this.onScroll = function () { return _this.check(); };
-        this.onScroll();
         window.addEventListener("scroll", this.onScroll);
-        var elm = this.getReadElement();
+        this.onScroll();
     };
     ScrollPastFixed.prototype.ngAfterViewInit = function () {
-        this.init();
-        this.check();
+        var _this = this;
+        setTimeout(function () { return _this.init(); }, 0);
     };
     ScrollPastFixed.prototype.check = function () {
         var scrollPos = window['pageYOffset'];
@@ -28,17 +27,16 @@ var ScrollPastFixed = (function () {
         }
         var elm = this.getReadElement();
         var offsetTop = this.placeholder || getDistanceFromTop(elm);
-        var position = 'static';
         if (offsetTop <= scrollPos) {
-            position = 'fixed';
+            this.currentPosition = 'fixed';
             this.placeholder = offsetTop;
             this.fillHeight = elm.offsetHeight;
         }
         else {
             this.fillHeight = null;
             delete this.placeholder;
+            this.currentPosition = null;
         }
-        elm.style.position = position;
     };
     ScrollPastFixed.decorators = [
         { type: core_1.Component, args: [{
