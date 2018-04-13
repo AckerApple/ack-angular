@@ -7,7 +7,8 @@ var TemplateReader = (function () {
         Object.assign(this, options);
     }
     TemplateReader.prototype.readTemplates = function (templateRefs) {
-        for (var x = templateRefs['_results'].length - 1; x >= 0; --x) {
+        var count = templateRefs['_results'].length;
+        for (var x = count - 1; x >= 0; --x) {
             var row = templateRefs['_results'][x];
             this.applyReferences(row._def.references, row);
         }

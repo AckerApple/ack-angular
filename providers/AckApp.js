@@ -7,19 +7,28 @@ var AckApp = (function () {
         this.prompts = prompts;
         this.warnedFixElements = true;
         this.modals = [];
+        this.footerPrepends = [];
     }
-    AckApp.prototype.registerModal = function (modal) {
-        this.modals.push(modal);
+    AckApp.prototype.registerModal = function (item) {
+        this.modals.push(item);
         return this;
     };
-    AckApp.prototype.unregisterModal = function (modal) {
+    AckApp.prototype.unregisterModal = function (item) {
         for (var index = this.modals.length - 1; index >= 0; --index) {
-            if (this.modals[index] == modal) {
+            if (this.modals[index] == item) {
                 this.modals.splice(index, 1);
                 break;
             }
         }
         return this;
+    };
+    AckApp.prototype.unregisterFooterPrepend = function (item) {
+        for (var x = this.footerPrepends.length - 1; x >= 0; --x) {
+            if (this.footerPrepends[x] == item) {
+                this.footerPrepends.splice(x, 1);
+                break;
+            }
+        }
     };
     AckApp.decorators = [
         { type: core_1.Injectable },

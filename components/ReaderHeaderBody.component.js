@@ -41,6 +41,9 @@ var ReaderBody = (function () {
     ReaderBody.ctorParameters = function () { return [
         { type: core_1.ElementRef, },
     ]; };
+    ReaderBody.propDecorators = {
+        "readerHeader": [{ type: core_1.ContentChild, args: ['reader-header',] },],
+    };
     return ReaderBody;
 }());
 exports.ReaderBody = ReaderBody;

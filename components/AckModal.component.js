@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AckApp_1 = require("../providers/AckApp");
+var AckApp_provider_1 = require("../providers/AckApp.provider");
 var ack_modal_pug_1 = require("./templates/ack-modal.pug");
 var AckModal = (function () {
     function AckModal(element, AckApp) {
@@ -36,7 +36,7 @@ var AckModal = (function () {
     ];
     AckModal.ctorParameters = function () { return [
         { type: core_1.ElementRef, },
-        { type: AckApp_1.AckApp, },
+        { type: AckApp_provider_1.AckApp, },
     ]; };
     AckModal.propDecorators = {
         "body": [{ type: core_1.ContentChild, args: ['body',] },],

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AckApp_1 = require("../providers/AckApp");
+var AckApp_provider_1 = require("../providers/AckApp.provider");
 var ack_fixed_element_stage_pug_1 = require("./templates/ack-fixed-element-stage.pug");
 var AckFixedElementStage = (function () {
     function AckFixedElementStage(AckApp, ElementRef) {
@@ -16,7 +16,7 @@ var AckFixedElementStage = (function () {
                 },] },
     ];
     AckFixedElementStage.ctorParameters = function () { return [
-        { type: AckApp_1.AckApp, },
+        { type: AckApp_provider_1.AckApp, },
         { type: core_1.ElementRef, },
     ]; };
     return AckFixedElementStage;
