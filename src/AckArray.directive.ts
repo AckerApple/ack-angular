@@ -102,7 +102,9 @@ export interface loop{
     return item
   }
 
-  loop(){
+  loop() : void{
+    if(!this.array)return
+
     this.loopStart.emit()
 
     const last = this.array.length
@@ -134,7 +136,7 @@ export interface loop{
     this.pushed.createPages = true
 
     let pos = 0
-    let last = this.array.length
+    let last = 0
 
     this.loopStart.subscribe(()=>{
       pos = 0

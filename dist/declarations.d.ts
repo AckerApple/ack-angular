@@ -1,11 +1,18 @@
 import { EventEmitter, ElementRef } from "@angular/core";
+import { AckAppTemplates } from "./components/AckAppTemplates.component";
 import { AckModal } from "./components/AckModal.component";
 import { AckModalLayout } from "./components/AckModalLayout.component";
 import { AckCloseIcon } from "./components/AckCloseIcon.component";
 import { AckOptions } from "./components/AckOptions.component";
 import { AbsoluteOverflowX } from "./components/AbsoluteOverflowX.component";
-import { ReaderBody } from "./components/ReaderHeaderBody.component";
 import { AckFixedElementStage } from "./components/AckFixedElementStage.component";
+import { ReaderBody } from "./components/ReaderHeaderBody.component";
+import { ScrollPastFixed } from "./components/ScrollPastFixed.component";
+import { ShakeOn } from "./directives/ShakeOn.directive";
+import { FocusOn } from "./directives/FocusOn.directive";
+import { SelectOn } from "./directives/SelectOn.directive";
+import { InnerHtmlModel } from "./directives/InnerHtmlModel.directive";
+import { ElementSizeModel } from "./directives/ElementSizeModel.directive";
 export declare class VarDirective {
     var: any;
 }
@@ -49,4 +56,4 @@ export declare class FormAlter {
     constructor(element: ElementRef);
     ngOnDestroy(): void;
 }
-export declare const declarations: (typeof AckModalLayout | typeof AckModal | typeof AckCloseIcon | typeof AckOptions | typeof AbsoluteOverflowX | typeof ReaderBody | typeof AckFixedElementStage)[];
+export declare const declarations: (typeof AckModalLayout | typeof AckModal | typeof AckAppTemplates | typeof AckCloseIcon | typeof AckOptions | typeof AbsoluteOverflowX | typeof AckFixedElementStage | typeof ReaderBody | typeof ScrollPastFixed | typeof ShakeOn | typeof FocusOn | typeof SelectOn | typeof InnerHtmlModel | typeof ElementSizeModel | typeof EnterKey | typeof EscapeKey | typeof PreventBackKey | typeof PreventEnterKey | typeof FormChanged | typeof FormAlter)[];

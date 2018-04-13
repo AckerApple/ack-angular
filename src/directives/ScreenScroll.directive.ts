@@ -13,9 +13,8 @@ import {
   @Output() screenScroll = new EventEmitter()
   
   constructor(){
-    this.onScroll = function(){
+    this.onScroll = ()=>
       this.screenScroll.emit({x:window['pageXOffset'], y:window['pageYOffset']})
-    }.bind(this)
     this.onScroll()
     window.addEventListener("scroll", this.onScroll)
   }

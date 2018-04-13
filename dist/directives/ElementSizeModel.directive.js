@@ -36,6 +36,14 @@ var ElementSizeModel = (function () {
         var _this = this;
         setTimeout(function () { return _this.setModel(); }, 800);
     };
+    ElementSizeModel.prototype.ngOnChanges = function () {
+        var _this = this;
+        setTimeout(function () {
+            if (!_this.inChange) {
+                _this.setModel();
+            }
+        }, 0);
+    };
     ElementSizeModel.prototype.setModel = function () {
         var _this = this;
         this.elementSizeModel = this.elementSizeModel || {};
@@ -44,14 +52,6 @@ var ElementSizeModel = (function () {
         this.elementSizeModel.height = this.element.nativeElement.offsetHeight;
         this.elementSizeModelChange.emit(this.elementSizeModel);
         setTimeout(function () { return _this.inChange = false; }, 0);
-    };
-    ElementSizeModel.prototype.ngOnChanges = function () {
-        var _this = this;
-        setTimeout(function () {
-            if (!_this.inChange) {
-                _this.setModel();
-            }
-        }, 0);
     };
     ElementSizeModel.prototype.ngOnDestroy = function () {
         this.observer.disconnect();
@@ -66,6 +66,7 @@ var ElementSizeModel = (function () {
         { type: core_1.ElementRef, },
     ]; };
     ElementSizeModel.propDecorators = {
+        "elementSizeModelWatch": [{ type: core_1.Input },],
         "elementSizeModel": [{ type: core_1.Input },],
         "elementSizeModelChange": [{ type: core_1.Output },],
     };

@@ -17,6 +17,50 @@ webpackEmptyAsyncContext.id = "./example/src/$$_lazy_route_resource lazy recursi
 
 /***/ }),
 
+/***/ "./example/src/AckAppStage.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var ack_angular_fx_1 = __webpack_require__("./node_modules/ack-angular-fx/dist/index.js");
+var packJson = __webpack_require__("./package.json");
+var functions_1 = __webpack_require__("./example/src/functions.ts");
+var states_object_1 = __webpack_require__("./example/src/states.object.ts");
+var ack_app_stage_pug_1 = __webpack_require__("./example/src/templates/ack-app-stage.pug.ts");
+var AckAppStage = (function () {
+    function AckAppStage() {
+        this.panelAnim = 'slideInRight';
+        this.version = packJson['version'];
+        this.menu = states_object_1.menu;
+    }
+    AckAppStage.prototype.ngAfterViewInit = function () {
+        console.log('Total Wire Time:', Date.now() - window['strapTime'] + 'ms');
+        if (window['startAckTime']) {
+            console.log('Overall Load Time:', Date.now() - window['startAckTime'] + 'ms', '@', functions_1.getServerTime());
+        }
+    };
+    AckAppStage = __decorate([
+        core_1.Component({
+            selector: 'ack-app-stage',
+            template: ack_app_stage_pug_1.string,
+            animations: ack_angular_fx_1.fxArray
+        })
+    ], AckAppStage);
+    return AckAppStage;
+}());
+exports.AckAppStage = AckAppStage;
+
+
+/***/ }),
+
 /***/ "./example/src/AnimationExamples.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -45,48 +89,6 @@ var AnimationExamples = (function () {
     return AnimationExamples;
 }());
 exports.AnimationExamples = AnimationExamples;
-
-
-/***/ }),
-
-/***/ "./example/src/AppComponent.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var ack_angular_fx_1 = __webpack_require__("./node_modules/ack-angular-fx/dist/index.js");
-var packJson = __webpack_require__("./package.json");
-var functions_1 = __webpack_require__("./example/src/functions.ts");
-var ack_app_stage_pug_1 = __webpack_require__("./example/src/templates/ack-app-stage.pug.ts");
-var AppComponent = (function () {
-    function AppComponent() {
-        this.panelAnim = 'slideInRight';
-        this.version = packJson['version'];
-    }
-    AppComponent.prototype.ngAfterViewInit = function () {
-        console.log('Total Wire Time:', Date.now() - window['strapTime'] + 'ms');
-        if (window['startAckTime']) {
-            console.log('Overall Load Time:', Date.now() - window['startAckTime'] + 'ms', '@', functions_1.getServerTime());
-        }
-    };
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'ack-app-stage',
-            template: ack_app_stage_pug_1.string,
-            animations: ack_angular_fx_1.fxArray
-        })
-    ], AppComponent);
-    return AppComponent;
-}());
-exports.AppComponent = AppComponent;
 
 
 /***/ }),
@@ -591,7 +593,7 @@ var RouteReporter_directive_1 = __webpack_require__("./src/RouteReporter.directi
 var src_1 = __webpack_require__("./src/index.ts");
 var ng2_page_scroll_1 = __webpack_require__("./node_modules/ng2-page-scroll/ng2-page-scroll.js");
 var ProviderExamples_component_1 = __webpack_require__("./example/src/ProviderExamples.component.ts");
-var AppComponent_component_1 = __webpack_require__("./example/src/AppComponent.component.ts");
+var AckAppStage_component_1 = __webpack_require__("./example/src/AckAppStage.component.ts");
 var states_object_1 = __webpack_require__("./example/src/states.object.ts");
 var AnimationExamples_component_1 = __webpack_require__("./example/src/AnimationExamples.component.ts");
 var JjsWoz_component_1 = __webpack_require__("./example/src/JjsWoz.component.ts");
@@ -599,7 +601,7 @@ var OverviewExamples_component_1 = __webpack_require__("./example/src/OverviewEx
 var ComponentsExamples_component_1 = __webpack_require__("./example/src/ComponentsExamples.component.ts");
 var PipesExamples_component_1 = __webpack_require__("./example/src/PipesExamples.component.ts");
 exports.declarations = [
-    AppComponent_component_1.AppComponent,
+    AckAppStage_component_1.AckAppStage,
     RouteReporter_directive_1.RouteReporter,
     AnimationExamples_component_1.AnimationExamples,
     OverviewExamples_component_1.OverviewExamples,
@@ -630,7 +632,7 @@ var AppModule = (function () {
                 RouteWatchReporter_1.RouteWatchReporter
                 //,UiRouteWatchReporter
             ],
-            bootstrap: [AppComponent_component_1.AppComponent]
+            bootstrap: [AckAppStage_component_1.AckAppStage]
             //,schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
         })
     ], AppModule);
@@ -741,35 +743,55 @@ exports.FakeComponent = FakeComponent;
 exports.declarations = [
     FakeComponent
 ];
-exports.routes = [
+exports.menu = [
     {
         name: 'overview',
         path: 'overview',
-        component: OverviewExamples_component_1.OverviewExamples
+        component: OverviewExamples_component_1.OverviewExamples,
+        data: {
+            title: "Overview"
+        },
     }, {
         name: 'components',
         path: 'components',
-        component: ComponentsExamples_component_1.ComponentsExamples
+        component: ComponentsExamples_component_1.ComponentsExamples,
+        data: {
+            title: "Components"
+        }
     }, {
         name: 'pipes',
         path: 'pipes',
-        component: PipesExamples_component_1.PipesExamples
+        component: PipesExamples_component_1.PipesExamples,
+        data: {
+            title: "Pipes"
+        }
     }, {
         name: 'animations',
         path: 'animations',
-        component: AnimationExamples_component_1.AnimationExamples
+        component: AnimationExamples_component_1.AnimationExamples,
+        data: {
+            title: "Animations"
+        }
     }, {
         name: 'providers',
         path: 'providers',
-        component: ProviderExamples_component_1.ProviderExamples
+        component: ProviderExamples_component_1.ProviderExamples,
+        data: {
+            title: "Providers"
+        }
     }, {
         name: 'jjswoz',
         path: 'jjswoz',
-        component: JjsWoz_component_1.JjsWoz
-    },
+        component: JjsWoz_component_1.JjsWoz,
+        data: {
+            title: "JJ's WoZ"
+        }
+    }
+];
+exports.routes = exports.menu.concat([
     { path: '', redirectTo: 'overview', pathMatch: 'full' },
     { path: '**', redirectTo: 'overview' } //404
-];
+]);
 exports.routeConfig = { useHash: true, initialNavigation: true, enableTracing: false };
 exports.routing = router_1.RouterModule.forRoot(exports.routes, exports.routeConfig);
 
@@ -782,7 +804,7 @@ exports.routing = router_1.RouterModule.forRoot(exports.routes, exports.routeCon
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.string = "<ng-container [(htmlWidthModel)]=\"screenWidthModel\"></ng-container><route-reporter [(ref)]=\"routeReporter\" (beforeChange)=\"panelAnim=$event.isBackMode?'slideInLeft':'slideInRight';isBackMode=$event.isBackMode;\" (onChange)=\"stateName=$event.current.config.name\"></route-reporter><div class=\"font-helvetica height-full\"><ack-fixed-element-stage></ack-fixed-element-stage><reader-header-body><reader-header><div class=\"bg-energized border-grey-3x border-left-1 border-right-1\" id=\"top\"><div class=\"pad flex-valign-center flex-wrap\"><h1 class=\"margin-0\"><span class=\"text-sm\">🚴</span>&nbsp;ack-angular</h1><span class=\"text-right flex-1 text-white\">v{{ version }}</span></div><div class=\"flex-wrap flex-evenly bg-info child-pad-sm text-center text-2x strong child-hover-bg-warning\"><a class=\"no-a-style flex-1 border-right border-white\" [ngClass]=\"{'bg-energized':stateName=='overview'}\" href=\"#/overview\">Overview</a><a class=\"no-a-style flex-1 border-right border-white\" [ngClass]=\"{'bg-energized':stateName=='components'}\" href=\"#/components\">Components</a><a class=\"no-a-style flex-1 border-right border-white\" [ngClass]=\"{'bg-energized':stateName=='pipes'}\" href=\"#/pipes\">Pipes</a><a class=\"no-a-style flex-1\" [ngClass]=\"{'bg-energized':stateName=='animations'}\" href=\"#/animations\">Animations</a><a class=\"no-a-style flex-1\" [ngClass]=\"{'bg-energized':stateName=='providers'}\" href=\"#/providers\">Providers    </a><a class=\"no-a-style flex-1\" [ngClass]=\"{'bg-energized':stateName=='jjswoz'}\" href=\"#/jjswoz\">JJ's WoZ</a></div></div></reader-header><reader-body class=\"line-height-2x\" style=\"font-size:16px;\"><fx-tracker [(fxId)]=\"fxId\" [activatedRoute]=\"routerOutlet.activated ? routerOutlet.activatedRoute : null\"></fx-tracker><div class=\"height-full bg-white border-grey-3x border-left-1 border-right-1\" [ngStyle]=\"isSwaping?{'overflow-x':'hidden'}:null\"><div class=\"text-left height-full pad-top-lg\" [ngClass]=\"screenWidthModel&gt;900?'pad-h-lg':'pad-h-sm'\" [@slideInLeftKids]=\"{value:fxId, params:{time:'500ms'}}\" [@absoluteKids]=\"{value:fxId, params:{time:'500ms'}}\" (@absoluteKids.start)=\"inFx=true\" (@absoluteKids.done)=\"inFx=false\" [style.max-width.px]=\"screenWidthModel\" [ngStyle]=\"inFx ? {position:'relative',overflow:'hidden'} : null\"><router-outlet #routerOutlet=\"outlet\"></router-outlet><div class=\"text-center\"><br/><a class=\"text-xs\" href=\"#top\" pageScroll=\"pageScroll\">top</a></div></div></div></reader-body></reader-header-body></div>";
+exports.string = "<ng-container [(htmlWidthModel)]=\"screenWidthModel\"></ng-container><route-reporter [(ref)]=\"routeReporter\" (beforeChange)=\"panelAnim=$event.isBackMode?'slideInLeft':'slideInRight';isBackMode=$event.isBackMode;\" (onChange)=\"stateName=$event.current.config.name\"></route-reporter><ack-fixed-element-stage></ack-fixed-element-stage><div id=\"top\"></div><ack-app-templates *ngIf=\"screenWidthModel &lt; 800\"><ng-template #footer=\"\"><absolute-overflow-x class=\"bg-info text-center border-top border-grey-2x\" [@fadeInUp]=\"1\"><div class=\"flex child-hover-bg-warning child-pad-h-lg child-pad-v-sm\"><a class=\"nowrap no-a-style flex-1 border-right border-white height-60 flex-valign-center\" *ngFor=\"let item of menu\" [ngClass]=\"{'strong bg-energized':stateName==item.path}\" [href]=\"'#/' + item.path\">{{ item.data.title }}</a></div></absolute-overflow-x></ng-template></ack-app-templates><reader-header-body style=\"font-size:16px;\"><ack-app mode=\"clone\"><fx-tracker [(fxId)]=\"fxId\" [activatedRoute]=\"routerOutlet.activated ? routerOutlet.activatedRoute : null\"></fx-tracker><table class=\"height-full width-full\" cellPadding=\"0\" cellSpacing=\"0\" border=\"0\"><tbody><tr><td><div style=\"max-width:1000px\"><div class=\"bg-energized border-grey-3x border-left-1 border-right-1\"><div class=\"flex-valign-center flex-wrap\"><strong class=\"margin-0\" [ngClass]=\"screenWidthModel &gt; 800 ? 'pad-xs text-6x' : 'pad-xxs text-4x'\"><span class=\"text-sm\">🚴</span>&nbsp;ack-angular</strong><span class=\"text-right flex-1 text-white pad-right-xs\">v{{ version }}</span></div></div><div *ngIf=\"screenWidthModel &gt; 800\" [@fadeInUp]=\"1\"><scroll-past-fixed><div style=\"max-width:1000px\"><absolute-overflow-x class=\"bg-info text-center border-bottom border-grey-2x\"><div class=\"flex child-hover-bg-warning child-pad-sm text-2x\"><a class=\"no-a-style flex-1 border-right border-white\" *ngFor=\"let item of menu\" [ngClass]=\"{'strong bg-energized':stateName==item.path}\" [href]=\"'#/' + item.path\">{{ item.data.title }}</a></div></absolute-overflow-x></div></scroll-past-fixed></div></div></td></tr><tr><td class=\"width-full height-full bg-white border-grey-3x\"><table class=\"width-full height-full\" cellPadding=\"0\" cellSpacing=\"0\" border=\"0\"><tr><td [ngClass]=\"screenWidthModel&gt;=800 ? 'width-20' : 'width-10'\"></td><td><div class=\"text-left height-full pad-top-lg\" [@slideInLeftKids]=\"{value:fxId, params:{time:'500ms'}}\" [@absoluteKids]=\"{value:fxId, params:{time:'500ms'}}\" (@absoluteKids.start)=\"inFx=true\" (@absoluteKids.done)=\"inFx=false\" [style.max-width.px]=\"screenWidthModel - (screenWidthModel&gt;=800 ? 40 : 20)\" [ngStyle]=\"inFx ? {position:'relative',overflow:'hidden'} : null\"><router-outlet #routerOutlet=\"outlet\"></router-outlet></div></td><td [ngClass]=\"screenWidthModel&gt;=800 ? 'width-20' : 'width-10'\"></td></tr></table></td></tr><tr><td><div class=\"text-center\" *ngIf=\"!inFx\"><br/><a class=\"text-xs\" href=\"#top\" pageScroll=\"pageScroll\">top</a><br/><br/></div></td></tr></tbody></table></ack-app></reader-header-body>";
 
 
 /***/ }),
@@ -834,7 +856,7 @@ exports.string = "<h2 class=\"margin-top-0\">Animations</h2><p class=\"text-grey
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"pad-h\"><p class=\"margin-bottom-0\">Import Example</p><div class=\"pad-h text-warning text-xs\">The following import code, is NOT needed if you used the AckModule import <a class=\"text-calm\" href=\"#/overview\" (click)=\"scrollToModuleImport()\">seen here</a></div><pre class=\"code-sample\" ngNonBindable=\"ngNonBindable\">import &#123; declarations as ackDecs &#125; from \"ack-angular/components\"" +
+exports.string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"margin-xxs\"><p class=\"margin-bottom-0\">Import Example</p><div class=\"text-warning text-xs\">The following import code, is NOT needed if you used the AckModule import <a class=\"text-calm\" href=\"#/overview\" (click)=\"scrollToModuleImport()\">seen here</a></div><pre class=\"code-sample\" ngNonBindable=\"ngNonBindable\">import &#123; declarations as ackDecs &#125; from \"ack-angular/components\"" +
     "\nimport &#123; NgModule &#125; from '@angular/core';" +
     "\n" +
     "\n@NgModule(&#123;" +
@@ -1018,16 +1040,16 @@ exports.string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"pad-h\"
     "\n&lt;/select&gt;" +
     "\n&lt;input type=\"checkbox\" id=\"shakeConstant\" [(ngModel)]=\"shakeConstant\" (change)=\"shakeOn=$event.target.checked\" /&gt;" +
     "\n&lt;input [(ngModel)]=\"shakeForMs\" (change)=\"shakeOn=true\" /&gt;" +
-    "\n</pre></absolute-overflow-x></div></div></div><br/><h3 class=\"margin-bottom-0\" id=\"TwoWayBinds\">Two Way Binds</h3><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1\" [class.width-full]=\"views.statusOnlineModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(statusOnlineModel)]=\"statusOnlineModel\"></div><div class=\"pad-h\"><h3>[(statusOnlineModel)]</h3><div class=\"text-grey-2x max-width-400\">Get browser window inner width. <strong>IS ONLINE</strong> :<div class=\"inline-block width-50\">&nbsp;{{ statusOnlineModel }}</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.statusOnlineModel=!views.statusOnlineModel\" [ngClass]=\"views.statusOnlineModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.statusOnlineModel\" [@fadeInUp]=\"1\"><div class=\"pad\"><div class=\"pad bg-warning border-warning border text-warning\">Completely turn off your internet and the online status will change.<br/>A delay is expected during transition from offline to online</div></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div(\"[(statusOnlineModel)]\"=\"statusOnlineModel\")&gt;" +
+    "\n</pre></absolute-overflow-x></div></div></div><br/><h3 class=\"margin-bottom-0\" id=\"TwoWayBinds\">Two Way Binds</h3><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1\" [class.width-full]=\"views.statusOnlineModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(statusOnlineModel)]=\"statusOnlineModel\"></div><div class=\"pad-h\"><h3>[(statusOnlineModel)]</h3><div class=\"text-grey-2x max-width-400\">Get browser internet status. <strong>IS ONLINE</strong> :<div class=\"inline-block width-50\">&nbsp;{{ statusOnlineModel }}</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.statusOnlineModel=!views.statusOnlineModel\" [ngClass]=\"views.statusOnlineModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.statusOnlineModel\" [@fadeInUp]=\"1\"><div class=\"pad\"><div class=\"pad bg-warning border-warning border text-warning\">Completely turn off your internet and the online status will change.<br/>A delay is expected during transition from offline to online</div></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div(\"[(statusOnlineModel)]\"=\"statusOnlineModel\")&gt;" +
     "\n  |statusOnlineModel : {{ statusOnlineModel ? 'online' : 'offline'}}" +
     "\n&lt;/div&gt;" +
-    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.statusOfflineModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(statusOfflineModel)]=\"statusOfflineModel\"></div><div class=\"pad-h\"><h3>[(statusOfflineModel)]</h3><div class=\"text-grey-2x max-width-400\">Get browser window inner width. <strong>IS OFFLINE</strong> :<div class=\"inline-block width-50\">&nbsp;{{ statusOfflineModel }}</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.statusOfflineModel=!views.statusOfflineModel\" [ngClass]=\"views.statusOfflineModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.statusOfflineModel\" [@fadeInUp]=\"1\"><div class=\"pad\"><div class=\"pad bg-warning border-warning border text-warning\"></div>Completely turn off your internet and the offline status will change<br/>A delay is expected during transition from offline to online</div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div(\"[(statusOfflineModel)]\"=\"statusOfflineModel\")&gt;" +
+    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.statusOfflineModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(statusOfflineModel)]=\"statusOfflineModel\"></div><div class=\"pad-h\"><h3>[(statusOfflineModel)]</h3><div class=\"text-grey-2x max-width-400\">Get browser internet status. <strong>IS OFFLINE</strong> :<div class=\"inline-block width-50\">&nbsp;{{ statusOfflineModel }}</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.statusOfflineModel=!views.statusOfflineModel\" [ngClass]=\"views.statusOfflineModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.statusOfflineModel\" [@fadeInUp]=\"1\"><div class=\"pad\"><div class=\"pad bg-warning border-warning border text-warning\"></div>Completely turn off your internet and the offline status will change<br/>A delay is expected during transition from offline to online</div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div(\"[(statusOfflineModel)]\"=\"statusOfflineModel\")&gt;" +
     "\n  |statusOfflineModel : {{ statusOfflineModel ? 'offline' : 'online'}}" +
     "\n&lt;/div&gt;" +
     "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.screenScrollHeightDiff\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(screenScrollHeightDiff)]=\"screenScrollHeightDiff\"></div><div class=\"pad-h\"><h3>[(screenScrollHeightDiff)]</h3><div class=\"text-grey-2x\">Model of how many pixels overflow past the screen height (screenHeight - scrollHeight).<div>Currently :<div class=\"inline-block width-50\">&nbsp;{{ screenScrollHeightDiff }}</div></div><div class=\"pad text-grey-3x text-smx\">resize window height to see change</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.screenScrollHeightDiff=!views.screenScrollHeightDiff\" [ngClass]=\"views.screenScrollHeightDiff?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.screenScrollHeightDiff\" [@fadeInUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(screenScrollHeightDiff)]=\"screenScrollHeightDiff\" &gt;" +
     "\n&nbsp;&nbsp;screenScrollHeightDiff : {{ screenScrollHeightDiff }}" +
     "\n&lt;/div&gt;" +
-    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.screenScrollModelY\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(screenScrollModelY)]=\"screenScrollModelY\"></div><div class=\"pad-h\"><h3>[(screenScrollModelY)]</h3><div class=\"text-grey-2x max-width-400\">Get browser window inner width. Currently :<div class=\"inline-block width-50\">&nbsp;{{screenScrollModelY}}px</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.screenScrollModelY=!views.screenScrollModelY\" [ngClass]=\"views.screenScrollModelY?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.screenScrollModelY\" [@fadeInUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(screenScrollModelY)]=\"screenScrollModelY\" &gt;" +
+    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.screenScrollModelY\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(screenScrollModelY)]=\"screenScrollModelY\"></div><div class=\"pad-h\"><h3>[(screenScrollModelY)]</h3><div class=\"text-grey-2x max-width-400\">Get browser height scrolled. Currently :<div class=\"inline-block width-50\">&nbsp;{{screenScrollModelY}}px</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.screenScrollModelY=!views.screenScrollModelY\" [ngClass]=\"views.screenScrollModelY?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.screenScrollModelY\" [@fadeInUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(screenScrollModelY)]=\"screenScrollModelY\" &gt;" +
     "\n&nbsp;&nbsp;screenScrollModelY : {{ screenScrollModelY }}px" +
     "\n&lt;/div&gt;" +
     "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.htmlWidthModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(htmlWidthModel)]=\"htmlWidthModel\"></div><div class=\"pad-h\"><h3>[(htmlWidthModel)]</h3><div class=\"text-grey-2x\">Get the browser document inner width. Currently : {{htmlWidthModel}}px</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.htmlWidthModel=!views.htmlWidthModel\" [ngClass]=\"views.htmlWidthModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.htmlWidthModel\" [@fadeInUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(htmlWidthModel)]=\"htmlWidthModel\"&gt;" +
@@ -1150,13 +1172,13 @@ exports.string = "<h2 class=\"margin-top-0\">Pipes</h2><p class=\"text-sm text-g
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.string = "<h2 class=\"margin-top-0\">Providers</h2><ng-container [(statusOnlineModel)]=\"statusOnlineModel\"></ng-container><div class=\"pad-h\"><p class=\"margin-bottom-0\">Import Example</p><div class=\"pad-h text-warning text-xs\">The following import code, is NOT needed if you used the AckModule import <a class=\"text-calm\" href=\"#/overview\" (click)=\"scrollToModuleImport()\">seen here</a></div><pre class=\"code-sample\">import &#123; providers as ackProviders &#125; from \"ack-angular/providers\"" +
+exports.string = "<h2 class=\"margin-top-0\">Providers</h2><ng-container [(statusOnlineModel)]=\"statusOnlineModel\"></ng-container><p class=\"margin-bottom-0\">Import Example</p><div class=\"text-warning text-xs\">The following import code, is NOT needed if you used the AckModule import <a class=\"text-calm\" href=\"#/overview\" (click)=\"scrollToModuleImport()\">seen here</a></div><pre class=\"code-sample\">import &#123; providers as ackProviders &#125; from \"ack-angular/providers\"" +
     "\nimport &#123; NgModule &#125; from '@angular/core';" +
     "\n" +
     "\n@NgModule(&#123;" +
     "\n  providers:[ ...ackProviders ]" +
     "\n&#125;)" +
-    "\n</pre></div><error-well [error]=\"error\"></error-well><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>Prompts</h3><div class=\"text-grey-2x\">Modal driven prompts to require user confirmation</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xs hover-bg-warning\" (click)=\"views.confirm=!views.confirm\" [ngClass]=\"views.confirm?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.confirm\" [@fadeInUp]=\"1\"><div class=\"bg-info pad text-info\">This component requires the element &lt;ack-fixed-element-stage&gt; to be present somewhere in your app</div><div class=\"pad flex-wrap child-margin-xxs child-border child-radius-3 child-pad-h\"><a class=\"bg-warning\" (click)=\"runAlert()\">alert</a><a class=\"bg-info\" (click)=\"runConfirm()\">confirm</a></div><h4 class=\"pad-h-sm margin-h-0 margin-bottom-0\">Usage Example</h4><div class=\"pad-xs\"><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">import &#123; Prompts &#125; from \"./ack-angular\"" +
+    "\n</pre><error-well [error]=\"error\"></error-well><br/><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>Prompts</h3><div class=\"text-grey-2x\">Modal driven prompts to require user confirmation</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xs hover-bg-warning\" (click)=\"views.confirm=!views.confirm\" [ngClass]=\"views.confirm?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.confirm\" [@fadeInUp]=\"1\"><div class=\"bg-info pad text-info\">This component requires the element &lt;ack-fixed-element-stage&gt; to be present somewhere in your app</div><div class=\"pad flex-wrap child-margin-xxs child-border child-radius-3 child-pad-h\"><a class=\"bg-warning\" (click)=\"runAlert()\">alert</a><a class=\"bg-info\" (click)=\"runConfirm()\">confirm</a></div><h4 class=\"pad-h-sm margin-h-0 margin-bottom-0\">Usage Example</h4><div class=\"pad-xs\"><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">import &#123; Prompts &#125; from \"./ack-angular\"" +
     "\n" +
     "\nclass MyClass&#123;" +
     "\n  constructor(public prompts:Prompts)&#123;&#125;" +
@@ -1648,7 +1670,7 @@ webpackContext.id = "./node_modules/moment/locale recursive ^\\.\\/.*$";
 /***/ "./package.json":
 /***/ (function(module, exports) {
 
-module.exports = {"name":"ack-angular","version":"1.5.8","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve --port 4201 --output-hashing=none --sourcemaps=true --app=example","build:js":"ng build --output-hashing=none --sourcemaps=true --app=example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng2","angular2","angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular/animations":"^5.2.8","@angular/cli":"^1.7.3","@angular/common":"^5.2.8","@angular/compiler":"^5.2.8","@angular/compiler-cli":"^5.2.8","@angular/core":"^5.2.8","@angular/forms":"^5.2.8","@angular/http":"^5.2.8","@angular/platform-browser":"^5.2.8","@angular/platform-browser-dynamic":"^5.2.8","@angular/router":"^5.2.8","@types/jasmine":"^2.8.6","ack-angular-fx":"^2.1.1","ack-css-boot":"^1.2.47","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.3.23","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.0","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^1.4.2","karma-jasmine":"^1.1.1","karma-jasmine-html-reporter":"^0.2.2","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.6.0","ng2-page-scroll":"^4.0.0-beta.12","npm-run-all":"^4.1.2","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^5.5.7","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.4.2","zone.js":"^0.8.20"},"private":true}
+module.exports = {"name":"ack-angular","version":"1.5.10","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js watch:open","watch:open":"opener http://localhost:4201","watch:js":"ng serve --port 4201 --output-hashing=none --sourcemaps=true --app=example","build:js":"ng build --output-hashing=none --sourcemaps=true --app=example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng2","angular2","angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular/animations":"^5.2.8","@angular/cli":"^1.7.3","@angular/common":"^5.2.8","@angular/compiler":"^5.2.8","@angular/compiler-cli":"^5.2.8","@angular/core":"^5.2.8","@angular/forms":"^5.2.8","@angular/http":"^5.2.8","@angular/platform-browser":"^5.2.8","@angular/platform-browser-dynamic":"^5.2.8","@angular/router":"^5.2.8","@types/jasmine":"^2.8.6","ack-angular-fx":"^2.1.2","ack-css-boot":"^1.2.48","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.3.23","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.0","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^1.4.2","karma-jasmine":"^1.1.1","karma-jasmine-html-reporter":"^0.2.2","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.6.0","ng2-page-scroll":"^4.0.0-beta.12","npm-run-all":"^4.1.2","opener":"^1.4.3","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^5.5.7","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.4.2","zone.js":"^0.8.20"},"private":true}
 
 /***/ }),
 
@@ -1791,6 +1813,8 @@ var AckArray = (function () {
         return item;
     };
     AckArray.prototype.loop = function () {
+        if (!this.array)
+            return;
         this.loopStart.emit();
         var last = this.array.length;
         for (var x = 0; x < last; ++x) {
@@ -1816,7 +1840,7 @@ var AckArray = (function () {
             return;
         this.pushed.createPages = true;
         var pos = 0;
-        var last = this.array.length;
+        var last = 0;
         this.loopStart.subscribe(function () {
             pos = 0;
             last = _this.array.length;
@@ -2359,7 +2383,8 @@ var TemplateReader = (function () {
         Object.assign(this, options);
     }
     TemplateReader.prototype.readTemplates = function (templateRefs) {
-        for (var x = templateRefs['_results'].length - 1; x >= 0; --x) {
+        var count = templateRefs['_results'].length;
+        for (var x = count - 1; x >= 0; --x) {
             var row = templateRefs['_results'][x];
             this.applyReferences(row._def.references, row);
         }
@@ -2457,6 +2482,125 @@ exports.AbsoluteOverflowX = AbsoluteOverflowX;
 
 /***/ }),
 
+/***/ "./src/components/AckApp.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var AckApp_provider_1 = __webpack_require__("./src/providers/AckApp.provider.ts");
+var ack_app_pug_1 = __webpack_require__("./src/components/templates/ack-app.pug.ts");
+var AckApp = (function () {
+    function AckApp(AckApp, ElementRef) {
+        this.AckApp = AckApp;
+        this.ElementRef = ElementRef;
+        AckApp.Component = this;
+        ElementRef.nativeElement.style.height = '100%';
+        ElementRef.nativeElement.style.display = 'block';
+    }
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], AckApp.prototype, "mode", void 0);
+    __decorate([
+        core_1.ContentChild("header"),
+        __metadata("design:type", core_1.TemplateRef)
+    ], AckApp.prototype, "header", void 0);
+    __decorate([
+        core_1.ContentChild("footer"),
+        __metadata("design:type", core_1.TemplateRef)
+    ], AckApp.prototype, "footer", void 0);
+    AckApp = __decorate([
+        core_1.Component({
+            selector: 'ack-app',
+            template: ack_app_pug_1.string
+        }),
+        __metadata("design:paramtypes", [AckApp_provider_1.AckApp,
+            core_1.ElementRef])
+    ], AckApp);
+    return AckApp;
+}());
+exports.AckApp = AckApp;
+
+
+/***/ }),
+
+/***/ "./src/components/AckAppTemplates.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var AckApp_provider_1 = __webpack_require__("./src/providers/AckApp.provider.ts");
+var AckAppTemplates = (function () {
+    function AckAppTemplates(AckApp) {
+        this.AckApp = AckApp;
+    }
+    AckAppTemplates.prototype.ngAfterViewInit = function () {
+        this.check();
+        this.inited = true;
+    };
+    AckAppTemplates.prototype.ngOnChanges = function (changes) {
+        if (this.inited) {
+            this.check();
+        }
+    };
+    AckAppTemplates.prototype.check = function () {
+        if (this.pushed)
+            return;
+        this.AckApp.appHeaderTemplates.unshift(this.header);
+        this.AckApp.appFooterTemplates.unshift(this.footer);
+        this.pushed = true;
+    };
+    AckAppTemplates.prototype.ngOnDestroy = function () {
+        this.unregister();
+    };
+    AckAppTemplates.prototype.unregister = function () {
+        this.pushed = false;
+        this.AckApp.unregisterAppHeaderTemplate(this.header);
+        this.AckApp.unregisterAppFooterTemplate(this.footer);
+    };
+    __decorate([
+        core_1.ContentChild('header'),
+        __metadata("design:type", core_1.TemplateRef)
+    ], AckAppTemplates.prototype, "header", void 0);
+    __decorate([
+        core_1.ContentChild('footer'),
+        __metadata("design:type", core_1.TemplateRef)
+    ], AckAppTemplates.prototype, "footer", void 0);
+    AckAppTemplates = __decorate([
+        core_1.Directive({
+            selector: "ack-app-templates"
+        }),
+        __metadata("design:paramtypes", [AckApp_provider_1.AckApp])
+    ], AckAppTemplates);
+    return AckAppTemplates;
+}());
+exports.AckAppTemplates = AckAppTemplates;
+
+
+/***/ }),
+
 /***/ "./src/components/AckCloseIcon.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2505,7 +2649,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var AckApp_1 = __webpack_require__("./src/providers/AckApp.ts");
+var AckApp_provider_1 = __webpack_require__("./src/providers/AckApp.provider.ts");
 var ack_fixed_element_stage_pug_1 = __webpack_require__("./src/components/templates/ack-fixed-element-stage.pug.ts");
 var AckFixedElementStage = (function () {
     function AckFixedElementStage(AckApp, ElementRef) {
@@ -2518,7 +2662,7 @@ var AckFixedElementStage = (function () {
             selector: 'ack-fixed-element-stage',
             template: ack_fixed_element_stage_pug_1.string
         }),
-        __metadata("design:paramtypes", [AckApp_1.AckApp, core_1.ElementRef])
+        __metadata("design:paramtypes", [AckApp_provider_1.AckApp, core_1.ElementRef])
     ], AckFixedElementStage);
     return AckFixedElementStage;
 }());
@@ -2543,7 +2687,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var AckApp_1 = __webpack_require__("./src/providers/AckApp.ts");
+var AckApp_provider_1 = __webpack_require__("./src/providers/AckApp.provider.ts");
 var ack_modal_pug_1 = __webpack_require__("./src/components/templates/ack-modal.pug.ts");
 var AckModal = (function () {
     function AckModal(element, AckApp) {
@@ -2623,7 +2767,8 @@ var AckModal = (function () {
             template: ack_modal_pug_1.string
             //,animations:fxArray
         }),
-        __metadata("design:paramtypes", [core_1.ElementRef, AckApp_1.AckApp])
+        __metadata("design:paramtypes", [core_1.ElementRef,
+            AckApp_provider_1.AckApp])
     ], AckModal);
     return AckModal;
 }());
@@ -2648,7 +2793,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var AckApp_1 = __webpack_require__("./src/providers/AckApp.ts");
+var AckApp_provider_1 = __webpack_require__("./src/providers/AckApp.provider.ts");
 var ack_angular_fx_1 = __webpack_require__("./node_modules/ack-angular-fx/dist/index.js");
 var ack_modal_layout_pug_1 = __webpack_require__("./src/components/templates/ack-modal-layout.pug.ts");
 var AckModalLayout = (function () {
@@ -2732,7 +2877,7 @@ var AckModalLayout = (function () {
             animations: ack_angular_fx_1.fxArray
         }),
         __metadata("design:paramtypes", [core_1.ElementRef,
-            AckApp_1.AckApp])
+            AckApp_provider_1.AckApp])
     ], AckModalLayout);
     return AckModalLayout;
 }());
@@ -3197,6 +3342,10 @@ var ReaderBody = (function () {
         element.nativeElement.style.height = '100%';
         element.nativeElement.style.display = 'block';
     }
+    __decorate([
+        core_1.ContentChild('reader-header'),
+        __metadata("design:type", core_1.TemplateRef)
+    ], ReaderBody.prototype, "readerHeader", void 0);
     ReaderBody = __decorate([
         core_1.Directive({
             selector: "reader-body"
@@ -3206,6 +3355,88 @@ var ReaderBody = (function () {
     return ReaderBody;
 }());
 exports.ReaderBody = ReaderBody;
+
+
+/***/ }),
+
+/***/ "./src/components/ScrollPastFixed.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var scroll_past_fixed_pug_1 = __webpack_require__("./src/components/templates/scroll-past-fixed.pug.ts");
+var ScrollPastFixed = (function () {
+    function ScrollPastFixed(ElementRef) {
+        this.ElementRef = ElementRef;
+    }
+    ScrollPastFixed.prototype.getReadElement = function () {
+        var children = this.ElementRef.nativeElement.children;
+        return children[children.length - 2];
+    };
+    ScrollPastFixed.prototype.init = function () {
+        var _this = this;
+        this.onScroll = function () { return _this.check(); };
+        this.onScroll();
+        window.addEventListener("scroll", this.onScroll);
+        var elm = this.getReadElement();
+    };
+    ScrollPastFixed.prototype.ngAfterViewInit = function () {
+        this.init();
+        this.check();
+    };
+    ScrollPastFixed.prototype.check = function () {
+        var scrollPos = window['pageYOffset'];
+        if (this.placeholder && this.placeholder <= scrollPos) {
+            return;
+        }
+        var elm = this.getReadElement();
+        var offsetTop = this.placeholder || getDistanceFromTop(elm);
+        var position = 'static';
+        if (offsetTop <= scrollPos) {
+            position = 'fixed';
+            this.placeholder = offsetTop;
+            this.fillHeight = elm.offsetHeight;
+        }
+        else {
+            this.fillHeight = null;
+            delete this.placeholder;
+        }
+        elm.style.position = position;
+    };
+    __decorate([
+        core_1.ViewChild('template'),
+        __metadata("design:type", core_1.TemplateRef)
+    ], ScrollPastFixed.prototype, "template", void 0);
+    ScrollPastFixed = __decorate([
+        core_1.Component({
+            selector: 'scroll-past-fixed',
+            template: scroll_past_fixed_pug_1.string
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], ScrollPastFixed);
+    return ScrollPastFixed;
+}());
+exports.ScrollPastFixed = ScrollPastFixed;
+function getDistanceFromTop(element) {
+    var yPos = 0;
+    while (element) {
+        yPos += (element.offsetTop);
+        element = element.offsetParent;
+    }
+    return yPos;
+}
+exports.getDistanceFromTop = getDistanceFromTop;
 
 
 /***/ }),
@@ -3221,13 +3452,24 @@ exports.string = "<div [(elementHeightModel)]=\"elementHeightModel\" [ngClass]=\
 
 /***/ }),
 
+/***/ "./src/components/templates/ack-app.pug.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.string = "<ng-container *ngIf=\"header || AckApp.appHeaderTemplates.length\"><div *ngIf=\"!mode || mode==='calculate'\" style=\"position:fixed;top:0;width:100%\" [(elementHeightModel)]=\"headerHeight\" [elementSizeModelWatch]=\"header || AckApp.appHeaderTemplates.length\"><ng-container *ngFor=\"let item of AckApp.appHeaderTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container><ng-template *ngTemplateOutlet=\"header\"></ng-template></div><div *ngIf=\"mode==='clone'\" style=\"position:fixed;top:0;width:100%\"><ng-template *ngTemplateOutlet=\"header\"></ng-template><ng-container *ngFor=\"let item of AckApp.appHeaderTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div></ng-container><table style=\"height:100%;width:100%;border-collapse: collapse;\" cellPadding=\"0\" cellSpacing=\"0\" border=\"0\"><tr *ngIf=\"header || AckApp.appHeaderTemplates.length\"><td [style.height.px]=\"headerHeight\" style=\"visibility:hidden\"><ng-container *ngIf=\"mode==='clone'\"><ng-container *ngFor=\"let item of AckApp.appHeaderTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container><ng-template *ngTemplateOutlet=\"header\"></ng-template></ng-container></td></tr><tr><td style=\"height:100%\"><ng-content></ng-content></td></tr><tr *ngIf=\"footer || AckApp.appFooterTemplates.length\"><td [style.height.px]=\"footerHeight\"><div *ngIf=\"mode==='clone'\" style=\"visibility:hidden\"><ng-container *ngFor=\"let item of AckApp.appFooterTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container><ng-template *ngTemplateOutlet=\"footer\"></ng-template></div></td></tr></table><ng-container *ngIf=\"footer || AckApp.appFooterTemplates.length\"><div *ngIf=\"!mode || mode==='calculate'\" style=\"position:fixed;bottom:0;width:100%\" [(elementHeightModel)]=\"footerHeight\" [elementSizeModelWatch]=\"footer || AckApp.appFooterTemplates.length\"><ng-container *ngFor=\"let item of AckApp.appFooterTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container><ng-template *ngTemplateOutlet=\"footer\"></ng-template></div><div *ngIf=\"mode==='clone'\" style=\"position:fixed;bottom:0;width:100%\"><ng-container *ngFor=\"let item of AckApp.appFooterTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container><ng-template *ngTemplateOutlet=\"footer\"></ng-template></div></ng-container>";
+
+
+/***/ }),
+
 /***/ "./src/components/templates/ack-fixed-element-stage.pug.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.string = "<ng-container *ngFor=\"let prompt of AckApp.prompts.prompts;let i=index\"><ack-modal-layout [allowClose]=\"0\"><div style=\"text-align:left;max-width:900px;border:1px solid #DDD;border-radius:5px;margin:1em;padding:1em;background-color:white;\"><h3 *ngIf=\"prompt.title\" style=\"margin-top:0;\">{{ prompt.title }}</h3><div style=\"padding-right:1em;\">{{ prompt.message }}</div><br/><br/><div style=\"text-align:right;\"><a *ngIf=\"prompt.type=='confirm'\" (click)=\"prompt.emitter.emit(false)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;margin-right:.5em;\">Cancel</a><a (click)=\"prompt.emitter.emit(true)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;\" [ngStyle]=\"{'font-weight':prompt.type=='confirm' ? 'bold' : null}\">OK</a></div></div></ack-modal-layout></ng-container><ng-container *ngFor=\"let modal of AckApp.modals;let i=index\"><ng-container *ngIf=\"!modal.isModelMode || modal.showModel\"><ng-template [ngTemplateOutlet]=\"modal.layout\"></ng-template></ng-container></ng-container>";
+exports.string = "<ng-container *ngFor=\"let prompt of AckApp.prompts.prompts;let i=index\"><ack-modal-layout [allowClose]=\"0\"><div style=\"text-align:left;max-width:900px;border:1px solid #DDD;border-radius:5px;margin:1em;padding:1em;background-color:white;\"><h3 *ngIf=\"prompt.title\" style=\"margin-top:0;\">{{ prompt.title }}</h3><div style=\"padding-right:1em;\">{{ prompt.message }}</div><br/><br/><div style=\"text-align:right;\"><a *ngIf=\"prompt.type=='confirm'\" (click)=\"prompt.emitter.emit(false)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;margin-right:.5em;\">Cancel</a><a (click)=\"prompt.emitter.emit(true)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;\" [ngStyle]=\"{'font-weight':prompt.type=='confirm' ? 'bold' : null}\">OK</a></div></div></ack-modal-layout></ng-container><ng-container *ngFor=\"let item of AckApp.modals\"><ng-container *ngIf=\"!item.isModelMode || item.showModel\"><ng-template [ngTemplateOutlet]=\"item.layout\"></ng-template></ng-container></ng-container>";
 
 
 /***/ }),
@@ -3293,7 +3535,18 @@ exports.string = "<div *ngIf=\"error!=null &amp;&amp; errorClose!=error\" [@fade
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.string = "<div style=\"text-align:center;height:100%\"><div style=\"display:inline-block;width:100%;height:100%;max-width:1000px\"><div style=\"width:100%;height:100%;\"><table cellpadding=\"0\" cellspacing=\"0\" style=\"width:100%;height:100%;\"><tr><td><ng-content select=\"reader-header\"></ng-content></td></tr><tr><td style=\"height:100%\"><ng-content select=\"reader-body\"></ng-content></td></tr></table></div></div></div>";
+exports.string = "<div style=\"text-align:center;height:100%\"><div style=\"display:inline-block;width:100%;height:100%;max-width:1000px\"><div style=\"width:100%;height:100%;\"><table cellpadding=\"0\" cellspacing=\"0\" style=\"width:100%;height:100%;\"><tr *ngIf=\"readerHeader\"><td><ng-template *ngTemplateOutlet=\"readerHeader\"></ng-template></td></tr><tr><td style=\"height:100%\"><ng-content></ng-content></td></tr></table></div></div></div>";
+
+
+/***/ }),
+
+/***/ "./src/components/templates/scroll-past-fixed.pug.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.string = "<div style=\"width:100%;top:0\"><ng-content></ng-content></div><div [style.height.px]=\"fillHeight\"></div>";
 
 
 /***/ }),
@@ -3315,6 +3568,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 //COMPONENTS
+var AckApp_component_1 = __webpack_require__("./src/components/AckApp.component.ts");
+var AckAppTemplates_component_1 = __webpack_require__("./src/components/AckAppTemplates.component.ts");
 var AckModal_component_1 = __webpack_require__("./src/components/AckModal.component.ts");
 var AckModalLayout_component_1 = __webpack_require__("./src/components/AckModalLayout.component.ts");
 var AckCloseIcon_component_1 = __webpack_require__("./src/components/AckCloseIcon.component.ts");
@@ -3324,9 +3579,10 @@ var AckOptions_component_1 = __webpack_require__("./src/components/AckOptions.co
 var AckOptionsModal_component_1 = __webpack_require__("./src/components/AckOptionsModal.component.ts");
 var AbsoluteOverflowX_component_1 = __webpack_require__("./src/components/AbsoluteOverflowX.component.ts");
 var ErrorWell_component_1 = __webpack_require__("./src/components/ErrorWell.component.ts");
-var ReaderHeaderBody_component_1 = __webpack_require__("./src/components/ReaderHeaderBody.component.ts");
 var AckFixedElementStage_component_1 = __webpack_require__("./src/components/AckFixedElementStage.component.ts");
+var ReaderHeaderBody_component_1 = __webpack_require__("./src/components/ReaderHeaderBody.component.ts");
 //DIRECTIVES
+var ScrollPastFixed_component_1 = __webpack_require__("./src/components/ScrollPastFixed.component.ts");
 var ShakeOn_directive_1 = __webpack_require__("./src/directives/ShakeOn.directive.ts");
 var FocusOn_directive_1 = __webpack_require__("./src/directives/FocusOn.directive.ts");
 var Init_directive_1 = __webpack_require__("./src/directives/Init.directive.ts");
@@ -3532,6 +3788,7 @@ var FormAlter = (function () {
 }());
 exports.FormAlter = FormAlter;
 exports.declarations = [
+    //Directives
     Init_directive_1.Init,
     SelectOn_directive_1.SelectOn,
     FocusOn_directive_1.FocusOn,
@@ -3547,6 +3804,7 @@ exports.declarations = [
     ScreenWidthModel_directive_1.ScreenWidthModel,
     ScreenHeightModel_directive_1.ScreenHeightModel,
     ScreenScroll_directive_1.ScreenScroll,
+    ScrollPastFixed_component_1.ScrollPastFixed,
     ScreenScrollHeightDiff_directive_1.ScreenScrollHeightDiff,
     HtmlWidthModel_directive_1.HtmlWidthModel,
     HtmlHeightModel_directive_1.HtmlHeightModel,
@@ -3556,13 +3814,18 @@ exports.declarations = [
     ElementSizeModel_directive_1.ElementSizeModel,
     ElementSizeModel_directive_1.ElementWidthModel,
     ElementSizeModel_directive_1.ElementHeightModel,
-    AckCloseIcon_component_1.AckCloseIcon,
+    InputHint,
+    //components
+    ErrorWell_component_1.ErrorWell,
+    AbsoluteOverflowX_component_1.AbsoluteOverflowX,
+    //sorta ack-angular-templates
     ReaderHeaderBody_component_1.ReaderHeaderBody,
     ReaderHeaderBody_component_1.ReaderHeader,
     ReaderHeaderBody_component_1.ReaderBody,
-    ErrorWell_component_1.ErrorWell,
-    AbsoluteOverflowX_component_1.AbsoluteOverflowX,
-    InputHint,
+    //ack-angular-templates
+    AckCloseIcon_component_1.AckCloseIcon,
+    AckApp_component_1.AckApp,
+    AckAppTemplates_component_1.AckAppTemplates,
     AckOptions_component_1.AckOptions,
     AckOptionsModal_component_1.AckOptionsModal,
     AckModal_component_1.AckModal,
@@ -3626,6 +3889,14 @@ var ElementSizeModel = (function () {
         var _this = this;
         setTimeout(function () { return _this.setModel(); }, 800);
     };
+    ElementSizeModel.prototype.ngOnChanges = function () {
+        var _this = this;
+        setTimeout(function () {
+            if (!_this.inChange) {
+                _this.setModel();
+            }
+        }, 0);
+    };
     ElementSizeModel.prototype.setModel = function () {
         var _this = this;
         this.elementSizeModel = this.elementSizeModel || {};
@@ -3635,18 +3906,14 @@ var ElementSizeModel = (function () {
         this.elementSizeModelChange.emit(this.elementSizeModel);
         setTimeout(function () { return _this.inChange = false; }, 0);
     };
-    ElementSizeModel.prototype.ngOnChanges = function () {
-        var _this = this;
-        setTimeout(function () {
-            if (!_this.inChange) {
-                _this.setModel();
-            }
-        }, 0);
-    };
     ElementSizeModel.prototype.ngOnDestroy = function () {
         this.observer.disconnect();
         window.removeEventListener('resize', this.onResize);
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], ElementSizeModel.prototype, "elementSizeModelWatch", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Object)
@@ -4122,10 +4389,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 var ScreenScroll = (function () {
     function ScreenScroll() {
+        var _this = this;
         this.screenScroll = new core_1.EventEmitter();
         this.onScroll = function () {
-            this.screenScroll.emit({ x: window['pageXOffset'], y: window['pageYOffset'] });
-        }.bind(this);
+            return _this.screenScroll.emit({ x: window['pageXOffset'], y: window['pageYOffset'] });
+        };
         this.onScroll();
         window.addEventListener("scroll", this.onScroll);
     }
@@ -5256,9 +5524,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Log_1 = __webpack_require__("./src/providers/Log.ts");
 exports.Log = Log_1.Log;
 var Log_2 = __webpack_require__("./src/providers/Log.ts");
-var AckApp_1 = __webpack_require__("./src/providers/AckApp.ts");
-exports.AckApp = AckApp_1.AckApp;
-var AckApp_2 = __webpack_require__("./src/providers/AckApp.ts");
+var AckApp_provider_1 = __webpack_require__("./src/providers/AckApp.provider.ts");
+exports.AckApp = AckApp_provider_1.AckApp;
+var AckApp_provider_2 = __webpack_require__("./src/providers/AckApp.provider.ts");
 var Prompts_1 = __webpack_require__("./src/providers/Prompts.ts");
 exports.Prompts = Prompts_1.Prompts;
 var Prompts_2 = __webpack_require__("./src/providers/Prompts.ts");
@@ -5288,7 +5556,7 @@ var DocumentService_2 = __webpack_require__("./src/providers/DocumentService.ts"
 exports.providers = [
     Log_2.Log,
     ErrorLog_2.ErrorLog,
-    AckApp_2.AckApp,
+    AckApp_provider_2.AckApp,
     AckOffline_2.AckOffline,
     AckCache_2.AckCache,
     AckQue_2.AckQue,
@@ -5644,7 +5912,7 @@ function upgradeConfig(cfg) {
 
 /***/ }),
 
-/***/ "./src/providers/AckApp.ts":
+/***/ "./src/providers/AckApp.provider.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5660,25 +5928,47 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+//import { AckAppTemplates } from "../components/AckAppTemplates.component"
+//import { AckAppHeader } from "../components/AckAppHeader.component"
+//import { AckAppFooter } from "../components/AckAppFooter.component"
 var Prompts_1 = __webpack_require__("./src/providers/Prompts.ts");
 var AckApp = (function () {
     function AckApp(prompts) {
         this.prompts = prompts;
         this.warnedFixElements = true;
         this.modals = [];
+        //appTemplates:AckAppTemplates[] = []
+        this.appHeaderTemplates = [];
+        this.appFooterTemplates = [];
     }
-    AckApp.prototype.registerModal = function (modal) {
-        this.modals.push(modal);
+    AckApp.prototype.registerModal = function (item) {
+        this.modals.push(item);
         return this;
     };
-    AckApp.prototype.unregisterModal = function (modal) {
+    AckApp.prototype.unregisterModal = function (item) {
         for (var index = this.modals.length - 1; index >= 0; --index) {
-            if (this.modals[index] == modal) {
+            if (this.modals[index] == item) {
                 this.modals.splice(index, 1);
                 break;
             }
         }
         return this;
+    };
+    AckApp.prototype.unregisterAppHeaderTemplate = function (item) {
+        for (var x = this.appHeaderTemplates.length - 1; x >= 0; --x) {
+            if (this.appHeaderTemplates[x] == item) {
+                this.appHeaderTemplates.splice(x, 1);
+                break;
+            }
+        }
+    };
+    AckApp.prototype.unregisterAppFooterTemplate = function (item) {
+        for (var x = this.appFooterTemplates.length - 1; x >= 0; --x) {
+            if (this.appFooterTemplates[x] == item) {
+                this.appFooterTemplates.splice(x, 1);
+                break;
+            }
+        }
     };
     AckApp = __decorate([
         core_1.Injectable(),

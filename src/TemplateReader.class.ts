@@ -25,7 +25,8 @@ export class TemplateReader{
   }
 
   readTemplates( templateRefs:TemplateRef<any>[] ){
-    for(let x=templateRefs['_results'].length-1; x >= 0; --x){
+    const count = templateRefs['_results'].length
+    for(let x=count-1; x >= 0; --x){
       let row = templateRefs['_results'][x]
       this.applyReferences(row._def.references, row)
     }

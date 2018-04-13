@@ -7,7 +7,7 @@ import {
   ElementRef
 } from "@angular/core"
 
-import { AckApp } from "../providers/AckApp"
+import { AckApp } from "../providers/AckApp.provider"
 import { fxArray } from "ack-angular-fx"
 import { string } from "./templates/ack-modal-layout.pug"
 

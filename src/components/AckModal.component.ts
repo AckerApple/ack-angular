@@ -13,7 +13,7 @@ import {
 } from "@angular/core"
 
 import { AckModalLayout } from "./AckModalLayout.component"
-import { AckApp } from "../providers/AckApp"
+import { AckApp } from "../providers/AckApp.provider"
 import { string } from "./templates/ack-modal.pug"
 
 @Component({
@@ -39,7 +39,10 @@ import { string } from "./templates/ack-modal.pug"
   //one way expression binds
   @Output() close = new EventEmitter()
 
-  constructor( public element:ElementRef, public AckApp:AckApp ){}
+  constructor(
+    public element:ElementRef,
+    public AckApp:AckApp
+  ){}
 
   ngOnInit(){
     this.determineStage()

@@ -2,19 +2,20 @@ h2.margin-top-0 Providers
 
 ng-container("[(statusOnlineModel)]"="statusOnlineModel")
 
-.pad-h
-  p.margin-bottom-0 Import Example
-  .pad-h.text-warning.text-xs
-    |The following import code, is NOT needed if you used the AckModule import #[a.text-calm(href="#/overview" "(click)"="scrollToModuleImport()") seen here]
-  pre.code-sample.
-    import &#123; providers as ackProviders &#125; from "ack-angular/providers"
-    import &#123; NgModule &#125; from '@angular/core';
+p.margin-bottom-0 Import Example
+.text-warning.text-xs
+  |The following import code, is NOT needed if you used the AckModule import #[a.text-calm(href="#/overview" "(click)"="scrollToModuleImport()") seen here]
+pre.code-sample.
+  import &#123; providers as ackProviders &#125; from "ack-angular/providers"
+  import &#123; NgModule &#125; from '@angular/core';
 
-    @NgModule(&#123;
-      providers:[ ...ackProviders ]
-    &#125;)
+  @NgModule(&#123;
+    providers:[ ...ackProviders ]
+  &#125;)
 
 error-well([error]="error")
+
+br
 
 .flex-wrap.child-margin-xxs
   //-Prompts

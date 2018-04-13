@@ -3,10 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ScreenScroll = (function () {
     function ScreenScroll() {
+        var _this = this;
         this.screenScroll = new core_1.EventEmitter();
         this.onScroll = function () {
-            this.screenScroll.emit({ x: window['pageXOffset'], y: window['pageYOffset'] });
-        }.bind(this);
+            return _this.screenScroll.emit({ x: window['pageXOffset'], y: window['pageYOffset'] });
+        };
         this.onScroll();
         window.addEventListener("scroll", this.onScroll);
     }

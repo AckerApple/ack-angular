@@ -1,8 +1,8 @@
 export { Log } from "./providers/Log";
 import { Log } from "./providers/Log";
 
-export { AckApp } from "./providers/AckApp";
-import { AckApp } from "./providers/AckApp";
+export { AckApp } from "./providers/AckApp.provider";
+import { AckApp } from "./providers/AckApp.provider";
 
 export { Prompts } from "./providers/Prompts";
 import { Prompts } from "./providers/Prompts";

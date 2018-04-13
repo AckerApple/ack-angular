@@ -1,6 +1,15 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.5.10] - 2018-04-13
+- Added ack-app
+- Added ack-app-templates
+- Added scroll-past-fixed
+
+
+## [1.5.9] - 2018-04-10
+- Moved mintutes report over to new aggregates
+
 ## [1.5.8] - 2018-04-09
 - Added toNumber pipe
 - Added ack-aggregate

@@ -5,12 +5,13 @@ export declare class ElementSizeModel {
     observer: any;
     timeout: any;
     inChange: any;
+    elementSizeModelWatch: any;
     elementSizeModel: any;
     elementSizeModelChange: EventEmitter<{}>;
     constructor(element: ElementRef);
     ngAfterViewInit(): void;
-    setModel(): void;
     ngOnChanges(): void;
+    setModel(): void;
     ngOnDestroy(): void;
 }
 export declare class ElementHeightModel extends ElementSizeModel {

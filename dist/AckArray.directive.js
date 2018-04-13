@@ -74,6 +74,8 @@ var AckArray = (function () {
         return item;
     };
     AckArray.prototype.loop = function () {
+        if (!this.array)
+            return;
         this.loopStart.emit();
         var last = this.array.length;
         for (var x = 0; x < last; ++x) {
@@ -99,7 +101,7 @@ var AckArray = (function () {
             return;
         this.pushed.createPages = true;
         var pos = 0;
-        var last = this.array.length;
+        var last = 0;
         this.loopStart.subscribe(function () {
             pos = 0;
             last = _this.array.length;

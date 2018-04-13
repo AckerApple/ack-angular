@@ -14,32 +14,54 @@ export const declarations = [
   FakeComponent
 ]
 
-export const routes = [
+export const menu = [
   {
-  	name: 'overview',
-  	path: 'overview',
-  	component: OverviewExamples
+    name: 'overview',
+    path: 'overview',
+    component: OverviewExamples,
+    data:{
+      title:"Overview"
+    },
   },{
-  	name: 'components',
-  	path: 'components',
-  	component: ComponentsExamples
+    name: 'components',
+    path: 'components',
+    component: ComponentsExamples,
+    data:{
+      title:"Components"
+    }
   },{
     name: 'pipes',
     path: 'pipes',
-    component: PipesExamples
+    component: PipesExamples,
+    data:{
+      title:"Pipes"
+    }
   },{
     name: 'animations',
     path: 'animations',
-    component: AnimationExamples
+    component: AnimationExamples,
+    data:{
+      title:"Animations"
+    }
   },{
     name: 'providers',
     path: 'providers',
-    component: ProviderExamples
+    component: ProviderExamples,
+    data:{
+      title:"Providers"
+    }
   },{
     name: 'jjswoz',
     path: 'jjswoz',
-    component: JjsWoz
-  },
+    component: JjsWoz,
+    data:{
+      title:"JJ's WoZ"
+    }
+  }
+]
+
+export const routes = [
+  ...menu,
   {path: '',   redirectTo: 'overview', pathMatch: 'full' },//default route
   {path: '**',   redirectTo: 'overview' }//404
 ]

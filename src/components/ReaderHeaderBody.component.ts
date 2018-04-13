@@ -1,4 +1,7 @@
-import { Component, Directive, ElementRef } from "@angular/core"
+import {
+	Component, Directive,
+	ElementRef, TemplateRef, ContentChild
+} from "@angular/core"
 
 import { string as readerHeaderBody } from "./templates/reader-header-body.pug"
 
@@ -15,6 +18,8 @@ import { string as readerHeaderBody } from "./templates/reader-header-body.pug"
 @Directive({
   selector:"reader-body"
 }) export class ReaderBody {
+	@ContentChild('reader-header') readerHeader:TemplateRef<any>
+
   constructor(public element: ElementRef){
     element.nativeElement.style.height = '100%';
     element.nativeElement.style.display = 'block';

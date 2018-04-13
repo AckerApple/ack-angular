@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Log_1 = require("./providers/Log");
 exports.Log = Log_1.Log;
 var Log_2 = require("./providers/Log");
-var AckApp_1 = require("./providers/AckApp");
-exports.AckApp = AckApp_1.AckApp;
-var AckApp_2 = require("./providers/AckApp");
+var AckApp_provider_1 = require("./providers/AckApp.provider");
+exports.AckApp = AckApp_provider_1.AckApp;
+var AckApp_provider_2 = require("./providers/AckApp.provider");
 var Prompts_1 = require("./providers/Prompts");
 exports.Prompts = Prompts_1.Prompts;
 var Prompts_2 = require("./providers/Prompts");
@@ -38,7 +38,7 @@ var DocumentService_2 = require("./providers/DocumentService");
 exports.providers = [
     Log_2.Log,
     ErrorLog_2.ErrorLog,
-    AckApp_2.AckApp,
+    AckApp_provider_2.AckApp,
     AckOffline_2.AckOffline,
     AckCache_2.AckCache,
     AckQue_2.AckQue,

@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var AckApp_component_1 = require("./components/AckApp.component");
+var AckAppTemplates_component_1 = require("./components/AckAppTemplates.component");
 var AckModal_component_1 = require("./components/AckModal.component");
 var AckModalLayout_component_1 = require("./components/AckModalLayout.component");
 var AckCloseIcon_component_1 = require("./components/AckCloseIcon.component");
@@ -10,8 +12,9 @@ var AckOptions_component_1 = require("./components/AckOptions.component");
 var AckOptionsModal_component_1 = require("./components/AckOptionsModal.component");
 var AbsoluteOverflowX_component_1 = require("./components/AbsoluteOverflowX.component");
 var ErrorWell_component_1 = require("./components/ErrorWell.component");
-var ReaderHeaderBody_component_1 = require("./components/ReaderHeaderBody.component");
 var AckFixedElementStage_component_1 = require("./components/AckFixedElementStage.component");
+var ReaderHeaderBody_component_1 = require("./components/ReaderHeaderBody.component");
+var ScrollPastFixed_component_1 = require("./components/ScrollPastFixed.component");
 var ShakeOn_directive_1 = require("./directives/ShakeOn.directive");
 var FocusOn_directive_1 = require("./directives/FocusOn.directive");
 var Init_directive_1 = require("./directives/Init.directive");
@@ -234,6 +237,7 @@ exports.declarations = [
     ScreenWidthModel_directive_1.ScreenWidthModel,
     ScreenHeightModel_directive_1.ScreenHeightModel,
     ScreenScroll_directive_1.ScreenScroll,
+    ScrollPastFixed_component_1.ScrollPastFixed,
     ScreenScrollHeightDiff_directive_1.ScreenScrollHeightDiff,
     HtmlWidthModel_directive_1.HtmlWidthModel,
     HtmlHeightModel_directive_1.HtmlHeightModel,
@@ -243,13 +247,15 @@ exports.declarations = [
     ElementSizeModel_directive_1.ElementSizeModel,
     ElementSizeModel_directive_1.ElementWidthModel,
     ElementSizeModel_directive_1.ElementHeightModel,
-    AckCloseIcon_component_1.AckCloseIcon,
+    InputHint,
+    ErrorWell_component_1.ErrorWell,
+    AbsoluteOverflowX_component_1.AbsoluteOverflowX,
     ReaderHeaderBody_component_1.ReaderHeaderBody,
     ReaderHeaderBody_component_1.ReaderHeader,
     ReaderHeaderBody_component_1.ReaderBody,
-    ErrorWell_component_1.ErrorWell,
-    AbsoluteOverflowX_component_1.AbsoluteOverflowX,
-    InputHint,
+    AckCloseIcon_component_1.AckCloseIcon,
+    AckApp_component_1.AckApp,
+    AckAppTemplates_component_1.AckAppTemplates,
     AckOptions_component_1.AckOptions,
     AckOptionsModal_component_1.AckOptionsModal,
     AckModal_component_1.AckModal,

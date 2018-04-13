@@ -14,6 +14,8 @@ import {
   timeout
   inChange
 
+  @Input() elementSizeModelWatch:any//causes ngOnChanges to fire
+
   @Input() elementSizeModel
   @Output() elementSizeModelChange = new EventEmitter()
 
@@ -42,6 +44,14 @@ import {
     setTimeout(()=>this.setModel(), 800)
   }
 
+  ngOnChanges(){
+    setTimeout(()=>{
+      if(!this.inChange){
+        this.setModel()
+      }
+    }, 0)
+  }
+
   setModel(){
     this.elementSizeModel = this.elementSizeModel || {}
     this.inChange = true
@@ -50,14 +60,6 @@ import {
     this.elementSizeModelChange.emit(this.elementSizeModel)
     
     setTimeout(()=>this.inChange=false, 0)
-  }
-
-  ngOnChanges(){
-    setTimeout(()=>{
-      if(!this.inChange){
-        this.setModel()
-      }
-    }, 0)
   }
 
   ngOnDestroy(){

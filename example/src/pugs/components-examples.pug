@@ -1,8 +1,8 @@
 h2.margin-top-0 Components
 
-.pad-h
+.margin-xxs
   p.margin-bottom-0 Import Example
-  .pad-h.text-warning.text-xs
+  .text-warning.text-xs
     |The following import code, is NOT needed if you used the AckModule import #[a.text-calm(href="#/overview" "(click)"="scrollToModuleImport()") seen here]
   pre.code-sample(ngNonBindable).
     import &#123; declarations as ackDecs &#125; from "ack-angular/components"
@@ -933,7 +933,7 @@ h3.margin-bottom-0(id="TwoWayBinds") Two Way Binds
       .pad-h
         h3 [(statusOnlineModel)]
         .text-grey-2x.max-width-400
-          |Get browser window inner width. #[strong IS ONLINE] :
+          |Get browser internet status. #[strong IS ONLINE] :
           .inline-block.width-50 &nbsp;{{ statusOnlineModel }}
         br
     .text-center
@@ -961,7 +961,7 @@ h3.margin-bottom-0(id="TwoWayBinds") Two Way Binds
       .pad-h
         h3 [(statusOfflineModel)]
         .text-grey-2x.max-width-400
-          |Get browser window inner width. #[strong IS OFFLINE] :
+          |Get browser internet status. #[strong IS OFFLINE] :
           .inline-block.width-50 &nbsp;{{ statusOfflineModel }}
         br
     .text-center
@@ -1015,7 +1015,7 @@ h3.margin-bottom-0(id="TwoWayBinds") Two Way Binds
       .pad-h
         h3 [(screenScrollModelY)]
         .text-grey-2x.max-width-400
-          |Get browser window inner width. Currently :
+          |Get browser height scrolled. Currently :
           .inline-block.width-50 &nbsp;{{screenScrollModelY}}px
         br
     .text-center

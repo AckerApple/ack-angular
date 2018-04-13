@@ -8,6 +8,8 @@ import {
 } from "@angular/core"
 
 //COMPONENTS
+import { AckApp } from "./components/AckApp.component"
+import { AckAppTemplates } from "./components/AckAppTemplates.component"
 import { AckModal } from "./components/AckModal.component"
 import { AckModalLayout } from "./components/AckModalLayout.component"
 import { AckCloseIcon } from "./components/AckCloseIcon.component"
@@ -17,10 +19,11 @@ import { AckOptions } from "./components/AckOptions.component"
 import { AckOptionsModal } from "./components/AckOptionsModal.component"
 import { AbsoluteOverflowX } from "./components/AbsoluteOverflowX.component"
 import { ErrorWell } from "./components/ErrorWell.component"
-import { ReaderHeaderBody, ReaderHeader, ReaderBody } from "./components/ReaderHeaderBody.component"
 import { AckFixedElementStage } from "./components/AckFixedElementStage.component"
+import { ReaderHeaderBody, ReaderHeader, ReaderBody } from "./components/ReaderHeaderBody.component"
 
 //DIRECTIVES
+import { ScrollPastFixed } from "./components/ScrollPastFixed.component"
 import { ShakeOn } from "./directives/ShakeOn.directive"
 import { FocusOn } from "./directives/FocusOn.directive"
 import { Init } from "./directives/Init.directive"
@@ -162,6 +165,7 @@ export class PreventEnterKey{
 
 
 export const declarations = [
+  //Directives
   Init,
   SelectOn,
   FocusOn,
@@ -177,6 +181,7 @@ export const declarations = [
   ScreenWidthModel,
   ScreenHeightModel,
   ScreenScroll,
+  ScrollPastFixed,
   ScreenScrollHeightDiff,
   HtmlWidthModel,
   HtmlHeightModel,
@@ -186,13 +191,21 @@ export const declarations = [
   ElementSizeModel,
   ElementWidthModel,
   ElementHeightModel,
-  AckCloseIcon,
+  InputHint,
+  
+  //components
+  ErrorWell,
+  AbsoluteOverflowX,
+
+  //sorta ack-angular-templates
   ReaderHeaderBody,
   ReaderHeader,
   ReaderBody,
-  ErrorWell,
-  AbsoluteOverflowX,
-  InputHint,
+
+  //ack-angular-templates
+  AckCloseIcon,
+  AckApp,
+  AckAppTemplates,
   AckOptions,
   AckOptionsModal,
   AckModal,

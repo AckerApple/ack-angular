@@ -19,7 +19,7 @@ import {
 } from 'ng2-page-scroll'
 
 import { ProviderExamples } from "./ProviderExamples.component"
-import { AppComponent } from "./AppComponent.component"
+import { AckAppStage } from "./AckAppStage.component"
 import { declarations as states, routing } from "./states.object"
 import { AnimationExamples } from "./AnimationExamples.component"
 import { JjsWoz } from "./JjsWoz.component"
@@ -28,7 +28,7 @@ import { ComponentsExamples } from "./ComponentsExamples.component"
 import { PipesExamples } from "./PipesExamples.component"
 
 export const declarations = [
-  AppComponent
+  AckAppStage
   ,RouteReporter
   ,AnimationExamples
   ,OverviewExamples
@@ -59,7 +59,7 @@ import { HttpModule } from '@angular/http';
     RouteWatchReporter
     //,UiRouteWatchReporter
   ]
-  ,bootstrap: [ AppComponent ]
+  ,bootstrap: [ AckAppStage ]
   //,schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 }) export class AppModule {}
 

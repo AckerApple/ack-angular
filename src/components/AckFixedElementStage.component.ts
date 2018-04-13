@@ -1,5 +1,5 @@
 import { ElementRef, Component } from "@angular/core"
-import { AckApp } from "../providers/AckApp"
+import { AckApp } from "../providers/AckApp.provider"
 
 import { string } from "./templates/ack-fixed-element-stage.pug"
 
