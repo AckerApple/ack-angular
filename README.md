@@ -17,7 +17,7 @@ Extra special directives, components, providers and pipes to aide in tackling ev
 - [Components](#components)
 - [Work on This Project](#work-on-this-project)
   - [Building Example](#building-example)
-- [Resources](#install)
+- [Resources](#resources)
 
 </details>
 

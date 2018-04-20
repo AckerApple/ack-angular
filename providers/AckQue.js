@@ -147,7 +147,6 @@ var AckQue = (function (_super) {
     AckQue.decorators = [
         { type: core_1.Injectable },
     ];
-    AckQue.ctorParameters = function () { return []; };
     return AckQue;
 }(AckOffline_1.AckOffline));
 exports.AckQue = AckQue;

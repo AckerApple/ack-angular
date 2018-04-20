@@ -31,7 +31,6 @@ var ScreenHeightModel = (function (_super) {
                     selector: '[screenHeightModel]'
                 },] },
     ];
-    ScreenHeightModel.ctorParameters = function () { return []; };
     ScreenHeightModel.propDecorators = {
         "screenHeightModel": [{ type: core_1.Input },],
         "screenHeightModelChange": [{ type: core_1.Output },],

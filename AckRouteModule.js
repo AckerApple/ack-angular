@@ -15,7 +15,6 @@ var AckRouteModule = (function () {
                     exports: [RouteReporter_directive_1.RouteReporter]
                 },] },
     ];
-    AckRouteModule.ctorParameters = function () { return []; };
     return AckRouteModule;
 }());
 exports.AckRouteModule = AckRouteModule;

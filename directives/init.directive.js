@@ -13,7 +13,6 @@ var Init = (function () {
                     selector: '[init]'
                 },] },
     ];
-    Init.ctorParameters = function () { return []; };
     Init.propDecorators = {
         "init": [{ type: core_1.Output },],
     };

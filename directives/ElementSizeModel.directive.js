@@ -89,7 +89,6 @@ var ElementHeightModel = (function (_super) {
                     selector: '[elementHeightModel]'
                 },] },
     ];
-    ElementHeightModel.ctorParameters = function () { return []; };
     ElementHeightModel.propDecorators = {
         "elementHeightModel": [{ type: core_1.Input },],
         "elementHeightModelChange": [{ type: core_1.Output },],
@@ -113,7 +112,6 @@ var ElementWidthModel = (function (_super) {
                     selector: '[elementWidthModel]'
                 },] },
     ];
-    ElementWidthModel.ctorParameters = function () { return []; };
     ElementWidthModel.propDecorators = {
         "elementWidthModel": [{ type: core_1.Input },],
         "elementWidthModelChange": [{ type: core_1.Output },],

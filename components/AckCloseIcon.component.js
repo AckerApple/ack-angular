@@ -13,7 +13,6 @@ var AckCloseIcon = (function () {
                     template: template
                 },] },
     ];
-    AckCloseIcon.ctorParameters = function () { return []; };
     return AckCloseIcon;
 }());
 exports.AckCloseIcon = AckCloseIcon;

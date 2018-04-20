@@ -1,5 +1,6 @@
 import { EventEmitter, ElementRef } from "@angular/core";
-import { AckAppTemplates } from "./components/AckAppTemplates.component";
+import { AckSections } from "./components/AckSections.component";
+import { AckSectionTemplates } from "./components/AckSectionTemplates.component";
 import { AckModal } from "./components/AckModal.component";
 import { AckModalLayout } from "./components/AckModalLayout.component";
 import { AckCloseIcon } from "./components/AckCloseIcon.component";
@@ -56,4 +57,4 @@ export declare class FormAlter {
     constructor(element: ElementRef);
     ngOnDestroy(): void;
 }
-export declare const declarations: (typeof AckModalLayout | typeof AckModal | typeof AckAppTemplates | typeof AckCloseIcon | typeof AckOptions | typeof AbsoluteOverflowX | typeof AckFixedElementStage | typeof ReaderBody | typeof ScrollPastFixed | typeof ShakeOn | typeof FocusOn | typeof SelectOn | typeof InnerHtmlModel | typeof ElementSizeModel | typeof EnterKey | typeof EscapeKey | typeof PreventBackKey | typeof PreventEnterKey | typeof FormChanged | typeof FormAlter)[];
+export declare const declarations: (typeof AckModalLayout | typeof AckModal | typeof AckSections | typeof AckSectionTemplates | typeof AckCloseIcon | typeof AckOptions | typeof AbsoluteOverflowX | typeof AckFixedElementStage | typeof ReaderBody | typeof ScrollPastFixed | typeof ShakeOn | typeof FocusOn | typeof SelectOn | typeof InnerHtmlModel | typeof ElementSizeModel | typeof EnterKey | typeof EscapeKey | typeof PreventBackKey | typeof PreventEnterKey | typeof FormChanged | typeof FormAlter)[];

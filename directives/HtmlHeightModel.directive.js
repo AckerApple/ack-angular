@@ -31,7 +31,6 @@ var HtmlHeightModel = (function (_super) {
                     selector: '[htmlHeightModel]'
                 },] },
     ];
-    HtmlHeightModel.ctorParameters = function () { return []; };
     HtmlHeightModel.propDecorators = {
         "htmlHeightModel": [{ type: core_1.Input },],
         "htmlHeightModelChange": [{ type: core_1.Output },],

@@ -132,7 +132,6 @@ var AckCache = (function (_super) {
     AckCache.decorators = [
         { type: core_1.Injectable },
     ];
-    AckCache.ctorParameters = function () { return []; };
     return AckCache;
 }(AckOffline_1.AckOffline));
 exports.AckCache = AckCache;

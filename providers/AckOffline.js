@@ -37,7 +37,6 @@ var AckOffline = (function () {
     AckOffline.decorators = [
         { type: core_1.Injectable },
     ];
-    AckOffline.ctorParameters = function () { return []; };
     return AckOffline;
 }());
 exports.AckOffline = AckOffline;

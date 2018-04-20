@@ -32,7 +32,6 @@ var Log = (function () {
     Log.decorators = [
         { type: core_1.Injectable },
     ];
-    Log.ctorParameters = function () { return []; };
     return Log;
 }());
 exports.Log = Log;

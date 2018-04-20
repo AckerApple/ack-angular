@@ -182,7 +182,6 @@ var AckArray = (function () {
                     selector: 'ack-array'
                 },] },
     ];
-    AckArray.ctorParameters = function () { return []; };
     AckArray.propDecorators = {
         "idKey": [{ type: core_1.Input },],
         "ref": [{ type: core_1.Input },],

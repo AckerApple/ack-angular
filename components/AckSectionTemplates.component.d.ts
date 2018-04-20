@@ -1,0 +1,15 @@
+import { TemplateRef } from "@angular/core";
+import { SectionProvider } from "../providers/AckSections.provider";
+export declare class AckSectionTemplates {
+    SectionProvider: SectionProvider;
+    inited: boolean;
+    pushed: boolean;
+    header: TemplateRef<any>;
+    footer: TemplateRef<any>;
+    constructor(SectionProvider: SectionProvider);
+    ngAfterViewInit(): void;
+    ngOnChanges(changes: any): void;
+    check(): void;
+    ngOnDestroy(): void;
+    unregister(): void;
+}

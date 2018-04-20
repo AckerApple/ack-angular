@@ -31,7 +31,6 @@ var ScreenWidthModel = (function (_super) {
                     selector: '[screenWidthModel]'
                 },] },
     ];
-    ScreenWidthModel.ctorParameters = function () { return []; };
     ScreenWidthModel.propDecorators = {
         "screenWidthModel": [{ type: core_1.Input },],
         "screenWidthModelChange": [{ type: core_1.Output },],

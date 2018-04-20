@@ -12,7 +12,6 @@ var IndexTrack = (function () {
     IndexTrack.decorators = [
         { type: core_1.Pipe, args: [{ name: 'indexTrack' },] },
     ];
-    IndexTrack.ctorParameters = function () { return []; };
     return IndexTrack;
 }());
 exports.IndexTrack = IndexTrack;
@@ -25,7 +24,6 @@ var Stringify = (function () {
     Stringify.decorators = [
         { type: core_1.Pipe, args: [{ name: 'stringify' },] },
     ];
-    Stringify.ctorParameters = function () { return []; };
     return Stringify;
 }());
 exports.Stringify = Stringify;
@@ -38,7 +36,6 @@ var ForceArray = (function () {
     ForceArray.decorators = [
         { type: core_1.Pipe, args: [{ name: 'array' },] },
     ];
-    ForceArray.ctorParameters = function () { return []; };
     return ForceArray;
 }());
 exports.ForceArray = ForceArray;
@@ -51,7 +48,6 @@ var ArrayOfObjects = (function () {
     ArrayOfObjects.decorators = [
         { type: core_1.Pipe, args: [{ name: 'arrayOfObjects' },] },
     ];
-    ArrayOfObjects.ctorParameters = function () { return []; };
     return ArrayOfObjects;
 }());
 exports.ArrayOfObjects = ArrayOfObjects;
@@ -110,7 +106,6 @@ var Between = (function () {
     Between.decorators = [
         { type: core_1.Pipe, args: [{ name: 'between' },] },
     ];
-    Between.ctorParameters = function () { return []; };
     return Between;
 }());
 exports.Between = Between;
@@ -121,7 +116,6 @@ var TextDownload = (function () {
     TextDownload.decorators = [
         { type: core_1.Pipe, args: [{ name: 'textDownload' },] },
     ];
-    TextDownload.ctorParameters = function () { return []; };
     return TextDownload;
 }());
 exports.TextDownload = TextDownload;
@@ -132,7 +126,6 @@ var NumberToPhone = (function () {
     NumberToPhone.decorators = [
         { type: core_1.Pipe, args: [{ name: 'numberToPhone' },] },
     ];
-    NumberToPhone.ctorParameters = function () { return []; };
     return NumberToPhone;
 }());
 exports.NumberToPhone = NumberToPhone;
@@ -143,7 +136,6 @@ var toNumber = (function () {
     toNumber.decorators = [
         { type: core_1.Pipe, args: [{ name: 'toNumber' },] },
     ];
-    toNumber.ctorParameters = function () { return []; };
     return toNumber;
 }());
 exports.toNumber = toNumber;
@@ -154,7 +146,6 @@ var NumberSuffix = (function () {
     NumberSuffix.decorators = [
         { type: core_1.Pipe, args: [{ name: 'numberSuffix' },] },
     ];
-    NumberSuffix.ctorParameters = function () { return []; };
     return NumberSuffix;
 }());
 exports.NumberSuffix = NumberSuffix;
@@ -165,7 +156,6 @@ var MarkdownAnchor = (function () {
     MarkdownAnchor.decorators = [
         { type: core_1.Pipe, args: [{ name: 'markdownAnchor' },] },
     ];
-    MarkdownAnchor.ctorParameters = function () { return []; };
     return MarkdownAnchor;
 }());
 exports.MarkdownAnchor = MarkdownAnchor;
@@ -176,7 +166,6 @@ var Capitalize = (function () {
     Capitalize.decorators = [
         { type: core_1.Pipe, args: [{ name: 'capitalize' },] },
     ];
-    Capitalize.ctorParameters = function () { return []; };
     return Capitalize;
 }());
 exports.Capitalize = Capitalize;
@@ -187,7 +176,6 @@ var CapitalizeWords = (function () {
     CapitalizeWords.decorators = [
         { type: core_1.Pipe, args: [{ name: 'capitalizeWords' },] },
     ];
-    CapitalizeWords.ctorParameters = function () { return []; };
     return CapitalizeWords;
 }());
 exports.CapitalizeWords = CapitalizeWords;
@@ -198,7 +186,6 @@ var Yesno = (function () {
     Yesno.decorators = [
         { type: core_1.Pipe, args: [{ name: 'yesno' },] },
     ];
-    Yesno.ctorParameters = function () { return []; };
     return Yesno;
 }());
 exports.Yesno = Yesno;
@@ -209,7 +196,6 @@ var YesNo = (function () {
     YesNo.decorators = [
         { type: core_1.Pipe, args: [{ name: 'YesNo' },] },
     ];
-    YesNo.ctorParameters = function () { return []; };
     return YesNo;
 }());
 exports.YesNo = YesNo;
@@ -220,7 +206,6 @@ var BooleanPipe = (function () {
     BooleanPipe.decorators = [
         { type: core_1.Pipe, args: [{ name: 'boolean' },] },
     ];
-    BooleanPipe.ctorParameters = function () { return []; };
     return BooleanPipe;
 }());
 exports.BooleanPipe = BooleanPipe;
@@ -231,7 +216,6 @@ var Bit = (function () {
     Bit.decorators = [
         { type: core_1.Pipe, args: [{ name: 'bit' },] },
     ];
-    Bit.ctorParameters = function () { return []; };
     return Bit;
 }());
 exports.Bit = Bit;
@@ -242,7 +226,6 @@ var Numbers = (function () {
     Numbers.decorators = [
         { type: core_1.Pipe, args: [{ name: 'numbers' },] },
     ];
-    Numbers.ctorParameters = function () { return []; };
     return Numbers;
 }());
 exports.Numbers = Numbers;
@@ -253,7 +236,6 @@ var ADate = (function () {
     ADate.decorators = [
         { type: core_1.Pipe, args: [{ name: 'aDate' },] },
     ];
-    ADate.ctorParameters = function () { return []; };
     return ADate;
 }());
 exports.ADate = ADate;
@@ -264,7 +246,6 @@ var AMath = (function () {
     AMath.decorators = [
         { type: core_1.Pipe, args: [{ name: 'aMath' },] },
     ];
-    AMath.ctorParameters = function () { return []; };
     return AMath;
 }());
 exports.AMath = AMath;
@@ -275,7 +256,6 @@ var ATime = (function () {
     ATime.decorators = [
         { type: core_1.Pipe, args: [{ name: 'aTime' },] },
     ];
-    ATime.ctorParameters = function () { return []; };
     return ATime;
 }());
 exports.ATime = ATime;
@@ -286,7 +266,6 @@ var Ack = (function () {
     Ack.decorators = [
         { type: core_1.Pipe, args: [{ name: 'ack' },] },
     ];
-    Ack.ctorParameters = function () { return []; };
     return Ack;
 }());
 exports.Ack = Ack;
@@ -305,7 +284,6 @@ var Keys = (function () {
     Keys.decorators = [
         { type: core_1.Pipe, args: [{ name: 'keys' },] },
     ];
-    Keys.ctorParameters = function () { return []; };
     return Keys;
 }());
 exports.Keys = Keys;
@@ -316,7 +294,6 @@ var TypeofPipe = (function () {
     TypeofPipe.decorators = [
         { type: core_1.Pipe, args: [{ name: 'typeof' },] },
     ];
-    TypeofPipe.ctorParameters = function () { return []; };
     return TypeofPipe;
 }());
 exports.TypeofPipe = TypeofPipe;
@@ -327,7 +304,6 @@ var ConsolePipe = (function () {
     ConsolePipe.decorators = [
         { type: core_1.Pipe, args: [{ name: 'console' },] },
     ];
-    ConsolePipe.ctorParameters = function () { return []; };
     return ConsolePipe;
 }());
 exports.ConsolePipe = ConsolePipe;
