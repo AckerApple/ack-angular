@@ -7,8 +7,11 @@ var AckSectionTemplates = (function () {
         this.SectionProvider = SectionProvider;
     }
     AckSectionTemplates.prototype.ngAfterViewInit = function () {
-        this.check();
-        this.inited = true;
+        var _this = this;
+        setTimeout(function () {
+            _this.check();
+            _this.inited = true;
+        }, 0);
     };
     AckSectionTemplates.prototype.ngOnChanges = function (changes) {
         if (this.inited) {
