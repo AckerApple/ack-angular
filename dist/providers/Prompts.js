@@ -36,7 +36,6 @@ var Prompts = (function () {
     Prompts.decorators = [
         { type: core_1.Injectable },
     ];
-    Prompts.ctorParameters = function () { return []; };
     return Prompts;
 }());
 exports.Prompts = Prompts;

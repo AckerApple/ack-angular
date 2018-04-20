@@ -26,7 +26,6 @@ var AckModule = (function () {
                     ].concat(declarations)
                 },] },
     ];
-    AckModule.ctorParameters = function () { return []; };
     return AckModule;
 }());
 exports.AckModule = AckModule;

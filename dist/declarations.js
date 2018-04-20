@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AckApp_component_1 = require("./components/AckApp.component");
-var AckAppTemplates_component_1 = require("./components/AckAppTemplates.component");
+var AckSections_component_1 = require("./components/AckSections.component");
+var AckSectionTemplates_component_1 = require("./components/AckSectionTemplates.component");
 var AckModal_component_1 = require("./components/AckModal.component");
 var AckModalLayout_component_1 = require("./components/AckModalLayout.component");
 var AckCloseIcon_component_1 = require("./components/AckCloseIcon.component");
@@ -39,7 +39,6 @@ var VarDirective = (function () {
                     exportAs: 'var'
                 },] },
     ];
-    VarDirective.ctorParameters = function () { return []; };
     VarDirective.propDecorators = {
         "var": [{ type: core_1.Input },],
     };
@@ -160,7 +159,6 @@ var InputHint = (function () {
                     template: '<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
                 },] },
     ];
-    InputHint.ctorParameters = function () { return []; };
     InputHint.propDecorators = {
         "hintStyle": [{ type: core_1.Input },],
     };
@@ -254,8 +252,8 @@ exports.declarations = [
     ReaderHeaderBody_component_1.ReaderHeader,
     ReaderHeaderBody_component_1.ReaderBody,
     AckCloseIcon_component_1.AckCloseIcon,
-    AckApp_component_1.AckApp,
-    AckAppTemplates_component_1.AckAppTemplates,
+    AckSections_component_1.AckSections,
+    AckSectionTemplates_component_1.AckSectionTemplates,
     AckOptions_component_1.AckOptions,
     AckOptionsModal_component_1.AckOptionsModal,
     AckModal_component_1.AckModal,

@@ -1,16 +1,14 @@
-WoZ_led_InOut.gif
-WoZ_led_show.gif
 *.css.map
 *.js.map
+.DS_Store
+updaters
+WoZ_led_InOut.gif
+WoZ_led_show.gif
 www/index.js.map
 etc
-styles.css.map
-js_modules
 .ack-webpack-temp
 temp/
 aot/
-.DS_Store
-updaters
 
 # Logs
 logs

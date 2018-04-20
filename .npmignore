@@ -1,9 +1,6 @@
 *.css.map
 *.js.map
-www/index.js.map
 etc
-styles.css.map
-js_modules
 .ack-webpack-temp
 aot/
 updaters/

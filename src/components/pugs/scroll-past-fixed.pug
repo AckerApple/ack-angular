@@ -1,4 +1,7 @@
-div(style="width:100%;top:0")
+div(
+  style = "width:100%;top:0;z-index:1"
+  "[style.position]" = "currentPosition"
+)
   ng-content
 
 div("[style.height.px]"="fillHeight")

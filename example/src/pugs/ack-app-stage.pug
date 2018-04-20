@@ -17,21 +17,20 @@ ack-fixed-element-stage
 
 div(id="top")
 
-//-small screen footer menu
-ack-app-templates(*ngIf="screenWidthModel < 800")
-  ng-template(#footer="")
-    absolute-overflow-x.bg-info.text-center.border-top.border-grey-2x(
-      "[@fadeInUp]"=1
-    )
-      .flex.child-hover-bg-warning.child-pad-h-lg.child-pad-v-sm
-        a.nowrap.no-a-style.flex-1.border-right.border-white.height-60.flex-valign-center(
-          *ngFor    = "let item of menu"
-          "[ngClass]" = "{'strong bg-energized':stateName==item.path}"
-          "[href]"  = "'#/' + item.path"
-        ) {{ item.data.title }}
-
 reader-header-body(style="font-size:16px;")
-  ack-app(mode="clone")
+  ack-sections(mode="clone")
+    //-small screen footer menu
+    ack-section-templates(*ngIf="screenWidthModel < 800")
+      ng-template(#sectionFooter="")
+        absolute-overflow-x.bg-info.text-center.border-top.border-grey-2x(
+          "[@fadeInUp]"=1
+        )
+          .flex.child-hover-bg-warning.child-pad-h-lg.child-pad-v-sm
+            a.nowrap.no-a-style.flex-1.border-right.border-white.height-60.flex-valign-center(
+              *ngFor    = "let item of menu"
+              "[ngClass]" = "{'strong bg-energized':stateName==item.path}"
+              "[href]"  = "'#/' + item.path"
+            ) {{ item.data.title }}
     fx-tracker(
       "[(fxId)]"       = "fxId"
       "[activatedRoute]" = "routerOutlet.activated ? routerOutlet.activatedRoute : null"

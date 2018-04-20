@@ -31,7 +31,6 @@ var HtmlWidthModel = (function (_super) {
                     selector: '[htmlWidthModel]'
                 },] },
     ];
-    HtmlWidthModel.ctorParameters = function () { return []; };
     HtmlWidthModel.propDecorators = {
         "htmlWidthModel": [{ type: core_1.Input },],
         "htmlWidthModelChange": [{ type: core_1.Output },],

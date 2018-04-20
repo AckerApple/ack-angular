@@ -10,7 +10,6 @@ var AckAggregate = (function () {
                     selector: 'ack-aggregate'
                 },] },
     ];
-    AckAggregate.ctorParameters = function () { return []; };
     AckAggregate.propDecorators = {
         "type": [{ type: core_1.Input },],
         "keys": [{ type: core_1.Input },],

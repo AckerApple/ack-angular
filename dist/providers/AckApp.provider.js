@@ -7,8 +7,6 @@ var AckApp = (function () {
         this.prompts = prompts;
         this.warnedFixElements = true;
         this.modals = [];
-        this.appHeaderTemplates = [];
-        this.appFooterTemplates = [];
     }
     AckApp.prototype.registerModal = function (item) {
         this.modals.push(item);
@@ -22,22 +20,6 @@ var AckApp = (function () {
             }
         }
         return this;
-    };
-    AckApp.prototype.unregisterAppHeaderTemplate = function (item) {
-        for (var x = this.appHeaderTemplates.length - 1; x >= 0; --x) {
-            if (this.appHeaderTemplates[x] == item) {
-                this.appHeaderTemplates.splice(x, 1);
-                break;
-            }
-        }
-    };
-    AckApp.prototype.unregisterAppFooterTemplate = function (item) {
-        for (var x = this.appFooterTemplates.length - 1; x >= 0; --x) {
-            if (this.appFooterTemplates[x] == item) {
-                this.appFooterTemplates.splice(x, 1);
-                break;
-            }
-        }
     };
     AckApp.decorators = [
         { type: core_1.Injectable },

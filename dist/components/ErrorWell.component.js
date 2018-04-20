@@ -26,7 +26,6 @@ var ErrorWell = (function () {
                     animations: ack_angular_fx_1.fxArray
                 },] },
     ];
-    ErrorWell.ctorParameters = function () { return []; };
     ErrorWell.propDecorators = {
         "message": [{ type: core_1.Input },],
         "error": [{ type: core_1.Input },],

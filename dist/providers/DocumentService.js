@@ -13,7 +13,6 @@ var DocumentService = (function () {
     DocumentService.decorators = [
         { type: core_1.Injectable },
     ];
-    DocumentService.ctorParameters = function () { return []; };
     return DocumentService;
 }());
 exports.DocumentService = DocumentService;

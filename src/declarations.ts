@@ -8,8 +8,8 @@ import {
 } from "@angular/core"
 
 //COMPONENTS
-import { AckApp } from "./components/AckApp.component"
-import { AckAppTemplates } from "./components/AckAppTemplates.component"
+import { AckSections } from "./components/AckSections.component"
+import { AckSectionTemplates } from "./components/AckSectionTemplates.component"
 import { AckModal } from "./components/AckModal.component"
 import { AckModalLayout } from "./components/AckModalLayout.component"
 import { AckCloseIcon } from "./components/AckCloseIcon.component"
@@ -204,8 +204,8 @@ export const declarations = [
 
   //ack-angular-templates
   AckCloseIcon,
-  AckApp,
-  AckAppTemplates,
+  AckSections,
+  AckSectionTemplates,
   AckOptions,
   AckOptionsModal,
   AckModal,

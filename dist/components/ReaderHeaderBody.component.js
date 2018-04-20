@@ -11,7 +11,9 @@ var ReaderHeaderBody = (function () {
                     template: reader_header_body_pug_1.string
                 },] },
     ];
-    ReaderHeaderBody.ctorParameters = function () { return []; };
+    ReaderHeaderBody.propDecorators = {
+        "readerHeader": [{ type: core_1.ContentChild, args: ['reader-header',] },],
+    };
     return ReaderHeaderBody;
 }());
 exports.ReaderHeaderBody = ReaderHeaderBody;
@@ -23,7 +25,6 @@ var ReaderHeader = (function () {
                     selector: 'reader-header'
                 },] },
     ];
-    ReaderHeader.ctorParameters = function () { return []; };
     return ReaderHeader;
 }());
 exports.ReaderHeader = ReaderHeader;

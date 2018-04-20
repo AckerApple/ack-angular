@@ -1,5 +1,6 @@
 import { ElementRef, TemplateRef } from "@angular/core";
 export declare class ReaderHeaderBody {
+    readerHeader: TemplateRef<any>;
 }
 export declare class ReaderHeader {
 }

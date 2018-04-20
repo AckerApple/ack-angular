@@ -8,6 +8,7 @@ import { string } from "./templates/scroll-past-fixed.pug"
   selector:'scroll-past-fixed',
   template:string
 }) export class ScrollPastFixed{
+  currentPosition:"fixed"
   fillHeight:number
   placeholder:number
   onScroll:()=>any
@@ -23,14 +24,12 @@ import { string } from "./templates/scroll-past-fixed.pug"
 
   init(){
     this.onScroll = ()=> this.check()
-    this.onScroll()
     window.addEventListener("scroll", this.onScroll)
-    const elm = this.getReadElement()
+    this.onScroll()
   }
 
   ngAfterViewInit(){
-    this.init()
-    this.check()
+    setTimeout(()=>this.init(), 0)//prevent Expression has changed after it was checked error
   }
 
   check(){
@@ -42,18 +41,16 @@ import { string } from "./templates/scroll-past-fixed.pug"
 
     const elm = this.getReadElement()
     const offsetTop = this.placeholder || getDistanceFromTop(elm)
-    let position =  'static'
 
     if( offsetTop <= scrollPos ){
-      position = 'fixed'
+      this.currentPosition = 'fixed'
       this.placeholder = offsetTop
       this.fillHeight = elm.offsetHeight
     }else{
       this.fillHeight = null
       delete this.placeholder
+      this.currentPosition = null
     }
-
-    elm.style.position = position
   }
 }
 

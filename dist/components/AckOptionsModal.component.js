@@ -35,7 +35,6 @@ var AckOptionsModal = (function (_super) {
                     template: ack_options_modal_pug_1.string
                 },] },
     ];
-    AckOptionsModal.ctorParameters = function () { return []; };
     AckOptionsModal.propDecorators = {
         "allowClose": [{ type: core_1.Input },],
         "wrapStyle": [{ type: core_1.Input },],

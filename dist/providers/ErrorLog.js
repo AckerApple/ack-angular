@@ -77,7 +77,6 @@ var ErrorLog = (function () {
     ErrorLog.decorators = [
         { type: core_1.Injectable },
     ];
-    ErrorLog.ctorParameters = function () { return []; };
     return ErrorLog;
 }());
 exports.ErrorLog = ErrorLog;
