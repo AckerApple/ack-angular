@@ -15,8 +15,10 @@ import { SectionProvider } from "../providers/AckSections.provider"
   ){}
 
   ngAfterViewInit(){
-    this.check()
-    this.inited = true
+    setTimeout(()=>{
+      this.check()
+      this.inited = true
+    }, 0)
   }
 
   ngOnChanges( changes ){

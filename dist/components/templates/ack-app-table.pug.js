@@ -1,3 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.string = "<table style=\"height:100%;width:100%;border-collapse: collapse;\" cellPadding=\"0\" cellSpacing=\"0\" border=\"0\"><tbody><tr *ngIf=\"header\"><td><ng-template *ngTemplateOutlet=\"header\"></ng-template></td></tr><tr><td style=\"height:100%;\"><div style=\"overflow:auto;height:100%;\"><ng-content></ng-content></div></td></tr><tr *ngIf=\"footer || AckApp.appTemplates.length\"><td><ng-container *ngFor=\"let item of AckApp.appTemplates\"><ng-template *ngTemplateOutlet=\"item.footerPrepend\"></ng-template></ng-container><ng-template *ngTemplateOutlet=\"footer\"></ng-template></td></tr></tbody></table>";
