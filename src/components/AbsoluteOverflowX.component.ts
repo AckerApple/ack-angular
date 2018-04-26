@@ -1,4 +1,6 @@
-import { ElementRef, Component,Input } from "@angular/core"
+import {
+  ElementRef, Component, Input
+} from "@angular/core"
 import { string } from "./templates/absolute-overflow-x.pug"
 
 @Component({
@@ -17,12 +19,17 @@ import { string } from "./templates/absolute-overflow-x.pug"
     this.checkDisplay()
   }
 
-  ngOnChanges(changes){
-    this.checkDisplay()
+  ngOnChanges( changes ){
+    if( changes.active ){
+      this.checkDisplay()
+    }
+  }
+
+  ngAfterViewInit(){
+    this.ElementRef.nativeElement.style.display = 'block'
   }
   
   checkDisplay(){
-    this.ElementRef.nativeElement.style.display = 'block'
     this.ElementRef.nativeElement.style.position = this.active ? 'relative' : 'static'
   }
 }

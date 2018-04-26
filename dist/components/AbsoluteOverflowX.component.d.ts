@@ -9,5 +9,6 @@ export declare class AbsoluteOverflowX {
     constructor(ElementRef: ElementRef);
     ngOnInit(): void;
     ngOnChanges(changes: any): void;
+    ngAfterViewInit(): void;
     checkDisplay(): void;
 }

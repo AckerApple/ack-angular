@@ -20,7 +20,7 @@ import { string } from "./templates/ack-sections.pug"
   template:string,
   providers:[ SectionProvider ]
 }) export class AckSections{
-  @Input() mode:"calculate"|"clone"
+  @Input() mode:"calculate"|"clone"//default clone
   @ContentChild("header") header:TemplateRef<any>
   @ContentChild("footer") footer:TemplateRef<any>
 

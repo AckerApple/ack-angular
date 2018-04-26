@@ -1,4 +1,4 @@
-import * as ackX from "ack-x/index-browser"
+import { ack as ackX } from "ack-x/browser"
 
 export function between(input, a, b) {
   if(a==null || b==null)return false

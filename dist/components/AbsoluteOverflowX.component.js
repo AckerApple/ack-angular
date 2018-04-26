@@ -12,10 +12,14 @@ var AbsoluteOverflowX = (function () {
         this.checkDisplay();
     };
     AbsoluteOverflowX.prototype.ngOnChanges = function (changes) {
-        this.checkDisplay();
+        if (changes.active) {
+            this.checkDisplay();
+        }
+    };
+    AbsoluteOverflowX.prototype.ngAfterViewInit = function () {
+        this.ElementRef.nativeElement.style.display = 'block';
     };
     AbsoluteOverflowX.prototype.checkDisplay = function () {
-        this.ElementRef.nativeElement.style.display = 'block';
         this.ElementRef.nativeElement.style.position = this.active ? 'relative' : 'static';
     };
     AbsoluteOverflowX.decorators = [

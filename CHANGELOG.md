@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.5.16] - 2018-04-26
+- Update dependencies
+
 ## [1.5.15] - 2018-04-20
 - changed ack-app into ack-sections
 

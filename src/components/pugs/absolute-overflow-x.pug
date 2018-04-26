@@ -8,7 +8,7 @@ div(
 
 //-height maintainer while actual content is position absolute
 div(
-  *ngIf = "active"
-  "[ngStyle]" = "{'height.px':elementHeightModel}"
-  style = "visibility:hidden;overflow:hidden;"
+  *ngIf = "elementHeightModel && active"
+  style = "visibility:hidden;overflow:hidden;width:100%"
+  "[style.height.px]" = "elementHeightModel"
 ) &nbsp;

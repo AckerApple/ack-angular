@@ -1,6 +1,6 @@
 ng-container(*ngIf="header || SectionProvider.headerTemplates.length")
   div(
-    *ngIf = "!mode || mode==='calculate'"
+    *ngIf = "mode==='calculate'"
     style = "position:fixed;top:0;width:100%"
     "[(elementHeightModel)]" = "headerHeight"
     "[elementSizeModelWatch]" = "header || SectionProvider.headerTemplates.length"
@@ -10,7 +10,7 @@ ng-container(*ngIf="header || SectionProvider.headerTemplates.length")
     ng-template(*ngTemplateOutlet="header")
 
   div(
-    *ngIf = "mode==='clone'"
+    *ngIf = "!mode || mode==='clone'"
     style = "position:fixed;top:0;width:100%"
   )
     ng-template(*ngTemplateOutlet="header")
@@ -28,7 +28,7 @@ table(
       "[style.height.px]" = "headerHeight"
       style = "visibility:hidden"
     )
-      ng-container(*ngIf="mode==='clone'")
+      ng-container(*ngIf="!mode || mode==='clone'")
         ng-container(*ngFor="let item of SectionProvider.headerTemplates")
           ng-template(*ngTemplateOutlet="item")
         ng-template(*ngTemplateOutlet="header")
@@ -37,14 +37,14 @@ table(
       ng-content
   tr(*ngIf="footer || SectionProvider.footerTemplates.length")
     td("[style.height.px]"="footerHeight")
-      div(*ngIf="mode==='clone'" style="visibility:hidden")
+      div(*ngIf="!mode || mode==='clone'" style="visibility:hidden")
         ng-container(*ngFor="let item of SectionProvider.footerTemplates")
           ng-template(*ngTemplateOutlet="item")
         ng-template(*ngTemplateOutlet="footer")
 
 ng-container(*ngIf="footer || SectionProvider.footerTemplates.length")
   div(
-    *ngIf = "!mode || mode==='calculate'"
+    *ngIf = "mode==='calculate'"
     style = "position:fixed;bottom:0;width:100%"
     "[(elementHeightModel)]" = "footerHeight"
     "[elementSizeModelWatch]" = "footer || SectionProvider.footerTemplates.length"
@@ -54,7 +54,7 @@ ng-container(*ngIf="footer || SectionProvider.footerTemplates.length")
     ng-template(*ngTemplateOutlet="footer")
   
   div(
-    *ngIf = "mode==='clone'"
+    *ngIf = "!mode || mode==='clone'"
     style = "position:fixed;bottom:0;width:100%"
   )
     ng-container(*ngFor="let item of SectionProvider.footerTemplates")
