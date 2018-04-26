@@ -11,6 +11,6 @@ var declarations_1 = require("./declarations");
 exports.components = declarations_1.declarations;
 var pipes_1 = require("./pipes");
 exports.pipes = pipes_1.declarations;
-var ackX = require("ack-x/index-browser");
-exports.ack = ackX;
+var browser_1 = require("ack-x/browser");
+exports.ack = browser_1.ack;
 __export(require("./providers"));

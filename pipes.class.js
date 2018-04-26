@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var ackX = require("ack-x/index-browser");
+var browser_1 = require("ack-x/browser");
 function between(input, a, b) {
     if (a == null || b == null)
         return false;
@@ -138,7 +138,7 @@ function capitalizeOne(input) {
 }
 exports.capitalizeOne = capitalizeOne;
 function a(name) {
-    return invokeRotator(ackX[name]);
+    return invokeRotator(browser_1.ack[name]);
 }
 function invokeRotator(invoke) {
     var isF = typeof invoke == 'function';
@@ -184,7 +184,7 @@ function invokeRotator(invoke) {
 exports.aDate = a('date');
 exports.aTime = a('time');
 exports.aMath = invokeRotator(Math);
-exports.ack = invokeRotator(ackX);
+exports.ack = invokeRotator(browser_1.ack);
 exports.pipes = {
     array: array,
     markdownAnchor: markdownAnchor,
