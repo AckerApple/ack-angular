@@ -148,7 +148,8 @@ export function capitalizeOne(input:any) {
 }
 
 function a(name:string){
-  return invokeRotator( ackX[name] )
+  const av = new ackX()
+  return invokeRotator( av[name] )
 }
 
 /** responsible for ack-angular pipe'in system into ackX */

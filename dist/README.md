@@ -24,7 +24,7 @@ Extra special directives, components, providers and pipes to aide in tackling ev
 # Install
 
 ```bash
-npm install --save-dev web-animations-js ack-angular-fx ack-angular
+npm install --save-dev web-animations-js ack-x ack-angular-fx ack-angular
 ```
 
 ## Importing into Project

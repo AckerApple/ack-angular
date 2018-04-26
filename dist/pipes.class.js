@@ -138,7 +138,8 @@ function capitalizeOne(input) {
 }
 exports.capitalizeOne = capitalizeOne;
 function a(name) {
-    return invokeRotator(browser_1.ack[name]);
+    var av = new browser_1.ack();
+    return invokeRotator(av[name]);
 }
 function invokeRotator(invoke) {
     var isF = typeof invoke == 'function';
