@@ -1,29 +1,34 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var HtmlSizeWatcher = (function () {
-    function HtmlSizeWatcher() {
+var core_1 = require("@angular/core");
+var HtmlSizeService = (function () {
+    function HtmlSizeService() {
         var _this = this;
+        this.change = new core_1.EventEmitter();
+        this.htmlSize = { width: null, height: null };
         this.onResize = function () {
-            if (_this.hasChanged()) {
-                _this.setModel();
-            }
+            _this.htmlSize.width = window.document.documentElement.clientWidth;
+            _this.htmlSize.height = window.document.documentElement.clientHeight;
+            _this.change.emit();
         };
-        window.addEventListener('resize', this.onResize);
-        window.addEventListener('scroll', this.onResize);
-        setTimeout(function () { return _this.onResize(); }, 0);
+        this.checkWatchers();
+        this.onResize();
     }
-    HtmlSizeWatcher.prototype.ngOnInit = function () {
-        var _this = this;
-        setTimeout(function () { return _this.onResize(); }, 200);
+    HtmlSizeService.prototype.checkWatchers = function () {
+        if (this.change.observers.length) {
+            window.addEventListener('resize', this.onResize);
+        }
+        else {
+            window.removeEventListener('resize', this.onResize);
+        }
     };
-    HtmlSizeWatcher.prototype.hasChanged = function () {
-        return true;
+    HtmlSizeService.decorators = [
+        { type: core_1.Injectable },
+    ];
+    HtmlSizeService.ctorParameters = function () { return []; };
+    HtmlSizeService.propDecorators = {
+        "change": [{ type: core_1.Output },],
     };
-    HtmlSizeWatcher.prototype.setModel = function () { };
-    HtmlSizeWatcher.prototype.ngOnDestroy = function () {
-        window.removeEventListener('scroll', this.onResize);
-        window.removeEventListener('resize', this.onResize);
-    };
-    return HtmlSizeWatcher;
+    return HtmlSizeService;
 }());
-exports.HtmlSizeWatcher = HtmlSizeWatcher;
+exports.HtmlSizeService = HtmlSizeService;

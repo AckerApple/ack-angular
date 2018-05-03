@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule }   from '@angular/forms';
 import { HttpModule } from '@angular/http';
-//import{ HttpClientModule } from '@angular/common/http';
-//import { Ng2PageScrollModule } from 'ng2-page-scroll';
 
 import { providers } from "./providers";
 import { declarations as components } from "./declarations";
@@ -28,7 +26,7 @@ const declarations = [...components, ...pipes]
     FormsModule,
     HttpModule,
     //HttpClientModule,
-    ...declarations
+    ...declarations,
    ]
 }) export class AckModule {}
 

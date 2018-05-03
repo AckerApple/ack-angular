@@ -1,3 +1,6 @@
+export { HtmlSizeService } from "./directives/HtmlSizeWatcher";
+import { HtmlSizeService } from "./directives/HtmlSizeWatcher";
+
 export { Log } from "./providers/Log";
 import { Log } from "./providers/Log";
 
@@ -42,5 +45,6 @@ export const providers = [
   UrlVars,
   WindowService,
   DocumentService,
-  Prompts
+  Prompts,
+  HtmlSizeService
 ]

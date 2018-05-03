@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.5.18] - 2018-05-03
+- Better performing html and screen width/height reading
+
 ## [1.5.17] - 2018-04-26
 - Update dependencies
 

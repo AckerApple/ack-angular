@@ -1,8 +1,12 @@
-export declare class HtmlSizeWatcher {
+import { EventEmitter } from "@angular/core";
+export interface htmlSize {
+    width: number;
+    height: number;
+}
+export declare class HtmlSizeService {
     private onResize;
+    htmlSize: htmlSize;
+    change: EventEmitter<void>;
     constructor();
-    ngOnInit(): void;
-    hasChanged(): boolean;
-    setModel(): void;
-    ngOnDestroy(): void;
+    checkWatchers(): void;
 }

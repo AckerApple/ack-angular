@@ -1,35 +1,40 @@
-import { EventEmitter } from "@angular/core"
+import { Subscription } from "rxjs"
 
-export class HtmlSizeWatcher{
-  private onResize:()=>any
+import {
+  Injectable, Output, EventEmitter
+} from "@angular/core"
+
+export interface htmlSize{
+  width: number
+  height: number
+}
+
+@Injectable() export class HtmlSizeService{
+  private onResize:()=>void
+  htmlSize:htmlSize
+  
+  @Output() change:EventEmitter<void> = new EventEmitter()
 
   constructor(){
+    this.htmlSize = {width:null, height:null}
+
     this.onResize = ()=>{
-      if( this.hasChanged() ){
-        this.setModel()
-      }
+      this.htmlSize.width = window.document.documentElement.clientWidth
+      this.htmlSize.height = window.document.documentElement.clientHeight
+      this.change.emit()
     }
 
-    window.addEventListener('resize', this.onResize)
-    window.addEventListener('scroll', this.onResize)
-    setTimeout(()=>this.onResize(), 0)
+    this.checkWatchers()
+    this.onResize()
   }
 
-  ngOnInit(){
-    //content may grow
-    setTimeout(()=>this.onResize(), 200)//two way bind often needs init override
-  }
-
-  //meant to be overridden
-  hasChanged():boolean{
-    return true
-  }
-
-  //meant to be overridden
-  setModel(){}
-
-  ngOnDestroy(){
-    window.removeEventListener('scroll', this.onResize)
-    window.removeEventListener('resize', this.onResize)
+  checkWatchers(){
+    if( this.change.observers.length ){
+      window.addEventListener('resize', this.onResize)
+      //window.addEventListener('scroll', this.onResize)
+    }else{
+      window.removeEventListener('resize', this.onResize)
+      //window.removeEventListener('scroll', this.onResize)
+    }
   }
 }

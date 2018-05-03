@@ -1,8 +1,13 @@
+import { Subscription } from "rxjs";
 import { EventEmitter } from "@angular/core";
-import { HtmlSizeWatcher } from "./HtmlSizeWatcher";
-export declare class ScreenHeightModel extends HtmlSizeWatcher {
+import { htmlSize, HtmlSizeService } from "./HtmlSizeWatcher";
+export declare class ScreenHeightModel {
+    HtmlSizeService: HtmlSizeService;
+    sub: Subscription;
     screenHeightModel: number;
     screenHeightModelChange: EventEmitter<number>;
+    constructor(HtmlSizeService: HtmlSizeService);
+    changed(): void;
     hasChanged(): boolean;
-    setModel(): void;
+    setModel(model: htmlSize): void;
 }
