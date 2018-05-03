@@ -3,6 +3,9 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
+var HtmlSizeWatcher_1 = require("./directives/HtmlSizeWatcher");
+exports.HtmlSizeService = HtmlSizeWatcher_1.HtmlSizeService;
+var HtmlSizeWatcher_2 = require("./directives/HtmlSizeWatcher");
 var Log_1 = require("./providers/Log");
 exports.Log = Log_1.Log;
 var Log_2 = require("./providers/Log");
@@ -46,5 +49,6 @@ exports.providers = [
     UrlVars_2.UrlVars,
     WindowService_2.WindowService,
     DocumentService_2.DocumentService,
-    Prompts_2.Prompts
+    Prompts_2.Prompts,
+    HtmlSizeWatcher_2.HtmlSizeService
 ];

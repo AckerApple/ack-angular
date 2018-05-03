@@ -1,28 +1,27 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var HtmlSizeWatcher_1 = require("./HtmlSizeWatcher");
-var ScreenHeightModel = (function (_super) {
-    __extends(ScreenHeightModel, _super);
-    function ScreenHeightModel() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.screenHeightModelChange = new core_1.EventEmitter();
-        return _this;
+var ScreenHeightModel = (function () {
+    function ScreenHeightModel(HtmlSizeService) {
+        var _this = this;
+        this.HtmlSizeService = HtmlSizeService;
+        this.screenHeightModelChange = new core_1.EventEmitter();
+        this.sub = this.HtmlSizeService.change.subscribe(function () { return _this.changed(); });
+        this.HtmlSizeService.checkWatchers();
+        if (this.HtmlSizeService.htmlSize) {
+            this.changed();
+        }
     }
+    ScreenHeightModel.prototype.changed = function () {
+        if (!this.HtmlSizeService.htmlSize || !this.hasChanged())
+            return;
+        this.setModel(this.HtmlSizeService.htmlSize);
+    };
     ScreenHeightModel.prototype.hasChanged = function () {
         return this.screenHeightModel !== window.innerHeight;
     };
-    ScreenHeightModel.prototype.setModel = function () {
+    ScreenHeightModel.prototype.setModel = function (model) {
         this.screenHeightModel = window.innerHeight;
         this.screenHeightModelChange.emit(this.screenHeightModel);
     };
@@ -31,10 +30,13 @@ var ScreenHeightModel = (function (_super) {
                     selector: '[screenHeightModel]'
                 },] },
     ];
+    ScreenHeightModel.ctorParameters = function () { return [
+        { type: HtmlSizeWatcher_1.HtmlSizeService, },
+    ]; };
     ScreenHeightModel.propDecorators = {
         "screenHeightModel": [{ type: core_1.Input },],
         "screenHeightModelChange": [{ type: core_1.Output },],
     };
     return ScreenHeightModel;
-}(HtmlSizeWatcher_1.HtmlSizeWatcher));
+}());
 exports.ScreenHeightModel = ScreenHeightModel;
