@@ -9,7 +9,6 @@ var AckArray = (function () {
         this.pageAt = 0;
         this.pagesChange = new core_1.EventEmitter();
         this.arrayChange = new core_1.EventEmitter();
-        this.keyMap = {};
         this.keyMapChange = new core_1.EventEmitter();
         this.loopStart = new core_1.EventEmitter();
         this.loopEach = new core_1.EventEmitter();
@@ -21,6 +20,12 @@ var AckArray = (function () {
             _this.refChange.emit(_this);
         }, 0);
         if (this.keyMapChange.observers.length) {
+            if (!this.keyMap) {
+                setTimeout(function () {
+                    _this.keyMap = {};
+                    _this.keyMapChange.emit(_this.keyMap);
+                }, 0);
+            }
             this.pushCreateMap();
         }
     };
