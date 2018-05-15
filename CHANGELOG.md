@@ -1,7 +1,7 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
-## [1.5.20] - 2018-05-15
+## [1.5.21] - 2018-05-15
 - Added AckArray.toggleSort()
 
 ## [1.5.19] - 2018-05-04

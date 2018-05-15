@@ -253,6 +253,7 @@ var AckArray = (function () {
             this.sortArray.pop();
         }
         this.inSort = false;
+        this.loop();
     };
     AckArray.decorators = [
         { type: core_1.Directive, args: [{

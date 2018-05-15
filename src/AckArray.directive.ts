@@ -144,6 +144,7 @@ export interface loop{
     this.loopEnd.subscribe(()=>this.keyMapChange.emit(this.keyMap))
   }
 
+  /** adds to loop functionality how to create pages */
   pushCreatePages(){
     if( this.pushed.createPages )return
 
@@ -160,7 +161,6 @@ export interface loop{
       this.pages.push([])
     })
     
-
     this.loopEach.subscribe(ob=>{
       this.pages[pos].push( ob.item )
 
@@ -321,6 +321,6 @@ export interface loop{
     }
 
     this.inSort = false
-    //this.loop()
+    this.loop()//cause pages to be updated
   }
 }
