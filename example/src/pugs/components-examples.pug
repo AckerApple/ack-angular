@@ -170,6 +170,9 @@ h3.margin-bottom-0(id="Tags") Tags
           )
           |&nbsp;{{ item | json }}
 
+      .pad
+        a("(click)"="Array.toggleSort('letter')") toggle sort
+
       //-just show the array we are working with
       h5.pad-sm.margin-0 Example Selected Array
       absolute-overflow-x

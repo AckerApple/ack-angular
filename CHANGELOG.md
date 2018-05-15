@@ -1,6 +1,12 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.5.20] - 2018-05-15
+- Added AckArray.toggleSort()
+
+## [1.5.19] - 2018-05-04
+- fix ack-array keymap default
+
 ## [1.5.18] - 2018-05-03
 - Better performing html and screen width/height reading
 

@@ -47,4 +47,14 @@ describe('ack-array', () => {
     const itemIndex = ackArray.itemIndex({id:3}, 'id')
     expect( itemIndex ).toEqual(2)
   })
+
+  it('#toggleSort', ()=>{
+    const ackArray = component.AckArray
+    ackArray.array = [{name:4},{name:3},{name:2},{name:1}]
+    ackArray.toggleSort("name",1)
+    expect( ackArray.array[0].name ).toEqual( 1 )
+    expect( ackArray.array[1].name ).toEqual( 2 )
+    expect( ackArray.array[2].name ).toEqual( 3 )
+    expect( ackArray.array[3].name ).toEqual( 4 )
+  })
 })

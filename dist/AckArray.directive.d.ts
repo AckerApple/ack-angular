@@ -1,5 +1,9 @@
 import { EventEmitter } from "@angular/core";
 import { AckAggregate } from "./AckAggregate.directive";
+export interface sortDef {
+    arrayKey: string | string[];
+    asc: boolean;
+}
 export interface loop {
     index: number;
     item: any;
@@ -7,9 +11,11 @@ export interface loop {
 export declare class AckArray {
     inited: boolean;
     pushed: any;
+    inSort: boolean;
+    sortArray: sortDef[];
     idKey: any;
-    ref: any;
-    refChange: EventEmitter<{}>;
+    ref: AckArray;
+    refChange: EventEmitter<AckArray>;
     pageAt: number;
     pages: any[];
     pagesChange: EventEmitter<{}>;
@@ -39,4 +45,5 @@ export declare class AckArray {
     unshift(item: any): this;
     splice(x: number, y?: number): this;
     param(): any[];
+    toggleSort(arrayKey: string | string[], sortType: 'date' | 'int' | string | number): boolean;
 }

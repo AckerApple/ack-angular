@@ -878,7 +878,7 @@ exports.string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"margin-
     "\n    &nbsp;&nbsp;{{ item | json }}" +
     "\n  &lt;/div&gt;" +
     "\n&lt;/ng-container&gt;" +
-    "\n</pre></absolute-overflow-x><h5 class=\"pad-sm margin-0\">Example Array Adjusters</h5><div class=\"pad-left text-grey-2x\">Use the checkboxes below to alter the original array</div><div class=\"flex-wrap child-margin-xs\"><div *ngFor=\"let item of arrayOfObjects;let i=index\"><input type=\"checkbox\" [checked]=\"Array?.selected(item)\" (click)=\"Array.toggle(item)\" name=\"ackArray\" id=\"ackArray{{i}}\"/>&nbsp;{{ item | json }}</div></div><h5 class=\"pad-sm margin-0\">Example Selected Array</h5><absolute-overflow-x><pre class=\"code-sample margin-0\">{{ selectedArray | json }}" +
+    "\n</pre></absolute-overflow-x><h5 class=\"pad-sm margin-0\">Example Array Adjusters</h5><div class=\"pad-left text-grey-2x\">Use the checkboxes below to alter the original array</div><div class=\"flex-wrap child-margin-xs\"><div *ngFor=\"let item of arrayOfObjects;let i=index\"><input type=\"checkbox\" [checked]=\"Array?.selected(item)\" (click)=\"Array.toggle(item)\" name=\"ackArray\" id=\"ackArray{{i}}\"/>&nbsp;{{ item | json }}</div></div><div class=\"pad\"><a (click)=\"Array.toggleSort('letter')\">toggle sort</a></div><h5 class=\"pad-sm margin-0\">Example Selected Array</h5><absolute-overflow-x><pre class=\"code-sample margin-0\">{{ selectedArray | json }}" +
     "\n</pre></absolute-overflow-x><div class=\"pad-sm\"><h4 class=\"margin-0\">Usage Example: Map Items</h4><div class=\"text-grey-2x\">Take an arbitrary array and create an object map</div></div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-array" +
     "\n  [(array)]  = \"selectedArray\"" +
     "\n  idKey      = \"letter\"" +
@@ -1659,7 +1659,7 @@ webpackContext.id = "./node_modules/moment/locale recursive ^\\.\\/.*$";
 /***/ "./package.json":
 /***/ (function(module, exports) {
 
-module.exports = {"name":"ack-angular","version":"1.5.18","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve --port 4201 --output-hashing=none --sourcemaps=true --app=example --open","build:js":"ng build --output-hashing=none --sourcemaps=true --app=example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng2","angular2","angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular/animations":"^5.2.10","@angular/cli":"^1.7.4","@angular/common":"^5.2.10","@angular/compiler":"^5.2.10","@angular/compiler-cli":"^5.2.10","@angular/core":"^5.2.10","@angular/forms":"^5.2.10","@angular/http":"^5.2.10","@angular/platform-browser":"^5.2.10","@angular/platform-browser-dynamic":"^5.2.10","@angular/router":"^5.2.10","@types/jasmine":"^2.8.6","ack-angular-fx":"^2.1.2","ack-css-boot":"^1.2.48","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.4.5","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.0","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^1.4.2","karma-jasmine":"^1.1.1","karma-jasmine-html-reporter":"^0.2.2","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.6.0","ng2-page-scroll":"^4.0.0-beta.12","npm-run-all":"^4.1.2","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^5.5.7","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.4.2","zone.js":"^0.8.20"},"private":true}
+module.exports = {"name":"ack-angular","version":"1.5.20","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve --port 4201 --output-hashing=none --sourcemaps=true --app=example --open","build:js":"ng build --output-hashing=none --sourcemaps=true --app=example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng2","angular2","angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular/animations":"^5.2.10","@angular/cli":"^1.7.4","@angular/common":"^5.2.10","@angular/compiler":"^5.2.10","@angular/compiler-cli":"^5.2.10","@angular/core":"^5.2.10","@angular/forms":"^5.2.10","@angular/http":"^5.2.10","@angular/platform-browser":"^5.2.10","@angular/platform-browser-dynamic":"^5.2.10","@angular/router":"^5.2.10","@types/jasmine":"^2.8.6","ack-angular-fx":"^2.1.2","ack-css-boot":"^1.2.48","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.4.5","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.0","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^1.4.2","karma-jasmine":"^1.1.1","karma-jasmine-html-reporter":"^0.2.2","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.6.0","ng2-page-scroll":"^4.0.0-beta.12","npm-run-all":"^4.1.2","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^5.5.7","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.4.2","zone.js":"^0.8.20"},"private":true}
 
 /***/ }),
 
@@ -1731,12 +1731,12 @@ var AckAggregate_directive_1 = __webpack_require__("./src/AckAggregate.directive
 var AckArray = (function () {
     function AckArray() {
         this.pushed = {};
+        this.inSort = false;
+        this.sortArray = [];
         this.refChange = new core_1.EventEmitter();
         this.pageAt = 0;
         this.pagesChange = new core_1.EventEmitter();
         this.arrayChange = new core_1.EventEmitter();
-        //an system of creating an object by keys of array nodes
-        this.keyMap = {};
         this.keyMapChange = new core_1.EventEmitter();
         this.loopStart = new core_1.EventEmitter();
         this.loopEach = new core_1.EventEmitter();
@@ -1748,6 +1748,12 @@ var AckArray = (function () {
             _this.refChange.emit(_this);
         }, 0);
         if (this.keyMapChange.observers.length) {
+            if (!this.keyMap) {
+                setTimeout(function () {
+                    _this.keyMap = {};
+                    _this.keyMapChange.emit(_this.keyMap);
+                }, 0);
+            }
             this.pushCreateMap();
         }
     };
@@ -1907,17 +1913,89 @@ var AckArray = (function () {
             this.arrayChange.emit(this.array = []);
         return this.array;
     };
+    AckArray.prototype.toggleSort = function (arrayKey, sortType) {
+        if (this.inSort)
+            return false;
+        this.inSort = true;
+        var asc = false; //most lists come pre sorted asc, our default should be desc
+        if (this.sortArray.length && this.sortArray[0].arrayKey) {
+            asc = !this.sortArray[0].asc;
+            this.sortArray[0] = {
+                arrayKey: arrayKey,
+                asc: !this.sortArray[0].asc
+            };
+        }
+        else {
+            this.sortArray.unshift({
+                arrayKey: arrayKey,
+                asc: asc
+            });
+        }
+        var toKey = function (a, index) {
+            if (index === void 0) { index = 0; }
+            var value = a[arrayKey[index]];
+            if (index == arrayKey.length - 1) {
+                return value;
+            }
+            return toKey(value, index + 1);
+        };
+        if (arrayKey.constructor != Array) {
+            arrayKey = [arrayKey];
+        }
+        var numberSort = !isNaN(sortType) && sortType === 'int';
+        if (!numberSort) {
+            switch (sortType) {
+                case 'date':
+                    if (asc) {
+                        this.array.sort(function (a, b) {
+                            a = new Date(toKey(a, 0));
+                            b = new Date(toKey(b, 0));
+                            return a == 'Invalid Date' || a > b ? -1 : b == 'Invalid Date' || a < b ? 1 : 0;
+                        });
+                    }
+                    else {
+                        this.array.sort(function (b, a) {
+                            a = new Date(toKey(a, 0));
+                            b = new Date(toKey(b, 0));
+                            return a == 'Invalid Date' || a > b ? -1 : b == 'Invalid Date' || a < b ? 1 : 0;
+                        });
+                    }
+                    break;
+                default://STRING BASED SORT
+                    if (asc) {
+                        this.array.sort(function (a, b) { return String(toKey(a) || '').toLowerCase() > String(toKey(b) || '').toLowerCase() ? 1 : -1; });
+                    }
+                    else {
+                        this.array.sort(function (b, a) { return String(toKey(a) || '').toLowerCase() > String(toKey(b) || '').toLowerCase() ? 1 : -1; });
+                    }
+            }
+        }
+        else {
+            if (asc) {
+                this.array.sort(function (a, b) { return Number(toKey(a)) - Number(toKey(b)); });
+            }
+            else {
+                this.array.sort(function (b, a) { return Number(toKey(a)) - Number(toKey(b)); });
+            }
+        }
+        //cleanup
+        if (this.sortArray.length > 3) {
+            this.sortArray.pop();
+        }
+        this.inSort = false;
+        //this.loop()
+    };
     __decorate([
         core_1.Input(),
         __metadata("design:type", Object)
     ], AckArray.prototype, "idKey", void 0);
     __decorate([
         core_1.Input(),
-        __metadata("design:type", Object)
+        __metadata("design:type", AckArray)
     ], AckArray.prototype, "ref", void 0);
     __decorate([
         core_1.Output(),
-        __metadata("design:type", Object)
+        __metadata("design:type", core_1.EventEmitter)
     ], AckArray.prototype, "refChange", void 0);
     __decorate([
         core_1.Input(),

@@ -4,6 +4,11 @@ import {
 } from "@angular/core"
 import { AckAggregate } from "./AckAggregate.directive"
 
+export interface sortDef{
+  arrayKey : string | string[]
+  asc      : boolean
+}
+
 export interface loop{
   index:number
   item:any
@@ -14,11 +19,14 @@ export interface loop{
 }) export class AckArray {
   inited:boolean
   pushed:any = {}
+
+  inSort:boolean = false
+  sortArray:sortDef[] = []
   
   @Input() idKey
   
-  @Input() ref
-  @Output() refChange = new EventEmitter()
+  @Input() ref:AckArray
+  @Output() refChange:EventEmitter<AckArray> = new EventEmitter()
   
   @Input() pageAt:number = 0
   @Input() pages:any[]
@@ -28,7 +36,7 @@ export interface loop{
   @Output() arrayChange = new EventEmitter()
 
   //an system of creating an object by keys of array nodes
-  @Input() keyMap:any = {}
+  @Input() keyMap:any
   @Output() keyMapChange = new EventEmitter()
 
   loopStart:EventEmitter<void> = new EventEmitter()
@@ -43,6 +51,13 @@ export interface loop{
     }, 0)
 
     if( this.keyMapChange.observers.length ){
+      if( !this.keyMap ){
+        setTimeout(()=>{      
+          this.keyMap = {}
+          this.keyMapChange.emit(this.keyMap)
+        }, 0)
+      }
+
       this.pushCreateMap()
     }
   }
@@ -119,7 +134,6 @@ export interface loop{
     if( this.pushed.createMap )return
 
     this.pushed.createMap = true
-    
     this.loopStart.subscribe(()=>this.keyMap={})
     
     this.loopEach.subscribe(ob=>{
@@ -127,7 +141,7 @@ export interface loop{
       this.keyMap[ key ] = ob.item
     })
     
-    this.loopEnd.subscribe(()=>this.keyMapChange.emit(this.keyMap))    
+    this.loopEnd.subscribe(()=>this.keyMapChange.emit(this.keyMap))
   }
 
   pushCreatePages(){
@@ -230,5 +244,83 @@ export interface loop{
   param(){
     if(!this.array)this.arrayChange.emit( this.array=[] )
     return this.array
+  }
+
+  toggleSort(
+    arrayKey:string|string[],
+    sortType:'date'|'int'|string|number
+  ){
+    if(this.inSort)return false
+    
+    this.inSort = true
+    let asc = false//most lists come pre sorted asc, our default should be desc
+    
+    if(this.sortArray.length && this.sortArray[0].arrayKey){
+      asc = !this.sortArray[0].asc
+      this.sortArray[0] = {
+        arrayKey:arrayKey,
+        asc:!this.sortArray[0].asc
+       }
+    }else{
+      this.sortArray.unshift({
+        arrayKey:arrayKey,
+        asc:asc
+     })
+    }
+
+    const toKey = function(a:any, index:number=0){
+      const value = a[ arrayKey[index] ]
+      if( index == arrayKey.length-1 ){
+        return value
+      }
+      return toKey(value, index+1)
+    }
+
+    if( arrayKey.constructor!=Array ){
+      arrayKey = [ <string>arrayKey ]
+    }
+
+    const numberSort = !isNaN(<number>sortType) && sortType==='int'
+
+    if( !numberSort ){
+      switch(sortType){
+        case 'date':
+          if(asc){
+            this.array.sort( (a,b)=>{
+              a = new Date( toKey(a,0) )
+              b = new Date( toKey(b,0) )
+              return a=='Invalid Date' || a>b ? -1 : b=='Invalid Date' || a<b ? 1 : 0
+            })
+          }else{
+            this.array.sort( (b,a)=>{
+              a = new Date( toKey(a,0) )
+              b = new Date( toKey(b,0) )
+              return a=='Invalid Date' || a>b ? -1 : b=='Invalid Date' || a<b ? 1 : 0
+            })
+          }
+          break;
+
+        default://STRING BASED SORT
+          if(asc){
+            this.array.sort( (a,b)=>String(toKey(a)||'').toLowerCase()>String(toKey(b)||'').toLowerCase()?1:-1 )
+          }else{
+            this.array.sort( (b,a)=>String(toKey(a)||'').toLowerCase()>String(toKey(b)||'').toLowerCase()?1:-1 )
+          }
+      }
+    }else{
+      if(asc){
+        this.array.sort( (a,b)=>Number(toKey(a)) - Number(toKey(b)) )
+      }else{
+        this.array.sort( (b,a)=>Number(toKey(a)) - Number(toKey(b)) )
+      }
+    }
+
+    //cleanup
+    if( this.sortArray.length>3 ){
+      this.sortArray.pop()
+    }
+
+    this.inSort = false
+    //this.loop()
   }
 }
