@@ -5,6 +5,8 @@ var AckAggregate_directive_1 = require("./AckAggregate.directive");
 var AckArray = (function () {
     function AckArray() {
         this.pushed = {};
+        this.inSort = false;
+        this.sortArray = [];
         this.refChange = new core_1.EventEmitter();
         this.pageAt = 0;
         this.pagesChange = new core_1.EventEmitter();
@@ -181,6 +183,76 @@ var AckArray = (function () {
         if (!this.array)
             this.arrayChange.emit(this.array = []);
         return this.array;
+    };
+    AckArray.prototype.toggleSort = function (arrayKey, sortType) {
+        if (this.inSort)
+            return false;
+        this.inSort = true;
+        var asc = false;
+        if (this.sortArray.length && this.sortArray[0].arrayKey) {
+            asc = !this.sortArray[0].asc;
+            this.sortArray[0] = {
+                arrayKey: arrayKey,
+                asc: !this.sortArray[0].asc
+            };
+        }
+        else {
+            this.sortArray.unshift({
+                arrayKey: arrayKey,
+                asc: asc
+            });
+        }
+        var toKey = function (a, index) {
+            if (index === void 0) { index = 0; }
+            var value = a[arrayKey[index]];
+            if (index == arrayKey.length - 1) {
+                return value;
+            }
+            return toKey(value, index + 1);
+        };
+        if (arrayKey.constructor != Array) {
+            arrayKey = [arrayKey];
+        }
+        var numberSort = !isNaN(sortType) && sortType === 'int';
+        if (!numberSort) {
+            switch (sortType) {
+                case 'date':
+                    if (asc) {
+                        this.array.sort(function (a, b) {
+                            a = new Date(toKey(a, 0));
+                            b = new Date(toKey(b, 0));
+                            return a == 'Invalid Date' || a > b ? -1 : b == 'Invalid Date' || a < b ? 1 : 0;
+                        });
+                    }
+                    else {
+                        this.array.sort(function (b, a) {
+                            a = new Date(toKey(a, 0));
+                            b = new Date(toKey(b, 0));
+                            return a == 'Invalid Date' || a > b ? -1 : b == 'Invalid Date' || a < b ? 1 : 0;
+                        });
+                    }
+                    break;
+                default:
+                    if (asc) {
+                        this.array.sort(function (a, b) { return String(toKey(a) || '').toLowerCase() > String(toKey(b) || '').toLowerCase() ? 1 : -1; });
+                    }
+                    else {
+                        this.array.sort(function (b, a) { return String(toKey(a) || '').toLowerCase() > String(toKey(b) || '').toLowerCase() ? 1 : -1; });
+                    }
+            }
+        }
+        else {
+            if (asc) {
+                this.array.sort(function (a, b) { return Number(toKey(a)) - Number(toKey(b)); });
+            }
+            else {
+                this.array.sort(function (b, a) { return Number(toKey(a)) - Number(toKey(b)); });
+            }
+        }
+        if (this.sortArray.length > 3) {
+            this.sortArray.pop();
+        }
+        this.inSort = false;
     };
     AckArray.decorators = [
         { type: core_1.Directive, args: [{
