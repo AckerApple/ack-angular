@@ -1,23 +1,26 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var HtmlSizeWatcher_1 = require("./HtmlSizeWatcher");
-var HtmlHeightModel = (function () {
+var HtmlWidthModel_directive_1 = require("./HtmlWidthModel.directive");
+var HtmlHeightModel = (function (_super) {
+    __extends(HtmlHeightModel, _super);
     function HtmlHeightModel(HtmlSizeService) {
-        var _this = this;
-        this.HtmlSizeService = HtmlSizeService;
-        this.htmlHeightModelChange = new core_1.EventEmitter();
-        this.sub = this.HtmlSizeService.change.subscribe(function () { return _this.changed(); });
-        this.HtmlSizeService.checkWatchers();
-        if (this.HtmlSizeService.htmlSize) {
-            this.changed();
-        }
+        var _this = _super.call(this, HtmlSizeService) || this;
+        _this.HtmlSizeService = HtmlSizeService;
+        _this.htmlHeightModelChange = new core_1.EventEmitter();
+        return _this;
     }
-    HtmlHeightModel.prototype.changed = function () {
-        if (!this.HtmlSizeService.htmlSize || !this.hasChanged())
-            return;
-        this.setModel(this.HtmlSizeService.htmlSize);
-    };
     HtmlHeightModel.prototype.hasChanged = function () {
         return this.htmlHeightModel !== window.document.documentElement.clientHeight;
     };
@@ -38,5 +41,5 @@ var HtmlHeightModel = (function () {
         "htmlHeightModelChange": [{ type: core_1.Output },],
     };
     return HtmlHeightModel;
-}());
+}(HtmlWidthModel_directive_1.HtmlWidthModel));
 exports.HtmlHeightModel = HtmlHeightModel;

@@ -9,13 +9,10 @@ var HtmlWidthModel = (function () {
         this.htmlWidthModelChange = new core_1.EventEmitter();
         this.sub = this.HtmlSizeService.change.subscribe(function () { return _this.changed(); });
         this.HtmlSizeService.checkWatchers();
-        if (this.HtmlSizeService.htmlSize) {
-            this.changed();
-        }
     }
     HtmlWidthModel.prototype.ngAfterViewInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.changed(); }, 200);
+        setTimeout(function () { return _this.changed(); }, 0);
     };
     HtmlWidthModel.prototype.ngOnDestroy = function () {
         this.sub.unsubscribe();

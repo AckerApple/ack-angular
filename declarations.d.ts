@@ -17,7 +17,6 @@ import { ElementSizeModel } from "./directives/ElementSizeModel.directive";
 import { ScreenWidthModel } from "./directives/ScreenWidthModel.directive";
 import { ScreenHeightModel } from "./directives/ScreenHeightModel.directive";
 import { HtmlWidthModel } from "./directives/HtmlWidthModel.directive";
-import { HtmlHeightModel } from "./directives/HtmlHeightModel.directive";
 export declare class VarDirective {
     var: any;
 }
@@ -61,4 +60,4 @@ export declare class FormAlter {
     constructor(element: ElementRef);
     ngOnDestroy(): void;
 }
-export declare const declarations: (typeof AckModalLayout | typeof AckModal | typeof AckSections | typeof AckSectionTemplates | typeof AckCloseIcon | typeof AckOptions | typeof AbsoluteOverflowX | typeof AckFixedElementStage | typeof ReaderBody | typeof ScrollPastFixed | typeof ShakeOn | typeof FocusOn | typeof SelectOn | typeof InnerHtmlModel | typeof ElementSizeModel | typeof ScreenWidthModel | typeof ScreenHeightModel | typeof HtmlWidthModel | typeof HtmlHeightModel | typeof EnterKey | typeof EscapeKey | typeof PreventBackKey | typeof PreventEnterKey | typeof FormChanged | typeof FormAlter)[];
+export declare const declarations: (typeof AckModalLayout | typeof AckModal | typeof AckSections | typeof AckSectionTemplates | typeof AckCloseIcon | typeof AckOptions | typeof AbsoluteOverflowX | typeof AckFixedElementStage | typeof ReaderBody | typeof ScrollPastFixed | typeof ShakeOn | typeof FocusOn | typeof SelectOn | typeof InnerHtmlModel | typeof ElementSizeModel | typeof ScreenWidthModel | typeof ScreenHeightModel | typeof HtmlWidthModel | typeof EnterKey | typeof EscapeKey | typeof PreventBackKey | typeof PreventEnterKey | typeof FormChanged | typeof FormAlter)[];
