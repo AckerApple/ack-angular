@@ -205,7 +205,7 @@ var AckArray = (function () {
         var toKey = function (a, index) {
             if (index === void 0) { index = 0; }
             var value = a[arrayKey[index]];
-            if (index == arrayKey.length - 1) {
+            if (value == null || index == arrayKey.length - 1) {
                 return value;
             }
             return toKey(value, index + 1);
@@ -213,31 +213,31 @@ var AckArray = (function () {
         if (arrayKey.constructor != Array) {
             arrayKey = [arrayKey];
         }
-        var numberSort = !isNaN(sortType) && sortType === 'int';
+        var numberSort = !isNaN(sortType) && sortType === "int";
         if (!numberSort) {
             switch (sortType) {
-                case 'date':
+                case "date":
                     if (asc) {
                         this.array.sort(function (a, b) {
                             a = new Date(toKey(a, 0));
                             b = new Date(toKey(b, 0));
-                            return a == 'Invalid Date' || a > b ? -1 : b == 'Invalid Date' || a < b ? 1 : 0;
+                            return a == "Invalid Date" || a > b ? -1 : b == "Invalid Date" || a < b ? 1 : 0;
                         });
                     }
                     else {
                         this.array.sort(function (b, a) {
                             a = new Date(toKey(a, 0));
                             b = new Date(toKey(b, 0));
-                            return a == 'Invalid Date' || a > b ? -1 : b == 'Invalid Date' || a < b ? 1 : 0;
+                            return a == "Invalid Date" || a > b ? -1 : b == "Invalid Date" || a < b ? 1 : 0;
                         });
                     }
                     break;
                 default:
                     if (asc) {
-                        this.array.sort(function (a, b) { return String(toKey(a) || '').toLowerCase() > String(toKey(b) || '').toLowerCase() ? 1 : -1; });
+                        this.array.sort(function (a, b) { return String(toKey(a) || ").toLowerCase()>String(toKey(b)||").toLowerCase() ? 1 : -1; });
                     }
                     else {
-                        this.array.sort(function (b, a) { return String(toKey(a) || '').toLowerCase() > String(toKey(b) || '').toLowerCase() ? 1 : -1; });
+                        this.array.sort(function (b, a) { return String(toKey(a) || ").toLowerCase()>String(toKey(b)||").toLowerCase() ? 1 : -1; });
                     }
             }
         }
@@ -257,7 +257,8 @@ var AckArray = (function () {
     };
     AckArray.decorators = [
         { type: core_1.Directive, args: [{
-                    selector: 'ack-array'
+                    selector: "ack-array",
+                    exportAs: "AckArray"
                 },] },
     ];
     AckArray.propDecorators = {
