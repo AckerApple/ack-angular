@@ -10,6 +10,8 @@ var AckArray = (function () {
         this.refChange = new core_1.EventEmitter();
         this.pageAt = 0;
         this.pagesChange = new core_1.EventEmitter();
+        this.page = 0;
+        this.pageChange = new core_1.EventEmitter();
         this.arrayChange = new core_1.EventEmitter();
         this.keyMapChange = new core_1.EventEmitter();
         this.loopStart = new core_1.EventEmitter();
@@ -109,6 +111,7 @@ var AckArray = (function () {
         this.pushed.createPages = true;
         var pos = 0;
         var last = 0;
+        this.pageChange.emit(this.page = 0);
         this.loopStart.subscribe(function () {
             pos = 0;
             last = _this.array.length;
@@ -268,6 +271,8 @@ var AckArray = (function () {
         "pageAt": [{ type: core_1.Input },],
         "pages": [{ type: core_1.Input },],
         "pagesChange": [{ type: core_1.Output },],
+        "page": [{ type: core_1.Input },],
+        "pageChange": [{ type: core_1.Input },],
         "array": [{ type: core_1.Input },],
         "arrayChange": [{ type: core_1.Output },],
         "keyMap": [{ type: core_1.Input },],

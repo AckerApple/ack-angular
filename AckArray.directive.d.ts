@@ -19,6 +19,8 @@ export declare class AckArray {
     pageAt: number;
     pages: any[];
     pagesChange: EventEmitter<{}>;
+    page: number;
+    pageChange: EventEmitter<number>;
     array: any[];
     arrayChange: EventEmitter<{}>;
     keyMap: any;
