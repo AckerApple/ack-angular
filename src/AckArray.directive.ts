@@ -15,7 +15,8 @@ export interface loop{
 }
 
 @Directive({
-  selector:'ack-array'
+  selector:"ack-array",
+  exportAs:"AckArray"
 }) export class AckArray {
   inited:boolean
   pushed:any = {}
@@ -28,9 +29,13 @@ export interface loop{
   @Input() ref:AckArray
   @Output() refChange:EventEmitter<AckArray> = new EventEmitter()
   
-  @Input() pageAt:number = 0
+
+  @Input() pageAt:number = 0//when to page aka maxrows
   @Input() pages:any[]
   @Output() pagesChange = new EventEmitter()
+  //a chance to know when current viewed page should be zero
+  @Input() page:number = 0
+  @Input() pageChange:EventEmitter<number> = new EventEmitter()
 
   @Input() array:any[]
   @Output() arrayChange = new EventEmitter()
@@ -152,6 +157,8 @@ export interface loop{
 
     let pos = 0
     let last = 0
+    
+    this.pageChange.emit( this.page=0 )
 
     this.loopStart.subscribe(()=>{
       pos = 0
@@ -248,7 +255,7 @@ export interface loop{
 
   toggleSort(
     arrayKey:string|string[],
-    sortType:'date'|'int'|string|number
+    sortType:"date"|"int"|string|number
   ){
     if(this.inSort)return false
     
@@ -270,7 +277,7 @@ export interface loop{
 
     const toKey = function(a:any, index:number=0){
       const value = a[ arrayKey[index] ]
-      if( index == arrayKey.length-1 ){
+      if( value==null || index == arrayKey.length-1 ){
         return value
       }
       return toKey(value, index+1)
@@ -280,31 +287,31 @@ export interface loop{
       arrayKey = [ <string>arrayKey ]
     }
 
-    const numberSort = !isNaN(<number>sortType) && sortType==='int'
+    const numberSort = !isNaN(<number>sortType) && sortType==="int"
 
     if( !numberSort ){
       switch(sortType){
-        case 'date':
+        case "date":
           if(asc){
             this.array.sort( (a,b)=>{
               a = new Date( toKey(a,0) )
               b = new Date( toKey(b,0) )
-              return a=='Invalid Date' || a>b ? -1 : b=='Invalid Date' || a<b ? 1 : 0
+              return a=="Invalid Date" || a>b ? -1 : b=="Invalid Date" || a<b ? 1 : 0
             })
           }else{
             this.array.sort( (b,a)=>{
               a = new Date( toKey(a,0) )
               b = new Date( toKey(b,0) )
-              return a=='Invalid Date' || a>b ? -1 : b=='Invalid Date' || a<b ? 1 : 0
+              return a=="Invalid Date" || a>b ? -1 : b=="Invalid Date" || a<b ? 1 : 0
             })
           }
           break;
 
         default://STRING BASED SORT
           if(asc){
-            this.array.sort( (a,b)=>String(toKey(a)||'').toLowerCase()>String(toKey(b)||'').toLowerCase()?1:-1 )
+            this.array.sort( (a,b)=>String(toKey(a)||"").toLowerCase()>String(toKey(b)||"").toLowerCase()?1:-1 )
           }else{
-            this.array.sort( (b,a)=>String(toKey(a)||'').toLowerCase()>String(toKey(b)||'').toLowerCase()?1:-1 )
+            this.array.sort( (b,a)=>String(toKey(a)||"").toLowerCase()>String(toKey(b)||"").toLowerCase()?1:-1 )
           }
       }
     }else{

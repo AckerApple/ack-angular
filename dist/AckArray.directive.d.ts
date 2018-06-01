@@ -19,6 +19,8 @@ export declare class AckArray {
     pageAt: number;
     pages: any[];
     pagesChange: EventEmitter<{}>;
+    page: number;
+    pageChange: EventEmitter<number>;
     array: any[];
     arrayChange: EventEmitter<{}>;
     keyMap: any;
@@ -45,5 +47,5 @@ export declare class AckArray {
     unshift(item: any): this;
     splice(x: number, y?: number): this;
     param(): any[];
-    toggleSort(arrayKey: string | string[], sortType: 'date' | 'int' | string | number): boolean;
+    toggleSort(arrayKey: string | string[], sortType: "date" | "int" | string | number): boolean;
 }

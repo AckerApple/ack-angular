@@ -11,29 +11,18 @@ import {
   htmlSize, HtmlSizeService
 } from "./HtmlSizeWatcher"
 
+import { HtmlWidthModel } from "./HtmlWidthModel.directive"
+
 @Directive({
   selector: '[htmlHeightModel]'
-}) export class HtmlHeightModel{
-  sub:Subscription
-
+}) export class HtmlHeightModel extends HtmlWidthModel{
   @Input() htmlHeightModel:number
   @Output() htmlHeightModelChange:EventEmitter<number> = new EventEmitter()
 
   constructor(
     public HtmlSizeService:HtmlSizeService
   ){
-    this.sub = this.HtmlSizeService.change.subscribe(()=>this.changed())
-    
-    this.HtmlSizeService.checkWatchers()
-
-    if( this.HtmlSizeService.htmlSize ){
-      this.changed()
-    }
-  }
-
-  changed(){
-    if( !this.HtmlSizeService.htmlSize || !this.hasChanged() )return
-    this.setModel( this.HtmlSizeService.htmlSize )
+    super( HtmlSizeService )
   }
 
   hasChanged(){

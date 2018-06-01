@@ -26,14 +26,15 @@ import {
     
     this.HtmlSizeService.checkWatchers()
 
-    if( this.HtmlSizeService.htmlSize ){
+    /*if( this.HtmlSizeService.htmlSize ){
       this.changed()
-    }
+    }*/
   }
 
   ngAfterViewInit(){
+    setTimeout(()=>this.changed(), 0)//two way bind often needs init override
     //content may grow
-    setTimeout(()=>this.changed(), 200)//two way bind often needs init override
+    //setTimeout(()=>this.changed(), 200)//two way bind often needs init override
   }
 
   ngOnDestroy(){

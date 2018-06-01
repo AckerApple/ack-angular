@@ -1,13 +1,11 @@
-import { Subscription } from "rxjs";
 import { EventEmitter } from "@angular/core";
 import { htmlSize, HtmlSizeService } from "./HtmlSizeWatcher";
-export declare class HtmlHeightModel {
+import { HtmlWidthModel } from "./HtmlWidthModel.directive";
+export declare class HtmlHeightModel extends HtmlWidthModel {
     HtmlSizeService: HtmlSizeService;
-    sub: Subscription;
     htmlHeightModel: number;
     htmlHeightModelChange: EventEmitter<number>;
     constructor(HtmlSizeService: HtmlSizeService);
-    changed(): void;
     hasChanged(): boolean;
     setModel(model: htmlSize): void;
 }

@@ -28,6 +28,10 @@ export interface htmlSize{
     this.onResize()
   }
 
+  /*ngOnInit(){
+    setTimeout(()=>this.change.emit(), 0)
+  }*/
+
   checkWatchers(){
     if( this.change.observers.length ){
       window.addEventListener('resize', this.onResize)
