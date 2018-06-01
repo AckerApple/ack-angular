@@ -234,10 +234,10 @@ var AckArray = (function () {
                     break;
                 default:
                     if (asc) {
-                        this.array.sort(function (a, b) { return String(toKey(a) || ").toLowerCase()>String(toKey(b)||").toLowerCase() ? 1 : -1; });
+                        this.array.sort(function (a, b) { return String(toKey(a) || "").toLowerCase() > String(toKey(b) || "").toLowerCase() ? 1 : -1; });
                     }
                     else {
-                        this.array.sort(function (b, a) { return String(toKey(a) || ").toLowerCase()>String(toKey(b)||").toLowerCase() ? 1 : -1; });
+                        this.array.sort(function (b, a) { return String(toKey(a) || "").toLowerCase() > String(toKey(b) || "").toLowerCase() ? 1 : -1; });
                     }
             }
         }
