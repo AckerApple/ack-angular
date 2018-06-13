@@ -1,4 +1,8 @@
-import { Router, ActivatedRoute } from '@angular/router';
+import { Route, Router, ActivatedRoute } from '@angular/router';
+export interface currentRoute {
+    config: Route | ActivatedRoute;
+    params: any;
+}
 export declare class RouteWatchReporter {
     router: Router;
     activatedRoute: ActivatedRoute;
@@ -12,7 +16,7 @@ export declare class RouteWatchReporter {
     isBackMode: boolean;
     isOsAction: boolean;
     constructor(router: Router, activatedRoute: ActivatedRoute);
-    getCurrent(): any;
+    getCurrent(): currentRoute;
     getCurrentConfig(): any;
     getCurrentParams(): any;
     isTrapHistory(toState: any, toParams: any): boolean;
