@@ -13,8 +13,6 @@ import { AckSectionTemplates } from "./components/AckSectionTemplates.component"
 import { AckModal } from "./components/AckModal.component"
 import { AckModalLayout } from "./components/AckModalLayout.component"
 import { AckCloseIcon } from "./components/AckCloseIcon.component"
-import { AckArray } from "./AckArray.directive"
-import { AckAggregate } from "./AckAggregate.directive"
 import { AckOptions } from "./components/AckOptions.component"
 import { AckOptionsModal } from "./components/AckOptionsModal.component"
 import { AbsoluteOverflowX } from "./components/AbsoluteOverflowX.component"
@@ -23,6 +21,8 @@ import { AckFixedElementStage } from "./components/AckFixedElementStage.componen
 import { ReaderHeaderBody, ReaderHeader, ReaderBody } from "./components/ReaderHeaderBody.component"
 
 //DIRECTIVES
+import { AckArray } from "./directives/AckArray.directive"
+import { AckAggregate } from "./directives/AckAggregate.directive"
 import { ScrollPastFixed } from "./components/ScrollPastFixed.component"
 import { ShakeOn } from "./directives/ShakeOn.directive"
 import { FocusOn } from "./directives/FocusOn.directive"

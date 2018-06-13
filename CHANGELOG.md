@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.6.0] - 2018-05-18
+- moved AckArray and AckAggregate
+
 ## [1.5.24] - 2018-05-18
 - fixed toggleSort when sub data undefined
 

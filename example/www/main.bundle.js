@@ -1659,399 +1659,7 @@ webpackContext.id = "./node_modules/moment/locale recursive ^\\.\\/.*$";
 /***/ "./package.json":
 /***/ (function(module, exports) {
 
-module.exports = {"name":"ack-angular","version":"1.5.25","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve --port 4201 --output-hashing=none --sourcemaps=true --app=example --open","build:js":"ng build --output-hashing=none --sourcemaps=true --app=example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng2","angular2","angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular/animations":"^5.2.10","@angular/cli":"^1.7.4","@angular/common":"^5.2.10","@angular/compiler":"^5.2.10","@angular/compiler-cli":"^5.2.10","@angular/core":"^5.2.10","@angular/forms":"^5.2.10","@angular/http":"^5.2.10","@angular/platform-browser":"^5.2.10","@angular/platform-browser-dynamic":"^5.2.10","@angular/router":"^5.2.10","@types/jasmine":"^2.8.6","ack-angular-fx":"^2.1.2","ack-css-boot":"^1.2.48","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.4.5","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.0","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^1.4.2","karma-jasmine":"^1.1.1","karma-jasmine-html-reporter":"^0.2.2","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.1","ng2-page-scroll":"^4.0.0-beta.12","npm-run-all":"^4.1.2","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^5.5.7","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.4.2","zone.js":"^0.8.20"},"private":true}
-
-/***/ }),
-
-/***/ "./src/AckAggregate.directive.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var AckAggregate = (function () {
-    function AckAggregate() {
-        this.outputChange = new core_1.EventEmitter();
-    }
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], AckAggregate.prototype, "type", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Array)
-    ], AckAggregate.prototype, "keys", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Number)
-    ], AckAggregate.prototype, "output", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], AckAggregate.prototype, "outputChange", void 0);
-    AckAggregate = __decorate([
-        core_1.Directive({
-            selector: 'ack-aggregate'
-        })
-    ], AckAggregate);
-    return AckAggregate;
-}());
-exports.AckAggregate = AckAggregate;
-
-
-/***/ }),
-
-/***/ "./src/AckArray.directive.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var AckAggregate_directive_1 = __webpack_require__("./src/AckAggregate.directive.ts");
-var AckArray = (function () {
-    function AckArray() {
-        this.pushed = {};
-        this.inSort = false;
-        this.sortArray = [];
-        this.refChange = new core_1.EventEmitter();
-        this.pageAt = 0; //when to page aka maxrows
-        this.pagesChange = new core_1.EventEmitter();
-        //a chance to know when current viewed page should be zero
-        this.page = 0;
-        this.pageChange = new core_1.EventEmitter();
-        this.arrayChange = new core_1.EventEmitter();
-        this.keyMapChange = new core_1.EventEmitter();
-        this.loopStart = new core_1.EventEmitter();
-        this.loopEach = new core_1.EventEmitter();
-        this.loopEnd = new core_1.EventEmitter();
-    }
-    AckArray.prototype.ngOnInit = function () {
-        var _this = this;
-        setTimeout(function () {
-            _this.refChange.emit(_this);
-        }, 0);
-        if (this.keyMapChange.observers.length) {
-            if (!this.keyMap) {
-                setTimeout(function () {
-                    _this.keyMap = {};
-                    _this.keyMapChange.emit(_this.keyMap);
-                }, 0);
-            }
-            this.pushCreateMap();
-        }
-    };
-    AckArray.prototype.ngAfterViewInit = function () {
-        var _this = this;
-        if (this.AckAggregates) {
-            this.pushAggregates(this.AckAggregates);
-        }
-        this.inited = true;
-        setTimeout(function () { return _this.loop(); }, 0);
-    };
-    AckArray.prototype.ngOnChanges = function (changes) {
-        var _this = this;
-        var loop = changes.array ? true : false;
-        if (changes.pageAt) {
-            this.pushCreatePages();
-            loop = true;
-        }
-        if (this.inited && loop) {
-            setTimeout(function () { return _this.loop(); }, 0);
-        }
-    };
-    AckArray.prototype.pushAggregates = function (aggs) {
-        var _this = this;
-        aggs.forEach(function (agg) {
-            var memory;
-            switch (agg.type) {
-                //default is to sum
-                default: {
-                    _this.loopStart.subscribe(function () { return memory = 0; });
-                    _this.loopEach.subscribe(function (loop) {
-                        var value = _this.getItemValueByKeys(loop.item, agg.keys);
-                        if (value) {
-                            memory = memory + value;
-                        }
-                    });
-                    _this.loopEnd.subscribe(function () {
-                        agg.output = memory;
-                        agg.outputChange.emit(memory);
-                    });
-                }
-            }
-        });
-    };
-    AckArray.prototype.getItemValueByKeys = function (item, keys) {
-        for (var x = 0; x < keys.length; ++x) {
-            var keyName = keys[x];
-            item = item[keyName];
-            if (item == null)
-                return null;
-        }
-        return item;
-    };
-    AckArray.prototype.loop = function () {
-        if (!this.array)
-            return;
-        this.loopStart.emit();
-        var last = this.array.length;
-        for (var x = 0; x < last; ++x) {
-            this.loopEach.emit({ index: x, item: this.array[x] });
-        }
-        this.loopEnd.emit();
-    };
-    AckArray.prototype.pushCreateMap = function () {
-        var _this = this;
-        if (this.pushed.createMap)
-            return;
-        this.pushed.createMap = true;
-        this.loopStart.subscribe(function () { return _this.keyMap = {}; });
-        this.loopEach.subscribe(function (ob) {
-            var key = _this.getItemId(ob.item);
-            _this.keyMap[key] = ob.item;
-        });
-        this.loopEnd.subscribe(function () { return _this.keyMapChange.emit(_this.keyMap); });
-    };
-    /** adds to loop functionality how to create pages */
-    AckArray.prototype.pushCreatePages = function () {
-        var _this = this;
-        if (this.pushed.createPages)
-            return;
-        this.pushed.createPages = true;
-        var pos = 0;
-        var last = 0;
-        this.pageChange.emit(this.page = 0);
-        this.loopStart.subscribe(function () {
-            pos = 0;
-            last = _this.array.length;
-            _this.pages = _this.pages || [];
-            _this.pages.length = 0; //dont break binding if pages remembered
-            _this.pages.push([]);
-        });
-        this.loopEach.subscribe(function (ob) {
-            _this.pages[pos].push(ob.item);
-            if (_this.pages[pos].length == _this.pageAt && ob.index < last - 1) {
-                _this.pages.push([]);
-                ++pos;
-            }
-        });
-        this.loopEnd.subscribe(function () {
-            _this.pagesChange.emit(_this.pages);
-        });
-    };
-    //reduce array down to one item
-    AckArray.prototype.only = function (item) {
-        this.array.length = 0;
-        this.array.push(item);
-        this.arrayChange.emit(this.array);
-        this.loop();
-    };
-    //looks up id or the item itself is an ID
-    AckArray.prototype.getItemId = function (item, itemIndexName) {
-        itemIndexName = itemIndexName || this.idKey;
-        return itemIndexName ? item[itemIndexName] : item;
-    };
-    AckArray.prototype.getCompareArray = function () {
-        var _this = this;
-        if (this.array && this.idKey) {
-            return this.array.map(function (item) { return item[_this.idKey]; });
-        }
-        return this.array || [];
-    };
-    AckArray.prototype.selected = function (item) {
-        return this.itemIndex(item) >= 0 ? true : false;
-    };
-    AckArray.prototype.itemIndex = function (item, itemIndexName) {
-        var array = this.getCompareArray();
-        var itemId = this.getItemId(item, itemIndexName);
-        for (var x = array.length - 1; x >= 0; --x) {
-            if (itemId == array[x]) {
-                return x;
-            }
-        }
-        return -1;
-    };
-    AckArray.prototype.toggle = function (item) {
-        var index = this.itemIndex(item);
-        if (index >= 0) {
-            return this.splice(index);
-        }
-        return this.push(item);
-    };
-    AckArray.prototype.push = function (item) {
-        this.param().push(item);
-        this.loop();
-        return this;
-    };
-    AckArray.prototype.unshift = function (item) {
-        this.param().unshift(item);
-        return this;
-    };
-    AckArray.prototype.splice = function (x, y) {
-        if (y === void 0) { y = 1; }
-        this.param().splice(x, y);
-        this.loop();
-        return this;
-    };
-    AckArray.prototype.param = function () {
-        if (!this.array)
-            this.arrayChange.emit(this.array = []);
-        return this.array;
-    };
-    AckArray.prototype.toggleSort = function (arrayKey, sortType) {
-        if (this.inSort)
-            return false;
-        this.inSort = true;
-        var asc = false; //most lists come pre sorted asc, our default should be desc
-        if (this.sortArray.length && this.sortArray[0].arrayKey) {
-            asc = !this.sortArray[0].asc;
-            this.sortArray[0] = {
-                arrayKey: arrayKey,
-                asc: !this.sortArray[0].asc
-            };
-        }
-        else {
-            this.sortArray.unshift({
-                arrayKey: arrayKey,
-                asc: asc
-            });
-        }
-        var toKey = function (a, index) {
-            if (index === void 0) { index = 0; }
-            var value = a[arrayKey[index]];
-            if (value == null || index == arrayKey.length - 1) {
-                return value;
-            }
-            return toKey(value, index + 1);
-        };
-        if (arrayKey.constructor != Array) {
-            arrayKey = [arrayKey];
-        }
-        var numberSort = !isNaN(sortType) && sortType === "int";
-        if (!numberSort) {
-            switch (sortType) {
-                case "date":
-                    if (asc) {
-                        this.array.sort(function (a, b) {
-                            a = new Date(toKey(a, 0));
-                            b = new Date(toKey(b, 0));
-                            return a == "Invalid Date" || a > b ? -1 : b == "Invalid Date" || a < b ? 1 : 0;
-                        });
-                    }
-                    else {
-                        this.array.sort(function (b, a) {
-                            a = new Date(toKey(a, 0));
-                            b = new Date(toKey(b, 0));
-                            return a == "Invalid Date" || a > b ? -1 : b == "Invalid Date" || a < b ? 1 : 0;
-                        });
-                    }
-                    break;
-                default://STRING BASED SORT
-                    if (asc) {
-                        this.array.sort(function (a, b) { return String(toKey(a) || "").toLowerCase() > String(toKey(b) || "").toLowerCase() ? 1 : -1; });
-                    }
-                    else {
-                        this.array.sort(function (b, a) { return String(toKey(a) || "").toLowerCase() > String(toKey(b) || "").toLowerCase() ? 1 : -1; });
-                    }
-            }
-        }
-        else {
-            if (asc) {
-                this.array.sort(function (a, b) { return Number(toKey(a)) - Number(toKey(b)); });
-            }
-            else {
-                this.array.sort(function (b, a) { return Number(toKey(a)) - Number(toKey(b)); });
-            }
-        }
-        //cleanup
-        if (this.sortArray.length > 3) {
-            this.sortArray.pop();
-        }
-        this.inSort = false;
-        this.loop(); //cause pages to be updated
-    };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], AckArray.prototype, "idKey", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", AckArray)
-    ], AckArray.prototype, "ref", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], AckArray.prototype, "refChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Number)
-    ], AckArray.prototype, "pageAt", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Array)
-    ], AckArray.prototype, "pages", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
-    ], AckArray.prototype, "pagesChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Number)
-    ], AckArray.prototype, "page", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], AckArray.prototype, "pageChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Array)
-    ], AckArray.prototype, "array", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
-    ], AckArray.prototype, "arrayChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], AckArray.prototype, "keyMap", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
-    ], AckArray.prototype, "keyMapChange", void 0);
-    __decorate([
-        core_1.ContentChildren(AckAggregate_directive_1.AckAggregate),
-        __metadata("design:type", Array)
-    ], AckArray.prototype, "AckAggregates", void 0);
-    AckArray = __decorate([
-        core_1.Directive({
-            selector: "ack-array",
-            exportAs: "AckArray"
-        })
-    ], AckArray);
-    return AckArray;
-}());
-exports.AckArray = AckArray;
-
+module.exports = {"name":"ack-angular","version":"1.6.0","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve --port 4201 --output-hashing=none --sourcemaps=true --app=example --open","build:js":"ng build --output-hashing=none --sourcemaps=true --app=example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng2","angular2","angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular/animations":"^5.2.10","@angular/cli":"^1.7.4","@angular/common":"^5.2.10","@angular/compiler":"^5.2.10","@angular/compiler-cli":"^5.2.10","@angular/core":"^5.2.10","@angular/forms":"^5.2.10","@angular/http":"^5.2.10","@angular/platform-browser":"^5.2.10","@angular/platform-browser-dynamic":"^5.2.10","@angular/router":"^5.2.10","@types/jasmine":"^2.8.6","ack-angular-fx":"^2.1.2","ack-css-boot":"^1.2.48","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.4.5","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.0","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^1.4.2","karma-jasmine":"^1.1.1","karma-jasmine-html-reporter":"^0.2.2","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.1","ng2-page-scroll":"^4.0.0-beta.12","npm-run-all":"^4.1.2","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^5.5.7","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.4.2","zone.js":"^0.8.20"},"private":true}
 
 /***/ }),
 
@@ -2119,7 +1727,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-//import { TransitionService } from "ui-router-ng2";
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 var RouteWatchReporter_1 = __webpack_require__("./src/RouteWatchReporter.ts");
 var router_1 = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
@@ -2134,6 +1741,7 @@ var RouteReporter = (function () {
         this.paramsChange = new core_1.EventEmitter();
         this.dataChange = new core_1.EventEmitter();
         this.queryChange = new core_1.EventEmitter();
+        this.routeChange = new core_1.EventEmitter();
         this.stateChange = new core_1.EventEmitter();
         this.$document = document;
         this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
@@ -2176,6 +1784,7 @@ var RouteReporter = (function () {
     RouteReporter.prototype.emit = function () {
         this.stateChanger.emit(this.RouteWatchReporter);
         if (this.RouteWatchReporter.current) {
+            this.routeChange.emit(this.RouteWatchReporter.current.config);
             this.stateChange.emit(this.RouteWatchReporter.current);
             if (this.RouteWatchReporter.current.config) {
                 var name_1 = this.RouteWatchReporter.current.config.name || this.RouteWatchReporter.current.config.path;
@@ -2202,10 +1811,6 @@ var RouteReporter = (function () {
         core_1.Output("beforeChange"),
         __metadata("design:type", Object)
     ], RouteReporter.prototype, "beforeChanger", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "onLoad", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Object)
@@ -2249,6 +1854,18 @@ var RouteReporter = (function () {
     __decorate([
         core_1.Input(),
         __metadata("design:type", Object)
+    ], RouteReporter.prototype, "route", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "routeChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "onLoad", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
     ], RouteReporter.prototype, "state", void 0);
     __decorate([
         core_1.Output(),
@@ -2256,7 +1873,6 @@ var RouteReporter = (function () {
     ], RouteReporter.prototype, "stateChange", void 0);
     RouteReporter = __decorate([
         core_1.Directive({
-            //inputs:['ref'],
             selector: 'route-reporter'
         }),
         __metadata("design:paramtypes", [RouteWatchReporter_1.RouteWatchReporter])
@@ -3661,8 +3277,6 @@ var AckSectionTemplates_component_1 = __webpack_require__("./src/components/AckS
 var AckModal_component_1 = __webpack_require__("./src/components/AckModal.component.ts");
 var AckModalLayout_component_1 = __webpack_require__("./src/components/AckModalLayout.component.ts");
 var AckCloseIcon_component_1 = __webpack_require__("./src/components/AckCloseIcon.component.ts");
-var AckArray_directive_1 = __webpack_require__("./src/AckArray.directive.ts");
-var AckAggregate_directive_1 = __webpack_require__("./src/AckAggregate.directive.ts");
 var AckOptions_component_1 = __webpack_require__("./src/components/AckOptions.component.ts");
 var AckOptionsModal_component_1 = __webpack_require__("./src/components/AckOptionsModal.component.ts");
 var AbsoluteOverflowX_component_1 = __webpack_require__("./src/components/AbsoluteOverflowX.component.ts");
@@ -3670,6 +3284,8 @@ var ErrorWell_component_1 = __webpack_require__("./src/components/ErrorWell.comp
 var AckFixedElementStage_component_1 = __webpack_require__("./src/components/AckFixedElementStage.component.ts");
 var ReaderHeaderBody_component_1 = __webpack_require__("./src/components/ReaderHeaderBody.component.ts");
 //DIRECTIVES
+var AckArray_directive_1 = __webpack_require__("./src/directives/AckArray.directive.ts");
+var AckAggregate_directive_1 = __webpack_require__("./src/directives/AckAggregate.directive.ts");
 var ScrollPastFixed_component_1 = __webpack_require__("./src/components/ScrollPastFixed.component.ts");
 var ShakeOn_directive_1 = __webpack_require__("./src/directives/ShakeOn.directive.ts");
 var FocusOn_directive_1 = __webpack_require__("./src/directives/FocusOn.directive.ts");
@@ -3922,6 +3538,398 @@ exports.declarations = [
     AckAggregate_directive_1.AckAggregate,
     AckFixedElementStage_component_1.AckFixedElementStage
 ];
+
+
+/***/ }),
+
+/***/ "./src/directives/AckAggregate.directive.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var AckAggregate = (function () {
+    function AckAggregate() {
+        this.outputChange = new core_1.EventEmitter();
+    }
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], AckAggregate.prototype, "type", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Array)
+    ], AckAggregate.prototype, "keys", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], AckAggregate.prototype, "output", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckAggregate.prototype, "outputChange", void 0);
+    AckAggregate = __decorate([
+        core_1.Directive({
+            selector: 'ack-aggregate'
+        })
+    ], AckAggregate);
+    return AckAggregate;
+}());
+exports.AckAggregate = AckAggregate;
+
+
+/***/ }),
+
+/***/ "./src/directives/AckArray.directive.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var AckAggregate_directive_1 = __webpack_require__("./src/directives/AckAggregate.directive.ts");
+var AckArray = (function () {
+    function AckArray() {
+        this.pushed = {};
+        this.inSort = false;
+        this.sortArray = [];
+        this.refChange = new core_1.EventEmitter();
+        this.pageAt = 0; //when to page aka maxrows
+        this.pagesChange = new core_1.EventEmitter();
+        //a chance to know when current viewed page should be zero
+        this.page = 0;
+        this.pageChange = new core_1.EventEmitter();
+        this.arrayChange = new core_1.EventEmitter();
+        this.keyMapChange = new core_1.EventEmitter();
+        this.loopStart = new core_1.EventEmitter();
+        this.loopEach = new core_1.EventEmitter();
+        this.loopEnd = new core_1.EventEmitter();
+    }
+    AckArray.prototype.ngOnInit = function () {
+        var _this = this;
+        setTimeout(function () {
+            _this.refChange.emit(_this);
+        }, 0);
+        if (this.keyMapChange.observers.length) {
+            if (!this.keyMap) {
+                setTimeout(function () {
+                    _this.keyMap = {};
+                    _this.keyMapChange.emit(_this.keyMap);
+                }, 0);
+            }
+            this.pushCreateMap();
+        }
+    };
+    AckArray.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        if (this.AckAggregates) {
+            this.pushAggregates(this.AckAggregates);
+        }
+        this.inited = true;
+        setTimeout(function () { return _this.loop(); }, 0);
+    };
+    AckArray.prototype.ngOnChanges = function (changes) {
+        var _this = this;
+        var loop = changes.array ? true : false;
+        if (changes.pageAt) {
+            this.pushCreatePages();
+            loop = true;
+        }
+        if (this.inited && loop) {
+            setTimeout(function () { return _this.loop(); }, 0);
+        }
+    };
+    AckArray.prototype.pushAggregates = function (aggs) {
+        var _this = this;
+        aggs.forEach(function (agg) {
+            var memory;
+            switch (agg.type) {
+                //default is to sum
+                default: {
+                    _this.loopStart.subscribe(function () { return memory = 0; });
+                    _this.loopEach.subscribe(function (loop) {
+                        var value = _this.getItemValueByKeys(loop.item, agg.keys);
+                        if (value) {
+                            memory = memory + value;
+                        }
+                    });
+                    _this.loopEnd.subscribe(function () {
+                        agg.output = memory;
+                        agg.outputChange.emit(memory);
+                    });
+                }
+            }
+        });
+    };
+    AckArray.prototype.getItemValueByKeys = function (item, keys) {
+        for (var x = 0; x < keys.length; ++x) {
+            var keyName = keys[x];
+            item = item[keyName];
+            if (item == null)
+                return null;
+        }
+        return item;
+    };
+    AckArray.prototype.loop = function () {
+        if (!this.array)
+            return;
+        this.loopStart.emit();
+        var last = this.array.length;
+        for (var x = 0; x < last; ++x) {
+            this.loopEach.emit({ index: x, item: this.array[x] });
+        }
+        this.loopEnd.emit();
+    };
+    AckArray.prototype.pushCreateMap = function () {
+        var _this = this;
+        if (this.pushed.createMap)
+            return;
+        this.pushed.createMap = true;
+        this.loopStart.subscribe(function () { return _this.keyMap = {}; });
+        this.loopEach.subscribe(function (ob) {
+            var key = _this.getItemId(ob.item);
+            _this.keyMap[key] = ob.item;
+        });
+        this.loopEnd.subscribe(function () { return _this.keyMapChange.emit(_this.keyMap); });
+    };
+    /** adds to loop functionality how to create pages */
+    AckArray.prototype.pushCreatePages = function () {
+        var _this = this;
+        if (this.pushed.createPages)
+            return;
+        this.pushed.createPages = true;
+        var pos = 0;
+        var last = 0;
+        this.pageChange.emit(this.page = 0);
+        this.loopStart.subscribe(function () {
+            pos = 0;
+            last = _this.array.length;
+            _this.pages = _this.pages || [];
+            _this.pages.length = 0; //dont break binding if pages remembered
+            _this.pages.push([]);
+        });
+        this.loopEach.subscribe(function (ob) {
+            _this.pages[pos].push(ob.item);
+            if (_this.pages[pos].length == _this.pageAt && ob.index < last - 1) {
+                _this.pages.push([]);
+                ++pos;
+            }
+        });
+        this.loopEnd.subscribe(function () {
+            _this.pagesChange.emit(_this.pages);
+        });
+    };
+    //reduce array down to one item
+    AckArray.prototype.only = function (item) {
+        this.array.length = 0;
+        this.array.push(item);
+        this.arrayChange.emit(this.array);
+        this.loop();
+    };
+    //looks up id or the item itself is an ID
+    AckArray.prototype.getItemId = function (item, itemIndexName) {
+        itemIndexName = itemIndexName || this.idKey;
+        return itemIndexName ? item[itemIndexName] : item;
+    };
+    AckArray.prototype.getCompareArray = function () {
+        var _this = this;
+        if (this.array && this.idKey) {
+            return this.array.map(function (item) { return item[_this.idKey]; });
+        }
+        return this.array || [];
+    };
+    AckArray.prototype.selected = function (item) {
+        return this.itemIndex(item) >= 0 ? true : false;
+    };
+    AckArray.prototype.itemIndex = function (item, itemIndexName) {
+        var array = this.getCompareArray();
+        var itemId = this.getItemId(item, itemIndexName);
+        for (var x = array.length - 1; x >= 0; --x) {
+            if (itemId == array[x]) {
+                return x;
+            }
+        }
+        return -1;
+    };
+    AckArray.prototype.toggle = function (item) {
+        var index = this.itemIndex(item);
+        if (index >= 0) {
+            return this.splice(index);
+        }
+        return this.push(item);
+    };
+    AckArray.prototype.push = function (item) {
+        this.param().push(item);
+        this.loop();
+        return this;
+    };
+    AckArray.prototype.unshift = function (item) {
+        this.param().unshift(item);
+        return this;
+    };
+    AckArray.prototype.splice = function (x, y) {
+        if (y === void 0) { y = 1; }
+        this.param().splice(x, y);
+        this.loop();
+        return this;
+    };
+    AckArray.prototype.param = function () {
+        if (!this.array)
+            this.arrayChange.emit(this.array = []);
+        return this.array;
+    };
+    AckArray.prototype.toggleSort = function (arrayKey, sortType) {
+        if (this.inSort)
+            return false;
+        this.inSort = true;
+        var asc = false; //most lists come pre sorted asc, our default should be desc
+        if (this.sortArray.length && this.sortArray[0].arrayKey) {
+            asc = !this.sortArray[0].asc;
+            this.sortArray[0] = {
+                arrayKey: arrayKey,
+                asc: !this.sortArray[0].asc
+            };
+        }
+        else {
+            this.sortArray.unshift({
+                arrayKey: arrayKey,
+                asc: asc
+            });
+        }
+        var toKey = function (a, index) {
+            if (index === void 0) { index = 0; }
+            var value = a[arrayKey[index]];
+            if (value == null || index == arrayKey.length - 1) {
+                return value;
+            }
+            return toKey(value, index + 1);
+        };
+        if (arrayKey.constructor != Array) {
+            arrayKey = [arrayKey];
+        }
+        var numberSort = !isNaN(sortType) && sortType === "int";
+        if (!numberSort) {
+            switch (sortType) {
+                case "date":
+                    if (asc) {
+                        this.array.sort(function (a, b) {
+                            a = new Date(toKey(a, 0));
+                            b = new Date(toKey(b, 0));
+                            return a == "Invalid Date" || a > b ? -1 : b == "Invalid Date" || a < b ? 1 : 0;
+                        });
+                    }
+                    else {
+                        this.array.sort(function (b, a) {
+                            a = new Date(toKey(a, 0));
+                            b = new Date(toKey(b, 0));
+                            return a == "Invalid Date" || a > b ? -1 : b == "Invalid Date" || a < b ? 1 : 0;
+                        });
+                    }
+                    break;
+                default://STRING BASED SORT
+                    if (asc) {
+                        this.array.sort(function (a, b) { return String(toKey(a) || "").toLowerCase() > String(toKey(b) || "").toLowerCase() ? 1 : -1; });
+                    }
+                    else {
+                        this.array.sort(function (b, a) { return String(toKey(a) || "").toLowerCase() > String(toKey(b) || "").toLowerCase() ? 1 : -1; });
+                    }
+            }
+        }
+        else {
+            if (asc) {
+                this.array.sort(function (a, b) { return Number(toKey(a)) - Number(toKey(b)); });
+            }
+            else {
+                this.array.sort(function (b, a) { return Number(toKey(a)) - Number(toKey(b)); });
+            }
+        }
+        //cleanup
+        if (this.sortArray.length > 3) {
+            this.sortArray.pop();
+        }
+        this.inSort = false;
+        this.loop(); //cause pages to be updated
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckArray.prototype, "idKey", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", AckArray)
+    ], AckArray.prototype, "ref", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckArray.prototype, "refChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], AckArray.prototype, "pageAt", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Array)
+    ], AckArray.prototype, "pages", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], AckArray.prototype, "pagesChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], AckArray.prototype, "page", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckArray.prototype, "pageChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Array)
+    ], AckArray.prototype, "array", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], AckArray.prototype, "arrayChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckArray.prototype, "keyMap", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], AckArray.prototype, "keyMapChange", void 0);
+    __decorate([
+        core_1.ContentChildren(AckAggregate_directive_1.AckAggregate),
+        __metadata("design:type", Array)
+    ], AckArray.prototype, "AckAggregates", void 0);
+    AckArray = __decorate([
+        core_1.Directive({
+            selector: "ack-array",
+            exportAs: "AckArray"
+        })
+    ], AckArray);
+    return AckArray;
+}());
+exports.AckArray = AckArray;
 
 
 /***/ }),
@@ -5048,6 +5056,8 @@ var pipes_1 = __webpack_require__("./src/pipes.ts");
 exports.pipes = pipes_1.declarations;
 var browser_1 = __webpack_require__("./node_modules/ack-x/browser.js");
 exports.ack = browser_1.ack;
+var AckArray_directive_1 = __webpack_require__("./src/directives/AckArray.directive.ts");
+exports.AckArray = AckArray_directive_1.AckArray;
 __export(__webpack_require__("./src/providers.ts"));
 
 

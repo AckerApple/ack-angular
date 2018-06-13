@@ -6,4 +6,6 @@ export { declarations as pipes } from "./pipes";
 
 export { ack } from "ack-x/browser"
 
+export { AckArray } from "./directives/AckArray.directive";
+
 export * from "./providers";

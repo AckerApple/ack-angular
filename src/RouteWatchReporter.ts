@@ -1,7 +1,11 @@
 //import { StateService,TransitionService,Transition } from "ui-router-ng2";
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { Route, Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Injectable } from '@angular/core';
 
+export interface currentRoute{
+  config:Route|ActivatedRoute
+  params:any
+}
 
 /** A stateful connection to ui-router history
  - .stateChange() with arguments MUST be called at every state change
@@ -39,7 +43,7 @@ import { Injectable } from '@angular/core';
     this.current = this.getCurrent()
   }
 
-  getCurrent():any{
+  getCurrent():currentRoute{
     let target = this.activatedRoute
     while(target.firstChild)target=target.firstChild
     return {

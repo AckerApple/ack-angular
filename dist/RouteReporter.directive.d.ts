@@ -1,4 +1,5 @@
 import { EventEmitter } from "@angular/core";
+import { Route } from "@angular/router";
 import { RouteWatchReporter } from "./RouteWatchReporter";
 export declare class RouteReporter {
     RouteWatchReporter: RouteWatchReporter;
@@ -9,17 +10,19 @@ export declare class RouteReporter {
     querySub: any;
     stateChanger: EventEmitter<{}>;
     beforeChanger: EventEmitter<{}>;
-    onLoad: any;
     ref: any;
     refChange: EventEmitter<{}>;
     stateName: string;
-    stateNameChange: EventEmitter<any>;
+    stateNameChange: EventEmitter<string>;
     params: any;
     paramsChange: EventEmitter<any>;
     data: any;
     dataChange: EventEmitter<any>;
     query: any;
     queryChange: EventEmitter<any>;
+    route: Route;
+    routeChange: EventEmitter<Route>;
+    onLoad: any;
     state: any;
     stateChange: EventEmitter<any>;
     constructor(RouteWatchReporter: RouteWatchReporter);

@@ -1,43 +1,44 @@
-//import { TransitionService } from "ui-router-ng2";
 import { Directive, Input, Output, EventEmitter } from "@angular/core"
+import { Route } from "@angular/router"
 import { RouteWatchReporter } from "./RouteWatchReporter"
 import { NavigationStart, NavigationEnd } from '@angular/router';
 
 @Directive({
-  //inputs:['ref'],
   selector: 'route-reporter'
 }) export class RouteReporter{
   $document
   $scope
+
   static parameters = [[
     RouteWatchReporter
   ]]
   docCallbacks
-  //isBackButton
-  //isNotBackButton
-  //mouseover
-
   querySub
 
   @Output("onChange") stateChanger = new EventEmitter()
   @Output("beforeChange") beforeChanger = new EventEmitter()
-  @Input() onLoad
+
   @Input() ref//variable reference
   @Output() refChange = new EventEmitter()
 
-  @Input() stateName:string
-  @Output() stateNameChange:EventEmitter<any> = new EventEmitter()
+  @Input() stateName:string//ignored in
+  @Output() stateNameChange:EventEmitter<string> = new EventEmitter()
 
-  @Input() params:any
+  @Input() params:any//ignored in
   @Output() paramsChange:EventEmitter<any> = new EventEmitter()
 
-  @Input() data:any
+  @Input() data:any//ignored in
   @Output() dataChange:EventEmitter<any> = new EventEmitter()
 
-  @Input() query:any
+  @Input() query:any//ignored in
   @Output() queryChange:EventEmitter<any> = new EventEmitter()
 
-  @Input() state:any
+  @Input() route:Route//ignored in
+  @Output() routeChange:EventEmitter<Route> = new EventEmitter()
+
+  //deprecate
+  @Input() onLoad
+  @Input() state:any//ignored in
   @Output() stateChange:EventEmitter<any> = new EventEmitter()
   
   constructor(public RouteWatchReporter:RouteWatchReporter){
@@ -91,6 +92,7 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
     this.stateChanger.emit( this.RouteWatchReporter )
  
     if( this.RouteWatchReporter.current ){
+      this.routeChange.emit( this.RouteWatchReporter.current.config )
       this.stateChange.emit( this.RouteWatchReporter.current )
       
       if( this.RouteWatchReporter.current.config ){

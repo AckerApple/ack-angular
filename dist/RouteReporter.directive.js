@@ -14,6 +14,7 @@ var RouteReporter = (function () {
         this.paramsChange = new core_1.EventEmitter();
         this.dataChange = new core_1.EventEmitter();
         this.queryChange = new core_1.EventEmitter();
+        this.routeChange = new core_1.EventEmitter();
         this.stateChange = new core_1.EventEmitter();
         this.$document = document;
         this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
@@ -54,6 +55,7 @@ var RouteReporter = (function () {
     RouteReporter.prototype.emit = function () {
         this.stateChanger.emit(this.RouteWatchReporter);
         if (this.RouteWatchReporter.current) {
+            this.routeChange.emit(this.RouteWatchReporter.current.config);
             this.stateChange.emit(this.RouteWatchReporter.current);
             if (this.RouteWatchReporter.current.config) {
                 var name_1 = this.RouteWatchReporter.current.config.name || this.RouteWatchReporter.current.config.path;
@@ -83,7 +85,6 @@ var RouteReporter = (function () {
     RouteReporter.propDecorators = {
         "stateChanger": [{ type: core_1.Output, args: ["onChange",] },],
         "beforeChanger": [{ type: core_1.Output, args: ["beforeChange",] },],
-        "onLoad": [{ type: core_1.Input },],
         "ref": [{ type: core_1.Input },],
         "refChange": [{ type: core_1.Output },],
         "stateName": [{ type: core_1.Input },],
@@ -94,6 +95,9 @@ var RouteReporter = (function () {
         "dataChange": [{ type: core_1.Output },],
         "query": [{ type: core_1.Input },],
         "queryChange": [{ type: core_1.Output },],
+        "route": [{ type: core_1.Input },],
+        "routeChange": [{ type: core_1.Output },],
+        "onLoad": [{ type: core_1.Input },],
         "state": [{ type: core_1.Input },],
         "stateChange": [{ type: core_1.Output },],
     };

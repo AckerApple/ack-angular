@@ -13,4 +13,6 @@ var pipes_1 = require("./pipes");
 exports.pipes = pipes_1.declarations;
 var browser_1 = require("ack-x/browser");
 exports.ack = browser_1.ack;
+var AckArray_directive_1 = require("./directives/AckArray.directive");
+exports.AckArray = AckArray_directive_1.AckArray;
 __export(require("./providers"));
