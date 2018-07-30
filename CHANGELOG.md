@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.6.1] - 2018-07-30
+- Added Request EventEmitter to AckApi
+
 ## [1.6.0] - 2018-05-18
 - moved AckArray and AckAggregate
 

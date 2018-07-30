@@ -25,6 +25,7 @@ var AckApi = (function () {
     function AckApi(HttpClient) {
         this.HttpClient = HttpClient;
         this.response = new core_1.EventEmitter();
+        this.Request = new core_1.EventEmitter();
         this.AuthError = new core_1.EventEmitter();
         this.ApiError = new core_1.EventEmitter();
         this.AckCache = new AckCache_1.AckCache();
@@ -152,6 +153,7 @@ var AckApi = (function () {
         var request = new http_1.Request(cfg);
         return new Promise(function (resolve, reject) {
             var resolved = false;
+            _this.Request.emit(request);
             var req = _this.HttpClient.request(request)
                 .subscribe(function (res) {
                 resolved = true;

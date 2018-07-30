@@ -6,12 +6,18 @@ export interface button{
   handler?: () => any
 }
 
-export interface prompt{
+export interface promptOptions{
+  title?   : string
+  buttons? : button[]//not yet used
+  emitter? : EventEmitter<boolean>
+  message? : string
+  type?    : "confirm"|"alert"|"string"
+}
+
+export interface prompt extends promptOptions{
   type:"confirm"|"alert"|"string"
   message:string
   emitter:EventEmitter<boolean>
-  title?:string
-  buttons?:button[]//not yet used
 }
 
 /** Http util with offline config for request failures */
@@ -33,17 +39,23 @@ export interface prompt{
     return prompt.emitter
   }
 
-  alert(message:string, options=<prompt>{}):EventEmitter<boolean>{
+  alert(
+    message:string,
+    options:promptOptions=<promptOptions>{}
+  ):EventEmitter<boolean>{
     options.emitter = new EventEmitter()
     options.type = "alert"
     options.message = message
-    return this.issuePrompt(options)
+    return this.issuePrompt( <prompt>options )
   }
 
-  confirm(message:string, options=<prompt>{}):EventEmitter<boolean>{
+  confirm(
+    message:string,
+    options:promptOptions=<promptOptions>{}
+  ):EventEmitter<boolean>{
     options.emitter = new EventEmitter()
     options.type = "confirm"
     options.message = message
-    return this.issuePrompt(options)
+    return this.issuePrompt( <prompt>options )
   }
 }

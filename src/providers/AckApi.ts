@@ -51,8 +51,10 @@ TimeOutError.prototype = Object.create(Error.prototype)
   //response:EventEmitter<HttpResponse<HttpEvent<Event>>> = new EventEmitter()
 
   response:EventEmitter<Response> = new EventEmitter()
+  Request:EventEmitter<Request> = new EventEmitter()
   AuthError:EventEmitter<Error> = new EventEmitter()
   ApiError:EventEmitter<Error> = new EventEmitter()
+
   AckCache = new AckCache()
   AckQue = new AckQue()
   config:apiConfig = <apiConfig>{
@@ -241,6 +243,8 @@ TimeOutError.prototype = Object.create(Error.prototype)
 
     return new Promise((resolve,reject)=>{
       let resolved = false
+      this.Request.emit( request )
+      
       const req = this.HttpClient.request( request )
       .subscribe(res=>{
         resolved=true
