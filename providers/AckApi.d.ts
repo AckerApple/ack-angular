@@ -1,5 +1,5 @@
 import { EventEmitter } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Request } from '@angular/http';
 import { AckCache, cacheModel } from './AckCache';
 import { AckQue } from './AckQue';
 export interface sendFailMeta {
@@ -28,6 +28,7 @@ export declare function TimeOutError(message: any): void;
 export declare class AckApi {
     HttpClient: Http;
     response: EventEmitter<Response>;
+    Request: EventEmitter<Request>;
     AuthError: EventEmitter<Error>;
     ApiError: EventEmitter<Error>;
     AckCache: AckCache;
