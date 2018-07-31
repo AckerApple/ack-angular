@@ -30,6 +30,9 @@ var ErrorLog = (function () {
         }
         return logObToErrorObject(ob);
     };
+    ErrorLog.prototype.logObToErrorObject = function (ob) {
+        return logObToErrorObject(ob);
+    };
     ErrorLog.prototype.paramAudit = function (e, toConsole) {
         if (e.constructor == String) {
             e = new Error(e);

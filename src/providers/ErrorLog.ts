@@ -30,6 +30,11 @@ import { Injectable } from '@angular/core';
     return logObToErrorObject(ob)
   }
 
+  //api error to js Error object
+  logObToErrorObject(ob){
+    return logObToErrorObject(ob)
+  }
+
   paramAudit(e, toConsole?){
     if(e.constructor==String){
       e = new Error(e)
