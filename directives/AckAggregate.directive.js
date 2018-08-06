@@ -11,10 +11,10 @@ var AckAggregate = (function () {
                 },] },
     ];
     AckAggregate.propDecorators = {
-        "type": [{ type: core_1.Input },],
-        "keys": [{ type: core_1.Input },],
-        "output": [{ type: core_1.Input },],
-        "outputChange": [{ type: core_1.Output },],
+        type: [{ type: core_1.Input }],
+        keys: [{ type: core_1.Input }],
+        output: [{ type: core_1.Input }],
+        outputChange: [{ type: core_1.Output }]
     };
     return AckAggregate;
 }());

@@ -80,26 +80,26 @@ var RouteReporter = (function () {
                 },] },
     ];
     RouteReporter.ctorParameters = function () { return [
-        { type: RouteWatchReporter_1.RouteWatchReporter, },
+        { type: RouteWatchReporter_1.RouteWatchReporter }
     ]; };
     RouteReporter.propDecorators = {
-        "stateChanger": [{ type: core_1.Output, args: ["onChange",] },],
-        "beforeChanger": [{ type: core_1.Output, args: ["beforeChange",] },],
-        "ref": [{ type: core_1.Input },],
-        "refChange": [{ type: core_1.Output },],
-        "stateName": [{ type: core_1.Input },],
-        "stateNameChange": [{ type: core_1.Output },],
-        "params": [{ type: core_1.Input },],
-        "paramsChange": [{ type: core_1.Output },],
-        "data": [{ type: core_1.Input },],
-        "dataChange": [{ type: core_1.Output },],
-        "query": [{ type: core_1.Input },],
-        "queryChange": [{ type: core_1.Output },],
-        "route": [{ type: core_1.Input },],
-        "routeChange": [{ type: core_1.Output },],
-        "onLoad": [{ type: core_1.Input },],
-        "state": [{ type: core_1.Input },],
-        "stateChange": [{ type: core_1.Output },],
+        stateChanger: [{ type: core_1.Output, args: ["onChange",] }],
+        beforeChanger: [{ type: core_1.Output, args: ["beforeChange",] }],
+        ref: [{ type: core_1.Input }],
+        refChange: [{ type: core_1.Output }],
+        stateName: [{ type: core_1.Input }],
+        stateNameChange: [{ type: core_1.Output }],
+        params: [{ type: core_1.Input }],
+        paramsChange: [{ type: core_1.Output }],
+        data: [{ type: core_1.Input }],
+        dataChange: [{ type: core_1.Output }],
+        query: [{ type: core_1.Input }],
+        queryChange: [{ type: core_1.Output }],
+        route: [{ type: core_1.Input }],
+        routeChange: [{ type: core_1.Output }],
+        onLoad: [{ type: core_1.Input }],
+        state: [{ type: core_1.Input }],
+        stateChange: [{ type: core_1.Output }]
     };
     return RouteReporter;
 }());

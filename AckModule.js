@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var http_1 = require("@angular/common/http");
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
-var http_1 = require("@angular/http");
 var providers_1 = require("./providers");
 var declarations_1 = require("./declarations");
 var pipes_1 = require("./pipes");
@@ -16,13 +16,13 @@ var AckModule = (function () {
                     imports: [
                         common_1.CommonModule,
                         forms_1.FormsModule,
-                        http_1.HttpModule
+                        http_1.HttpClientModule
                     ],
                     declarations: declarations,
                     providers: providers_1.providers,
                     exports: [
                         forms_1.FormsModule,
-                        http_1.HttpModule
+                        http_1.HttpClientModule
                     ].concat(declarations)
                 },] },
     ];

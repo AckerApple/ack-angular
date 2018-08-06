@@ -36,11 +36,11 @@ var HtmlWidthModel = (function () {
                 },] },
     ];
     HtmlWidthModel.ctorParameters = function () { return [
-        { type: HtmlSizeWatcher_1.HtmlSizeService, },
+        { type: HtmlSizeWatcher_1.HtmlSizeService }
     ]; };
     HtmlWidthModel.propDecorators = {
-        "htmlWidthModel": [{ type: core_1.Input },],
-        "htmlWidthModelChange": [{ type: core_1.Output },],
+        htmlWidthModel: [{ type: core_1.Input }],
+        htmlWidthModelChange: [{ type: core_1.Output }]
     };
     return HtmlWidthModel;
 }());

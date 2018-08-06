@@ -29,13 +29,13 @@ var AbsoluteOverflowX = (function () {
                 },] },
     ];
     AbsoluteOverflowX.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
+        { type: core_1.ElementRef }
     ]; };
     AbsoluteOverflowX.propDecorators = {
-        "scrollBars": [{ type: core_1.Input },],
-        "wrapClass": [{ type: core_1.Input },],
-        "active": [{ type: core_1.Input },],
-        "overflow": [{ type: core_1.Input },],
+        scrollBars: [{ type: core_1.Input }],
+        wrapClass: [{ type: core_1.Input }],
+        active: [{ type: core_1.Input }],
+        overflow: [{ type: core_1.Input }]
     };
     return AbsoluteOverflowX;
 }());

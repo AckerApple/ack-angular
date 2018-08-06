@@ -147,8 +147,8 @@ var RouteWatchReporter = (function () {
         { type: core_1.Injectable },
     ];
     RouteWatchReporter.ctorParameters = function () { return [
-        { type: router_1.Router, },
-        { type: router_1.ActivatedRoute, },
+        { type: router_1.Router },
+        { type: router_1.ActivatedRoute }
     ]; };
     return RouteWatchReporter;
 }());

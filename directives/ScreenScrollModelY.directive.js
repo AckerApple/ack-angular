@@ -25,8 +25,8 @@ var ScreenScrollModelY = (function () {
     ];
     ScreenScrollModelY.ctorParameters = function () { return []; };
     ScreenScrollModelY.propDecorators = {
-        "screenScrollModelY": [{ type: core_1.Input },],
-        "screenScrollModelYChange": [{ type: core_1.Output },],
+        screenScrollModelY: [{ type: core_1.Input }],
+        screenScrollModelYChange: [{ type: core_1.Output }]
     };
     return ScreenScrollModelY;
 }());

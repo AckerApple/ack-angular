@@ -63,12 +63,12 @@ var ElementSizeModel = (function () {
                 },] },
     ];
     ElementSizeModel.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
+        { type: core_1.ElementRef }
     ]; };
     ElementSizeModel.propDecorators = {
-        "elementSizeModelWatch": [{ type: core_1.Input },],
-        "elementSizeModel": [{ type: core_1.Input },],
-        "elementSizeModelChange": [{ type: core_1.Output },],
+        elementSizeModelWatch: [{ type: core_1.Input }],
+        elementSizeModel: [{ type: core_1.Input }],
+        elementSizeModelChange: [{ type: core_1.Output }]
     };
     return ElementSizeModel;
 }());
@@ -90,8 +90,8 @@ var ElementHeightModel = (function (_super) {
                 },] },
     ];
     ElementHeightModel.propDecorators = {
-        "elementHeightModel": [{ type: core_1.Input },],
-        "elementHeightModelChange": [{ type: core_1.Output },],
+        elementHeightModel: [{ type: core_1.Input }],
+        elementHeightModelChange: [{ type: core_1.Output }]
     };
     return ElementHeightModel;
 }(ElementSizeModel));
@@ -113,8 +113,8 @@ var ElementWidthModel = (function (_super) {
                 },] },
     ];
     ElementWidthModel.propDecorators = {
-        "elementWidthModel": [{ type: core_1.Input },],
-        "elementWidthModelChange": [{ type: core_1.Output },],
+        elementWidthModel: [{ type: core_1.Input }],
+        elementWidthModelChange: [{ type: core_1.Output }]
     };
     return ElementWidthModel;
 }(ElementSizeModel));

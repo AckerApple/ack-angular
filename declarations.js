@@ -40,7 +40,7 @@ var VarDirective = (function () {
                 },] },
     ];
     VarDirective.propDecorators = {
-        "var": [{ type: core_1.Input },],
+        var: [{ type: core_1.Input }]
     };
     return VarDirective;
 }());
@@ -61,10 +61,10 @@ var EnterKey = (function () {
         { type: core_1.Directive, args: [{ selector: '[enterKey]' },] },
     ];
     EnterKey.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
+        { type: core_1.ElementRef }
     ]; };
     EnterKey.propDecorators = {
-        "enterKey": [{ type: core_1.Output },],
+        enterKey: [{ type: core_1.Output }]
     };
     return EnterKey;
 }());
@@ -85,10 +85,10 @@ var EscapeKey = (function () {
         { type: core_1.Directive, args: [{ selector: '[escapeKey]' },] },
     ];
     EscapeKey.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
+        { type: core_1.ElementRef }
     ]; };
     EscapeKey.propDecorators = {
-        "escapeKey": [{ type: core_1.Output },],
+        escapeKey: [{ type: core_1.Output }]
     };
     return EscapeKey;
 }());
@@ -113,10 +113,10 @@ var PreventBackKey = (function () {
         { type: core_1.Directive, args: [{ selector: '[preventBackKey]' },] },
     ];
     PreventBackKey.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
+        { type: core_1.ElementRef }
     ]; };
     PreventBackKey.propDecorators = {
-        "preventBackKey": [{ type: core_1.Output },],
+        preventBackKey: [{ type: core_1.Output }]
     };
     return PreventBackKey;
 }());
@@ -141,10 +141,10 @@ var PreventEnterKey = (function () {
         { type: core_1.Directive, args: [{ selector: '[preventEnterKey]' },] },
     ];
     PreventEnterKey.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
+        { type: core_1.ElementRef }
     ]; };
     PreventEnterKey.propDecorators = {
-        "preventEnterKey": [{ type: core_1.Output },],
+        preventEnterKey: [{ type: core_1.Output }]
     };
     return PreventEnterKey;
 }());
@@ -160,7 +160,7 @@ var InputHint = (function () {
                 },] },
     ];
     InputHint.propDecorators = {
-        "hintStyle": [{ type: core_1.Input },],
+        hintStyle: [{ type: core_1.Input }]
     };
     return InputHint;
 }());
@@ -183,10 +183,10 @@ var FormChanged = (function () {
                 },] },
     ];
     FormChanged.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
+        { type: core_1.ElementRef }
     ]; };
     FormChanged.propDecorators = {
-        "formChanged": [{ type: core_1.Output },],
+        formChanged: [{ type: core_1.Output }]
     };
     return FormChanged;
 }());
@@ -211,10 +211,10 @@ var FormAlter = (function () {
                 },] },
     ];
     FormAlter.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
+        { type: core_1.ElementRef }
     ]; };
     FormAlter.propDecorators = {
-        "formAlter": [{ type: core_1.Output },],
+        formAlter: [{ type: core_1.Output }]
     };
     return FormAlter;
 }());

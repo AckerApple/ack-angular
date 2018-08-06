@@ -31,11 +31,11 @@ var ScreenWidthModel = (function () {
                 },] },
     ];
     ScreenWidthModel.ctorParameters = function () { return [
-        { type: HtmlSizeWatcher_1.HtmlSizeService, },
+        { type: HtmlSizeWatcher_1.HtmlSizeService }
     ]; };
     ScreenWidthModel.propDecorators = {
-        "screenWidthModel": [{ type: core_1.Input },],
-        "screenWidthModelChange": [{ type: core_1.Output },],
+        screenWidthModel: [{ type: core_1.Input }],
+        screenWidthModelChange: [{ type: core_1.Output }]
     };
     return ScreenWidthModel;
 }());

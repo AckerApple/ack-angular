@@ -265,19 +265,19 @@ var AckArray = (function () {
                 },] },
     ];
     AckArray.propDecorators = {
-        "idKey": [{ type: core_1.Input },],
-        "ref": [{ type: core_1.Input },],
-        "refChange": [{ type: core_1.Output },],
-        "pageAt": [{ type: core_1.Input },],
-        "pages": [{ type: core_1.Input },],
-        "pagesChange": [{ type: core_1.Output },],
-        "page": [{ type: core_1.Input },],
-        "pageChange": [{ type: core_1.Input },],
-        "array": [{ type: core_1.Input },],
-        "arrayChange": [{ type: core_1.Output },],
-        "keyMap": [{ type: core_1.Input },],
-        "keyMapChange": [{ type: core_1.Output },],
-        "AckAggregates": [{ type: core_1.ContentChildren, args: [AckAggregate_directive_1.AckAggregate,] },],
+        idKey: [{ type: core_1.Input }],
+        ref: [{ type: core_1.Input }],
+        refChange: [{ type: core_1.Output }],
+        pageAt: [{ type: core_1.Input }],
+        pages: [{ type: core_1.Input }],
+        pagesChange: [{ type: core_1.Output }],
+        page: [{ type: core_1.Input }],
+        pageChange: [{ type: core_1.Input }],
+        array: [{ type: core_1.Input }],
+        arrayChange: [{ type: core_1.Output }],
+        keyMap: [{ type: core_1.Input }],
+        keyMapChange: [{ type: core_1.Output }],
+        AckAggregates: [{ type: core_1.ContentChildren, args: [AckAggregate_directive_1.AckAggregate,] }]
     };
     return AckArray;
 }());

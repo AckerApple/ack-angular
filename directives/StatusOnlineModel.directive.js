@@ -22,8 +22,8 @@ var StatusOnlineModel = (function () {
     ];
     StatusOnlineModel.ctorParameters = function () { return []; };
     StatusOnlineModel.propDecorators = {
-        "statusOnlineModel": [{ type: core_1.Input },],
-        "statusOnlineModelChange": [{ type: core_1.Output },],
+        statusOnlineModel: [{ type: core_1.Input }],
+        statusOnlineModelChange: [{ type: core_1.Output }]
     };
     return StatusOnlineModel;
 }());

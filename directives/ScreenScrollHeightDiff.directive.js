@@ -27,8 +27,8 @@ var ScreenScrollHeightDiff = (function () {
     ];
     ScreenScrollHeightDiff.ctorParameters = function () { return []; };
     ScreenScrollHeightDiff.propDecorators = {
-        "screenScrollHeightDiff": [{ type: core_1.Input },],
-        "screenScrollHeightDiffChange": [{ type: core_1.Output },],
+        screenScrollHeightDiff: [{ type: core_1.Input }],
+        screenScrollHeightDiffChange: [{ type: core_1.Output }]
     };
     return ScreenScrollHeightDiff;
 }());

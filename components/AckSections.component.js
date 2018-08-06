@@ -18,13 +18,13 @@ var AckSections = (function () {
                 },] },
     ];
     AckSections.ctorParameters = function () { return [
-        { type: AckSections_provider_1.SectionProvider, },
-        { type: core_1.ElementRef, },
+        { type: AckSections_provider_1.SectionProvider },
+        { type: core_1.ElementRef }
     ]; };
     AckSections.propDecorators = {
-        "mode": [{ type: core_1.Input },],
-        "header": [{ type: core_1.ContentChild, args: ["header",] },],
-        "footer": [{ type: core_1.ContentChild, args: ["footer",] },],
+        mode: [{ type: core_1.Input }],
+        header: [{ type: core_1.ContentChild, args: ["header",] }],
+        footer: [{ type: core_1.ContentChild, args: ["footer",] }]
     };
     return AckSections;
 }());

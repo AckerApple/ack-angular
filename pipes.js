@@ -62,7 +62,7 @@ var SafeUrl = (function () {
         { type: core_1.Pipe, args: [{ name: 'safeUrl' },] },
     ];
     SafeUrl.ctorParameters = function () { return [
-        { type: platform_browser_1.DomSanitizer, },
+        { type: platform_browser_1.DomSanitizer }
     ]; };
     return SafeUrl;
 }());
@@ -78,7 +78,7 @@ var SafeHtml = (function () {
         { type: core_1.Pipe, args: [{ name: 'safeHtml' },] },
     ];
     SafeHtml.ctorParameters = function () { return [
-        { type: platform_browser_1.DomSanitizer, },
+        { type: platform_browser_1.DomSanitizer }
     ]; };
     return SafeHtml;
 }());
@@ -94,7 +94,7 @@ var SafeStyle = (function () {
         { type: core_1.Pipe, args: [{ name: 'safeStyle' },] },
     ];
     SafeStyle.ctorParameters = function () { return [
-        { type: platform_browser_1.DomSanitizer, },
+        { type: platform_browser_1.DomSanitizer }
     ]; };
     return SafeStyle;
 }());
