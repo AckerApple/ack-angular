@@ -20,6 +20,7 @@ var FocusOn_directive_1 = require("./directives/FocusOn.directive");
 var Init_directive_1 = require("./directives/Init.directive");
 var SelectOn_directive_1 = require("./directives/SelectOn.directive");
 var InnerHtmlModel_directive_1 = require("./directives/InnerHtmlModel.directive");
+var ReplaceModel_directive_1 = require("./directives/ReplaceModel.directive");
 var ElementSizeModel_directive_1 = require("./directives/ElementSizeModel.directive");
 var ScreenScrollHeightDiff_directive_1 = require("./directives/ScreenScrollHeightDiff.directive");
 var ScreenScroll_directive_1 = require("./directives/ScreenScroll.directive");
@@ -225,6 +226,7 @@ exports.declarations = [
     FocusOn_directive_1.FocusOn,
     VarDirective,
     InnerHtmlModel_directive_1.InnerHtmlModel,
+    ReplaceModel_directive_1.ReplaceModel,
     FormAlter,
     FormChanged,
     EnterKey,
