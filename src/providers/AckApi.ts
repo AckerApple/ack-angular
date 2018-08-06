@@ -1,12 +1,24 @@
-//import 'rxjs/add/operator/toPromise';
-import { Injectable, EventEmitter } from '@angular/core';
+//import "rxjs/add/operator/toPromise";
+import { Injectable, EventEmitter } from "@angular/core"
 
-import { Http, Response, Request } from '@angular/http';
-//Angular5
-//import { HttpClient, HttpRequest, HttpResponse, HttpEvent } from '@angular/common/http'
+/*Angular4
+import {
+  Http, Response, Request
+} from "@angular/common";
+*/
 
-import { AckCache, cacheModel } from './AckCache';
-import { AckQue } from './AckQue';
+import {
+  HttpParams,
+  HttpEventType,
+  HttpHeaders,
+  HttpClient,
+  HttpRequest,
+  HttpResponse,
+  HttpEvent
+} from "@angular/common/http"
+
+import { AckCache, cacheModel } from "./AckCache";
+import { AckQue } from "./AckQue";
 
 //specific to failed POST/PUT
 export interface sendFailMeta{
@@ -17,20 +29,20 @@ export interface sendFailMeta{
 }
 
 export interface httpOptions{
-  url             : string
+  url?            : string
   params?         : any
   body?           : any
-  method?         : 'GET'|'POST'|'PUT'|'PATCH'|'DELETE'|string
-  headers?        : any
+  method?         : "GET"|"POST"|"PUT"|"PATCH"|"DELETE"|string
+  headers?        : any//{[index: string]: string | string[]}
   timeout?        : number
   offlineModel?   : cacheModel|string
   sendFailMeta?   : sendFailMeta
-  promise?        : 'response'|'all'|'data'|string//typically just the body data is promised. Anything but data returns response
+  promise?        : "response"|"all"|"data"|string//typically just the body data is promised. Anything but data returns response
   reportProgress? : boolean
 }
 
 export interface apiConfig{
-  //promise? : 'all'|'data'//typically just the body data is promised
+  //promise? : "all"|"data"//typically just the body data is promised
   baseUrl? : string
   //params?  : any//query vars
   $http?   : httpOptions
@@ -48,25 +60,26 @@ TimeOutError.prototype = Object.create(Error.prototype)
 /** Http util with offline config for request failures */
 @Injectable() export class AckApi{
   //Angular5
-  //response:EventEmitter<HttpResponse<HttpEvent<Event>>> = new EventEmitter()
-
-  response:EventEmitter<Response> = new EventEmitter()
-  Request:EventEmitter<Request> = new EventEmitter()
+  response:EventEmitter<HttpResponse<HttpEvent<Event>>> = new EventEmitter()
+  //Angular4
+  //response:EventEmitter<Response> = new EventEmitter()
+  
+  Request:EventEmitter<HttpRequest<HttpEvent<Event>>> = new EventEmitter()
   AuthError:EventEmitter<Error> = new EventEmitter()
   ApiError:EventEmitter<Error> = new EventEmitter()
 
   AckCache = new AckCache()
   AckQue = new AckQue()
   config:apiConfig = <apiConfig>{
-    baseUrl:'',
+    baseUrl:"",
     $http:{
-      method:'GET',
+      method:"GET",
       headers:{},
       timeout: 6500//4000//8000
     }
   }
 
-  constructor(public HttpClient:Http){
+  constructor(public HttpClient:HttpClient){
     this.paramConfig()
   }
 
@@ -76,7 +89,11 @@ TimeOutError.prototype = Object.create(Error.prototype)
   /** START HERE. Handlers must be registered before sending requests
     @options{maxTry:50}
   */
-  registerHandler(name:string, handler?:(config:httpOptions)=>any, options?:sendFailMeta){
+  registerHandler(
+    name:string,
+    handler?:(config:httpOptions)=>any,
+    options?:sendFailMeta
+  ){
     options = options || {maxTry:50}
     handler = handler || (config=>this.request(config))
     this.AckQue.registerHandler(name, handler)
@@ -113,7 +130,9 @@ TimeOutError.prototype = Object.create(Error.prototype)
       - POST/PUT/PATCH requests goto que if they fail.
       - GET responses are cached with optional expires or maxAge option
   */
-  request(config:httpOptions):Promise<Response|any>{
+  request(
+    config:httpOptions
+  ):Promise<HttpRequest<HttpEvent<Event>>|any>{
     const defaults:httpOptions = { ...this.config.$http }
 
     defaults.headers = { ...this.config.$http.headers }//cause a deeper clone and break memory ref with apiConfig.$http
@@ -132,7 +151,9 @@ TimeOutError.prototype = Object.create(Error.prototype)
     return this._fetch(request)
   }
 
-  getCacheByNamedRequest(request:httpOptions){
+  getCacheByNamedRequest(
+    request:httpOptions
+  ):Promise<any>{
     const offlineModel = <cacheModel>request.offlineModel
     return this.AckCache.get( offlineModel.name )
     .then(routes=>{
@@ -143,14 +164,16 @@ TimeOutError.prototype = Object.create(Error.prototype)
     .then(cache=>this.processCacheGet(cache,request))
   }
 
-  getSotageNameByRequest(request:httpOptions):string{
+  getSotageNameByRequest(
+    request:httpOptions
+  ):string{
     if( request.params ){
       const paramKeys = Object.keys(request.params)
 
       if(!paramKeys.length)return request.url
       
-      let url = request.url + (request.url.search(/\?/)>=0 ? '&' : '?')
-      paramKeys.sort().forEach(name=>url+=name+'='+request.params[name]+'&')
+      let url = request.url + (request.url.search(/\?/)>=0 ? "&" : "?")
+      paramKeys.sort().forEach(name=>url+=name+"="+request.params[name]+"&")
 
       return url.substring(0, url.length-1)//remove last amp
     }
@@ -158,7 +181,9 @@ TimeOutError.prototype = Object.create(Error.prototype)
     return request.url
   }
 
-  requestOfflineModel(request:httpOptions):Promise<Response|any>{
+  requestOfflineModel(
+    request:httpOptions
+  ):Promise<HttpResponse<HttpEvent<Event>>>{
     let offlineModel = <cacheModel>request.offlineModel
     
     if(offlineModel && offlineModel.constructor==String){
@@ -176,7 +201,10 @@ TimeOutError.prototype = Object.create(Error.prototype)
     .catch( e=>this.postRequestFail(e,request) )//if fail, save config for later
   }
 
-  processCacheGet(cache:any, cfg:httpOptions):Promise<Response|any>{
+  processCacheGet(
+    cache:any,
+    cfg:httpOptions
+  ):Promise<HttpResponse<HttpEvent<Event>>>{
     if(cache==null)return this._fetch(cfg)
 
     const offlineModel = <cacheModel>cfg.offlineModel
@@ -186,7 +214,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
       const willExpire = this.AckCache.optionsKillCache( offlineModel )
 
       if( rtn && !willExpire ){
-        console.log('AckApi fetched cache that will never expire. Set offlineModel.expires=0 or offlineModel.maxAge=0 to avoid this message', rtn)
+        console.log("AckApi fetched cache that will never expire. Set offlineModel.expires=0 or offlineModel.maxAge=0 to avoid this message", rtn)
       }
 
       if( rtn!=null ){
@@ -197,7 +225,9 @@ TimeOutError.prototype = Object.create(Error.prototype)
     })
   }
 
-  postRequestFail(e, request:httpOptions){
+  postRequestFail(
+    e, request:httpOptions
+  ):Promise<any>{
     const saveWorthy = e.status == 0 || e.status == -1 || e.status == 503
 
     if(!saveWorthy)return Promise.reject(e)
@@ -224,31 +254,45 @@ TimeOutError.prototype = Object.create(Error.prototype)
 
   /** master method for sending requests and caching responses using $http requests
     @cfg{
-      catch:'data'//typically only error data is returned, but if catch!='data' then entire response is returned for a caught error
-      promise:'data'//typically only data is returned, but if promise!='data' then entire response is returned
-      headers:{}//when sending a file 'Content-Type':undefined so that no content-type header is sent
+      catch:"data"//typically only error data is returned, but if catch!="data" then entire response is returned for a caught error
+      promise:"data"//typically only data is returned, but if promise!="data" then entire response is returned
+      headers:{}//when sending a file "Content-Type":undefined so that no content-type header is sent
     }
   */
-  //Angular 5 : Promise<HttpResponse<HttpEvent<Event>>>
-  _fetch(cfg:httpOptions):Promise<Response|any> {
+  _fetch(
+    cfg:httpOptions
+  ):Promise<HttpResponse<HttpEvent<Event>>> {
     upgradeConfig(cfg)
 
-    const request = new Request( cfg )
-    /*const request = new HttpRequest(
+    const cfgPlus = {...cfg}
+
+    if( cfg.params ){
+      cfgPlus.params = new HttpParams({
+        fromObject:cfg.params
+      })
+    }
+
+    if( cfg.headers ){
+      cfgPlus.headers = new HttpHeaders( cfg.headers )
+    }
+
+    const request = new HttpRequest(
       cfg.method,
       cfg.url,
       cfg.body,
-      cfg
-    )*/
+      cfgPlus
+    )
 
     return new Promise((resolve,reject)=>{
       let resolved = false
       this.Request.emit( request )
       
       const req = this.HttpClient.request( request )
-      .subscribe(res=>{
-        resolved=true
-        resolve(res)
+      .subscribe(event=>{
+        if (event.type === HttpEventType.Response) {
+          resolved = true
+          resolve(event)
+        }
       },err=>{
         resolved=true
         reject(err)
@@ -258,39 +302,39 @@ TimeOutError.prototype = Object.create(Error.prototype)
         setTimeout(()=>{
           if(resolved)return
           req.unsubscribe()
-          const timeoutError = new TimeOutError('Request timed out. Server did NOT respond timely enough')
+          const timeoutError = new TimeOutError("Request timed out. Server did NOT respond timely enough")
           timeoutError.timeout = cfg.timeout
           reject( timeoutError )
         }, cfg.timeout)
       }
     })
-    .then( (response:Response)=>this.processFetchByConfig(response,cfg) )
+    .then((response:HttpResponse<HttpEvent<Event>>)=>
+      this.processFetchByConfig(response,cfg)
+     )
     .catch( e=>this.httpFailByConfig(e,cfg) )
-
-/*
-    return 
-    .toPromise()
-    .then( response=>this.processFetchByConfig(response,cfg) )
-    .catch( e=>this.httpFailByConfig(e,cfg) )
-*/
   }
 
-  processFetchByConfig(response:Response, request:httpOptions):Promise<Response|any>{
+  processFetchByConfig(
+    response:HttpResponse<HttpEvent<Event>>,
+    request:httpOptions
+  ):Promise<HttpResponse<HttpEvent<Event>>>{
     this.response.emit(response)//let subscribers of all responses know we got one
     
-    const data = response['_body']//response['data'] || 
-    const isJson = data && response.headers.get('Content-Type')=='application/json'
+    const data = response.body || response["_body"]//Angular5.body Angular4._body
+    const isJson = data && response.headers.get("Content-Type")=="application/json"
 
-    if(isJson && !response['data']){
+    if(isJson && !response["data"]){
       try{
-        response['data'] = JSON.parse( data )
+        response["data"] = JSON.parse( data )
       }catch(e){}
     }
 
-    const isDataMode = !request.promise || request.promise=='data'
-    const output = isDataMode ? (response['data']||data) : response
+    response["data"] = data//Since angularJs backwords compat and leaves original body string alone
+    const isDataMode = !request.promise || request.promise=="data"
+    const output = isDataMode ? data : response
+    const isCacheReponse = request.method === "GET" && request.offlineModel
 
-    if (request.method === "GET" && request.offlineModel) {
+    if ( isCacheReponse ) {
       return this.requestResponseToCache(request, output)
       .then( ()=>output )
     }
@@ -299,7 +343,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
   }
 
   httpFailByConfig(e,cfg){
-    const isReduceData = cfg.catch==null||cfg.catch=='data'
+    const isReduceData = cfg.catch==null||cfg.catch=="data"
     const isCatchData = isReduceData && e.data && e.data.error
 
     //find JSON error object and reduce to
@@ -318,7 +362,9 @@ TimeOutError.prototype = Object.create(Error.prototype)
     return Promise.reject(e)
   }
 
-  requestResponseToCache(request, output){
+  requestResponseToCache(
+    request, output
+  ):Promise<any>{
     const cachename = request.offlineModel.name || request.offlineModel
     return this.AckCache.get(cachename)
     .then(routes=>{
@@ -331,14 +377,19 @@ TimeOutError.prototype = Object.create(Error.prototype)
     .then(routes=>this.AckCache.set(cachename, routes))
   }
   
-  get(path:string, config?:httpOptions):Promise<Response|any>{
+  get(
+    path:string,
+    config?:httpOptions
+  ):Promise<HttpResponse<HttpEvent<Event>>>{
     const cfg = Object.assign({}, config)
     cfg.method = "GET"
     cfg.url = path
     return this.request( cfg )
   }
 
-  post(path:string, data:any, config?:httpOptions):Promise<Response|any>{
+  post(
+    path:string, data:any, config?:httpOptions
+  ):Promise<HttpResponse<HttpEvent<Event>>>{
     const cfg = Object.assign({}, config)
     cfg.method = "POST"
     //cfg.data = data
@@ -347,14 +398,18 @@ TimeOutError.prototype = Object.create(Error.prototype)
     return this.request( cfg )
   }
 
-  delete(path:string, config?:httpOptions):Promise<Response|any>{
+  delete(
+    path:string, config?:httpOptions
+  ):Promise<HttpResponse<HttpEvent<Event>>>{
     const cfg = Object.assign({}, config)
     cfg.method = "DELETE"
     cfg.url = path
     return this.request( cfg )
   }
 
-  put(path, data, config?):Promise<Response|any>{
+  put(
+    path, data, config?
+  ):Promise<HttpResponse<HttpEvent<Event>>>{
     const cfg = Object.assign({}, config)
     cfg.method = "PUT"
     //cfg.data = data
@@ -374,8 +429,10 @@ TimeOutError.prototype = Object.create(Error.prototype)
 }
 
 /** prevent angular1 from assuming the header to send is application/json */
-function upgradeConfig(cfg:httpOptions){
-  cfg.method = cfg.method || 'GET'
+function upgradeConfig(
+  cfg:httpOptions
+):httpOptions{
+  cfg.method = cfg.method || "GET"
 
   cfg.reportProgress = cfg.reportProgress || false
 
@@ -385,7 +442,7 @@ function upgradeConfig(cfg:httpOptions){
     const preventAutoContentType =  !cfg.headers || Object.keys(cfg.headers).filter(h=>h.search(/content-type/i)<0)
     
     if(preventAutoContentType){
-      cfg.headers['Content-Type'] = undefined//'multipart/form-data;'
+      cfg.headers["Content-Type"] = undefined//"multipart/form-data;"
     }
   }*/
 
@@ -393,7 +450,7 @@ function upgradeConfig(cfg:httpOptions){
   if( cfg.params ){
     for(let key in cfg.params){
       if( cfg.params[key]==null ){
-        cfg.params[key]=''
+        cfg.params[key]=""
       }
     }
   }

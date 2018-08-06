@@ -31,11 +31,11 @@ var ScreenHeightModel = (function () {
                 },] },
     ];
     ScreenHeightModel.ctorParameters = function () { return [
-        { type: HtmlSizeWatcher_1.HtmlSizeService, },
+        { type: HtmlSizeWatcher_1.HtmlSizeService }
     ]; };
     ScreenHeightModel.propDecorators = {
-        "screenHeightModel": [{ type: core_1.Input },],
-        "screenHeightModelChange": [{ type: core_1.Output },],
+        screenHeightModel: [{ type: core_1.Input }],
+        screenHeightModelChange: [{ type: core_1.Output }]
     };
     return ScreenHeightModel;
 }());

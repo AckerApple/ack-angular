@@ -25,7 +25,7 @@ var ScreenScroll = (function () {
     ];
     ScreenScroll.ctorParameters = function () { return []; };
     ScreenScroll.propDecorators = {
-        "screenScroll": [{ type: core_1.Output },],
+        screenScroll: [{ type: core_1.Output }]
     };
     return ScreenScroll;
 }());

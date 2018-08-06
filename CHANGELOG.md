@@ -1,6 +1,10 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.7.0] - 2018-08-06
+- Upgraded to use new Angular HTTP component
+  - Maintains backwords compatibility
+
 ## [1.6.2] - 2018-07-31
 - Added logObToErrorObject method to ErrorLog
 

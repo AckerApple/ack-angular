@@ -32,11 +32,11 @@ var InnerHtmlModel = (function () {
                 },] },
     ];
     InnerHtmlModel.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
+        { type: core_1.ElementRef }
     ]; };
     InnerHtmlModel.propDecorators = {
-        "innerHtmlModel": [{ type: core_1.Input },],
-        "innerHtmlModelChange": [{ type: core_1.Output },],
+        innerHtmlModel: [{ type: core_1.Input }],
+        innerHtmlModelChange: [{ type: core_1.Output }]
     };
     return InnerHtmlModel;
 }());

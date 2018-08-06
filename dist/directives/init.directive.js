@@ -14,7 +14,7 @@ var Init = (function () {
                 },] },
     ];
     Init.propDecorators = {
-        "init": [{ type: core_1.Output },],
+        init: [{ type: core_1.Output }]
     };
     return Init;
 }());

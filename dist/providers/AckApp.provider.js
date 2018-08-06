@@ -25,7 +25,7 @@ var AckApp = (function () {
         { type: core_1.Injectable },
     ];
     AckApp.ctorParameters = function () { return [
-        { type: Prompts_1.Prompts, },
+        { type: Prompts_1.Prompts }
     ]; };
     return AckApp;
 }());

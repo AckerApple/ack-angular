@@ -36,14 +36,14 @@ var AckOptionsModal = (function (_super) {
                 },] },
     ];
     AckOptionsModal.propDecorators = {
-        "allowClose": [{ type: core_1.Input },],
-        "wrapStyle": [{ type: core_1.Input },],
-        "wrapCellStyle": [{ type: core_1.Input },],
-        "close": [{ type: core_1.Output },],
-        "backgroundColor": [{ type: core_1.Input },],
-        "backgroundColorChange": [{ type: core_1.Output },],
-        "showModel": [{ type: core_1.Input },],
-        "showModelChange": [{ type: core_1.Output },],
+        allowClose: [{ type: core_1.Input }],
+        wrapStyle: [{ type: core_1.Input }],
+        wrapCellStyle: [{ type: core_1.Input }],
+        close: [{ type: core_1.Output }],
+        backgroundColor: [{ type: core_1.Input }],
+        backgroundColorChange: [{ type: core_1.Output }],
+        showModel: [{ type: core_1.Input }],
+        showModelChange: [{ type: core_1.Output }]
     };
     return AckOptionsModal;
 }(AckOptions_component_1.AckOptions));

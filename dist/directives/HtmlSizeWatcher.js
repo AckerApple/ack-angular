@@ -27,7 +27,7 @@ var HtmlSizeService = (function () {
     ];
     HtmlSizeService.ctorParameters = function () { return []; };
     HtmlSizeService.propDecorators = {
-        "change": [{ type: core_1.Output },],
+        change: [{ type: core_1.Output }]
     };
     return HtmlSizeService;
 }());

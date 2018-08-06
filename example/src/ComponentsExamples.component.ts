@@ -1,9 +1,11 @@
 import { getServerTime } from "./functions"
-import { PageScrollService, PageScrollInstance } from 'ng2-page-scroll'
-import { Component } from '@angular/core';
-import { fxArray } from 'ack-angular-fx'
-import { array as arrayOfObjects } from './arrayOfObjects'
-import {string as componentsExamples} from './templates/components-examples.pug'
+import {
+  PageScrollService, PageScrollInstance
+} from "ngx-page-scroll"
+import { Component } from "@angular/core";
+import { fxArray } from "ack-angular-fx"
+import { array as arrayOfObjects } from "./arrayOfObjects"
+import {string as componentsExamples} from "./templates/components-examples.pug"
 
 export interface selected{
   letter:string
@@ -11,7 +13,7 @@ export interface selected{
 }
 
 @Component({
-  selector: 'components-examples'
+  selector: "components-examples"
   ,template: componentsExamples
   ,animations:fxArray
 }) export class ComponentsExamples {
@@ -37,10 +39,10 @@ export interface selected{
   escapeCountKey
   error
   contentArray = []
-  modalBackgroundColor = 'rgba(255,255,255,0.95)'
+  modalBackgroundColor = "rgba(255,255,255,0.95)"
   modalWrapStyle
   ackOptionArray = []
-  ackOptionArrayModal = [{key:'b'}]
+  ackOptionArrayModal = [{key:"b"}]
   pageAt = 2
   arrayOfObjects = arrayOfObjects
   selectedArray:selected[] = [
@@ -54,12 +56,12 @@ export interface selected{
   constructor(public PageScrollService:PageScrollService){}
   
   causeError(){
-    this.error = new Error( 'An intended error was caused @ '+getServerTime() )
+    this.error = new Error( "An intended error was caused @ "+getServerTime() )
   }
 
   scrollToModuleImport(){
     setTimeout(()=>{
-      const pageScrollInstance = PageScrollInstance.simpleInstance(document, '#Import AckModule');
+      const pageScrollInstance = PageScrollInstance.simpleInstance(document, "#Import AckModule");
       this.PageScrollService.start(pageScrollInstance);
     }, 600)
   }

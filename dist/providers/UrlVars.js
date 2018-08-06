@@ -30,7 +30,7 @@ var UrlVars = (function () {
         { type: core_1.Injectable },
     ];
     UrlVars.ctorParameters = function () { return [
-        { type: WindowService_1.WindowService, },
+        { type: WindowService_1.WindowService }
     ]; };
     return UrlVars;
 }());

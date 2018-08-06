@@ -45,10 +45,10 @@ var ScrollPastFixed = (function () {
                 },] },
     ];
     ScrollPastFixed.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
+        { type: core_1.ElementRef }
     ]; };
     ScrollPastFixed.propDecorators = {
-        "template": [{ type: core_1.ViewChild, args: ['template',] },],
+        template: [{ type: core_1.ViewChild, args: ['template',] }]
     };
     return ScrollPastFixed;
 }());

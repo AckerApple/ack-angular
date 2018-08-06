@@ -16,8 +16,8 @@ var AckFixedElementStage = (function () {
                 },] },
     ];
     AckFixedElementStage.ctorParameters = function () { return [
-        { type: AckApp_provider_1.AckApp, },
-        { type: core_1.ElementRef, },
+        { type: AckApp_provider_1.AckApp },
+        { type: core_1.ElementRef }
     ]; };
     return AckFixedElementStage;
 }());

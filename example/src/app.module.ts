@@ -1,22 +1,18 @@
-window['strapTime'] = Date.now()
+window["strapTime"] = Date.now()
 import { getServerTime } from "./functions"
 import {
   Input,
   Component,
   NgModule
-} from '@angular/core';
+} from "@angular/core";
 import { AckFxModule } from "ack-angular-fx"
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RouteWatchReporter } from "../../src/RouteWatchReporter"
 import { RouteReporter } from "../../src/RouteReporter.directive"
 import { AckModule } from "../../src"
 
-import {
-  Ng2PageScrollModule,
-  PageScrollService,
-  PageScrollInstance
-} from 'ng2-page-scroll'
+import { NgxPageScrollModule } from "ngx-page-scroll"
 
 import { ProviderExamples } from "./ProviderExamples.component"
 import { AckAppStage } from "./AckAppStage.component"
@@ -39,18 +35,18 @@ export const declarations = [
   ,...states
 ]
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from "@angular/forms";
 
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   imports:[
     BrowserModule
     ,BrowserAnimationsModule
     ,FormsModule
-    ,HttpModule
+    ,HttpClientModule
     ,routing
-    ,Ng2PageScrollModule.forRoot()
+    ,NgxPageScrollModule
     ,AckModule
     ,AckFxModule
   ]
@@ -63,4 +59,4 @@ import { HttpModule } from '@angular/http';
   //,schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 }) export class AppModule {}
 
-console.log('Ng Define Time', Date.now()-window['strapTime']+'ms', '@', getServerTime())
+console.log("Ng Define Time", Date.now()-window["strapTime"]+"ms", "@", getServerTime())

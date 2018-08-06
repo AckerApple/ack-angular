@@ -50,18 +50,18 @@ var AckModalLayout = (function () {
                 },] },
     ];
     AckModalLayout.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-        { type: AckApp_provider_1.AckApp, },
+        { type: core_1.ElementRef },
+        { type: AckApp_provider_1.AckApp }
     ]; };
     AckModalLayout.propDecorators = {
-        "close": [{ type: core_1.Output },],
-        "wrapStyle": [{ type: core_1.Input },],
-        "wrapCellStyle": [{ type: core_1.Input },],
-        "allowClose": [{ type: core_1.Input },],
-        "backgroundColor": [{ type: core_1.Input },],
-        "isModelMode": [{ type: core_1.Input },],
-        "showModel": [{ type: core_1.Input },],
-        "showModelChange": [{ type: core_1.Output },],
+        close: [{ type: core_1.Output }],
+        wrapStyle: [{ type: core_1.Input }],
+        wrapCellStyle: [{ type: core_1.Input }],
+        allowClose: [{ type: core_1.Input }],
+        backgroundColor: [{ type: core_1.Input }],
+        isModelMode: [{ type: core_1.Input }],
+        showModel: [{ type: core_1.Input }],
+        showModelChange: [{ type: core_1.Output }]
     };
     return AckModalLayout;
 }());

@@ -5,7 +5,6 @@ export declare class ErrorLog {
     reject(err: any): Promise<never>;
     rejector(): (err: any) => Promise<never>;
     add(e: any, toConsole?: any): Error;
-    logObToErrorObject(ob: any): Error;
     paramAudit(e: any, toConsole?: any): {
         data?: any;
     };

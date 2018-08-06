@@ -39,11 +39,11 @@ var AckSectionTemplates = (function () {
                 },] },
     ];
     AckSectionTemplates.ctorParameters = function () { return [
-        { type: AckSections_provider_1.SectionProvider, },
+        { type: AckSections_provider_1.SectionProvider }
     ]; };
     AckSectionTemplates.propDecorators = {
-        "header": [{ type: core_1.ContentChild, args: ['sectionHeader',] },],
-        "footer": [{ type: core_1.ContentChild, args: ['sectionFooter',] },],
+        header: [{ type: core_1.ContentChild, args: ['sectionHeader',] }],
+        footer: [{ type: core_1.ContentChild, args: ['sectionFooter',] }]
     };
     return AckSectionTemplates;
 }());

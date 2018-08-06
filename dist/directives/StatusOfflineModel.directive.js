@@ -22,8 +22,8 @@ var StatusOfflineModel = (function () {
     ];
     StatusOfflineModel.ctorParameters = function () { return []; };
     StatusOfflineModel.propDecorators = {
-        "statusOfflineModel": [{ type: core_1.Input },],
-        "statusOfflineModelChange": [{ type: core_1.Output },],
+        statusOfflineModel: [{ type: core_1.Input }],
+        statusOfflineModelChange: [{ type: core_1.Output }]
     };
     return StatusOfflineModel;
 }());

@@ -22,12 +22,12 @@ var FocusOn = (function () {
                 },] },
     ];
     FocusOn.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
+        { type: core_1.ElementRef }
     ]; };
     FocusOn.propDecorators = {
-        "focusOn": [{ type: core_1.Input },],
-        "focusOnDelay": [{ type: core_1.Input },],
-        "focusThen": [{ type: core_1.Output },],
+        focusOn: [{ type: core_1.Input }],
+        focusOnDelay: [{ type: core_1.Input }],
+        focusThen: [{ type: core_1.Output }]
     };
     return FocusOn;
 }());

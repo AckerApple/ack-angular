@@ -22,12 +22,12 @@ var SelectOn = (function () {
                 },] },
     ];
     SelectOn.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
+        { type: core_1.ElementRef }
     ]; };
     SelectOn.propDecorators = {
-        "selectOn": [{ type: core_1.Input },],
-        "selectOnDelay": [{ type: core_1.Input },],
-        "selectThen": [{ type: core_1.Output },],
+        selectOn: [{ type: core_1.Input }],
+        selectOnDelay: [{ type: core_1.Input }],
+        selectThen: [{ type: core_1.Output }]
     };
     return SelectOn;
 }());

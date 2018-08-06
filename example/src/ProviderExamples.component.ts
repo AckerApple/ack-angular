@@ -1,5 +1,7 @@
 import { Component, EventEmitter } from "@angular/core"
-import { PageScrollService, PageScrollInstance } from 'ng2-page-scroll'
+import {
+  PageScrollService, PageScrollInstance
+} from "ngx-page-scroll"
 
 import {
   Log,
@@ -12,14 +14,14 @@ import {
   httpOptions
 } from "../../src"
 
-import { fxArray } from 'ack-angular-fx'
-import { string as providerExamples } from './templates/provider-examples.pug'
+import { fxArray } from "ack-angular-fx"
+import { string as providerExamples } from "./templates/provider-examples.pug"
 
-const pathing = window.location.pathname.split('/').slice(0,-1).join('/')
-const defaultUrl = window.location.origin+pathing+'/test.json'
+const pathing = window.location.pathname.split("/").slice(0,-1).join("/")
+const defaultUrl = window.location.origin+pathing+"/test.json"
 
 @Component({
-  selector: 'provider-examples'
+  selector: "provider-examples"
   ,template: providerExamples
   ,animations:fxArray
 }) export class ProviderExamples {
@@ -42,10 +44,10 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
   httpHeaderConfigArray=[]
   httpConfig:httpOptions={
     offlineModel:{
-      name:'ackHttpTests', maxAge:15000
+      name:"ackHttpTests", maxAge:15000
     },
-    promise:'response',
-    method:'GET',
+    promise:"response",
+    method:"GET",
     url:defaultUrl,
     headers:{
       "Content-Type":"text/plain"
@@ -63,13 +65,13 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
     public Prompts:Prompts
   ){
     this.ErrorLog.monitorWindow()
-    this.AckQue.registerHandler('ackNgQueTest', item=>this.processQueItem(item))
+    this.AckQue.registerHandler("ackNgQueTest", item=>this.processQueItem(item))
     //this.AckApi.clearQue()
-    //this.AckApi.registerHandler('ackHttpTests')
+    //this.AckApi.registerHandler("ackHttpTests")
   }
 
   ngOnInit(){
-    window.addEventListener('online',()=>{
+    window.addEventListener("online",()=>{
       if(navigator.onLine){
         this.backOnlineAt = getServerTime()
         this.processQue()
@@ -82,11 +84,11 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
   }
 
   clearHttpQue(){
-    return this.AckApi.clearQue('ackHttpTests').then(()=>this.readHttpQueArray(false))
+    return this.AckApi.clearQue("ackHttpTests").then(()=>this.readHttpQueArray(false))
   }
 
   clearHttpCache(){
-    return this.AckApi.clearCache('ackHttpTests').then(()=>this.readHttpCache())
+    return this.AckApi.clearCache("ackHttpTests").then(()=>this.readHttpCache())
   }
 
   sendHttp(){
@@ -96,9 +98,9 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
     let promise = Promise.resolve();
 
     //NEVER USE BELOW. This is just for this demo so that localhost requests do not complete
-    if(!navigator.onLine && this.httpConfig.method!='GET'){
-      this.httpError = new Error('Offline mode detected. Request qued')
-      promise = this.AckApi.AckQue.set('ackHttpTests', this.httpConfig)
+    if(!navigator.onLine && this.httpConfig.method!="GET"){
+      this.httpError = new Error("Offline mode detected. Request qued")
+      promise = this.AckApi.AckQue.set("ackHttpTests", this.httpConfig)
     }else{
       promise = this.AckApi.request( this.httpConfig )
       .then(res=>{
@@ -124,7 +126,7 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
   }
 
   readHttpQueArray(process?){
-    return this.AckApi.getQue('ackHttpTests')
+    return this.AckApi.getQue("ackHttpTests")
     .then(que=>{
       this.httpQueArray = que
       const doProcess = process||process==null && que.length && navigator.onLine
@@ -135,12 +137,12 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
   }
 
   readHttpCache(){
-    return this.AckApi.getCache('ackHttpTests')
+    return this.AckApi.getCache("ackHttpTests")
     .then( cache=>this.httpCache=cache)
   }
 
   processHttpQue(){
-    return this.AckApi.processQue('ackHttpTests')
+    return this.AckApi.processQue("ackHttpTests")
     .then( ()=>this.readHttpQueArray(false) )
     //.catch( e=>this.error=e )
   }
@@ -165,7 +167,7 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
 
   scrollToModuleImport(){
     setTimeout(()=>{
-      const pageScrollInstance = PageScrollInstance.simpleInstance(document, '#Import AckModule');
+      const pageScrollInstance = PageScrollInstance.simpleInstance(document, "#Import AckModule");
       this.PageScrollService.start(pageScrollInstance);
     }, 600)
   }
@@ -181,17 +183,17 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
   }
 
   readOffline(){
-    this.AckOffline.get('ack-angular')
+    this.AckOffline.get("ack-angular")
     .then( data=>this.offlineStorage=data )
   }
 
   readQue(){
-    return this.AckQue.getQue('ackNgQueTest')
+    return this.AckQue.getQue("ackNgQueTest")
     .then( que=>this.queArray=que )
   }
 
   readCache(){
-    return this.AckCache.get('ackNgCacheTest')
+    return this.AckCache.get("ackNgCacheTest")
     .then( cache=>this.cacheStorage=cache )
     .then( ()=>this.readCacheObject() )
     .catch(e=>{
@@ -205,11 +207,11 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
 
   readCacheObject(){
     //use Offline to get raw cache
-    return this.AckOffline.get('ackNgCacheTest')
+    return this.AckOffline.get("ackNgCacheTest")
     .then(v=>{
       this.cache = v
       if(v){
-        this.cache.seconds = (v['expires']-v['_timestamp']) / 1000
+        this.cache.seconds = (v["expires"]-v["_timestamp"]) / 1000
       }
     })
   }
@@ -221,71 +223,71 @@ const defaultUrl = window.location.origin+pathing+'/test.json'
 
   setCache(value:any, seconds:number){
     const expires = new Date( Date.now()+(seconds*1000) ).getTime()
-    return this.AckCache.set('ackNgCacheTest', value, {expires:expires})
+    return this.AckCache.set("ackNgCacheTest", value, {expires:expires})
     .then(()=>this.readCache())
   }
   
   clearCache(){
-    this.AckCache.clear('ackNgCacheTest')
+    this.AckCache.clear("ackNgCacheTest")
     .then( ()=>this.readCache() )
   }
 
   clearOffline(){
-    this.offlineStorage = ''
-    this.AckOffline.clear('ack-angular')
+    this.offlineStorage = ""
+    this.AckOffline.clear("ack-angular")
     .then( ()=>this.readOffline() )
   }
 
   setOffline(string){
     this.offlineStorage = string
-    this.AckOffline.set('ack-angular', string)
+    this.AckOffline.set("ack-angular", string)
   }
 
   clearQue(){
-    return this.AckQue.clear('ackNgQueTest')
+    return this.AckQue.clear("ackNgQueTest")
     .then( ()=>this.readQue() )
   }
 
   que(itemData){
-    this.queStorage = ''
-    return this.AckQue.que('ackNgQueTest', itemData)
+    this.queStorage = ""
+    return this.AckQue.que("ackNgQueTest", itemData)
     .then( ()=>this.readQue() )
   }
 
   dequeByIndex(index){
-    return this.AckQue.dequeByIndex('ackNgQueTest', index)
+    return this.AckQue.dequeByIndex("ackNgQueTest", index)
     .then( ()=>this.readQue() )
   }
 
   processQueItem(itemData){
-    return getServerTime() +' : ack-touched-data : '+itemData
+    return getServerTime() +" : ack-touched-data : "+itemData
   }
 
   processQuedByIndex(index){
-    return this.AckQue.processQuedByIndex('ackNgQueTest',index)
+    return this.AckQue.processQuedByIndex("ackNgQueTest",index)
     .then( result=>this.processQueResults.push(result) )
     .then( ()=>this.readQue() )
   }
 
   processQue(){
-    return this.AckQue.processQue('ackNgQueTest')
+    return this.AckQue.processQue("ackNgQueTest")
     .then( results=>this.processQueResults.push.apply(this.processQueResults, results))
     .then( ()=>this.readQue() )
     .catch( e=>this.error=e )
   }
 
   runConfirm():EventEmitter<boolean>{
-    return this.Prompts.confirm('This is a confirm example')
-    .subscribe(result=>console.log('result of confirm:' +result))
+    return this.Prompts.confirm("This is a confirm example")
+    .subscribe(result=>console.log("result of confirm:" +result))
   }
 
   runAlert():EventEmitter<boolean>{
-    return this.Prompts.alert('This is an alert example')
-    .subscribe(result=>console.log('alert prompt closed'))
+    return this.Prompts.alert("This is an alert example")
+    .subscribe(result=>console.log("alert prompt closed"))
   }
 }
 
 function getServerTime(d?){
   d = d || new Date()
-  var h=d.getHours(),t='AM',m=d.getMinutes();m=m<10?'0'+m:m;h=h>=12?(t='PM',h-12||12):h==0?12:h;return ('0'+h).slice(-2)+':'+m+':'+('0'+d.getSeconds()).slice(-2)+'.'+d.getMilliseconds()+' '+t
+  var h=d.getHours(),t="AM",m=d.getMinutes();m=m<10?"0"+m:m;h=h>=12?(t="PM",h-12||12):h==0?12:h;return ("0"+h).slice(-2)+":"+m+":"+("0"+d.getSeconds()).slice(-2)+"."+d.getMilliseconds()+" "+t
 }

@@ -34,11 +34,11 @@ var HtmlHeightModel = (function (_super) {
                 },] },
     ];
     HtmlHeightModel.ctorParameters = function () { return [
-        { type: HtmlSizeWatcher_1.HtmlSizeService, },
+        { type: HtmlSizeWatcher_1.HtmlSizeService }
     ]; };
     HtmlHeightModel.propDecorators = {
-        "htmlHeightModel": [{ type: core_1.Input },],
-        "htmlHeightModelChange": [{ type: core_1.Output },],
+        htmlHeightModel: [{ type: core_1.Input }],
+        htmlHeightModelChange: [{ type: core_1.Output }]
     };
     return HtmlHeightModel;
 }(HtmlWidthModel_directive_1.HtmlWidthModel));
