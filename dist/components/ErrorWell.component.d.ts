@@ -6,5 +6,5 @@ export declare class ErrorWell {
     closable: boolean;
     allowDetails: boolean;
     ngOnInit(): void;
-    getErrorMessage(error: any): any;
+    getErrorMessage(error: Error): any;
 }

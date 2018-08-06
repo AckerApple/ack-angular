@@ -29,6 +29,7 @@ import { FocusOn } from "./directives/FocusOn.directive"
 import { Init } from "./directives/Init.directive"
 import { SelectOn } from "./directives/SelectOn.directive"
 import { InnerHtmlModel } from "./directives/InnerHtmlModel.directive"
+import { ReplaceModel } from "./directives/ReplaceModel.directive"
 import { ElementSizeModel, ElementHeightModel, ElementWidthModel } from "./directives/ElementSizeModel.directive"
 import { ScreenScrollHeightDiff } from "./directives/ScreenScrollHeightDiff.directive"
 import { ScreenScroll } from "./directives/ScreenScroll.directive"
@@ -171,6 +172,7 @@ export const declarations = [
   FocusOn,
   VarDirective,
   InnerHtmlModel,
+  ReplaceModel,
   FormAlter,
   FormChanged,
   EnterKey,

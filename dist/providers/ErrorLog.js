@@ -49,21 +49,18 @@ var ErrorLog = (function () {
         keys.push.apply(keys, Object.keys(err));
         var recErr = {};
         keys.forEach(function (v) { return recErr[v] = err[v]; });
-        if (typeof err.stack != 'undefined')
-            recErr['stack'] = err.stack;
-        if (typeof err.message != 'undefined')
-            recErr['message'] = err.message;
-        if (typeof err.name != 'undefined')
-            recErr['name'] = err.name;
-        if (typeof err.arguments != 'undefined')
-            recErr['arguments'] = err.arguments;
-        if (typeof err.type != 'undefined')
-            recErr['type'] = err.type;
-        if (err._body && !err.data && err.headers) {
+        var knownKeys = ["stack", "message", "name", "arguments", "type"];
+        knownKeys.forEach(function (key) {
+            if (typeof err[key] != 'undefined') {
+                recErr[key] = err[key];
+            }
+        });
+        var body = err.body || err._body;
+        if (body && !err.data && err.headers) {
             var contentType = err.headers.get('content-type');
             if (contentType && contentType.toLowerCase() == 'application/json') {
                 try {
-                    recErr.data = JSON.parse(err._body);
+                    recErr.data = JSON.parse(body);
                 }
                 catch (e) { }
             }

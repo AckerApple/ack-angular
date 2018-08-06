@@ -53,23 +53,29 @@ import { Injectable } from '@angular/core';
     return err
   }
 
+  /** Convert Error object to a regular object */
   objectifyError(err){
     const keys = Object.getOwnPropertyNames(err)
     keys.push.apply(keys, Object.keys(err))
+    
     const recErr:{data?:any} = {}//new Error(err.message || err.name || err.type || 'Unexpected Error Occured')
     keys.forEach(v=>recErr[v]=err[v])
-    if(typeof err.stack!='undefined')recErr['stack'] = err.stack
-    if(typeof err.message!='undefined')recErr['message'] = err.message
-    if(typeof err.name!='undefined')recErr['name'] = err.name
-    if(typeof err.arguments!='undefined')recErr['arguments'] = err.arguments
-    if(typeof err.type!='undefined')recErr['type'] = err.type
+    
+    const knownKeys = ["stack","message","name","arguments","type"]
+    knownKeys.forEach(key=>{
+      if(typeof err[key]!='undefined'){
+        recErr[key] = err[key]
+      }
+    })
+
+    const body = err.body || err._body
 
     //auto attempt to parse body
-    if(err._body && !err.data && err.headers){
+    if(body && !err.data && err.headers){
       const contentType = err.headers.get('content-type')
       if(contentType && contentType.toLowerCase()=='application/json'){
         try{
-            recErr.data = JSON.parse(err._body)
+            recErr.data = JSON.parse(body)
         }catch(e){}
       }
     }

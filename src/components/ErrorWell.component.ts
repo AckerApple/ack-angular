@@ -18,11 +18,11 @@ import { string as errorWell } from "./templates/error-well.pug"
     this.cssClasses = this.cssClasses || 'bg-danger border border-danger text-danger'
   }
 
-  getErrorMessage(error){
+  getErrorMessage( error:Error ){
     if(!error)return this.message
     
     if(typeof error=='string')return error
 
-    return error.message || error.statusText || this.message
+    return error.message || error["statusText"] || this.message
   }
 }

@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.7.2] - 2018-08-06
+- Added directive replaceModel
+
 ## [1.7.0] - 2018-08-06
 - Upgraded to use new Angular HTTP component
   - Maintains backwords compatibility

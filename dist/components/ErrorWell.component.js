@@ -17,7 +17,7 @@ var ErrorWell = (function () {
             return this.message;
         if (typeof error == 'string')
             return error;
-        return error.message || error.statusText || this.message;
+        return error.message || error["statusText"] || this.message;
     };
     ErrorWell.decorators = [
         { type: core_1.Component, args: [{
