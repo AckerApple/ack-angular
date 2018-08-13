@@ -11,7 +11,7 @@ import {
   @Input() replaceExpression:string//regular expression
 
   ngOnChanges( changes:any ){
-    const isString = changes.replaceModel && this.replaceModel.constructor === String
+    const isString = changes.replaceModel && this.replaceModel && this.replaceModel.constructor === String
     if( isString ){
       this.run()
     }

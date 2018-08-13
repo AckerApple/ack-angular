@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.7.5] - 2018-08-13
+- fixed ReplaceModel
+
 ## [1.7.2] - 2018-08-06
 - Added directive replaceModel
 
