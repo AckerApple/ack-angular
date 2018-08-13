@@ -6,7 +6,7 @@ var ReplaceModel = (function () {
         this.replaceModelChange = new core_1.EventEmitter();
     }
     ReplaceModel.prototype.ngOnChanges = function (changes) {
-        var isString = changes.replaceModel && this.replaceModel.constructor === String;
+        var isString = changes.replaceModel && this.replaceModel && this.replaceModel.constructor === String;
         if (isString) {
             this.run();
         }
