@@ -28,9 +28,11 @@ var RouteReporter = (function () {
                 setTimeout(function () { return _this.emit(); }, 0);
             }
         });
-        this.ActivatedRoute.data.subscribe(function (data) {
-            return _this.dataChange.emit(_this.data = data);
-        });
+        if (this.ActivatedRoute) {
+            this.ActivatedRoute.data.subscribe(function (data) {
+                return _this.dataChange.emit(_this.data = data);
+            });
+        }
         this.RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
         setTimeout(function () {
             _this.ref = _this.RouteWatchReporter;
@@ -68,6 +70,9 @@ var RouteReporter = (function () {
             this.stateNameChange.emit(this.stateName = name_1);
         }
         this.paramsChange.emit(this.params = current.params);
+        if (current.config.data) {
+            this.dataChange.emit(this.data = current.config.data);
+        }
     };
     RouteReporter.prototype.goBackTo = function (name, params) {
         this.RouteWatchReporter.goBackTo(name, params);

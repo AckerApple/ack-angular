@@ -63,9 +63,11 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
       }
     })
 
-    this.ActivatedRoute.data.subscribe(data=>
-      this.dataChange.emit(this.data=data)
-    )
+    if( this.ActivatedRoute ){
+      this.ActivatedRoute.data.subscribe(data=>
+        this.dataChange.emit(this.data=data)
+      )
+    }
 
     this.RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks)
 
@@ -113,9 +115,10 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
     }
 
     this.paramsChange.emit( this.params=current.params )
-/*
-    this.dataChange.emit( this.data=current.config.data )
-*/
+
+    if( current.config.data ){
+      this.dataChange.emit( this.data=current.config.data )
+    }
   }
 
   goBackTo(name, params){
