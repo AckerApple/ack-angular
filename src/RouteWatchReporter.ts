@@ -3,7 +3,7 @@ import { Route, Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Injectable } from '@angular/core';
 
 export interface currentRoute{
-  config:Route|ActivatedRoute
+  config:Route//|ActivatedRoute
   params:any
 }
 
@@ -47,16 +47,16 @@ export interface currentRoute{
     let target = this.activatedRoute
     while(target.firstChild)target=target.firstChild
     return {
-      config:target.routeConfig || target,
+      config:<Route>(target.routeConfig || target),
       params:target.snapshot.params
       //...target.routeConfig//may want to do away with this
     }
   }
 
-  getCurrentConfig():any{
+  getCurrentConfig():Route{
     let target = this.activatedRoute
     while(target.firstChild)target=target.firstChild
-    return target.routeConfig || target
+    return <Route>(target.routeConfig || target)
   }
 
   getCurrentParams():any{
@@ -65,25 +65,25 @@ export interface currentRoute{
     return target.snapshot.params
   }
 
-  isTrapHistory(toState, toParams){
+  isTrapHistory(toState, toParams):boolean{
     return this.isBackHistory(toState, toParams) && this.isForwardHistory(toState, toParams)
   }
 
-  isBackHistory(toState, toParams){
+  isBackHistory(toState, toParams):boolean{
     const $history = this.$history
     const isEven = $history.length > this.historyPos+1
     const isNameMatch = isEven && toState && toState.name==$history[this.historyPos+1].name
     return isNameMatch && this.isParamsMatch(toParams, $history[this.historyPos+1].params)
   }
 
-  isForwardHistory(toState, toParams){
+  isForwardHistory(toState, toParams):boolean{
     const $history = this.$history
     const isEven = !this.isNextBackMode && this.historyPos && $history.length>this.historyPos
     const isNameMatch = isEven && toState && toState.name==$history[this.historyPos-1].name
     return isNameMatch && this.isParamsMatch(toParams, $history[this.historyPos-1].params)
   }
 
-  isParamsMatch(toParams, otherParams){
+  isParamsMatch(toParams, otherParams):boolean{
     if( !toParams || !otherParams ){    
       return false
     }
@@ -164,7 +164,10 @@ export interface currentRoute{
       this.isOsAction = false
     }
 
-    return {isBackButton:isBackButton, isNotBackButton:isNotBackButton}
+    return {
+      isBackButton    : isBackButton,
+      isNotBackButton : isNotBackButton
+    }
   }
 
   watchDocByCallbacks($document, callbacks){

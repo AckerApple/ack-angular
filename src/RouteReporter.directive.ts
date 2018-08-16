@@ -1,10 +1,12 @@
 import { Directive, Input, Output, EventEmitter } from "@angular/core"
-import { Route } from "@angular/router"
+import {
+  ActivatedRoute, Route
+} from "@angular/router"
 import { RouteWatchReporter } from "./RouteWatchReporter"
-import { NavigationStart, NavigationEnd } from '@angular/router';
+import { NavigationStart, NavigationEnd } from "@angular/router";
 
 @Directive({
-  selector: 'route-reporter'
+  selector: "route-reporter"
 }) export class RouteReporter{
   $document
   $scope
@@ -18,6 +20,7 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
   @Output("onChange") stateChanger = new EventEmitter()
   @Output("beforeChange") beforeChanger = new EventEmitter()
 
+  //deprecated
   @Input() ref//variable reference
   @Output() refChange = new EventEmitter()
 
@@ -41,11 +44,16 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
   @Input() state:any//ignored in
   @Output() stateChange:EventEmitter<any> = new EventEmitter()
   
-  constructor(public RouteWatchReporter:RouteWatchReporter){
+  constructor(
+    public RouteWatchReporter:RouteWatchReporter,
+    public ActivatedRoute:ActivatedRoute
+  ){
     this.$document = document
     this.docCallbacks = RouteWatchReporter.getDocumentCallbacks()
+  }
 
-    RouteWatchReporter.router.events.subscribe(event=>{
+  ngOnInit(){
+    this.RouteWatchReporter.router.events.subscribe(event=>{
       //if(event.constructor == NavigationStart){}
       if(event.constructor == NavigationEnd){
         this.beforeChanger.emit( this.RouteWatchReporter )
@@ -55,10 +63,12 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
       }
     })
 
-    RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks)
-  }
+    this.ActivatedRoute.data.subscribe(data=>
+      this.dataChange.emit(this.data=data)
+    )
 
-  ngOnInit(){
+    this.RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks)
+
     setTimeout(()=>{
       this.ref = this.RouteWatchReporter
       this.refChange.emit(this.ref)
@@ -90,19 +100,22 @@ import { NavigationStart, NavigationEnd } from '@angular/router';
 
   emit(){
     this.stateChanger.emit( this.RouteWatchReporter )
- 
-    if( this.RouteWatchReporter.current ){
-      this.routeChange.emit( this.RouteWatchReporter.current.config )
-      this.stateChange.emit( this.RouteWatchReporter.current )
-      
-      if( this.RouteWatchReporter.current.config ){
-        const name = this.RouteWatchReporter.current.config.name || this.RouteWatchReporter.current.config.path
-        this.stateNameChange.emit( this.stateName=name )
-      }
+     const current = this.RouteWatchReporter.getCurrent()
+    
+    if( !current )return
 
-      this.dataChange.emit( this.data=this.RouteWatchReporter.current.config.data )
-      this.paramsChange.emit( this.params=this.RouteWatchReporter.current.params )
+    this.routeChange.emit( <Route>current.config )
+    this.stateChange.emit( current )
+    
+    if( current.config ){
+      const name = current.config.path
+      this.stateNameChange.emit( this.stateName=name )
     }
+
+    this.paramsChange.emit( this.params=current.params )
+/*
+    this.dataChange.emit( this.data=current.config.data )
+*/
   }
 
   goBackTo(name, params){

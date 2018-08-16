@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var RouteWatchReporter_1 = require("./RouteWatchReporter");
 var router_1 = require("@angular/router");
+var RouteWatchReporter_1 = require("./RouteWatchReporter");
+var router_2 = require("@angular/router");
 var RouteReporter = (function () {
-    function RouteReporter(RouteWatchReporter) {
-        var _this = this;
+    function RouteReporter(RouteWatchReporter, ActivatedRoute) {
         this.RouteWatchReporter = RouteWatchReporter;
+        this.ActivatedRoute = ActivatedRoute;
         this.stateChanger = new core_1.EventEmitter();
         this.beforeChanger = new core_1.EventEmitter();
         this.refChange = new core_1.EventEmitter();
@@ -18,16 +19,19 @@ var RouteReporter = (function () {
         this.stateChange = new core_1.EventEmitter();
         this.$document = document;
         this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
-        RouteWatchReporter.router.events.subscribe(function (event) {
-            if (event.constructor == router_1.NavigationEnd) {
+    }
+    RouteReporter.prototype.ngOnInit = function () {
+        var _this = this;
+        this.RouteWatchReporter.router.events.subscribe(function (event) {
+            if (event.constructor == router_2.NavigationEnd) {
                 _this.beforeChanger.emit(_this.RouteWatchReporter);
                 setTimeout(function () { return _this.emit(); }, 0);
             }
         });
-        RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
-    }
-    RouteReporter.prototype.ngOnInit = function () {
-        var _this = this;
+        this.ActivatedRoute.data.subscribe(function (data) {
+            return _this.dataChange.emit(_this.data = data);
+        });
+        this.RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
         setTimeout(function () {
             _this.ref = _this.RouteWatchReporter;
             _this.refChange.emit(_this.ref);
@@ -54,16 +58,16 @@ var RouteReporter = (function () {
     };
     RouteReporter.prototype.emit = function () {
         this.stateChanger.emit(this.RouteWatchReporter);
-        if (this.RouteWatchReporter.current) {
-            this.routeChange.emit(this.RouteWatchReporter.current.config);
-            this.stateChange.emit(this.RouteWatchReporter.current);
-            if (this.RouteWatchReporter.current.config) {
-                var name_1 = this.RouteWatchReporter.current.config.name || this.RouteWatchReporter.current.config.path;
-                this.stateNameChange.emit(this.stateName = name_1);
-            }
-            this.dataChange.emit(this.data = this.RouteWatchReporter.current.config.data);
-            this.paramsChange.emit(this.params = this.RouteWatchReporter.current.params);
+        var current = this.RouteWatchReporter.getCurrent();
+        if (!current)
+            return;
+        this.routeChange.emit(current.config);
+        this.stateChange.emit(current);
+        if (current.config) {
+            var name_1 = current.config.path;
+            this.stateNameChange.emit(this.stateName = name_1);
         }
+        this.paramsChange.emit(this.params = current.params);
     };
     RouteReporter.prototype.goBackTo = function (name, params) {
         this.RouteWatchReporter.goBackTo(name, params);
@@ -76,11 +80,12 @@ var RouteReporter = (function () {
         ]];
     RouteReporter.decorators = [
         { type: core_1.Directive, args: [{
-                    selector: 'route-reporter'
+                    selector: "route-reporter"
                 },] },
     ];
     RouteReporter.ctorParameters = function () { return [
-        { type: RouteWatchReporter_1.RouteWatchReporter }
+        { type: RouteWatchReporter_1.RouteWatchReporter },
+        { type: router_1.ActivatedRoute }
     ]; };
     RouteReporter.propDecorators = {
         stateChanger: [{ type: core_1.Output, args: ["onChange",] }],

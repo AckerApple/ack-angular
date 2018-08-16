@@ -1,6 +1,6 @@
 import { Route, Router, ActivatedRoute } from '@angular/router';
 export interface currentRoute {
-    config: Route | ActivatedRoute;
+    config: Route;
     params: any;
 }
 export declare class RouteWatchReporter {
@@ -17,7 +17,7 @@ export declare class RouteWatchReporter {
     isOsAction: boolean;
     constructor(router: Router, activatedRoute: ActivatedRoute);
     getCurrent(): currentRoute;
-    getCurrentConfig(): any;
+    getCurrentConfig(): Route;
     getCurrentParams(): any;
     isTrapHistory(toState: any, toParams: any): boolean;
     isBackHistory(toState: any, toParams: any): boolean;
