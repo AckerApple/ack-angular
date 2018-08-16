@@ -1,8 +1,9 @@
 import { EventEmitter } from "@angular/core";
-import { Route } from "@angular/router";
+import { ActivatedRoute, Route } from "@angular/router";
 import { RouteWatchReporter } from "./RouteWatchReporter";
 export declare class RouteReporter {
     RouteWatchReporter: RouteWatchReporter;
+    ActivatedRoute: ActivatedRoute;
     $document: any;
     $scope: any;
     static parameters: (typeof RouteWatchReporter)[][];
@@ -25,7 +26,7 @@ export declare class RouteReporter {
     onLoad: any;
     state: any;
     stateChange: EventEmitter<any>;
-    constructor(RouteWatchReporter: RouteWatchReporter);
+    constructor(RouteWatchReporter: RouteWatchReporter, ActivatedRoute: ActivatedRoute);
     ngOnInit(): void;
     ngOnDestroy(): void;
     emit(): void;

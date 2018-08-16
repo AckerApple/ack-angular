@@ -30,7 +30,7 @@ var RouteWatchReporter = (function () {
         while (target.firstChild)
             target = target.firstChild;
         return {
-            config: target.routeConfig || target,
+            config: (target.routeConfig || target),
             params: target.snapshot.params
         };
     };
@@ -38,7 +38,7 @@ var RouteWatchReporter = (function () {
         var target = this.activatedRoute;
         while (target.firstChild)
             target = target.firstChild;
-        return target.routeConfig || target;
+        return (target.routeConfig || target);
     };
     RouteWatchReporter.prototype.getCurrentParams = function () {
         var target = this.activatedRoute;
@@ -132,7 +132,10 @@ var RouteWatchReporter = (function () {
         var isNotBackButton = function () {
             _this.isOsAction = false;
         };
-        return { isBackButton: isBackButton, isNotBackButton: isNotBackButton };
+        return {
+            isBackButton: isBackButton,
+            isNotBackButton: isNotBackButton
+        };
     };
     RouteWatchReporter.prototype.watchDocByCallbacks = function ($document, callbacks) {
         $document.addEventListener('mouseout', callbacks.isBackButton);
