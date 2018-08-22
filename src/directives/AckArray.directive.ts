@@ -53,7 +53,10 @@ export interface loop{
 
   @ContentChildren(AckAggregate) AckAggregates:AckAggregate[]
 
-  constructor(private _iterableDiffers: IterableDiffers) {
+  constructor(
+    private _iterableDiffers: IterableDiffers
+  ){
+    //watch deep changes
     this.iterableDiffer = this._iterableDiffers.find([]).create(null);
   }
 
@@ -83,6 +86,7 @@ export interface loop{
     setTimeout(()=>this.loop(), 0)
   }
 
+  //watch array deep changes
   ngDoCheck() {
     if(!this.inited)return 
     
@@ -93,12 +97,17 @@ export interface loop{
   }
 
   ngOnChanges(changes){
+    let loop = changes.array ? true : false
+
     if( changes.pageAt ){
       this.pushCreatePages()
+      loop = true
+    }
+    
+    if( this.inited && loop ){
       setTimeout(()=>this.loop(), 0)
     }
   }
-
   pushAggregates( aggs:AckAggregate[] ){
     aggs.forEach(agg=>{
       let memory
@@ -218,7 +227,10 @@ export interface loop{
     return this.itemIndex(item) >= 0 ? true : false
   }
 
-  itemIndex(item, itemIndexName?:string){
+  itemIndex(
+    item,//item to look for
+    itemIndexName?:string
+  ):number{
     const array = this.getCompareArray()
     const itemId = this.getItemId(item, itemIndexName)
     
