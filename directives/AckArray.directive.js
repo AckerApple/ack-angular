@@ -54,8 +54,12 @@ var AckArray = (function () {
     };
     AckArray.prototype.ngOnChanges = function (changes) {
         var _this = this;
+        var loop = changes.array ? true : false;
         if (changes.pageAt) {
             this.pushCreatePages();
+            loop = true;
+        }
+        if (this.inited && loop) {
             setTimeout(function () { return _this.loop(); }, 0);
         }
     };
