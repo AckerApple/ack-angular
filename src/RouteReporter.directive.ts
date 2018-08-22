@@ -24,6 +24,7 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
   @Input() ref//variable reference
   @Output() refChange = new EventEmitter()
 
+  //deprecated
   @Input() stateName:string//ignored in
   @Output() stateNameChange:EventEmitter<string> = new EventEmitter()
 

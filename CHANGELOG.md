@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.7.9] - 2018-08-16
+- AckArray deep watches array for changes to make pages
+
 ## [1.7.6] - 2018-08-16
 - ack-css-boot stroke
 

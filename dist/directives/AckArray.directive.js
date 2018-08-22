@@ -3,7 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AckAggregate_directive_1 = require("./AckAggregate.directive");
 var AckArray = (function () {
-    function AckArray() {
+    function AckArray(_iterableDiffers) {
+        this._iterableDiffers = _iterableDiffers;
         this.pushed = {};
         this.inSort = false;
         this.sortArray = [];
@@ -17,6 +18,7 @@ var AckArray = (function () {
         this.loopStart = new core_1.EventEmitter();
         this.loopEach = new core_1.EventEmitter();
         this.loopEnd = new core_1.EventEmitter();
+        this.iterableDiffer = this._iterableDiffers.find([]).create(null);
     }
     AckArray.prototype.ngOnInit = function () {
         var _this = this;
@@ -41,14 +43,19 @@ var AckArray = (function () {
         this.inited = true;
         setTimeout(function () { return _this.loop(); }, 0);
     };
+    AckArray.prototype.ngDoCheck = function () {
+        var _this = this;
+        if (!this.inited)
+            return;
+        var changes = this.iterableDiffer.diff(this.array);
+        if (changes) {
+            setTimeout(function () { return _this.loop(); }, 0);
+        }
+    };
     AckArray.prototype.ngOnChanges = function (changes) {
         var _this = this;
-        var loop = changes.array ? true : false;
         if (changes.pageAt) {
             this.pushCreatePages();
-            loop = true;
-        }
-        if (this.inited && loop) {
             setTimeout(function () { return _this.loop(); }, 0);
         }
     };
@@ -264,6 +271,9 @@ var AckArray = (function () {
                     exportAs: "AckArray"
                 },] },
     ];
+    AckArray.ctorParameters = function () { return [
+        { type: core_1.IterableDiffers }
+    ]; };
     AckArray.propDecorators = {
         idKey: [{ type: core_1.Input }],
         ref: [{ type: core_1.Input }],
