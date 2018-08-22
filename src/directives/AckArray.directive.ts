@@ -1,6 +1,8 @@
 import {
   EventEmitter, Output, Input,
-  ContentChildren, Directive
+  ContentChildren, Directive,
+  IterableDiffers, 
+  IterableDiffer
 } from "@angular/core"
 import { AckAggregate } from "./AckAggregate.directive"
 
@@ -18,6 +20,7 @@ export interface loop{
   selector:"ack-array",
   exportAs:"AckArray"
 }) export class AckArray {
+  iterableDiffer: IterableDiffer<any[]>;
   inited:boolean
   pushed:any = {}
 
@@ -50,6 +53,10 @@ export interface loop{
 
   @ContentChildren(AckAggregate) AckAggregates:AckAggregate[]
 
+  constructor(private _iterableDiffers: IterableDiffers) {
+    this.iterableDiffer = this._iterableDiffers.find([]).create(null);
+  }
+
   ngOnInit(){
     setTimeout(()=>{
       this.refChange.emit(this)
@@ -76,15 +83,18 @@ export interface loop{
     setTimeout(()=>this.loop(), 0)
   }
 
-  ngOnChanges(changes){
-    let loop = changes.array ? true : false
+  ngDoCheck() {
+    if(!this.inited)return 
+    
+    let changes = this.iterableDiffer.diff(this.array);
+    if (changes) {
+      setTimeout(()=>this.loop(), 0)
+    }
+  }
 
+  ngOnChanges(changes){
     if( changes.pageAt ){
       this.pushCreatePages()
-      loop = true
-    }
-    
-    if( this.inited && loop ){
       setTimeout(()=>this.loop(), 0)
     }
   }
