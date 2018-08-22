@@ -1,4 +1,4 @@
-import { EventEmitter } from "@angular/core";
+import { EventEmitter, IterableDiffers, IterableDiffer } from "@angular/core";
 import { AckAggregate } from "./AckAggregate.directive";
 export interface sortDef {
     arrayKey: string | string[];
@@ -9,6 +9,8 @@ export interface loop {
     item: any;
 }
 export declare class AckArray {
+    private _iterableDiffers;
+    iterableDiffer: IterableDiffer<any[]>;
     inited: boolean;
     pushed: any;
     inSort: boolean;
@@ -29,8 +31,10 @@ export declare class AckArray {
     loopEach: EventEmitter<loop>;
     loopEnd: EventEmitter<void>;
     AckAggregates: AckAggregate[];
+    constructor(_iterableDiffers: IterableDiffers);
     ngOnInit(): void;
     ngAfterViewInit(): void;
+    ngDoCheck(): void;
     ngOnChanges(changes: any): void;
     pushAggregates(aggs: AckAggregate[]): void;
     getItemValueByKeys(item: any, keys: string[]): any;
