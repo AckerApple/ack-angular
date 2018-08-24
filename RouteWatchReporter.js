@@ -9,10 +9,10 @@ var RouteWatchReporter = (function () {
         this.activatedRoute = activatedRoute;
         this.current = {};
         this.historyPos = 0;
-        this.isNextBackMode = false;
-        this.isNextBackHistory = false;
         this.isBackMode = false;
         this.isOsAction = false;
+        this.isNextBackMode = false;
+        this.isNextBackHistory = false;
         this.activatedRoute = activatedRoute;
         this.$window = function () { return window; };
         this.$history = [];
@@ -26,12 +26,21 @@ var RouteWatchReporter = (function () {
         this.current = this.getCurrent();
     }
     RouteWatchReporter.prototype.getCurrent = function () {
+        var parent = this.activatedRoute;
         var target = this.activatedRoute;
-        while (target.firstChild)
+        while (target.firstChild) {
+            parent = target;
             target = target.firstChild;
+        }
         return {
+            ActivatedRoute: target,
             config: (target.routeConfig || target),
-            params: target.snapshot.params
+            params: target.snapshot.params,
+            parent: {
+                ActivatedRoute: parent,
+                config: (parent.routeConfig || parent),
+                params: parent.snapshot.params
+            }
         };
     };
     RouteWatchReporter.prototype.getCurrentConfig = function () {
