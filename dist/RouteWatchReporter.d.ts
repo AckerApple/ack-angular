@@ -1,7 +1,9 @@
 import { Route, Router, ActivatedRoute } from '@angular/router';
 export interface currentRoute {
+    ActivatedRoute: ActivatedRoute;
     config: Route;
     params: any;
+    parent?: currentRoute;
 }
 export declare class RouteWatchReporter {
     router: Router;
@@ -11,10 +13,10 @@ export declare class RouteWatchReporter {
     $state: any;
     $window: any;
     historyPos: number;
-    isNextBackMode: boolean;
-    isNextBackHistory: boolean;
     isBackMode: boolean;
     isOsAction: boolean;
+    isNextBackMode: boolean;
+    isNextBackHistory: boolean;
     constructor(router: Router, activatedRoute: ActivatedRoute);
     getCurrent(): currentRoute;
     getCurrentConfig(): Route;

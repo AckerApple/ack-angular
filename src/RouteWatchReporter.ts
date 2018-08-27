@@ -3,8 +3,10 @@ import { Route, Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Injectable } from '@angular/core';
 
 export interface currentRoute{
-  config:Route//|ActivatedRoute
-  params:any
+  ActivatedRoute : ActivatedRoute
+  config  : Route//|ActivatedRoute
+  params  : any
+  parent? : currentRoute//|ActivatedRoute
 }
 
 /** A stateful connection to ui-router history
@@ -13,21 +15,21 @@ export interface currentRoute{
    - Their is no web event for knowing if OS button is used. 
 */
 @Injectable() export class RouteWatchReporter{
-  public current : any = {}
-  public $history : any
-  public $state : any
-  public $window : any
+  current  : any = {}
+  $history : any
+  $state   : any
+  $window  : any
   
-  public historyPos : number = 0
-  public isNextBackMode : boolean = false
-  public isNextBackHistory : boolean = false
-  public isBackMode : boolean = false
-  public isOsAction : boolean = false
-  //public stateService : StateService
-  //public activatedRoute : ActivatedRoute
-  //static parameters = [[Router, ActivatedRoute]]
+  historyPos : number = 0
+  isBackMode : boolean = false
+  isOsAction : boolean = false
+  isNextBackMode : boolean = false
+  isNextBackHistory : boolean = false
 
-  constructor(public router:Router, public activatedRoute:ActivatedRoute){
+  constructor(
+    public router:Router,
+    public activatedRoute:ActivatedRoute
+  ){
     this.activatedRoute = activatedRoute
     this.$window = ()=>window
     this.$history = []
@@ -44,11 +46,22 @@ export interface currentRoute{
   }
 
   getCurrent():currentRoute{
+    let parent = this.activatedRoute
     let target = this.activatedRoute
-    while(target.firstChild)target=target.firstChild
+    while(target.firstChild){
+      parent = target
+      target = target.firstChild
+    }
+
     return {
+      ActivatedRoute:target,
       config:<Route>(target.routeConfig || target),
-      params:target.snapshot.params
+      params:target.snapshot.params,
+      parent:{
+        ActivatedRoute:parent,
+        config:<Route>(parent.routeConfig || parent),
+        params:parent.snapshot.params
+      }
       //...target.routeConfig//may want to do away with this
     }
   }

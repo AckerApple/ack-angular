@@ -10,13 +10,17 @@ var RouteReporter = (function () {
         this.ActivatedRoute = ActivatedRoute;
         this.stateChanger = new core_1.EventEmitter();
         this.beforeChanger = new core_1.EventEmitter();
-        this.refChange = new core_1.EventEmitter();
-        this.stateNameChange = new core_1.EventEmitter();
+        this.activatedChange = new core_1.EventEmitter();
         this.paramsChange = new core_1.EventEmitter();
         this.dataChange = new core_1.EventEmitter();
         this.queryChange = new core_1.EventEmitter();
         this.routeChange = new core_1.EventEmitter();
+        this.parentRouteChange = new core_1.EventEmitter();
+        this.parentChange = new core_1.EventEmitter();
+        this.parentDataChange = new core_1.EventEmitter();
         this.stateChange = new core_1.EventEmitter();
+        this.refChange = new core_1.EventEmitter();
+        this.stateNameChange = new core_1.EventEmitter();
         this.$document = document;
         this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
     }
@@ -63,16 +67,24 @@ var RouteReporter = (function () {
         var current = this.RouteWatchReporter.getCurrent();
         if (!current)
             return;
+        this.route = current.config;
         this.routeChange.emit(current.config);
+        this.state = current;
         this.stateChange.emit(current);
+        this.activated = current.ActivatedRoute;
+        this.activatedChange.emit(current.ActivatedRoute);
         if (current.config) {
             var name_1 = current.config.path;
             this.stateNameChange.emit(this.stateName = name_1);
         }
         this.paramsChange.emit(this.params = current.params);
-        if (current.config.data) {
-            this.dataChange.emit(this.data = current.config.data);
-        }
+        this.dataChange.emit(this.data = current.config.data);
+        this.parentRoute = current.parent.config;
+        this.parentRouteChange.emit(current.parent.config);
+        this.parent = current.parent.ActivatedRoute;
+        this.parentChange.emit(current.parent.ActivatedRoute);
+        this.parentData = current.parent.config.data;
+        this.parentDataChange.emit(current.parent.config.data);
     };
     RouteReporter.prototype.goBackTo = function (name, params) {
         this.RouteWatchReporter.goBackTo(name, params);
@@ -95,10 +107,8 @@ var RouteReporter = (function () {
     RouteReporter.propDecorators = {
         stateChanger: [{ type: core_1.Output, args: ["onChange",] }],
         beforeChanger: [{ type: core_1.Output, args: ["beforeChange",] }],
-        ref: [{ type: core_1.Input }],
-        refChange: [{ type: core_1.Output }],
-        stateName: [{ type: core_1.Input }],
-        stateNameChange: [{ type: core_1.Output }],
+        activated: [{ type: core_1.Input }],
+        activatedChange: [{ type: core_1.Output }],
         params: [{ type: core_1.Input }],
         paramsChange: [{ type: core_1.Output }],
         data: [{ type: core_1.Input }],
@@ -107,9 +117,19 @@ var RouteReporter = (function () {
         queryChange: [{ type: core_1.Output }],
         route: [{ type: core_1.Input }],
         routeChange: [{ type: core_1.Output }],
-        onLoad: [{ type: core_1.Input }],
+        parentRoute: [{ type: core_1.Input }],
+        parentRouteChange: [{ type: core_1.Output }],
+        parent: [{ type: core_1.Input }],
+        parentChange: [{ type: core_1.Output }],
+        parentData: [{ type: core_1.Input }],
+        parentDataChange: [{ type: core_1.Output }],
         state: [{ type: core_1.Input }],
-        stateChange: [{ type: core_1.Output }]
+        stateChange: [{ type: core_1.Output }],
+        onLoad: [{ type: core_1.Input }],
+        ref: [{ type: core_1.Input }],
+        refChange: [{ type: core_1.Output }],
+        stateName: [{ type: core_1.Input }],
+        stateNameChange: [{ type: core_1.Output }]
     };
     return RouteReporter;
 }());

@@ -287,7 +287,7 @@ webpackContext.id = "../node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, private, default */
 /***/ (function(module) {
 
-module.exports = {"name":"ack-angular","version":"1.7.10","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/assets/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.7.0","@angular/animations":"^6.1.1","@angular/cli":"^6.1.2","@angular/common":"^6.1.1","@angular/compiler":"^6.1.1","@angular/compiler-cli":"^6.1.1","@angular/core":"^6.1.1","@angular/forms":"^6.1.1","@angular/platform-browser":"^6.1.1","@angular/platform-browser-dynamic":"^6.1.1","@angular/router":"^6.1.1","@types/jasmine":"^2.8.6","ack-angular-fx":"^2.1.2","ack-css-boot":"^1.2.50","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.4.5","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.5","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.1","karma-jasmine":"^1.1.2","karma-jasmine-html-reporter":"^1.2.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.2","ngx-page-scroll":"^5.0.0","npm-run-all":"^4.1.3","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^6.2.2","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.9.2","zone.js":"^0.8.26"},"private":true};
+module.exports = {"name":"ack-angular","version":"1.7.12","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/assets/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.7.0","@angular/animations":"^6.1.1","@angular/cli":"^6.1.2","@angular/common":"^6.1.1","@angular/compiler":"^6.1.1","@angular/compiler-cli":"^6.1.1","@angular/core":"^6.1.1","@angular/forms":"^6.1.1","@angular/platform-browser":"^6.1.1","@angular/platform-browser-dynamic":"^6.1.1","@angular/router":"^6.1.1","@types/jasmine":"^2.8.6","ack-angular-fx":"^2.1.2","ack-css-boot":"^1.2.50","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.4.5","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.5","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.1","karma-jasmine":"^1.1.2","karma-jasmine-html-reporter":"^1.2.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.2","ngx-page-scroll":"^5.0.0","npm-run-all":"^4.1.3","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^6.2.2","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.9.2","zone.js":"^0.8.26"},"private":true};
 
 /***/ }),
 
@@ -374,13 +374,17 @@ var RouteReporter = /** @class */ (function () {
         this.ActivatedRoute = ActivatedRoute;
         this.stateChanger = new core_1.EventEmitter();
         this.beforeChanger = new core_1.EventEmitter();
-        this.refChange = new core_1.EventEmitter();
-        this.stateNameChange = new core_1.EventEmitter();
+        this.activatedChange = new core_1.EventEmitter();
         this.paramsChange = new core_1.EventEmitter();
         this.dataChange = new core_1.EventEmitter();
         this.queryChange = new core_1.EventEmitter();
         this.routeChange = new core_1.EventEmitter();
+        this.parentRouteChange = new core_1.EventEmitter();
+        this.parentChange = new core_1.EventEmitter();
+        this.parentDataChange = new core_1.EventEmitter();
         this.stateChange = new core_1.EventEmitter();
+        this.refChange = new core_1.EventEmitter();
+        this.stateNameChange = new core_1.EventEmitter();
         this.$document = document;
         this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
     }
@@ -429,16 +433,26 @@ var RouteReporter = /** @class */ (function () {
         var current = this.RouteWatchReporter.getCurrent();
         if (!current)
             return;
+        this.route = current.config;
         this.routeChange.emit(current.config);
+        this.state = current;
         this.stateChange.emit(current);
+        this.activated = current.ActivatedRoute;
+        this.activatedChange.emit(current.ActivatedRoute);
         if (current.config) {
             var name_1 = current.config.path;
             this.stateNameChange.emit(this.stateName = name_1);
         }
         this.paramsChange.emit(this.params = current.params);
-        if (current.config.data) {
-            this.dataChange.emit(this.data = current.config.data);
-        }
+        this.dataChange.emit(this.data = current.config.data);
+        /* parent bindings */
+        this.parentRoute = current.parent.config;
+        this.parentRouteChange.emit(current.parent.config);
+        this.parent = current.parent.ActivatedRoute;
+        this.parentChange.emit(current.parent.ActivatedRoute);
+        this.parentData = current.parent.config.data;
+        this.parentDataChange.emit(current.parent.config.data);
+        /* end */
     };
     RouteReporter.prototype.goBackTo = function (name, params) {
         this.RouteWatchReporter.goBackTo(name, params);
@@ -459,20 +473,13 @@ var RouteReporter = /** @class */ (function () {
     ], RouteReporter.prototype, "beforeChanger", void 0);
     __decorate([
         core_1.Input(),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "ref", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "refChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], RouteReporter.prototype, "stateName", void 0);
+        __metadata("design:type", router_1.ActivatedRoute //ignored in
+        )
+    ], RouteReporter.prototype, "activated", void 0);
     __decorate([
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)
-    ], RouteReporter.prototype, "stateNameChange", void 0);
+    ], RouteReporter.prototype, "activatedChange", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Object)
@@ -508,7 +515,28 @@ var RouteReporter = /** @class */ (function () {
     __decorate([
         core_1.Input(),
         __metadata("design:type", Object)
-    ], RouteReporter.prototype, "onLoad", void 0);
+    ], RouteReporter.prototype, "parentRoute", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "parentRouteChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", router_1.ActivatedRoute //ignored in
+        )
+    ], RouteReporter.prototype, "parent", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "parentChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "parentData", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "parentDataChange", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Object)
@@ -517,6 +545,26 @@ var RouteReporter = /** @class */ (function () {
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)
     ], RouteReporter.prototype, "stateChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "onLoad", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "ref", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "refChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], RouteReporter.prototype, "stateName", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "stateNameChange", void 0);
     RouteReporter = __decorate([
         core_1.Directive({
             selector: "route-reporter"
@@ -559,19 +607,16 @@ var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/
    - Their is no web event for knowing if OS button is used.
 */
 var RouteWatchReporter = /** @class */ (function () {
-    //public stateService : StateService
-    //public activatedRoute : ActivatedRoute
-    //static parameters = [[Router, ActivatedRoute]]
     function RouteWatchReporter(router, activatedRoute) {
         var _this = this;
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.current = {};
         this.historyPos = 0;
-        this.isNextBackMode = false;
-        this.isNextBackHistory = false;
         this.isBackMode = false;
         this.isOsAction = false;
+        this.isNextBackMode = false;
+        this.isNextBackHistory = false;
         this.activatedRoute = activatedRoute;
         this.$window = function () { return window; };
         this.$history = [];
@@ -585,12 +630,21 @@ var RouteWatchReporter = /** @class */ (function () {
         this.current = this.getCurrent();
     }
     RouteWatchReporter.prototype.getCurrent = function () {
+        var parent = this.activatedRoute;
         var target = this.activatedRoute;
-        while (target.firstChild)
+        while (target.firstChild) {
+            parent = target;
             target = target.firstChild;
+        }
         return {
+            ActivatedRoute: target,
             config: (target.routeConfig || target),
-            params: target.snapshot.params
+            params: target.snapshot.params,
+            parent: {
+                ActivatedRoute: parent,
+                config: (parent.routeConfig || parent),
+                params: parent.snapshot.params
+            }
             //...target.routeConfig//may want to do away with this
         };
     };
@@ -710,7 +764,8 @@ var RouteWatchReporter = /** @class */ (function () {
     };
     RouteWatchReporter = __decorate([
         core_1.Injectable(),
-        __metadata("design:paramtypes", [router_1.Router, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [router_1.Router,
+            router_1.ActivatedRoute])
     ], RouteWatchReporter);
     return RouteWatchReporter;
 }());
@@ -2600,8 +2655,16 @@ var AckArray = /** @class */ (function () {
         if (arrayKey.constructor != Array) {
             arrayKey = [arrayKey];
         }
-        var numberSort = !isNaN(sortType) && sortType === "int";
-        if (!numberSort) {
+        var numberSort = !isNaN(sortType) || ["int", "number"].indexOf(sortType) >= 0;
+        if (numberSort) {
+            if (asc) {
+                this.array.sort(function (a, b) { return Number(toKey(a)) - Number(toKey(b)); });
+            }
+            else {
+                this.array.sort(function (b, a) { return Number(toKey(a)) - Number(toKey(b)); });
+            }
+        }
+        else {
             switch (sortType) {
                 case "date":
                     if (asc) {
@@ -2626,14 +2689,6 @@ var AckArray = /** @class */ (function () {
                     else {
                         this.array.sort(function (b, a) { return String(toKey(a) || "").toLowerCase() > String(toKey(b) || "").toLowerCase() ? 1 : -1; });
                     }
-            }
-        }
-        else {
-            if (asc) {
-                this.array.sort(function (a, b) { return Number(toKey(a)) - Number(toKey(b)); });
-            }
-            else {
-                this.array.sort(function (b, a) { return Number(toKey(a)) - Number(toKey(b)); });
             }
         }
         //cleanup

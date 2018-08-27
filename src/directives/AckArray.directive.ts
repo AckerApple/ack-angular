@@ -277,7 +277,7 @@ export interface loop{
 
   toggleSort(
     arrayKey:string|string[],
-    sortType:"date"|"int"|string|number
+    sortType:"date"|"int"|"number"|string|number
   ){
     if(this.inSort)return false
     
@@ -309,9 +309,15 @@ export interface loop{
       arrayKey = [ <string>arrayKey ]
     }
 
-    const numberSort = !isNaN(<number>sortType) && sortType==="int"
+    const numberSort = !isNaN(<number>sortType) || ["int","number"].indexOf(<string>sortType)>=0
 
-    if( !numberSort ){
+    if( numberSort ){
+      if(asc){
+        this.array.sort( (a,b)=>Number(toKey(a)) - Number(toKey(b)) )
+      }else{
+        this.array.sort( (b,a)=>Number(toKey(a)) - Number(toKey(b)) )
+      }
+    }else{
       switch(sortType){
         case "date":
           if(asc){
@@ -335,12 +341,6 @@ export interface loop{
           }else{
             this.array.sort( (b,a)=>String(toKey(a)||"").toLowerCase()>String(toKey(b)||"").toLowerCase()?1:-1 )
           }
-      }
-    }else{
-      if(asc){
-        this.array.sort( (a,b)=>Number(toKey(a)) - Number(toKey(b)) )
-      }else{
-        this.array.sort( (b,a)=>Number(toKey(a)) - Number(toKey(b)) )
       }
     }
 

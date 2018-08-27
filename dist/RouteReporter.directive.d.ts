@@ -1,6 +1,6 @@
 import { EventEmitter } from "@angular/core";
 import { ActivatedRoute, Route } from "@angular/router";
-import { RouteWatchReporter } from "./RouteWatchReporter";
+import { currentRoute, RouteWatchReporter } from "./RouteWatchReporter";
 export declare class RouteReporter {
     RouteWatchReporter: RouteWatchReporter;
     ActivatedRoute: ActivatedRoute;
@@ -11,10 +11,8 @@ export declare class RouteReporter {
     querySub: any;
     stateChanger: EventEmitter<{}>;
     beforeChanger: EventEmitter<{}>;
-    ref: any;
-    refChange: EventEmitter<{}>;
-    stateName: string;
-    stateNameChange: EventEmitter<string>;
+    activated: ActivatedRoute;
+    activatedChange: EventEmitter<ActivatedRoute>;
     params: any;
     paramsChange: EventEmitter<any>;
     data: any;
@@ -23,9 +21,19 @@ export declare class RouteReporter {
     queryChange: EventEmitter<any>;
     route: Route;
     routeChange: EventEmitter<Route>;
+    parentRoute: Route;
+    parentRouteChange: EventEmitter<Route>;
+    parent: ActivatedRoute;
+    parentChange: EventEmitter<ActivatedRoute>;
+    parentData: any;
+    parentDataChange: EventEmitter<any>;
+    state: currentRoute;
+    stateChange: EventEmitter<currentRoute>;
     onLoad: any;
-    state: any;
-    stateChange: EventEmitter<any>;
+    ref: any;
+    refChange: EventEmitter<{}>;
+    stateName: string;
+    stateNameChange: EventEmitter<string>;
     constructor(RouteWatchReporter: RouteWatchReporter, ActivatedRoute: ActivatedRoute);
     ngOnInit(): void;
     ngOnDestroy(): void;

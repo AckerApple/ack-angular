@@ -51,5 +51,5 @@ export declare class AckArray {
     unshift(item: any): this;
     splice(x: number, y?: number): this;
     param(): any[];
-    toggleSort(arrayKey: string | string[], sortType: "date" | "int" | string | number): boolean;
+    toggleSort(arrayKey: string | string[], sortType: "date" | "int" | "number" | string | number): boolean;
 }

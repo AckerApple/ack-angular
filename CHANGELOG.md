@@ -1,6 +1,12 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.7.12] - 2018-08-24
+- Added "number" as sortType to AckArray
+
+## [1.7.11] - 2018-08-24
+- Added route-report parent bindings
+
 ## [1.7.9] - 2018-08-16
 - AckArray deep watches array for changes to make pages
 
