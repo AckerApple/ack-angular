@@ -227,8 +227,16 @@ var AckArray = (function () {
         if (arrayKey.constructor != Array) {
             arrayKey = [arrayKey];
         }
-        var numberSort = !isNaN(sortType) && sortType === "int";
-        if (!numberSort) {
+        var numberSort = !isNaN(sortType) || ["int", "number"].indexOf(sortType) >= 0;
+        if (numberSort) {
+            if (asc) {
+                this.array.sort(function (a, b) { return Number(toKey(a)) - Number(toKey(b)); });
+            }
+            else {
+                this.array.sort(function (b, a) { return Number(toKey(a)) - Number(toKey(b)); });
+            }
+        }
+        else {
             switch (sortType) {
                 case "date":
                     if (asc) {
@@ -253,14 +261,6 @@ var AckArray = (function () {
                     else {
                         this.array.sort(function (b, a) { return String(toKey(a) || "").toLowerCase() > String(toKey(b) || "").toLowerCase() ? 1 : -1; });
                     }
-            }
-        }
-        else {
-            if (asc) {
-                this.array.sort(function (a, b) { return Number(toKey(a)) - Number(toKey(b)); });
-            }
-            else {
-                this.array.sort(function (b, a) { return Number(toKey(a)) - Number(toKey(b)); });
             }
         }
         if (this.sortArray.length > 3) {
