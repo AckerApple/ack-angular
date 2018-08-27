@@ -94,8 +94,9 @@ var AckArray = (function () {
         return item;
     };
     AckArray.prototype.loop = function () {
-        if (!this.array)
+        if (!this.array) {
             return;
+        }
         this.loopStart.emit();
         var last = this.array.length;
         for (var x = 0; x < last; ++x) {
@@ -126,6 +127,7 @@ var AckArray = (function () {
         this.loopStart.subscribe(function () {
             pos = 0;
             last = _this.array.length;
+            _this.page = _this.page || 0;
             _this.pages = _this.pages || [];
             _this.pages.length = 0;
             _this.pages.push([]);

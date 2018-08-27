@@ -1,7 +1,10 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
-## [1.7.12] - 2018-08-24
+## [1.7.13] - 2018-08-27
+- Param AckArray.page
+
+## [1.7.12] - 2018-08-27
 - Added "number" as sortType to AckArray
 
 ## [1.7.11] - 2018-08-24

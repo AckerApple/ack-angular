@@ -142,7 +142,9 @@ export interface loop{
   }
 
   loop() : void{
-    if(!this.array)return
+    if(!this.array){
+      return
+    }
 
     this.loopStart.emit()
 
@@ -182,6 +184,7 @@ export interface loop{
     this.loopStart.subscribe(()=>{
       pos = 0
       last = this.array.length
+      this.page = this.page || 0
       this.pages = this.pages || []
       this.pages.length = 0//dont break binding if pages remembered
       this.pages.push([])
