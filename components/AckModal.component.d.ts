@@ -7,9 +7,9 @@ export declare class AckModal {
     layout: ElementRef;
     inline: boolean;
     isModelMode: boolean;
+    allowClose: boolean;
     wrapStyle: any;
     wrapCellStyle: any;
-    allowClose: boolean;
     backgroundColor: string;
     showModel: boolean;
     showModelChange: EventEmitter<{}>;
