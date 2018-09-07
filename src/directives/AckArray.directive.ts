@@ -38,7 +38,7 @@ export interface loop{
   @Output() pagesChange = new EventEmitter()
   //a chance to know when current viewed page should be zero
   @Input() page:number = 0
-  @Input() pageChange:EventEmitter<number> = new EventEmitter()
+  @Output() pageChange:EventEmitter<number> = new EventEmitter()
 
   @Input() array:any[]
   @Output() arrayChange = new EventEmitter()
@@ -143,7 +143,7 @@ export interface loop{
 
   loop() : void{
     if(!this.array){
-      return
+      this.array = []
     }
 
     this.loopStart.emit()
@@ -179,12 +179,10 @@ export interface loop{
     let pos = 0
     let last = 0
     
-    this.pageChange.emit( this.page=0 )
-
     this.loopStart.subscribe(()=>{
       pos = 0
       last = this.array.length
-      this.page = this.page || 0
+      this.pageChange.emit( this.page=0 )
       this.pages = this.pages || []
       this.pages.length = 0//dont break binding if pages remembered
       this.pages.push([])

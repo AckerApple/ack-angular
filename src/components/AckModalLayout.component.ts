@@ -17,9 +17,10 @@ import { string } from "./templates/ack-modal-layout.pug"
   animations:fxArray
 }) export class AckModalLayout{
   @Output() close:EventEmitter<AckModalLayout> = new EventEmitter()
+  @Input() allowClose:boolean = true
+
   @Input() wrapStyle:any
   @Input() wrapCellStyle:any
-  @Input() allowClose:boolean = true
   @Input() backgroundColor:any
   
   @Input() isModelMode:boolean = false  

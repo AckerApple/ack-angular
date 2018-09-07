@@ -27,9 +27,10 @@ import { string } from "./templates/ack-modal.pug"
   //one way binds
   @Input() inline:boolean
   @Input() isModelMode:boolean
+  @Input() allowClose:boolean = true
+
   @Input() wrapStyle:any
   @Input() wrapCellStyle:any
-  @Input() allowClose:boolean = true
   @Input() backgroundColor:string
 
   //two way binds

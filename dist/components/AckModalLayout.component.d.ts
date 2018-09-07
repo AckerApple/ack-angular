@@ -4,9 +4,9 @@ export declare class AckModalLayout {
     element: ElementRef;
     AckApp: AckApp;
     close: EventEmitter<AckModalLayout>;
+    allowClose: boolean;
     wrapStyle: any;
     wrapCellStyle: any;
-    allowClose: boolean;
     backgroundColor: any;
     isModelMode: boolean;
     showModel: boolean;

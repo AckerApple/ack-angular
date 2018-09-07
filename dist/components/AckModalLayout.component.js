@@ -55,9 +55,9 @@ var AckModalLayout = (function () {
     ]; };
     AckModalLayout.propDecorators = {
         close: [{ type: core_1.Output }],
+        allowClose: [{ type: core_1.Input }],
         wrapStyle: [{ type: core_1.Input }],
         wrapCellStyle: [{ type: core_1.Input }],
-        allowClose: [{ type: core_1.Input }],
         backgroundColor: [{ type: core_1.Input }],
         isModelMode: [{ type: core_1.Input }],
         showModel: [{ type: core_1.Input }],

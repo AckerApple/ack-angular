@@ -1,7 +1,10 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
-## [1.7.13] - 2018-08-27
+## [1.7.16] - 2018-09-07
+- ack-css
+
+## [1.7.14] - 2018-08-27
 - Param AckArray.page
 
 ## [1.7.12] - 2018-08-27

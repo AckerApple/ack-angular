@@ -95,7 +95,7 @@ var AckArray = (function () {
     };
     AckArray.prototype.loop = function () {
         if (!this.array) {
-            return;
+            this.array = [];
         }
         this.loopStart.emit();
         var last = this.array.length;
@@ -123,11 +123,10 @@ var AckArray = (function () {
         this.pushed.createPages = true;
         var pos = 0;
         var last = 0;
-        this.pageChange.emit(this.page = 0);
         this.loopStart.subscribe(function () {
             pos = 0;
             last = _this.array.length;
-            _this.page = _this.page || 0;
+            _this.pageChange.emit(_this.page = 0);
             _this.pages = _this.pages || [];
             _this.pages.length = 0;
             _this.pages.push([]);
@@ -288,7 +287,7 @@ var AckArray = (function () {
         pages: [{ type: core_1.Input }],
         pagesChange: [{ type: core_1.Output }],
         page: [{ type: core_1.Input }],
-        pageChange: [{ type: core_1.Input }],
+        pageChange: [{ type: core_1.Output }],
         array: [{ type: core_1.Input }],
         arrayChange: [{ type: core_1.Output }],
         keyMap: [{ type: core_1.Input }],
