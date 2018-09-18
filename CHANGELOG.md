@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.7.17] - 2018-09-18
+- ack-sections default z-index
+
 ## [1.7.16] - 2018-09-07
 - ack-css
 
