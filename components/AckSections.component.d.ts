@@ -4,6 +4,7 @@ export declare class AckSections {
     SectionProvider: SectionProvider;
     ElementRef: ElementRef;
     mode: "calculate" | "clone";
+    zIndex: number;
     header: TemplateRef<any>;
     footer: TemplateRef<any>;
     constructor(SectionProvider: SectionProvider, ElementRef: ElementRef);

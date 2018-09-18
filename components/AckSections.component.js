@@ -7,6 +7,7 @@ var AckSections = (function () {
     function AckSections(SectionProvider, ElementRef) {
         this.SectionProvider = SectionProvider;
         this.ElementRef = ElementRef;
+        this.zIndex = 30;
         ElementRef.nativeElement.style.height = '100%';
         ElementRef.nativeElement.style.display = 'block';
     }
@@ -23,6 +24,7 @@ var AckSections = (function () {
     ]; };
     AckSections.propDecorators = {
         mode: [{ type: core_1.Input }],
+        zIndex: [{ type: core_1.Input }],
         header: [{ type: core_1.ContentChild, args: ["header",] }],
         footer: [{ type: core_1.ContentChild, args: ["footer",] }]
     };
