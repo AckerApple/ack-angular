@@ -21,6 +21,9 @@ import { string } from "./templates/ack-sections.pug"
   providers:[ SectionProvider ]
 }) export class AckSections{
   @Input() mode:"calculate"|"clone"//default clone
+
+  @Input() zIndex:number = 30
+
   @ContentChild("header") header:TemplateRef<any>
   @ContentChild("footer") footer:TemplateRef<any>
 

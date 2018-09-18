@@ -2,6 +2,7 @@ ng-container(*ngIf="header || SectionProvider.headerTemplates.length")
   div(
     *ngIf = "mode==='calculate'"
     style = "position:fixed;top:0;width:100%"
+    "[style.z-index]" = "zIndex"
     "[(elementHeightModel)]" = "headerHeight"
     "[elementSizeModelWatch]" = "header || SectionProvider.headerTemplates.length"
   )
@@ -12,6 +13,7 @@ ng-container(*ngIf="header || SectionProvider.headerTemplates.length")
   div(
     *ngIf = "!mode || mode==='clone'"
     style = "position:fixed;top:0;width:100%"
+    "[style.z-index]" = "zIndex"
   )
     ng-template(*ngTemplateOutlet="header")
     ng-container(*ngFor="let item of SectionProvider.headerTemplates")
@@ -46,6 +48,7 @@ ng-container(*ngIf="footer || SectionProvider.footerTemplates.length")
   div(
     *ngIf = "mode==='calculate'"
     style = "position:fixed;bottom:0;width:100%"
+    "[style.z-index]" = "zIndex"
     "[(elementHeightModel)]" = "footerHeight"
     "[elementSizeModelWatch]" = "footer || SectionProvider.footerTemplates.length"
   )
@@ -56,6 +59,7 @@ ng-container(*ngIf="footer || SectionProvider.footerTemplates.length")
   div(
     *ngIf = "!mode || mode==='clone'"
     style = "position:fixed;bottom:0;width:100%"
+    "[style.z-index]" = "zIndex"
   )
     ng-container(*ngFor="let item of SectionProvider.footerTemplates")
       ng-template(*ngTemplateOutlet="item")
