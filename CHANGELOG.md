@@ -1,6 +1,17 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.8.0] - 2018-09-19
+- Made animate.css available
+- Added fxOn
+- Deprecated some shakeOn directive bindings
+  - deprecated Input shakeForMs
+  - deprecated Output shakeForMsChange
+  - deprecated Input shakeType
+  - deprecated Output shakeTypeChange
+  - deprecated Input shakeRef
+  - deprecated Output shakeRefChange
+
 ## [1.7.17] - 2018-09-18
 - ack-sections default z-index
 

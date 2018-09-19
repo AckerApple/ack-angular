@@ -855,7 +855,106 @@ h3.margin-bottom-0(id="OneWayBinds") One Way Binds
           &lt;input [selectOn]="selectOn" (selectThen)="selectOn=0" [selectOnDelay]="selectOnDelay" placeholder="select target" value="test to select" /&gt;
           &lt;input type="number" [(ngModel)]="selectOnDelay" placeholder="delay" /&gt;
 
-  .flex-1([class.width-full]="views.shakeOn")
+  //-fxOn
+  .flex-1(
+    "[class.width-full]"="views.fxOn"
+  )
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 [fxOn]
+        .text-grey-2x.max-width-400
+          |Control css classes for periods of time
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning(
+        "(click)"="views.fxOn=!views.fxOn"
+        "[ngClass]"="views.fxOn ? 'border-energized bg-energized' : 'border-info bg-info'"
+      ) view details
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf = "views.fxOn"
+      "[@fadeInUp]" = 1
+    )
+      .pad
+        .pad-xs.bg-warning.border-warning.text-warning.border
+          |You will need to &lt;link&gt; one of two style sheets:
+          ul
+            li ack-angular/ack-angular.css
+            li - or -
+            li
+              a(href="https://github.com/daneden/animate.css") animate.css
+      h4.pad-h-sm.margin-0 Example
+      .flex-wrap.child-pad-h-xs.pad-h
+        div
+          label.block &nbsp;
+          label(
+            #fxRef      = "FxOn"
+            "[fxOn]"    = "fxOn"
+            "(fxThen)"  = "fxOn=false"
+            "[fxForMs]" = "fxForMs"
+            "[fxClass]" = "'animated ' + fxClass"
+          ) animate this text
+        .width-100
+          label &nbsp;
+          button.width-full(
+            "(click)"="fxOn=!fxOn"
+          ) fx:{{ fxOn || false }}
+        div
+          label &nbsp;
+          a.pad-h.border.border-positive.text-positive.block.text-center.hover-bg-positive.hover-text-white(
+            "(mouseover)" = "fxOn=true"
+            "(mouseout)"  = "fxOn=false"
+          ) hover me
+        div
+          label fxType
+          select.width-full(
+            "[(ngModel)]" ="fxClass"
+            "(change)" = "fxOn=true"
+          )
+            option(
+              *ngFor = "let item of (fxRef?fxRef.fxTypes:[])"
+              value = "{{item}}"
+            ) {{item}}
+        div
+          label &nbsp;
+          div
+            input(
+              type="checkbox"
+              id="fxConstant"
+              "[(ngModel)]"="fxConstant"
+              "(change)"="fxOn=$event.target.checked"
+            )
+            |&nbsp;
+            label(for="fxConstant") fxConstant
+        div
+          label fxForMs
+          div
+            input.width-100(
+              "[(ngModel)]" = "fxForMs"
+              "(change)" = "fxOn=true"
+            )
+
+      strong fxClass = "animated {{fxClass}}"
+
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;label [fxOn]="fxOn" (fxThen)="fxOn=false" #fxRef="FxOn" [(fxForMs)]="fxForMs" [(fxType)]="fxClass"&gt;
+            animate this text :: {{ fxOn || false }}
+          &lt;/label&gt;
+          &lt;button (click)="fxOn=true"&gt; fx:{{fxOn||false}} &lt;/button&gt;
+          &lt;a (mouseover)="fxOn=true" (mouseout)="fxOn=false"&gt;
+            hover me
+          &lt;/a&gt;
+          &lt;select [(ngModel)]="fxClass" (change)="fxOn=true"&gt;
+            &lt;option *ngFor="let item of (fxRef?fxRef.fxTypes:[])" value="{{item}}"&gt;{{item}}&lt;/option&gt;
+          &lt;/select&gt;
+          &lt;input type="checkbox" id="fxConstant" [(ngModel)]="fxConstant" (change)="fxOn=$event.target.checked" /&gt;
+          &lt;input [(ngModel)]="fxForMs" (change)="fxOn=true" /&gt;
+
+  //-shakeOn
+  .flex-1(
+    [class.width-full]="views.shakeOn"
+  )
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
         h3 [shakeOn]
@@ -863,11 +962,13 @@ h3.margin-bottom-0(id="OneWayBinds") One Way Binds
           |Control an animated shaking effect on demand
         br
     .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="views.shakeOn=!views.shakeOn" "[ngClass]"="views.shakeOn?'border-energized bg-energized':'border-info bg-info'")
-        |view details
+      a.block.border.pad-xxs.hover-bg-warning(
+        "(click)"="views.shakeOn=!views.shakeOn"
+        "[ngClass]"="views.shakeOn?'border-energized bg-energized':'border-info bg-info'"
+      ) view details
     .border.border-top-0.border-grey-4x.bg-stable(
-      *ngIf="views.shakeOn"
-      "[@fadeInUp]"=1
+      *ngIf = "views.shakeOn"
+      "[@fadeInUp]" = 1
     )
       .pad
         .pad-xs.bg-warning.border-warning.text-warning.border
@@ -880,19 +981,35 @@ h3.margin-bottom-0(id="OneWayBinds") One Way Binds
       .flex-wrap.child-pad-h-xs.pad-h
         div
           label.block &nbsp;
-          label([shakeOn]="shakeOn" "(shakeThen)"="shakeOn=false" "[(shakeRef)]"="shakeRef" "[(shakeForMs)]"="shakeForMs" "[(shakeType)]"="shakeOnType" "[(shakeConstant)]"="shakeConstant")
-            |shake this text
+          label(
+            #shakeRef         = "ShakeOn"
+            "[shakeOn]"       = "shakeOn"
+            "(shakeThen)"     = "shakeOn=false"
+            "[shakeForMs]"    = "shakeForMs"
+            "[shakeType]"     = "shakeOnType"
+            "[shakeConstant]" = "shakeConstant"
+          ) shake this text
         .width-100
           label &nbsp;
-          button.width-full("(click)"="shakeOn=!shakeOn") shake:{{shakeOn||false}}
+          button.width-full(
+            "(click)"="shakeOn=!shakeOn"
+          ) shake:{{shakeOn||false}}
         div
           label &nbsp;
-          a.pad-h.border.border-positive.text-positive.block.text-center.hover-bg-positive.hover-text-white("(mouseover)"="shakeOn=true" "(mouseout)"="shakeOn=false")
-            |hover me
+          a.pad-h.border.border-positive.text-positive.block.text-center.hover-bg-positive.hover-text-white(
+            "(mouseover)" = "shakeOn=true"
+            "(mouseout)"  = "shakeOn=false"
+          ) hover me
         div
           label shakeType
-          select.width-full("[(ngModel)]"="shakeOnType" "(change)"="shakeOn=true")
-            option(*ngFor="let item of (shakeRef?shakeRef.shakeTypes:[])" value="{{item}}") {{item}}
+          select.width-full(
+            "[(ngModel)]"="shakeOnType"
+            "(change)"="shakeOn=true"
+          )
+            option(
+              *ngFor = "let item of (shakeRef?shakeRef.shakeTypes:[])"
+              value = "{{item}}"
+            ) {{item}}
         div
           label &nbsp;
           div
@@ -907,12 +1024,15 @@ h3.margin-bottom-0(id="OneWayBinds") One Way Binds
         div
           label shakeForMs
           div
-            input.width-100("[(ngModel)]"="shakeForMs" "(change)"="shakeOn=true")
+            input.width-100(
+              "[(ngModel)]" = "shakeForMs"
+              "(change)" = "shakeOn=true"
+            )
 
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
-          &lt;label [shakeOn]="shakeOn" (shakeThen)="shakeOn=false" [(shakeRef)]="shakeRef" [(shakeForMs)]="shakeForMs" [(shakeType)]="shakeOnType"&gt;
+          &lt;label [shakeOn]="shakeOn" (shakeThen)="shakeOn=false" #shakeRef="ShakeOn" [(shakeForMs)]="shakeForMs" [(shakeType)]="shakeOnType"&gt;
             shake this text :: {{ shakeOn||false }}
           &lt;/label&gt;
           &lt;button (click)="shakeOn=true"&gt; shake:{{shakeOn||false}} &lt;/button&gt;
@@ -928,8 +1048,8 @@ h3.margin-bottom-0(id="OneWayBinds") One Way Binds
 br
 
 h3.margin-bottom-0(id="TwoWayBinds") Two Way Binds
-.flex-wrap.child-margin-xxs
-  
+
+.flex-wrap.child-margin-xxs 
   .flex-1([class.width-full]="views.statusOnlineModel")
     .border.border-grey-4x.border.border-bottom-0
       div("[(statusOnlineModel)]"="statusOnlineModel")
@@ -1125,69 +1245,6 @@ h3.margin-bottom-0(id="TwoWayBinds") Two Way Binds
           &nbsp;&nbsp;screenHeightModel : {{ screenHeightModel }}px
           &lt;/div&gt;
 
-  .flex-1([class.width-full]="views.elementSizeModel" "[(elementSizeModel)]"="elementSizeModel")
-    .border.border-grey-4x.border.border-bottom-0
-      .pad-h
-        h3 [(elementSizeModel)]
-        .text-grey-2x.max-width-400
-          |Get an elements size. Currently : {{ elementSizeModel?.width }}x{{elementSizeModel?.height }}
-        br
-    .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="views.elementSizeModel=!views.elementSizeModel" "[ngClass]"="views.elementSizeModel?'border-energized bg-energized':'border-info bg-info'")
-        |view details
-    .border.border-top-0.border-grey-4x.bg-stable(
-      *ngIf="views.elementSizeModel"
-      "[@fadeInUp]"=1
-    )
-      h4.pad-sm.margin-0 Usage Example
-      absolute-overflow-x
-        pre.code-sample.margin-0(ngNonBindable).
-          &lt;div [(elementSizeModel)]="elementSizeModel"&gt;
-          &nbsp;&nbsp;elementSizeModel : {{ elementSizeModel?.width }}x{{ elementSizeModel?.height }}
-          &lt;/div&gt;
-
-  .flex-1([class.width-full]="views.elementHeightModel" "[(elementHeightModel)]"="elementHeightModel")
-    .border.border-grey-4x.border.border-bottom-0
-      .pad-h
-        h3 [(elementHeightModel)]
-        .text-grey-2x.max-width-400
-          |Get an elements height. Currently : {{elementHeightModel}}px
-        br
-    .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="views.elementHeightModel=!views.elementHeightModel" "[ngClass]"="views.elementHeightModel?'border-energized bg-energized':'border-info bg-info'")
-        |view details
-    .border.border-top-0.border-grey-4x.bg-stable(
-      *ngIf="views.elementHeightModel"
-      "[@fadeInUp]"=1
-    )
-      h4.pad-sm.margin-0 Usage Example
-      absolute-overflow-x
-        pre.code-sample.margin-0(ngNonBindable).
-          &lt;div [(elementHeightModel)]="elementHeightModel"&gt;
-          &nbsp;&nbsp;elementHeightModel : {{ elementHeightModel }}px
-          &lt;/div&gt;
-
-  .flex-1([class.width-full]="views.elementWidthModel" "[(elementWidthModel)]"="elementWidthModel")
-    .border.border-grey-4x.border.border-bottom-0
-      .pad-h
-        h3 [(elementWidthModel)]
-        .text-grey-2x.max-width-400
-          |Get an elements width. Currently : {{elementWidthModel}}px
-        br
-    .text-center
-      a.block.border.pad-xxs.hover-bg-warning("(click)"="views.elementWidthModel=!views.elementWidthModel" "[ngClass]"="views.elementWidthModel?'border-energized bg-energized':'border-info bg-info'")
-        |view details
-    .border.border-top-0.border-grey-4x.bg-stable(
-      *ngIf="views.elementWidthModel"
-      "[@fadeInUp]"=1
-    )
-      h4.pad-sm.margin-0 Usage Example
-      absolute-overflow-x
-        pre.code-sample.margin-0(ngNonBindable).
-          &lt;div [(elementWidthModel)]="elementWidthModel"&gt;
-          &nbsp;&nbsp;elementWidthModel : {{ elementWidthModel }}px
-          &lt;/div&gt;
-
   .flex-1([class.width-full]="views.innerHtmlModel")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
@@ -1268,6 +1325,69 @@ h3.margin-bottom-0(id="TwoWayBinds") Two Way Binds
             &nbsp;&nbsp;&nbsp;&nbsp;This content all runs on one line flat out for as long as I can stand to stand typing at a Veridesk in Delray Beach, FL. Not that long it turns out...
             &nbsp;&nbsp;&lt;/div&gt;
             &lt;/absolute-overflow-x&gt;
+
+  .flex-1([class.width-full]="views.elementSizeModel" "[(elementSizeModel)]"="elementSizeModel")
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 [(elementSizeModel)]
+        .text-grey-2x.max-width-400
+          |Get an elements size. Currently : {{ elementSizeModel?.width }}x{{elementSizeModel?.height }}
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="views.elementSizeModel=!views.elementSizeModel" "[ngClass]"="views.elementSizeModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.elementSizeModel"
+      "[@fadeInUp]"=1
+    )
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div [(elementSizeModel)]="elementSizeModel"&gt;
+          &nbsp;&nbsp;elementSizeModel : {{ elementSizeModel?.width }}x{{ elementSizeModel?.height }}
+          &lt;/div&gt;
+
+  .flex-1([class.width-full]="views.elementHeightModel" "[(elementHeightModel)]"="elementHeightModel")
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 [(elementHeightModel)]
+        .text-grey-2x.max-width-400
+          |Get an elements height. Currently : {{elementHeightModel}}px
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="views.elementHeightModel=!views.elementHeightModel" "[ngClass]"="views.elementHeightModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.elementHeightModel"
+      "[@fadeInUp]"=1
+    )
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div [(elementHeightModel)]="elementHeightModel"&gt;
+          &nbsp;&nbsp;elementHeightModel : {{ elementHeightModel }}px
+          &lt;/div&gt;
+
+  .flex-1([class.width-full]="views.elementWidthModel" "[(elementWidthModel)]"="elementWidthModel")
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 [(elementWidthModel)]
+        .text-grey-2x.max-width-400
+          |Get an elements width. Currently : {{elementWidthModel}}px
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="views.elementWidthModel=!views.elementWidthModel" "[ngClass]"="views.elementWidthModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.elementWidthModel"
+      "[@fadeInUp]"=1
+    )
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div [(elementWidthModel)]="elementWidthModel"&gt;
+          &nbsp;&nbsp;elementWidthModel : {{ elementWidthModel }}px
+          &lt;/div&gt;
 
 br
 

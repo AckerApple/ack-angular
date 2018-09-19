@@ -25,6 +25,7 @@ import { AckArray } from "./directives/AckArray.directive"
 import { AckAggregate } from "./directives/AckAggregate.directive"
 import { ScrollPastFixed } from "./components/ScrollPastFixed.component"
 import { ShakeOn } from "./directives/ShakeOn.directive"
+import { FxOn } from "./directives/FxOn.directive"
 import { FocusOn } from "./directives/FocusOn.directive"
 import { Init } from "./directives/Init.directive"
 import { SelectOn } from "./directives/SelectOn.directive"
@@ -188,6 +189,7 @@ export const declarations = [
   HtmlWidthModel,
   HtmlHeightModel,
   ShakeOn,
+  FxOn,
   StatusOnlineModel,
   StatusOfflineModel,
   ElementSizeModel,

@@ -16,6 +16,7 @@ var AckArray_directive_1 = require("./directives/AckArray.directive");
 var AckAggregate_directive_1 = require("./directives/AckAggregate.directive");
 var ScrollPastFixed_component_1 = require("./components/ScrollPastFixed.component");
 var ShakeOn_directive_1 = require("./directives/ShakeOn.directive");
+var FxOn_directive_1 = require("./directives/FxOn.directive");
 var FocusOn_directive_1 = require("./directives/FocusOn.directive");
 var Init_directive_1 = require("./directives/Init.directive");
 var SelectOn_directive_1 = require("./directives/SelectOn.directive");
@@ -242,6 +243,7 @@ exports.declarations = [
     HtmlWidthModel_directive_1.HtmlWidthModel,
     HtmlHeightModel_directive_1.HtmlHeightModel,
     ShakeOn_directive_1.ShakeOn,
+    FxOn_directive_1.FxOn,
     StatusOnlineModel_directive_1.StatusOnlineModel,
     StatusOfflineModel_directive_1.StatusOfflineModel,
     ElementSizeModel_directive_1.ElementSizeModel,

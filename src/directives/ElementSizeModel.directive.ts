@@ -20,6 +20,9 @@ import {
   @Output() elementSizeModelChange = new EventEmitter()
 
   constructor(public element:ElementRef){
+  }
+
+  ngAfterViewInit(){
     this.onResize = function(){
       this.setModel()
     }.bind(this)
@@ -38,9 +41,7 @@ import {
       subtree: true
     }
     this.observer.observe(this.element.nativeElement, config);
-  }
 
-  ngAfterViewInit(){
     setTimeout(()=>this.setModel(), 800)
   }
 

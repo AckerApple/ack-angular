@@ -13,9 +13,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ElementSizeModel = (function () {
     function ElementSizeModel(element) {
-        var _this = this;
         this.element = element;
         this.elementSizeModelChange = new core_1.EventEmitter();
+    }
+    ElementSizeModel.prototype.ngAfterViewInit = function () {
+        var _this = this;
         this.onResize = function () {
             this.setModel();
         }.bind(this);
@@ -31,9 +33,6 @@ var ElementSizeModel = (function () {
             subtree: true
         };
         this.observer.observe(this.element.nativeElement, config);
-    }
-    ElementSizeModel.prototype.ngAfterViewInit = function () {
-        var _this = this;
         setTimeout(function () { return _this.setModel(); }, 800);
     };
     ElementSizeModel.prototype.ngOnChanges = function () {

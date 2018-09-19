@@ -17,33 +17,38 @@ export interface selected{
   ,template: componentsExamples
   ,animations:fxArray
 }) export class ComponentsExamples {
+  fxClass:string = "bounce"
+  fxForMs:number
   initArray = [{value:0},{value:1},{value:2}]
   views:any = {}
-  absoluteOverflowX
-  elementWidthModel
-  elementHeightModel
-  htmlWidthModel
-  htmlHeightModel
-  screenScrollModelY
-  screenScrollHeightDiff
-  screenWidthModel
-  screenHeightModel
-  elementSizeModel
-  viewShakeOn
+
+  absoluteOverflowX:number
+  elementWidthModel:number
+  elementHeightModel:number
+  htmlWidthModel:number
+  htmlHeightModel:number
+  screenScrollModelY:number
+  screenScrollHeightDiff:number
+  screenWidthModel:number
+  screenHeightModel:number
+  elementSizeModel:number
+  viewScreenHeightModel:number
+  viewScreenWidthModel:number
+  screenScrollCount:number = 0
+  
+  viewShakeOn:boolean
+
   viewSelectOn
-  viewScreenHeightModel
-  viewScreenWidthModel
-  statusOnlineModel
-  statusOfflineModel
-  screenScrollCount = 0
-  escapeCountKey
-  error
+  statusOnlineModel:boolean
+  statusOfflineModel:boolean
+  escapeCountKey:number
+  error:Error
   contentArray = []
-  modalBackgroundColor = "rgba(255,255,255,0.95)"
+  modalBackgroundColor:string = "rgba(255,255,255,0.95)"
   modalWrapStyle
   ackOptionArray = []
   ackOptionArrayModal = [{key:"b"}]
-  pageAt = 2
+  pageAt:number = 2
   arrayOfObjects = arrayOfObjects
   selectedArray:selected[] = [
     arrayOfObjects[2],

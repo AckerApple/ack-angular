@@ -1,4 +1,10 @@
 import {
+  hasClass,
+  addClass,
+  removeClass
+} from "./FxOn.directive"
+
+import {
   Directive,
   Input,
   Output,
@@ -8,25 +14,19 @@ import {
 
 /** runs shake instructions when condition returns a truthy value */
 @Directive({
-  selector:'[shakeOn]'
+  selector:"[shakeOn]",
+  exportAs:"ShakeOn"
 }) export class ShakeOn {
-  timeout
-
   @Input() shakeConstant = false
-
   @Input() shakeOn
-  @Output() shakeThen = new EventEmitter()
-
   @Input() shakeForMs
-  @Output() shakeForMsChange = new EventEmitter()
-
   @Input() shakeType
-  @Output() shakeTypeChange = new EventEmitter()
+  @Output() shakeThen = new EventEmitter()
   
-  @Input() shakeRef
-  @Output() shakeRefChange = new EventEmitter()
+  timeout:number
   
-  shakeTypes = [
+  //an array to be used in #ShakeOn refs for fx selectable options (see examples)
+  shakeTypes:string[] = [
     'shake-slow','shake-hard','shake-little','shake-horizontal',
     'shake-vertical','shake-rotate','shake-opacity','shake-crazy',
     'shake-chunk'
@@ -40,12 +40,7 @@ import {
 
   update(){
     this.shakeForMs = this.shakeForMs || 2000
-    this.shakeRef = this
     this.shakeType = this.shakeType || 'shake-slow'
-    
-    this.shakeRefChange.emit( this.shakeRef )
-    this.shakeTypeChange.emit( this.shakeType )
-    this.shakeForMsChange.emit( this.shakeForMs )
   }
 
   ngOnChanges(changes){
@@ -88,35 +83,12 @@ import {
     addClass(this.element.nativeElement, 'shake-constant')
     this.applyType()
 
-    if(!this.shakeConstant){
+    if( !this.shakeConstant ){
       this.timeout = setTimeout(()=>{
         //$scope.shakeOnController.shakeOn = false
         this.onFalse()
         this.shakeThen.emit(this)
       }, this.shakeForMs);
     }
-  }
-}
-
-export function hasClass(el, className) {
-  if (el.classList)
-    return el.classList.contains(className)
-  else
-    return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'))
-}
-
-export function addClass(el, className) {
-  if (el.classList){
-    el.classList.add(className)
-  }
-  else if (!hasClass(el, className)) el.className += " " + className
-}
-
-export function removeClass(el, className) {
-  if (el.classList)
-    el.classList.remove(className)
-  else if (hasClass(el, className)) {
-    var reg = new RegExp('(\\s|^)' + className + '(\\s|$)')
-    el.className=el.className.replace(reg, ' ')
   }
 }
