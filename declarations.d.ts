@@ -11,6 +11,7 @@ import { ReaderBody } from "./components/ReaderHeaderBody.component";
 import { AckArray } from "./directives/AckArray.directive";
 import { ScrollPastFixed } from "./components/ScrollPastFixed.component";
 import { ShakeOn } from "./directives/ShakeOn.directive";
+import { FxOn } from "./directives/FxOn.directive";
 import { FocusOn } from "./directives/FocusOn.directive";
 import { SelectOn } from "./directives/SelectOn.directive";
 import { InnerHtmlModel } from "./directives/InnerHtmlModel.directive";
@@ -61,4 +62,4 @@ export declare class FormAlter {
     constructor(element: ElementRef);
     ngOnDestroy(): void;
 }
-export declare const declarations: (typeof AckModalLayout | typeof AckModal | typeof AckSections | typeof AckSectionTemplates | typeof AckCloseIcon | typeof AckOptions | typeof AbsoluteOverflowX | typeof AckFixedElementStage | typeof ReaderBody | typeof AckArray | typeof ScrollPastFixed | typeof ShakeOn | typeof FocusOn | typeof SelectOn | typeof InnerHtmlModel | typeof ElementSizeModel | typeof ScreenWidthModel | typeof ScreenHeightModel | typeof HtmlWidthModel | typeof EnterKey | typeof EscapeKey | typeof PreventBackKey | typeof PreventEnterKey | typeof FormChanged | typeof FormAlter)[];
+export declare const declarations: (typeof AckModalLayout | typeof AckModal | typeof AckSections | typeof AckSectionTemplates | typeof AckCloseIcon | typeof AckOptions | typeof AbsoluteOverflowX | typeof AckFixedElementStage | typeof ReaderBody | typeof AckArray | typeof ScrollPastFixed | typeof FxOn | typeof ShakeOn | typeof FocusOn | typeof SelectOn | typeof InnerHtmlModel | typeof ElementSizeModel | typeof ScreenWidthModel | typeof ScreenHeightModel | typeof HtmlWidthModel | typeof EnterKey | typeof EscapeKey | typeof PreventBackKey | typeof PreventEnterKey | typeof FormChanged | typeof FormAlter)[];
