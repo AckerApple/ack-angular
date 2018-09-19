@@ -287,7 +287,7 @@ webpackContext.id = "../node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, private, default */
 /***/ (function(module) {
 
-module.exports = {"name":"ack-angular","version":"1.7.5","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/assets/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.7.0","@angular/animations":"^6.1.1","@angular/cli":"^6.1.2","@angular/common":"^6.1.1","@angular/compiler":"^6.1.1","@angular/compiler-cli":"^6.1.1","@angular/core":"^6.1.1","@angular/forms":"^6.1.1","@angular/platform-browser":"^6.1.1","@angular/platform-browser-dynamic":"^6.1.1","@angular/router":"^6.1.1","@types/jasmine":"^2.8.6","ack-angular-fx":"^2.1.2","ack-css-boot":"^1.2.50","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.4.5","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.5","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.1","karma-jasmine":"^1.1.2","karma-jasmine-html-reporter":"^1.2.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.2","ngx-page-scroll":"^5.0.0","npm-run-all":"^4.1.3","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^6.2.2","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.9.2","zone.js":"^0.8.26"},"private":true};
+module.exports = {"name":"ack-angular","version":"1.8.0","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/assets/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.7.0","@angular/animations":"^6.1.1","@angular/cli":"^6.1.2","@angular/common":"^6.1.1","@angular/compiler":"^6.1.1","@angular/compiler-cli":"^6.1.1","@angular/core":"^6.1.1","@angular/forms":"^6.1.1","@angular/platform-browser":"^6.1.1","@angular/platform-browser-dynamic":"^6.1.1","@angular/router":"^6.1.1","@types/jasmine":"^2.8.6","ack-angular-fx":"^2.1.2","ack-css-boot":"^1.2.52","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.4.5","animate.css":"^3.7.0","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.5","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.1","karma-jasmine":"^1.1.2","karma-jasmine-html-reporter":"^1.2.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.2","ngx-page-scroll":"^5.0.0","npm-run-all":"^4.1.3","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^6.2.2","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.9.2","zone.js":"^0.8.26"},"private":true};
 
 /***/ }),
 
@@ -365,35 +365,45 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-var RouteWatchReporter_1 = __webpack_require__(/*! ./RouteWatchReporter */ "../src/RouteWatchReporter.ts");
 var router_1 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
+var RouteWatchReporter_1 = __webpack_require__(/*! ./RouteWatchReporter */ "../src/RouteWatchReporter.ts");
+var router_2 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
 var RouteReporter = /** @class */ (function () {
-    function RouteReporter(RouteWatchReporter) {
-        var _this = this;
+    function RouteReporter(RouteWatchReporter, ActivatedRoute) {
         this.RouteWatchReporter = RouteWatchReporter;
+        this.ActivatedRoute = ActivatedRoute;
         this.stateChanger = new core_1.EventEmitter();
         this.beforeChanger = new core_1.EventEmitter();
-        this.refChange = new core_1.EventEmitter();
-        this.stateNameChange = new core_1.EventEmitter();
+        this.activatedChange = new core_1.EventEmitter();
         this.paramsChange = new core_1.EventEmitter();
         this.dataChange = new core_1.EventEmitter();
         this.queryChange = new core_1.EventEmitter();
         this.routeChange = new core_1.EventEmitter();
+        this.parentRouteChange = new core_1.EventEmitter();
+        this.parentChange = new core_1.EventEmitter();
+        this.parentDataChange = new core_1.EventEmitter();
         this.stateChange = new core_1.EventEmitter();
+        this.refChange = new core_1.EventEmitter();
+        this.stateNameChange = new core_1.EventEmitter();
         this.$document = document;
         this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
-        RouteWatchReporter.router.events.subscribe(function (event) {
+    }
+    RouteReporter.prototype.ngOnInit = function () {
+        var _this = this;
+        this.RouteWatchReporter.router.events.subscribe(function (event) {
             //if(event.constructor == NavigationStart){}
-            if (event.constructor == router_1.NavigationEnd) {
+            if (event.constructor == router_2.NavigationEnd) {
                 _this.beforeChanger.emit(_this.RouteWatchReporter);
                 //allow one process to occur before reporting state has changed
                 setTimeout(function () { return _this.emit(); }, 0);
             }
         });
-        RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
-    }
-    RouteReporter.prototype.ngOnInit = function () {
-        var _this = this;
+        if (this.ActivatedRoute) {
+            this.ActivatedRoute.data.subscribe(function (data) {
+                return _this.dataChange.emit(_this.data = data);
+            });
+        }
+        this.RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
         setTimeout(function () {
             _this.ref = _this.RouteWatchReporter;
             _this.refChange.emit(_this.ref);
@@ -420,16 +430,29 @@ var RouteReporter = /** @class */ (function () {
     };
     RouteReporter.prototype.emit = function () {
         this.stateChanger.emit(this.RouteWatchReporter);
-        if (this.RouteWatchReporter.current) {
-            this.routeChange.emit(this.RouteWatchReporter.current.config);
-            this.stateChange.emit(this.RouteWatchReporter.current);
-            if (this.RouteWatchReporter.current.config) {
-                var name_1 = this.RouteWatchReporter.current.config.name || this.RouteWatchReporter.current.config.path;
-                this.stateNameChange.emit(this.stateName = name_1);
-            }
-            this.dataChange.emit(this.data = this.RouteWatchReporter.current.config.data);
-            this.paramsChange.emit(this.params = this.RouteWatchReporter.current.params);
+        var current = this.RouteWatchReporter.getCurrent();
+        if (!current)
+            return;
+        this.route = current.config;
+        this.routeChange.emit(current.config);
+        this.state = current;
+        this.stateChange.emit(current);
+        this.activated = current.ActivatedRoute;
+        this.activatedChange.emit(current.ActivatedRoute);
+        if (current.config) {
+            var name_1 = current.config.path;
+            this.stateNameChange.emit(this.stateName = name_1);
         }
+        this.paramsChange.emit(this.params = current.params);
+        this.dataChange.emit(this.data = current.config.data);
+        /* parent bindings */
+        this.parentRoute = current.parent.config;
+        this.parentRouteChange.emit(current.parent.config);
+        this.parent = current.parent.ActivatedRoute;
+        this.parentChange.emit(current.parent.ActivatedRoute);
+        this.parentData = current.parent.config.data;
+        this.parentDataChange.emit(current.parent.config.data);
+        /* end */
     };
     RouteReporter.prototype.goBackTo = function (name, params) {
         this.RouteWatchReporter.goBackTo(name, params);
@@ -450,20 +473,13 @@ var RouteReporter = /** @class */ (function () {
     ], RouteReporter.prototype, "beforeChanger", void 0);
     __decorate([
         core_1.Input(),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "ref", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "refChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], RouteReporter.prototype, "stateName", void 0);
+        __metadata("design:type", router_1.ActivatedRoute //ignored in
+        )
+    ], RouteReporter.prototype, "activated", void 0);
     __decorate([
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)
-    ], RouteReporter.prototype, "stateNameChange", void 0);
+    ], RouteReporter.prototype, "activatedChange", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Object)
@@ -499,7 +515,28 @@ var RouteReporter = /** @class */ (function () {
     __decorate([
         core_1.Input(),
         __metadata("design:type", Object)
-    ], RouteReporter.prototype, "onLoad", void 0);
+    ], RouteReporter.prototype, "parentRoute", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "parentRouteChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", router_1.ActivatedRoute //ignored in
+        )
+    ], RouteReporter.prototype, "parent", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "parentChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "parentData", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "parentDataChange", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Object)
@@ -508,11 +545,32 @@ var RouteReporter = /** @class */ (function () {
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)
     ], RouteReporter.prototype, "stateChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "onLoad", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "ref", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "refChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], RouteReporter.prototype, "stateName", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "stateNameChange", void 0);
     RouteReporter = __decorate([
         core_1.Directive({
-            selector: 'route-reporter'
+            selector: "route-reporter"
         }),
-        __metadata("design:paramtypes", [RouteWatchReporter_1.RouteWatchReporter])
+        __metadata("design:paramtypes", [RouteWatchReporter_1.RouteWatchReporter,
+            router_1.ActivatedRoute])
     ], RouteReporter);
     return RouteReporter;
 }());
@@ -549,19 +607,16 @@ var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/
    - Their is no web event for knowing if OS button is used.
 */
 var RouteWatchReporter = /** @class */ (function () {
-    //public stateService : StateService
-    //public activatedRoute : ActivatedRoute
-    //static parameters = [[Router, ActivatedRoute]]
     function RouteWatchReporter(router, activatedRoute) {
         var _this = this;
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.current = {};
         this.historyPos = 0;
-        this.isNextBackMode = false;
-        this.isNextBackHistory = false;
         this.isBackMode = false;
         this.isOsAction = false;
+        this.isNextBackMode = false;
+        this.isNextBackHistory = false;
         this.activatedRoute = activatedRoute;
         this.$window = function () { return window; };
         this.$history = [];
@@ -575,12 +630,21 @@ var RouteWatchReporter = /** @class */ (function () {
         this.current = this.getCurrent();
     }
     RouteWatchReporter.prototype.getCurrent = function () {
+        var parent = this.activatedRoute;
         var target = this.activatedRoute;
-        while (target.firstChild)
+        while (target.firstChild) {
+            parent = target;
             target = target.firstChild;
+        }
         return {
-            config: target.routeConfig || target,
-            params: target.snapshot.params
+            ActivatedRoute: target,
+            config: (target.routeConfig || target),
+            params: target.snapshot.params,
+            parent: {
+                ActivatedRoute: parent,
+                config: (parent.routeConfig || parent),
+                params: parent.snapshot.params
+            }
             //...target.routeConfig//may want to do away with this
         };
     };
@@ -588,7 +652,7 @@ var RouteWatchReporter = /** @class */ (function () {
         var target = this.activatedRoute;
         while (target.firstChild)
             target = target.firstChild;
-        return target.routeConfig || target;
+        return (target.routeConfig || target);
     };
     RouteWatchReporter.prototype.getCurrentParams = function () {
         var target = this.activatedRoute;
@@ -683,7 +747,10 @@ var RouteWatchReporter = /** @class */ (function () {
         var isNotBackButton = function () {
             _this.isOsAction = false;
         };
-        return { isBackButton: isBackButton, isNotBackButton: isNotBackButton };
+        return {
+            isBackButton: isBackButton,
+            isNotBackButton: isNotBackButton
+        };
     };
     RouteWatchReporter.prototype.watchDocByCallbacks = function ($document, callbacks) {
         $document.addEventListener('mouseout', callbacks.isBackButton);
@@ -697,7 +764,8 @@ var RouteWatchReporter = /** @class */ (function () {
     };
     RouteWatchReporter = __decorate([
         core_1.Injectable(),
-        __metadata("design:paramtypes", [router_1.Router, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [router_1.Router,
+            router_1.ActivatedRoute])
     ], RouteWatchReporter);
     return RouteWatchReporter;
 }());
@@ -976,16 +1044,16 @@ var AckModal = /** @class */ (function () {
     ], AckModal.prototype, "isModelMode", void 0);
     __decorate([
         core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckModal.prototype, "allowClose", void 0);
+    __decorate([
+        core_1.Input(),
         __metadata("design:type", Object)
     ], AckModal.prototype, "wrapStyle", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Object)
     ], AckModal.prototype, "wrapCellStyle", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], AckModal.prototype, "allowClose", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", String)
@@ -1089,16 +1157,16 @@ var AckModalLayout = /** @class */ (function () {
     ], AckModalLayout.prototype, "close", void 0);
     __decorate([
         core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckModalLayout.prototype, "allowClose", void 0);
+    __decorate([
+        core_1.Input(),
         __metadata("design:type", Object)
     ], AckModalLayout.prototype, "wrapStyle", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Object)
     ], AckModalLayout.prototype, "wrapCellStyle", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], AckModalLayout.prototype, "allowClose", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Object)
@@ -1579,6 +1647,7 @@ var AckSections = /** @class */ (function () {
     function AckSections(SectionProvider, ElementRef) {
         this.SectionProvider = SectionProvider;
         this.ElementRef = ElementRef;
+        this.zIndex = 30;
         ElementRef.nativeElement.style.height = '100%';
         ElementRef.nativeElement.style.display = 'block';
     }
@@ -1586,6 +1655,10 @@ var AckSections = /** @class */ (function () {
         core_1.Input(),
         __metadata("design:type", String)
     ], AckSections.prototype, "mode", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], AckSections.prototype, "zIndex", void 0);
     __decorate([
         core_1.ContentChild("header"),
         __metadata("design:type", core_1.TemplateRef)
@@ -1938,7 +2011,7 @@ exports.string = "<div [ngClass]=\"{'border-grey-6x border-top':stylize}\"></div
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.string = "<ng-container *ngIf=\"header || SectionProvider.headerTemplates.length\"><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;top:0;width:100%\" [(elementHeightModel)]=\"headerHeight\" [elementSizeModelWatch]=\"header || SectionProvider.headerTemplates.length\"><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container><ng-template *ngTemplateOutlet=\"header\"></ng-template></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;width:100%\"><ng-template *ngTemplateOutlet=\"header\"></ng-template><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div></ng-container><table style=\"height:100%;width:100%;border-collapse: collapse;\" cellPadding=\"0\" cellSpacing=\"0\" border=\"0\"><tr *ngIf=\"header || SectionProvider.headerTemplates.length\"><td [style.height.px]=\"headerHeight\" style=\"visibility:hidden\"><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container><ng-template *ngTemplateOutlet=\"header\"></ng-template></ng-container></td></tr><tr><td style=\"height:100%\"><ng-content></ng-content></td></tr><tr *ngIf=\"footer || SectionProvider.footerTemplates.length\"><td [style.height.px]=\"footerHeight\"><div *ngIf=\"!mode || mode==='clone'\" style=\"visibility:hidden\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container><ng-template *ngTemplateOutlet=\"footer\"></ng-template></div></td></tr></table><ng-container *ngIf=\"footer || SectionProvider.footerTemplates.length\"><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;bottom:0;width:100%\" [(elementHeightModel)]=\"footerHeight\" [elementSizeModelWatch]=\"footer || SectionProvider.footerTemplates.length\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container><ng-template *ngTemplateOutlet=\"footer\"></ng-template></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;bottom:0;width:100%\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container><ng-template *ngTemplateOutlet=\"footer\"></ng-template></div></ng-container>";
+exports.string = "<ng-container *ngIf=\"header || SectionProvider.headerTemplates.length\"><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;top:0;width:100%\" [style.z-index]=\"zIndex\" [(elementHeightModel)]=\"headerHeight\" [elementSizeModelWatch]=\"header || SectionProvider.headerTemplates.length\"><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container><ng-template *ngTemplateOutlet=\"header\"></ng-template></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;width:100%\" [style.z-index]=\"zIndex\"><ng-template *ngTemplateOutlet=\"header\"></ng-template><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div></ng-container><table style=\"height:100%;width:100%;border-collapse: collapse;\" cellPadding=\"0\" cellSpacing=\"0\" border=\"0\"><tr *ngIf=\"header || SectionProvider.headerTemplates.length\"><td [style.height.px]=\"headerHeight\" style=\"visibility:hidden\"><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container><ng-template *ngTemplateOutlet=\"header\"></ng-template></ng-container></td></tr><tr><td style=\"height:100%\"><ng-content></ng-content></td></tr><tr *ngIf=\"footer || SectionProvider.footerTemplates.length\"><td [style.height.px]=\"footerHeight\"><div *ngIf=\"!mode || mode==='clone'\" style=\"visibility:hidden\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container><ng-template *ngTemplateOutlet=\"footer\"></ng-template></div></td></tr></table><ng-container *ngIf=\"footer || SectionProvider.footerTemplates.length\"><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;bottom:0;width:100%\" [style.z-index]=\"zIndex\" [(elementHeightModel)]=\"footerHeight\" [elementSizeModelWatch]=\"footer || SectionProvider.footerTemplates.length\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container><ng-template *ngTemplateOutlet=\"footer\"></ng-template></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;bottom:0;width:100%\" [style.z-index]=\"zIndex\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container><ng-template *ngTemplateOutlet=\"footer\"></ng-template></div></ng-container>";
 
 
 /***/ }),
@@ -2025,6 +2098,7 @@ var AckArray_directive_1 = __webpack_require__(/*! ./directives/AckArray.directi
 var AckAggregate_directive_1 = __webpack_require__(/*! ./directives/AckAggregate.directive */ "../src/directives/AckAggregate.directive.ts");
 var ScrollPastFixed_component_1 = __webpack_require__(/*! ./components/ScrollPastFixed.component */ "../src/components/ScrollPastFixed.component.ts");
 var ShakeOn_directive_1 = __webpack_require__(/*! ./directives/ShakeOn.directive */ "../src/directives/ShakeOn.directive.ts");
+var FxOn_directive_1 = __webpack_require__(/*! ./directives/FxOn.directive */ "../src/directives/FxOn.directive.ts");
 var FocusOn_directive_1 = __webpack_require__(/*! ./directives/FocusOn.directive */ "../src/directives/FocusOn.directive.ts");
 var Init_directive_1 = __webpack_require__(/*! ./directives/Init.directive */ "../src/directives/Init.directive.ts");
 var SelectOn_directive_1 = __webpack_require__(/*! ./directives/SelectOn.directive */ "../src/directives/SelectOn.directive.ts");
@@ -2252,6 +2326,7 @@ exports.declarations = [
     HtmlWidthModel_directive_1.HtmlWidthModel,
     HtmlHeightModel_directive_1.HtmlHeightModel,
     ShakeOn_directive_1.ShakeOn,
+    FxOn_directive_1.FxOn,
     StatusOnlineModel_directive_1.StatusOnlineModel,
     StatusOfflineModel_directive_1.StatusOfflineModel,
     ElementSizeModel_directive_1.ElementSizeModel,
@@ -2355,7 +2430,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 var AckAggregate_directive_1 = __webpack_require__(/*! ./AckAggregate.directive */ "../src/directives/AckAggregate.directive.ts");
 var AckArray = /** @class */ (function () {
-    function AckArray() {
+    function AckArray(_iterableDiffers) {
+        this._iterableDiffers = _iterableDiffers;
         this.pushed = {};
         this.inSort = false;
         this.sortArray = [];
@@ -2370,6 +2446,8 @@ var AckArray = /** @class */ (function () {
         this.loopStart = new core_1.EventEmitter();
         this.loopEach = new core_1.EventEmitter();
         this.loopEnd = new core_1.EventEmitter();
+        //watch deep changes
+        this.iterableDiffer = this._iterableDiffers.find([]).create(null);
     }
     AckArray.prototype.ngOnInit = function () {
         var _this = this;
@@ -2393,6 +2471,16 @@ var AckArray = /** @class */ (function () {
         }
         this.inited = true;
         setTimeout(function () { return _this.loop(); }, 0);
+    };
+    //watch array deep changes
+    AckArray.prototype.ngDoCheck = function () {
+        var _this = this;
+        if (!this.inited)
+            return;
+        var changes = this.iterableDiffer.diff(this.array);
+        if (changes) {
+            setTimeout(function () { return _this.loop(); }, 0);
+        }
     };
     AckArray.prototype.ngOnChanges = function (changes) {
         var _this = this;
@@ -2437,8 +2525,9 @@ var AckArray = /** @class */ (function () {
         return item;
     };
     AckArray.prototype.loop = function () {
-        if (!this.array)
-            return;
+        if (!this.array) {
+            this.array = [];
+        }
         this.loopStart.emit();
         var last = this.array.length;
         for (var x = 0; x < last; ++x) {
@@ -2466,10 +2555,10 @@ var AckArray = /** @class */ (function () {
         this.pushed.createPages = true;
         var pos = 0;
         var last = 0;
-        this.pageChange.emit(this.page = 0);
         this.loopStart.subscribe(function () {
             pos = 0;
             last = _this.array.length;
+            _this.pageChange.emit(_this.page = 0);
             _this.pages = _this.pages || [];
             _this.pages.length = 0; //dont break binding if pages remembered
             _this.pages.push([]);
@@ -2507,7 +2596,8 @@ var AckArray = /** @class */ (function () {
     AckArray.prototype.selected = function (item) {
         return this.itemIndex(item) >= 0 ? true : false;
     };
-    AckArray.prototype.itemIndex = function (item, itemIndexName) {
+    AckArray.prototype.itemIndex = function (item, //item to look for
+    itemIndexName) {
         var array = this.getCompareArray();
         var itemId = this.getItemId(item, itemIndexName);
         for (var x = array.length - 1; x >= 0; --x) {
@@ -2573,8 +2663,16 @@ var AckArray = /** @class */ (function () {
         if (arrayKey.constructor != Array) {
             arrayKey = [arrayKey];
         }
-        var numberSort = !isNaN(sortType) && sortType === "int";
-        if (!numberSort) {
+        var numberSort = !isNaN(sortType) || ["int", "number"].indexOf(sortType) >= 0;
+        if (numberSort) {
+            if (asc) {
+                this.array.sort(function (a, b) { return Number(toKey(a)) - Number(toKey(b)); });
+            }
+            else {
+                this.array.sort(function (b, a) { return Number(toKey(a)) - Number(toKey(b)); });
+            }
+        }
+        else {
             switch (sortType) {
                 case "date":
                     if (asc) {
@@ -2599,14 +2697,6 @@ var AckArray = /** @class */ (function () {
                     else {
                         this.array.sort(function (b, a) { return String(toKey(a) || "").toLowerCase() > String(toKey(b) || "").toLowerCase() ? 1 : -1; });
                     }
-            }
-        }
-        else {
-            if (asc) {
-                this.array.sort(function (a, b) { return Number(toKey(a)) - Number(toKey(b)); });
-            }
-            else {
-                this.array.sort(function (b, a) { return Number(toKey(a)) - Number(toKey(b)); });
             }
         }
         //cleanup
@@ -2645,7 +2735,7 @@ var AckArray = /** @class */ (function () {
         __metadata("design:type", Number)
     ], AckArray.prototype, "page", void 0);
     __decorate([
-        core_1.Input(),
+        core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)
     ], AckArray.prototype, "pageChange", void 0);
     __decorate([
@@ -2672,7 +2762,8 @@ var AckArray = /** @class */ (function () {
         core_1.Directive({
             selector: "ack-array",
             exportAs: "AckArray"
-        })
+        }),
+        __metadata("design:paramtypes", [core_1.IterableDiffers])
     ], AckArray);
     return AckArray;
 }());
@@ -2713,9 +2804,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 var ElementSizeModel = /** @class */ (function () {
     function ElementSizeModel(element) {
-        var _this = this;
         this.element = element;
         this.elementSizeModelChange = new core_1.EventEmitter();
+    }
+    ElementSizeModel.prototype.ngAfterViewInit = function () {
+        var _this = this;
         this.onResize = function () {
             this.setModel();
         }.bind(this);
@@ -2731,9 +2824,6 @@ var ElementSizeModel = /** @class */ (function () {
             subtree: true
         };
         this.observer.observe(this.element.nativeElement, config);
-    }
-    ElementSizeModel.prototype.ngAfterViewInit = function () {
-        var _this = this;
         setTimeout(function () { return _this.setModel(); }, 800);
     };
     ElementSizeModel.prototype.ngOnChanges = function () {
@@ -2892,6 +2982,175 @@ var FocusOn = /** @class */ (function () {
     return FocusOn;
 }());
 exports.FocusOn = FocusOn;
+
+
+/***/ }),
+
+/***/ "../src/directives/FxOn.directive.ts":
+/*!*******************************************!*\
+  !*** ../src/directives/FxOn.directive.ts ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+/**
+  Applies css class when condition returns a truthy value. Allows timed removal
+  Html inline elms cannot be animated. They will be upgraded to display inline-block
+*/
+var FxOn = /** @class */ (function () {
+    function FxOn(element) {
+        this.element = element;
+        this.fxThen = new core_1.EventEmitter();
+        //an array to be used in #FxOn refs for fx selectable options (see examples)
+        this.fxTypes = [
+            "bounce", "flash", "pulse", "rubberBand", "shake", "swing", "tada", "wobble", "jello",
+            "bounceIn", "bounceInDown", "bounceInLeft", "bounceInRight", "bounceInUp"
+        ];
+    }
+    FxOn.prototype.ngOnInit = function () {
+        var _this = this;
+        setTimeout(function () { return _this.update(); }, 0);
+    };
+    FxOn.prototype.update = function () {
+        if (this.fxOn) {
+            this.onTrue();
+        }
+        else {
+            this.onFalse();
+        }
+    };
+    FxOn.prototype.ngOnChanges = function (changes) {
+        if (changes.fxOn && changes.fxOn.currentValue != null && changes.fxOn.currentValue != changes.fxOn.previousValue) {
+            this.update();
+        }
+        if (changes.fxClass && changes.fxClass.currentValue != changes.fxClass.previousValue) {
+            if (this.fxOn) {
+                removeClass(this.element.nativeElement, changes.fxClass.previousValue);
+                this.applyType();
+            }
+            else {
+                this.removeType();
+            }
+        }
+    };
+    FxOn.prototype.onFalse = function () {
+        this.removeType();
+        if (this.timeout) {
+            clearTimeout(this.timeout);
+            this.timeout = null;
+        }
+    };
+    FxOn.prototype.removeType = function () {
+        var elm = this.element.nativeElement;
+        removeClass(elm, this.fxClass);
+        if (this.inlineTreated) {
+            elm.style.display = 'inline';
+            this.inlineTreated = false;
+        }
+    };
+    FxOn.prototype.applyType = function () {
+        var elm = this.element.nativeElement;
+        if (elm.style && elm.style.display === 'inline' || getElementDefaultDisplay(elm) === 'inline') {
+            this.inlineTreated = true;
+            elm.style.display = 'inline-block';
+        }
+        addClass(elm, this.fxClass);
+    };
+    FxOn.prototype.onTrue = function () {
+        var _this = this;
+        this.applyType();
+        if (this.fxForMs) {
+            this.timeout = setTimeout(function () {
+                _this.onFalse();
+                _this.fxThen.emit();
+            }, this.fxForMs);
+        }
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], FxOn.prototype, "fxOn", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], FxOn.prototype, "fxClass", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], FxOn.prototype, "fxForMs", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], FxOn.prototype, "fxThen", void 0);
+    FxOn = __decorate([
+        core_1.Directive({
+            selector: "[fxOn]",
+            exportAs: "FxOn"
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], FxOn);
+    return FxOn;
+}());
+exports.FxOn = FxOn;
+function hasClass(el, className) {
+    var names = className.split(" ");
+    for (var x = names.length - 1; x >= 0; --x) {
+        if (el.classList) {
+            if (el.classList.contains(names[x])) {
+                continue;
+            }
+        }
+        else {
+            if (el.className.match(new RegExp('(\\s|^)' + names[x] + '(\\s|$)'))) {
+                continue;
+            }
+        }
+        return false;
+    }
+    return true;
+}
+exports.hasClass = hasClass;
+function addClass(el, className) {
+    className.split(' ').forEach(function (className) {
+        if (el.classList) {
+            el.classList.add(className);
+        }
+        else if (!hasClass(el, className)) {
+            el.className += " " + className;
+        }
+    });
+}
+exports.addClass = addClass;
+function removeClass(el, className) {
+    className.split(' ').forEach(function (className) {
+        if (el.classList) {
+            el.classList.remove(className);
+        }
+        else if (hasClass(el, className)) {
+            var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
+            el.className = el.className.replace(reg, ' ');
+        }
+    });
+}
+exports.removeClass = removeClass;
+function getElementDefaultDisplay(tag) {
+    var cStyle, t = tag, gcs = "getComputedStyle" in window;
+    cStyle = (gcs ? window.getComputedStyle(t, "") : t.currentStyle).display;
+    return cStyle;
+}
 
 
 /***/ }),
@@ -3660,6 +3919,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var FxOn_directive_1 = __webpack_require__(/*! ./FxOn.directive */ "../src/directives/FxOn.directive.ts");
 var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 /** runs shake instructions when condition returns a truthy value */
 var ShakeOn = /** @class */ (function () {
@@ -3667,9 +3927,7 @@ var ShakeOn = /** @class */ (function () {
         this.element = element;
         this.shakeConstant = false;
         this.shakeThen = new core_1.EventEmitter();
-        this.shakeForMsChange = new core_1.EventEmitter();
-        this.shakeTypeChange = new core_1.EventEmitter();
-        this.shakeRefChange = new core_1.EventEmitter();
+        //an array to be used in #ShakeOn refs for fx selectable options (see examples)
         this.shakeTypes = [
             'shake-slow', 'shake-hard', 'shake-little', 'shake-horizontal',
             'shake-vertical', 'shake-rotate', 'shake-opacity', 'shake-crazy',
@@ -3682,11 +3940,7 @@ var ShakeOn = /** @class */ (function () {
     };
     ShakeOn.prototype.update = function () {
         this.shakeForMs = this.shakeForMs || 2000;
-        this.shakeRef = this;
         this.shakeType = this.shakeType || 'shake-slow';
-        this.shakeRefChange.emit(this.shakeRef);
-        this.shakeTypeChange.emit(this.shakeType);
-        this.shakeForMsChange.emit(this.shakeForMs);
     };
     ShakeOn.prototype.ngOnChanges = function (changes) {
         if (changes.shakeOn && changes.shakeOn.currentValue != null && changes.shakeOn.currentValue != changes.shakeOn.previousValue) {
@@ -3699,7 +3953,7 @@ var ShakeOn = /** @class */ (function () {
         }
         if (changes.shakeType && changes.shakeType.currentValue != changes.shakeType.previousValue) {
             if (this.shakeOn) {
-                removeClass(this.element.nativeElement, changes.shakeType.previousValue);
+                FxOn_directive_1.removeClass(this.element.nativeElement, changes.shakeType.previousValue);
                 this.applyType();
             }
             else {
@@ -3708,7 +3962,7 @@ var ShakeOn = /** @class */ (function () {
         }
     };
     ShakeOn.prototype.onFalse = function () {
-        removeClass(this.element.nativeElement, 'shake-constant');
+        FxOn_directive_1.removeClass(this.element.nativeElement, 'shake-constant');
         this.removeType();
         if (this.timeout) {
             clearTimeout(this.timeout);
@@ -3716,14 +3970,14 @@ var ShakeOn = /** @class */ (function () {
         }
     };
     ShakeOn.prototype.removeType = function () {
-        removeClass(this.element.nativeElement, this.shakeType || 'shake-slow');
+        FxOn_directive_1.removeClass(this.element.nativeElement, this.shakeType || 'shake-slow');
     };
     ShakeOn.prototype.applyType = function () {
-        addClass(this.element.nativeElement, this.shakeType || 'shake-slow');
+        FxOn_directive_1.addClass(this.element.nativeElement, this.shakeType || 'shake-slow');
     };
     ShakeOn.prototype.onTrue = function () {
         var _this = this;
-        addClass(this.element.nativeElement, 'shake-constant');
+        FxOn_directive_1.addClass(this.element.nativeElement, 'shake-constant');
         this.applyType();
         if (!this.shakeConstant) {
             this.timeout = setTimeout(function () {
@@ -3742,17 +3996,9 @@ var ShakeOn = /** @class */ (function () {
         __metadata("design:type", Object)
     ], ShakeOn.prototype, "shakeOn", void 0);
     __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
-    ], ShakeOn.prototype, "shakeThen", void 0);
-    __decorate([
         core_1.Input(),
         __metadata("design:type", Object)
     ], ShakeOn.prototype, "shakeForMs", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
-    ], ShakeOn.prototype, "shakeForMsChange", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Object)
@@ -3760,48 +4006,17 @@ var ShakeOn = /** @class */ (function () {
     __decorate([
         core_1.Output(),
         __metadata("design:type", Object)
-    ], ShakeOn.prototype, "shakeTypeChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], ShakeOn.prototype, "shakeRef", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
-    ], ShakeOn.prototype, "shakeRefChange", void 0);
+    ], ShakeOn.prototype, "shakeThen", void 0);
     ShakeOn = __decorate([
         core_1.Directive({
-            selector: '[shakeOn]'
+            selector: "[shakeOn]",
+            exportAs: "ShakeOn"
         }),
         __metadata("design:paramtypes", [core_1.ElementRef])
     ], ShakeOn);
     return ShakeOn;
 }());
 exports.ShakeOn = ShakeOn;
-function hasClass(el, className) {
-    if (el.classList)
-        return el.classList.contains(className);
-    else
-        return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'));
-}
-exports.hasClass = hasClass;
-function addClass(el, className) {
-    if (el.classList) {
-        el.classList.add(className);
-    }
-    else if (!hasClass(el, className))
-        el.className += " " + className;
-}
-exports.addClass = addClass;
-function removeClass(el, className) {
-    if (el.classList)
-        el.classList.remove(className);
-    else if (hasClass(el, className)) {
-        var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
-        el.className = el.className.replace(reg, ' ');
-    }
-}
-exports.removeClass = removeClass;
 
 
 /***/ }),
@@ -5986,6 +6201,7 @@ var components_examples_pug_1 = __webpack_require__(/*! ./templates/components-e
 var ComponentsExamples = /** @class */ (function () {
     function ComponentsExamples(PageScrollService) {
         this.PageScrollService = PageScrollService;
+        this.fxClass = "bounce";
         this.initArray = [{ value: 0 }, { value: 1 }, { value: 2 }];
         this.views = {};
         this.screenScrollCount = 0;
@@ -6945,7 +7161,19 @@ exports.string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"margin-
     "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.selectOn\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[selectOn]</h3><div class=\"text-grey-2x max-width-400\">element select on demand</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.selectOn=!views.selectOn\" [ngClass]=\"views.selectOn?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.selectOn\" [@fadeInUp]=\"1\"><div class=\"pad text-center flex-wrap child-margin-xxs\"><div><button class=\"text-lg\" (click)=\"selectOn=1\">select input</button></div><div class=\"flex-1\"><input class=\"width-full text-lg\" [selectOn]=\"selectOn\" (selectThen)=\"selectOn=0\" [selectOnDelay]=\"selectOnDelay\" placeholder=\"select target\" value=\"test to select\"/></div><div><input class=\"text-lg width-100\" type=\"number\" [(ngModel)]=\"selectOnDelay\" placeholder=\"delay\"/>ms</div></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;button (click)=\"selectOn=1\"&gt; select input &lt;/button&gt;" +
     "\n&lt;input [selectOn]=\"selectOn\" (selectThen)=\"selectOn=0\" [selectOnDelay]=\"selectOnDelay\" placeholder=\"select target\" value=\"test to select\" /&gt;" +
     "\n&lt;input type=\"number\" [(ngModel)]=\"selectOnDelay\" placeholder=\"delay\" /&gt;" +
-    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.shakeOn\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[shakeOn]</h3><div class=\"text-grey-2x max-width-400\">Control an animated shaking effect on demand</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.shakeOn=!views.shakeOn\" [ngClass]=\"views.shakeOn?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.shakeOn\" [@fadeInUp]=\"1\"><div class=\"pad\"><div class=\"pad-xs bg-warning border-warning text-warning border\">You will need to &lt;link&gt; one of two style sheets:<ul><li>ack-angular/ack-angular.css</li><li>- or -</li><li>ack-angular/csshake.css</li></ul></div></div><h4 class=\"pad-h-sm margin-0\">Example</h4><div class=\"flex-wrap child-pad-h-xs pad-h\"><div><label class=\"block\">&nbsp;</label><label [shakeOn]=\"shakeOn\" (shakeThen)=\"shakeOn=false\" [(shakeRef)]=\"shakeRef\" [(shakeForMs)]=\"shakeForMs\" [(shakeType)]=\"shakeOnType\" [(shakeConstant)]=\"shakeConstant\">shake this text</label></div><div class=\"width-100\"><label>&nbsp;</label><button class=\"width-full\" (click)=\"shakeOn=!shakeOn\">shake:{{shakeOn||false}}</button></div><div><label>&nbsp;</label><a class=\"pad-h border border-positive text-positive block text-center hover-bg-positive hover-text-white\" (mouseover)=\"shakeOn=true\" (mouseout)=\"shakeOn=false\">hover me</a></div><div><label>shakeType</label><select class=\"width-full\" [(ngModel)]=\"shakeOnType\" (change)=\"shakeOn=true\"><option *ngFor=\"let item of (shakeRef?shakeRef.shakeTypes:[])\" value=\"{{item}}\">{{item}}</option></select></div><div><label>&nbsp;</label><div><input type=\"checkbox\" id=\"shakeConstant\" [(ngModel)]=\"shakeConstant\" (change)=\"shakeOn=$event.target.checked\"/>&nbsp;<label for=\"shakeConstant\">shakeConstant</label></div></div><div><label>shakeForMs</label><div><input class=\"width-100\" [(ngModel)]=\"shakeForMs\" (change)=\"shakeOn=true\"/></div></div></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;label [shakeOn]=\"shakeOn\" (shakeThen)=\"shakeOn=false\" [(shakeRef)]=\"shakeRef\" [(shakeForMs)]=\"shakeForMs\" [(shakeType)]=\"shakeOnType\"&gt;" +
+    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.fxOn\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[fxOn]</h3><div class=\"text-grey-2x max-width-400\">Control css classes for periods of time</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.fxOn=!views.fxOn\" [ngClass]=\"views.fxOn ? 'border-energized bg-energized' : 'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.fxOn\" [@fadeInUp]=\"1\"><div class=\"pad\"><div class=\"pad-xs bg-warning border-warning text-warning border\">You will need to &lt;link&gt; one of two style sheets:<ul><li>ack-angular/ack-angular.css</li><li>- or -</li><li><a href=\"https://github.com/daneden/animate.css\">animate.css</a></li></ul></div></div><h4 class=\"pad-h-sm margin-0\">Example</h4><div class=\"flex-wrap child-pad-h-xs pad-h\"><div><label class=\"block\">&nbsp;</label><label #fxRef=\"FxOn\" [fxOn]=\"fxOn\" (fxThen)=\"fxOn=false\" [fxForMs]=\"fxForMs\" [fxClass]=\"'animated ' + fxClass\">animate this text</label></div><div class=\"width-100\"><label>&nbsp;</label><button class=\"width-full\" (click)=\"fxOn=!fxOn\">fx:{{ fxOn || false }}</button></div><div><label>&nbsp;</label><a class=\"pad-h border border-positive text-positive block text-center hover-bg-positive hover-text-white\" (mouseover)=\"fxOn=true\" (mouseout)=\"fxOn=false\">hover me</a></div><div><label>fxType</label><select class=\"width-full\" [(ngModel)]=\"fxClass\" (change)=\"fxOn=true\"><option *ngFor=\"let item of (fxRef?fxRef.fxTypes:[])\" value=\"{{item}}\">{{item}}</option></select></div><div><label>&nbsp;</label><div><input type=\"checkbox\" id=\"fxConstant\" [(ngModel)]=\"fxConstant\" (change)=\"fxOn=$event.target.checked\"/>&nbsp;<label for=\"fxConstant\">fxConstant</label></div></div><div><label>fxForMs</label><div><input class=\"width-100\" [(ngModel)]=\"fxForMs\" (change)=\"fxOn=true\"/></div></div></div><strong>fxClass = \"animated {{fxClass}}\"</strong><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;label [fxOn]=\"fxOn\" (fxThen)=\"fxOn=false\" #fxRef=\"FxOn\" [(fxForMs)]=\"fxForMs\" [(fxType)]=\"fxClass\"&gt;" +
+    "\n  animate this text :: {{ fxOn || false }}" +
+    "\n&lt;/label&gt;" +
+    "\n&lt;button (click)=\"fxOn=true\"&gt; fx:{{fxOn||false}} &lt;/button&gt;" +
+    "\n&lt;a (mouseover)=\"fxOn=true\" (mouseout)=\"fxOn=false\"&gt;" +
+    "\n  hover me" +
+    "\n&lt;/a&gt;" +
+    "\n&lt;select [(ngModel)]=\"fxClass\" (change)=\"fxOn=true\"&gt;" +
+    "\n  &lt;option *ngFor=\"let item of (fxRef?fxRef.fxTypes:[])\" value=\"{{item}}\"&gt;{{item}}&lt;/option&gt;" +
+    "\n&lt;/select&gt;" +
+    "\n&lt;input type=\"checkbox\" id=\"fxConstant\" [(ngModel)]=\"fxConstant\" (change)=\"fxOn=$event.target.checked\" /&gt;" +
+    "\n&lt;input [(ngModel)]=\"fxForMs\" (change)=\"fxOn=true\" /&gt;" +
+    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.shakeOn\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[shakeOn]</h3><div class=\"text-grey-2x max-width-400\">Control an animated shaking effect on demand</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.shakeOn=!views.shakeOn\" [ngClass]=\"views.shakeOn?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.shakeOn\" [@fadeInUp]=\"1\"><div class=\"pad\"><div class=\"pad-xs bg-warning border-warning text-warning border\">You will need to &lt;link&gt; one of two style sheets:<ul><li>ack-angular/ack-angular.css</li><li>- or -</li><li>ack-angular/csshake.css</li></ul></div></div><h4 class=\"pad-h-sm margin-0\">Example</h4><div class=\"flex-wrap child-pad-h-xs pad-h\"><div><label class=\"block\">&nbsp;</label><label #shakeRef=\"ShakeOn\" [shakeOn]=\"shakeOn\" (shakeThen)=\"shakeOn=false\" [shakeForMs]=\"shakeForMs\" [shakeType]=\"shakeOnType\" [shakeConstant]=\"shakeConstant\">shake this text</label></div><div class=\"width-100\"><label>&nbsp;</label><button class=\"width-full\" (click)=\"shakeOn=!shakeOn\">shake:{{shakeOn||false}}</button></div><div><label>&nbsp;</label><a class=\"pad-h border border-positive text-positive block text-center hover-bg-positive hover-text-white\" (mouseover)=\"shakeOn=true\" (mouseout)=\"shakeOn=false\">hover me</a></div><div><label>shakeType</label><select class=\"width-full\" [(ngModel)]=\"shakeOnType\" (change)=\"shakeOn=true\"><option *ngFor=\"let item of (shakeRef?shakeRef.shakeTypes:[])\" value=\"{{item}}\">{{item}}</option></select></div><div><label>&nbsp;</label><div><input type=\"checkbox\" id=\"shakeConstant\" [(ngModel)]=\"shakeConstant\" (change)=\"shakeOn=$event.target.checked\"/>&nbsp;<label for=\"shakeConstant\">shakeConstant</label></div></div><div><label>shakeForMs</label><div><input class=\"width-100\" [(ngModel)]=\"shakeForMs\" (change)=\"shakeOn=true\"/></div></div></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;label [shakeOn]=\"shakeOn\" (shakeThen)=\"shakeOn=false\" #shakeRef=\"ShakeOn\" [(shakeForMs)]=\"shakeForMs\" [(shakeType)]=\"shakeOnType\"&gt;" +
     "\n  shake this text :: {{ shakeOn||false }}" +
     "\n&lt;/label&gt;" +
     "\n&lt;button (click)=\"shakeOn=true\"&gt; shake:{{shakeOn||false}} &lt;/button&gt;" +
@@ -6957,7 +7185,7 @@ exports.string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"margin-
     "\n&lt;/select&gt;" +
     "\n&lt;input type=\"checkbox\" id=\"shakeConstant\" [(ngModel)]=\"shakeConstant\" (change)=\"shakeOn=$event.target.checked\" /&gt;" +
     "\n&lt;input [(ngModel)]=\"shakeForMs\" (change)=\"shakeOn=true\" /&gt;" +
-    "\n</pre></absolute-overflow-x></div></div></div><br/><h3 class=\"margin-bottom-0\" id=\"TwoWayBinds\">Two Way Binds</h3><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1\" [class.width-full]=\"views.statusOnlineModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(statusOnlineModel)]=\"statusOnlineModel\"></div><div class=\"pad-h\"><h3>[(statusOnlineModel)]</h3><div class=\"text-grey-2x max-width-400\">Get browser internet status. <strong>IS ONLINE</strong> :<div class=\"inline-block width-50\">&nbsp;{{ statusOnlineModel }}</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.statusOnlineModel=!views.statusOnlineModel\" [ngClass]=\"views.statusOnlineModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.statusOnlineModel\" [@fadeInUp]=\"1\"><div class=\"pad\"><div class=\"pad bg-warning border-warning border text-warning\">Completely turn off your internet and the online status will change.<br/>A delay is expected during transition from offline to online</div></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div(\"[(statusOnlineModel)]\"=\"statusOnlineModel\")&gt;" +
+    "\n</pre></absolute-overflow-x></div></div></div><br/><h3 class=\"margin-bottom-0\" id=\"TwoWayBinds\">Two Way Binds</h3><div class=\"flex-wrap child-margin-xxs\"> <div class=\"flex-1\" [class.width-full]=\"views.statusOnlineModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(statusOnlineModel)]=\"statusOnlineModel\"></div><div class=\"pad-h\"><h3>[(statusOnlineModel)]</h3><div class=\"text-grey-2x max-width-400\">Get browser internet status. <strong>IS ONLINE</strong> :<div class=\"inline-block width-50\">&nbsp;{{ statusOnlineModel }}</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.statusOnlineModel=!views.statusOnlineModel\" [ngClass]=\"views.statusOnlineModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.statusOnlineModel\" [@fadeInUp]=\"1\"><div class=\"pad\"><div class=\"pad bg-warning border-warning border text-warning\">Completely turn off your internet and the online status will change.<br/>A delay is expected during transition from offline to online</div></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div(\"[(statusOnlineModel)]\"=\"statusOnlineModel\")&gt;" +
     "\n  |statusOnlineModel : {{ statusOnlineModel ? 'online' : 'offline'}}" +
     "\n&lt;/div&gt;" +
     "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.statusOfflineModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(statusOfflineModel)]=\"statusOfflineModel\"></div><div class=\"pad-h\"><h3>[(statusOfflineModel)]</h3><div class=\"text-grey-2x max-width-400\">Get browser internet status. <strong>IS OFFLINE</strong> :<div class=\"inline-block width-50\">&nbsp;{{ statusOfflineModel }}</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.statusOfflineModel=!views.statusOfflineModel\" [ngClass]=\"views.statusOfflineModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.statusOfflineModel\" [@fadeInUp]=\"1\"><div class=\"pad\"><div class=\"pad bg-warning border-warning border text-warning\"></div>Completely turn off your internet and the offline status will change<br/>A delay is expected during transition from offline to online</div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div(\"[(statusOfflineModel)]\"=\"statusOfflineModel\")&gt;" +
@@ -6981,7 +7209,14 @@ exports.string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"margin-
     "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.screenHeightModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(screenHeightModel)]=\"screenHeightModel\"></div><div class=\"pad-h\"><h3>[(screenHeightModel)]</h3><div class=\"text-grey-2x max-width-400\">Get the browser window inner height. Currently : {{screenHeightModel}}px</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"viewScreenHeightModel=!viewScreenHeightModel\" [ngClass]=\"viewScreenHeightModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"viewScreenHeightModel\" [@fadeInUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(screenHeightModel)]=\"screenHeightModel\"&gt;" +
     "\n&nbsp;&nbsp;screenHeightModel : {{ screenHeightModel }}px" +
     "\n&lt;/div&gt;" +
-    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.elementSizeModel\" [(elementSizeModel)]=\"elementSizeModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[(elementSizeModel)]</h3><div class=\"text-grey-2x max-width-400\">Get an elements size. Currently : {{ elementSizeModel?.width }}x{{elementSizeModel?.height }}</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.elementSizeModel=!views.elementSizeModel\" [ngClass]=\"views.elementSizeModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.elementSizeModel\" [@fadeInUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(elementSizeModel)]=\"elementSizeModel\"&gt;" +
+    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.innerHtmlModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[(innerHtmlModel)]</h3><div class=\"text-grey-2x max-width-400\">Capture an elements innerHTML into a model</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.innerHtmlModel=!views.innerHtmlModel\" [ngClass]=\"views.innerHtmlModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.innerHtmlModel\" [@fadeInUp]=\"1\"><h4 class=\"pad-sm margin-0\">Example</h4><div [(innerHtmlModel)]=\"innerHtmlModel\"><button (click)=\"contentArray.push('')\">add content</button><span *ngFor=\"let item of contentArray\">&#10;<button (click)=\"contentArray.push('')\">add content</button></span></div><absolute-overflow-x><pre class=\"code-sample margin-0\">{{ innerHtmlModel }}</pre></absolute-overflow-x><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;span&gt; Enter Count : {{preventEnterCount || 0}} &lt;/span&gt;" +
+    "\n&lt;input type=\"text\" (enterKey)=\"preventEnterCount=preventEnterCount==null?1:preventEnterCount+1\" placeholder=\"type here and use enter key\" /&gt;" +
+    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.absoluteOverflowX\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>absolute-overflow-x</h3><div class=\"text-grey-2x max-width-400\">Control pre and nowrap elements x-axis overflow</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.absoluteOverflowX=!views.absoluteOverflowX\" [ngClass]=\"views.absoluteOverflowX?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.absoluteOverflowX\" [@fadeInUp]=\"1\"><div class=\"pad\"><div class=\"pad bg-info text-info text-info\">Often, pre elements and nowrap styles, make it hard to contronl x-axis overflow.<p>The following component, uses a relative and a absolute position elements along with height monitoring to manage x-axis overflow.</p><p>A no-sroll-bar option is defaulted to remove overflow scroll bars.</p></div></div><h4 class=\"pad-sm margin-0\">Bindings</h4><li>[scrollBars]</li><li>[wrapClass]</li><li>[active] = true</li><li>[overflow]:'auto'|'none'|'hidden'|'scroll' = 'auto'</li><h4 class=\"pad-sm margin-0\">Example</h4><div class=\"pad\"><absolute-overflow-x [active]=\"absoluteOverflowXActive\"><div class=\"nowrap\">&nbsp;&nbsp;This content all runs on one line flat out for as long as I can stand to stand typing at a Veridesk in Delray Beach, FL. Not that long it turns out...</div></absolute-overflow-x><label for=\"absoluteOverflowXActive\"><input type=\"checkbox\" [(ngModel)]=\"absoluteOverflowXActive\" id=\"absoluteOverflowXActive\"/>&nbsp;&nbsp;Overflow On/Off \"active\" Toggle</label><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;absolute-overflow-x&gt;" +
+    "\n&nbsp;&nbsp;&lt;div style=\"white-space:nowrap;\"&gt;" +
+    "\n&nbsp;&nbsp;&nbsp;&nbsp;This content all runs on one line flat out for as long as I can stand to stand typing at a Veridesk in Delray Beach, FL. Not that long it turns out..." +
+    "\n&nbsp;&nbsp;&lt;/div&gt;" +
+    "\n&lt;/absolute-overflow-x&gt;" +
+    "\n</pre></absolute-overflow-x></div></div></div><div class=\"flex-1\" [class.width-full]=\"views.elementSizeModel\" [(elementSizeModel)]=\"elementSizeModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[(elementSizeModel)]</h3><div class=\"text-grey-2x max-width-400\">Get an elements size. Currently : {{ elementSizeModel?.width }}x{{elementSizeModel?.height }}</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.elementSizeModel=!views.elementSizeModel\" [ngClass]=\"views.elementSizeModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.elementSizeModel\" [@fadeInUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(elementSizeModel)]=\"elementSizeModel\"&gt;" +
     "\n&nbsp;&nbsp;elementSizeModel : {{ elementSizeModel?.width }}x{{ elementSizeModel?.height }}" +
     "\n&lt;/div&gt;" +
     "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.elementHeightModel\" [(elementHeightModel)]=\"elementHeightModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[(elementHeightModel)]</h3><div class=\"text-grey-2x max-width-400\">Get an elements height. Currently : {{elementHeightModel}}px</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.elementHeightModel=!views.elementHeightModel\" [ngClass]=\"views.elementHeightModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.elementHeightModel\" [@fadeInUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(elementHeightModel)]=\"elementHeightModel\"&gt;" +
@@ -6990,14 +7225,7 @@ exports.string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"margin-
     "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.elementWidthModel\" [(elementWidthModel)]=\"elementWidthModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[(elementWidthModel)]</h3><div class=\"text-grey-2x max-width-400\">Get an elements width. Currently : {{elementWidthModel}}px</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.elementWidthModel=!views.elementWidthModel\" [ngClass]=\"views.elementWidthModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.elementWidthModel\" [@fadeInUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(elementWidthModel)]=\"elementWidthModel\"&gt;" +
     "\n&nbsp;&nbsp;elementWidthModel : {{ elementWidthModel }}px" +
     "\n&lt;/div&gt;" +
-    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.innerHtmlModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[(innerHtmlModel)]</h3><div class=\"text-grey-2x max-width-400\">Capture an elements innerHTML into a model</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.innerHtmlModel=!views.innerHtmlModel\" [ngClass]=\"views.innerHtmlModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.innerHtmlModel\" [@fadeInUp]=\"1\"><h4 class=\"pad-sm margin-0\">Example</h4><div [(innerHtmlModel)]=\"innerHtmlModel\"><button (click)=\"contentArray.push('')\">add content</button><span *ngFor=\"let item of contentArray\">&#10;<button (click)=\"contentArray.push('')\">add content</button></span></div><absolute-overflow-x><pre class=\"code-sample margin-0\">{{ innerHtmlModel }}</pre></absolute-overflow-x><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;span&gt; Enter Count : {{preventEnterCount || 0}} &lt;/span&gt;" +
-    "\n&lt;input type=\"text\" (enterKey)=\"preventEnterCount=preventEnterCount==null?1:preventEnterCount+1\" placeholder=\"type here and use enter key\" /&gt;" +
-    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.absoluteOverflowX\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>absolute-overflow-x</h3><div class=\"text-grey-2x max-width-400\">Control pre and nowrap elements x-axis overflow</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.absoluteOverflowX=!views.absoluteOverflowX\" [ngClass]=\"views.absoluteOverflowX?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.absoluteOverflowX\" [@fadeInUp]=\"1\"><div class=\"pad\"><div class=\"pad bg-info text-info text-info\">Often, pre elements and nowrap styles, make it hard to contronl x-axis overflow.<p>The following component, uses a relative and a absolute position elements along with height monitoring to manage x-axis overflow.</p><p>A no-sroll-bar option is defaulted to remove overflow scroll bars.</p></div></div><h4 class=\"pad-sm margin-0\">Bindings</h4><li>[scrollBars]</li><li>[wrapClass]</li><li>[active] = true</li><li>[overflow]:'auto'|'none'|'hidden'|'scroll' = 'auto'</li><h4 class=\"pad-sm margin-0\">Example</h4><div class=\"pad\"><absolute-overflow-x [active]=\"absoluteOverflowXActive\"><div class=\"nowrap\">&nbsp;&nbsp;This content all runs on one line flat out for as long as I can stand to stand typing at a Veridesk in Delray Beach, FL. Not that long it turns out...</div></absolute-overflow-x><label for=\"absoluteOverflowXActive\"><input type=\"checkbox\" [(ngModel)]=\"absoluteOverflowXActive\" id=\"absoluteOverflowXActive\"/>&nbsp;&nbsp;Overflow On/Off \"active\" Toggle</label><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;absolute-overflow-x&gt;" +
-    "\n&nbsp;&nbsp;&lt;div style=\"white-space:nowrap;\"&gt;" +
-    "\n&nbsp;&nbsp;&nbsp;&nbsp;This content all runs on one line flat out for as long as I can stand to stand typing at a Veridesk in Delray Beach, FL. Not that long it turns out..." +
-    "\n&nbsp;&nbsp;&lt;/div&gt;" +
-    "\n&lt;/absolute-overflow-x&gt;" +
-    "\n</pre></absolute-overflow-x></div></div></div></div><br/><h3 class=\"margin-bottom-0\" id=\"LayoutComponents\">Layout Components</h3><div class=\"pad\"><div class=\"pad bg-warning border-warning text-warning border\">You will need to &lt;link&gt; one of two style sheets:<ul><li>ack-angular/ack-angular.css</li><li>- or -</li><li>ack-angular/ack-css-boot.css</li></ul></div></div><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1\" [class.width-full]=\"views.errorWell\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>error-well</h3><div class=\"text-grey-2x max-width-400\">a smart and simple place to display errors</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.errorWell=!views.errorWell\" [ngClass]=\"views.errorWell?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.errorWell\" [@fadeInUp]=\"1\"><h4 class=\"pad-sm margin-0\">Example</h4><div class=\"pad\"><select name=\"cssClasses\" [(ngModel)]=\"cssClasses\"><option value=\"bg-info border-info text-info\">bg-info border-info text-info</option><option value=\"bg-warning border-warning text-warning\">bg-warning border-warning text-warning</option><option value=\"bg-danger border-danger text-danger\">bg-danger border-danger text-danger</option><option value=\"bg-energized border-energized text-energized\">bg-energized border-energized text-energized</option><option value=\"bg-calm border-calm text-calm\">bg-calm border-calm text-calm</option><option value=\"bg-assertive border-assertive text-assertive\">bg-assertive border-assertive text-assertive</option><option value=\"bg-success border-success text-success\">bg-success border-success text-success</option><option value=\"bg-positive border-positive text-positive\">bg-positive border-positive text-positive</option><option value=\"bg-balanced border-balanced text-balanced\">bg-balanced border-balanced text-balanced</option><option value=\"bg-stable border-stable text-stable\">bg-stable border-stable text-stable</option><option value=\"bg-dark border-dark text-dark\">bg-dark border-dark text-dark</option><option value=\"bg-royal border-royal text-royal\">bg-royal border-royal text-royal</option></select><error-well class=\"margin\" [error]=\"error\" [cssClasses]=\"cssClasses\"></error-well><button (click)=\"causeError()\">cause error</button></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;error-well [error]=\"error\"&gt;&lt;/error-well&gt;</pre></absolute-overflow-x><h4 class=\"pad-sm margin-0\">Advanced Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;error-well [error]=\"error\" [closable]=\"1\" [allowDetails]=\"1\"&gt;&lt;/error-well&gt;" +
+    "\n</pre></absolute-overflow-x></div></div></div><br/><h3 class=\"margin-bottom-0\" id=\"LayoutComponents\">Layout Components</h3><div class=\"pad\"><div class=\"pad bg-warning border-warning text-warning border\">You will need to &lt;link&gt; one of two style sheets:<ul><li>ack-angular/ack-angular.css</li><li>- or -</li><li>ack-angular/ack-css-boot.css</li></ul></div></div><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1\" [class.width-full]=\"views.errorWell\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>error-well</h3><div class=\"text-grey-2x max-width-400\">a smart and simple place to display errors</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.errorWell=!views.errorWell\" [ngClass]=\"views.errorWell?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.errorWell\" [@fadeInUp]=\"1\"><h4 class=\"pad-sm margin-0\">Example</h4><div class=\"pad\"><select name=\"cssClasses\" [(ngModel)]=\"cssClasses\"><option value=\"bg-info border-info text-info\">bg-info border-info text-info</option><option value=\"bg-warning border-warning text-warning\">bg-warning border-warning text-warning</option><option value=\"bg-danger border-danger text-danger\">bg-danger border-danger text-danger</option><option value=\"bg-energized border-energized text-energized\">bg-energized border-energized text-energized</option><option value=\"bg-calm border-calm text-calm\">bg-calm border-calm text-calm</option><option value=\"bg-assertive border-assertive text-assertive\">bg-assertive border-assertive text-assertive</option><option value=\"bg-success border-success text-success\">bg-success border-success text-success</option><option value=\"bg-positive border-positive text-positive\">bg-positive border-positive text-positive</option><option value=\"bg-balanced border-balanced text-balanced\">bg-balanced border-balanced text-balanced</option><option value=\"bg-stable border-stable text-stable\">bg-stable border-stable text-stable</option><option value=\"bg-dark border-dark text-dark\">bg-dark border-dark text-dark</option><option value=\"bg-royal border-royal text-royal\">bg-royal border-royal text-royal</option></select><error-well class=\"margin\" [error]=\"error\" [cssClasses]=\"cssClasses\"></error-well><button (click)=\"causeError()\">cause error</button></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;error-well [error]=\"error\"&gt;&lt;/error-well&gt;</pre></absolute-overflow-x><h4 class=\"pad-sm margin-0\">Advanced Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;error-well [error]=\"error\" [closable]=\"1\" [allowDetails]=\"1\"&gt;&lt;/error-well&gt;" +
     "\n</pre></absolute-overflow-x></div></div></div><br/><h3 id=\"ComplexComponents\">Complex Components</h3><div class=\"pad-h\"><p class=\"margin-bottom-0\">Components that have additional dependencies or restrictions</p></div><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1 border border-grey-4x border\" [class.width-full]=\"views.routeReporter\"><div class=\"pad-h\"><h3>route-reporter</h3><div class=\"text-grey-2x max-width-400\">Get in tune with router states when using @angular/router</div><br/></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.routeReporter=!views.routeReporter\" [ngClass]=\"views.routeReporter?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.routeReporter\" [@fadeInUp]=\"1\"><div class=\"pad\">Bindings<table cellPadding=\"2\" cellSpacing=\"0\" border=\"0\"><tr><td>[(ref)]</td><td>Creates a reference to the RouteReporter component</td></tr><tr><td>[(state)]</td><td>Creates a reference to the current route</td></tr><tr><td>[(stateName)]</td><td>Creates a reference to the current routes designated name. Name is path if name is undefined in route config</td></tr><tr><td>[(params)]</td><td>Creates a reference to the current route's params</td></tr><tr><td>[(query)]</td><td>Creates a reference to the current route's query params</td></tr><tr><td>(beforeChange)</td><td>Expression bind called before route changes</td></tr><tr><td>(onChange)</td><td>Expression bind called when route changes</td></tr></table></div><route-reporter [(ref)]=\"routeState\" [(query)]=\"query\" [(stateName)]=\"stateName\"></route-reporter><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\"><div ngNonBindable=\"ngNonBindable\">&lt;route-reporter" +
     "\n  [(ref)]       = \"routeState\"" +
     "\n  [(query)]     = \"query\"" +
