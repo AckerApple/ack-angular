@@ -36,7 +36,8 @@ var AckSectionTemplates = (function () {
         this.pushed = true;
     };
     AckSectionTemplates.prototype.ngOnDestroy = function () {
-        this.unregister();
+        var _this = this;
+        setTimeout(function () { return _this.unregister(); }, 0);
     };
     AckSectionTemplates.prototype.unregister = function () {
         this.pushed = false;
