@@ -1,3 +1,7 @@
+ng-container(
+  "[(htmlHeightModel)]" = "htmlHeightModel"
+)
+
 //-header
 ng-container(*ngIf="header || SectionProvider.headerTemplates.length")
   div(
@@ -40,7 +44,6 @@ table(
     //-optional left body
     td(
       *ngIf="leftBody || SectionProvider.leftBodyTemplates.length"
-      "[(elementHeightModel)]" = "leftBodyHeight"
       "[style.width.px]" = "leftBodyWidth"
       valign = "top"
     )
@@ -49,7 +52,7 @@ table(
         *ngIf = "mode==='calculate'"
         style = "position:fixed;left:0;overflow:auto;"
         "[style.z-index]" = "zIndex"
-        "[style.height.px]" = "leftBodyHeight"
+        "[style.height.px]" = "htmlHeightModel - (headerHeight||0) - (footerHeight||0)"
         "[(elementWidthModel)]" = "leftBodyWidth"
         "[elementSizeModelWatch]" = "leftBody || SectionProvider.leftBodyTemplates.length"
       )
@@ -80,7 +83,6 @@ table(
     td(
       *ngIf="rightBody || SectionProvider.rightBodyTemplates.length"
       "[style.width.px]" = "rightBodyWidth"
-      "[(elementHeightModel)]" = "rightBodyHeight"
       valign = "top"
     )
       //-pos fixed rightBody
@@ -88,7 +90,7 @@ table(
         *ngIf = "mode==='calculate'"
         style = "position:fixed;right:0;overflow:auto;"
         "[style.z-index]" = "zIndex"
-        "[style.height.px]" = "rightBodyHeight"
+        "[style.height.px]" = "htmlHeightModel - (headerHeight||0) - (footerHeight||0)"
         "[(elementWidthModel)]" = "rightBodyWidth"
         "[elementSizeModelWatch]" = "rightBody || SectionProvider.rightBodyTemplates.length"
       )

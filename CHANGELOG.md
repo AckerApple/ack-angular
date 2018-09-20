@@ -4,6 +4,7 @@ All notable changes to this project will be documented here.
 ## [1.8.2] - 2018-09-20
 - ack-sections mode default is calculate
 - strict mode build
+- [(stateName)] has been removed from route-reporter
 
 ## [1.8.1] - 2018-09-20
 - ack-sections header footer height monitoring
