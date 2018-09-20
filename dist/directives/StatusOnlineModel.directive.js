@@ -6,9 +6,9 @@ var StatusOnlineModel = (function () {
         var _this = this;
         this.statusOnlineModelChange = new core_1.EventEmitter();
         this.onChange = function () {
-            this.statusOnlineModel = navigator.onLine;
-            this.statusOnlineModelChange.emit(this.statusOnlineModel);
-        }.bind(this);
+            _this.statusOnlineModel = navigator.onLine;
+            _this.statusOnlineModelChange.emit(_this.statusOnlineModel);
+        };
         window.addEventListener("online", this.onChange);
         window.addEventListener("offline", this.onChange);
         setTimeout(function () { return _this.onChange(); }, 0);

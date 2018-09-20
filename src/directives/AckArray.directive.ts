@@ -57,7 +57,8 @@ export interface loop{
     private _iterableDiffers: IterableDiffers
   ){
     //watch deep changes
-    this.iterableDiffer = this._iterableDiffers.find([]).create(null);
+    const f = this._iterableDiffers.find([])
+    this.iterableDiffer = f.create();
   }
 
   ngOnInit(){

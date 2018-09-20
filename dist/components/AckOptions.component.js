@@ -55,7 +55,7 @@ var AckOptions = (function () {
         }
         else {
             if (this.toggleable && this.model == value) {
-                this.model = null;
+                delete this.model;
             }
             else {
                 this.model = this.getArrayItemModel(item);
@@ -102,7 +102,8 @@ var AckOptions = (function () {
         while (items.length) {
             if (scope == null)
                 return null;
-            scope = scope[items.shift()];
+            var firstItem = items.shift();
+            scope = scope[firstItem];
         }
         return scope;
     };
@@ -114,7 +115,8 @@ var AckOptions = (function () {
         while (items.length) {
             if (scope == null)
                 return null;
-            scope = scope[items.shift()];
+            var firstItem = items.shift();
+            scope = scope[firstItem];
         }
         return scope;
     };

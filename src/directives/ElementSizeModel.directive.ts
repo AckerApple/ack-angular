@@ -23,9 +23,9 @@ import {
   }
 
   ngAfterViewInit(){
-    this.onResize = function(){
+    this.onResize = ()=>{
       this.setModel()
-    }.bind(this)
+    }
 
     window.addEventListener('resize', this.onResize)
     setTimeout(()=>this.setModel(), 0)

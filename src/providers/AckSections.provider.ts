@@ -1,27 +1,39 @@
 import {
-  TemplateRef, Injectable
+  TemplateRef, Injectable, ElementRef
 } from "@angular/core"
 
 @Injectable() export class SectionProvider{
   //appTemplates:AckSectionTemplates[] = []
-  headerTemplates:TemplateRef<any>[] = []
-  footerTemplates:TemplateRef<any>[] = []
+  headerTemplates:TemplateRef<ElementRef>[] = []
+  footerTemplates:TemplateRef<ElementRef>[] = []
+  
+  leftBodyTemplates:TemplateRef<ElementRef>[] = []
+  rightBodyTemplates:TemplateRef<ElementRef>[] = []
 
-  unregisterHeaderTemplate( item:TemplateRef<any> ){
-    for(let x=this.headerTemplates.length-1; x >= 0; --x){
-      if( this.headerTemplates[x]===item ){
-        this.headerTemplates.splice(x,1)
-        break
-      }
-    }
+  unregisterHeaderTemplate( item:TemplateRef<ElementRef> ){
+    this.unregisterTemplateFrom(item, this.headerTemplates)
   }
 
-  unregisterFooterTemplate( item:TemplateRef<any> ){
-    for(let x=this.footerTemplates.length-1; x >= 0; --x){
-      if( this.footerTemplates[x]===item ){
-        this.footerTemplates.splice(x,1)
+  unregisterFooterTemplate( item:TemplateRef<ElementRef> ){
+    this.unregisterTemplateFrom(item, this.footerTemplates)
+  }
+
+  unregisterTemplateFrom(
+    item:TemplateRef<ElementRef>,
+    templates:TemplateRef<ElementRef>[]
+  ){
+    for(let x=templates.length-1; x >= 0; --x){
+      if( templates[x]===item ){
+        templates.splice(x,1)
         break
       }
-    }
+    }    
+  }
+
+  unregisterTemplate( item:TemplateRef<ElementRef> ){
+    this.unregisterTemplateFrom(item, this.headerTemplates)
+    this.unregisterTemplateFrom(item, this.footerTemplates)
+    this.unregisterTemplateFrom(item, this.leftBodyTemplates)
+    this.unregisterTemplateFrom(item, this.rightBodyTemplates)
   }
 }

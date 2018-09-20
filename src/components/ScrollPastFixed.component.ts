@@ -47,9 +47,9 @@ import { string } from "./templates/scroll-past-fixed.pug"
       this.placeholder = offsetTop
       this.fillHeight = elm.offsetHeight
     }else{
-      this.fillHeight = null
+      delete this.fillHeight
       delete this.placeholder
-      this.currentPosition = null
+      delete this.currentPosition
     }
   }
 }

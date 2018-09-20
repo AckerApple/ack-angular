@@ -6,10 +6,13 @@ export declare class Stringify {
     transform(input: any, spaces: any): string;
 }
 export declare class ForceArray {
-    transform(input: any, repeat: any, repeatValue: any): any;
+    transform(input: any, repeat: any, repeatValue: any): any[];
 }
 export declare class ArrayOfObjects {
-    transform(input: any, repeat: any, repeatValue: any): any;
+    transform(input: any, repeat: any, repeatValue: any): {
+        value: any;
+        index: number;
+    }[];
 }
 export declare class SafeUrl {
     private domSanitizer;
@@ -86,4 +89,4 @@ export declare class TypeofPipe {
 export declare class ConsolePipe {
     transform(): any;
 }
-export declare const declarations: (typeof ForceArray | typeof SafeUrl | typeof SafeHtml | typeof SafeStyle)[];
+export declare const declarations: (typeof Stringify | typeof ForceArray | typeof SafeUrl | typeof SafeHtml | typeof SafeStyle | typeof Between | typeof TextDownload)[];

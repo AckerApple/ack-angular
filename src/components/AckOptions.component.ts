@@ -82,7 +82,7 @@ import { string as ackOptions } from "./templates/ack-options.pug"
       }
     }else{
       if(this.toggleable && this.model==value){
-        this.model = null
+        delete this.model
       }else{
         this.model = this.getArrayItemModel(item)
       }
@@ -118,7 +118,7 @@ import { string as ackOptions } from "./templates/ack-options.pug"
       var scope = item
       while(split.length){
         if(scope==null)return null
-        let key = split.shift()
+        let key = <string>split.shift()
         scope = scope[ key ]
       }
       return scope
@@ -133,20 +133,22 @@ import { string as ackOptions } from "./templates/ack-options.pug"
     var scope = item
     while(items.length){
       if( scope==null )return null
-      scope = scope[ items.shift() ]
+      let firstItem = <string>items.shift()
+      scope = scope[ firstItem ]
     }
 
     return scope
   }
 
-  getModelValueToArrayItem(modelValue){
+  getModelValueToArrayItem( modelValue:any ):any{
     if(!this.modelKey)return modelValue
 
-    let items = this.modelKey.split('.')
+    let items:string[] = this.modelKey.split('.')
     var scope = modelValue
-    while(items.length){
+    while( items.length ){
       if( scope==null )return null
-      scope = scope[ items.shift() ]
+      let firstItem = <string>items.shift()
+      scope = scope[ firstItem ]
     }
 
     return scope

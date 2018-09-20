@@ -283,7 +283,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
       cfgPlus
     )
 
-    return new Promise((resolve,reject)=>{
+    const promise = (resolve,reject)=>{
       let resolved = false
       this.Request.emit( request )
       
@@ -291,7 +291,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
       .subscribe(event=>{
         if (event.type === HttpEventType.Response) {
           resolved = true
-          resolve(event)
+          resolve( event )
         }
       },err=>{
         resolved=true
@@ -307,7 +307,9 @@ TimeOutError.prototype = Object.create(Error.prototype)
           reject( timeoutError )
         }, cfg.timeout)
       }
-    })
+    }
+
+    return new Promise(promise)
     .then((response:HttpResponse<HttpEvent<Event>>)=>
       this.processFetchByConfig(response,cfg)
      )

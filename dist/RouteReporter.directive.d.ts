@@ -32,8 +32,6 @@ export declare class RouteReporter {
     onLoad: any;
     ref: any;
     refChange: EventEmitter<{}>;
-    stateName: string;
-    stateNameChange: EventEmitter<string>;
     constructor(RouteWatchReporter: RouteWatchReporter, ActivatedRoute: ActivatedRoute);
     ngOnInit(): void;
     ngOnDestroy(): void;

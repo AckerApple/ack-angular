@@ -130,9 +130,9 @@ export class PreventEnterKey{
   @Output() formChanged = new EventEmitter()
 
   constructor(public element:ElementRef){
-    this.onChange = function(event){
+    this.onChange = (event)=>{
       this.formChanged.emit(event)
-    }.bind(this)
+    }
 
     element.nativeElement.addEventListener('change',this.onChange)
   }
@@ -148,12 +148,12 @@ export class PreventEnterKey{
 }) export class FormAlter{
   //-static parameters = [[ElementRef]]
   onChange:(Event)=>void
-  @Output() formAlter = new EventEmitter()
+  @Output() formAlter:EventEmitter<Event> = new EventEmitter()
 
   constructor(public element:ElementRef){
-    this.onChange = function(event){
+    this.onChange = (event:Event)=>{
       this.formAlter.emit(event)
-    }.bind(this)
+    }
 
     element.nativeElement.addEventListener('input',this.onChange)
     element.nativeElement.addEventListener('change',this.onChange)

@@ -40,7 +40,11 @@ export function numberSuffix(val, rtnVal=false){
 }
 
 /** if input is array returned otherwise array created with  */
-export function array(input, repeat?:number, repeatValue?){
+export function array(
+  input,
+  repeat?:number,
+  repeatValue?
+):any[]{
   const isArray = input!=null && input.constructor == Array
   let rtn = isArray ? input : []
   
@@ -48,9 +52,9 @@ export function array(input, repeat?:number, repeatValue?){
     rtn.push(input)
   }
 
-  if( !isNaN(Number(repeat)) ){
+  if( repeat && !isNaN(Number(repeat)) ){
     const val = typeof(repeatValue)==='undefined' ? input : repeatValue
-    while(rtn.length<repeat){
+    while( rtn.length < repeat ){
       rtn.push( val )
     }
   }

@@ -169,11 +169,12 @@ var InputHint = (function () {
 exports.InputHint = InputHint;
 var FormChanged = (function () {
     function FormChanged(element) {
+        var _this = this;
         this.element = element;
         this.formChanged = new core_1.EventEmitter();
         this.onChange = function (event) {
-            this.formChanged.emit(event);
-        }.bind(this);
+            _this.formChanged.emit(event);
+        };
         element.nativeElement.addEventListener('change', this.onChange);
     }
     FormChanged.prototype.ngOnDestroy = function () {
@@ -195,11 +196,12 @@ var FormChanged = (function () {
 exports.FormChanged = FormChanged;
 var FormAlter = (function () {
     function FormAlter(element) {
+        var _this = this;
         this.element = element;
         this.formAlter = new core_1.EventEmitter();
         this.onChange = function (event) {
-            this.formAlter.emit(event);
-        }.bind(this);
+            _this.formAlter.emit(event);
+        };
         element.nativeElement.addEventListener('input', this.onChange);
         element.nativeElement.addEventListener('change', this.onChange);
     }

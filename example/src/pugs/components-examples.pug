@@ -1470,9 +1470,6 @@ h3(id="ComplexComponents") Complex Components
             td [(state)]
             td Creates a reference to the current route
           tr
-            td [(stateName)]
-            td Creates a reference to the current routes designated name. Name is path if name is undefined in route config
-          tr
             td [(params)]
             td Creates a reference to the current route's params
           tr
@@ -1484,7 +1481,7 @@ h3(id="ComplexComponents") Complex Components
           tr
             td (onChange)
             td Expression bind called when route changes
-      route-reporter("[(ref)]"="routeState" "[(query)]"="query" "[(stateName)]"="stateName")
+      route-reporter("[(ref)]"="routeState" "[(query)]"="query")
       h4.pad-sm.margin-0 Usage Example
       absolute-overflow-x
         pre.code-sample.margin-0
@@ -1492,18 +1489,12 @@ h3(id="ComplexComponents") Complex Components
             &lt;route-reporter
               [(ref)]       = "routeState"
               [(query)]     = "query"
-              [(stateName)] = "stateName"
             &gt;&lt;/route-reporter&gt;
 
           div
             span(ngNonBindable) {{ routeState?.current.config.name }}
             span &nbsp;==&nbsp;
             span {{ routeState?.current.config.name }}
-          
-          div
-            span(ngNonBindable) {{ stateName }}
-            span &nbsp;==&nbsp;
-            span {{ stateName }}
           
           div
             span(ngNonBindable) {{ query | json }}

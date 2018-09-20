@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "strict": false,
+    "strictPropertyInitialization": false,
     "noUnusedLocals": false,
     "rootDir": ".",
     "removeComments": true,

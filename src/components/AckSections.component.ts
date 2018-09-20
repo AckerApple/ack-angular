@@ -12,26 +12,34 @@ import {
   TemplateRef,
   ViewChild,
 } from "@angular/core"
+
 import { SectionProvider } from "../providers/AckSections.provider"
 import { string } from "./templates/ack-sections.pug"
 
 @Component({
   selector:'ack-sections',
   template:string,
-  providers:[ SectionProvider ]
+  providers:[ SectionProvider ],
+  exportAs:"AckSections"
 }) export class AckSections{
-  @Input() mode:"calculate"|"clone"//default clone
+  //clone is more performant in most cases but things duplicate like requests and timers may result
+  @Input() mode:"calculate"|"clone" = "calculate"
 
   @Input() zIndex:number = 30
 
   @ContentChild("header") header:TemplateRef<any>
   @ContentChild("footer") footer:TemplateRef<any>
+  
+  @ContentChild("leftBody") leftBody:TemplateRef<any>
+  @ContentChild("rightBody") rightBody:TemplateRef<any>
 
   constructor(
     public SectionProvider:SectionProvider,
     public ElementRef:ElementRef
   ){
-    ElementRef.nativeElement.style.height='100%'
-    ElementRef.nativeElement.style.display='block'
+    const elmStyle = ElementRef.nativeElement.style
+    
+    elmStyle.height  = "100%"
+    elmStyle.display = "block"
   }
 }

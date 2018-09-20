@@ -33,9 +33,9 @@ var ScrollPastFixed = (function () {
             this.fillHeight = elm.offsetHeight;
         }
         else {
-            this.fillHeight = null;
+            delete this.fillHeight;
             delete this.placeholder;
-            this.currentPosition = null;
+            delete this.currentPosition;
         }
     };
     ScrollPastFixed.decorators = [

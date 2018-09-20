@@ -9,6 +9,8 @@ import { SectionProvider } from "../providers/AckSections.provider"
   
   @ContentChild('sectionHeader') header:TemplateRef<any>
   @ContentChild('sectionFooter') footer:TemplateRef<any>
+  @ContentChild('sectionLeftBody') leftBody:TemplateRef<any>
+  @ContentChild('sectionRightBody') rightBody:TemplateRef<any>
   
   constructor(
     public SectionProvider:SectionProvider
@@ -29,8 +31,23 @@ import { SectionProvider } from "../providers/AckSections.provider"
 
   check(){
     if( this.pushed )return
-    this.SectionProvider.headerTemplates.unshift( this.header )
-    this.SectionProvider.footerTemplates.unshift( this.footer )
+    
+    if( this.header ){
+      this.SectionProvider.headerTemplates.unshift( this.header )
+    }
+    
+    if( this.footer ){
+      this.SectionProvider.footerTemplates.unshift( this.footer )
+    }
+    
+    if( this.leftBody ){
+      this.SectionProvider.leftBodyTemplates.unshift( this.leftBody )
+    }
+    
+    if( this.rightBody ){
+      this.SectionProvider.rightBodyTemplates.unshift( this.rightBody )
+    }
+    
     this.pushed = true
   }
 
@@ -42,5 +59,7 @@ import { SectionProvider } from "../providers/AckSections.provider"
     this.pushed = false
     this.SectionProvider.unregisterHeaderTemplate( this.header )
     this.SectionProvider.unregisterFooterTemplate( this.footer )
+    this.SectionProvider.unregisterTemplate( this.leftBody )
+    this.SectionProvider.unregisterTemplate( this.rightBody )
   }
 }

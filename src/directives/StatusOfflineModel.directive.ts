@@ -12,10 +12,10 @@ export class StatusOfflineModel{
   @Output() statusOfflineModelChange = new EventEmitter()
 
   constructor(){
-    this.onChange = function(){
+    this.onChange = ()=>{
       this.statusOfflineModel = !navigator.onLine
       this.statusOfflineModelChange.emit(this.statusOfflineModel)
-    }.bind(this)
+    }
 
     window.addEventListener("offline", this.onChange)
     window.addEventListener("online", this.onChange)

@@ -14,10 +14,10 @@ import {
   @Output() screenScrollModelYChange = new EventEmitter()
   
   constructor(){
-    this.onScroll = function(){
+    this.onScroll = ()=>{
       this.screenScrollModelY = window['pageYOffset']
       this.screenScrollModelYChange.emit(this.screenScrollModelY)
-    }.bind(this)
+    }
     this.onScroll()
     window.addEventListener("scroll", this.onScroll)
   }

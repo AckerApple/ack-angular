@@ -6,6 +6,8 @@ export declare class AckSectionTemplates {
     pushed: boolean;
     header: TemplateRef<any>;
     footer: TemplateRef<any>;
+    leftBody: TemplateRef<any>;
+    rightBody: TemplateRef<any>;
     constructor(SectionProvider: SectionProvider);
     ngAfterViewInit(): void;
     ngOnChanges(changes: any): void;

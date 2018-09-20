@@ -13,9 +13,9 @@ import {
   @Output() screenScrollHeightDiffChange = new EventEmitter()
 
   constructor(){
-    this.on = function(){
+    this.on = ()=>{
       this.apply()
-    }.bind(this)
+    }
 
     window.addEventListener("scroll", this.on)
     window.addEventListener("resize", this.on)

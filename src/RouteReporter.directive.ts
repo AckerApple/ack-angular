@@ -58,10 +58,6 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
   //deprecated
   @Input() ref//variable reference
   @Output() refChange = new EventEmitter()
-
-  //deprecated
-  @Input() stateName:string//ignored in
-  @Output() stateNameChange:EventEmitter<string> = new EventEmitter()
   
   constructor(
     public RouteWatchReporter:RouteWatchReporter,
@@ -134,24 +130,26 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
     this.activated = current.ActivatedRoute
     this.activatedChange.emit( current.ActivatedRoute )
     
-    if( current.config ){
-      const name = current.config.path
-      this.stateNameChange.emit( this.stateName=name )
-    }
-
     this.paramsChange.emit( this.params=current.params )
     this.dataChange.emit( this.data=current.config.data )
-    
-    /* parent bindings */
-      this.parentRoute = current.parent.config
-      this.parentRouteChange.emit( current.parent.config )
-      
-      this.parent = current.parent.ActivatedRoute
-      this.parentChange.emit( current.parent.ActivatedRoute )
-      
-      this.parentData = current.parent.config.data
-      this.parentDataChange.emit( current.parent.config.data )
-    /* end */
+
+    const parent = current.parent
+
+    if( parent ){
+      const config = parent.config
+      const ar = parent.ActivatedRoute
+
+      /* parent bindings */
+        this.parentRoute = config
+        this.parentRouteChange.emit( config )
+        
+        this.parent = ar
+        this.parentChange.emit( ar )
+        
+        this.parentData = config.data
+        this.parentDataChange.emit( config.data )
+      /* end */
+    }
   }
 
   goBackTo(name, params){
