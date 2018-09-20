@@ -52,7 +52,7 @@ import { SectionProvider } from "../providers/AckSections.provider"
   }
 
   ngOnDestroy(){
-    this.unregister()
+    setTimeout(()=>this.unregister(), 0)
   }
 
   unregister(){

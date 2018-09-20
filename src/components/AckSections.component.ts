@@ -25,13 +25,15 @@ import { string } from "./templates/ack-sections.pug"
   //clone is more performant in most cases but things duplicate like requests and timers may result
   @Input() mode:"calculate"|"clone" = "calculate"
 
-  @Input() zIndex:number = 30
+  @Input() zIndex:number = 19
 
   @ContentChild("header") header:TemplateRef<any>
   @ContentChild("footer") footer:TemplateRef<any>
   
   @ContentChild("leftBody") leftBody:TemplateRef<any>
   @ContentChild("rightBody") rightBody:TemplateRef<any>
+
+  htmlHeightModel:number
 
   constructor(
     public SectionProvider:SectionProvider,

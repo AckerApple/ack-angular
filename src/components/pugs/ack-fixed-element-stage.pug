@@ -9,12 +9,13 @@ ng-container(*ngFor="let prompt of AckApp.prompts.prompts;let i=index")
       br
       br
       div(style="text-align:right;")
-        -btnStyle = "text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;"
+        -btnStyle = "text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;";
         a(
           *ngIf     = "prompt.type=='confirm'"
           "(click)" = "prompt.emitter.emit(false)"
           style     = btnStyle + "margin-right:.5em;"
         ) Cancel
+
         a(
           "(click)" = "prompt.emitter.emit(true)"
           style     = btnStyle

@@ -51,8 +51,8 @@ table(
       div(
         *ngIf = "mode==='calculate'"
         style = "position:fixed;left:0;overflow:auto;"
-        "[style.z-index]" = "zIndex"
-        "[style.height.px]" = "htmlHeightModel - (headerHeight||0) - (footerHeight||0)"
+        "[style.z-index]" = "zIndex - 1"
+        "[style.height.px]" = "htmlHeightModel - (header || SectionProvider.headerTemplates.length ? headerHeight : 0) - (footer || SectionProvider.footerTemplates.length ? footerHeight : 0)"
         "[(elementWidthModel)]" = "leftBodyWidth"
         "[elementSizeModelWatch]" = "leftBody || SectionProvider.leftBodyTemplates.length"
       )
@@ -63,7 +63,7 @@ table(
       div(
         *ngIf = "!mode || mode==='clone'"
         style = "position:fixed;top:0;"
-        "[style.z-index]" = "zIndex"
+        "[style.z-index]" = "zIndex - 1"
       )
         ng-template(*ngTemplateOutlet="leftBody")
         ng-container(*ngFor="let item of SectionProvider.leftBodyTemplates")
@@ -89,8 +89,8 @@ table(
       div(
         *ngIf = "mode==='calculate'"
         style = "position:fixed;right:0;overflow:auto;"
-        "[style.z-index]" = "zIndex"
-        "[style.height.px]" = "htmlHeightModel - (headerHeight||0) - (footerHeight||0)"
+        "[style.z-index]" = "zIndex - 1"
+        "[style.height.px]" = "htmlHeightModel - (header || SectionProvider.headerTemplates.length ? headerHeight : 0) - (header || SectionProvider.footerTemplates.length ? footerHeight : 0)"
         "[(elementWidthModel)]" = "rightBodyWidth"
         "[elementSizeModelWatch]" = "rightBody || SectionProvider.rightBodyTemplates.length"
       )
@@ -101,7 +101,7 @@ table(
       div(
         *ngIf = "!mode || mode==='clone'"
         style = "position:fixed;top:0;"
-        "[style.z-index]" = "zIndex"
+        "[style.z-index]" = "zIndex - 1"
       )
         ng-template(*ngTemplateOutlet="rightBody")
         ng-container(*ngFor="let item of SectionProvider.rightBodyTemplates")
