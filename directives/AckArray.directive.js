@@ -18,7 +18,8 @@ var AckArray = (function () {
         this.loopStart = new core_1.EventEmitter();
         this.loopEach = new core_1.EventEmitter();
         this.loopEnd = new core_1.EventEmitter();
-        this.iterableDiffer = this._iterableDiffers.find([]).create(null);
+        var f = this._iterableDiffers.find([]);
+        this.iterableDiffer = f.create();
     }
     AckArray.prototype.ngOnInit = function () {
         var _this = this;

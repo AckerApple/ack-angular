@@ -19,8 +19,8 @@ var ElementSizeModel = (function () {
     ElementSizeModel.prototype.ngAfterViewInit = function () {
         var _this = this;
         this.onResize = function () {
-            this.setModel();
-        }.bind(this);
+            _this.setModel();
+        };
         window.addEventListener('resize', this.onResize);
         setTimeout(function () { return _this.setModel(); }, 0);
         this.observer = new MutationObserver(function () {

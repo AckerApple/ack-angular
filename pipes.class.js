@@ -45,7 +45,7 @@ function array(input, repeat, repeatValue) {
     if (!repeat && !isArray && input != null) {
         rtn.push(input);
     }
-    if (!isNaN(Number(repeat))) {
+    if (repeat && !isNaN(Number(repeat))) {
         var val = typeof (repeatValue) === 'undefined' ? input : repeatValue;
         while (rtn.length < repeat) {
             rtn.push(val);

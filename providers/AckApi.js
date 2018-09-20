@@ -160,7 +160,7 @@ var AckApi = (function () {
             cfgPlus.headers = new http_1.HttpHeaders(cfg.headers);
         }
         var request = new http_1.HttpRequest(cfg.method, cfg.url, cfg.body, cfgPlus);
-        return new Promise(function (resolve, reject) {
+        var promise = function (resolve, reject) {
             var resolved = false;
             _this.Request.emit(request);
             var req = _this.HttpClient.request(request)
@@ -183,7 +183,8 @@ var AckApi = (function () {
                     reject(timeoutError);
                 }, cfg.timeout);
             }
-        })
+        };
+        return new Promise(promise)
             .then(function (response) {
             return _this.processFetchByConfig(response, cfg);
         })

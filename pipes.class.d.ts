@@ -2,8 +2,11 @@ export declare function between(input: any, a: any, b: any): boolean;
 export declare function numberToPhone(val: any): any;
 export declare function toNumber(val: any): number;
 export declare function numberSuffix(val: any, rtnVal?: boolean): string;
-export declare function array(input: any, repeat?: number, repeatValue?: any): any;
-export declare function arrayOfObjects(input: any, repeat?: number, repeatValue?: any): any;
+export declare function array(input: any, repeat?: number, repeatValue?: any): any[];
+export declare function arrayOfObjects(input: any, repeat?: number, repeatValue?: any): {
+    value: any;
+    index: number;
+}[];
 export declare function markdownAnchor(input: string): string;
 export declare function textDownload(input: any): any;
 export declare function yesno(input: any): any;

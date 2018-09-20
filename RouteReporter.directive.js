@@ -20,7 +20,6 @@ var RouteReporter = (function () {
         this.parentDataChange = new core_1.EventEmitter();
         this.stateChange = new core_1.EventEmitter();
         this.refChange = new core_1.EventEmitter();
-        this.stateNameChange = new core_1.EventEmitter();
         this.$document = document;
         this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
     }
@@ -73,18 +72,19 @@ var RouteReporter = (function () {
         this.stateChange.emit(current);
         this.activated = current.ActivatedRoute;
         this.activatedChange.emit(current.ActivatedRoute);
-        if (current.config) {
-            var name_1 = current.config.path;
-            this.stateNameChange.emit(this.stateName = name_1);
-        }
         this.paramsChange.emit(this.params = current.params);
         this.dataChange.emit(this.data = current.config.data);
-        this.parentRoute = current.parent.config;
-        this.parentRouteChange.emit(current.parent.config);
-        this.parent = current.parent.ActivatedRoute;
-        this.parentChange.emit(current.parent.ActivatedRoute);
-        this.parentData = current.parent.config.data;
-        this.parentDataChange.emit(current.parent.config.data);
+        var parent = current.parent;
+        if (parent) {
+            var config = parent.config;
+            var ar = parent.ActivatedRoute;
+            this.parentRoute = config;
+            this.parentRouteChange.emit(config);
+            this.parent = ar;
+            this.parentChange.emit(ar);
+            this.parentData = config.data;
+            this.parentDataChange.emit(config.data);
+        }
     };
     RouteReporter.prototype.goBackTo = function (name, params) {
         this.RouteWatchReporter.goBackTo(name, params);
@@ -127,9 +127,7 @@ var RouteReporter = (function () {
         stateChange: [{ type: core_1.Output }],
         onLoad: [{ type: core_1.Input }],
         ref: [{ type: core_1.Input }],
-        refChange: [{ type: core_1.Output }],
-        stateName: [{ type: core_1.Input }],
-        stateNameChange: [{ type: core_1.Output }]
+        refChange: [{ type: core_1.Output }]
     };
     return RouteReporter;
 }());

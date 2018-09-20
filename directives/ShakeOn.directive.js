@@ -45,7 +45,7 @@ var ShakeOn = (function () {
         this.removeType();
         if (this.timeout) {
             clearTimeout(this.timeout);
-            this.timeout = null;
+            delete this.timeout;
         }
     };
     ShakeOn.prototype.removeType = function () {

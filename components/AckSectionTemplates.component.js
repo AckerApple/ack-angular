@@ -21,8 +21,18 @@ var AckSectionTemplates = (function () {
     AckSectionTemplates.prototype.check = function () {
         if (this.pushed)
             return;
-        this.SectionProvider.headerTemplates.unshift(this.header);
-        this.SectionProvider.footerTemplates.unshift(this.footer);
+        if (this.header) {
+            this.SectionProvider.headerTemplates.unshift(this.header);
+        }
+        if (this.footer) {
+            this.SectionProvider.footerTemplates.unshift(this.footer);
+        }
+        if (this.leftBody) {
+            this.SectionProvider.leftBodyTemplates.unshift(this.leftBody);
+        }
+        if (this.rightBody) {
+            this.SectionProvider.rightBodyTemplates.unshift(this.rightBody);
+        }
         this.pushed = true;
     };
     AckSectionTemplates.prototype.ngOnDestroy = function () {
@@ -32,6 +42,8 @@ var AckSectionTemplates = (function () {
         this.pushed = false;
         this.SectionProvider.unregisterHeaderTemplate(this.header);
         this.SectionProvider.unregisterFooterTemplate(this.footer);
+        this.SectionProvider.unregisterTemplate(this.leftBody);
+        this.SectionProvider.unregisterTemplate(this.rightBody);
     };
     AckSectionTemplates.decorators = [
         { type: core_1.Directive, args: [{
@@ -43,7 +55,9 @@ var AckSectionTemplates = (function () {
     ]; };
     AckSectionTemplates.propDecorators = {
         header: [{ type: core_1.ContentChild, args: ['sectionHeader',] }],
-        footer: [{ type: core_1.ContentChild, args: ['sectionFooter',] }]
+        footer: [{ type: core_1.ContentChild, args: ['sectionFooter',] }],
+        leftBody: [{ type: core_1.ContentChild, args: ['sectionLeftBody',] }],
+        rightBody: [{ type: core_1.ContentChild, args: ['sectionRightBody',] }]
     };
     return AckSectionTemplates;
 }());

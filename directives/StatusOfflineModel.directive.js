@@ -6,9 +6,9 @@ var StatusOfflineModel = (function () {
         var _this = this;
         this.statusOfflineModelChange = new core_1.EventEmitter();
         this.onChange = function () {
-            this.statusOfflineModel = !navigator.onLine;
-            this.statusOfflineModelChange.emit(this.statusOfflineModel);
-        }.bind(this);
+            _this.statusOfflineModel = !navigator.onLine;
+            _this.statusOfflineModelChange.emit(_this.statusOfflineModel);
+        };
         window.addEventListener("offline", this.onChange);
         window.addEventListener("online", this.onChange);
         setTimeout(function () { return _this.onChange(); }, 0);

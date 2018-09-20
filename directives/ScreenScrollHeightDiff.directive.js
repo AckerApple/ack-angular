@@ -3,10 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ScreenScrollHeightDiff = (function () {
     function ScreenScrollHeightDiff() {
+        var _this = this;
         this.screenScrollHeightDiffChange = new core_1.EventEmitter();
         this.on = function () {
-            this.apply();
-        }.bind(this);
+            _this.apply();
+        };
         window.addEventListener("scroll", this.on);
         window.addEventListener("resize", this.on);
     }

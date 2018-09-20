@@ -40,7 +40,7 @@ var FxOn = (function () {
         this.removeType();
         if (this.timeout) {
             clearTimeout(this.timeout);
-            this.timeout = null;
+            delete this.timeout;
         }
     };
     FxOn.prototype.removeType = function () {

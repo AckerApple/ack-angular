@@ -7,11 +7,11 @@ var AckSections = (function () {
     function AckSections(SectionProvider, ElementRef) {
         this.SectionProvider = SectionProvider;
         this.ElementRef = ElementRef;
+        this.mode = "calculate";
         this.zIndex = 30;
-        this.headerHeightChange = new core_1.EventEmitter();
-        this.footerHeightChange = new core_1.EventEmitter();
-        ElementRef.nativeElement.style.height = '100%';
-        ElementRef.nativeElement.style.display = 'block';
+        var elmStyle = ElementRef.nativeElement.style;
+        elmStyle.height = "100%";
+        elmStyle.display = "block";
     }
     AckSections.decorators = [
         { type: core_1.Component, args: [{
@@ -28,12 +28,10 @@ var AckSections = (function () {
     AckSections.propDecorators = {
         mode: [{ type: core_1.Input }],
         zIndex: [{ type: core_1.Input }],
-        headerHeight: [{ type: core_1.Input }],
-        headerHeightChange: [{ type: core_1.Output }],
-        footerHeight: [{ type: core_1.Input }],
-        footerHeightChange: [{ type: core_1.Output }],
         header: [{ type: core_1.ContentChild, args: ["header",] }],
-        footer: [{ type: core_1.ContentChild, args: ["footer",] }]
+        footer: [{ type: core_1.ContentChild, args: ["footer",] }],
+        leftBody: [{ type: core_1.ContentChild, args: ["leftBody",] }],
+        rightBody: [{ type: core_1.ContentChild, args: ["rightBody",] }]
     };
     return AckSections;
 }());
