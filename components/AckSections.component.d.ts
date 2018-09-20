@@ -9,5 +9,6 @@ export declare class AckSections {
     footer: TemplateRef<any>;
     leftBody: TemplateRef<any>;
     rightBody: TemplateRef<any>;
+    htmlHeightModel: number;
     constructor(SectionProvider: SectionProvider, ElementRef: ElementRef);
 }
