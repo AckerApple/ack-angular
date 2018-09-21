@@ -12,11 +12,10 @@ import { string } from './templates/ack-app-stage.pug'
 }) export class AckAppStage {
   panelAnim = 'slideInRight'
   version = packJson['version']
-  screenWidthModel
-  routeReporter
-  stateName
-  isSwaping
-  isBackMode
+  screenWidthModel:number
+  stateName:string
+  isSwaping:boolean
+  isBackMode:boolean
   
   menu = menu
 

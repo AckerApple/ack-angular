@@ -8,16 +8,19 @@ import {
 import { NavigationStart, NavigationEnd } from "@angular/router";
 
 @Directive({
-  selector: "route-reporter"
+  selector: "route-reporter",
+  exportAs:"RouteReporter"
 }) export class RouteReporter{
-  $document
-  $scope
+  //deprecated
+  @Input() onLoad
 
-  static parameters = [[
-    RouteWatchReporter
-  ]]
-  docCallbacks
-  querySub
+  //deprecated
+  @Input() ref//variable reference
+  @Output() refChange = new EventEmitter()
+
+
+
+
 
   @Output("onChange") stateChanger = new EventEmitter()
   @Output("beforeChange") beforeChanger = new EventEmitter()
@@ -48,16 +51,20 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
     @Output() parentDataChange:EventEmitter<any> = new EventEmitter()
   /* end: parent bindings */
 
+
   //deprecated
+  @Input() current:currentRoute
   @Input() state:currentRoute//ignored in
   @Output() stateChange:EventEmitter<currentRoute> = new EventEmitter()
 
-  //deprecated
-  @Input() onLoad
+  $document
+  $scope
 
-  //deprecated
-  @Input() ref//variable reference
-  @Output() refChange = new EventEmitter()
+  static parameters = [[
+    RouteWatchReporter
+  ]]
+  docCallbacks
+  querySub
   
   constructor(
     public RouteWatchReporter:RouteWatchReporter,
@@ -91,11 +98,9 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
       this.refChange.emit(this.ref)
       this.emit()
 
-      if( this.queryChange.observers.length ){
-        this.querySub = this.RouteWatchReporter
-        .activatedRoute.queryParams
-        .subscribe( query=>this.queryChange.emit(query) )
-      }
+      this.querySub = this.RouteWatchReporter
+      .activatedRoute.queryParams
+      .subscribe( query=>this.queryChange.emit(query) )
     }, 0)
 
     if(this.onLoad){
@@ -109,10 +114,7 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
 
   ngOnDestroy(){
     this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks)
-
-    if( this.queryChange.observers.length ){
-      this.querySub.unsubscribe()
-    }
+    this.querySub.unsubscribe()
   }
 
   emit(){
@@ -124,6 +126,7 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
     this.route = current.config
     this.routeChange.emit( current.config )
 
+    this.current = current
     this.state = current
     this.stateChange.emit( current )
 

@@ -12,8 +12,8 @@ export declare class AckModal {
     wrapCellStyle: any;
     backgroundColor: string;
     showModel: boolean;
-    showModelChange: EventEmitter<{}>;
-    close: EventEmitter<{}>;
+    showModelChange: EventEmitter<boolean>;
+    close: EventEmitter<any>;
     constructor(element: ElementRef, AckApp: AckApp);
     ngOnInit(): void;
     determineStage(): void;

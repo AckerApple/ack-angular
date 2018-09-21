@@ -8,7 +8,6 @@ mixin top
 ng-container("[(htmlWidthModel)]"="screenWidthModel")
 
 route-reporter(
-  "[(ref)]"        = "routeReporter"
   "(beforeChange)" = "panelAnim=$event.isBackMode?'slideInLeft':'slideInRight';isBackMode=$event.isBackMode;"
   "(onChange)"     = "stateName=$event.current.config.name"
 )

@@ -1,4 +1,3 @@
-
 import {
   ContentChild,
   Directive,
@@ -17,8 +16,9 @@ import { AckApp } from "../providers/AckApp.provider"
 import { string } from "./templates/ack-modal.pug"
 
 @Component({
-  selector:'ack-modal',
-  template:string
+  selector:"ack-modal",
+  template:string,
+  exportAs:"AckModal"
   //,animations:fxArray
 }) export class AckModal{
   @ContentChild('body') body:TemplateRef<any>
@@ -35,10 +35,10 @@ import { string } from "./templates/ack-modal.pug"
 
   //two way binds
   @Input() showModel:boolean
-  @Output() showModelChange = new EventEmitter()
+  @Output() showModelChange:EventEmitter<boolean> = new EventEmitter()
   
   //one way expression binds
-  @Output() close = new EventEmitter()
+  @Output() close:EventEmitter<any> = new EventEmitter()
 
   constructor(
     public element:ElementRef,

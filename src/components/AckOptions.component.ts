@@ -12,8 +12,9 @@ import { TemplateReader } from "../TemplateReader.class"
 import { string as ackOptions } from "./templates/ack-options.pug"
 
 @Component({
-  selector:'ack-options',
-  template:ackOptions
+  selector:"ack-options",
+  template:ackOptions,
+  exportAs:"AckOptions"
 }) export class AckOptions{
   @Input() array = []
   @Input() stylize:boolean = true

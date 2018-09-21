@@ -30,7 +30,7 @@ describe('ack-modal', ()=>{
       fixture.detectChanges()
       component = fixture.componentInstance
     })
-    .then( ()=>new Promise((res,rej)=>setTimeout(()=>res(), 0)) )//tick for [(ref)] to process
+    .then( ()=>new Promise((res,rej)=>setTimeout(()=>res(), 0)) )//tick for process
     .then(done).catch(done.fail)
   })
 

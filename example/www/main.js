@@ -287,7 +287,7 @@ webpackContext.id = "../node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, private, default */
 /***/ (function(module) {
 
-module.exports = {"name":"ack-angular","version":"1.8.5","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/assets/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.7.0","@angular/animations":"^6.1.1","@angular/cli":"^6.1.2","@angular/common":"^6.1.1","@angular/compiler":"^6.1.1","@angular/compiler-cli":"^6.1.1","@angular/core":"^6.1.1","@angular/forms":"^6.1.1","@angular/platform-browser":"^6.1.1","@angular/platform-browser-dynamic":"^6.1.1","@angular/router":"^6.1.1","@types/jasmine":"^2.8.6","ack-angular-fx":"^2.1.2","ack-css-boot":"^1.2.52","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.4.5","animate.css":"^3.7.0","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.5","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.1","karma-jasmine":"^1.1.2","karma-jasmine-html-reporter":"^1.2.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.2","ngx-page-scroll":"^5.0.0","npm-run-all":"^4.1.3","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^6.2.2","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.9.2","zone.js":"^0.8.26"},"private":true};
+module.exports = {"name":"ack-angular","version":"1.8.6","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/assets/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.7.0","@angular/animations":"^6.1.1","@angular/cli":"^6.1.2","@angular/common":"^6.1.1","@angular/compiler":"^6.1.1","@angular/compiler-cli":"^6.1.1","@angular/core":"^6.1.1","@angular/forms":"^6.1.1","@angular/platform-browser":"^6.1.1","@angular/platform-browser-dynamic":"^6.1.1","@angular/router":"^6.1.1","@types/jasmine":"^2.8.6","ack-angular-fx":"^2.1.2","ack-css-boot":"^1.2.52","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.4.5","animate.css":"^3.7.0","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.5","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.1","karma-jasmine":"^1.1.2","karma-jasmine-html-reporter":"^1.2.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.2","ngx-page-scroll":"^5.0.0","npm-run-all":"^4.1.3","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^6.2.2","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.9.2","zone.js":"^0.8.26"},"private":true};
 
 /***/ }),
 
@@ -372,6 +372,7 @@ var RouteReporter = /** @class */ (function () {
     function RouteReporter(RouteWatchReporter, ActivatedRoute) {
         this.RouteWatchReporter = RouteWatchReporter;
         this.ActivatedRoute = ActivatedRoute;
+        this.refChange = new core_1.EventEmitter();
         this.stateChanger = new core_1.EventEmitter();
         this.beforeChanger = new core_1.EventEmitter();
         this.activatedChange = new core_1.EventEmitter();
@@ -383,7 +384,6 @@ var RouteReporter = /** @class */ (function () {
         this.parentChange = new core_1.EventEmitter();
         this.parentDataChange = new core_1.EventEmitter();
         this.stateChange = new core_1.EventEmitter();
-        this.refChange = new core_1.EventEmitter();
         this.$document = document;
         this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
     }
@@ -407,11 +407,9 @@ var RouteReporter = /** @class */ (function () {
             _this.ref = _this.RouteWatchReporter;
             _this.refChange.emit(_this.ref);
             _this.emit();
-            if (_this.queryChange.observers.length) {
-                _this.querySub = _this.RouteWatchReporter
-                    .activatedRoute.queryParams
-                    .subscribe(function (query) { return _this.queryChange.emit(query); });
-            }
+            _this.querySub = _this.RouteWatchReporter
+                .activatedRoute.queryParams
+                .subscribe(function (query) { return _this.queryChange.emit(query); });
         }, 0);
         if (this.onLoad) {
             this.onLoad({
@@ -423,9 +421,7 @@ var RouteReporter = /** @class */ (function () {
     };
     RouteReporter.prototype.ngOnDestroy = function () {
         this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks);
-        if (this.queryChange.observers.length) {
-            this.querySub.unsubscribe();
-        }
+        this.querySub.unsubscribe();
     };
     RouteReporter.prototype.emit = function () {
         this.stateChanger.emit(this.RouteWatchReporter);
@@ -434,6 +430,7 @@ var RouteReporter = /** @class */ (function () {
             return;
         this.route = current.config;
         this.routeChange.emit(current.config);
+        this.current = current;
         this.state = current;
         this.stateChange.emit(current);
         this.activated = current.ActivatedRoute;
@@ -463,6 +460,18 @@ var RouteReporter = /** @class */ (function () {
     RouteReporter.parameters = [[
             RouteWatchReporter_1.RouteWatchReporter
         ]];
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "onLoad", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "ref", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "refChange", void 0);
     __decorate([
         core_1.Output("onChange"),
         __metadata("design:type", Object)
@@ -540,26 +549,19 @@ var RouteReporter = /** @class */ (function () {
     __decorate([
         core_1.Input(),
         __metadata("design:type", Object)
+    ], RouteReporter.prototype, "current", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
     ], RouteReporter.prototype, "state", void 0);
     __decorate([
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)
     ], RouteReporter.prototype, "stateChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "onLoad", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "ref", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "refChange", void 0);
     RouteReporter = __decorate([
         core_1.Directive({
-            selector: "route-reporter"
+            selector: "route-reporter",
+            exportAs: "RouteReporter"
         }),
         __metadata("design:paramtypes", [RouteWatchReporter_1.RouteWatchReporter,
             router_1.ActivatedRoute])
@@ -1056,16 +1058,17 @@ var AckModal = /** @class */ (function () {
     ], AckModal.prototype, "showModel", void 0);
     __decorate([
         core_1.Output(),
-        __metadata("design:type", Object)
+        __metadata("design:type", core_1.EventEmitter)
     ], AckModal.prototype, "showModelChange", void 0);
     __decorate([
         core_1.Output(),
-        __metadata("design:type", Object)
+        __metadata("design:type", core_1.EventEmitter)
     ], AckModal.prototype, "close", void 0);
     AckModal = __decorate([
         core_1.Component({
-            selector: 'ack-modal',
-            template: ack_modal_pug_1.string
+            selector: "ack-modal",
+            template: ack_modal_pug_1.string,
+            exportAs: "AckModal"
             //,animations:fxArray
         }),
         __metadata("design:paramtypes", [core_1.ElementRef,
@@ -1131,7 +1134,6 @@ var AckModalLayout = /** @class */ (function () {
     AckModalLayout.prototype.ngOnInit = function () {
         var _this = this;
         setTimeout(function () {
-            //this.refChange.emit( this )
             if (_this.isModelMode || (_this.isModelMode == null && _this.showModelChange.observers.length)) {
                 _this.isModelMode = true;
             }
@@ -1420,8 +1422,9 @@ var AckOptions = /** @class */ (function () {
     ], AckOptions.prototype, "arrayToModelKey", void 0);
     AckOptions = __decorate([
         core_1.Component({
-            selector: 'ack-options',
-            template: ack_options_pug_1.string
+            selector: "ack-options",
+            template: ack_options_pug_1.string,
+            exportAs: "AckOptions"
         }),
         __metadata("design:paramtypes", [core_1.ElementRef])
     ], AckOptions);
@@ -2008,7 +2011,7 @@ exports.string = "<ng-template #placeholder=\"\"><ack-modal-layout (close)=\"clo
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.string = "<ack-modal (close)=\"close.emit($event)\" [allowClose]=\"allowClose\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit($event)\" [isModelMode]=\"showModelChange.observers.length\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [backgroundColor]=\"backgroundColor\" (backgroundColorChange)=\"backgroundColorChange.emit($event)\"><ng-content></ng-content><div class=\"border-grey-6x border bg-white\"><ack-options [(ref)]=\"ackOptions\" [array]=\"array\" [max]=\"max\" [modelAsArray]=\"modelAsArray\" [model]=\"model\" (modelChange)=\"fireModelChange($event)\" [multiple]=\"multiple\" [toggleable]=\"toggleable\" [stylize]=\"stylize\" [inputTemplateRefs]=\"templateRefs\" [arrayKey]=\"arrayKey\" [arrayToModelKey]=\"arrayToModelKey\" [modelKey]=\"modelKey\"></ack-options></div></ack-modal>";
+exports.string = "<ack-modal (close)=\"close.emit($event)\" [allowClose]=\"allowClose\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit($event)\" [isModelMode]=\"showModelChange.observers.length\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [backgroundColor]=\"backgroundColor\" (backgroundColorChange)=\"backgroundColorChange.emit($event)\"><ng-content></ng-content><div class=\"border-grey-6x border bg-white\"><ack-options #ackOptions=\"AckOptions\" [array]=\"array\" [max]=\"max\" [modelAsArray]=\"modelAsArray\" [model]=\"model\" (modelChange)=\"fireModelChange($event)\" [multiple]=\"multiple\" [toggleable]=\"toggleable\" [stylize]=\"stylize\" [inputTemplateRefs]=\"templateRefs\" [arrayKey]=\"arrayKey\" [arrayToModelKey]=\"arrayToModelKey\" [modelKey]=\"modelKey\"></ack-options></div></ack-modal>";
 
 
 /***/ }),
@@ -6968,7 +6971,7 @@ exports.routing = router_1.RouterModule.forRoot(exports.routes, exports.routeCon
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.string = "<ng-container [(htmlWidthModel)]=\"screenWidthModel\"></ng-container><route-reporter [(ref)]=\"routeReporter\" (beforeChange)=\"panelAnim=$event.isBackMode?'slideInLeft':'slideInRight';isBackMode=$event.isBackMode;\" (onChange)=\"stateName=$event.current.config.name\"></route-reporter><ack-fixed-element-stage></ack-fixed-element-stage><div id=\"top\"></div><reader-header-body style=\"font-size:16px;\"><ack-sections mode=\"clone\"><ack-section-templates *ngIf=\"screenWidthModel &lt; 800\"><ng-template #sectionFooter=\"\"><absolute-overflow-x class=\"bg-info text-center border-top border-grey-2x\" [@fadeInUp]=\"1\"><div class=\"flex child-hover-bg-warning child-pad-h-lg child-pad-v-sm\"><a class=\"nowrap no-a-style flex-1 border-right border-white height-60 flex-valign-center\" *ngFor=\"let item of menu\" [ngClass]=\"{'strong bg-energized':stateName==item.path}\" [href]=\"'#/' + item.path\">{{ item.data.title }}</a></div></absolute-overflow-x></ng-template></ack-section-templates><fx-tracker [(fxId)]=\"fxId\" [activatedRoute]=\"routerOutlet.activated ? routerOutlet.activatedRoute : null\"></fx-tracker><table class=\"height-full width-full\" cellPadding=\"0\" cellSpacing=\"0\" border=\"0\"><tbody><tr><td><div style=\"max-width:1000px\"><div class=\"bg-energized border-grey-3x border-left-1 border-right-1\"><div class=\"flex-valign-center flex-wrap\"><strong class=\"margin-0\" [ngClass]=\"screenWidthModel &gt; 800 ? 'pad-xs text-6x' : 'pad-xxs text-4x'\"><span class=\"text-sm\">🚴</span>&nbsp;ack-angular</strong><span class=\"text-right flex-1 text-white pad-right-xs\">v{{ version }}</span></div></div><div *ngIf=\"screenWidthModel &gt; 800\" [@fadeInUp]=\"1\"><scroll-past-fixed><div style=\"max-width:1000px\"><absolute-overflow-x class=\"bg-info text-center border-bottom border-grey-2x\"><div class=\"flex child-hover-bg-warning child-pad-sm text-2x\"><a class=\"no-a-style flex-1 border-right border-white\" *ngFor=\"let item of menu\" [ngClass]=\"{'strong bg-energized':stateName==item.path}\" [href]=\"'#/' + item.path\">{{ item.data.title }}</a></div></absolute-overflow-x></div></scroll-past-fixed></div></div></td></tr><tr><td class=\"width-full height-full bg-white border-grey-3x\"><table class=\"width-full height-full\" cellPadding=\"0\" cellSpacing=\"0\" border=\"0\"><tr><td [ngClass]=\"screenWidthModel&gt;=800 ? 'width-20' : 'width-10'\"></td><td><div class=\"text-left height-full pad-top-lg\" [@slideInLeftKids]=\"{value:fxId, params:{time:'500ms'}}\" [@absoluteKids]=\"{value:fxId, params:{time:'500ms'}}\" (@absoluteKids.start)=\"inFx=true\" (@absoluteKids.done)=\"inFx=false\" [style.max-width.px]=\"screenWidthModel - (screenWidthModel&gt;=800 ? 40 : 20)\" [ngStyle]=\"inFx ? {position:'relative',overflow:'hidden'} : null\"><router-outlet #routerOutlet=\"outlet\"></router-outlet></div></td><td [ngClass]=\"screenWidthModel&gt;=800 ? 'width-20' : 'width-10'\"></td></tr></table></td></tr><tr><td><div class=\"text-center\" *ngIf=\"!inFx\"><br/><a class=\"text-xs\" href=\"#top\" pageScroll=\"pageScroll\">top</a><br/><br/></div></td></tr></tbody></table></ack-sections></reader-header-body>";
+exports.string = "<ng-container [(htmlWidthModel)]=\"screenWidthModel\"></ng-container><route-reporter (beforeChange)=\"panelAnim=$event.isBackMode?'slideInLeft':'slideInRight';isBackMode=$event.isBackMode;\" (onChange)=\"stateName=$event.current.config.name\"></route-reporter><ack-fixed-element-stage></ack-fixed-element-stage><div id=\"top\"></div><reader-header-body style=\"font-size:16px;\"><ack-sections mode=\"clone\"><ack-section-templates *ngIf=\"screenWidthModel &lt; 800\"><ng-template #sectionFooter=\"\"><absolute-overflow-x class=\"bg-info text-center border-top border-grey-2x\" [@fadeInUp]=\"1\"><div class=\"flex child-hover-bg-warning child-pad-h-lg child-pad-v-sm\"><a class=\"nowrap no-a-style flex-1 border-right border-white height-60 flex-valign-center\" *ngFor=\"let item of menu\" [ngClass]=\"{'strong bg-energized':stateName==item.path}\" [href]=\"'#/' + item.path\">{{ item.data.title }}</a></div></absolute-overflow-x></ng-template></ack-section-templates><fx-tracker [(fxId)]=\"fxId\" [activatedRoute]=\"routerOutlet.activated ? routerOutlet.activatedRoute : null\"></fx-tracker><table class=\"height-full width-full\" cellPadding=\"0\" cellSpacing=\"0\" border=\"0\"><tbody><tr><td><div style=\"max-width:1000px\"><div class=\"bg-energized border-grey-3x border-left-1 border-right-1\"><div class=\"flex-valign-center flex-wrap\"><strong class=\"margin-0\" [ngClass]=\"screenWidthModel &gt; 800 ? 'pad-xs text-6x' : 'pad-xxs text-4x'\"><span class=\"text-sm\">🚴</span>&nbsp;ack-angular</strong><span class=\"text-right flex-1 text-white pad-right-xs\">v{{ version }}</span></div></div><div *ngIf=\"screenWidthModel &gt; 800\" [@fadeInUp]=\"1\"><scroll-past-fixed><div style=\"max-width:1000px\"><absolute-overflow-x class=\"bg-info text-center border-bottom border-grey-2x\"><div class=\"flex child-hover-bg-warning child-pad-sm text-2x\"><a class=\"no-a-style flex-1 border-right border-white\" *ngFor=\"let item of menu\" [ngClass]=\"{'strong bg-energized':stateName==item.path}\" [href]=\"'#/' + item.path\">{{ item.data.title }}</a></div></absolute-overflow-x></div></scroll-past-fixed></div></div></td></tr><tr><td class=\"width-full height-full bg-white border-grey-3x\"><table class=\"width-full height-full\" cellPadding=\"0\" cellSpacing=\"0\" border=\"0\"><tr><td [ngClass]=\"screenWidthModel&gt;=800 ? 'width-20' : 'width-10'\"></td><td><div class=\"text-left height-full pad-top-lg\" [@slideInLeftKids]=\"{value:fxId, params:{time:'500ms'}}\" [@absoluteKids]=\"{value:fxId, params:{time:'500ms'}}\" (@absoluteKids.start)=\"inFx=true\" (@absoluteKids.done)=\"inFx=false\" [style.max-width.px]=\"screenWidthModel - (screenWidthModel&gt;=800 ? 40 : 20)\" [ngStyle]=\"inFx ? {position:'relative',overflow:'hidden'} : null\"><router-outlet #routerOutlet=\"outlet\"></router-outlet></div></td><td [ngClass]=\"screenWidthModel&gt;=800 ? 'width-20' : 'width-10'\"></td></tr></table></td></tr><tr><td><div class=\"text-center\" *ngIf=\"!inFx\"><br/><a class=\"text-xs\" href=\"#top\" pageScroll=\"pageScroll\">top</a><br/><br/></div></td></tr></tbody></table></ack-sections></reader-header-body>";
 
 
 /***/ }),
@@ -7043,7 +7046,7 @@ exports.string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"margin-
     "\n  &lt;/body&gt;" +
     "\n&lt;/html&gt;" +
     "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>ack-close-icon</h3><div class=\"text-grey-2x max-width-400\">A super convenient html based close icon. No img refs. No style sheet refs<ack-close-icon></ack-close-icon></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackCloseIcon=!views.ackCloseIcon\" [ngClass]=\"views.ackCloseIcon?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackCloseIcon\" [@fadeInUp]=\"1\"><div class=\"pad\"><ack-close-icon (click)=\"views.ackCloseIcon=false\"></ack-close-icon></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-close-icon (click)=\"views.ackCloseIcon=false\"&gt;&lt;/ack-close-icon&gt;" +
-    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div (screenScroll)=\"screenScrollCount=screenScrollCount+1\"></div><div class=\"pad-h\"><h3>ack-array</h3><div class=\"text-grey-2x\">Common array functionality available at a template level</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackArray=!views.ackArray\" [ngClass]=\"views.ackArray?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackArray\" [@fadeInUp]=\"1\"><ack-array [(ref)]=\"Array\" [(array)]=\"selectedArray\" idKey=\"letter\" [(pageAt)]=\"pageAt\" [(pages)]=\"arrayPages\" [(keyMap)]=\"arrayMap\"><ack-aggregate type=\"sum\" [keys]=\"['number']\" [(output)]=\"sumNumber\"></ack-aggregate></ack-array><h4 class=\"pad-sm margin-0\">Bind Documentation</h4><ul><li>[(array)] - main array to stem functionality from</li><li>[idKey] - pointer to each array node id field</li><li>([ref]) - pointer to AckArray class</li><li>[pageAt] - what number to break array into page buckets</li><li>([pages]) - buckets of arrays based on pageAt</li></ul><h4 class=\"pad-sm margin-0\">API Documentation</h4><ul><li>toggle(item) - adds or removes item based on existence</li><li>push(item) - param and append item to array</li><li>unshift(item) - param and prepend item to array</li><li>splice(item) - remove item by index from array</li><li>param() - ensure array exists</li><li>only(item) - reduce array down to only item argument</li></ul><div class=\"pad-sm\"><h4 class=\"margin-0\">Usage Example: Toggle Items</h4><div class=\"text-grey-2x\">Take an arbitrary array (arrayOfObjects in demo) and allow a system of toggling selections</div></div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-array [(ref)]=\"Array\" [(array)]=\"selectedArray\" idKey=\"letter\"&gt;&lt;/ack-array&gt;" +
+    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div (screenScroll)=\"screenScrollCount=screenScrollCount+1\"></div><div class=\"pad-h\"><h3>ack-array</h3><div class=\"text-grey-2x\">Common array functionality available at a template level</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackArray=!views.ackArray\" [ngClass]=\"views.ackArray?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackArray\" [@fadeInUp]=\"1\"><ack-array #Array=\"AckArray\" [(array)]=\"selectedArray\" idKey=\"letter\" [(pageAt)]=\"pageAt\" [(pages)]=\"arrayPages\" [(keyMap)]=\"arrayMap\"><ack-aggregate type=\"sum\" [keys]=\"['number']\" [(output)]=\"sumNumber\"></ack-aggregate></ack-array><h4 class=\"pad-sm margin-0\">Bind Documentation</h4><ul><li>[(array)] - main array to stem functionality from</li><li>[idKey] - pointer to each array node id field</li><li>([ref]) - pointer to AckArray class</li><li>[pageAt] - what number to break array into page buckets</li><li>([pages]) - buckets of arrays based on pageAt</li></ul><h4 class=\"pad-sm margin-0\">API Documentation</h4><ul><li>toggle(item) - adds or removes item based on existence</li><li>push(item) - param and append item to array</li><li>unshift(item) - param and prepend item to array</li><li>splice(item) - remove item by index from array</li><li>param() - ensure array exists</li><li>only(item) - reduce array down to only item argument</li></ul><div class=\"pad-sm\"><h4 class=\"margin-0\">Usage Example: Toggle Items</h4><div class=\"text-grey-2x\">Take an arbitrary array (arrayOfObjects in demo) and allow a system of toggling selections</div></div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-array #Array=\"AckArray\" [(array)]=\"selectedArray\" idKey=\"letter\"&gt;&lt;/ack-array&gt;" +
     "\n&lt;ng-container *ngIf=\"Array&gt;" +
     "\n  &lt;div *ngFor=\"let item of arrayOfObjects\"&gt;" +
     "\n    &lt;input type=\"checkbox\" [checked]=\"Array.selected(item)\" (click)=\"Array.toggle(item)\" /&gt;" +
@@ -7265,11 +7268,11 @@ exports.string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"margin-
     "\n&nbsp;&nbsp;elementWidthModel : {{ elementWidthModel }}px" +
     "\n&lt;/div&gt;" +
     "\n</pre></absolute-overflow-x></div></div></div><br/><h3 class=\"margin-bottom-0\" id=\"LayoutComponents\">Layout Components</h3><div class=\"pad\"><div class=\"pad bg-warning border-warning text-warning border\">You will need to &lt;link&gt; one of two style sheets:<ul><li>ack-angular/ack-angular.css</li><li>- or -</li><li>ack-angular/ack-css-boot.css</li></ul></div></div><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1\" [class.width-full]=\"views.errorWell\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>error-well</h3><div class=\"text-grey-2x max-width-400\">a smart and simple place to display errors</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.errorWell=!views.errorWell\" [ngClass]=\"views.errorWell?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.errorWell\" [@fadeInUp]=\"1\"><h4 class=\"pad-sm margin-0\">Example</h4><div class=\"pad\"><select name=\"cssClasses\" [(ngModel)]=\"cssClasses\"><option value=\"bg-info border-info text-info\">bg-info border-info text-info</option><option value=\"bg-warning border-warning text-warning\">bg-warning border-warning text-warning</option><option value=\"bg-danger border-danger text-danger\">bg-danger border-danger text-danger</option><option value=\"bg-energized border-energized text-energized\">bg-energized border-energized text-energized</option><option value=\"bg-calm border-calm text-calm\">bg-calm border-calm text-calm</option><option value=\"bg-assertive border-assertive text-assertive\">bg-assertive border-assertive text-assertive</option><option value=\"bg-success border-success text-success\">bg-success border-success text-success</option><option value=\"bg-positive border-positive text-positive\">bg-positive border-positive text-positive</option><option value=\"bg-balanced border-balanced text-balanced\">bg-balanced border-balanced text-balanced</option><option value=\"bg-stable border-stable text-stable\">bg-stable border-stable text-stable</option><option value=\"bg-dark border-dark text-dark\">bg-dark border-dark text-dark</option><option value=\"bg-royal border-royal text-royal\">bg-royal border-royal text-royal</option></select><error-well class=\"margin\" [error]=\"error\" [cssClasses]=\"cssClasses\"></error-well><button (click)=\"causeError()\">cause error</button></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;error-well [error]=\"error\"&gt;&lt;/error-well&gt;</pre></absolute-overflow-x><h4 class=\"pad-sm margin-0\">Advanced Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;error-well [error]=\"error\" [closable]=\"1\" [allowDetails]=\"1\"&gt;&lt;/error-well&gt;" +
-    "\n</pre></absolute-overflow-x></div></div></div><br/><h3 id=\"ComplexComponents\">Complex Components</h3><div class=\"pad-h\"><p class=\"margin-bottom-0\">Components that have additional dependencies or restrictions</p></div><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1 border border-grey-4x border\" [class.width-full]=\"views.routeReporter\"><div class=\"pad-h\"><h3>route-reporter</h3><div class=\"text-grey-2x max-width-400\">Get in tune with router states when using @angular/router</div><br/></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.routeReporter=!views.routeReporter\" [ngClass]=\"views.routeReporter?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.routeReporter\" [@fadeInUp]=\"1\"><div class=\"pad\">Bindings<table cellPadding=\"2\" cellSpacing=\"0\" border=\"0\"><tr><td>[(ref)]</td><td>Creates a reference to the RouteReporter component</td></tr><tr><td>[(state)]</td><td>Creates a reference to the current route</td></tr><tr><td>[(params)]</td><td>Creates a reference to the current route's params</td></tr><tr><td>[(query)]</td><td>Creates a reference to the current route's query params</td></tr><tr><td>(beforeChange)</td><td>Expression bind called before route changes</td></tr><tr><td>(onChange)</td><td>Expression bind called when route changes</td></tr></table></div><route-reporter [(ref)]=\"routeState\" [(query)]=\"query\"></route-reporter><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\"><div ngNonBindable=\"ngNonBindable\">&lt;route-reporter" +
-    "\n  [(ref)]       = \"routeState\"" +
+    "\n</pre></absolute-overflow-x></div></div></div><br/><h3 id=\"ComplexComponents\">Complex Components</h3><div class=\"pad-h\"><p class=\"margin-bottom-0\">Components that have additional dependencies or restrictions</p></div><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1 border border-grey-4x border\" [class.width-full]=\"views.routeReporter\"><div class=\"pad-h\"><h3>route-reporter</h3><div class=\"text-grey-2x max-width-400\">Get in tune with router states when using @angular/router</div><br/></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.routeReporter=!views.routeReporter\" [ngClass]=\"views.routeReporter?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.routeReporter\" [@fadeInUp]=\"1\"><div class=\"pad\">Bindings<table cellPadding=\"2\" cellSpacing=\"0\" border=\"0\"><tr><td>[(state)]</td><td>Creates a reference to the current route</td></tr><tr><td>[(params)]</td><td>Creates a reference to the current route's params</td></tr><tr><td>[(query)]</td><td>Creates a reference to the current route's query params</td></tr><tr><td>(beforeChange)</td><td>Expression bind called before route changes</td></tr><tr><td>(onChange)</td><td>Expression bind called when route changes</td></tr></table></div><route-reporter #routeState=\"RouteReporter\" [(query)]=\"query\"></route-reporter><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\"><div ngNonBindable=\"ngNonBindable\">&lt;route-reporter" +
+    "\n  #routeState = \"RouteReporter\"" +
     "\n  [(query)]     = \"query\"" +
     "\n&gt;&lt;/route-reporter&gt;" +
-    "\n</div><div><span ngNonBindable=\"ngNonBindable\">{{ routeState?.current.config.name }}</span><span>&nbsp;==&nbsp;</span><span>{{ routeState?.current.config.name }}</span></div><div><span ngNonBindable=\"ngNonBindable\">{{ query | json }}</span><span>&nbsp;==&nbsp;</span><span>{{ query | json }}</span></div></pre></absolute-overflow-x></div></div></div>";
+    "\n</div><div><span ngNonBindable=\"ngNonBindable\">{{ routeState.current?.config.name }}</span><span>&nbsp;==&nbsp;</span><span>{{ routeState.current?.config.name }}</span></div><div><span ngNonBindable=\"ngNonBindable\">{{ query | json }}</span><span>&nbsp;==&nbsp;</span><span>{{ query | json }}</span></div></pre></absolute-overflow-x></div></div></div>";
 
 
 /***/ }),

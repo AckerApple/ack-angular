@@ -6,7 +6,7 @@ import { AckArray } from './AckArray.directive';
 @Component({
   selector: 'container',
   //template:'none'
-  template: '<ack-array [(ref)]="AckArray"></ack-array>'
+  template: '<ack-array #AckArray="AckArray"></ack-array>'
 })
 export class ContainerComponent {
   AckArray:AckArray
@@ -30,7 +30,7 @@ describe('ack-array', () => {
       fixture.detectChanges()
       component = fixture.componentInstance
     })
-    .then( ()=>new Promise((res,rej)=>setTimeout(()=>res(), 0)) )//tick for [(ref)] to process
+    .then( ()=>new Promise((res,rej)=>setTimeout(()=>res(), 0)) )//tick for #AckArray to process
     .then(done).catch(done.fail)
   })
 

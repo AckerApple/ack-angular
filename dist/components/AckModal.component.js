@@ -30,8 +30,9 @@ var AckModal = (function () {
     };
     AckModal.decorators = [
         { type: core_1.Component, args: [{
-                    selector: 'ack-modal',
-                    template: ack_modal_pug_1.string
+                    selector: "ack-modal",
+                    template: ack_modal_pug_1.string,
+                    exportAs: "AckModal"
                 },] },
     ];
     AckModal.ctorParameters = function () { return [

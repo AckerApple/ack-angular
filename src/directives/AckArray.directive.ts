@@ -29,6 +29,7 @@ export interface loop{
   
   @Input() idKey
   
+  //deprecated
   @Input() ref:AckArray
   @Output() refChange:EventEmitter<AckArray> = new EventEmitter()
   
