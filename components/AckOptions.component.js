@@ -149,8 +149,9 @@ var AckOptions = (function () {
     };
     AckOptions.decorators = [
         { type: core_1.Component, args: [{
-                    selector: 'ack-options',
-                    template: ack_options_pug_1.string
+                    selector: "ack-options",
+                    template: ack_options_pug_1.string,
+                    exportAs: "AckOptions"
                 },] },
     ];
     AckOptions.ctorParameters = function () { return [

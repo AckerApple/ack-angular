@@ -8,6 +8,7 @@ var RouteReporter = (function () {
     function RouteReporter(RouteWatchReporter, ActivatedRoute) {
         this.RouteWatchReporter = RouteWatchReporter;
         this.ActivatedRoute = ActivatedRoute;
+        this.refChange = new core_1.EventEmitter();
         this.stateChanger = new core_1.EventEmitter();
         this.beforeChanger = new core_1.EventEmitter();
         this.activatedChange = new core_1.EventEmitter();
@@ -19,7 +20,6 @@ var RouteReporter = (function () {
         this.parentChange = new core_1.EventEmitter();
         this.parentDataChange = new core_1.EventEmitter();
         this.stateChange = new core_1.EventEmitter();
-        this.refChange = new core_1.EventEmitter();
         this.$document = document;
         this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
     }
@@ -41,11 +41,9 @@ var RouteReporter = (function () {
             _this.ref = _this.RouteWatchReporter;
             _this.refChange.emit(_this.ref);
             _this.emit();
-            if (_this.queryChange.observers.length) {
-                _this.querySub = _this.RouteWatchReporter
-                    .activatedRoute.queryParams
-                    .subscribe(function (query) { return _this.queryChange.emit(query); });
-            }
+            _this.querySub = _this.RouteWatchReporter
+                .activatedRoute.queryParams
+                .subscribe(function (query) { return _this.queryChange.emit(query); });
         }, 0);
         if (this.onLoad) {
             this.onLoad({
@@ -57,9 +55,7 @@ var RouteReporter = (function () {
     };
     RouteReporter.prototype.ngOnDestroy = function () {
         this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks);
-        if (this.queryChange.observers.length) {
-            this.querySub.unsubscribe();
-        }
+        this.querySub.unsubscribe();
     };
     RouteReporter.prototype.emit = function () {
         this.stateChanger.emit(this.RouteWatchReporter);
@@ -68,6 +64,7 @@ var RouteReporter = (function () {
             return;
         this.route = current.config;
         this.routeChange.emit(current.config);
+        this.current = current;
         this.state = current;
         this.stateChange.emit(current);
         this.activated = current.ActivatedRoute;
@@ -97,7 +94,8 @@ var RouteReporter = (function () {
         ]];
     RouteReporter.decorators = [
         { type: core_1.Directive, args: [{
-                    selector: "route-reporter"
+                    selector: "route-reporter",
+                    exportAs: "RouteReporter"
                 },] },
     ];
     RouteReporter.ctorParameters = function () { return [
@@ -105,6 +103,9 @@ var RouteReporter = (function () {
         { type: router_1.ActivatedRoute }
     ]; };
     RouteReporter.propDecorators = {
+        onLoad: [{ type: core_1.Input }],
+        ref: [{ type: core_1.Input }],
+        refChange: [{ type: core_1.Output }],
         stateChanger: [{ type: core_1.Output, args: ["onChange",] }],
         beforeChanger: [{ type: core_1.Output, args: ["beforeChange",] }],
         activated: [{ type: core_1.Input }],
@@ -123,11 +124,9 @@ var RouteReporter = (function () {
         parentChange: [{ type: core_1.Output }],
         parentData: [{ type: core_1.Input }],
         parentDataChange: [{ type: core_1.Output }],
+        current: [{ type: core_1.Input }],
         state: [{ type: core_1.Input }],
-        stateChange: [{ type: core_1.Output }],
-        onLoad: [{ type: core_1.Input }],
-        ref: [{ type: core_1.Input }],
-        refChange: [{ type: core_1.Output }]
+        stateChange: [{ type: core_1.Output }]
     };
     return RouteReporter;
 }());
