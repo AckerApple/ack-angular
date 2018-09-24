@@ -5,12 +5,11 @@ export declare class AckSections {
     ElementRef: ElementRef;
     mode: "calculate" | "clone";
     zIndex: number;
-    header: TemplateRef<any>;
-    footer: TemplateRef<any>;
+    table: TemplateRef<any>;
+    headerWrap: TemplateRef<any>;
+    bodyCell: TemplateRef<any>;
     leftBodyWrap: TemplateRef<any>;
-    leftBody: TemplateRef<any>;
     rightBodyWrap: TemplateRef<any>;
-    rightBody: TemplateRef<any>;
     htmlHeightModel: number;
     constructor(SectionProvider: SectionProvider, ElementRef: ElementRef);
 }

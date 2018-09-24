@@ -8,6 +8,7 @@ var AckModal = (function () {
         this.element = element;
         this.AckApp = AckApp;
         this.allowClose = true;
+        this.zIndex = 20;
         this.showModelChange = new core_1.EventEmitter();
         this.close = new core_1.EventEmitter();
     }
@@ -45,6 +46,7 @@ var AckModal = (function () {
         inline: [{ type: core_1.Input }],
         isModelMode: [{ type: core_1.Input }],
         allowClose: [{ type: core_1.Input }],
+        zIndex: [{ type: core_1.Input }],
         wrapStyle: [{ type: core_1.Input }],
         wrapCellStyle: [{ type: core_1.Input }],
         backgroundColor: [{ type: core_1.Input }],

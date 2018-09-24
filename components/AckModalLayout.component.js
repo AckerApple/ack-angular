@@ -9,6 +9,7 @@ var AckModalLayout = (function () {
         var _this = this;
         this.element = element;
         this.AckApp = AckApp;
+        this.zIndex = 20;
         this.close = new core_1.EventEmitter();
         this.allowClose = true;
         this.isModelMode = false;
@@ -54,6 +55,7 @@ var AckModalLayout = (function () {
         { type: AckApp_provider_1.AckApp }
     ]; };
     AckModalLayout.propDecorators = {
+        zIndex: [{ type: core_1.Input }],
         close: [{ type: core_1.Output }],
         allowClose: [{ type: core_1.Input }],
         wrapStyle: [{ type: core_1.Input }],
