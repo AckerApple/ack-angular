@@ -1,7 +1,8 @@
 div(
   *ngIf    = "showModel || !isModelMode"
   "[@fadeInUp]" = "1"
-  style    = "position:fixed;top:0;left:0;z-index:20;height:100%;width:100%;overflow:auto;"
+  style    = "position:fixed;top:0;left:0;height:100%;width:100%;overflow:auto;"
+  "[style.z-index]" = "zIndex || 20"
 )
   div(
     style = "height:100%;width:100%;padding:20px;display:inline-table;"

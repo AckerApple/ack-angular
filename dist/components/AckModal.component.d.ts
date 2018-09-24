@@ -8,6 +8,7 @@ export declare class AckModal {
     inline: boolean;
     isModelMode: boolean;
     allowClose: boolean;
+    zIndex: number;
     wrapStyle: any;
     wrapCellStyle: any;
     backgroundColor: string;

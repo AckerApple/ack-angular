@@ -16,6 +16,7 @@ import { string } from "./templates/ack-modal-layout.pug"
   template:string,
   animations:fxArray
 }) export class AckModalLayout{
+  @Input() zIndex:number = 20
   @Output() close:EventEmitter<AckModalLayout> = new EventEmitter()
   @Input() allowClose:boolean = true
 

@@ -28,12 +28,11 @@ var AckSections = (function () {
     AckSections.propDecorators = {
         mode: [{ type: core_1.Input }],
         zIndex: [{ type: core_1.Input }],
-        header: [{ type: core_1.ContentChild, args: ["header",] }],
-        footer: [{ type: core_1.ContentChild, args: ["footer",] }],
+        table: [{ type: core_1.ContentChild, args: ["table",] }],
+        headerWrap: [{ type: core_1.ContentChild, args: ["headerWrap",] }],
+        bodyCell: [{ type: core_1.ContentChild, args: ["bodyCell",] }],
         leftBodyWrap: [{ type: core_1.ContentChild, args: ["leftBodyWrap",] }],
-        leftBody: [{ type: core_1.ContentChild, args: ["leftBody",] }],
-        rightBodyWrap: [{ type: core_1.ContentChild, args: ["rightBodyWrap",] }],
-        rightBody: [{ type: core_1.ContentChild, args: ["rightBody",] }]
+        rightBodyWrap: [{ type: core_1.ContentChild, args: ["rightBodyWrap",] }]
     };
     return AckSections;
 }());

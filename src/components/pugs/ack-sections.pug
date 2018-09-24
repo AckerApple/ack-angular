@@ -3,34 +3,41 @@ ng-container(
 )
 
 //-header
-ng-container(*ngIf="header || SectionProvider.headerTemplates.length")
+ng-container(*ngIf="SectionProvider.headerTemplates.length")
   div(
     *ngIf = "mode==='calculate'"
     style = "position:fixed;top:0;width:100%"
     "[style.z-index]" = "zIndex"
     "[(elementHeightModel)]" = "headerHeight"
-    "[elementSizeModelWatch]" = "header || SectionProvider.headerTemplates.length"
+    "[elementSizeModelWatch]" = "SectionProvider.headerTemplates.length"
   )
+    ng-template(*ngTemplateOutlet="headerWrap || headerContent;context:{outlet:headerContent}")
+  
+  ng-template(#headerContent="")
     ng-container(*ngFor="let item of SectionProvider.headerTemplates")
       ng-template(*ngTemplateOutlet="item")
-    ng-template(*ngTemplateOutlet="header")
 
   div(
     *ngIf = "!mode || mode==='clone'"
     style = "position:fixed;top:0;width:100%"
     "[style.z-index]" = "zIndex"
   )
-    ng-template(*ngTemplateOutlet="header")
-    ng-container(*ngFor="let item of SectionProvider.headerTemplates")
-      ng-template(*ngTemplateOutlet="item")
+    ng-template(*ngTemplateOutlet="headerContent")
 
-table(
-  style       = "height:100%;width:100%;border-collapse: collapse;"
-  cellPadding = "0"
-  cellSpacing = "0"
-  border      = "0"
-)
-  tr(*ngIf="header || SectionProvider.headerTemplates.length")
+
+ng-template(*ngTemplateOutlet="table || defaultTableTag;context:{outlet:tableRows}")
+
+ng-template(#defaultTableTag="")
+  table(
+    style       = "height:100%;width:100%;border-collapse: collapse;"
+    cellPadding = "0"
+    cellSpacing = "0"
+    border      = "0"
+  )
+    ng-template(*ngTemplateOutlet="tableRows")
+
+ng-template(#tableRows="")
+  tr(*ngIf="SectionProvider.headerTemplates.length")
     td(
       colspan = "3"
       "[style.height.px]" = "headerHeight"
@@ -39,12 +46,11 @@ table(
       ng-container(*ngIf="!mode || mode==='clone'")
         ng-container(*ngFor="let item of SectionProvider.headerTemplates")
           ng-template(*ngTemplateOutlet="item")
-        ng-template(*ngTemplateOutlet="header")
   tr
     //-optional left body
     td(
-      *ngIf="leftBody || SectionProvider.leftBodyTemplates.length"
-      "[style.width.px]" = "leftBodyWidth"
+      *ngIf="SectionProvider.leftBodyTemplates.length"
+      "[style.min-width.px]" = "leftBodyWidth"
       valign = "top"
     )
       ng-template(#defaultLeftBodyWrap="")
@@ -54,16 +60,15 @@ table(
       ng-template(#leftBodyContent="")
         ng-container(*ngFor="let item of SectionProvider.leftBodyTemplates")
           ng-template(*ngTemplateOutlet="item")
-        ng-template(*ngTemplateOutlet="leftBody")
 
       //-pos fixed leftBody
       div(
         *ngIf = "mode==='calculate'"
-        style = "position:fixed;left:0;"
+        style = "position:fixed;"
         "[style.z-index]" = "zIndex - 1"
-        "[style.height.px]" = "htmlHeightModel - (header || SectionProvider.headerTemplates.length ? headerHeight : 0) - (footer || SectionProvider.footerTemplates.length ? footerHeight : 0)"
+        "[style.height.px]" = "htmlHeightModel - (SectionProvider.headerTemplates.length ? headerHeight : 0) - (SectionProvider.footerTemplates.length ? footerHeight : 0)"
         "[(elementWidthModel)]" = "leftBodyWidth"
-        "[elementSizeModelWatch]" = "leftBody || SectionProvider.leftBodyTemplates.length"
+        "[elementSizeModelWatch]" = "SectionProvider.leftBodyTemplates.length"
       )
         ng-template(*ngTemplateOutlet="leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}")
 
@@ -79,13 +84,19 @@ table(
         ng-template(*ngTemplateOutlet="leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}")
 
     //- BODY
-    td(style="height:100%")
+    ng-container(*ngTemplateOutlet="bodyCell || defaultBodyCell;context:{outlet:body}")
+
+    ng-template(#defaultBodyCell="")
+      td(style="height:100%" valign="top")
+        ng-template(*ngTemplateOutlet="body")
+
+    ng-template(#body="")
       ng-content
 
     //-optional right body
     td(
-      *ngIf="rightBody || SectionProvider.rightBodyTemplates.length"
-      "[style.width.px]" = "rightBodyWidth"
+      *ngIf="SectionProvider.rightBodyTemplates.length"
+      "[style.min-width.px]" = "rightBodyWidth"
       valign = "top"
     )
       ng-template(#defaultRightBodyWrap="")
@@ -95,16 +106,15 @@ table(
       ng-template(#rightBodyContent="")
         ng-container(*ngFor="let item of SectionProvider.rightBodyTemplates")
           ng-template(*ngTemplateOutlet="item")
-        ng-template(*ngTemplateOutlet="rightBody")
 
       //-pos fixed rightBody
       div(
         *ngIf = "mode==='calculate'"
-        style = "position:fixed;right:0;"
+        style = "position:fixed;"
         "[style.z-index]" = "zIndex - 1"
-        "[style.height.px]" = "htmlHeightModel - (header || SectionProvider.headerTemplates.length ? headerHeight : 0) - (header || SectionProvider.footerTemplates.length ? footerHeight : 0)"
+        "[style.height.px]" = "htmlHeightModel - (SectionProvider.headerTemplates.length ? headerHeight : 0) - (SectionProvider.footerTemplates.length ? footerHeight : 0)"
         "[(elementWidthModel)]" = "rightBodyWidth"
-        "[elementSizeModelWatch]" = "rightBody || SectionProvider.rightBodyTemplates.length"
+        "[elementSizeModelWatch]" = "SectionProvider.rightBodyTemplates.length"
       )
         ng-template(*ngTemplateOutlet="rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}")
 
@@ -119,7 +129,7 @@ table(
       ng-container(*ngIf="!mode || mode==='clone'")
         ng-template(*ngTemplateOutlet="rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}")
   
-  tr(*ngIf="footer || SectionProvider.footerTemplates.length")
+  tr(*ngIf="SectionProvider.footerTemplates.length")
     td(
       colspan = "3"
       "[style.height.px]"="footerHeight"
@@ -127,19 +137,17 @@ table(
       div(*ngIf="!mode || mode==='clone'" style="visibility:hidden")
         ng-container(*ngFor="let item of SectionProvider.footerTemplates")
           ng-template(*ngTemplateOutlet="item")
-        ng-template(*ngTemplateOutlet="footer")
 
-ng-container(*ngIf="footer || SectionProvider.footerTemplates.length")
+ng-container(*ngIf="SectionProvider.footerTemplates.length")
   div(
     *ngIf = "mode==='calculate'"
     style = "position:fixed;bottom:0;width:100%"
     "[style.z-index]" = "zIndex"
     "[(elementHeightModel)]" = "footerHeight"
-    "[elementSizeModelWatch]" = "footer || SectionProvider.footerTemplates.length"
+    "[elementSizeModelWatch]" = "SectionProvider.footerTemplates.length"
   )
     ng-container(*ngFor="let item of SectionProvider.footerTemplates")
       ng-template(*ngTemplateOutlet="item")
-    ng-template(*ngTemplateOutlet="footer")
   
   div(
     *ngIf = "!mode || mode==='clone'"
@@ -148,4 +156,3 @@ ng-container(*ngIf="footer || SectionProvider.footerTemplates.length")
   )
     ng-container(*ngFor="let item of SectionProvider.footerTemplates")
       ng-template(*ngTemplateOutlet="item")
-    ng-template(*ngTemplateOutlet="footer")

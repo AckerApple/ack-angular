@@ -3,6 +3,7 @@ import { AckApp } from "../providers/AckApp.provider";
 export declare class AckModalLayout {
     element: ElementRef;
     AckApp: AckApp;
+    zIndex: number;
     close: EventEmitter<AckModalLayout>;
     allowClose: boolean;
     wrapStyle: any;

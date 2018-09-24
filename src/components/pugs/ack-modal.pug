@@ -1,6 +1,7 @@
 //-create a display hook for ack-fixed-element-stage to hook onto (must be first ng-template)
 ng-template(#placeholder="")
   ack-modal-layout(
+   "[zIndex]"           = "zIndex"
     "(close)"           = "close.emit($event)"
     "[isModelMode]"     = "isModelMode==null ? showModelChange.observers.length : isModelMode"
     "[showModel]"       = "showModel"

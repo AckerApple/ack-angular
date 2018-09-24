@@ -26,15 +26,20 @@ import { string } from "./templates/ack-sections.pug"
   @Input() mode:"calculate"|"clone" = "calculate"
 
   @Input() zIndex:number = 19
-
-  @ContentChild("header") header:TemplateRef<any>
-  @ContentChild("footer") footer:TemplateRef<any>
+  
+  @ContentChild("table") table:TemplateRef<any>
+  @ContentChild("headerWrap") headerWrap:TemplateRef<any>
+  
+  @ContentChild("bodyCell") bodyCell:TemplateRef<any>
   
   @ContentChild("leftBodyWrap") leftBodyWrap:TemplateRef<any>
-  @ContentChild("leftBody") leftBody:TemplateRef<any>
 
   @ContentChild("rightBodyWrap") rightBodyWrap:TemplateRef<any>
-  @ContentChild("rightBody") rightBody:TemplateRef<any>
+
+  //@ContentChild("header") header:TemplateRef<any>
+  //@ContentChild("footer") footer:TemplateRef<any>
+  //@ContentChild("leftBody") leftBody:TemplateRef<any>
+  //@ContentChild("rightBody") rightBody:TemplateRef<any>
 
   htmlHeightModel:number
 

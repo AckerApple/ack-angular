@@ -28,6 +28,7 @@ import { string } from "./templates/ack-modal.pug"
   @Input() inline:boolean
   @Input() isModelMode:boolean
   @Input() allowClose:boolean = true
+  @Input() zIndex:number = 20
 
   @Input() wrapStyle:any
   @Input() wrapCellStyle:any
