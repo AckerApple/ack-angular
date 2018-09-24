@@ -30,7 +30,9 @@ var AckSections = (function () {
         zIndex: [{ type: core_1.Input }],
         header: [{ type: core_1.ContentChild, args: ["header",] }],
         footer: [{ type: core_1.ContentChild, args: ["footer",] }],
+        leftBodyWrap: [{ type: core_1.ContentChild, args: ["leftBodyWrap",] }],
         leftBody: [{ type: core_1.ContentChild, args: ["leftBody",] }],
+        rightBodyWrap: [{ type: core_1.ContentChild, args: ["rightBodyWrap",] }],
         rightBody: [{ type: core_1.ContentChild, args: ["rightBody",] }]
     };
     return AckSections;
