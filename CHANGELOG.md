@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.8.7] - 2018-09-24
+- offer more control over ack-sections
+
 ## [1.8.6] - 2018-09-20
 - route-reporter exportAs RouteReporter
 - deprecated [(ref)] in favor of exportAs hash variables

@@ -30,7 +30,10 @@ import { string } from "./templates/ack-sections.pug"
   @ContentChild("header") header:TemplateRef<any>
   @ContentChild("footer") footer:TemplateRef<any>
   
+  @ContentChild("leftBodyWrap") leftBodyWrap:TemplateRef<any>
   @ContentChild("leftBody") leftBody:TemplateRef<any>
+
+  @ContentChild("rightBodyWrap") rightBodyWrap:TemplateRef<any>
   @ContentChild("rightBody") rightBody:TemplateRef<any>
 
   htmlHeightModel:number

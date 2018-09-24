@@ -7,7 +7,9 @@ export declare class AckSections {
     zIndex: number;
     header: TemplateRef<any>;
     footer: TemplateRef<any>;
+    leftBodyWrap: TemplateRef<any>;
     leftBody: TemplateRef<any>;
+    rightBodyWrap: TemplateRef<any>;
     rightBody: TemplateRef<any>;
     htmlHeightModel: number;
     constructor(SectionProvider: SectionProvider, ElementRef: ElementRef);

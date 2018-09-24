@@ -47,33 +47,36 @@ table(
       "[style.width.px]" = "leftBodyWidth"
       valign = "top"
     )
+      ng-template(#defaultLeftBodyWrap="")
+        div(style="overflow:auto;height:100%;")
+          ng-template(*ngTemplateOutlet="leftBodyContent")
+
+      ng-template(#leftBodyContent="")
+        ng-container(*ngFor="let item of SectionProvider.leftBodyTemplates")
+          ng-template(*ngTemplateOutlet="item")
+        ng-template(*ngTemplateOutlet="leftBody")
+
       //-pos fixed leftBody
       div(
         *ngIf = "mode==='calculate'"
-        style = "position:fixed;left:0;overflow:auto;"
+        style = "position:fixed;left:0;"
         "[style.z-index]" = "zIndex - 1"
         "[style.height.px]" = "htmlHeightModel - (header || SectionProvider.headerTemplates.length ? headerHeight : 0) - (footer || SectionProvider.footerTemplates.length ? footerHeight : 0)"
         "[(elementWidthModel)]" = "leftBodyWidth"
         "[elementSizeModelWatch]" = "leftBody || SectionProvider.leftBodyTemplates.length"
       )
-        ng-container(*ngFor="let item of SectionProvider.leftBodyTemplates")
-          ng-template(*ngTemplateOutlet="item")
-        ng-template(*ngTemplateOutlet="leftBody")
+        ng-template(*ngTemplateOutlet="leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}")
 
       div(
         *ngIf = "!mode || mode==='clone'"
         style = "position:fixed;top:0;"
         "[style.z-index]" = "zIndex - 1"
       )
-        ng-template(*ngTemplateOutlet="leftBody")
-        ng-container(*ngFor="let item of SectionProvider.leftBodyTemplates")
-          ng-template(*ngTemplateOutlet="item")
+        ng-template(*ngTemplateOutlet="leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}")
 
       //-static leftBody width keeper
       ng-container(*ngIf="!mode || mode==='clone'")
-        ng-container(*ngFor="let item of SectionProvider.leftBodyTemplates")
-          ng-template(*ngTemplateOutlet="item")
-        ng-template(*ngTemplateOutlet="leftBody")
+        ng-template(*ngTemplateOutlet="leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}")
 
     //- BODY
     td(style="height:100%")
@@ -85,33 +88,36 @@ table(
       "[style.width.px]" = "rightBodyWidth"
       valign = "top"
     )
+      ng-template(#defaultRightBodyWrap="")
+        div(style="overflow:auto;height:100%;")
+          ng-template(*ngTemplateOutlet="rightBodyContent")
+      
+      ng-template(#rightBodyContent="")
+        ng-container(*ngFor="let item of SectionProvider.rightBodyTemplates")
+          ng-template(*ngTemplateOutlet="item")
+        ng-template(*ngTemplateOutlet="rightBody")
+
       //-pos fixed rightBody
       div(
         *ngIf = "mode==='calculate'"
-        style = "position:fixed;right:0;overflow:auto;"
+        style = "position:fixed;right:0;"
         "[style.z-index]" = "zIndex - 1"
         "[style.height.px]" = "htmlHeightModel - (header || SectionProvider.headerTemplates.length ? headerHeight : 0) - (header || SectionProvider.footerTemplates.length ? footerHeight : 0)"
         "[(elementWidthModel)]" = "rightBodyWidth"
         "[elementSizeModelWatch]" = "rightBody || SectionProvider.rightBodyTemplates.length"
       )
-        ng-container(*ngFor="let item of SectionProvider.rightBodyTemplates")
-          ng-template(*ngTemplateOutlet="item")
-        ng-template(*ngTemplateOutlet="rightBody")
+        ng-template(*ngTemplateOutlet="rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}")
 
       div(
         *ngIf = "!mode || mode==='clone'"
-        style = "position:fixed;top:0;"
+        style = "position:fixed;top:0;overflow:auto;"
         "[style.z-index]" = "zIndex - 1"
       )
-        ng-template(*ngTemplateOutlet="rightBody")
-        ng-container(*ngFor="let item of SectionProvider.rightBodyTemplates")
-          ng-template(*ngTemplateOutlet="item")
+        ng-template(*ngTemplateOutlet="rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}")
 
       //-static rightBody width keeper
       ng-container(*ngIf="!mode || mode==='clone'")
-        ng-container(*ngFor="let item of SectionProvider.rightBodyTemplates")
-          ng-template(*ngTemplateOutlet="item")
-        ng-template(*ngTemplateOutlet="rightBody")
+        ng-template(*ngTemplateOutlet="rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}")
   
   tr(*ngIf="footer || SectionProvider.footerTemplates.length")
     td(
