@@ -1,3 +1,4 @@
+import { Subscription } from "rxjs"
 import { Directive, Input, Output, EventEmitter } from "@angular/core"
 import {
   ActivatedRoute, Route
@@ -64,7 +65,7 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
     RouteWatchReporter
   ]]
   docCallbacks
-  querySub
+  querySub:Subscription
   
   constructor(
     public RouteWatchReporter:RouteWatchReporter,
@@ -114,7 +115,10 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
 
   ngOnDestroy(){
     this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks)
-    this.querySub.unsubscribe()
+    
+    if( this.querySub ){
+      this.querySub.unsubscribe()
+    }
   }
 
   emit(){

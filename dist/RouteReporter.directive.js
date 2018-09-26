@@ -55,7 +55,9 @@ var RouteReporter = (function () {
     };
     RouteReporter.prototype.ngOnDestroy = function () {
         this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks);
-        this.querySub.unsubscribe();
+        if (this.querySub) {
+            this.querySub.unsubscribe();
+        }
     };
     RouteReporter.prototype.emit = function () {
         this.stateChanger.emit(this.RouteWatchReporter);
