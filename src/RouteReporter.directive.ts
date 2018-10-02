@@ -78,7 +78,7 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
   ngOnInit(){
     this.RouteWatchReporter.router.events.subscribe(event=>{
       //if(event.constructor == NavigationStart){}
-      if(event.constructor == NavigationEnd){
+      if(event.constructor === NavigationEnd){
         this.beforeChanger.emit( this.RouteWatchReporter )
 
         //allow one process to occur before reporting state has changed

@@ -32,7 +32,10 @@ var ShakeOn = (function () {
         }
         if (changes.shakeType && changes.shakeType.currentValue != changes.shakeType.previousValue) {
             if (this.shakeOn) {
-                FxOn_directive_1.removeClass(this.element.nativeElement, changes.shakeType.previousValue);
+                var pv = changes.shakeType.previousValue;
+                if (pv) {
+                    FxOn_directive_1.removeClass(this.element.nativeElement, pv);
+                }
                 this.applyType();
             }
             else {

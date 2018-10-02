@@ -54,7 +54,11 @@ import {
 
     if(changes.shakeType && changes.shakeType.currentValue!=changes.shakeType.previousValue){
       if(this.shakeOn){
-        removeClass(this.element.nativeElement, changes.shakeType.previousValue)
+        const pv = changes.shakeType.previousValue
+        if( pv ){
+          removeClass(this.element.nativeElement, pv)
+        }
+
         this.applyType()
       }else{
         this.removeType()        

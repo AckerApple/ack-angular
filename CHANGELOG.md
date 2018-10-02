@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.8.10] - 2018-10-01
+- shakeOn previousValue correction
+
 ## [1.8.9] - 2018-09-26
 - improve RouterReporter directive destroy
 

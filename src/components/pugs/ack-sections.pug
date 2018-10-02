@@ -52,6 +52,7 @@ ng-template(#tableRows="")
       *ngIf="SectionProvider.leftBodyTemplates.length"
       "[style.min-width.px]" = "leftBodyWidth"
       valign = "top"
+      align = "right"
     )
       ng-template(#defaultLeftBodyWrap="")
         div(style="overflow:auto;height:100%;")
@@ -98,6 +99,7 @@ ng-template(#tableRows="")
       *ngIf="SectionProvider.rightBodyTemplates.length"
       "[style.min-width.px]" = "rightBodyWidth"
       valign = "top"
+      align = "left"
     )
       ng-template(#defaultRightBodyWrap="")
         div(style="overflow:auto;height:100%;")

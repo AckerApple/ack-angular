@@ -26,7 +26,7 @@ var RouteReporter = (function () {
     RouteReporter.prototype.ngOnInit = function () {
         var _this = this;
         this.RouteWatchReporter.router.events.subscribe(function (event) {
-            if (event.constructor == router_2.NavigationEnd) {
+            if (event.constructor === router_2.NavigationEnd) {
                 _this.beforeChanger.emit(_this.RouteWatchReporter);
                 setTimeout(function () { return _this.emit(); }, 0);
             }
