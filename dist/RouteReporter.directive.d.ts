@@ -37,6 +37,7 @@ export declare class RouteReporter {
     constructor(RouteWatchReporter: RouteWatchReporter, ActivatedRoute: ActivatedRoute);
     ngOnInit(): void;
     ngOnDestroy(): void;
+    apply(): void;
     emit(): void;
     goBackTo(name: any, params: any): void;
     tryBack(name: any, params: any): void;

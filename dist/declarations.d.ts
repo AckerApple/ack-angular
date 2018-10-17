@@ -19,9 +19,6 @@ import { ElementSizeModel } from "./directives/ElementSizeModel.directive";
 import { ScreenWidthModel } from "./directives/ScreenWidthModel.directive";
 import { ScreenHeightModel } from "./directives/ScreenHeightModel.directive";
 import { HtmlWidthModel } from "./directives/HtmlWidthModel.directive";
-export declare class VarDirective {
-    var: any;
-}
 export declare class EnterKey {
     element: ElementRef;
     enterKey: EventEmitter<Event>;

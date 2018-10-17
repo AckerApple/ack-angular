@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.8.11] - 2018-10-17
+- faster route reporting
+
 ## [1.8.10] - 2018-10-01
 - shakeOn previousValue correction
 

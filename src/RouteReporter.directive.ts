@@ -20,9 +20,6 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
   @Output() refChange = new EventEmitter()
 
 
-
-
-
   @Output("onChange") stateChanger = new EventEmitter()
   @Output("beforeChange") beforeChanger = new EventEmitter()
 
@@ -73,6 +70,7 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
   ){
     this.$document = document
     this.docCallbacks = RouteWatchReporter.getDocumentCallbacks()
+    this.apply()
   }
 
   ngOnInit(){
@@ -82,6 +80,7 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
         this.beforeChanger.emit( this.RouteWatchReporter )
 
         //allow one process to occur before reporting state has changed
+        this.apply()
         setTimeout(()=>this.emit(), 0)
       }
     })
@@ -93,6 +92,7 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
     }
 
     this.RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks)
+    this.apply()
 
     setTimeout(()=>{
       this.ref = this.RouteWatchReporter
@@ -120,25 +120,16 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
       this.querySub.unsubscribe()
     }
   }
-
-  emit(){
-    this.stateChanger.emit( this.RouteWatchReporter )
-     const current = this.RouteWatchReporter.getCurrent()
+  
+  apply(){
+    const current = this.RouteWatchReporter.getCurrent()
     
-    if( !current )return
-
     this.route = current.config
-    this.routeChange.emit( current.config )
-
     this.current = current
     this.state = current
-    this.stateChange.emit( current )
-
     this.activated = current.ActivatedRoute
-    this.activatedChange.emit( current.ActivatedRoute )
-    
-    this.paramsChange.emit( this.params=current.params )
-    this.dataChange.emit( this.data=current.config.data )
+    this.params = current.params || {}
+    this.data = current.config.data || {}
 
     const parent = current.parent
 
@@ -146,16 +137,32 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
       const config = parent.config
       const ar = parent.ActivatedRoute
 
-      /* parent bindings */
-        this.parentRoute = config
-        this.parentRouteChange.emit( config )
-        
-        this.parent = ar
-        this.parentChange.emit( ar )
-        
-        this.parentData = config.data
-        this.parentDataChange.emit( config.data )
-      /* end */
+      this.parentRoute = config
+      this.parent = ar        
+      this.parentData = config.data
+    }
+  }
+
+  emit(){
+    this.stateChanger.emit( this.RouteWatchReporter )
+    const current = this.RouteWatchReporter.getCurrent()
+
+    this.routeChange.emit( current.config )
+    this.stateChange.emit( current )
+    this.activatedChange.emit( current.ActivatedRoute )
+    
+    this.paramsChange.emit( current.params )
+    this.dataChange.emit( current.config.data )
+
+    const parent = current.parent
+
+    if( parent ){
+      const config = parent.config
+      const ar = parent.ActivatedRoute
+
+      this.parentRouteChange.emit( config )        
+      this.parentChange.emit( ar )
+      this.parentDataChange.emit( config.data )
     }
   }
 

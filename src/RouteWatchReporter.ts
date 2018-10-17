@@ -1,5 +1,8 @@
 //import { StateService,TransitionService,Transition } from "ui-router-ng2";
-import { Route, Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import {
+  Route, Router, NavigationEnd,
+  ActivatedRoute, ActivatedRouteSnapshot
+} from '@angular/router';
 import { Injectable } from '@angular/core';
 
 export interface currentRoute{
@@ -53,14 +56,17 @@ export interface currentRoute{
       target = target.firstChild
     }
 
+    const snapshot = target.snapshot || <ActivatedRouteSnapshot>{}
+    const parentSnap = parent.snapshot || <ActivatedRouteSnapshot>{}
+
     return {
       ActivatedRoute:target,
       config:<Route>(target.routeConfig || target),
-      params:target.snapshot.params,
+      params:snapshot.params,
       parent:{
         ActivatedRoute:parent,
         config:<Route>(parent.routeConfig || parent),
-        params:parent.snapshot.params
+        params:parentSnap.params
       }
       //...target.routeConfig//may want to do away with this
     }

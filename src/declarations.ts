@@ -41,13 +41,7 @@ import { HtmlWidthModel } from "./directives/HtmlWidthModel.directive"
 import { HtmlHeightModel } from "./directives/HtmlHeightModel.directive"
 import { StatusOnlineModel } from "./directives/StatusOnlineModel.directive"
 import { StatusOfflineModel } from "./directives/StatusOfflineModel.directive"
-
-@Directive({
-  selector: '[var]',
-  exportAs: 'var'
-}) export class VarDirective {
-  @Input() var:any;
-}
+import { VarDirective } from "./directives/VarDirective.directive"
 
 @Directive({selector:'[enterKey]'})
 export class EnterKey{
