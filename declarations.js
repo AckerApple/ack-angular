@@ -32,21 +32,7 @@ var HtmlWidthModel_directive_1 = require("./directives/HtmlWidthModel.directive"
 var HtmlHeightModel_directive_1 = require("./directives/HtmlHeightModel.directive");
 var StatusOnlineModel_directive_1 = require("./directives/StatusOnlineModel.directive");
 var StatusOfflineModel_directive_1 = require("./directives/StatusOfflineModel.directive");
-var VarDirective = (function () {
-    function VarDirective() {
-    }
-    VarDirective.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[var]',
-                    exportAs: 'var'
-                },] },
-    ];
-    VarDirective.propDecorators = {
-        var: [{ type: core_1.Input }]
-    };
-    return VarDirective;
-}());
-exports.VarDirective = VarDirective;
+var VarDirective_directive_1 = require("./directives/VarDirective.directive");
 var EnterKey = (function () {
     function EnterKey(element) {
         var _this = this;
@@ -227,7 +213,7 @@ exports.declarations = [
     Init_directive_1.Init,
     SelectOn_directive_1.SelectOn,
     FocusOn_directive_1.FocusOn,
-    VarDirective,
+    VarDirective_directive_1.VarDirective,
     InnerHtmlModel_directive_1.InnerHtmlModel,
     ReplaceModel_directive_1.ReplaceModel,
     FormAlter,

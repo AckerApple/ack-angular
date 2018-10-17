@@ -22,12 +22,14 @@ var RouteReporter = (function () {
         this.stateChange = new core_1.EventEmitter();
         this.$document = document;
         this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
+        this.apply();
     }
     RouteReporter.prototype.ngOnInit = function () {
         var _this = this;
         this.RouteWatchReporter.router.events.subscribe(function (event) {
             if (event.constructor === router_2.NavigationEnd) {
                 _this.beforeChanger.emit(_this.RouteWatchReporter);
+                _this.apply();
                 setTimeout(function () { return _this.emit(); }, 0);
             }
         });
@@ -37,6 +39,7 @@ var RouteReporter = (function () {
             });
         }
         this.RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
+        this.apply();
         setTimeout(function () {
             _this.ref = _this.RouteWatchReporter;
             _this.refChange.emit(_this.ref);
@@ -59,29 +62,37 @@ var RouteReporter = (function () {
             this.querySub.unsubscribe();
         }
     };
-    RouteReporter.prototype.emit = function () {
-        this.stateChanger.emit(this.RouteWatchReporter);
+    RouteReporter.prototype.apply = function () {
         var current = this.RouteWatchReporter.getCurrent();
-        if (!current)
-            return;
         this.route = current.config;
-        this.routeChange.emit(current.config);
         this.current = current;
         this.state = current;
-        this.stateChange.emit(current);
         this.activated = current.ActivatedRoute;
-        this.activatedChange.emit(current.ActivatedRoute);
-        this.paramsChange.emit(this.params = current.params);
-        this.dataChange.emit(this.data = current.config.data);
+        this.params = current.params || {};
+        this.data = current.config.data || {};
         var parent = current.parent;
         if (parent) {
             var config = parent.config;
             var ar = parent.ActivatedRoute;
             this.parentRoute = config;
-            this.parentRouteChange.emit(config);
             this.parent = ar;
-            this.parentChange.emit(ar);
             this.parentData = config.data;
+        }
+    };
+    RouteReporter.prototype.emit = function () {
+        this.stateChanger.emit(this.RouteWatchReporter);
+        var current = this.RouteWatchReporter.getCurrent();
+        this.routeChange.emit(current.config);
+        this.stateChange.emit(current);
+        this.activatedChange.emit(current.ActivatedRoute);
+        this.paramsChange.emit(current.params);
+        this.dataChange.emit(current.config.data);
+        var parent = current.parent;
+        if (parent) {
+            var config = parent.config;
+            var ar = parent.ActivatedRoute;
+            this.parentRouteChange.emit(config);
+            this.parentChange.emit(ar);
             this.parentDataChange.emit(config.data);
         }
     };

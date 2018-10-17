@@ -32,14 +32,16 @@ var RouteWatchReporter = (function () {
             parent = target;
             target = target.firstChild;
         }
+        var snapshot = target.snapshot || {};
+        var parentSnap = parent.snapshot || {};
         return {
             ActivatedRoute: target,
             config: (target.routeConfig || target),
-            params: target.snapshot.params,
+            params: snapshot.params,
             parent: {
                 ActivatedRoute: parent,
                 config: (parent.routeConfig || parent),
-                params: parent.snapshot.params
+                params: parentSnap.params
             }
         };
     };
