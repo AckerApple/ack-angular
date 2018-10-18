@@ -1,8 +1,17 @@
-import { Directive, Input } from "@angular/core"
+import {
+  Directive, Input, EventEmitter, Output
+} from "@angular/core"
 
 @Directive({
   selector: '[var]',
   exportAs: 'var'
 }) export class VarDirective {
   @Input() var:any;
+  @Output() changed:EventEmitter<any> = new EventEmitter()
+
+  ngOnChanges( changes:any ){
+    if( changes.var ){
+      this.changed.emit( this.var )
+    }
+  }
 }

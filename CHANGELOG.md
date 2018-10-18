@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.8.12] - 2018-10-18
+- VarDirective has (changed) Output
+
 ## [1.8.11] - 2018-10-17
 - faster route reporting
 
