@@ -4206,8 +4206,9 @@ var VarDirective = /** @class */ (function () {
         this.changed = new core_1.EventEmitter();
     }
     VarDirective.prototype.ngOnChanges = function (changes) {
+        var _this = this;
         if (changes.var) {
-            this.changed.emit(this.var);
+            setTimeout(function () { return _this.changed.emit(_this.var); }, 0);
         }
     };
     __decorate([
