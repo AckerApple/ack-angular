@@ -1,0 +1,26 @@
+{
+  "name": "ack-angular",
+  "version": "1.8.13",
+  "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AckerApple/ack-angular.git"
+  },
+  "keywords": [
+    "ng2",
+    "angular2",
+    "angular",
+    "directives",
+    "components",
+    "pipes",
+    "providers"
+  ],
+  "author": "Acker Dawn Apple",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AckerApple/ack-angular/issues"
+  },
+  "homepage": "https://github.com/AckerApple/ack-angular#readme"
+}
