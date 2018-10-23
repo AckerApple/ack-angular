@@ -155,7 +155,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
     request:httpOptions
   ):Promise<any>{
     const offlineModel = <cacheModel>request.offlineModel
-    return this.AckCache.get( offlineModel.name )
+    return this.AckCache.get(offlineModel.name, offlineModel)
     .then(routes=>{
       routes = routes || {}
       const cacheName = this.getSotageNameByRequest(request)

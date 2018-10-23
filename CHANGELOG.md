@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.8.14] - 2018-10-18
+- cache expiration was not being enforced
+
 ## [1.8.13] - 2018-10-18
 - VarDirective has (changed) Output
 

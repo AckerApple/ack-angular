@@ -61,7 +61,11 @@ export interface cacheModel{
       maxAge:number - 
     }
   */
-  cacheToReturn(name:string, data:any, options:cacheModel):any{
+  cacheToReturn(
+    name:string,
+    data:any,
+    options:cacheModel
+  ):any{
     if(data.cache==null && data._timestamp==null){
       return Promise.resolve( data )//bad data catch
     }
@@ -101,7 +105,10 @@ export interface cacheModel{
     return isMemMaxed || isMemExpired
   }
 
-  get(name:string, options:cacheModel=<cacheModel>{expires:null}){
+  get(
+    name:string,
+    options:cacheModel=<cacheModel>{expires:null}
+  ){
     return super.get(name)
     .then(data=>{
       if(data){

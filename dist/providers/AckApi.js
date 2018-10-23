@@ -78,7 +78,7 @@ var AckApi = (function () {
     AckApi.prototype.getCacheByNamedRequest = function (request) {
         var _this = this;
         var offlineModel = request.offlineModel;
-        return this.AckCache.get(offlineModel.name)
+        return this.AckCache.get(offlineModel.name, offlineModel)
             .then(function (routes) {
             routes = routes || {};
             var cacheName = _this.getSotageNameByRequest(request);
