@@ -25,6 +25,7 @@ var ReplaceModel_directive_1 = require("./directives/ReplaceModel.directive");
 var ElementSizeModel_directive_1 = require("./directives/ElementSizeModel.directive");
 var ScreenScrollHeightDiff_directive_1 = require("./directives/ScreenScrollHeightDiff.directive");
 var ScreenScroll_directive_1 = require("./directives/ScreenScroll.directive");
+var PxFromHtmlTop_directive_1 = require("./directives/PxFromHtmlTop.directive");
 var ScreenScrollModelY_directive_1 = require("./directives/ScreenScrollModelY.directive");
 var ScreenWidthModel_directive_1 = require("./directives/ScreenWidthModel.directive");
 var ScreenHeightModel_directive_1 = require("./directives/ScreenHeightModel.directive");
@@ -209,6 +210,15 @@ var FormAlter = (function () {
     return FormAlter;
 }());
 exports.FormAlter = FormAlter;
+exports.screenDirectives = [
+    ScreenScrollModelY_directive_1.ScreenScrollModelY,
+    ScreenWidthModel_directive_1.ScreenWidthModel,
+    ScreenHeightModel_directive_1.ScreenHeightModel,
+    ScreenScroll_directive_1.ScreenScroll,
+    ScrollPastFixed_component_1.ScrollPastFixed,
+    ScreenScrollHeightDiff_directive_1.ScreenScrollHeightDiff,
+    PxFromHtmlTop_directive_1.PxFromHtmlTop
+];
 exports.declarations = [
     Init_directive_1.Init,
     SelectOn_directive_1.SelectOn,
@@ -221,13 +231,8 @@ exports.declarations = [
     EnterKey,
     EscapeKey,
     PreventBackKey,
-    PreventEnterKey,
-    ScreenScrollModelY_directive_1.ScreenScrollModelY,
-    ScreenWidthModel_directive_1.ScreenWidthModel,
-    ScreenHeightModel_directive_1.ScreenHeightModel,
-    ScreenScroll_directive_1.ScreenScroll,
-    ScrollPastFixed_component_1.ScrollPastFixed,
-    ScreenScrollHeightDiff_directive_1.ScreenScrollHeightDiff,
+    PreventEnterKey
+].concat(exports.screenDirectives, [
     HtmlWidthModel_directive_1.HtmlWidthModel,
     HtmlHeightModel_directive_1.HtmlHeightModel,
     ShakeOn_directive_1.ShakeOn,
@@ -253,4 +258,4 @@ exports.declarations = [
     AckArray_directive_1.AckArray,
     AckAggregate_directive_1.AckAggregate,
     AckFixedElementStage_component_1.AckFixedElementStage
-];
+]);

@@ -16,6 +16,10 @@ import { FocusOn } from "./directives/FocusOn.directive";
 import { SelectOn } from "./directives/SelectOn.directive";
 import { InnerHtmlModel } from "./directives/InnerHtmlModel.directive";
 import { ElementSizeModel } from "./directives/ElementSizeModel.directive";
+import { ScreenScrollHeightDiff } from "./directives/ScreenScrollHeightDiff.directive";
+import { ScreenScroll } from "./directives/ScreenScroll.directive";
+import { PxFromHtmlTop } from "./directives/PxFromHtmlTop.directive";
+import { ScreenScrollModelY } from "./directives/ScreenScrollModelY.directive";
 import { ScreenWidthModel } from "./directives/ScreenWidthModel.directive";
 import { ScreenHeightModel } from "./directives/ScreenHeightModel.directive";
 import { HtmlWidthModel } from "./directives/HtmlWidthModel.directive";
@@ -59,4 +63,5 @@ export declare class FormAlter {
     constructor(element: ElementRef);
     ngOnDestroy(): void;
 }
-export declare const declarations: (typeof AckModalLayout | typeof AckModal | typeof AckSections | typeof AckSectionTemplates | typeof AckCloseIcon | typeof AckOptions | typeof AbsoluteOverflowX | typeof AckFixedElementStage | typeof ReaderBody | typeof AckArray | typeof ScrollPastFixed | typeof FxOn | typeof ShakeOn | typeof FocusOn | typeof SelectOn | typeof InnerHtmlModel | typeof ElementSizeModel | typeof ScreenWidthModel | typeof ScreenHeightModel | typeof HtmlWidthModel | typeof EnterKey | typeof EscapeKey | typeof PreventBackKey | typeof PreventEnterKey | typeof FormChanged | typeof FormAlter)[];
+export declare const screenDirectives: (typeof ScrollPastFixed | typeof ScreenScrollHeightDiff | typeof ScreenScroll | typeof PxFromHtmlTop | typeof ScreenScrollModelY | typeof ScreenWidthModel | typeof ScreenHeightModel)[];
+export declare const declarations: (typeof AckModalLayout | typeof AckModal | typeof AckSections | typeof AckSectionTemplates | typeof AckCloseIcon | typeof AckOptions | typeof AbsoluteOverflowX | typeof AckFixedElementStage | typeof ReaderBody | typeof AckArray | typeof ScrollPastFixed | typeof FxOn | typeof ShakeOn | typeof FocusOn | typeof SelectOn | typeof InnerHtmlModel | typeof ElementSizeModel | typeof PxFromHtmlTop | typeof ScreenWidthModel | typeof ScreenHeightModel | typeof HtmlWidthModel | typeof EnterKey | typeof EscapeKey | typeof PreventBackKey | typeof PreventEnterKey | typeof FormChanged | typeof FormAlter)[];
