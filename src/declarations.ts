@@ -34,6 +34,7 @@ import { ReplaceModel } from "./directives/ReplaceModel.directive"
 import { ElementSizeModel, ElementHeightModel, ElementWidthModel } from "./directives/ElementSizeModel.directive"
 import { ScreenScrollHeightDiff } from "./directives/ScreenScrollHeightDiff.directive"
 import { ScreenScroll } from "./directives/ScreenScroll.directive"
+import { PxFromHtmlTop } from "./directives/PxFromHtmlTop.directive"
 import { ScreenScrollModelY } from "./directives/ScreenScrollModelY.directive"
 import { ScreenWidthModel } from "./directives/ScreenWidthModel.directive"
 import { ScreenHeightModel } from "./directives/ScreenHeightModel.directive"
@@ -159,9 +160,17 @@ export class PreventEnterKey{
   }
 }
 
+export const screenDirectives = [
+  ScreenScrollModelY,
+  ScreenWidthModel,
+  ScreenHeightModel,
+  ScreenScroll,
+  ScrollPastFixed,
+  ScreenScrollHeightDiff,
+  PxFromHtmlTop
+]
 
 export const declarations = [
-  //Directives
   Init,
   SelectOn,
   FocusOn,
@@ -174,12 +183,9 @@ export const declarations = [
   EscapeKey,
   PreventBackKey,
   PreventEnterKey,
-  ScreenScrollModelY,
-  ScreenWidthModel,
-  ScreenHeightModel,
-  ScreenScroll,
-  ScrollPastFixed,
-  ScreenScrollHeightDiff,
+  
+  ...screenDirectives,
+
   HtmlWidthModel,
   HtmlHeightModel,
   ShakeOn,

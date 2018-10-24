@@ -27,6 +27,7 @@ export interface selected{
   elementHeightModel:number
   htmlWidthModel:number
   htmlHeightModel:number
+  pxFromHtmlTop:number
   screenScrollModelY:number
   screenScrollHeightDiff:number
   screenWidthModel:number
