@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.8.16] - 2018-10-24
+- Better faster [(screenHeightModel)]
+
 ## [1.8.15] - 2018-10-24
 - Added [pxFromHtmlTop]
 

@@ -4,9 +4,10 @@ import { htmlSize, HtmlSizeService } from "./HtmlSizeWatcher";
 export declare class ScreenHeightModel {
     HtmlSizeService: HtmlSizeService;
     sub: Subscription;
-    screenHeightModel: number;
-    screenHeightModelChange: EventEmitter<number>;
+    model: number;
+    modelChange: EventEmitter<number>;
     constructor(HtmlSizeService: HtmlSizeService);
+    ngAfterViewInit(): void;
     changed(): void;
     hasChanged(): boolean;
     setModel(model: htmlSize): void;

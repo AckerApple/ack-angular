@@ -12,12 +12,13 @@ import {
 } from "./HtmlSizeWatcher"
 
 @Directive({
-  selector: '[screenHeightModel]'
+  selector: '[screenHeightModel]',
+  exportAs: 'ScreenHeightModel'
 }) export class ScreenHeightModel{
   sub:Subscription
 
-  @Input() screenHeightModel:number
-  @Output() screenHeightModelChange:EventEmitter<number> = new EventEmitter()
+  @Input('screenHeightModel') model:number
+  @Output('screenHeightModelChange') modelChange:EventEmitter<number> = new EventEmitter()
 
   constructor(
     public HtmlSizeService:HtmlSizeService
@@ -25,10 +26,12 @@ import {
     this.sub = this.HtmlSizeService.change.subscribe(()=>this.changed())
     
     this.HtmlSizeService.checkWatchers()
+  }
 
-    if( this.HtmlSizeService.htmlSize ){
-      this.changed()
-    }
+  ngAfterViewInit(){
+    setTimeout(()=>this.setModel( this.HtmlSizeService.htmlSize ), 0)//two way bind often needs init override
+    //content may grow
+    //setTimeout(()=>this.changed(), 200)//two way bind often needs init override
   }
 
   changed(){
@@ -37,11 +40,11 @@ import {
   }
 
   hasChanged(){
-    return this.screenHeightModel !== window.innerHeight
+    return this.model !== window.innerHeight
   }
 
   setModel( model:htmlSize ){
-    this.screenHeightModel = window.innerHeight
-    this.screenHeightModelChange.emit( this.screenHeightModel )
+    this.model = window.innerHeight
+    this.modelChange.emit( this.model )
   }
 }

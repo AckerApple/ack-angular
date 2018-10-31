@@ -6,36 +6,38 @@ var ScreenHeightModel = (function () {
     function ScreenHeightModel(HtmlSizeService) {
         var _this = this;
         this.HtmlSizeService = HtmlSizeService;
-        this.screenHeightModelChange = new core_1.EventEmitter();
+        this.modelChange = new core_1.EventEmitter();
         this.sub = this.HtmlSizeService.change.subscribe(function () { return _this.changed(); });
         this.HtmlSizeService.checkWatchers();
-        if (this.HtmlSizeService.htmlSize) {
-            this.changed();
-        }
     }
+    ScreenHeightModel.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        setTimeout(function () { return _this.setModel(_this.HtmlSizeService.htmlSize); }, 0);
+    };
     ScreenHeightModel.prototype.changed = function () {
         if (!this.HtmlSizeService.htmlSize || !this.hasChanged())
             return;
         this.setModel(this.HtmlSizeService.htmlSize);
     };
     ScreenHeightModel.prototype.hasChanged = function () {
-        return this.screenHeightModel !== window.innerHeight;
+        return this.model !== window.innerHeight;
     };
     ScreenHeightModel.prototype.setModel = function (model) {
-        this.screenHeightModel = window.innerHeight;
-        this.screenHeightModelChange.emit(this.screenHeightModel);
+        this.model = window.innerHeight;
+        this.modelChange.emit(this.model);
     };
     ScreenHeightModel.decorators = [
         { type: core_1.Directive, args: [{
-                    selector: '[screenHeightModel]'
+                    selector: '[screenHeightModel]',
+                    exportAs: 'ScreenHeightModel'
                 },] },
     ];
     ScreenHeightModel.ctorParameters = function () { return [
         { type: HtmlSizeWatcher_1.HtmlSizeService }
     ]; };
     ScreenHeightModel.propDecorators = {
-        screenHeightModel: [{ type: core_1.Input }],
-        screenHeightModelChange: [{ type: core_1.Output }]
+        model: [{ type: core_1.Input, args: ['screenHeightModel',] }],
+        modelChange: [{ type: core_1.Output, args: ['screenHeightModelChange',] }]
     };
     return ScreenHeightModel;
 }());
