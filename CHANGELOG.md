@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.8.17] - 2018-11-01
+- ack-css-boot
+
 ## [1.8.16] - 2018-10-24
 - Better faster [(screenHeightModel)]
 
