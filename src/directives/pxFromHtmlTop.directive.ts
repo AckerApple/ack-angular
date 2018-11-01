@@ -30,11 +30,14 @@ import {
 
   ngOnChanges( changes:any ){
     this.delayFire()
-    this.delayFire(200)
+    this.delayFire(250)
+    this.delayFire(750)
+    this.delayFire(1500)
   }
 
   setter(){
-    this.number = this.ElementRef.nativeElement.getBoundingClientRect().top
+    const top = this.ElementRef.nativeElement.getBoundingClientRect().top
+    this.number = top// || 0
     //this.number = getOffset( this.ElementRef.nativeElement ).top
   }
 

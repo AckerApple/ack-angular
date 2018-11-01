@@ -18,10 +18,13 @@ var PxFromHtmlTop = (function () {
     };
     PxFromHtmlTop.prototype.ngOnChanges = function (changes) {
         this.delayFire();
-        this.delayFire(200);
+        this.delayFire(250);
+        this.delayFire(750);
+        this.delayFire(1500);
     };
     PxFromHtmlTop.prototype.setter = function () {
-        this.number = this.ElementRef.nativeElement.getBoundingClientRect().top;
+        var top = this.ElementRef.nativeElement.getBoundingClientRect().top;
+        this.number = top;
     };
     PxFromHtmlTop.prototype.ngAfterViewInit = function () {
         this.delayFire();
