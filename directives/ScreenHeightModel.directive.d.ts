@@ -8,6 +8,7 @@ export declare class ScreenHeightModel {
     modelChange: EventEmitter<number>;
     constructor(HtmlSizeService: HtmlSizeService);
     ngAfterViewInit(): void;
+    delayCheck(num?: number): void;
     changed(): void;
     hasChanged(): boolean;
     setModel(model: htmlSize): void;

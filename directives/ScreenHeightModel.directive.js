@@ -11,8 +11,14 @@ var ScreenHeightModel = (function () {
         this.HtmlSizeService.checkWatchers();
     }
     ScreenHeightModel.prototype.ngAfterViewInit = function () {
+        this.delayCheck();
+        this.delayCheck(250);
+        this.delayCheck(1500);
+    };
+    ScreenHeightModel.prototype.delayCheck = function (num) {
         var _this = this;
-        setTimeout(function () { return _this.setModel(_this.HtmlSizeService.htmlSize); }, 0);
+        if (num === void 0) { num = 0; }
+        setTimeout(function () { return _this.setModel(_this.HtmlSizeService.htmlSize); }, num);
     };
     ScreenHeightModel.prototype.changed = function () {
         if (!this.HtmlSizeService.htmlSize || !this.hasChanged())
