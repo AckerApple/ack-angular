@@ -19,6 +19,7 @@ export interface httpOptions {
     sendFailMeta?: sendFailMeta;
     promise?: "response" | "all" | "data" | string;
     reportProgress?: boolean;
+    responseType?: "text";
 }
 export interface apiConfig {
     baseUrl?: string;
@@ -44,7 +45,7 @@ export declare class AckApi {
     clearCache(name: any): Promise<void>;
     request(config: httpOptions): Promise<HttpRequest<HttpEvent<Event>> | any>;
     getCacheByNamedRequest(request: httpOptions): Promise<any>;
-    getSotageNameByRequest(request: httpOptions): string;
+    getStorageNameByRequest(request: httpOptions): string;
     requestOfflineModel(request: httpOptions): Promise<HttpResponse<HttpEvent<Event>>>;
     processCacheGet(cache: any, cfg: httpOptions): Promise<HttpResponse<HttpEvent<Event>>>;
     postRequestFail(e: any, request: httpOptions): Promise<any>;
@@ -52,8 +53,8 @@ export declare class AckApi {
     processFetchByConfig(response: HttpResponse<HttpEvent<Event>>, request: httpOptions): Promise<HttpResponse<HttpEvent<Event>>>;
     httpFailByConfig(e: any, cfg: any): Promise<never>;
     requestResponseToCache(request: any, output: any): Promise<any>;
-    get(path: string, config?: httpOptions): Promise<HttpResponse<HttpEvent<Event>>>;
-    post(path: string, data: any, config?: httpOptions): Promise<HttpResponse<HttpEvent<Event>>>;
-    delete(path: string, config?: httpOptions): Promise<HttpResponse<HttpEvent<Event>>>;
-    put(path: any, data: any, config?: any): Promise<HttpResponse<HttpEvent<Event>>>;
+    get(path: string, config?: httpOptions): Promise<HttpResponse<HttpEvent<Event>> | any>;
+    post(path: string, data: any, config?: httpOptions): Promise<HttpResponse<HttpEvent<Event>> | any>;
+    delete(path: string, config?: httpOptions): Promise<HttpResponse<HttpEvent<Event>> | any>;
+    put(path: any, data: any, config?: any): Promise<HttpResponse<HttpEvent<Event>> | any>;
 }

@@ -1,6 +1,11 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.8.19] - 2018-11-05
+- looser typed get, post, put, and delete
+- AckApi exported from index
+- AckApi.options.responseType
+
 ## [1.8.18] - 2018-11-01
 - ack-css-boot
 - better screen and fixed reading

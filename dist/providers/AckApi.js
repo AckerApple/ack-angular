@@ -81,12 +81,12 @@ var AckApi = (function () {
         return this.AckCache.get(offlineModel.name, offlineModel)
             .then(function (routes) {
             routes = routes || {};
-            var cacheName = _this.getSotageNameByRequest(request);
+            var cacheName = _this.getStorageNameByRequest(request);
             return routes[cacheName];
         })
             .then(function (cache) { return _this.processCacheGet(cache, request); });
     };
-    AckApi.prototype.getSotageNameByRequest = function (request) {
+    AckApi.prototype.getStorageNameByRequest = function (request) {
         if (request.params) {
             var paramKeys = Object.keys(request.params);
             if (!paramKeys.length)
@@ -232,7 +232,7 @@ var AckApi = (function () {
         return this.AckCache.get(cachename)
             .then(function (routes) {
             routes = routes || {};
-            var cacheName = _this.getSotageNameByRequest(request);
+            var cacheName = _this.getStorageNameByRequest(request);
             routes[cacheName] = { cache: output };
             _this.AckCache.dataOptionsCache(routes[request.url], request.offlineModel, output);
             return routes;

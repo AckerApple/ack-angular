@@ -99,12 +99,14 @@ br
           div
             label &nbsp;
             div
-              button.border.bg-success.text-success.border-success.text-md(type="submit" "(click)"="sendHttp()")
-                |request
+              button.border.bg-success.text-success.border-success.text-md(
+                type="submit"
+                "(click)"="sendHttp()"
+              ) request
         .margin-top-xs.pad-xxs.bg-white.border.border-grey-6x
-          .flex-center.child-margin-xxs.child-pad-h-xs.text-center
+          .flex-center.child-margin-1.child-pad-xs.text-center
             a.flex-1.border("(click)"="views.httpSub=views.httpSub=='body'?null:'body'" "[ngClass]"="views.httpSub=='body'?'bg-energized border-energized':'bg-info text-info border-info'")
-              |request body
+              |request config
             a.pos-rel.flex-1.border("(click)"="views.httpSub=views.httpSub=='headers'?null:'headers';loadHttpHeaderConfigArray();" "[ngClass]"="views.httpSub=='headers'?'bg-energized border-energized':'bg-info text-info border-info'")
               .pos-abs.pad-xxs.right-0.text-white(style="line-height:20px")
                 .font-fixed-width.radius-half.height-20.width-20.bg-grey-3x.pad-h-xxs
@@ -120,13 +122,37 @@ br
                   |{{ (httpCache|keys).length || 0 }}
               |que and cache
 
-
           //-request body
           .pad-xs(*ngIf="views.httpSub=='body'" "[@fadeInUp]"=1)
-            select.width-full("[(ngModel)]"="httpConfig.headers['Content-Type']" name="httpConfig.headers['Content-Type']")
-              option(value="text/plain") text/plain
-              option(value="application/json") application/json
-            textarea.width-full.height-100("[(ngModel)]"="httpConfig.body" name="httpConfig.data" placeholder="transmit data here")
+
+            .flex-wrap.child-pad-xs
+              div
+                label responseType
+                select.width-full(
+                  name = "reponseType"
+                  id   = "reponseType"
+                  "[(ngModel)]" = "httpConfig.responseType"
+                )
+                  option(value="")
+                  option(value="text") text
+                .pos-rel.text-xs
+                  .pos-abs.top-0.text-grey-3x.width-full
+                    |Control response parsing
+              div
+                label Content-Type
+                select.width-full(
+                  name          = "httpConfig.headers['Content-Type']"
+                  "[(ngModel)]" = "httpConfig.headers['Content-Type']"
+                )
+                  option(value="text/plain") text/plain
+                  option(value="application/json") application/json
+
+            h4.margin-bottom-0 Request Body
+            textarea.width-full.height-100(
+              name          = "httpConfig.data"
+              placeholder   = "transmit data here"
+              "[(ngModel)]" = "httpConfig.body"
+            )
 
           //-request headers
           .pad-xs(*ngIf="views.httpSub=='headers'" "[@fadeInUp]"=1)
@@ -184,6 +210,7 @@ br
                   |#[strong Seconds], after restoring internet connection, the above requests will process
                 .pad.text-center
                   button("(click)"="clearHttpCache()") clear cache
+
 
             //- CACHE
             div(

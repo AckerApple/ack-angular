@@ -39,6 +39,7 @@ export interface httpOptions{
   sendFailMeta?   : sendFailMeta
   promise?        : "response"|"all"|"data"|string//typically just the body data is promised. Anything but data returns response
   reportProgress? : boolean
+  responseType?   : "text"//null===json
 }
 
 export interface apiConfig{
@@ -158,13 +159,13 @@ TimeOutError.prototype = Object.create(Error.prototype)
     return this.AckCache.get(offlineModel.name, offlineModel)
     .then(routes=>{
       routes = routes || {}
-      const cacheName = this.getSotageNameByRequest(request)
+      const cacheName = this.getStorageNameByRequest(request)
       return routes[ cacheName ]//get cache by url
     })
     .then(cache=>this.processCacheGet(cache,request))
   }
 
-  getSotageNameByRequest(
+  getStorageNameByRequest(
     request:httpOptions
   ):string{
     if( request.params ){
@@ -233,7 +234,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
     if(!saveWorthy)return Promise.reject(e)
 
     request.sendFailMeta = request.sendFailMeta || <sendFailMeta>{}
-    request.sendFailMeta.offlineId = Date.now()//this.getSotageNameByRequest(request)
+    request.sendFailMeta.offlineId = Date.now()//this.getStorageNameByRequest(request)
     request.sendFailMeta.lastAttempt = new Date()
     request.sendFailMeta.attempts = request.sendFailMeta.attempts==null ? 1 : ++request.sendFailMeta.attempts
     request.sendFailMeta.maxTry = request.sendFailMeta.maxTry || 50
@@ -316,13 +317,14 @@ TimeOutError.prototype = Object.create(Error.prototype)
     .catch( e=>this.httpFailByConfig(e,cfg) )
   }
 
+  /** Once a request is successful, this is the primary processor */
   processFetchByConfig(
     response:HttpResponse<HttpEvent<Event>>,
     request:httpOptions
   ):Promise<HttpResponse<HttpEvent<Event>>>{
     this.response.emit(response)//let subscribers of all responses know we got one
     
-    const data = response.body || response["_body"]//Angular5.body Angular4._body
+    const data = response.body || response["_body"]//Angular5.body or Angular4._body
     const isJson = data && response.headers.get("Content-Type")=="application/json"
 
     if(isJson && !response["data"]){
@@ -371,7 +373,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
     return this.AckCache.get(cachename)
     .then(routes=>{
       routes = routes || {}
-      const cacheName = this.getSotageNameByRequest(request)
+      const cacheName = this.getStorageNameByRequest(request)
       routes[ cacheName ] = <cacheModel>{cache:output}
       this.AckCache.dataOptionsCache(routes[ request.url ], request.offlineModel, output)
       return routes
@@ -382,7 +384,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
   get(
     path:string,
     config?:httpOptions
-  ):Promise<HttpResponse<HttpEvent<Event>>>{
+  ):Promise<HttpResponse<HttpEvent<Event>>|any>{
     const cfg = Object.assign({}, config)
     cfg.method = "GET"
     cfg.url = path
@@ -390,8 +392,10 @@ TimeOutError.prototype = Object.create(Error.prototype)
   }
 
   post(
-    path:string, data:any, config?:httpOptions
-  ):Promise<HttpResponse<HttpEvent<Event>>>{
+    path:string,
+    data:any,
+    config?:httpOptions
+  ):Promise<HttpResponse<HttpEvent<Event>>|any>{
     const cfg = Object.assign({}, config)
     cfg.method = "POST"
     //cfg.data = data
@@ -402,7 +406,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
 
   delete(
     path:string, config?:httpOptions
-  ):Promise<HttpResponse<HttpEvent<Event>>>{
+  ):Promise<HttpResponse<HttpEvent<Event>>|any>{
     const cfg = Object.assign({}, config)
     cfg.method = "DELETE"
     cfg.url = path
@@ -411,7 +415,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
 
   put(
     path, data, config?
-  ):Promise<HttpResponse<HttpEvent<Event>>>{
+  ):Promise<HttpResponse<HttpEvent<Event>>|any>{
     const cfg = Object.assign({}, config)
     cfg.method = "PUT"
     //cfg.data = data
