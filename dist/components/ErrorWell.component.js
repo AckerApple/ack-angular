@@ -31,7 +31,8 @@ var ErrorWell = (function () {
         error: [{ type: core_1.Input }],
         cssClasses: [{ type: core_1.Input }],
         closable: [{ type: core_1.Input }],
-        allowDetails: [{ type: core_1.Input }]
+        allowDetails: [{ type: core_1.Input }],
+        titleFooter: [{ type: core_1.ContentChild, args: ["titleFooter",] }]
     };
     return ErrorWell;
 }());

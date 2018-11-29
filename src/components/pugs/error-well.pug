@@ -25,6 +25,7 @@ div(
         |details
       //-a.text-blue.underline.text-xs(*ngIf="error && closable" "(click)"="errorClose=error")
         |close
+    ng-container(*ngTemplateOutlet="titleFooter")
 
     div(*ngIf="moreDetails" "[@fadeInUp]"=1)
       absolute-overflow-x.text-sm

@@ -304,6 +304,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
           if(resolved)return
           req.unsubscribe()
           const timeoutError = new TimeOutError("Request timed out. Server did NOT respond timely enough")
+          Object.assign(timeoutError,request)
           timeoutError.timeout = cfg.timeout
           reject( timeoutError )
         }, cfg.timeout)

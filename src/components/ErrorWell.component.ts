@@ -1,4 +1,6 @@
-import { Component, Input } from "@angular/core"
+import {
+  ContentChild, Component, Input, TemplateRef, ElementRef
+} from "@angular/core"
 import { fxArray } from "ack-angular-fx"
 import { string as errorWell } from "./templates/error-well.pug"
 
@@ -13,6 +15,8 @@ import { string as errorWell } from "./templates/error-well.pug"
   @Input() cssClasses:string
   @Input() closable = true
   @Input() allowDetails:boolean = true
+
+  @ContentChild("titleFooter") titleFooter:TemplateRef<ElementRef>
 
   ngOnInit(){
     this.cssClasses = this.cssClasses || 'bg-danger border border-danger text-danger'

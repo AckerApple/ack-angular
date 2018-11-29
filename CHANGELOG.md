@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.8.20] - 2018-11-29
+- More details on timedout request
+
 ## [1.8.19] - 2018-11-05
 - looser typed get, post, put, and delete
 - AckApi exported from index

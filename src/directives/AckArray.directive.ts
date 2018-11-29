@@ -20,7 +20,7 @@ export interface loop{
   selector:"ack-array",
   exportAs:"AckArray"
 }) export class AckArray {
-  iterableDiffer: IterableDiffer<any[]>;
+  iterableDiffer: IterableDiffer<any[]>//change detection
   inited:boolean
   pushed:any = {}
 
@@ -90,9 +90,9 @@ export interface loop{
 
   //watch array deep changes
   ngDoCheck() {
-    if(!this.inited)return 
+    if( !this.inited )return 
     
-    let changes = this.iterableDiffer.diff(this.array);
+    let changes = this.iterableDiffer.diff( this.array );
     if (changes) {
       setTimeout(()=>this.loop(), 0)
     }
