@@ -8,7 +8,6 @@ var RouteReporter = (function () {
     function RouteReporter(RouteWatchReporter, ActivatedRoute) {
         this.RouteWatchReporter = RouteWatchReporter;
         this.ActivatedRoute = ActivatedRoute;
-        this.refChange = new core_1.EventEmitter();
         this.stateChanger = new core_1.EventEmitter();
         this.beforeChanger = new core_1.EventEmitter();
         this.activatedChange = new core_1.EventEmitter();
@@ -41,8 +40,6 @@ var RouteReporter = (function () {
         this.RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
         this.apply();
         setTimeout(function () {
-            _this.ref = _this.RouteWatchReporter;
-            _this.refChange.emit(_this.ref);
             _this.emit();
             _this.querySub = _this.RouteWatchReporter
                 .activatedRoute.queryParams
@@ -117,8 +114,6 @@ var RouteReporter = (function () {
     ]; };
     RouteReporter.propDecorators = {
         onLoad: [{ type: core_1.Input }],
-        ref: [{ type: core_1.Input }],
-        refChange: [{ type: core_1.Output }],
         stateChanger: [{ type: core_1.Output, args: ["onChange",] }],
         beforeChanger: [{ type: core_1.Output, args: ["beforeChange",] }],
         activated: [{ type: core_1.Input }],

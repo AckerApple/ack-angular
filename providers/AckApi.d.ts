@@ -20,6 +20,7 @@ export interface httpOptions {
     promise?: "response" | "all" | "data" | string;
     reportProgress?: boolean;
     responseType?: "text";
+    catch?: "data";
 }
 export interface apiConfig {
     baseUrl?: string;
@@ -51,7 +52,7 @@ export declare class AckApi {
     postRequestFail(e: any, request: httpOptions): Promise<any>;
     _fetch(cfg: httpOptions): Promise<HttpResponse<HttpEvent<Event>>>;
     processFetchByConfig(response: HttpResponse<HttpEvent<Event>>, request: httpOptions): Promise<HttpResponse<HttpEvent<Event>>>;
-    httpFailByConfig(e: any, cfg: any): Promise<never>;
+    httpFailByConfig(e: Error, cfg: httpOptions): Promise<never>;
     requestResponseToCache(request: any, output: any): Promise<any>;
     get(path: string, config?: httpOptions): Promise<HttpResponse<HttpEvent<Event>> | any>;
     post(path: string, data: any, config?: httpOptions): Promise<HttpResponse<HttpEvent<Event>> | any>;

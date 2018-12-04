@@ -16,8 +16,6 @@ export declare class AckArray {
     inSort: boolean;
     sortArray: sortDef[];
     idKey: any;
-    ref: AckArray;
-    refChange: EventEmitter<AckArray>;
     pageAt: number;
     pages: any[];
     pagesChange: EventEmitter<{}>;

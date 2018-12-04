@@ -17,8 +17,7 @@ var AckSections = (function () {
         { type: core_1.Component, args: [{
                     selector: 'ack-sections',
                     template: ack_sections_pug_1.string,
-                    providers: [AckSections_provider_1.SectionProvider],
-                    exportAs: "AckSections"
+                    providers: [AckSections_provider_1.SectionProvider]
                 },] },
     ];
     AckSections.ctorParameters = function () { return [

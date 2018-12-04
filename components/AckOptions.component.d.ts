@@ -13,13 +13,10 @@ export declare class AckOptions {
     inputTemplateRefs: any;
     model: any;
     modelChange: EventEmitter<any>;
-    ref: AckOptions;
-    refChange: EventEmitter<AckOptions>;
     arrayKey: string;
     modelKey: string;
     arrayToModelKey: string;
     constructor(ElementRef: ElementRef);
-    ngOnInit(): void;
     ngAfterViewInit(): void;
     selectItem(item: any): void;
     emitChange(): void;

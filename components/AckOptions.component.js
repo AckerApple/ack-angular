@@ -17,14 +17,7 @@ var AckOptions = (function () {
             }
         });
         this.modelChange = new core_1.EventEmitter();
-        this.refChange = new core_1.EventEmitter();
     }
-    AckOptions.prototype.ngOnInit = function () {
-        var _this = this;
-        setTimeout(function () {
-            _this.refChange.emit(_this);
-        }, 0);
-    };
     AckOptions.prototype.ngAfterViewInit = function () {
         var _this = this;
         setTimeout(function () {
@@ -150,8 +143,7 @@ var AckOptions = (function () {
     AckOptions.decorators = [
         { type: core_1.Component, args: [{
                     selector: "ack-options",
-                    template: ack_options_pug_1.string,
-                    exportAs: "AckOptions"
+                    template: ack_options_pug_1.string
                 },] },
     ];
     AckOptions.ctorParameters = function () { return [
@@ -168,8 +160,6 @@ var AckOptions = (function () {
         inputTemplateRefs: [{ type: core_1.Input }],
         model: [{ type: core_1.Input }],
         modelChange: [{ type: core_1.Output }],
-        ref: [{ type: core_1.Input }],
-        refChange: [{ type: core_1.Output }],
         arrayKey: [{ type: core_1.Input }],
         modelKey: [{ type: core_1.Input }],
         arrayToModelKey: [{ type: core_1.Input }]

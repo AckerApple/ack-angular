@@ -8,7 +8,6 @@ var AckArray = (function () {
         this.pushed = {};
         this.inSort = false;
         this.sortArray = [];
-        this.refChange = new core_1.EventEmitter();
         this.pageAt = 0;
         this.pagesChange = new core_1.EventEmitter();
         this.page = 0;
@@ -23,9 +22,6 @@ var AckArray = (function () {
     }
     AckArray.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () {
-            _this.refChange.emit(_this);
-        }, 0);
         if (this.keyMapChange.observers.length) {
             if (!this.keyMap) {
                 setTimeout(function () {
@@ -282,8 +278,6 @@ var AckArray = (function () {
     ]; };
     AckArray.propDecorators = {
         idKey: [{ type: core_1.Input }],
-        ref: [{ type: core_1.Input }],
-        refChange: [{ type: core_1.Output }],
         pageAt: [{ type: core_1.Input }],
         pages: [{ type: core_1.Input }],
         pagesChange: [{ type: core_1.Output }],
