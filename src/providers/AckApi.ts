@@ -40,6 +40,8 @@ export interface httpOptions{
   promise?        : "response"|"all"|"data"|string//typically just the body data is promised. Anything but data returns response
   reportProgress? : boolean
   responseType?   : "text"//null===json
+
+  catch?:"data"
 }
 
 export interface apiConfig{
@@ -347,18 +349,21 @@ TimeOutError.prototype = Object.create(Error.prototype)
     return Promise.resolve( output )
   }
 
-  httpFailByConfig(e,cfg){
-    const isReduceData = cfg.catch==null||cfg.catch=="data"
-    const isCatchData = isReduceData && e.data && e.data.error
+  httpFailByConfig(e:Error, cfg:httpOptions){
+    const isReduceData = cfg.catch==null || cfg.catch=="data"
+    const data = e["data"]
+    const isCatchData = isReduceData && data && data.error
 
     //find JSON error object and reduce to
     if(isCatchData){
       const newError = new Error()
-      Object.assign(newError, e.data.error)
+      Object.assign(newError, e["data"].error)
       e = newError
     }
 
-    if(e.status==401){
+    e["method"] = e["method"] || cfg.method
+
+    if( e["status"]==401 ){
       this.AuthError.emit(e)
     }else{
       this.ApiError.emit(e)

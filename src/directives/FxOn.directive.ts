@@ -11,8 +11,8 @@ import {
   Html inline elms cannot be animated. They will be upgraded to display inline-block
 */
 @Directive({
-  selector:"[fxOn]",
-  exportAs:"FxOn"
+  selector:"[fxOn]"
+  ,exportAs:"FxOn"
 }) export class FxOn {
   @Input() fxOn:boolean
   @Input() fxClass:string

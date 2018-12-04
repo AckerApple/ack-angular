@@ -17,8 +17,8 @@ export interface loop{
 }
 
 @Directive({
-  selector:"ack-array",
-  exportAs:"AckArray"
+  selector:"ack-array"
+  ,exportAs:"AckArray"
 }) export class AckArray {
   iterableDiffer: IterableDiffer<any[]>//change detection
   inited:boolean
@@ -28,11 +28,7 @@ export interface loop{
   sortArray:sortDef[] = []
   
   @Input() idKey
-  
-  //deprecated
-  @Input() ref:AckArray
-  @Output() refChange:EventEmitter<AckArray> = new EventEmitter()
-  
+ 
 
   @Input() pageAt:number = 0//when to page aka maxrows
   @Input() pages:any[]
@@ -63,10 +59,6 @@ export interface loop{
   }
 
   ngOnInit(){
-    setTimeout(()=>{
-      this.refChange.emit(this)
-    }, 0)
-
     if( this.keyMapChange.observers.length ){
       if( !this.keyMap ){
         setTimeout(()=>{      

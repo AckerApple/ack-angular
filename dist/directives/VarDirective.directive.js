@@ -13,8 +13,8 @@ var VarDirective = (function () {
     };
     VarDirective.decorators = [
         { type: core_1.Directive, args: [{
-                    selector: '[var]',
-                    exportAs: 'var'
+                    selector: "[var]",
+                    exportAs: "var"
                 },] },
     ];
     VarDirective.propDecorators = {

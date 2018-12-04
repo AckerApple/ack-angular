@@ -17,8 +17,8 @@ import { string } from "./templates/ack-modal.pug"
 
 @Component({
   selector:"ack-modal",
-  template:string,
-  exportAs:"AckModal"
+  template:string
+  //,exportAs:"AckModal"
   //,animations:fxArray
 }) export class AckModal{
   @ContentChild('body') body:TemplateRef<any>

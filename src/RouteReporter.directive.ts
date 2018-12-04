@@ -15,11 +15,6 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
   //deprecated
   @Input() onLoad
 
-  //deprecated
-  @Input() ref//variable reference
-  @Output() refChange = new EventEmitter()
-
-
   @Output("onChange") stateChanger = new EventEmitter()
   @Output("beforeChange") beforeChanger = new EventEmitter()
 
@@ -95,8 +90,6 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
     this.apply()
 
     setTimeout(()=>{
-      this.ref = this.RouteWatchReporter
-      this.refChange.emit(this.ref)
       this.emit()
 
       this.querySub = this.RouteWatchReporter

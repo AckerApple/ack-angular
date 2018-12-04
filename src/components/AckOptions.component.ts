@@ -13,8 +13,8 @@ import { string as ackOptions } from "./templates/ack-options.pug"
 
 @Component({
   selector:"ack-options",
-  template:ackOptions,
-  exportAs:"AckOptions"
+  template:ackOptions
+  //,exportAs:"AckOptions"
 }) export class AckOptions{
   @Input() array = []
   @Input() stylize:boolean = true
@@ -37,21 +37,11 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   @Input() model:any
   @Output() modelChange:EventEmitter<any> = new EventEmitter()
   
-  @Input() ref:AckOptions
-  @Output() refChange:EventEmitter<AckOptions> = new EventEmitter()
-  
   @Input() arrayKey:string
   @Input() modelKey:string
   @Input() arrayToModelKey:string
 
   constructor(public ElementRef:ElementRef){}
-
-  ngOnInit(){
-    setTimeout(()=>{
-      //this.ref = Object.assign(this,this.ref)
-      this.refChange.emit(this)
-    }, 0)
-  }
 
   ngAfterViewInit(){
     setTimeout(()=>{

@@ -213,13 +213,15 @@ var AckApi = (function () {
     };
     AckApi.prototype.httpFailByConfig = function (e, cfg) {
         var isReduceData = cfg.catch == null || cfg.catch == "data";
-        var isCatchData = isReduceData && e.data && e.data.error;
+        var data = e["data"];
+        var isCatchData = isReduceData && data && data.error;
         if (isCatchData) {
             var newError = new Error();
-            Object.assign(newError, e.data.error);
+            Object.assign(newError, e["data"].error);
             e = newError;
         }
-        if (e.status == 401) {
+        e["method"] = e["method"] || cfg.method;
+        if (e["status"] == 401) {
             this.AuthError.emit(e);
         }
         else {

@@ -19,8 +19,8 @@ import { string } from "./templates/ack-sections.pug"
 @Component({
   selector:'ack-sections',
   template:string,
-  providers:[ SectionProvider ],
-  exportAs:"AckSections"
+  providers:[ SectionProvider ]
+  //,exportAs:"AckSections"
 }) export class AckSections{
   //clone is more performant in most cases but things duplicate like requests and timers may result
   @Input() mode:"calculate"|"clone" = "calculate"

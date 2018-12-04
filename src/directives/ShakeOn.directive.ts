@@ -14,8 +14,8 @@ import {
 
 /** runs shake instructions when condition returns a truthy value */
 @Directive({
-  selector:"[shakeOn]",
-  exportAs:"ShakeOn"
+  selector:"[shakeOn]"
+  ,exportAs:"ShakeOn"
 }) export class ShakeOn {
   @Input() shakeConstant = false
   @Input() shakeOn

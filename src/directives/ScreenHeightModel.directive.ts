@@ -12,8 +12,8 @@ import {
 } from "./HtmlSizeWatcher"
 
 @Directive({
-  selector: '[screenHeightModel]',
-  exportAs: 'ScreenHeightModel'
+  selector: '[screenHeightModel]'
+  ,exportAs: 'ScreenHeightModel'
 }) export class ScreenHeightModel{
   sub:Subscription
 

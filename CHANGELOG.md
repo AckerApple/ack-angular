@@ -1,6 +1,16 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+TODO: remove [(ref)] and maybe remove exportAs
+
+## [1.9.0] - 2018-11-29
+- removed ref
+- removed exportAs from component
+- ack-css-boot
+
+## [1.8.21] - 2018-11-29
+- Better error details about request error
+
 ## [1.8.20] - 2018-11-29
 - More details on timedout request
 

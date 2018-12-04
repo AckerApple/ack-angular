@@ -4,8 +4,8 @@ import {
 } from "@angular/core"
 
 @Directive({
-  selector: "[pxFromHtmlTop]",
-  exportAs:"PxFromHtmlTop"
+  selector: "[pxFromHtmlTop]"
+  ,exportAs:"PxFromHtmlTop"
 }) export class PxFromHtmlTop{
   //public window
   onScroll
