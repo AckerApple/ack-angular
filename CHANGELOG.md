@@ -3,6 +3,10 @@ All notable changes to this project will be documented here.
 
 TODO: remove [(ref)] and maybe remove exportAs
 
+## [1.9.1] - 2018-12-06
+- ack-array.sort now accepts "time" and "datetime"
+- error-well has close output
+
 ## [1.9.0] - 2018-11-29
 - removed ref
 - removed exportAs from component

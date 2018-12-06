@@ -102,6 +102,7 @@ export interface loop{
       setTimeout(()=>this.loop(), 0)
     }
   }
+
   pushAggregates( aggs:AckAggregate[] ){
     aggs.forEach(agg=>{
       let memory
@@ -272,7 +273,7 @@ export interface loop{
 
   toggleSort(
     arrayKey:string|string[],
-    sortType:"date"|"int"|"number"|string|number
+    sortType:"date"|"time"|"datetime"|"int"|"number"|string|number
   ){
     if(this.inSort)return false
     
@@ -315,6 +316,8 @@ export interface loop{
     }else{
       switch(sortType){
         case "date":
+        case "time":
+        case "datetime":
           if(asc){
             this.array.sort( (a,b)=>{
               a = new Date( toKey(a,0) )

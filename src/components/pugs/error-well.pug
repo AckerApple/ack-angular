@@ -2,7 +2,11 @@ div(
   *ngIf="error!=null && errorClose!=error"
   "[@fadeInUp]"=1
 )
-  div(*ngIf="error && closable" "(click)"="errorClose=error" style="position:relative")
+  div(
+    *ngIf    = "error && closable"
+    "(click)"= "close.emit();errorClose=error"
+    style    = "position:relative"
+  )
     div(style="position:absolute;bottom:-17px;right:-16px;border:1px solid #DDD;border-radius:50%;z-index:20")
       ack-close-icon
 

@@ -1,5 +1,6 @@
 import {
-  ContentChild, Component, Input, TemplateRef, ElementRef
+  EventEmitter, Output, Input,
+  ContentChild, Component, TemplateRef, ElementRef
 } from "@angular/core"
 import { fxArray } from "ack-angular-fx"
 import { string as errorWell } from "./templates/error-well.pug"
@@ -15,7 +16,7 @@ import { string as errorWell } from "./templates/error-well.pug"
   @Input() cssClasses:string
   @Input() closable = true
   @Input() allowDetails:boolean = true
-
+  @Output() close:EventEmitter<void> = new EventEmitter()
   @ContentChild("titleFooter") titleFooter:TemplateRef<ElementRef>
 
   ngOnInit(){

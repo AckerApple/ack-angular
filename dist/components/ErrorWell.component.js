@@ -8,6 +8,7 @@ var ErrorWell = (function () {
         this.message = 'Unexpected Error Occured';
         this.closable = true;
         this.allowDetails = true;
+        this.close = new core_1.EventEmitter();
     }
     ErrorWell.prototype.ngOnInit = function () {
         this.cssClasses = this.cssClasses || 'bg-danger border border-danger text-danger';
@@ -32,6 +33,7 @@ var ErrorWell = (function () {
         cssClasses: [{ type: core_1.Input }],
         closable: [{ type: core_1.Input }],
         allowDetails: [{ type: core_1.Input }],
+        close: [{ type: core_1.Output }],
         titleFooter: [{ type: core_1.ContentChild, args: ["titleFooter",] }]
     };
     return ErrorWell;
