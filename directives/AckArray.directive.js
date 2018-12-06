@@ -237,6 +237,8 @@ var AckArray = (function () {
         else {
             switch (sortType) {
                 case "date":
+                case "time":
+                case "datetime":
                     if (asc) {
                         this.array.sort(function (a, b) {
                             a = new Date(toKey(a, 0));
