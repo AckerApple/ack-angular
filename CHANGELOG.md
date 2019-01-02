@@ -3,6 +3,9 @@ All notable changes to this project will be documented here.
 
 TODO: remove [(ref)] and maybe remove exportAs
 
+## [1.10.0] - 2019-01-01
+- AckModule uses forRoot() to be compatible with loadChildren()
+
 ## [1.9.1] - 2018-12-06
 - ack-array.sort now accepts "time" and "datetime"
 - error-well has close output

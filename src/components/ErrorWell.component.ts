@@ -11,6 +11,8 @@ import { string as errorWell } from "./templates/error-well.pug"
   animations:fxArray
 }) export class ErrorWell{
   errorClose
+
+  @Input() moreDetails:boolean//show more details
   @Input() message:string = 'Unexpected Error Occured'
   @Input() error
   @Input() cssClasses:string

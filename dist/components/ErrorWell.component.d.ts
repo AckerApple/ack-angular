@@ -1,6 +1,7 @@
 import { EventEmitter, TemplateRef, ElementRef } from "@angular/core";
 export declare class ErrorWell {
     errorClose: any;
+    moreDetails: boolean;
     message: string;
     error: any;
     cssClasses: string;

@@ -47,7 +47,7 @@ import { HttpClientModule } from "@angular/common/http";
     ,HttpClientModule
     ,routing
     ,NgxPageScrollModule
-    ,AckModule
+    ,AckModule.forRoot()
     ,AckFxModule
   ]
   ,declarations: declarations

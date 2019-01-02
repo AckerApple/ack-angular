@@ -48,12 +48,10 @@ h3.margin-bottom-0(id="Import AckModule") Import AckModule
   p Example
   pre.code-sample.
     import &#123; AckModule &#125; from "ack-angular"
-    import &#123; NgModule &#125; from '@angular/core';
-    import &#123; FormsModule &#125; from '@angular/forms';
-    import &#123; HttpClientModule &#125; from '@angular/common/http';
+    import &#123; NgModule &#125; from "@angular/core"
 
     @NgModule(&#123;
-      imports:[ AckModule, FormsModule, HttpClientModule ]
+      imports:[ AckModule.forRoot() ]
     &#125;)
 
   .pad-xxs

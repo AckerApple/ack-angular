@@ -11,6 +11,12 @@ var declarations = declarations_1.declarations.concat(pipes_1.declarations);
 var AckModule = (function () {
     function AckModule() {
     }
+    AckModule.forRoot = function () {
+        return {
+            ngModule: AckModule,
+            providers: providers_1.providers
+        };
+    };
     AckModule.decorators = [
         { type: core_1.NgModule, args: [{
                     imports: [
@@ -19,7 +25,6 @@ var AckModule = (function () {
                         http_1.HttpClientModule
                     ],
                     declarations: declarations,
-                    providers: providers_1.providers,
                     exports: [
                         forms_1.FormsModule,
                         http_1.HttpClientModule

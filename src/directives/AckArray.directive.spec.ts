@@ -13,7 +13,7 @@ export class ContainerComponent {
 }
 
 @NgModule({
-  imports: [ AckModule ],
+  imports: [ AckModule.forRoot() ],
   declarations: [ ContainerComponent ]
 }) export class AppModule {}
 
