@@ -28,6 +28,7 @@ var ErrorWell = (function () {
                 },] },
     ];
     ErrorWell.propDecorators = {
+        moreDetails: [{ type: core_1.Input }],
         message: [{ type: core_1.Input }],
         error: [{ type: core_1.Input }],
         cssClasses: [{ type: core_1.Input }],
