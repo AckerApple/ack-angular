@@ -3,7 +3,7 @@ import {
   PageScrollService, PageScrollInstance
 } from "ngx-page-scroll"
 import { Component } from "@angular/core";
-import { fxArray } from "ack-angular-fx"
+import { animations } from "ack-angular-fx"
 import { array as arrayOfObjects } from "./arrayOfObjects"
 import {string as componentsExamples} from "./templates/components-examples.pug"
 
@@ -15,7 +15,7 @@ export interface selected{
 @Component({
   selector: "components-examples"
   ,template: componentsExamples
-  ,animations:fxArray
+  ,animations:animations
 }) export class ComponentsExamples {
   fxClass:string = "bounce"
   fxForMs:number

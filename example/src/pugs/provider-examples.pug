@@ -32,7 +32,7 @@ br
       ) view details
     .border.border-top-0.border-grey-4x.bg-stable(
       *ngIf="views.confirm"
-      "[@fadeInUp]"=1
+      "[@fadeInOutUp]"=1
     )
       .bg-info.pad.text-info
         |This component requires the element &lt;ack-fixed-element-stage&gt; to be present somewhere in your app
@@ -76,7 +76,7 @@ br
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(
       *ngIf="views.ackApi"
-      "[@fadeInUp]"=1
+      "[@fadeInOutUp]"=1
     )
       .strong.pad-sm Http Tester
       .pad-xs
@@ -123,7 +123,7 @@ br
               |que and cache
 
           //-request body
-          .pad-xs(*ngIf="views.httpSub=='body'" "[@fadeInUp]"=1)
+          .pad-xs(*ngIf="views.httpSub=='body'" "[@fadeInOutUp]"=1)
 
             .flex-wrap.child-pad-xs
               div
@@ -155,10 +155,10 @@ br
             )
 
           //-request headers
-          .pad-xs(*ngIf="views.httpSub=='headers'" "[@fadeInUp]"=1)
+          .pad-xs(*ngIf="views.httpSub=='headers'" "[@fadeInOutUp]"=1)
             .flex.child-margin-xxs.child-pad-xxs(
               *ngFor="let item of httpHeaderConfigArray; let i = index"
-              "[@fadeInUp]"=1
+              "[@fadeInOutUp]"=1
             )
               input.flex-1("[(ngModel)]"="item.name" placeholder="name" "(change)"="readHttpHeaderConfigArray()")
               input.flex-1("[(ngModel)]"="item.value" placeholder="value" "(change)"="readHttpHeaderConfigArray()")
@@ -171,16 +171,16 @@ br
                 *ngIf="0==i"
                 type="button"
                 "(click)"="httpHeaderConfigArray.unshift({name:'', value:''})"
-                "[@fadeInUp]"=1
+                "[@fadeInOutUp]"=1
               ) add
 
           //- QUE CACHE model
           .pad-xs(
             *ngIf="views.httpSub=='offlineModel'"
-            "[@fadeInUp]"=1
+            "[@fadeInOutUp]"=1
           )
             //- QUE
-            div(*ngIf="httpConfig.method=='GET'" "[@fadeInUp]"=1)
+            div(*ngIf="httpConfig.method=='GET'" "[@fadeInOutUp]"=1)
               .text-grey-2x Cache GET requests.
               .pad.flex-wrap.child-margin-xxs
                 .flex-1
@@ -197,13 +197,13 @@ br
               .pad-top.text-warning.text-center.text-xs
                 |change request method for QUE details
 
-              .pad-xs(*ngIf="(httpCache|keys).length" "[@fadeInUp]"=1)
+              .pad-xs(*ngIf="(httpCache|keys).length" "[@fadeInOutUp]"=1)
                 h4.margin-0 HTTP Cache Array
                 p.text-grey-2x.text-xs
                   |Requests awaiting internet connection to return
                 .pad-xxs(
                   *ngFor="let key of (httpCache|keys); let i=index"
-                  "[@fadeInUp]"=1
+                  "[@fadeInOutUp]"=1
                 )
                   error-well([error]="httpCache[key]" cssClasses="bg-info" message="{{key}}")
                 p.text-grey-2x.text-xs
@@ -215,7 +215,7 @@ br
             //- CACHE
             div(
               *ngIf="httpConfig.method!='GET'"
-              "[@fadeInUp]"=1
+              "[@fadeInOutUp]"=1
             )
               .text-grey-2x Que failed POST/PUT/PATCH/DELETE requests. 
               .pad
@@ -228,13 +228,13 @@ br
               .pad-top.text-warning.text-center.text-xs
                 |change request method to GET for CACHE details
 
-              .pad-xs(*ngIf="httpQueArray.length" "[@fadeInUp]"=1)
+              .pad-xs(*ngIf="httpQueArray.length" "[@fadeInOutUp]"=1)
                 h4.margin-0 HTTP Que Array
                 p.text-grey-2x
                   |Requests awaiting internet connection to return. #[strong Seconds], after restoring internet connection, the following requests will process
                 .pad-xxs(
                   *ngFor="let item of httpQueArray; let i=index"
-                  "[@fadeInUp]"=1
+                  "[@fadeInOutUp]"=1
                 )
                   error-well([error]="item" cssClasses="border border-info bg-info" message="{{item.method}}:{{ item.url }}")
                 .pad.text-center
@@ -330,7 +330,7 @@ br
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(
       *ngIf="views.errorLog"
-      "[@fadeInUp]"=1
+      "[@fadeInOutUp]"=1
     )
       .strong.pad-sm Error Tester
       form.flex-center.flex-valign-center.child-margin-xs
@@ -339,7 +339,7 @@ br
         button.text-md("(click)"="causeErrorLog()") cause error
       .margin-bottom-xxs(
         *ngFor="let item of ErrorLog.log"
-        "[@fadeInUp]"=1
+        "[@fadeInOutUp]"=1
       )
         error-well([error]="item")
 
@@ -374,7 +374,7 @@ br
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(
       *ngIf="views.log"
-      "[@fadeInUp]"=1
+      "[@fadeInOutUp]"=1
     )
       .strong.pad-sm Log Tester
       form.flex-center.flex-valign-center.child-margin-xs
@@ -383,7 +383,7 @@ br
         button.text-md("(click)"="causeLog()") cause log
       .margin-bottom-xxs(
         *ngFor="let item of Log.log"
-        "[@fadeInUp]"=1
+        "[@fadeInOutUp]"=1
       )
         error-well([error]="item" cssClasses="border-info border text-info bg-info")
 
@@ -415,7 +415,7 @@ br
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(
       *ngIf="views.urlVars"
-      "[@fadeInUp]"=1
+      "[@fadeInOutUp]"=1
     )
       h4.pad-h-sm.margin-0 Usage Example
       .pad-xs
@@ -447,7 +447,7 @@ br
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(
       *ngIf="views.windowService"
-      "[@fadeInUp]"=1
+      "[@fadeInOutUp]"=1
     )
       h4.pad-h-sm.margin-0 Usage Example
       .pad-xs
@@ -477,7 +477,7 @@ br
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(
       *ngIf="views.ackOffline"
-      "[@fadeInUp]"=1
+      "[@fadeInOutUp]"=1
     )
       .strong.pad-sm Memory Test
       form.pad-xs.flex.child-margin-xxs("(ngSubmit)"="setOffline(newOfflineStorage)")
@@ -486,7 +486,7 @@ br
         button(type="button" "(click)"="clearOffline()") clear
       .text-xs.pad-xs.border-success.text-success.bg-success(
         *ngIf="offlineStorage"
-        "[@fadeInUp]"=1
+        "[@fadeInOutUp]"=1
       )
         h5.margin-0 Current Offline Storage
         .pad {{ offlineStorage|json }}
@@ -537,7 +537,7 @@ br
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(
       *ngIf="views.ackCache"
-      "[@fadeInUp]"=1
+      "[@fadeInOutUp]"=1
     )
       .strong.pad-sm Cache Test
       form.pad-xs.flex.child-margin-xxs("(ngSubmit)"="setCache(cacheStorage, cacheSeconds)")
@@ -550,7 +550,7 @@ br
         button(type="button" "(click)"="clearCache()") clear
       .text-xs.pad-xs.border-success.text-success.bg-success(
         *ngIf="cache"
-        "[@fadeInUp]"=1
+        "[@fadeInOutUp]"=1
       )
         h5.margin-0 Current Cache
         .pad {{ cache|json }}
@@ -600,12 +600,12 @@ br
         |view details
     .border.border-top-0.border-grey-4x.bg-stable(
       *ngIf="views.ackQue"
-      "[@fadeInUp]"=1
+      "[@fadeInOutUp]"=1
     )
       .pad-sm.strong Que Test
       form.flex.child-margin-xxs(
         *ngFor="let item of queArray; let i=index"
-        "[@fadeInUp]"=1
+        "[@fadeInOutUp]"=1
       )
         .text-xs.pad-h-xs {{i}}
         input.flex-1("[(ngModel)]"="queArray[i]" name="que{{index}}" readonly)
@@ -619,7 +619,7 @@ br
         button("(click)"="processQue()") process all
       .flex.child-margin-xxs(
         *ngFor="let item of processQueResults; let i=index"
-        "[@fadeInUp]"=1
+        "[@fadeInOutUp]"=1
       )
         .text-xs.pad-h-xs Completed {{i}} :
         input.flex-1([ngModel]="item" disabled)

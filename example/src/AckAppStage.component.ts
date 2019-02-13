@@ -1,5 +1,5 @@
 import { Component } from "@angular/core"
-import { fxArray } from "ack-angular-fx"
+import { animations } from "ack-angular-fx"
 import * as packJson from "../../package.json"
 import { getServerTime } from "./functions"
 import { menu } from "./states.object"
@@ -8,7 +8,7 @@ import { string } from './templates/ack-app-stage.pug'
 @Component({
   selector: 'ack-app-stage'
   ,template: string
-  ,animations:fxArray
+  ,animations:animations
 }) export class AckAppStage {
   panelAnim = 'slideInRight'
   version = packJson['version']

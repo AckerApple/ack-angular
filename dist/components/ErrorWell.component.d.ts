@@ -3,7 +3,7 @@ export declare class ErrorWell {
     errorClose: any;
     moreDetails: boolean;
     message: string;
-    error: any;
+    error: Error;
     cssClasses: string;
     closable: boolean;
     allowDetails: boolean;

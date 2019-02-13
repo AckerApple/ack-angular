@@ -1,6 +1,6 @@
 div(
   *ngIf="error!=null && errorClose!=error"
-  "[@fadeInUp]"="1"
+  "[@fadeInOutUp]"="1"
 )
   div(
     *ngIf    = "error && closable"
@@ -12,7 +12,7 @@ div(
 
   .pad-xxs(
     *ngIf="error!=null && errorClose!=error"
-    "[@fadeInUp]"="1"
+    "[@fadeInOutUp]"="1"
     "[ngClass]"="cssClasses"
   )
     .flex-valign-center.flex-wrap.child-margin-xxs
@@ -34,6 +34,6 @@ div(
         |close
     ng-container(*ngTemplateOutlet="titleFooter")
 
-    div(*ngIf="moreDetails" "[@fadeInUp]"="1")
+    div(*ngIf="moreDetails" "[@fadeInOutUp]"="1")
       absolute-overflow-x.text-sm
         pre.margin-0.pad-xs {{ error|json }}

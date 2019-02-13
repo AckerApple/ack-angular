@@ -22,7 +22,7 @@ reader-header-body(style="font-size:16px;")
     ack-section-templates(*ngIf="screenWidthModel < 800")
       ng-template(#sectionFooter="")
         absolute-overflow-x.bg-info.text-center.border-top.border-grey-2x(
-          "[@fadeInUp]"=1
+          "[@fadeInOutUp]"=1
         )
           .flex.child-hover-bg-warning.child-pad-h-lg.child-pad-v-sm
             a.nowrap.no-a-style.flex-1.border-right.border-white.height-60.flex-valign-center(
@@ -54,7 +54,7 @@ reader-header-body(style="font-size:16px;")
                     |v{{ version }}
               div(
                 *ngIf = "screenWidthModel > 800"
-                "[@fadeInUp]"=1
+                "[@fadeInOutUp]"=1
               )
                 scroll-past-fixed
                   div(style="max-width:1000px")
@@ -75,7 +75,7 @@ reader-header-body(style="font-size:16px;")
                 //-router wrap
                 td
                   .text-left.height-full.pad-top-lg(
-                    "[@slideInLeftKids]"    = "{value:fxId, params:{time:'500ms'}}"
+                    "[@slideInOutLeftKids]"    = "{value:fxId, params:{time:'500ms'}}"
                     "[@absoluteKids]"       = "{value:fxId, params:{time:'500ms'}}"
                     "(@absoluteKids.start)" = "inFx=true"
                     "(@absoluteKids.done)"  = "inFx=false"

@@ -19,14 +19,14 @@ ul.child-pad-xxs
 h3(id="Import Example") Import Example
 pre.code-sample(ngNonBindable).
   import &#123; Component &#125; from '@angular/core'
-  import &#123; fxArray &#125; from 'ack-angular/fx'
+  import &#123; animations &#125; from 'ack-angular/fx'
   import &#123; BrowserModule &#125; from '@angular/platform-browser'
   import &#123; BrowserAnimationsModule &#125; from '@angular/platform-browser/animations';
 
   @Component(&#123;
     selector: 'app-tag'
     ,template: 'Hello Template'
-    ,animations: fxArray
+    ,animations: animations
   &#125;) class AppComponent &#123;&#125;
 
   @NgModule(&#123;

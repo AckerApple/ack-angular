@@ -3,6 +3,9 @@ All notable changes to this project will be documented here.
 
 TODO: remove [(ref)] and maybe remove exportAs
 
+## [1.11.0] - 2019-01-01
+- updated ack-angular-fx from v2 to v3
+
 ## [1.10.0] - 2019-01-01
 - AckModule uses forRoot() to be compatible with loadChildren()
 

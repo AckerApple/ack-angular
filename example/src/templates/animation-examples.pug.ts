@@ -1,12 +1,12 @@
 export const string = "<h2 class=\"margin-top-0\">Animations</h2><p class=\"text-grey-2x\">Make an app far more beautiful when changing scenery</p>Currently, all animations are provided by <a href=\"https://npmjs.org/ack-angular-fx\">ack-angular-fx</a><ul><li><a href=\"https://ackerapple.github.io/ack-angular-fx/\">examples</a></li><li><a href=\"https://github.com/AckerApple/ack-angular-fx\">repository</a></li></ul><h4>Table of Contents</h4><ul class=\"child-pad-xxs\"><li><a href=\"#Import Example\" pageScroll=\"pageScroll\">Import Example</a></li><li><a href=\"#Usage Example\" pageScroll=\"pageScroll\">Usage Example</a></li></ul><h3 id=\"Import Example\">Import Example</h3><pre class=\"code-sample\" ngNonBindable=\"ngNonBindable\">import &#123; Component &#125; from '@angular/core'"+
-"\nimport &#123; fxArray &#125; from 'ack-angular/fx'"+
+"\nimport &#123; animations &#125; from 'ack-angular/fx'"+
 "\nimport &#123; BrowserModule &#125; from '@angular/platform-browser'"+
 "\nimport &#123; BrowserAnimationsModule &#125; from '@angular/platform-browser/animations';"+
 "\n"+
 "\n@Component(&#123;"+
 "\n  selector: 'app-tag'"+
 "\n  ,template: 'Hello Template'"+
-"\n  ,animations: fxArray"+
+"\n  ,animations: animations"+
 "\n&#125;) class AppComponent &#123;&#125;"+
 "\n"+
 "\n@NgModule(&#123;"+

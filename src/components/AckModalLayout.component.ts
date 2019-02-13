@@ -8,13 +8,13 @@ import {
 } from "@angular/core"
 
 import { AckApp } from "../providers/AckApp.provider"
-import { fxArray } from "ack-angular-fx"
+import { animations } from "ack-angular-fx"
 import { string } from "./templates/ack-modal-layout.pug"
 
 @Component({
   selector:'ack-modal-layout',
   template:string,
-  animations:fxArray
+  animations:animations
 }) export class AckModalLayout{
   @Input() zIndex:number = 20
   @Output() close:EventEmitter<AckModalLayout> = new EventEmitter()

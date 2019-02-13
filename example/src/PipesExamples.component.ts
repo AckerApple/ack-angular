@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { fxArray } from "ack-angular-fx"
+import { animations } from "ack-angular-fx"
 
 import {
   PageScrollService,
@@ -10,7 +10,7 @@ import {string as pipesExamples} from "./templates/pipes-examples.pug"
 @Component({
   selector: "pipes-examples"
   ,template: pipesExamples
-  ,animations:fxArray
+  ,animations:animations
 }) export class PipesExamples {
   views:any = {}
   simpleArray = ["a","b","c"]

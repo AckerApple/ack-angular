@@ -19,7 +19,7 @@ import { string } from "./templates/ack-modal.pug"
   selector:"ack-modal",
   template:string
   //,exportAs:"AckModal"
-  //,animations:fxArray
+  //,animations:animations
 }) export class AckModal{
   @ContentChild('body') body:TemplateRef<any>
   @ViewChild('placeholder') layout: ElementRef

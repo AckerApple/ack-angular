@@ -24,7 +24,7 @@ var ErrorWell = (function () {
         { type: core_1.Component, args: [{
                     selector: 'error-well',
                     template: error_well_pug_1.string,
-                    animations: ack_angular_fx_1.fxArray
+                    animations: ack_angular_fx_1.animations
                 },] },
     ];
     ErrorWell.propDecorators = {

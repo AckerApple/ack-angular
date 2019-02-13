@@ -14,7 +14,7 @@ import {
   httpOptions
 } from "../../src"
 
-import { fxArray } from "ack-angular-fx"
+import { animations } from "ack-angular-fx"
 import { string as providerExamples } from "./templates/provider-examples.pug"
 
 const pathing = window.location.pathname.split("/").slice(0,-1).join("/")
@@ -23,7 +23,7 @@ const defaultUrl = window.location.origin+pathing+"/test.json"
 @Component({
   selector: "provider-examples"
   ,template: providerExamples
-  ,animations:fxArray
+  ,animations:animations
 }) export class ProviderExamples {
   views:any = {}
   statusOnlineModel:boolean

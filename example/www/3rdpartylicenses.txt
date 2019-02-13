@@ -30,7 +30,7 @@ MIT
 MIT
 MIT
 
-ack-angular-fx@2.3.1
+ack-angular-fx@3.0.0
 MIT
 MIT License
 

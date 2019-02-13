@@ -2,21 +2,21 @@ import {
   EventEmitter, Output, Input,
   ContentChild, Component, TemplateRef, ElementRef
 } from "@angular/core"
-import { fxArray } from "ack-angular-fx"
+import { animations } from "ack-angular-fx"
 import { string as errorWell } from "./templates/error-well.pug"
 
 @Component({
   selector:'error-well',
   template:errorWell,
-  animations:fxArray
+  animations:animations
 }) export class ErrorWell{
   errorClose
 
   @Input() moreDetails:boolean//show more details
   @Input() message:string = 'Unexpected Error Occured'
-  @Input() error
+  @Input() error:Error
   @Input() cssClasses:string
-  @Input() closable = true
+  @Input() closable:boolean = true
   @Input() allowDetails:boolean = true
   @Output() close:EventEmitter<void> = new EventEmitter()
   @ContentChild("titleFooter") titleFooter:TemplateRef<ElementRef>

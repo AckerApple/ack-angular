@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { string } from './templates/animation-examples.pug'
-import { fxArray } from 'ack-angular-fx'
+import { animations } from 'ack-angular-fx'
 
 @Component({
   template: string,
-  animations: fxArray
+  animations: animations
 }) export class AnimationExamples {
   toggleNgForFx
   supportExampleAddItem
