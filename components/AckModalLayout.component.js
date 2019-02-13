@@ -47,7 +47,7 @@ var AckModalLayout = (function () {
         { type: core_1.Component, args: [{
                     selector: 'ack-modal-layout',
                     template: ack_modal_layout_pug_1.string,
-                    animations: ack_angular_fx_1.fxArray
+                    animations: ack_angular_fx_1.animations
                 },] },
     ];
     AckModalLayout.ctorParameters = function () { return [
