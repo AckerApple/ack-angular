@@ -213,6 +213,7 @@ function invokeRotator(invoke:any){
 export const aDate = a('date')
 export const aTime = a('time')
 export const aMath = invokeRotator( Math )
+export const aString = invokeRotator( String )
 export const ack = invokeRotator( ackX )
 
 // maybe deprecated . Remove in future releases. Just an array ref of all pipes
@@ -232,6 +233,7 @@ export const pipes = {
   numberSuffix,
   aDate,
   aMath,
+  aString,
   aTime,
   ack,
   between

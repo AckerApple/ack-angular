@@ -120,6 +120,10 @@ import {
   transform(){return pipes.aMath.apply(pipes.aMath, arguments)}
 }
 
+@Pipe({name: 'aString'}) export class AString {
+  transform(){return pipes.aString.apply(pipes.aString, arguments)}
+}
+
 @Pipe({name: 'aTime'}) export class ATime {
   transform(){return pipes.aTime.apply(pipes.aTime, arguments)}
 }
@@ -169,6 +173,7 @@ export const declarations = [
   ConsolePipe,
   ADate,
   AMath,
+  AString,
   ATime,
   Ack,
   Numbers,

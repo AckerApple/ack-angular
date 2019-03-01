@@ -21,6 +21,7 @@ export declare function capitalizeOne(input: any): any;
 export declare const aDate: (v: any, call0?: any, call1?: any, call2?: any) => any;
 export declare const aTime: (v: any, call0?: any, call1?: any, call2?: any) => any;
 export declare const aMath: (v: any, call0?: any, call1?: any, call2?: any) => any;
+export declare const aString: (v: any, call0?: any, call1?: any, call2?: any) => any;
 export declare const ack: (v: any, call0?: any, call1?: any, call2?: any) => any;
 export declare const pipes: {
     array: typeof array;
@@ -38,6 +39,7 @@ export declare const pipes: {
     numberSuffix: typeof numberSuffix;
     aDate: (v: any, call0?: any, call1?: any, call2?: any) => any;
     aMath: (v: any, call0?: any, call1?: any, call2?: any) => any;
+    aString: (v: any, call0?: any, call1?: any, call2?: any) => any;
     aTime: (v: any, call0?: any, call1?: any, call2?: any) => any;
     ack: (v: any, call0?: any, call1?: any, call2?: any) => any;
     between: typeof between;

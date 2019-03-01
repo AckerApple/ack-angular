@@ -1,7 +1,11 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
-TODO: remove [(ref)] and maybe remove exportAs
+## [1.11.2] - 2019-03-01
+- Added aString pipe
+
+## [1.11.1] - 2019-02-19
+- Better request timeout message
 
 ## [1.11.0] - 2019-01-01
 - updated ack-angular-fx from v2 to v3

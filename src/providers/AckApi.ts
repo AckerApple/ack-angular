@@ -39,7 +39,7 @@ export interface httpOptions{
   sendFailMeta?   : sendFailMeta
   promise?        : "response"|"all"|"data"|string//typically just the body data is promised. Anything but data returns response
   reportProgress? : boolean
-  responseType?   : "text"//null===json
+  responseType?   : "text"|"json"//null===json
 
   catch?:"data"
 }
@@ -51,12 +51,13 @@ export interface apiConfig{
   $http?   : httpOptions
 }
 
-export function TimeOutError(message){
+export function TimeOutError( message?:string ){
   Error["captureStackTrace"](this, this.constructor)
   this.name = this.constructor.name
   this.status = 504
   this.code = "gateway_timeout"
   this.message = message || "Could not connect to server or server did not respond in a timely manner. Please check internet connection and then try again."
+  ////"Request time expired. Possible internet connection has been interrupted or requested server did not respond in a timely manner."
 }
 TimeOutError.prototype = Object.create(Error.prototype)
 
@@ -305,7 +306,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
         setTimeout(()=>{
           if(resolved)return
           req.unsubscribe()
-          const timeoutError = new TimeOutError("Request timed out. Server did NOT respond timely enough")
+          const timeoutError = new TimeOutError()
           Object.assign(timeoutError,request)
           timeoutError.timeout = cfg.timeout
           reject( timeoutError )

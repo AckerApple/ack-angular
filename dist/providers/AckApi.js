@@ -178,7 +178,7 @@ var AckApi = (function () {
                     if (resolved)
                         return;
                     req.unsubscribe();
-                    var timeoutError = new TimeOutError("Request timed out. Server did NOT respond timely enough");
+                    var timeoutError = new TimeOutError();
                     Object.assign(timeoutError, request);
                     timeoutError.timeout = cfg.timeout;
                     reject(timeoutError);

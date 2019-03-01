@@ -19,14 +19,14 @@ export interface httpOptions {
     sendFailMeta?: sendFailMeta;
     promise?: "response" | "all" | "data" | string;
     reportProgress?: boolean;
-    responseType?: "text";
+    responseType?: "text" | "json";
     catch?: "data";
 }
 export interface apiConfig {
     baseUrl?: string;
     $http?: httpOptions;
 }
-export declare function TimeOutError(message: any): void;
+export declare function TimeOutError(message?: string): void;
 export declare class AckApi {
     HttpClient: HttpClient;
     response: EventEmitter<HttpResponse<HttpEvent<Event>>>;
