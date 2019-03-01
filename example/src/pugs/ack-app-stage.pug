@@ -31,7 +31,7 @@ reader-header-body(style="font-size:16px;")
               "[href]"  = "'#/' + item.path"
             ) {{ item.data.title }}
     fx-tracker(
-      "[(fxId)]"       = "fxId"
+      #fx = "FxTracker"
       "[activatedRoute]" = "routerOutlet.activated ? routerOutlet.activatedRoute : null"
     )
     table.height-full.width-full(
@@ -75,8 +75,8 @@ reader-header-body(style="font-size:16px;")
                 //-router wrap
                 td
                   .text-left.height-full.pad-top-lg(
-                    "[@slideInOutLeftKids]"    = "{value:fxId, params:{time:'500ms'}}"
-                    "[@absoluteKids]"       = "{value:fxId, params:{time:'500ms'}}"
+                    "[@slideInOutLeftKids]"    = "{value:fx.id, params:{time:'500ms'}}"
+                    "[@absoluteKids]"       = "{value:fx.id, params:{time:'500ms'}}"
                     "(@absoluteKids.start)" = "inFx=true"
                     "(@absoluteKids.done)"  = "inFx=false"
                     "[style.max-width.px]"  = "screenWidthModel - (screenWidthModel>=800 ? 40 : 20)"

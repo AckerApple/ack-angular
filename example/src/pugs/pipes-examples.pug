@@ -19,7 +19,7 @@ br
 
 h3(id="Documentation") Documentation
 
-.flex-wrap.child-margin-xxs.no-scroll-bars-ever
+.flex-wrap.child-margin-xxs
   .flex3.border-grey-6x.border.width-full
     .pad-h
       h3 textDownload &amp; safeUrl
@@ -385,9 +385,33 @@ h3(id="Documentation") Documentation
     div(*ngIf="views.aDate" "[@fadeInOutUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0
-          span(ngNonBindable) {{ 0 | aDate:'now':'date' }}
-          span.pad-h-sm ==
-          span {{ 0 | aDate:'now':'date':'getTime' }}
+          span(ngNonBindable) {{ 0 | aDate : 'now' : 'date' : 'getTime' }}
+          span &nbsp;== {{ 0 | aDate:'now':'date':'getTime' }}
+          br
+          br
+          span(ngNonBindable) {{ 0 | aDate : 'now' : 'hmmtt' }}
+          span &nbsp;== {{ 0 | aDate : 'now' : 'hmmtt' }}
+          br
+          br
+          span(ngNonBindable) {{ 0 | aDate : 'now' : 'hhmmtt' }}
+          span &nbsp;== {{ 0 | aDate : 'now' : 'hhmmtt' }}
+          br
+          br
+          span(ngNonBindable) {{ null | aDate : 'now' : 'hmmtt' }}
+          span &nbsp;== {{ null | aDate : 'now' : 'hmmtt' }}
+          br
+          br
+          span(ngNonBindable) {{ null | aDate : 'now' : 'hhmmtt' }}
+          span &nbsp;== {{ null | aDate : 'now' : 'hhmmtt' }}
+          br
+          br
+          span(ngNonBindable) {{ 0 | aDate : 'now' : ['addSeconds',60] : 'dateSecondDiff' }}
+          span &nbsp;== {{ 0 | aDate : 'now' : ['addSeconds',60] : 'dateSecondDiff' }}
+          br
+          br
+          span(ngNonBindable) {{ '01/01/2014 2:00 am' | aDate : ['dateMinuteDiff','01/02/2014 2:00 am'] }}
+          span &nbsp;== {{ '01/01/2014 2:00 am' | aDate : ['dateMinuteDiff','01/02/2014 2:00 am'] }}
+
   
   .flex2.border-grey-6x.border
     .pad-h
@@ -398,15 +422,49 @@ h3(id="Documentation") Documentation
     div(*ngIf="views.aTime" "[@fadeInOutUp]"=1)
       absolute-overflow-x
         pre.code-sample.margin-0
-          span(ngNonBindable) {{ 0 | aTime:'now':'date' }}
-          span.pad-h-sm ==
-          span {{ 0 | aDate:'now':'date':'getTime' }}
-  
+          span(ngNonBindable) {{ 0 | aTime : 'now' : 'date' }}
+          span &nbsp;== {{ 0 | aDate:'now':'date':'getTime' }}
+          br
+          br
+          span(ngNonBindable) {{ '13:30' | aTime : 'hhmmtt' }}
+          span &nbsp;== {{ '13:30' | aTime : 'hhmmtt' }}
+          br
+          br
+          span(ngNonBindable) {{ '1:30 pm' | aTime : 'hhmmtt' }}
+          span &nbsp;== {{ '1:30 pm' | aTime : 'hhmmtt' }}
+          br
+          br
+          span(ngNonBindable) {{ '12:00 am' | aTime : 'hhmmtt' }}
+          span &nbsp;== {{ '12:00 am' | aTime : 'hhmmtt' }}
+          br
+          br
+          span(ngNonBindable) {{ '12:00 pm' | aTime : 'hhmmtt' }}
+          span &nbsp;== {{ '12:00 pm' | aTime : 'hhmmtt' }}
+          br
+          br
+          span(ngNonBindable) {{ '13:30' | aTime : 'hhmmtt' }}
+          span &nbsp;== {{ '13:30' | aTime : 'hhmmtt' }}
+          br
+          br
+          span(ngNonBindable) {{ '1:30 pm' | aTime : 'hhmmtt' }}
+          span &nbsp;== {{ '1:30 pm' | aTime : 'hhmmtt' }}
+          br
+          br
+          span(ngNonBindable) {{ '12:00 am' | aTime : 'hhmmtt' }}
+          span &nbsp;== {{ '12:00 am' | aTime : 'hhmmtt' }}
+          br
+          br
+          span(ngNonBindable) {{ '12:00 pm' | aTime : 'hhmmtt' }}
+          span &nbsp;== {{ '12:00 pm' | aTime : 'hhmmtt' }}
+
   .flex2.border-grey-6x.border
     .pad-h
       h3 aMath
       p.text-sm.text-grey-2x A connection to Javascript Math functions
-    a.text-center.block.border.pad-xxs.hover-bg-warning("(click)"="views.aMath=!views.aMath" "[ngClass]"="views.aMath?'border-energized bg-energized':'border-info bg-info'")
+    a.text-center.block.border.pad-xxs.hover-bg-warning(
+      "(click)"   = "views.aMath=!views.aMath"
+      "[ngClass]" = "views.aMath?'border-energized bg-energized':'border-info bg-info'"
+    )
       |view details
     div(*ngIf="views.aMath" "[@fadeInOutUp]"=1)
       absolute-overflow-x
@@ -414,6 +472,22 @@ h3(id="Documentation") Documentation
           span(ngNonBindable) {{ 2.2 | aMath:'ceil' }}
           span.pad-h-sm ==
           span {{ 2.2 | aMath:'ceil' }}
+  
+  .flex2.border-grey-6x.border
+    .pad-h
+      h3 aString
+      p.text-sm.text-grey-2x A connection to Javascript String functions
+    a.text-center.block.border.pad-xxs.hover-bg-warning(
+      "(click)"   = "views.aString=!views.aString"
+      "[ngClass]" = "views.aString?'border-energized bg-energized':'border-info bg-info'"
+    )
+      |view details
+    div(*ngIf="views.aString" "[@fadeInOutUp]"=1)
+      absolute-overflow-x
+        pre.code-sample.margin-0
+          span(ngNonBindable) {{ 2.35 | aString:['slice',-2] }}
+          span.pad-h-sm ==
+          span {{ 2.35 | aString:['slice',-2] }}
   
   .flex2.border-grey-6x.border
     .pad-h
@@ -432,36 +506,6 @@ h3(id="Documentation") Documentation
 h3.margin-bottom-0 More Pipe Examples
 .flex-wrap.child-margin-xs.child-pad-xs.text-center
   .flex-1.border.border-grey-3x
-    span(ngNonBindable) {{ 0 | aDate : 'now' : 'hmmtt' }}
-    span.text-grey-2x &nbsp;== {{ 0 | aDate : 'now' : 'hmmtt' }}
-  .flex-1.border.border-grey-3x
-    span(ngNonBindable) {{ 0 | aDate : 'now' : 'hhmmtt' }}
-    span.text-grey-2x &nbsp;== {{ 0 | aDate : 'now' : 'hhmmtt' }}
-  .flex-1.border.border-grey-3x
-    span(ngNonBindable) {{ null | aDate : 'now' : 'hmmtt' }}
-    span.text-grey-2x &nbsp;== {{ null | aDate : 'now' : 'hmmtt' }}
-  .flex-1.border.border-grey-3x
-    span(ngNonBindable) {{ null | aDate : 'now' : 'hhmmtt' }}
-    span.text-grey-2x &nbsp;== {{ null | aDate : 'now' : 'hhmmtt' }}
-  .flex-1.border.border-grey-3x
-    span(ngNonBindable) {{ 0 | aDate : 'now' : ['addSeconds',60] : 'dateSecondDiff' }}
-    span.text-grey-2x &nbsp;== {{ 0 | aDate : 'now' : ['addSeconds',60] : 'dateSecondDiff' }}
-  .flex-1.border.border-grey-3x
-    span(ngNonBindable) {{ '13:30' | aTime : 'hhmmtt' }}
-    span.text-grey-2x &nbsp;== {{ '13:30' | aTime : 'hhmmtt' }}
-  .flex-1.border.border-grey-3x
-    span(ngNonBindable) {{ '1:30 pm' | aTime : 'hhmmtt' }}
-    span.text-grey-2x &nbsp;== {{ '1:30 pm' | aTime : 'hhmmtt' }}
-  .flex-1.border.border-grey-3x
-    span(ngNonBindable) {{ '12:00 am' | aTime : 'hhmmtt' }}
-    span.text-grey-2x &nbsp;== {{ '12:00 am' | aTime : 'hhmmtt' }}
-  .flex-1.border.border-grey-3x
-    span(ngNonBindable) {{ '12:00 pm' | aTime : 'hhmmtt' }}
-    span.text-grey-2x &nbsp;== {{ '12:00 pm' | aTime : 'hhmmtt' }}
-  .flex-1.border.border-grey-3x
-    span(ngNonBindable) {{ '01/01/2014 2:00 am' | aDate : ['dateMinuteDiff','01/02/2014 2:00 am'] }}
-    span.text-grey-2x &nbsp;== {{ '01/01/2014 2:00 am' | aDate : ['dateMinuteDiff','01/02/2014 2:00 am'] }}
-  .flex-1.border.border-grey-3x
     span(ngNonBindable) {{ 0 | ack : 'date' : 'now' : 'hmmtt' }}
     span.text-grey-2x &nbsp;== {{ 0 | ack : 'date' : 'now' : 'hmmtt' }}
   .flex-1.border.border-grey-3x
@@ -476,18 +520,6 @@ h3.margin-bottom-0 More Pipe Examples
   .flex-1.border.border-grey-3x
     span(ngNonBindable) {{ 0 | ack : 'date' : 'now' : ['addSeconds',60] : 'dateSecondDiff' }}
     span.text-grey-2x &nbsp;== {{ 0 | ack : 'date' : 'now' : ['addSeconds',60] : 'dateSecondDiff' }}
-  .flex-1.border.border-grey-3x
-    span(ngNonBindable) {{ '13:30' | aTime : 'hhmmtt' }}
-    span.text-grey-2x &nbsp;== {{ '13:30' | aTime : 'hhmmtt' }}
-  .flex-1.border.border-grey-3x
-    span(ngNonBindable) {{ '1:30 pm' | aTime : 'hhmmtt' }}
-    span.text-grey-2x &nbsp;== {{ '1:30 pm' | aTime : 'hhmmtt' }}
-  .flex-1.border.border-grey-3x
-    span(ngNonBindable) {{ '12:00 am' | aTime : 'hhmmtt' }}
-    span.text-grey-2x &nbsp;== {{ '12:00 am' | aTime : 'hhmmtt' }}
-  .flex-1.border.border-grey-3x
-    span(ngNonBindable) {{ '12:00 pm' | aTime : 'hhmmtt' }}
-    span.text-grey-2x &nbsp;== {{ '12:00 pm' | aTime : 'hhmmtt' }}
   .flex-1.border.border-grey-3x
     span(ngNonBindable) {{ '01/01/2014 2:00 am' | ack : 'date' : ['dateMinuteDiff','01/02/2014 2:00 am'] }}
     span.text-grey-2x &nbsp;== {{ '01/01/2014 2:00 am' | ack : 'date' : ['dateMinuteDiff','01/02/2014 2:00 am'] }}
