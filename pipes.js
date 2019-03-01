@@ -249,6 +249,16 @@ var AMath = (function () {
     return AMath;
 }());
 exports.AMath = AMath;
+var AString = (function () {
+    function AString() {
+    }
+    AString.prototype.transform = function () { return pipes.aString.apply(pipes.aString, arguments); };
+    AString.decorators = [
+        { type: core_1.Pipe, args: [{ name: 'aString' },] },
+    ];
+    return AString;
+}());
+exports.AString = AString;
 var ATime = (function () {
     function ATime() {
     }
@@ -326,6 +336,7 @@ exports.declarations = [
     ConsolePipe,
     ADate,
     AMath,
+    AString,
     ATime,
     Ack,
     Numbers,

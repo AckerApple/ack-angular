@@ -74,6 +74,9 @@ export declare class ADate {
 export declare class AMath {
     transform(): any;
 }
+export declare class AString {
+    transform(): any;
+}
 export declare class ATime {
     transform(): any;
 }

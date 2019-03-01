@@ -185,6 +185,7 @@ function invokeRotator(invoke) {
 exports.aDate = a('date');
 exports.aTime = a('time');
 exports.aMath = invokeRotator(Math);
+exports.aString = invokeRotator(String);
 exports.ack = invokeRotator(browser_1.ack);
 exports.pipes = {
     array: array,
@@ -202,6 +203,7 @@ exports.pipes = {
     numberSuffix: numberSuffix,
     aDate: exports.aDate,
     aMath: exports.aMath,
+    aString: exports.aString,
     aTime: exports.aTime,
     ack: exports.ack,
     between: between
