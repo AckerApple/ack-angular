@@ -287,7 +287,7 @@ webpackContext.id = "../node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, private, default */
 /***/ (function(module) {
 
-module.exports = {"name":"ack-angular","version":"1.11.2","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/assets/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.7.0","@angular/animations":"^6.1.1","@angular/cli":"^6.1.2","@angular/common":"^6.1.1","@angular/compiler":"^6.1.1","@angular/compiler-cli":"^6.1.1","@angular/core":"^6.1.1","@angular/forms":"^6.1.1","@angular/platform-browser":"^6.1.1","@angular/platform-browser-dynamic":"^6.1.1","@angular/router":"^6.1.1","@types/jasmine":"^2.8.6","ack-angular-fx":"^3.0.0","ack-css-boot":"^1.2.53","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.4.5","animate.css":"^3.7.0","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.5","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.1","karma-jasmine":"^1.1.2","karma-jasmine-html-reporter":"^1.2.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.2","ngx-page-scroll":"^5.0.0","npm-run-all":"^4.1.3","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^6.2.2","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.9.2","zone.js":"^0.8.26"},"private":true};
+module.exports = {"name":"ack-angular","version":"1.11.3","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/assets/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.7.0","@angular/animations":"^6.1.1","@angular/cli":"^6.1.2","@angular/common":"^6.1.1","@angular/compiler":"^6.1.1","@angular/compiler-cli":"^6.1.1","@angular/core":"^6.1.1","@angular/forms":"^6.1.1","@angular/platform-browser":"^6.1.1","@angular/platform-browser-dynamic":"^6.1.1","@angular/router":"^6.1.1","@types/jasmine":"^2.8.6","ack-angular-fx":"^3.0.0","ack-css-boot":"^1.2.53","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.4.5","animate.css":"^3.7.0","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.5","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.1","karma-jasmine":"^1.1.2","karma-jasmine-html-reporter":"^1.2.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.2","ngx-page-scroll":"^5.0.0","npm-run-all":"^4.1.3","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^6.2.2","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.9.2","zone.js":"^0.8.26"},"private":true};
 
 /***/ }),
 
@@ -398,7 +398,7 @@ var RouteReporter = /** @class */ (function () {
                 _this.beforeChanger.emit(_this.RouteWatchReporter);
                 //allow one process to occur before reporting state has changed
                 _this.apply();
-                setTimeout(function () { return _this.emit(); }, 0);
+                Promise.resolve().then(function () { return _this.emit(); });
             }
         });
         if (this.ActivatedRoute) {
@@ -408,12 +408,12 @@ var RouteReporter = /** @class */ (function () {
         }
         this.RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
         this.apply();
-        setTimeout(function () {
+        Promise.resolve().then(function () {
             _this.emit();
             _this.querySub = _this.RouteWatchReporter
                 .activatedRoute.queryParams
                 .subscribe(function (query) { return _this.queryChange.emit(query); });
-        }, 0);
+        });
         if (this.onLoad) {
             this.onLoad({
                 state: this.RouteWatchReporter.current,
@@ -1144,13 +1144,13 @@ var AckModalLayout = /** @class */ (function () {
     };
     AckModalLayout.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () {
+        Promise.resolve().then(function () {
             if (_this.isModelMode || (_this.isModelMode == null && _this.showModelChange.observers.length)) {
                 _this.isModelMode = true;
             }
             _this.backgroundColor = _this.backgroundColor || 'rgba(255,255,255,0.95)';
             //this.backgroundColorChange.emit(this.backgroundColor)
-        }, 0);
+        });
     };
     AckModalLayout.prototype.fireClose = function () {
         this.showModelChange.emit(this.showModel = false);
@@ -1247,14 +1247,14 @@ var AckOptions = /** @class */ (function () {
     }
     AckOptions.prototype.ngAfterViewInit = function () {
         var _this = this;
-        setTimeout(function () {
+        Promise.resolve().then(function () {
             if (_this.inputTemplateRefs) {
                 _this.TemplateReader.readTemplates(_this.inputTemplateRefs);
             }
             if (_this.templateRefs) {
                 _this.TemplateReader.readTemplates(_this.templateRefs);
             }
-        }, 0);
+        });
     };
     AckOptions.prototype.selectItem = function (item) {
         var value = this.getArrayItemValue(item);
@@ -1571,10 +1571,10 @@ var AckSectionTemplates = /** @class */ (function () {
     }
     AckSectionTemplates.prototype.ngAfterViewInit = function () {
         var _this = this;
-        setTimeout(function () {
+        Promise.resolve().then(function () {
             _this.check();
             _this.inited = true;
-        }, 0);
+        });
     };
     AckSectionTemplates.prototype.ngOnChanges = function (changes) {
         if (this.inited) {
@@ -1600,7 +1600,7 @@ var AckSectionTemplates = /** @class */ (function () {
     };
     AckSectionTemplates.prototype.ngOnDestroy = function () {
         var _this = this;
-        setTimeout(function () { return _this.unregister(); }, 0);
+        Promise.resolve().then(function () { return _this.unregister(); });
     };
     AckSectionTemplates.prototype.unregister = function () {
         this.pushed = false;
@@ -1910,7 +1910,7 @@ var ScrollPastFixed = /** @class */ (function () {
     };
     ScrollPastFixed.prototype.ngAfterViewInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.init(); }, 0); //prevent Expression has changed after it was checked error
+        Promise.resolve().then(function () { return _this.init(); }); //prevent Expression has changed after it was checked error
     };
     ScrollPastFixed.prototype.check = function () {
         var scrollPos = window['pageYOffset'];
@@ -2490,10 +2490,10 @@ var AckArray = /** @class */ (function () {
         var _this = this;
         if (this.keyMapChange.observers.length) {
             if (!this.keyMap) {
-                setTimeout(function () {
+                Promise.resolve().then(function () {
                     _this.keyMap = {};
                     _this.keyMapChange.emit(_this.keyMap);
-                }, 0);
+                });
             }
             this.pushCreateMap();
         }
@@ -2504,7 +2504,9 @@ var AckArray = /** @class */ (function () {
             this.pushAggregates(this.AckAggregates);
         }
         this.inited = true;
-        setTimeout(function () { return _this.loop(); }, 0);
+        Promise.resolve().then(function () {
+            return _this.loop();
+        });
     };
     //watch array deep changes
     AckArray.prototype.ngDoCheck = function () {
@@ -2513,7 +2515,9 @@ var AckArray = /** @class */ (function () {
             return;
         var changes = this.iterableDiffer.diff(this.array);
         if (changes) {
-            setTimeout(function () { return _this.loop(); }, 0);
+            Promise.resolve().then(function () {
+                return _this.loop();
+            });
         }
     };
     AckArray.prototype.ngOnChanges = function (changes) {
@@ -2524,7 +2528,9 @@ var AckArray = /** @class */ (function () {
             loop = true;
         }
         if (this.inited && loop) {
-            setTimeout(function () { return _this.loop(); }, 0);
+            Promise.resolve().then(function () {
+                return _this.loop();
+            });
         }
     };
     AckArray.prototype.pushAggregates = function (aggs) {
@@ -2841,7 +2847,7 @@ var ElementSizeModel = /** @class */ (function () {
             _this.setModel();
         };
         window.addEventListener('resize', this.onResize);
-        setTimeout(function () { return _this.setModel(); }, 0);
+        Promise.resolve().then(function () { return _this.setModel(); });
         this.observer = new MutationObserver(function () {
             _this.setModel();
         });
@@ -2856,11 +2862,11 @@ var ElementSizeModel = /** @class */ (function () {
     };
     ElementSizeModel.prototype.ngOnChanges = function () {
         var _this = this;
-        setTimeout(function () {
+        Promise.resolve().then(function () {
             if (!_this.inChange) {
                 _this.setModel();
             }
-        }, 0);
+        });
     };
     ElementSizeModel.prototype.setModel = function () {
         var _this = this;
@@ -2869,7 +2875,7 @@ var ElementSizeModel = /** @class */ (function () {
         this.elementSizeModel.width = this.element.nativeElement.offsetWidth;
         this.elementSizeModel.height = this.element.nativeElement.offsetHeight;
         this.elementSizeModelChange.emit(this.elementSizeModel);
-        setTimeout(function () { return _this.inChange = false; }, 0);
+        Promise.resolve().then(function () { return _this.inChange = false; });
     };
     ElementSizeModel.prototype.ngOnDestroy = function () {
         this.observer.disconnect();
@@ -2983,11 +2989,17 @@ var FocusOn = /** @class */ (function () {
     FocusOn.prototype.ngOnChanges = function (changes) {
         var _this = this;
         if (changes.focusOn && changes.focusOn.currentValue) {
-            setTimeout(function () {
-                _this.element.nativeElement.focus();
-                _this.focusThen.emit();
-            }, this.focusOnDelay);
+            if (this.focusOnDelay === 0) {
+                Promise.resolve().then(function () { return _this.update(); });
+            }
+            else {
+                setTimeout(function () { return _this.update(); }, this.focusOnDelay);
+            }
         }
+    };
+    FocusOn.prototype.update = function () {
+        this.element.nativeElement.focus();
+        this.focusThen.emit();
     };
     __decorate([
         core_1.Input(),
@@ -3050,7 +3062,7 @@ var FxOn = /** @class */ (function () {
     }
     FxOn.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.update(); }, 0);
+        Promise.resolve().then(function () { return _this.update(); });
     };
     FxOn.prototype.update = function () {
         if (this.fxOn) {
@@ -3284,9 +3296,6 @@ var HtmlSizeService = /** @class */ (function () {
         this.checkWatchers();
         this.onResize();
     }
-    /*ngOnInit(){
-      setTimeout(()=>this.change.emit(), 0)
-    }*/
     HtmlSizeService.prototype.checkWatchers = function () {
         if (this.change.observers.length) {
             window.addEventListener('resize', this.onResize);
@@ -3346,9 +3355,7 @@ var HtmlWidthModel = /** @class */ (function () {
     }
     HtmlWidthModel.prototype.ngAfterViewInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.changed(); }, 0); //two way bind often needs init override
-        //content may grow
-        //setTimeout(()=>this.changed(), 200)//two way bind often needs init override
+        Promise.resolve().then(function () { return _this.changed(); }); //two way bind often needs init override
     };
     HtmlWidthModel.prototype.ngOnDestroy = function () {
         this.sub.unsubscribe();
@@ -3468,7 +3475,7 @@ var InnerHtmlModel = /** @class */ (function () {
     }
     InnerHtmlModel.prototype.ngOnChanges = function () {
         var _this = this;
-        setTimeout(function () { return _this.setModel(); }, 0);
+        Promise.resolve().then(function () { return _this.setModel(); });
     };
     InnerHtmlModel.prototype.setModel = function () {
         this.innerHtmlModel = this.element.nativeElement.innerHTML;
@@ -3534,7 +3541,11 @@ var PxFromHtmlTop = /** @class */ (function () {
         this.numberChange.emit(this.number);
     };
     PxFromHtmlTop.prototype.ngOnChanges = function (changes) {
-        this.delayFire();
+        var _this = this;
+        Promise.resolve().then(function () {
+            _this.setter();
+            _this.emit();
+        });
         this.delayFire(250);
         this.delayFire(750);
         this.delayFire(1500);
@@ -3622,13 +3633,13 @@ var ReplaceModel = /** @class */ (function () {
         this.replaceModelChange = new core_1.EventEmitter();
     }
     ReplaceModel.prototype.ngOnChanges = function (changes) {
+        var _this = this;
         var isString = changes.replaceModel && this.replaceModel && this.replaceModel.constructor === String;
         if (isString) {
-            this.run();
+            Promise.resolve().then(function () { return _this.run(); });
         }
     };
     ReplaceModel.prototype.run = function () {
-        var _this = this;
         var rx = new RegExp(this.replaceExpression, 'gi');
         var oldModel = this.replaceModel;
         var newModel = this.replaceModel.replace(rx, '');
@@ -3636,10 +3647,8 @@ var ReplaceModel = /** @class */ (function () {
         if (oldModel === newModel) {
             return;
         }
-        setTimeout(function () {
-            _this.replaceModel = newModel;
-            _this.replaceModelChange.emit(_this.replaceModel);
-        }, 0);
+        this.replaceModel = newModel;
+        this.replaceModelChange.emit(this.replaceModel);
     };
     __decorate([
         core_1.Input(),
@@ -3695,11 +3704,12 @@ var ScreenHeightModel = /** @class */ (function () {
         this.HtmlSizeService.checkWatchers();
     }
     ScreenHeightModel.prototype.ngAfterViewInit = function () {
-        this.delayCheck();
+        var _this = this;
+        Promise.resolve().then(function () {
+            return _this.setModel(_this.HtmlSizeService.htmlSize);
+        });
         this.delayCheck(250);
         this.delayCheck(1500);
-        //content may grow
-        //setTimeout(()=>this.changed(), 200)//two way bind often needs init override
     };
     ScreenHeightModel.prototype.delayCheck = function (num) {
         var _this = this;
@@ -3772,7 +3782,7 @@ var ScreenScroll = /** @class */ (function () {
     }
     ScreenScroll.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.onScroll(); }, 0); //two way bind often needs init override
+        Promise.resolve().then(function () { return _this.onScroll(); }); //two way bind often needs init override
     };
     ScreenScroll.prototype.ngOnDestroy = function () {
         window.removeEventListener("scroll", this.onScroll);
@@ -3888,7 +3898,7 @@ var ScreenScrollModelY = /** @class */ (function () {
     }
     ScreenScrollModelY.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.onScroll(); }, 0); //two way bind often needs init override
+        Promise.resolve().then(function () { return _this.onScroll(); }); //two way bind often needs init override
     };
     ScreenScrollModelY.prototype.ngOnDestroy = function () {
         window.removeEventListener("scroll", this.onScroll);
@@ -4008,11 +4018,15 @@ var SelectOn = /** @class */ (function () {
     SelectOn.prototype.ngOnChanges = function (changes) {
         var _this = this;
         if (changes.selectOn && changes.selectOn.currentValue) {
-            setTimeout(function () {
-                _this.element.nativeElement.select();
-                _this.selectThen.emit();
-            }, this.selectOnDelay);
+            if (this.selectOnDelay === 0) {
+                Promise.resolve().then(function () { return _this.update(); });
+            }
+            setTimeout(function () { return _this.update(); }, this.selectOnDelay);
         }
+    };
+    SelectOn.prototype.update = function () {
+        this.element.nativeElement.select();
+        this.selectThen.emit();
     };
     __decorate([
         core_1.Input(),
@@ -4075,7 +4089,7 @@ var ShakeOn = /** @class */ (function () {
     }
     ShakeOn.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.update(); }, 0);
+        Promise.resolve().then(function () { return _this.update(); });
     };
     ShakeOn.prototype.update = function () {
         this.shakeForMs = this.shakeForMs || 2000;
@@ -4193,7 +4207,7 @@ var StatusOfflineModel = /** @class */ (function () {
         };
         window.addEventListener("offline", this.onChange);
         window.addEventListener("online", this.onChange);
-        setTimeout(function () { return _this.onChange(); }, 0);
+        Promise.resolve().then(function () { return _this.onChange(); });
     }
     StatusOfflineModel.prototype.ngOnDestroy = function () {
         window.removeEventListener("offline", this.onChange);
@@ -4248,7 +4262,7 @@ var StatusOnlineModel = /** @class */ (function () {
         };
         window.addEventListener("online", this.onChange);
         window.addEventListener("offline", this.onChange);
-        setTimeout(function () { return _this.onChange(); }, 0);
+        Promise.resolve().then(function () { return _this.onChange(); });
     }
     StatusOnlineModel.prototype.ngOnDestroy = function () {
         window.removeEventListener("online", this.onChange);
@@ -4300,7 +4314,7 @@ var VarDirective = /** @class */ (function () {
     VarDirective.prototype.ngOnChanges = function (changes) {
         var _this = this;
         if (changes.var) {
-            setTimeout(function () { return _this.changed.emit(_this.var); }, 0);
+            Promise.resolve().then(function () { return _this.changed.emit(_this.var); });
         }
     };
     __decorate([
@@ -4352,6 +4366,95 @@ exports.AckApi = AckApi_1.AckApi;
 var AckArray_directive_1 = __webpack_require__(/*! ./directives/AckArray.directive */ "../src/directives/AckArray.directive.ts");
 exports.AckArray = AckArray_directive_1.AckArray;
 __export(__webpack_require__(/*! ./providers */ "../src/providers.ts"));
+
+
+/***/ }),
+
+/***/ "../src/invokeRotator.ts":
+/*!*******************************!*\
+  !*** ../src/invokeRotator.ts ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/** responsible for ack-angular pipe'in system into ackX */
+function invokeRotator(invoke //|(any[])=>any
+) {
+    var invoker = getInvokerBy(invoke);
+    return getRotatorByInvoker(invoker);
+}
+exports.invokeRotator = invokeRotator;
+function getRotatorByInvoker(invoker) {
+    return function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        var rtn = invoker(arguments);
+        args.shift(); //remove first arg as its an object
+        return objectInvoker(rtn, args);
+    };
+}
+exports.getRotatorByInvoker = getRotatorByInvoker;
+function objectInvoker(object, plan) {
+    var rtn = object;
+    var subargs, item;
+    var newkey;
+    var key;
+    //loop extra arguments as property collectors
+    for (var x = 0; x < plan.length; ++x) {
+        key = plan[x];
+        subargs = [];
+        //array where 1st arg is method and subs are positional arguments
+        if (key.constructor == Array) {
+            key = [];
+            key.push.apply(key, plan[x]); //clone array memory, do not touch original array
+            newkey = key.shift(); //first arg is name of key, remove it from array
+            subargs = key; //what is left in array is the arguments
+            key = newkey; //key to string
+        }
+        //undefined error catcher
+        if (rtn == null) {
+            var typo = typeof (rtn);
+            var msg = "ERROR TypeError: Cannot read property '" + key + "' of " + typo + ". Invoke instructions: " + JSON.stringify(plan);
+            throw new Error(msg);
+        }
+        item = rtn[key];
+        if (item && item.constructor == Function) {
+            rtn = item.apply(rtn, subargs);
+        }
+        else {
+            rtn = item;
+        }
+    }
+    return rtn;
+}
+exports.objectInvoker = objectInvoker;
+function getInvokerBy(invoke) {
+    var isF = typeof invoke == 'function';
+    if (isF) {
+        return function (args) {
+            return invoke(args[0]);
+        };
+    }
+    return function (args) {
+        var rtn = invoke[args[1]](args[0]);
+        for (var x = 0; x < args.length; ++x) {
+            if (x < 1) {
+                delete args[x];
+            }
+            else {
+                args[x - 1] = args[x];
+            }
+        }
+        args.length = args.length - 2;
+        return rtn;
+    };
+}
+exports.getInvokerBy = getInvokerBy;
 
 
 /***/ }),
@@ -4509,57 +4612,14 @@ function capitalizeOne(input) {
 exports.capitalizeOne = capitalizeOne;
 function a(name) {
     var av = new browser_1.ack();
-    return invokeRotator(av[name]);
+    return invokeRotator_1.invokeRotator(av[name]);
 }
-/** responsible for ack-angular pipe'in system into ackX */
-function invokeRotator(invoke) {
-    var isF = typeof invoke == 'function';
-    var invoker = isF ? function (args) {
-        return invoke(args[0]);
-    } : function (args) {
-        var rtn = invoke[args[1]](args[0]);
-        for (var x = 0; x < args.length; ++x) {
-            if (x < 1) {
-                delete args[x];
-            }
-            else {
-                args[x - 1] = args[x];
-            }
-        }
-        args.length = args.length - 2;
-        return rtn;
-    };
-    return function (v, call0, call1, call2) {
-        var newkey, subargs, key, item;
-        var rtn = invoker(arguments);
-        //loop extra arguments as property collectors
-        for (var x = 1; x < arguments.length; ++x) {
-            key = arguments[x];
-            subargs = [];
-            //array where 1st arg is method and subs are positional arguments
-            if (key.constructor == Array) {
-                key = [];
-                key.push.apply(key, arguments[x]); //clone array memory, do not touch original array
-                newkey = key.shift(); //first arg is name of key, remove it from array
-                subargs = key; //what is left in array is the arguments
-                key = newkey; //now the key string is finalized
-            }
-            item = rtn[key];
-            if (item && item.constructor == Function) {
-                rtn = item.apply(rtn, subargs);
-            }
-            else {
-                rtn = item;
-            }
-        }
-        return rtn;
-    };
-}
+var invokeRotator_1 = __webpack_require__(/*! ./invokeRotator */ "../src/invokeRotator.ts");
 exports.aDate = a('date');
 exports.aTime = a('time');
-exports.aMath = invokeRotator(Math);
-exports.aString = invokeRotator(String);
-exports.ack = invokeRotator(browser_1.ack);
+exports.aMath = invokeRotator_1.invokeRotator(Math);
+exports.aString = invokeRotator_1.invokeRotator(String);
+exports.ack = invokeRotator_1.invokeRotator(browser_1.ack);
 // maybe deprecated . Remove in future releases. Just an array ref of all pipes
 exports.pipes = {
     array: array,
@@ -5993,9 +6053,6 @@ var ErrorLog = /** @class */ (function () {
         }
         return logObToErrorObject(ob);
     };
-    /*logObToErrorObject(ob){
-      return logObToErrorObject(ob)
-    }*/
     //api error to js Error object
     ErrorLog.prototype.paramAudit = function (e, toConsole) {
         if (e.constructor == String) {
