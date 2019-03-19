@@ -1,0 +1,1 @@
+[{"__symbolic":"module","version":4,"metadata":{"invokeRotator":{"__symbolic":"function"},"getRotatorByInvoker":{"__symbolic":"function","parameters":["invoker"],"value":{"__symbolic":"error","message":"Lambda not supported","line":12,"character":9}},"objectInvoker":{"__symbolic":"function"},"getInvokerBy":{"__symbolic":"function"}}}]

@@ -29,7 +29,7 @@ import { string } from "./templates/scroll-past-fixed.pug"
   }
 
   ngAfterViewInit(){
-    setTimeout(()=>this.init(), 0)//prevent Expression has changed after it was checked error
+    Promise.resolve().then(()=>this.init())//prevent Expression has changed after it was checked error
   }
 
   check(){

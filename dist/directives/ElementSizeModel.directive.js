@@ -22,7 +22,7 @@ var ElementSizeModel = (function () {
             _this.setModel();
         };
         window.addEventListener('resize', this.onResize);
-        setTimeout(function () { return _this.setModel(); }, 0);
+        Promise.resolve().then(function () { return _this.setModel(); });
         this.observer = new MutationObserver(function () {
             _this.setModel();
         });
@@ -37,11 +37,11 @@ var ElementSizeModel = (function () {
     };
     ElementSizeModel.prototype.ngOnChanges = function () {
         var _this = this;
-        setTimeout(function () {
+        Promise.resolve().then(function () {
             if (!_this.inChange) {
                 _this.setModel();
             }
-        }, 0);
+        });
     };
     ElementSizeModel.prototype.setModel = function () {
         var _this = this;
@@ -50,7 +50,7 @@ var ElementSizeModel = (function () {
         this.elementSizeModel.width = this.element.nativeElement.offsetWidth;
         this.elementSizeModel.height = this.element.nativeElement.offsetHeight;
         this.elementSizeModelChange.emit(this.elementSizeModel);
-        setTimeout(function () { return _this.inChange = false; }, 0);
+        Promise.resolve().then(function () { return _this.inChange = false; });
     };
     ElementSizeModel.prototype.ngOnDestroy = function () {
         this.observer.disconnect();

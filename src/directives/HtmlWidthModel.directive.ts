@@ -32,9 +32,7 @@ import {
   }
 
   ngAfterViewInit(){
-    setTimeout(()=>this.changed(), 0)//two way bind often needs init override
-    //content may grow
-    //setTimeout(()=>this.changed(), 200)//two way bind often needs init override
+    Promise.resolve().then(()=>this.changed())//two way bind often needs init override
   }
 
   ngOnDestroy(){

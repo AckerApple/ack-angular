@@ -1,6 +1,10 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.11.3] - 2019-03-(UNRELEASED)
+- invokeRotator separation
+- Moved away from setTimeout in favor or Promise.resolve().then(()=>)
+
 ## [1.11.2] - 2019-03-01
 - Added aString pipe
 

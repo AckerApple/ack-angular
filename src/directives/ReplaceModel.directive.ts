@@ -13,7 +13,7 @@ import {
   ngOnChanges( changes:any ){
     const isString = changes.replaceModel && this.replaceModel && this.replaceModel.constructor === String
     if( isString ){
-      this.run()
+      Promise.resolve().then(()=>this.run())
     }
   }
 
@@ -27,9 +27,7 @@ import {
       return
     }
 
-    setTimeout(()=>{
-      this.replaceModel = newModel
-      this.replaceModelChange.emit( this.replaceModel )
-    }, 0)
+    this.replaceModel = newModel
+    this.replaceModelChange.emit( this.replaceModel )
   }
 }

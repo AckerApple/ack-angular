@@ -17,10 +17,10 @@ import { SectionProvider } from "../providers/AckSections.provider"
   ){}
 
   ngAfterViewInit(){
-    setTimeout(()=>{
+    Promise.resolve().then(()=>{
       this.check()
       this.inited = true
-    }, 0)
+    })
   }
 
   ngOnChanges( changes ){
@@ -52,7 +52,7 @@ import { SectionProvider } from "../providers/AckSections.provider"
   }
 
   ngOnDestroy(){
-    setTimeout(()=>this.unregister(), 0)
+    Promise.resolve().then(()=>this.unregister())
   }
 
   unregister(){

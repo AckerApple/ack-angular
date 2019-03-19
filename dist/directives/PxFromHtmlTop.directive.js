@@ -17,7 +17,11 @@ var PxFromHtmlTop = (function () {
         this.numberChange.emit(this.number);
     };
     PxFromHtmlTop.prototype.ngOnChanges = function (changes) {
-        this.delayFire();
+        var _this = this;
+        Promise.resolve().then(function () {
+            _this.setter();
+            _this.emit();
+        });
         this.delayFire(250);
         this.delayFire(750);
         this.delayFire(1500);

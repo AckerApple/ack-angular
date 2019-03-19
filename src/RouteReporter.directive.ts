@@ -76,7 +76,7 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
 
         //allow one process to occur before reporting state has changed
         this.apply()
-        setTimeout(()=>this.emit(), 0)
+        Promise.resolve().then(()=>this.emit())
       }
     })
 
@@ -89,13 +89,13 @@ import { NavigationStart, NavigationEnd } from "@angular/router";
     this.RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks)
     this.apply()
 
-    setTimeout(()=>{
+    Promise.resolve().then(()=>{
       this.emit()
 
       this.querySub = this.RouteWatchReporter
       .activatedRoute.queryParams
       .subscribe( query=>this.queryChange.emit(query) )
-    }, 0)
+    })
 
     if(this.onLoad){
       this.onLoad({

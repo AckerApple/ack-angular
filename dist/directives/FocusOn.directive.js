@@ -10,11 +10,17 @@ var FocusOn = (function () {
     FocusOn.prototype.ngOnChanges = function (changes) {
         var _this = this;
         if (changes.focusOn && changes.focusOn.currentValue) {
-            setTimeout(function () {
-                _this.element.nativeElement.focus();
-                _this.focusThen.emit();
-            }, this.focusOnDelay);
+            if (this.focusOnDelay === 0) {
+                Promise.resolve().then(function () { return _this.update(); });
+            }
+            else {
+                setTimeout(function () { return _this.update(); }, this.focusOnDelay);
+            }
         }
+    };
+    FocusOn.prototype.update = function () {
+        this.element.nativeElement.focus();
+        this.focusThen.emit();
     };
     FocusOn.decorators = [
         { type: core_1.Directive, args: [{

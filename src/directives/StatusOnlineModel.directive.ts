@@ -19,7 +19,8 @@ export class StatusOnlineModel{
 
     window.addEventListener("online", this.onChange)
     window.addEventListener("offline", this.onChange)
-    setTimeout(()=>this.onChange(), 0)
+    
+    Promise.resolve().then(()=>this.onChange())
   }
 
   ngOnDestroy(){

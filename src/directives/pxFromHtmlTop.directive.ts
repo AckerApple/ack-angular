@@ -29,7 +29,11 @@ import {
   }
 
   ngOnChanges( changes:any ){
-    this.delayFire()
+    Promise.resolve().then(()=>{
+      this.setter()
+      this.emit()
+    })
+    
     this.delayFire(250)
     this.delayFire(750)
     this.delayFire(1500)

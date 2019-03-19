@@ -11,7 +11,7 @@ var StatusOnlineModel = (function () {
         };
         window.addEventListener("online", this.onChange);
         window.addEventListener("offline", this.onChange);
-        setTimeout(function () { return _this.onChange(); }, 0);
+        Promise.resolve().then(function () { return _this.onChange(); });
     }
     StatusOnlineModel.prototype.ngOnDestroy = function () {
         window.removeEventListener("online", this.onChange);

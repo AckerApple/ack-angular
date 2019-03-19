@@ -24,10 +24,10 @@ var AckArray = (function () {
         var _this = this;
         if (this.keyMapChange.observers.length) {
             if (!this.keyMap) {
-                setTimeout(function () {
+                Promise.resolve().then(function () {
                     _this.keyMap = {};
                     _this.keyMapChange.emit(_this.keyMap);
-                }, 0);
+                });
             }
             this.pushCreateMap();
         }
@@ -38,7 +38,9 @@ var AckArray = (function () {
             this.pushAggregates(this.AckAggregates);
         }
         this.inited = true;
-        setTimeout(function () { return _this.loop(); }, 0);
+        Promise.resolve().then(function () {
+            return _this.loop();
+        });
     };
     AckArray.prototype.ngDoCheck = function () {
         var _this = this;
@@ -46,7 +48,9 @@ var AckArray = (function () {
             return;
         var changes = this.iterableDiffer.diff(this.array);
         if (changes) {
-            setTimeout(function () { return _this.loop(); }, 0);
+            Promise.resolve().then(function () {
+                return _this.loop();
+            });
         }
     };
     AckArray.prototype.ngOnChanges = function (changes) {
@@ -57,7 +61,9 @@ var AckArray = (function () {
             loop = true;
         }
         if (this.inited && loop) {
-            setTimeout(function () { return _this.loop(); }, 0);
+            Promise.resolve().then(function () {
+                return _this.loop();
+            });
         }
     };
     AckArray.prototype.pushAggregates = function (aggs) {

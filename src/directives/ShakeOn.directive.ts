@@ -35,7 +35,7 @@ import {
   constructor(public element:ElementRef){}
 
   ngOnInit(){
-    setTimeout(()=>this.update(), 0)
+    Promise.resolve().then(()=>this.update())
   }
 
   update(){

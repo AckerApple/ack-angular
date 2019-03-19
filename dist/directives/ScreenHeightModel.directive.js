@@ -11,7 +11,10 @@ var ScreenHeightModel = (function () {
         this.HtmlSizeService.checkWatchers();
     }
     ScreenHeightModel.prototype.ngAfterViewInit = function () {
-        this.delayCheck();
+        var _this = this;
+        Promise.resolve().then(function () {
+            return _this.setModel(_this.HtmlSizeService.htmlSize);
+        });
         this.delayCheck(250);
         this.delayCheck(1500);
     };

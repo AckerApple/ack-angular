@@ -14,7 +14,7 @@ var ScreenScrollModelY = (function () {
     }
     ScreenScrollModelY.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.onScroll(); }, 0);
+        Promise.resolve().then(function () { return _this.onScroll(); });
     };
     ScreenScrollModelY.prototype.ngOnDestroy = function () {
         window.removeEventListener("scroll", this.onScroll);

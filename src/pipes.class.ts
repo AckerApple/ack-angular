@@ -156,59 +156,7 @@ function a(name:string){
   return invokeRotator( av[name] )
 }
 
-/** responsible for ack-angular pipe'in system into ackX */
-function invokeRotator(invoke:any){
-  const isF = typeof invoke=='function'
-
-  const invoker:Function = isF ? function(args:any[]){
-    return invoke( args[0] )
-  } : function(args:any[]){
-    const rtn = invoke[ args[1] ]( args[0] )
-
-    for(let x=0; x<args.length; ++x){
-      if( x<1 ){
-        delete args[x]        
-      }else{
-        args[ x-1 ] = args[x]
-      }
-    }
-
-    args.length = args.length - 2
-
-    return rtn
-  }
-
-  return function(v, call0?, call1?, call2?){
-    var newkey, subargs, key, item
-    var rtn = invoker(arguments)
-
-    //loop extra arguments as property collectors
-    for(var x=1; x < arguments.length; ++x){
-      key = arguments[x]
-      subargs = []
-
-      //array where 1st arg is method and subs are positional arguments
-      if(key.constructor==Array){
-        key = []
-        key.push.apply(key, arguments[x])//clone array memory, do not touch original array
-        
-        newkey = key.shift()//first arg is name of key, remove it from array
-        subargs = key//what is left in array is the arguments
-        key = newkey//now the key string is finalized
-      }
-
-      item = rtn[key]
-
-      if(item && item.constructor==Function){
-        rtn = item.apply(rtn,subargs)
-      }else{
-        rtn = item
-      }
-    }
-
-    return rtn
-  }
-}
+import { invokeRotator } from "./invokeRotator"
 
 export const aDate = a('date')
 export const aTime = a('time')

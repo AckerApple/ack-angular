@@ -23,7 +23,7 @@ import {
   }
 
   ngOnInit(){
-    setTimeout(()=>this.onScroll(), 0)//two way bind often needs init override
+    Promise.resolve().then(()=>this.onScroll())//two way bind often needs init override
   }
 
   ngOnDestroy(){

@@ -61,10 +61,10 @@ export interface loop{
   ngOnInit(){
     if( this.keyMapChange.observers.length ){
       if( !this.keyMap ){
-        setTimeout(()=>{      
+        Promise.resolve().then(()=>{
           this.keyMap = {}
           this.keyMapChange.emit(this.keyMap)
-        }, 0)
+        })
       }
 
       this.pushCreateMap()
@@ -77,7 +77,9 @@ export interface loop{
     }
 
     this.inited = true
-    setTimeout(()=>this.loop(), 0)
+    Promise.resolve().then(()=>
+      this.loop()
+    )
   }
 
   //watch array deep changes
@@ -86,7 +88,9 @@ export interface loop{
     
     let changes = this.iterableDiffer.diff( this.array );
     if (changes) {
-      setTimeout(()=>this.loop(), 0)
+      Promise.resolve().then(()=>
+        this.loop()
+      )
     }
   }
 
@@ -99,7 +103,9 @@ export interface loop{
     }
     
     if( this.inited && loop ){
-      setTimeout(()=>this.loop(), 0)
+      Promise.resolve().then(()=>
+        this.loop()
+      )
     }
   }
 

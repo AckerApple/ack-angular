@@ -29,7 +29,7 @@ var RouteReporter = (function () {
             if (event.constructor === router_2.NavigationEnd) {
                 _this.beforeChanger.emit(_this.RouteWatchReporter);
                 _this.apply();
-                setTimeout(function () { return _this.emit(); }, 0);
+                Promise.resolve().then(function () { return _this.emit(); });
             }
         });
         if (this.ActivatedRoute) {
@@ -39,12 +39,12 @@ var RouteReporter = (function () {
         }
         this.RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
         this.apply();
-        setTimeout(function () {
+        Promise.resolve().then(function () {
             _this.emit();
             _this.querySub = _this.RouteWatchReporter
                 .activatedRoute.queryParams
                 .subscribe(function (query) { return _this.queryChange.emit(query); });
-        }, 0);
+        });
         if (this.onLoad) {
             this.onLoad({
                 state: this.RouteWatchReporter.current,

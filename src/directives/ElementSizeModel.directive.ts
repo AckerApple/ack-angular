@@ -28,7 +28,7 @@ import {
     }
 
     window.addEventListener('resize', this.onResize)
-    setTimeout(()=>this.setModel(), 0)
+    Promise.resolve().then(()=>this.setModel())
 
     this.observer = new MutationObserver(()=>{
       this.setModel()
@@ -46,11 +46,11 @@ import {
   }
 
   ngOnChanges(){
-    setTimeout(()=>{
+    Promise.resolve().then(()=>{
       if(!this.inChange){
         this.setModel()
       }
-    }, 0)
+    })
   }
 
   setModel(){
@@ -60,7 +60,7 @@ import {
     this.elementSizeModel.height = this.element.nativeElement.offsetHeight
     this.elementSizeModelChange.emit(this.elementSizeModel)
     
-    setTimeout(()=>this.inChange=false, 0)
+    Promise.resolve().then(()=>this.inChange=false)
   }
 
   ngOnDestroy(){

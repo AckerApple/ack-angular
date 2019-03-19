@@ -11,7 +11,7 @@ import {
 
   ngOnChanges( changes:any ){
     if( changes.var ){
-      setTimeout(()=>this.changed.emit( this.var ), 0)
+      Promise.resolve().then(()=>this.changed.emit( this.var ))
     }
   }
 }

@@ -17,7 +17,7 @@ var InnerHtmlModel = (function () {
     }
     InnerHtmlModel.prototype.ngOnChanges = function () {
         var _this = this;
-        setTimeout(function () { return _this.setModel(); }, 0);
+        Promise.resolve().then(function () { return _this.setModel(); });
     };
     InnerHtmlModel.prototype.setModel = function () {
         this.innerHtmlModel = this.element.nativeElement.innerHTML;

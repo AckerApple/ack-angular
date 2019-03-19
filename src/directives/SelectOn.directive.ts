@@ -17,10 +17,15 @@ import {
 
   ngOnChanges(changes){
     if(changes.selectOn && changes.selectOn.currentValue){
-      setTimeout(()=>{
-        this.element.nativeElement.select();
-        this.selectThen.emit();
-      }, this.selectOnDelay);
+      if( this.selectOnDelay===0 ){
+        Promise.resolve().then(()=>this.update())
+      }
+      setTimeout(()=>this.update(), this.selectOnDelay);
     }
+  }
+
+  update(){
+    this.element.nativeElement.select();
+    this.selectThen.emit();    
   }
 }

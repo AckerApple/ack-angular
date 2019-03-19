@@ -29,11 +29,11 @@ import {
   }
 
   ngAfterViewInit(){
-    this.delayCheck()
+    Promise.resolve().then(()=>
+      this.setModel( this.HtmlSizeService.htmlSize )
+    )
     this.delayCheck(250)
     this.delayCheck(1500)
-    //content may grow
-    //setTimeout(()=>this.changed(), 200)//two way bind often needs init override
   }
 
   delayCheck(num:number=0){

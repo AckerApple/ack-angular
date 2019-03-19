@@ -18,7 +18,7 @@ var ScrollPastFixed = (function () {
     };
     ScrollPastFixed.prototype.ngAfterViewInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.init(); }, 0);
+        Promise.resolve().then(function () { return _this.init(); });
     };
     ScrollPastFixed.prototype.check = function () {
         var scrollPos = window['pageYOffset'];

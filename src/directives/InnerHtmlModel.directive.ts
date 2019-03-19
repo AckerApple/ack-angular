@@ -32,7 +32,7 @@ import {
   }
 
   ngOnChanges(){
-    setTimeout(()=>this.setModel(), 0)
+    Promise.resolve().then(()=>this.setModel())
   }
 
   setModel(){

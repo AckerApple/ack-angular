@@ -139,54 +139,14 @@ function capitalizeOne(input) {
 exports.capitalizeOne = capitalizeOne;
 function a(name) {
     var av = new browser_1.ack();
-    return invokeRotator(av[name]);
+    return invokeRotator_1.invokeRotator(av[name]);
 }
-function invokeRotator(invoke) {
-    var isF = typeof invoke == 'function';
-    var invoker = isF ? function (args) {
-        return invoke(args[0]);
-    } : function (args) {
-        var rtn = invoke[args[1]](args[0]);
-        for (var x = 0; x < args.length; ++x) {
-            if (x < 1) {
-                delete args[x];
-            }
-            else {
-                args[x - 1] = args[x];
-            }
-        }
-        args.length = args.length - 2;
-        return rtn;
-    };
-    return function (v, call0, call1, call2) {
-        var newkey, subargs, key, item;
-        var rtn = invoker(arguments);
-        for (var x = 1; x < arguments.length; ++x) {
-            key = arguments[x];
-            subargs = [];
-            if (key.constructor == Array) {
-                key = [];
-                key.push.apply(key, arguments[x]);
-                newkey = key.shift();
-                subargs = key;
-                key = newkey;
-            }
-            item = rtn[key];
-            if (item && item.constructor == Function) {
-                rtn = item.apply(rtn, subargs);
-            }
-            else {
-                rtn = item;
-            }
-        }
-        return rtn;
-    };
-}
+var invokeRotator_1 = require("./invokeRotator");
 exports.aDate = a('date');
 exports.aTime = a('time');
-exports.aMath = invokeRotator(Math);
-exports.aString = invokeRotator(String);
-exports.ack = invokeRotator(browser_1.ack);
+exports.aMath = invokeRotator_1.invokeRotator(Math);
+exports.aString = invokeRotator_1.invokeRotator(String);
+exports.ack = invokeRotator_1.invokeRotator(browser_1.ack);
 exports.pipes = {
     array: array,
     markdownAnchor: markdownAnchor,

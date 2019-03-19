@@ -10,11 +10,15 @@ var SelectOn = (function () {
     SelectOn.prototype.ngOnChanges = function (changes) {
         var _this = this;
         if (changes.selectOn && changes.selectOn.currentValue) {
-            setTimeout(function () {
-                _this.element.nativeElement.select();
-                _this.selectThen.emit();
-            }, this.selectOnDelay);
+            if (this.selectOnDelay === 0) {
+                Promise.resolve().then(function () { return _this.update(); });
+            }
+            setTimeout(function () { return _this.update(); }, this.selectOnDelay);
         }
+    };
+    SelectOn.prototype.update = function () {
+        this.element.nativeElement.select();
+        this.selectThen.emit();
     };
     SelectOn.decorators = [
         { type: core_1.Directive, args: [{

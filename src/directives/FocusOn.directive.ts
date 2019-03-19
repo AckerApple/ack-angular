@@ -17,10 +17,16 @@ import {
 
   ngOnChanges(changes){
     if(changes.focusOn && changes.focusOn.currentValue){
-      setTimeout(()=>{
-        this.element.nativeElement.focus();
-        this.focusThen.emit();
-      }, this.focusOnDelay);
+      if( this.focusOnDelay===0 ){
+        Promise.resolve().then(()=>this.update())
+      }else{
+        setTimeout(()=>this.update(), this.focusOnDelay);
+      }
     }
+  }
+
+  update(){
+    this.element.nativeElement.focus();
+    this.focusThen.emit();    
   }
 }

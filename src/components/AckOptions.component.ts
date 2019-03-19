@@ -44,14 +44,14 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   constructor(public ElementRef:ElementRef){}
 
   ngAfterViewInit(){
-    setTimeout(()=>{
+    Promise.resolve().then(()=>{
       if( this.inputTemplateRefs ){
         this.TemplateReader.readTemplates(this.inputTemplateRefs)
       }
       if( this.templateRefs ){
         this.TemplateReader.readTemplates(this.templateRefs)
       }
-    }, 0)
+    })
   }
 
   selectItem(item){
