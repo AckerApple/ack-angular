@@ -20,14 +20,14 @@ var AckOptions = (function () {
     }
     AckOptions.prototype.ngAfterViewInit = function () {
         var _this = this;
-        setTimeout(function () {
+        Promise.resolve().then(function () {
             if (_this.inputTemplateRefs) {
                 _this.TemplateReader.readTemplates(_this.inputTemplateRefs);
             }
             if (_this.templateRefs) {
                 _this.TemplateReader.readTemplates(_this.templateRefs);
             }
-        }, 0);
+        });
     };
     AckOptions.prototype.selectItem = function (item) {
         var value = this.getArrayItemValue(item);

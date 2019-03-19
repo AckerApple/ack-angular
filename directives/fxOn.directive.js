@@ -12,7 +12,7 @@ var FxOn = (function () {
     }
     FxOn.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.update(); }, 0);
+        Promise.resolve().then(function () { return _this.update(); });
     };
     FxOn.prototype.update = function () {
         if (this.fxOn) {

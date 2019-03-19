@@ -8,7 +8,7 @@ var VarDirective = (function () {
     VarDirective.prototype.ngOnChanges = function (changes) {
         var _this = this;
         if (changes.var) {
-            setTimeout(function () { return _this.changed.emit(_this.var); }, 0);
+            Promise.resolve().then(function () { return _this.changed.emit(_this.var); });
         }
     };
     VarDirective.decorators = [

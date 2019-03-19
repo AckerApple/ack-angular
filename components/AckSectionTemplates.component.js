@@ -8,10 +8,10 @@ var AckSectionTemplates = (function () {
     }
     AckSectionTemplates.prototype.ngAfterViewInit = function () {
         var _this = this;
-        setTimeout(function () {
+        Promise.resolve().then(function () {
             _this.check();
             _this.inited = true;
-        }, 0);
+        });
     };
     AckSectionTemplates.prototype.ngOnChanges = function (changes) {
         if (this.inited) {
@@ -37,7 +37,7 @@ var AckSectionTemplates = (function () {
     };
     AckSectionTemplates.prototype.ngOnDestroy = function () {
         var _this = this;
-        setTimeout(function () { return _this.unregister(); }, 0);
+        Promise.resolve().then(function () { return _this.unregister(); });
     };
     AckSectionTemplates.prototype.unregister = function () {
         this.pushed = false;

@@ -6,23 +6,21 @@ var ReplaceModel = (function () {
         this.replaceModelChange = new core_1.EventEmitter();
     }
     ReplaceModel.prototype.ngOnChanges = function (changes) {
+        var _this = this;
         var isString = changes.replaceModel && this.replaceModel && this.replaceModel.constructor === String;
         if (isString) {
-            this.run();
+            Promise.resolve().then(function () { return _this.run(); });
         }
     };
     ReplaceModel.prototype.run = function () {
-        var _this = this;
         var rx = new RegExp(this.replaceExpression, 'gi');
         var oldModel = this.replaceModel;
         var newModel = this.replaceModel.replace(rx, '');
         if (oldModel === newModel) {
             return;
         }
-        setTimeout(function () {
-            _this.replaceModel = newModel;
-            _this.replaceModelChange.emit(_this.replaceModel);
-        }, 0);
+        this.replaceModel = newModel;
+        this.replaceModelChange.emit(this.replaceModel);
     };
     ReplaceModel.decorators = [
         { type: core_1.Directive, args: [{

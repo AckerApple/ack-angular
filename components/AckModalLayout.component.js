@@ -32,12 +32,12 @@ var AckModalLayout = (function () {
     };
     AckModalLayout.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () {
+        Promise.resolve().then(function () {
             if (_this.isModelMode || (_this.isModelMode == null && _this.showModelChange.observers.length)) {
                 _this.isModelMode = true;
             }
             _this.backgroundColor = _this.backgroundColor || 'rgba(255,255,255,0.95)';
-        }, 0);
+        });
     };
     AckModalLayout.prototype.fireClose = function () {
         this.showModelChange.emit(this.showModel = false);

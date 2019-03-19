@@ -6,4 +6,5 @@ export declare class FocusOn {
     focusThen: EventEmitter<{}>;
     constructor(element: ElementRef);
     ngOnChanges(changes: any): void;
+    update(): void;
 }

@@ -12,7 +12,7 @@ var HtmlWidthModel = (function () {
     }
     HtmlWidthModel.prototype.ngAfterViewInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.changed(); }, 0);
+        Promise.resolve().then(function () { return _this.changed(); });
     };
     HtmlWidthModel.prototype.ngOnDestroy = function () {
         this.sub.unsubscribe();

@@ -6,4 +6,5 @@ export declare class SelectOn {
     selectThen: EventEmitter<{}>;
     constructor(element: ElementRef);
     ngOnChanges(changes: any): void;
+    update(): void;
 }
