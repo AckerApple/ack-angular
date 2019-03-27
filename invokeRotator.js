@@ -22,23 +22,33 @@ function objectInvoker(object, plan) {
     var subargs, item;
     var newkey;
     var key;
+    var typo;
     for (var x = 0; x < plan.length; ++x) {
         key = plan[x];
         subargs = [];
-        if (key.constructor == Array) {
+        if (rtn == null) {
+            typo = typeof (rtn);
+            var msg = "TypeError: Cannot read property '" + key + "' of " + typo + ". Invoke instructions: " + JSON.stringify(plan);
+            throw new Error(msg);
+        }
+        var asFunc = key.constructor == Array;
+        if (asFunc) {
             key = [];
             key.push.apply(key, plan[x]);
             newkey = key.shift();
             subargs = key;
             key = newkey;
         }
-        if (rtn == null) {
-            var typo = typeof (rtn);
-            var msg = "ERROR TypeError: Cannot read property '" + key + "' of " + typo + ". Invoke instructions: " + JSON.stringify(plan);
-            throw new Error(msg);
-        }
         item = rtn[key];
-        if (item && item.constructor == Function) {
+        var isFunc = item && item.constructor == Function;
+        if (asFunc && !isFunc) {
+            if (item == null || item.constructor !== Function) {
+                typo = typeof (item);
+                var msg = "TypeError: '" + key + "' of " + typo + " is not a function. Invoke instructions: " + JSON.stringify(plan);
+                throw new Error(msg);
+            }
+        }
+        if (isFunc) {
             rtn = item.apply(rtn, subargs);
         }
         else {
