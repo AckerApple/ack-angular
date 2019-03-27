@@ -1148,8 +1148,6 @@ var AckModalLayout = /** @class */ (function () {
             if (_this.isModelMode || (_this.isModelMode == null && _this.showModelChange.observers.length)) {
                 _this.isModelMode = true;
             }
-            _this.backgroundColor = _this.backgroundColor || 'rgba(255,255,255,0.95)';
-            //this.backgroundColorChange.emit(this.backgroundColor)
         });
     };
     AckModalLayout.prototype.fireClose = function () {
@@ -1997,7 +1995,7 @@ exports.string = "<ng-container *ngFor=\"let prompt of AckApp.prompts.prompts;le
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.string = "<div *ngIf=\"showModel || !isModelMode\" [@fadeInOutUp]=\"1\" style=\"position:fixed;top:0;left:0;height:100%;width:100%;overflow:auto;\" [style.z-index]=\"zIndex || 20\"><div style=\"height:100%;width:100%;padding:20px;display:inline-table;\" [ngStyle]=\"{'background-color':backgroundColor}\"><table style=\"height:100%;margin:auto\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" [ngStyle]=\"wrapStyle\"><tr><td (click)=\"allowClose ? fireClose() : 0\"></td></tr><tr><td valign=\"top\" [ngStyle]=\"wrapCellStyle\"><div *ngIf=\"allowClose\" style=\"position:relative\"><div style=\"position:absolute;bottom:-17px;right:-16px;border:1px solid #DDD;border-radius:50%;z-index:20\"><ack-close-icon (click)=\"fireClose()\"></ack-close-icon></div></div><ng-content></ng-content></td></tr><tr><td (click)=\"allowClose ? fireClose() : 0\"></td></tr></table></div></div>";
+exports.string = "<div *ngIf=\"showModel || !isModelMode\" [@fadeInOutUp]=\"1\" style=\"position:fixed;top:0;left:0;height:100%;width:100%;overflow:auto;\" [style.z-index]=\"zIndex || 20\"><div style=\"height:100%;width:100%;padding:20px;display:inline-table;\" [ngStyle]=\"{'background-color':backgroundColor || 'rgba(255,255,255,0.95)'}\"><table style=\"height:100%;margin:auto\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" [ngStyle]=\"wrapStyle\"><tr><td (click)=\"allowClose ? fireClose() : 0\"></td></tr><tr><td valign=\"top\" [ngStyle]=\"wrapCellStyle\"><div *ngIf=\"allowClose\" style=\"position:relative\"><div style=\"position:absolute;bottom:-17px;right:-16px;border:1px solid #DDD;border-radius:50%;z-index:20\"><ack-close-icon (click)=\"fireClose()\"></ack-close-icon></div></div><ng-content></ng-content></td></tr><tr><td (click)=\"allowClose ? fireClose() : 0\"></td></tr></table></div></div>";
 
 
 /***/ }),
@@ -4404,26 +4402,36 @@ function objectInvoker(object, plan) {
     var subargs, item;
     var newkey;
     var key;
+    var typo;
     //loop extra arguments as property collectors
     for (var x = 0; x < plan.length; ++x) {
         key = plan[x];
         subargs = [];
+        //undefined error catcher
+        if (rtn == null) {
+            typo = typeof (rtn);
+            var msg = "TypeError: Cannot read property '" + key + "' of " + typo + ". Invoke instructions: " + JSON.stringify(plan);
+            throw new Error(msg);
+        }
+        var asFunc = key.constructor == Array;
         //array where 1st arg is method and subs are positional arguments
-        if (key.constructor == Array) {
+        if (asFunc) {
             key = [];
             key.push.apply(key, plan[x]); //clone array memory, do not touch original array
             newkey = key.shift(); //first arg is name of key, remove it from array
             subargs = key; //what is left in array is the arguments
             key = newkey; //key to string
         }
-        //undefined error catcher
-        if (rtn == null) {
-            var typo = typeof (rtn);
-            var msg = "ERROR TypeError: Cannot read property '" + key + "' of " + typo + ". Invoke instructions: " + JSON.stringify(plan);
-            throw new Error(msg);
-        }
         item = rtn[key];
-        if (item && item.constructor == Function) {
+        var isFunc = item && item.constructor == Function;
+        if (asFunc && !isFunc) {
+            if (item == null || item.constructor !== Function) {
+                typo = typeof (item);
+                var msg = "TypeError: '" + key + "' of " + typo + " is not a function. Invoke instructions: " + JSON.stringify(plan);
+                throw new Error(msg);
+            }
+        }
+        if (isFunc) {
             rtn = item.apply(rtn, subargs);
         }
         else {

@@ -25,14 +25,24 @@ export function objectInvoker(
   var subargs, item
   let newkey:string
   let key:string|string[]
+  let typo:string
 
   //loop extra arguments as property collectors
   for(let x=0; x < plan.length; ++x){
     key = plan[x]
     subargs = []
 
+    //undefined error catcher
+    if( rtn==null ){
+      typo = typeof(rtn)
+      const msg = "TypeError: Cannot read property '"+key+"' of "+ typo +". Invoke instructions: "+ JSON.stringify(plan)
+      throw new Error( msg )
+    }
+
+    let asFunc = key.constructor==Array
+
     //array where 1st arg is method and subs are positional arguments
-    if(key.constructor==Array){
+    if( asFunc ){
       key = []
       key.push.apply(key, plan[x])//clone array memory, do not touch original array
       
@@ -41,16 +51,19 @@ export function objectInvoker(
       key = newkey//key to string
     }
 
-    //undefined error catcher
-    if( rtn==null ){
-      const typo = typeof(rtn)
-      const msg = "ERROR TypeError: Cannot read property '"+key+"' of "+ typo +". Invoke instructions: "+ JSON.stringify(plan)
-      throw new Error( msg )
-    }
-
     item = rtn[ <string>key ]
 
-    if(item && item.constructor==Function){
+    let isFunc = item && item.constructor==Function
+
+    if( asFunc && !isFunc ){
+      if(item==null || item.constructor!==Function ){
+        typo = typeof(item)
+        const msg = "TypeError: '"+key+"' of "+ typo +" is not a function. Invoke instructions: "+ JSON.stringify(plan)
+        throw new Error( msg )
+      }
+    }
+
+    if( isFunc ){
       rtn = item.apply(rtn,subargs)
     }else{
       rtn = item

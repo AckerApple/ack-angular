@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.11.4] - 2019-03-(unreleased)
+- invokeRotator errors for function calls when target is not a function
+
 ## [1.11.3] - 2019-03-19
 - invokeRotator separation
 - Moved away from setTimeout in favor or Promise.resolve().then(()=>)

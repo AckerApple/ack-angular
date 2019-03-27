@@ -36,7 +36,6 @@ var AckModalLayout = (function () {
             if (_this.isModelMode || (_this.isModelMode == null && _this.showModelChange.observers.length)) {
                 _this.isModelMode = true;
             }
-            _this.backgroundColor = _this.backgroundColor || 'rgba(255,255,255,0.95)';
         });
     };
     AckModalLayout.prototype.fireClose = function () {

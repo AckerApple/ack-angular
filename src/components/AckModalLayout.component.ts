@@ -57,9 +57,6 @@ import { string } from "./templates/ack-modal-layout.pug"
       if( this.isModelMode || (this.isModelMode==null && this.showModelChange.observers.length) ){
         this.isModelMode = true
       }
-
-      this.backgroundColor = this.backgroundColor || 'rgba(255,255,255,0.95)'
-      //this.backgroundColorChange.emit(this.backgroundColor)
     })
   }
 
