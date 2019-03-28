@@ -54,7 +54,8 @@ function getInvokerBy(invoke) {
                 args[_i] = arguments[_i];
             }
             var x = invoke(args[0]);
-            return objectInvoker(x, [args[1]]);
+            args.shift();
+            return objectInvoker(x, args);
         };
     }
     return function () {
