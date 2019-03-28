@@ -69,7 +69,8 @@ export function getInvokerBy(
   if( isF ){
     return function(...args):any{
       var x = invoke(args[0]);
-      return objectInvoker(x,[args[1]])
+      args.shift()
+      return objectInvoker(x, args)
     }
   }
 

@@ -1,7 +1,7 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
-## [1.11.5] - 2019-03-27
+## [1.11.6] - 2019-03-27
 -invokeRotator fix for pipes
 
 ## [1.11.4] - 2019-03-27
