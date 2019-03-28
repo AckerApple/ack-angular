@@ -1,22 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 function invokeRotator(invoke) {
-    var invoker = getInvokerBy(invoke);
-    return getRotatorByInvoker(invoker);
+    return getInvokerBy(invoke);
 }
 exports.invokeRotator = invokeRotator;
-function getRotatorByInvoker(invoker) {
-    return function () {
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
-        var rtn = invoker(arguments);
-        args.shift();
-        return objectInvoker(rtn, args);
-    };
-}
-exports.getRotatorByInvoker = getRotatorByInvoker;
 function objectInvoker(object, plan) {
     var rtn = object;
     var subargs, item;
@@ -61,22 +48,24 @@ exports.objectInvoker = objectInvoker;
 function getInvokerBy(invoke) {
     var isF = typeof invoke == 'function';
     if (isF) {
-        return function (args) {
-            return invoke(args[0]);
+        return function () {
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i] = arguments[_i];
+            }
+            var x = invoke(args[0]);
+            return objectInvoker(x, [args[1]]);
         };
     }
-    return function (args) {
-        var rtn = invoke[args[1]](args[0]);
-        for (var x = 0; x < args.length; ++x) {
-            if (x < 1) {
-                delete args[x];
-            }
-            else {
-                args[x - 1] = args[x];
-            }
+    return function () {
+        var plan = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            plan[_i] = arguments[_i];
         }
-        args.length = args.length - 2;
-        return rtn;
+        var a = plan[0];
+        plan[0] = plan[1];
+        plan[1] = a;
+        return objectInvoker(invoke, [plan]);
     };
 }
 exports.getInvokerBy = getInvokerBy;
