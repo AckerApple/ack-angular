@@ -2,19 +2,7 @@
 export function invokeRotator(
   invoke:any//|(any[])=>any
 ){
-  const invoker:Function = getInvokerBy( invoke )
-
-  return getRotatorByInvoker( invoker )
-}
-
-export function getRotatorByInvoker(
-  invoker:Function
-):Function{
-  return function( ...args ){
-    var rtn = invoker(arguments)
-    args.shift()//remove first arg as its an object
-    return objectInvoker(rtn,args)
-  }
+  return getInvokerBy(invoke)
 }
 
 export function objectInvoker(
@@ -79,11 +67,21 @@ export function getInvokerBy(
   const isF = typeof invoke=='function'
 
   if( isF ){
-    return function(args:any[]):any{
-      return invoke( args[0] )
+    return function(...args):any{
+      var x = invoke(args[0]);
+      return objectInvoker(x,[args[1]])
     }
   }
-  
+
+  return function(...plan){
+    const a = plan[0]
+    plan[0] = plan[1]
+    plan[1] = a
+
+    return objectInvoker(invoke,[plan])
+  }
+
+/*
   return function(args:any[]):any{
     const rtn = invoke[ args[1] ]( args[0] )
 
@@ -99,4 +97,5 @@ export function getInvokerBy(
 
     return rtn
   }
+*/
 }

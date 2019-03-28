@@ -1,4 +1,4 @@
-import { Subscription } from "rxjs"
+import { Subscription } from "rxjs/internal/Subscription"
 import { Directive, Input, Output, EventEmitter } from "@angular/core"
 import {
   ActivatedRoute, Route

@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "1.11.3",
+  "version": "1.11.4",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -82,7 +82,7 @@
     "pug": "^2.0.1",
     "pug-cli": "^1.0.0-alpha6",
     "reflect-metadata": "^0.1.12",
-    "rxjs": "^6.2.2",
+    "rxjs": "^6.4.0",
     "ts-helpers": "^1.1.2",
     "ts-loader": "^4.0.1",
     "ts-node": "^5.0.1",

@@ -1,11 +1,4 @@
-//import "rxjs/add/operator/toPromise";
 import { Injectable, EventEmitter } from "@angular/core"
-
-/*Angular4
-import {
-  Http, Response, Request
-} from "@angular/common";
-*/
 
 import {
   HttpParams,

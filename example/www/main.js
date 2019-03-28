@@ -287,7 +287,7 @@ webpackContext.id = "../node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, private, default */
 /***/ (function(module) {
 
-module.exports = {"name":"ack-angular","version":"1.11.3","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/assets/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.7.0","@angular/animations":"^6.1.1","@angular/cli":"^6.1.2","@angular/common":"^6.1.1","@angular/compiler":"^6.1.1","@angular/compiler-cli":"^6.1.1","@angular/core":"^6.1.1","@angular/forms":"^6.1.1","@angular/platform-browser":"^6.1.1","@angular/platform-browser-dynamic":"^6.1.1","@angular/router":"^6.1.1","@types/jasmine":"^2.8.6","ack-angular-fx":"^3.0.0","ack-css-boot":"^1.2.53","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.4.5","animate.css":"^3.7.0","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.5","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.1","karma-jasmine":"^1.1.2","karma-jasmine-html-reporter":"^1.2.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.2","ngx-page-scroll":"^5.0.0","npm-run-all":"^4.1.3","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^6.2.2","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.9.2","zone.js":"^0.8.26"},"private":true};
+module.exports = {"name":"ack-angular","version":"1.11.4","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass scss/ack-angular.scss dist/ack-angular.css --production","build:css:example":"ack-sass scss/ack-angular.scss example/src/assets/styles.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist build:js","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.7.0","@angular/animations":"^6.1.1","@angular/cli":"^6.1.2","@angular/common":"^6.1.1","@angular/compiler":"^6.1.1","@angular/compiler-cli":"^6.1.1","@angular/core":"^6.1.1","@angular/forms":"^6.1.1","@angular/platform-browser":"^6.1.1","@angular/platform-browser-dynamic":"^6.1.1","@angular/router":"^6.1.1","@types/jasmine":"^2.8.6","ack-angular-fx":"^3.0.0","ack-css-boot":"^1.2.53","ack-pug-bundler":"^1.3.15","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.4.5","animate.css":"^3.7.0","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.1.0","karma":"^2.0.5","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.1","karma-jasmine":"^1.1.2","karma-jasmine-html-reporter":"^1.2.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.2","ngx-page-scroll":"^5.0.0","npm-run-all":"^4.1.3","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.1","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.12","rxjs":"^6.4.0","ts-helpers":"^1.1.2","ts-loader":"^4.0.1","ts-node":"^5.0.1","typescript":"2.9.2","zone.js":"^0.8.26"},"private":true};
 
 /***/ }),
 
@@ -4381,22 +4381,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** responsible for ack-angular pipe'in system into ackX */
 function invokeRotator(invoke //|(any[])=>any
 ) {
-    var invoker = getInvokerBy(invoke);
-    return getRotatorByInvoker(invoker);
+    return getInvokerBy(invoke);
 }
 exports.invokeRotator = invokeRotator;
-function getRotatorByInvoker(invoker) {
-    return function () {
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
-        var rtn = invoker(arguments);
-        args.shift(); //remove first arg as its an object
-        return objectInvoker(rtn, args);
-    };
-}
-exports.getRotatorByInvoker = getRotatorByInvoker;
 function objectInvoker(object, plan) {
     var rtn = object;
     var subargs, item;
@@ -4444,23 +4431,42 @@ exports.objectInvoker = objectInvoker;
 function getInvokerBy(invoke) {
     var isF = typeof invoke == 'function';
     if (isF) {
-        return function (args) {
-            return invoke(args[0]);
+        return function () {
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i] = arguments[_i];
+            }
+            var x = invoke(args[0]);
+            return objectInvoker(x, [args[1]]);
         };
     }
-    return function (args) {
-        var rtn = invoke[args[1]](args[0]);
-        for (var x = 0; x < args.length; ++x) {
-            if (x < 1) {
-                delete args[x];
-            }
-            else {
-                args[x - 1] = args[x];
-            }
+    return function () {
+        var plan = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            plan[_i] = arguments[_i];
         }
-        args.length = args.length - 2;
-        return rtn;
+        var a = plan[0];
+        plan[0] = plan[1];
+        plan[1] = a;
+        return objectInvoker(invoke, [plan]);
     };
+    /*
+      return function(args:any[]):any{
+        const rtn = invoke[ args[1] ]( args[0] )
+    
+        for(let x=0; x<args.length; ++x){
+          if( x<1 ){
+            delete args[x]
+          }else{
+            args[ x-1 ] = args[x]
+          }
+        }
+    
+        args.length = args.length - 2
+    
+        return rtn
+      }
+    */
 }
 exports.getInvokerBy = getInvokerBy;
 
@@ -5116,13 +5122,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-//import "rxjs/add/operator/toPromise";
 var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/*Angular4
-import {
-  Http, Response, Request
-} from "@angular/common";
-*/
 var http_1 = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
 var AckCache_1 = __webpack_require__(/*! ./AckCache */ "../src/providers/AckCache.ts");
 var AckQue_1 = __webpack_require__(/*! ./AckQue */ "../src/providers/AckQue.ts");
