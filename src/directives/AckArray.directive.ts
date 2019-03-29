@@ -17,8 +17,8 @@ export interface loop{
 }
 
 @Directive({
-  selector:"ack-array"
-  ,exportAs:"AckArray"
+  selector:"ack-array",
+  exportAs:"AckArray"
 }) export class AckArray {
   iterableDiffer: IterableDiffer<any[]>//change detection
   inited:boolean
@@ -44,7 +44,7 @@ export interface loop{
   @Input() keyMap:any
   @Output() keyMapChange = new EventEmitter()
 
-  loopStart:EventEmitter<void> = new EventEmitter()
+  loopStart:EventEmitter<boolean> = new EventEmitter()
   loopEach:EventEmitter<loop> = new EventEmitter()
   loopEnd:EventEmitter<void> = new EventEmitter()
 
@@ -78,7 +78,7 @@ export interface loop{
 
     this.inited = true
     Promise.resolve().then(()=>
-      this.loop()
+      this.loop( true )
     )
   }
 
@@ -89,7 +89,7 @@ export interface loop{
     let changes = this.iterableDiffer.diff( this.array );
     if (changes) {
       Promise.resolve().then(()=>
-        this.loop()
+        this.loop( false )
       )
     }
   }
@@ -104,7 +104,7 @@ export interface loop{
     
     if( this.inited && loop ){
       Promise.resolve().then(()=>
-        this.loop()
+        this.loop( true )
       )
     }
   }
@@ -142,12 +142,12 @@ export interface loop{
     return item
   }
 
-  loop() : void{
+  loop( reset:boolean ) : void{
     if(!this.array){
       this.array = []
     }
 
-    this.loopStart.emit()
+    this.loopStart.emit( reset )
 
     const last = this.array.length
     for(let x=0; x < last; ++x){
@@ -180,10 +180,14 @@ export interface loop{
     let pos = 0
     let last = 0
     
-    this.loopStart.subscribe(()=>{
+    this.loopStart.subscribe(reset=>{
       pos = 0
       last = this.array.length
-      this.pageChange.emit( this.page=0 )
+
+      if( reset ){
+        this.pageChange.emit( this.page=0 )
+      }
+
       this.pages = this.pages || []
       this.pages.length = 0//dont break binding if pages remembered
       this.pages.push([])
@@ -199,6 +203,10 @@ export interface loop{
     })
 
     this.loopEnd.subscribe(()=>{
+      if(this.page && this.page >= this.pages.length) {
+        this.pageChange.emit(this.page = 0)
+      }
+
       this.pagesChange.emit( this.pages )
     })
   }
@@ -208,7 +216,7 @@ export interface loop{
     this.array.length = 0
     this.array.push(item)
     this.arrayChange.emit(this.array)
-    this.loop()
+    this.loop( true )
   }
 
   //looks up id or the item itself is an ID
@@ -257,7 +265,7 @@ export interface loop{
 
   push(item){
     this.param().push(item)
-    this.loop()
+    this.loop( false )
     return this
   }
 
@@ -268,7 +276,7 @@ export interface loop{
 
   splice(x:number, y=1){
     this.param().splice(x,y)
-    this.loop()
+    this.loop( false )
     return this
   }
 
@@ -354,6 +362,6 @@ export interface loop{
     }
 
     this.inSort = false
-    this.loop()//cause pages to be updated
+    this.loop( true )//cause pages to be updated
   }
 }

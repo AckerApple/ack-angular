@@ -1,8 +1,11 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.11.7] - 2019-03-27
+- ack array refiltering mod
+
 ## [1.11.6] - 2019-03-27
--invokeRotator fix for pipes
+- invokeRotator fix for pipes
 
 ## [1.11.4] - 2019-03-27
 - invokeRotator errors for function calls when target is not a function

@@ -25,7 +25,7 @@ export declare class AckArray {
     arrayChange: EventEmitter<{}>;
     keyMap: any;
     keyMapChange: EventEmitter<{}>;
-    loopStart: EventEmitter<void>;
+    loopStart: EventEmitter<boolean>;
     loopEach: EventEmitter<loop>;
     loopEnd: EventEmitter<void>;
     AckAggregates: AckAggregate[];
@@ -36,7 +36,7 @@ export declare class AckArray {
     ngOnChanges(changes: any): void;
     pushAggregates(aggs: AckAggregate[]): void;
     getItemValueByKeys(item: any, keys: string[]): any;
-    loop(): void;
+    loop(reset: boolean): void;
     pushCreateMap(): void;
     pushCreatePages(): void;
     only(item: any): void;
