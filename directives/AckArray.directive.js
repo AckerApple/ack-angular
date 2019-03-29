@@ -39,7 +39,7 @@ var AckArray = (function () {
         }
         this.inited = true;
         Promise.resolve().then(function () {
-            return _this.loop();
+            return _this.loop(true);
         });
     };
     AckArray.prototype.ngDoCheck = function () {
@@ -49,7 +49,7 @@ var AckArray = (function () {
         var changes = this.iterableDiffer.diff(this.array);
         if (changes) {
             Promise.resolve().then(function () {
-                return _this.loop();
+                return _this.loop(false);
             });
         }
     };
@@ -62,7 +62,7 @@ var AckArray = (function () {
         }
         if (this.inited && loop) {
             Promise.resolve().then(function () {
-                return _this.loop();
+                return _this.loop(true);
             });
         }
     };
@@ -96,11 +96,11 @@ var AckArray = (function () {
         }
         return item;
     };
-    AckArray.prototype.loop = function () {
+    AckArray.prototype.loop = function (reset) {
         if (!this.array) {
             this.array = [];
         }
-        this.loopStart.emit();
+        this.loopStart.emit(reset);
         var last = this.array.length;
         for (var x = 0; x < last; ++x) {
             this.loopEach.emit({ index: x, item: this.array[x] });
@@ -126,10 +126,12 @@ var AckArray = (function () {
         this.pushed.createPages = true;
         var pos = 0;
         var last = 0;
-        this.loopStart.subscribe(function () {
+        this.loopStart.subscribe(function (reset) {
             pos = 0;
             last = _this.array.length;
-            _this.pageChange.emit(_this.page = 0);
+            if (reset) {
+                _this.pageChange.emit(_this.page = 0);
+            }
             _this.pages = _this.pages || [];
             _this.pages.length = 0;
             _this.pages.push([]);
@@ -142,6 +144,9 @@ var AckArray = (function () {
             }
         });
         this.loopEnd.subscribe(function () {
+            if (_this.page && _this.page >= _this.pages.length) {
+                _this.pageChange.emit(_this.page = 0);
+            }
             _this.pagesChange.emit(_this.pages);
         });
     };
@@ -149,7 +154,7 @@ var AckArray = (function () {
         this.array.length = 0;
         this.array.push(item);
         this.arrayChange.emit(this.array);
-        this.loop();
+        this.loop(true);
     };
     AckArray.prototype.getItemId = function (item, itemIndexName) {
         itemIndexName = itemIndexName || this.idKey;
@@ -184,7 +189,7 @@ var AckArray = (function () {
     };
     AckArray.prototype.push = function (item) {
         this.param().push(item);
-        this.loop();
+        this.loop(false);
         return this;
     };
     AckArray.prototype.unshift = function (item) {
@@ -194,7 +199,7 @@ var AckArray = (function () {
     AckArray.prototype.splice = function (x, y) {
         if (y === void 0) { y = 1; }
         this.param().splice(x, y);
-        this.loop();
+        this.loop(false);
         return this;
     };
     AckArray.prototype.param = function () {
@@ -273,7 +278,7 @@ var AckArray = (function () {
             this.sortArray.pop();
         }
         this.inSort = false;
-        this.loop();
+        this.loop(true);
     };
     AckArray.decorators = [
         { type: core_1.Directive, args: [{
