@@ -1,4 +1,13 @@
 "use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AckSections_component_1 = require("./components/AckSections.component");
@@ -46,15 +55,14 @@ var EnterKey = (function () {
             }
         });
     }
-    EnterKey.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[enterKey]' },] },
-    ];
-    EnterKey.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
-    ]; };
-    EnterKey.propDecorators = {
-        enterKey: [{ type: core_1.Output }]
-    };
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], EnterKey.prototype, "enterKey", void 0);
+    EnterKey = __decorate([
+        core_1.Directive({ selector: '[enterKey]' }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], EnterKey);
     return EnterKey;
 }());
 exports.EnterKey = EnterKey;
@@ -70,15 +78,14 @@ var EscapeKey = (function () {
             }
         });
     }
-    EscapeKey.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[escapeKey]' },] },
-    ];
-    EscapeKey.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
-    ]; };
-    EscapeKey.propDecorators = {
-        escapeKey: [{ type: core_1.Output }]
-    };
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], EscapeKey.prototype, "escapeKey", void 0);
+    EscapeKey = __decorate([
+        core_1.Directive({ selector: '[escapeKey]' }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], EscapeKey);
     return EscapeKey;
 }());
 exports.EscapeKey = EscapeKey;
@@ -98,15 +105,14 @@ var PreventBackKey = (function () {
             return yesNo;
         });
     }
-    PreventBackKey.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[preventBackKey]' },] },
-    ];
-    PreventBackKey.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
-    ]; };
-    PreventBackKey.propDecorators = {
-        preventBackKey: [{ type: core_1.Output }]
-    };
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], PreventBackKey.prototype, "preventBackKey", void 0);
+    PreventBackKey = __decorate([
+        core_1.Directive({ selector: '[preventBackKey]' }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], PreventBackKey);
     return PreventBackKey;
 }());
 exports.PreventBackKey = PreventBackKey;
@@ -126,15 +132,14 @@ var PreventEnterKey = (function () {
             return yesNo;
         });
     }
-    PreventEnterKey.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[preventEnterKey]' },] },
-    ];
-    PreventEnterKey.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
-    ]; };
-    PreventEnterKey.propDecorators = {
-        preventEnterKey: [{ type: core_1.Output }]
-    };
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], PreventEnterKey.prototype, "preventEnterKey", void 0);
+    PreventEnterKey = __decorate([
+        core_1.Directive({ selector: '[preventEnterKey]' }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], PreventEnterKey);
     return PreventEnterKey;
 }());
 exports.PreventEnterKey = PreventEnterKey;
@@ -142,15 +147,16 @@ var InputHint = (function () {
     function InputHint() {
         this.hintStyle = { 'font-size': '75%', 'color': '#BBB' };
     }
-    InputHint.decorators = [
-        { type: core_1.Component, args: [{
-                    selector: 'input-hint',
-                    template: '<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
-                },] },
-    ];
-    InputHint.propDecorators = {
-        hintStyle: [{ type: core_1.Input }]
-    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], InputHint.prototype, "hintStyle", void 0);
+    InputHint = __decorate([
+        core_1.Component({
+            selector: 'input-hint',
+            template: '<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
+        })
+    ], InputHint);
     return InputHint;
 }());
 exports.InputHint = InputHint;
@@ -167,17 +173,16 @@ var FormChanged = (function () {
     FormChanged.prototype.ngOnDestroy = function () {
         this.element.nativeElement.removeEventListener('change', this.onChange);
     };
-    FormChanged.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[formChanged]'
-                },] },
-    ];
-    FormChanged.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
-    ]; };
-    FormChanged.propDecorators = {
-        formChanged: [{ type: core_1.Output }]
-    };
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], FormChanged.prototype, "formChanged", void 0);
+    FormChanged = __decorate([
+        core_1.Directive({
+            selector: '[formChanged]'
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], FormChanged);
     return FormChanged;
 }());
 exports.FormChanged = FormChanged;
@@ -196,17 +201,16 @@ var FormAlter = (function () {
         this.element.nativeElement.removeEventListener('change', this.onChange);
         this.element.nativeElement.removeEventListener('input', this.onChange);
     };
-    FormAlter.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[formAlter]'
-                },] },
-    ];
-    FormAlter.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
-    ]; };
-    FormAlter.propDecorators = {
-        formAlter: [{ type: core_1.Output }]
-    };
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], FormAlter.prototype, "formAlter", void 0);
+    FormAlter = __decorate([
+        core_1.Directive({
+            selector: '[formAlter]'
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], FormAlter);
     return FormAlter;
 }());
 exports.FormAlter = FormAlter;

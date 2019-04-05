@@ -87,7 +87,7 @@ export declare class Keys {
     transform(input: any): any;
 }
 export declare class TypeofPipe {
-    transform(input: any): "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function";
+    transform(input: any): "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function";
 }
 export declare class ConsolePipe {
     transform(): any;

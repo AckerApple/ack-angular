@@ -27,6 +27,9 @@ export interface apiConfig {
     $http?: httpOptions;
 }
 export declare function TimeOutError(message?: string): void;
+export declare namespace TimeOutError {
+    var prototype: any;
+}
 export declare class AckApi {
     HttpClient: HttpClient;
     response: EventEmitter<HttpResponse<HttpEvent<Event>>>;
