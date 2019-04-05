@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.11.8] - 2019-03-27
+- Now includes scss files
+
 ## [1.11.7] - 2019-03-27
 - ack array refiltering mod
 

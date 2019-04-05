@@ -22,7 +22,9 @@
                 "output": "/"
               }
             ],
-            "styles": [],
+            "styles": [
+              "src/ack-angular.scss"
+            ],
             "scripts": []
           },
           "configurations": {

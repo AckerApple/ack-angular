@@ -1,17 +1,16 @@
 {
   "name": "ack-angular",
-  "version": "1.11.7",
+  "version": "1.11.8",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "start": "ack-reload -d example/www",
     "build:index": "pug example/src/index.pug --out example/src",
-    "build:css": "npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist build:css:example",
+    "build:css": "npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist",
     "build:css:ack-css-boot": "ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production",
     "build:css:csshake": "ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production",
-    "build:css:dist": "ack-sass scss/ack-angular.scss dist/ack-angular.css --production",
-    "build:css:example": "ack-sass scss/ack-angular.scss example/src/assets/styles.css --production",
+    "build:css:dist": "ack-sass src/ack-angular.scss dist/ack-angular.css --production",
     "install:example": "npm install --prefix example",
     "test": "ng test --browser PhantomJS --single-run",
     "test:watch": "ng test",
@@ -25,7 +24,8 @@
     "watch:js": "ng serve example --port 4201 --open",
     "build:js": "ng build example",
     "build:universal": "npm-run-all build:index build:css build:assets compile:dist:package",
-    "build": "npm-run-all build:universal build:dist build:js",
+    "build": "npm-run-all build:universal build:dist copy:scss build:js",
+    "copy:scss":"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss",
     "compile:dist:package": "node scripts/update-dist-package.js"
   },
   "repository": {
@@ -61,6 +61,7 @@
     "@types/jasmine": "^2.8.6",
     "ack-angular-fx": "^3.0.0",
     "ack-css-boot": "^1.2.53",
+    "ack-path": "^1.5.19",
     "ack-pug-bundler": "^1.3.15",
     "ack-reload": "^2.0.12",
     "ack-sass": "^1.1.1",
