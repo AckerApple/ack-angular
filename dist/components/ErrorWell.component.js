@@ -1,4 +1,13 @@
 "use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ack_angular_fx_1 = require("ack-angular-fx");
@@ -20,23 +29,45 @@ var ErrorWell = (function () {
             return error;
         return error.message || error["statusText"] || this.message;
     };
-    ErrorWell.decorators = [
-        { type: core_1.Component, args: [{
-                    selector: 'error-well',
-                    template: error_well_pug_1.string,
-                    animations: ack_angular_fx_1.animations
-                },] },
-    ];
-    ErrorWell.propDecorators = {
-        moreDetails: [{ type: core_1.Input }],
-        message: [{ type: core_1.Input }],
-        error: [{ type: core_1.Input }],
-        cssClasses: [{ type: core_1.Input }],
-        closable: [{ type: core_1.Input }],
-        allowDetails: [{ type: core_1.Input }],
-        close: [{ type: core_1.Output }],
-        titleFooter: [{ type: core_1.ContentChild, args: ["titleFooter",] }]
-    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], ErrorWell.prototype, "moreDetails", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], ErrorWell.prototype, "message", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Error)
+    ], ErrorWell.prototype, "error", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], ErrorWell.prototype, "cssClasses", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], ErrorWell.prototype, "closable", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], ErrorWell.prototype, "allowDetails", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], ErrorWell.prototype, "close", void 0);
+    __decorate([
+        core_1.ContentChild("titleFooter"),
+        __metadata("design:type", core_1.TemplateRef)
+    ], ErrorWell.prototype, "titleFooter", void 0);
+    ErrorWell = __decorate([
+        core_1.Component({
+            selector: 'error-well',
+            template: error_well_pug_1.string,
+            animations: ack_angular_fx_1.animations
+        })
+    ], ErrorWell);
     return ErrorWell;
 }());
 exports.ErrorWell = ErrorWell;

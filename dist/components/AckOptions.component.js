@@ -1,4 +1,13 @@
 "use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var pipes_class_1 = require("../pipes.class");
 var core_1 = require("@angular/core");
@@ -140,30 +149,65 @@ var AckOptions = (function () {
         }
         return string;
     };
-    AckOptions.decorators = [
-        { type: core_1.Component, args: [{
-                    selector: "ack-options",
-                    template: ack_options_pug_1.string
-                },] },
-    ];
-    AckOptions.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
-    ]; };
-    AckOptions.propDecorators = {
-        array: [{ type: core_1.Input }],
-        stylize: [{ type: core_1.Input }],
-        multiple: [{ type: core_1.Input }],
-        modelAsArray: [{ type: core_1.Input }],
-        max: [{ type: core_1.Input }],
-        toggleable: [{ type: core_1.Input }],
-        templateRefs: [{ type: core_1.ContentChildren, args: [core_1.TemplateRef,] }],
-        inputTemplateRefs: [{ type: core_1.Input }],
-        model: [{ type: core_1.Input }],
-        modelChange: [{ type: core_1.Output }],
-        arrayKey: [{ type: core_1.Input }],
-        modelKey: [{ type: core_1.Input }],
-        arrayToModelKey: [{ type: core_1.Input }]
-    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckOptions.prototype, "array", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckOptions.prototype, "stylize", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckOptions.prototype, "multiple", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckOptions.prototype, "modelAsArray", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], AckOptions.prototype, "max", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckOptions.prototype, "toggleable", void 0);
+    __decorate([
+        core_1.ContentChildren(core_1.TemplateRef),
+        __metadata("design:type", Object)
+    ], AckOptions.prototype, "templateRefs", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckOptions.prototype, "inputTemplateRefs", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckOptions.prototype, "model", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckOptions.prototype, "modelChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], AckOptions.prototype, "arrayKey", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], AckOptions.prototype, "modelKey", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], AckOptions.prototype, "arrayToModelKey", void 0);
+    AckOptions = __decorate([
+        core_1.Component({
+            selector: "ack-options",
+            template: ack_options_pug_1.string
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], AckOptions);
     return AckOptions;
 }());
 exports.AckOptions = AckOptions;

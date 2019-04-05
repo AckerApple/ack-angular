@@ -1,4 +1,13 @@
 "use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var scroll_past_fixed_pug_1 = require("./templates/scroll-past-fixed.pug");
@@ -38,18 +47,17 @@ var ScrollPastFixed = (function () {
             delete this.currentPosition;
         }
     };
-    ScrollPastFixed.decorators = [
-        { type: core_1.Component, args: [{
-                    selector: 'scroll-past-fixed',
-                    template: scroll_past_fixed_pug_1.string
-                },] },
-    ];
-    ScrollPastFixed.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
-    ]; };
-    ScrollPastFixed.propDecorators = {
-        template: [{ type: core_1.ViewChild, args: ['template',] }]
-    };
+    __decorate([
+        core_1.ViewChild('template'),
+        __metadata("design:type", core_1.TemplateRef)
+    ], ScrollPastFixed.prototype, "template", void 0);
+    ScrollPastFixed = __decorate([
+        core_1.Component({
+            selector: 'scroll-past-fixed',
+            template: scroll_past_fixed_pug_1.string
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], ScrollPastFixed);
     return ScrollPastFixed;
 }());
 exports.ScrollPastFixed = ScrollPastFixed;

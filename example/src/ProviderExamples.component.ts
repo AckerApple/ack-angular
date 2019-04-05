@@ -1,3 +1,4 @@
+import { Subscription } from "rxjs"
 import { Component, EventEmitter } from "@angular/core"
 import {
   PageScrollService, PageScrollInstance
@@ -197,6 +198,7 @@ const defaultUrl = window.location.origin+pathing+"/test.json"
     .then( cache=>this.cacheStorage=cache )
     .then( ()=>this.readCacheObject() )
     .catch(e=>{
+
       if(e.code && e.code==401){
         return
       }
@@ -276,14 +278,20 @@ const defaultUrl = window.location.origin+pathing+"/test.json"
     .catch( e=>this.error=e )
   }
 
-  runConfirm():EventEmitter<boolean>{
-    return this.Prompts.confirm("This is a confirm example")
-    .subscribe(result=>console.log("result of confirm:" +result))
+  runConfirm():Subscription{
+    return this.Prompts.confirm(
+      "This is a confirm example"
+    )
+    .subscribe(result=>
+      console.log("result of confirm:" +result)
+    )
   }
 
-  runAlert():EventEmitter<boolean>{
+  runAlert():Subscription{
     return this.Prompts.alert("This is an alert example")
-    .subscribe(result=>console.log("alert prompt closed"))
+    .subscribe(result=>
+      console.log("alert prompt closed")
+    )
   }
 }
 

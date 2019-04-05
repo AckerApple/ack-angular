@@ -1,4 +1,13 @@
 "use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AckApp_provider_1 = require("../providers/AckApp.provider");
@@ -42,28 +51,51 @@ var AckModalLayout = (function () {
         this.showModelChange.emit(this.showModel = false);
         this.close.emit(this);
     };
-    AckModalLayout.decorators = [
-        { type: core_1.Component, args: [{
-                    selector: 'ack-modal-layout',
-                    template: ack_modal_layout_pug_1.string,
-                    animations: ack_angular_fx_1.animations
-                },] },
-    ];
-    AckModalLayout.ctorParameters = function () { return [
-        { type: core_1.ElementRef },
-        { type: AckApp_provider_1.AckApp }
-    ]; };
-    AckModalLayout.propDecorators = {
-        zIndex: [{ type: core_1.Input }],
-        close: [{ type: core_1.Output }],
-        allowClose: [{ type: core_1.Input }],
-        wrapStyle: [{ type: core_1.Input }],
-        wrapCellStyle: [{ type: core_1.Input }],
-        backgroundColor: [{ type: core_1.Input }],
-        isModelMode: [{ type: core_1.Input }],
-        showModel: [{ type: core_1.Input }],
-        showModelChange: [{ type: core_1.Output }]
-    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], AckModalLayout.prototype, "zIndex", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckModalLayout.prototype, "close", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckModalLayout.prototype, "allowClose", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckModalLayout.prototype, "wrapStyle", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckModalLayout.prototype, "wrapCellStyle", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckModalLayout.prototype, "backgroundColor", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckModalLayout.prototype, "isModelMode", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckModalLayout.prototype, "showModel", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckModalLayout.prototype, "showModelChange", void 0);
+    AckModalLayout = __decorate([
+        core_1.Component({
+            selector: 'ack-modal-layout',
+            template: ack_modal_layout_pug_1.string,
+            animations: ack_angular_fx_1.animations
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef,
+            AckApp_provider_1.AckApp])
+    ], AckModalLayout);
     return AckModalLayout;
 }());
 exports.AckModalLayout = AckModalLayout;

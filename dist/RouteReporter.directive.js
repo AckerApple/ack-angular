@@ -1,4 +1,13 @@
 "use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
@@ -102,40 +111,102 @@ var RouteReporter = (function () {
     RouteReporter.parameters = [[
             RouteWatchReporter_1.RouteWatchReporter
         ]];
-    RouteReporter.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: "route-reporter",
-                    exportAs: "RouteReporter"
-                },] },
-    ];
-    RouteReporter.ctorParameters = function () { return [
-        { type: RouteWatchReporter_1.RouteWatchReporter },
-        { type: router_1.ActivatedRoute }
-    ]; };
-    RouteReporter.propDecorators = {
-        onLoad: [{ type: core_1.Input }],
-        stateChanger: [{ type: core_1.Output, args: ["onChange",] }],
-        beforeChanger: [{ type: core_1.Output, args: ["beforeChange",] }],
-        activated: [{ type: core_1.Input }],
-        activatedChange: [{ type: core_1.Output }],
-        params: [{ type: core_1.Input }],
-        paramsChange: [{ type: core_1.Output }],
-        data: [{ type: core_1.Input }],
-        dataChange: [{ type: core_1.Output }],
-        query: [{ type: core_1.Input }],
-        queryChange: [{ type: core_1.Output }],
-        route: [{ type: core_1.Input }],
-        routeChange: [{ type: core_1.Output }],
-        parentRoute: [{ type: core_1.Input }],
-        parentRouteChange: [{ type: core_1.Output }],
-        parent: [{ type: core_1.Input }],
-        parentChange: [{ type: core_1.Output }],
-        parentData: [{ type: core_1.Input }],
-        parentDataChange: [{ type: core_1.Output }],
-        current: [{ type: core_1.Input }],
-        state: [{ type: core_1.Input }],
-        stateChange: [{ type: core_1.Output }]
-    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "onLoad", void 0);
+    __decorate([
+        core_1.Output("onChange"),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "stateChanger", void 0);
+    __decorate([
+        core_1.Output("beforeChange"),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "beforeChanger", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", router_1.ActivatedRoute)
+    ], RouteReporter.prototype, "activated", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "activatedChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "params", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "paramsChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "data", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "dataChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "query", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "queryChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "route", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "routeChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "parentRoute", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "parentRouteChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", router_1.ActivatedRoute)
+    ], RouteReporter.prototype, "parent", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "parentChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "parentData", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "parentDataChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "current", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "state", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "stateChange", void 0);
+    RouteReporter = __decorate([
+        core_1.Directive({
+            selector: "route-reporter",
+            exportAs: "RouteReporter"
+        }),
+        __metadata("design:paramtypes", [RouteWatchReporter_1.RouteWatchReporter,
+            router_1.ActivatedRoute])
+    ], RouteReporter);
     return RouteReporter;
 }());
 exports.RouteReporter = RouteReporter;

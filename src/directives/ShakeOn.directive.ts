@@ -88,7 +88,7 @@ import {
     this.applyType()
 
     if( !this.shakeConstant ){
-      this.timeout = setTimeout(()=>{
+      this.timeout = <any>setTimeout(()=>{
         //$scope.shakeOnController.shakeOn = false
         this.onFalse()
         this.shakeThen.emit(this)

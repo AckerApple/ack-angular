@@ -90,7 +90,7 @@ import {
     this.applyType()
 
     if( this.fxForMs ){
-      this.timeout = setTimeout(()=>{
+      this.timeout = <any>setTimeout(()=>{
         this.onFalse()
         this.fxThen.emit()
       }, this.fxForMs);
