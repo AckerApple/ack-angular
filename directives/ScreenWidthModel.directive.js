@@ -9,45 +9,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var HtmlSizeWatcher_1 = require("./HtmlSizeWatcher");
-var ScreenWidthModel = (function () {
-    function ScreenWidthModel(HtmlSizeService) {
-        var _this = this;
+const core_1 = require("@angular/core");
+const HtmlSizeWatcher_1 = require("./HtmlSizeWatcher");
+let ScreenWidthModel = class ScreenWidthModel {
+    constructor(HtmlSizeService) {
         this.HtmlSizeService = HtmlSizeService;
         this.screenWidthModelChange = new core_1.EventEmitter();
-        this.sub = this.HtmlSizeService.change.subscribe(function () { return _this.changed(); });
+        this.sub = this.HtmlSizeService.change.subscribe(() => this.changed());
         this.HtmlSizeService.checkWatchers();
         if (this.HtmlSizeService.htmlSize) {
             this.changed();
         }
     }
-    ScreenWidthModel.prototype.changed = function () {
-        if (!this.HtmlSizeService.htmlSize || !this.hasChanged())
+    changed() {
+        if (!this.HtmlSizeService.htmlSize
+            || !this.hasChanged())
             return;
-        this.setModel(this.HtmlSizeService.htmlSize);
-    };
-    ScreenWidthModel.prototype.hasChanged = function () {
+        this.updateModel();
+    }
+    hasChanged() {
         return this.screenWidthModel !== window.innerWidth;
-    };
-    ScreenWidthModel.prototype.setModel = function (model) {
+    }
+    updateModel() {
         this.screenWidthModel = window.innerWidth;
         this.screenWidthModelChange.emit(this.screenWidthModel);
-    };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Number)
-    ], ScreenWidthModel.prototype, "screenWidthModel", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], ScreenWidthModel.prototype, "screenWidthModelChange", void 0);
-    ScreenWidthModel = __decorate([
-        core_1.Directive({
-            selector: '[screenWidthModel]'
-        }),
-        __metadata("design:paramtypes", [HtmlSizeWatcher_1.HtmlSizeService])
-    ], ScreenWidthModel);
-    return ScreenWidthModel;
-}());
+    }
+};
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], ScreenWidthModel.prototype, "screenWidthModel", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], ScreenWidthModel.prototype, "screenWidthModelChange", void 0);
+ScreenWidthModel = __decorate([
+    core_1.Directive({
+        selector: '[screenWidthModel]'
+    }),
+    __metadata("design:paramtypes", [HtmlSizeWatcher_1.HtmlSizeService])
+], ScreenWidthModel);
 exports.ScreenWidthModel = ScreenWidthModel;

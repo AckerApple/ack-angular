@@ -9,51 +9,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var reader_header_body_pug_1 = require("./templates/reader-header-body.pug");
-var ReaderHeaderBody = (function () {
-    function ReaderHeaderBody() {
-    }
-    __decorate([
-        core_1.ContentChild('reader-header'),
-        __metadata("design:type", core_1.TemplateRef)
-    ], ReaderHeaderBody.prototype, "readerHeader", void 0);
-    ReaderHeaderBody = __decorate([
-        core_1.Component({
-            selector: 'reader-header-body',
-            template: reader_header_body_pug_1.string
-        })
-    ], ReaderHeaderBody);
-    return ReaderHeaderBody;
-}());
+const core_1 = require("@angular/core");
+const reader_header_body_pug_1 = require("./templates/reader-header-body.pug");
+let ReaderHeaderBody = class ReaderHeaderBody {
+};
+__decorate([
+    core_1.ContentChild('reader-header'),
+    __metadata("design:type", core_1.TemplateRef)
+], ReaderHeaderBody.prototype, "readerHeader", void 0);
+ReaderHeaderBody = __decorate([
+    core_1.Component({
+        selector: 'reader-header-body',
+        template: reader_header_body_pug_1.string
+    })
+], ReaderHeaderBody);
 exports.ReaderHeaderBody = ReaderHeaderBody;
-var ReaderHeader = (function () {
-    function ReaderHeader() {
-    }
-    ReaderHeader = __decorate([
-        core_1.Directive({
-            selector: 'reader-header'
-        })
-    ], ReaderHeader);
-    return ReaderHeader;
-}());
+let ReaderHeader = class ReaderHeader {
+};
+ReaderHeader = __decorate([
+    core_1.Directive({
+        selector: 'reader-header'
+    })
+], ReaderHeader);
 exports.ReaderHeader = ReaderHeader;
-var ReaderBody = (function () {
-    function ReaderBody(element) {
+let ReaderBody = class ReaderBody {
+    constructor(element) {
         this.element = element;
         element.nativeElement.style.height = '100%';
         element.nativeElement.style.display = 'block';
     }
-    __decorate([
-        core_1.ContentChild('reader-header'),
-        __metadata("design:type", core_1.TemplateRef)
-    ], ReaderBody.prototype, "readerHeader", void 0);
-    ReaderBody = __decorate([
-        core_1.Directive({
-            selector: "reader-body"
-        }),
-        __metadata("design:paramtypes", [core_1.ElementRef])
-    ], ReaderBody);
-    return ReaderBody;
-}());
+};
+__decorate([
+    core_1.ContentChild('reader-header'),
+    __metadata("design:type", core_1.TemplateRef)
+], ReaderBody.prototype, "readerHeader", void 0);
+ReaderBody = __decorate([
+    core_1.Directive({
+        selector: "reader-body"
+    }),
+    __metadata("design:paramtypes", [core_1.ElementRef])
+], ReaderBody);
 exports.ReaderBody = ReaderBody;

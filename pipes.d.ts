@@ -1,6 +1,6 @@
-import { SafeHtml as SafeHtmler, SafeStyle as SafeStyler, SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 export declare class IndexTrack {
-    transform(): (index: any, ob: any) => any;
+    transform(): (index: any) => any;
 }
 export declare class Stringify {
     transform(input: any, spaces: any): string;
@@ -17,17 +17,17 @@ export declare class ArrayOfObjects {
 export declare class SafeUrl {
     private domSanitizer;
     constructor(domSanitizer: DomSanitizer);
-    transform(input: any): SafeResourceUrl;
+    transform(input: any): import("@angular/platform-browser").SafeResourceUrl;
 }
 export declare class SafeHtml {
     private domSanitizer;
     constructor(domSanitizer: DomSanitizer);
-    transform(input: any): SafeHtmler;
+    transform(input: any): import("@angular/platform-browser").SafeHtml;
 }
 export declare class SafeStyle {
     private domSanitizer;
     constructor(domSanitizer: DomSanitizer);
-    transform(input: any): SafeStyler;
+    transform(input: any): import("@angular/platform-browser").SafeStyle;
 }
 export declare class Between {
     transform(input: any, a: any, b: any): boolean;

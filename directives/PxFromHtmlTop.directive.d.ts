@@ -7,7 +7,7 @@ export declare class PxFromHtmlTop {
     watch: any;
     constructor(ElementRef: ElementRef);
     emit(): void;
-    ngOnChanges(changes: any): void;
+    ngOnChanges(): void;
     setter(): void;
     ngAfterViewInit(): void;
     delayFire(num?: number): void;

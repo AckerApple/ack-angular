@@ -9,41 +9,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var ScreenScrollHeightDiff = (function () {
-    function ScreenScrollHeightDiff() {
-        var _this = this;
+const core_1 = require("@angular/core");
+let ScreenScrollHeightDiff = class ScreenScrollHeightDiff {
+    constructor() {
         this.screenScrollHeightDiffChange = new core_1.EventEmitter();
-        this.on = function () {
-            _this.apply();
+        this.on = () => {
+            this.apply();
         };
         window.addEventListener("scroll", this.on);
         window.addEventListener("resize", this.on);
     }
-    ScreenScrollHeightDiff.prototype.apply = function () {
+    apply() {
         this.screenScrollHeightDiff = document.body.scrollHeight - window.innerHeight;
         if (this.screenScrollHeightDiff < 0)
             this.screenScrollHeightDiff = 0;
         this.screenScrollHeightDiffChange.emit(this.screenScrollHeightDiff);
-    };
-    ScreenScrollHeightDiff.prototype.ngOnDestroy = function () {
+    }
+    ngOnDestroy() {
         window.removeEventListener("scroll", this.on);
         window.removeEventListener("resize", this.on);
-    };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], ScreenScrollHeightDiff.prototype, "screenScrollHeightDiff", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
-    ], ScreenScrollHeightDiff.prototype, "screenScrollHeightDiffChange", void 0);
-    ScreenScrollHeightDiff = __decorate([
-        core_1.Directive({
-            selector: '[screenScrollHeightDiff]'
-        }),
-        __metadata("design:paramtypes", [])
-    ], ScreenScrollHeightDiff);
-    return ScreenScrollHeightDiff;
-}());
+    }
+};
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], ScreenScrollHeightDiff.prototype, "screenScrollHeightDiff", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ScreenScrollHeightDiff.prototype, "screenScrollHeightDiffChange", void 0);
+ScreenScrollHeightDiff = __decorate([
+    core_1.Directive({
+        selector: '[screenScrollHeightDiff]'
+    }),
+    __metadata("design:paramtypes", [])
+], ScreenScrollHeightDiff);
 exports.ScreenScrollHeightDiff = ScreenScrollHeightDiff;

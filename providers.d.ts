@@ -20,4 +20,4 @@ import { UrlVars } from "./providers/UrlVars";
 export { WindowService } from "./providers/WindowService";
 export { DocumentService } from "./providers/DocumentService";
 import { DocumentService } from "./providers/DocumentService";
-export declare const providers: (typeof HtmlSizeService | typeof Log | typeof Prompts | typeof AckApp | typeof AckOffline | typeof AckCache | typeof AckQue | typeof AckApi | typeof UrlVars | typeof DocumentService)[];
+export declare const providers: (typeof Prompts | typeof AckApp | typeof HtmlSizeService | typeof Log | typeof AckOffline | typeof AckCache | typeof AckQue | typeof AckApi | typeof UrlVars | typeof DocumentService)[];

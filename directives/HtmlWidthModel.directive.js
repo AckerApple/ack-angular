@@ -9,50 +9,47 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var HtmlSizeWatcher_1 = require("./HtmlSizeWatcher");
-var HtmlWidthModel = (function () {
-    function HtmlWidthModel(HtmlSizeService) {
-        var _this = this;
+const core_1 = require("@angular/core");
+const HtmlSizeWatcher_1 = require("./HtmlSizeWatcher");
+let HtmlWidthModel = class HtmlWidthModel {
+    constructor(HtmlSizeService) {
         this.HtmlSizeService = HtmlSizeService;
         this.htmlWidthModelChange = new core_1.EventEmitter();
-        this.sub = this.HtmlSizeService.change.subscribe(function () { return _this.changed(); });
+        this.sub = this.HtmlSizeService.change.subscribe(() => this.changed());
         this.HtmlSizeService.checkWatchers();
     }
-    HtmlWidthModel.prototype.ngAfterViewInit = function () {
-        var _this = this;
-        Promise.resolve().then(function () { return _this.changed(); });
-    };
-    HtmlWidthModel.prototype.ngOnDestroy = function () {
+    ngAfterViewInit() {
+        Promise.resolve().then(() => this.changed());
+    }
+    ngOnDestroy() {
         this.sub.unsubscribe();
         this.HtmlSizeService.checkWatchers();
-    };
-    HtmlWidthModel.prototype.changed = function () {
+    }
+    changed() {
         if (!this.HtmlSizeService.htmlSize || !this.hasChanged())
             return;
         this.setModel(this.HtmlSizeService.htmlSize);
-    };
-    HtmlWidthModel.prototype.hasChanged = function () {
+    }
+    hasChanged() {
         return this.htmlWidthModel !== window.document.documentElement.clientWidth;
-    };
-    HtmlWidthModel.prototype.setModel = function (htmlSize) {
+    }
+    setModel(htmlSize) {
         this.htmlWidthModel = htmlSize.width;
         this.htmlWidthModelChange.emit(this.htmlWidthModel);
-    };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Number)
-    ], HtmlWidthModel.prototype, "htmlWidthModel", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], HtmlWidthModel.prototype, "htmlWidthModelChange", void 0);
-    HtmlWidthModel = __decorate([
-        core_1.Directive({
-            selector: '[htmlWidthModel]'
-        }),
-        __metadata("design:paramtypes", [HtmlSizeWatcher_1.HtmlSizeService])
-    ], HtmlWidthModel);
-    return HtmlWidthModel;
-}());
+    }
+};
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], HtmlWidthModel.prototype, "htmlWidthModel", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], HtmlWidthModel.prototype, "htmlWidthModelChange", void 0);
+HtmlWidthModel = __decorate([
+    core_1.Directive({
+        selector: '[htmlWidthModel]'
+    }),
+    __metadata("design:paramtypes", [HtmlSizeWatcher_1.HtmlSizeService])
+], HtmlWidthModel);
 exports.HtmlWidthModel = HtmlWidthModel;

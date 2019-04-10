@@ -10,7 +10,7 @@ export declare class AckSectionTemplates {
     rightBody: TemplateRef<any>;
     constructor(SectionProvider: SectionProvider);
     ngAfterViewInit(): void;
-    ngOnChanges(changes: any): void;
+    ngOnChanges(): void;
     check(): void;
     ngOnDestroy(): void;
     unregister(): void;

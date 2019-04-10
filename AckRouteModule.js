@@ -6,21 +6,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var common_1 = require("@angular/common");
-var RouteWatchReporter_1 = require("./RouteWatchReporter");
-var RouteReporter_directive_1 = require("./RouteReporter.directive");
-var AckRouteModule = (function () {
-    function AckRouteModule() {
-    }
-    AckRouteModule = __decorate([
-        core_1.NgModule({
-            imports: [common_1.CommonModule],
-            declarations: [RouteReporter_directive_1.RouteReporter],
-            providers: [RouteWatchReporter_1.RouteWatchReporter],
-            exports: [RouteReporter_directive_1.RouteReporter]
-        })
-    ], AckRouteModule);
-    return AckRouteModule;
-}());
+const core_1 = require("@angular/core");
+const common_1 = require("@angular/common");
+const RouteWatchReporter_1 = require("./RouteWatchReporter");
+const RouteReporter_directive_1 = require("./RouteReporter.directive");
+let AckRouteModule = class AckRouteModule {
+};
+AckRouteModule = __decorate([
+    core_1.NgModule({
+        imports: [common_1.CommonModule],
+        declarations: [RouteReporter_directive_1.RouteReporter],
+        providers: [RouteWatchReporter_1.RouteWatchReporter],
+        exports: [RouteReporter_directive_1.RouteReporter]
+    })
+], AckRouteModule);
 exports.AckRouteModule = AckRouteModule;

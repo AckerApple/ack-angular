@@ -9,44 +9,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var SelectOn = (function () {
-    function SelectOn(element) {
+const core_1 = require("@angular/core");
+let SelectOn = class SelectOn {
+    constructor(element) {
         this.element = element;
         this.selectOnDelay = 0;
         this.selectThen = new core_1.EventEmitter();
     }
-    SelectOn.prototype.ngOnChanges = function (changes) {
-        var _this = this;
+    ngOnChanges(changes) {
         if (changes.selectOn && changes.selectOn.currentValue) {
             if (this.selectOnDelay === 0) {
-                Promise.resolve().then(function () { return _this.update(); });
+                Promise.resolve().then(() => this.update());
             }
-            setTimeout(function () { return _this.update(); }, this.selectOnDelay);
+            setTimeout(() => this.update(), this.selectOnDelay);
         }
-    };
-    SelectOn.prototype.update = function () {
+    }
+    update() {
         this.element.nativeElement.select();
         this.selectThen.emit();
-    };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], SelectOn.prototype, "selectOn", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], SelectOn.prototype, "selectOnDelay", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
-    ], SelectOn.prototype, "selectThen", void 0);
-    SelectOn = __decorate([
-        core_1.Directive({
-            selector: '[selectOn]'
-        }),
-        __metadata("design:paramtypes", [core_1.ElementRef])
-    ], SelectOn);
-    return SelectOn;
-}());
+    }
+};
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], SelectOn.prototype, "selectOn", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], SelectOn.prototype, "selectOnDelay", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], SelectOn.prototype, "selectThen", void 0);
+SelectOn = __decorate([
+    core_1.Directive({
+        selector: '[selectOn]'
+    }),
+    __metadata("design:paramtypes", [core_1.ElementRef])
+], SelectOn);
 exports.SelectOn = SelectOn;

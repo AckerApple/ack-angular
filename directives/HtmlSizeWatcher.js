@@ -9,36 +9,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var HtmlSizeService = (function () {
-    function HtmlSizeService() {
-        var _this = this;
+const core_1 = require("@angular/core");
+let HtmlSizeService = class HtmlSizeService {
+    constructor() {
         this.change = new core_1.EventEmitter();
         this.htmlSize = { width: null, height: null };
-        this.onResize = function () {
-            _this.htmlSize.width = window.document.documentElement.clientWidth;
-            _this.htmlSize.height = window.document.documentElement.clientHeight;
-            _this.change.emit();
+        this.onResize = () => {
+            this.htmlSize.width = window.document.documentElement.clientWidth;
+            this.htmlSize.height = window.document.documentElement.clientHeight;
+            this.change.emit();
         };
         this.checkWatchers();
         this.onResize();
     }
-    HtmlSizeService.prototype.checkWatchers = function () {
+    checkWatchers() {
         if (this.change.observers.length) {
             window.addEventListener('resize', this.onResize);
         }
         else {
             window.removeEventListener('resize', this.onResize);
         }
-    };
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], HtmlSizeService.prototype, "change", void 0);
-    HtmlSizeService = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [])
-    ], HtmlSizeService);
-    return HtmlSizeService;
-}());
+    }
+};
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], HtmlSizeService.prototype, "change", void 0);
+HtmlSizeService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [])
+], HtmlSizeService);
 exports.HtmlSizeService = HtmlSizeService;

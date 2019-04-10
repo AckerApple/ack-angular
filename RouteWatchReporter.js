@@ -9,11 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var router_1 = require("@angular/router");
-var core_1 = require("@angular/core");
-var RouteWatchReporter = (function () {
-    function RouteWatchReporter(router, activatedRoute) {
-        var _this = this;
+const router_1 = require("@angular/router");
+const core_1 = require("@angular/core");
+let RouteWatchReporter = class RouteWatchReporter {
+    constructor(router, activatedRoute) {
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.current = {};
@@ -23,26 +22,25 @@ var RouteWatchReporter = (function () {
         this.isNextBackMode = false;
         this.isNextBackHistory = false;
         this.activatedRoute = activatedRoute;
-        this.$window = function () { return window; };
+        this.$window = () => window;
         this.$history = [];
-        router.events.subscribe(function (event) {
+        router.events.subscribe(event => {
             if (event.constructor == router_1.NavigationEnd) {
-                var params = {};
-                var current = _this.getCurrent();
-                _this.recordStateChange(current.config, current.params);
+                const current = this.getCurrent();
+                this.recordStateChange(current.config, current.params);
             }
         });
         this.current = this.getCurrent();
     }
-    RouteWatchReporter.prototype.getCurrent = function () {
-        var parent = this.activatedRoute;
-        var target = this.activatedRoute;
+    getCurrent() {
+        let parent = this.activatedRoute;
+        let target = this.activatedRoute;
         while (target.firstChild) {
             parent = target;
             target = target.firstChild;
         }
-        var snapshot = target.snapshot || {};
-        var parentSnap = parent.snapshot || {};
+        const snapshot = target.snapshot || {};
+        const parentSnap = parent.snapshot || {};
         return {
             ActivatedRoute: target,
             config: (target.routeConfig || target),
@@ -53,49 +51,49 @@ var RouteWatchReporter = (function () {
                 params: parentSnap.params
             }
         };
-    };
-    RouteWatchReporter.prototype.getCurrentConfig = function () {
-        var target = this.activatedRoute;
+    }
+    getCurrentConfig() {
+        let target = this.activatedRoute;
         while (target.firstChild)
             target = target.firstChild;
         return (target.routeConfig || target);
-    };
-    RouteWatchReporter.prototype.getCurrentParams = function () {
-        var target = this.activatedRoute;
+    }
+    getCurrentParams() {
+        let target = this.activatedRoute;
         while (target.firstChild)
             target = target.firstChild;
         return target.snapshot.params;
-    };
-    RouteWatchReporter.prototype.isTrapHistory = function (toState, toParams) {
+    }
+    isTrapHistory(toState, toParams) {
         return this.isBackHistory(toState, toParams) && this.isForwardHistory(toState, toParams);
-    };
-    RouteWatchReporter.prototype.isBackHistory = function (toState, toParams) {
-        var $history = this.$history;
-        var isEven = $history.length > this.historyPos + 1;
-        var isNameMatch = isEven && toState && toState.name == $history[this.historyPos + 1].name;
+    }
+    isBackHistory(toState, toParams) {
+        const $history = this.$history;
+        const isEven = $history.length > this.historyPos + 1;
+        const isNameMatch = isEven && toState && toState.name == $history[this.historyPos + 1].name;
         return isNameMatch && this.isParamsMatch(toParams, $history[this.historyPos + 1].params);
-    };
-    RouteWatchReporter.prototype.isForwardHistory = function (toState, toParams) {
-        var $history = this.$history;
-        var isEven = !this.isNextBackMode && this.historyPos && $history.length > this.historyPos;
-        var isNameMatch = isEven && toState && toState.name == $history[this.historyPos - 1].name;
+    }
+    isForwardHistory(toState, toParams) {
+        const $history = this.$history;
+        const isEven = !this.isNextBackMode && this.historyPos && $history.length > this.historyPos;
+        const isNameMatch = isEven && toState && toState.name == $history[this.historyPos - 1].name;
         return isNameMatch && this.isParamsMatch(toParams, $history[this.historyPos - 1].params);
-    };
-    RouteWatchReporter.prototype.isParamsMatch = function (toParams, otherParams) {
+    }
+    isParamsMatch(toParams, otherParams) {
         if (!toParams || !otherParams) {
             return false;
         }
-        for (var x in toParams) {
+        for (let x in toParams) {
             if (toParams[x] != otherParams[x]) {
                 return false;
             }
         }
         return true;
-    };
-    RouteWatchReporter.prototype.recordStateChange = function (toState, toParams) {
+    }
+    recordStateChange(toState, toParams) {
         this.current = { params: toParams, config: toState };
-        var isForward = this.isForwardHistory(toState, toParams);
-        var isBackHistory = this.isNextBackHistory || this.isBackHistory(toState, toParams);
+        let isForward = this.isForwardHistory(toState, toParams);
+        let isBackHistory = this.isNextBackHistory || this.isBackHistory(toState, toParams);
         if (this.isOsAction && this.isTrapHistory(toState, toParams)) {
             if (this.isBackMode) {
                 isForward = false;
@@ -107,7 +105,7 @@ var RouteWatchReporter = (function () {
         else {
             this.isBackMode = this.isNextBackMode || (this.isOsAction && isBackHistory);
         }
-        var $history = this.$history;
+        const $history = this.$history;
         if (!toState)
             return;
         if (isForward) {
@@ -118,20 +116,20 @@ var RouteWatchReporter = (function () {
         }
         else {
             this.historyPos = 0;
-            var hist = { name: toState.name, params: toParams };
+            const hist = { name: toState.name, params: toParams };
             if (!Object.keys(toParams).length) {
                 delete hist.params;
             }
             $history.unshift(hist);
         }
         this.isNextBackHistory = false;
-    };
-    RouteWatchReporter.prototype.goBackTo = function (name, params) {
+    }
+    goBackTo(name, params) {
         this.isNextBackMode = true;
         this.isNextBackHistory = true;
         this.$state().go(name, params);
-    };
-    RouteWatchReporter.prototype.tryBack = function (name, params) {
+    }
+    tryBack(name, params) {
         if (this.$history.length) {
             this.isNextBackMode = true;
             this.isNextBackHistory = true;
@@ -140,37 +138,35 @@ var RouteWatchReporter = (function () {
         else {
             this.goBackTo(name, params);
         }
-    };
-    RouteWatchReporter.prototype.watchDocument = function ($document) {
+    }
+    watchDocument($document) {
         this.watchDocByCallbacks($document, this.getDocumentCallbacks());
-    };
-    RouteWatchReporter.prototype.getDocumentCallbacks = function () {
-        var _this = this;
-        var isBackButton = function () {
-            _this.isOsAction = true;
+    }
+    getDocumentCallbacks() {
+        const isBackButton = () => {
+            this.isOsAction = true;
         };
-        var isNotBackButton = function () {
-            _this.isOsAction = false;
+        const isNotBackButton = () => {
+            this.isOsAction = false;
         };
         return {
             isBackButton: isBackButton,
             isNotBackButton: isNotBackButton
         };
-    };
-    RouteWatchReporter.prototype.watchDocByCallbacks = function ($document, callbacks) {
+    }
+    watchDocByCallbacks($document, callbacks) {
         $document.addEventListener('mouseout', callbacks.isBackButton);
         $document.addEventListener('mousedown', callbacks.isNotBackButton);
-    };
-    RouteWatchReporter.prototype.unwatchDocByCallbacks = function ($document, callbacks) {
+    }
+    unwatchDocByCallbacks($document, callbacks) {
         $document.removeEventListener('mouseout', callbacks.isBackButton);
         $document.removeEventListener('mouseover', callbacks.isNotBackButton);
         $document.removeEventListener('mousedown', callbacks.isNotBackButton);
-    };
-    RouteWatchReporter = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [router_1.Router,
-            router_1.ActivatedRoute])
-    ], RouteWatchReporter);
-    return RouteWatchReporter;
-}());
+    }
+};
+RouteWatchReporter = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [router_1.Router,
+        router_1.ActivatedRoute])
+], RouteWatchReporter);
 exports.RouteWatchReporter = RouteWatchReporter;

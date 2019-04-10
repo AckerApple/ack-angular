@@ -15,12 +15,16 @@ export declare class ElementSizeModel {
     ngOnDestroy(): void;
 }
 export declare class ElementHeightModel extends ElementSizeModel {
+    element: ElementRef;
     elementHeightModel: any;
     elementHeightModelChange: EventEmitter<{}>;
+    constructor(element: ElementRef);
     setModel(): void;
 }
 export declare class ElementWidthModel extends ElementSizeModel {
+    element: ElementRef;
     elementWidthModel: any;
     elementWidthModelChange: EventEmitter<{}>;
+    constructor(element: ElementRef);
     setModel(): void;
 }

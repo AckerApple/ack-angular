@@ -9,39 +9,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var ScreenScrollModelY = (function () {
-    function ScreenScrollModelY() {
-        var _this = this;
+const core_1 = require("@angular/core");
+let ScreenScrollModelY = class ScreenScrollModelY {
+    constructor() {
         this.screenScrollModelYChange = new core_1.EventEmitter();
-        this.onScroll = function () {
-            _this.screenScrollModelY = window['pageYOffset'];
-            _this.screenScrollModelYChange.emit(_this.screenScrollModelY);
+        this.onScroll = () => {
+            this.screenScrollModelY = window['pageYOffset'];
+            this.screenScrollModelYChange.emit(this.screenScrollModelY);
         };
         this.onScroll();
         window.addEventListener("scroll", this.onScroll);
     }
-    ScreenScrollModelY.prototype.ngOnInit = function () {
-        var _this = this;
-        Promise.resolve().then(function () { return _this.onScroll(); });
-    };
-    ScreenScrollModelY.prototype.ngOnDestroy = function () {
+    ngOnInit() {
+        Promise.resolve().then(() => this.onScroll());
+    }
+    ngOnDestroy() {
         window.removeEventListener("scroll", this.onScroll);
-    };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], ScreenScrollModelY.prototype, "screenScrollModelY", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
-    ], ScreenScrollModelY.prototype, "screenScrollModelYChange", void 0);
-    ScreenScrollModelY = __decorate([
-        core_1.Directive({
-            selector: '[screenScrollModelY]'
-        }),
-        __metadata("design:paramtypes", [])
-    ], ScreenScrollModelY);
-    return ScreenScrollModelY;
-}());
+    }
+};
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], ScreenScrollModelY.prototype, "screenScrollModelY", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ScreenScrollModelY.prototype, "screenScrollModelYChange", void 0);
+ScreenScrollModelY = __decorate([
+    core_1.Directive({
+        selector: '[screenScrollModelY]'
+    }),
+    __metadata("design:paramtypes", [])
+], ScreenScrollModelY);
 exports.ScreenScrollModelY = ScreenScrollModelY;

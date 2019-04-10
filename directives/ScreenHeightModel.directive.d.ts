@@ -1,6 +1,6 @@
 import { Subscription } from "rxjs/internal/Subscription";
 import { EventEmitter } from "@angular/core";
-import { htmlSize, HtmlSizeService } from "./HtmlSizeWatcher";
+import { HtmlSizeService } from "./HtmlSizeWatcher";
 export declare class ScreenHeightModel {
     HtmlSizeService: HtmlSizeService;
     sub: Subscription;
@@ -11,5 +11,5 @@ export declare class ScreenHeightModel {
     delayCheck(num?: number): void;
     changed(): void;
     hasChanged(): boolean;
-    setModel(model: htmlSize): void;
+    updateModel(): void;
 }
