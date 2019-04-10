@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const browser_1 = require("ack-x/browser");
+var browser_1 = require("ack-x/browser");
 function between(input, a, b) {
     if (a == null || b == null)
         return false;
@@ -20,7 +20,8 @@ function toNumber(val) {
     return Number(numbers(val, "."));
 }
 exports.toNumber = toNumber;
-function numberSuffix(val, rtnVal = false) {
+function numberSuffix(val, rtnVal) {
+    if (rtnVal === void 0) { rtnVal = false; }
     var rtn = rtnVal ? val : '';
     val = Number(val);
     if (!val || isNaN(val))
@@ -39,13 +40,13 @@ function numberSuffix(val, rtnVal = false) {
 }
 exports.numberSuffix = numberSuffix;
 function array(input, repeat, repeatValue) {
-    const isArray = input != null && input.constructor == Array;
-    let rtn = isArray ? input : [];
+    var isArray = input != null && input.constructor == Array;
+    var rtn = isArray ? input : [];
     if (!repeat && !isArray && input != null) {
         rtn.push(input);
     }
     if (repeat && !isNaN(Number(repeat))) {
-        const val = typeof (repeatValue) === 'undefined' ? input : repeatValue;
+        var val = typeof (repeatValue) === 'undefined' ? input : repeatValue;
         while (rtn.length < repeat) {
             rtn.push(val);
         }
@@ -54,7 +55,7 @@ function array(input, repeat, repeatValue) {
 }
 exports.array = array;
 function arrayOfObjects(input, repeat, repeatValue) {
-    return array(input, repeat, repeatValue).map((v, i) => ({ value: v, index: i }));
+    return array(input, repeat, repeatValue).map(function (v, i) { return ({ value: v, index: i }); });
 }
 exports.arrayOfObjects = arrayOfObjects;
 function markdownAnchor(input) {
@@ -85,7 +86,7 @@ exports.yesNo = yesNo;
 function boolean(input) {
     if (input == null)
         return false;
-    const num = Number(input);
+    var num = Number(input);
     if (!isNaN(num)) {
         return Boolean(num) ? true : false;
     }
@@ -103,7 +104,7 @@ function bit(input) {
 }
 exports.bit = bit;
 function numbers(input, safeChars) {
-    let xString = '[^0-9';
+    var xString = '[^0-9';
     if (safeChars) {
         if (safeChars.length > 4) {
             safeChars = safeChars.substring(0, 4);
@@ -111,7 +112,7 @@ function numbers(input, safeChars) {
         xString += safeChars;
     }
     xString += ']';
-    const regX = new RegExp(xString, 'g');
+    var regX = new RegExp(xString, 'g');
     return input ? String(input).replace(regX, '') : input;
 }
 exports.numbers = numbers;
@@ -137,33 +138,33 @@ function capitalizeOne(input) {
 }
 exports.capitalizeOne = capitalizeOne;
 function a(name) {
-    const av = new browser_1.ack();
+    var av = new browser_1.ack();
     return invokeRotator_1.invokeRotator(av[name]);
 }
-const invokeRotator_1 = require("./invokeRotator");
+var invokeRotator_1 = require("./invokeRotator");
 exports.aDate = a('date');
 exports.aTime = a('time');
 exports.aMath = invokeRotator_1.invokeRotator(Math);
 exports.aString = invokeRotator_1.invokeRotator(String);
 exports.ack = invokeRotator_1.invokeRotator(browser_1.ack);
 exports.pipes = {
-    array,
-    markdownAnchor,
-    textDownload,
-    yesno,
-    yesNo,
-    numbers,
-    capitalizeWords,
-    capitalize,
-    capitalizeAfterSentence,
-    capitalizeOne,
-    toNumber,
-    numberToPhone,
-    numberSuffix,
+    array: array,
+    markdownAnchor: markdownAnchor,
+    textDownload: textDownload,
+    yesno: yesno,
+    yesNo: yesNo,
+    numbers: numbers,
+    capitalizeWords: capitalizeWords,
+    capitalize: capitalize,
+    capitalizeAfterSentence: capitalizeAfterSentence,
+    capitalizeOne: capitalizeOne,
+    toNumber: toNumber,
+    numberToPhone: numberToPhone,
+    numberSuffix: numberSuffix,
     aDate: exports.aDate,
     aMath: exports.aMath,
     aString: exports.aString,
     aTime: exports.aTime,
     ack: exports.ack,
-    between
+    between: between
 };

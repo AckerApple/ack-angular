@@ -6,13 +6,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
+var core_1 = require("@angular/core");
 function getWindow() { return window; }
-let WindowService = class WindowService {
-    get nativeElement() { return getWindow(); }
-    get nativeWindow() { return getWindow(); }
-};
-WindowService = __decorate([
-    core_1.Injectable()
-], WindowService);
+var WindowService = (function () {
+    function WindowService() {
+    }
+    Object.defineProperty(WindowService.prototype, "nativeElement", {
+        get: function () { return getWindow(); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(WindowService.prototype, "nativeWindow", {
+        get: function () { return getWindow(); },
+        enumerable: true,
+        configurable: true
+    });
+    WindowService = __decorate([
+        core_1.Injectable()
+    ], WindowService);
+    return WindowService;
+}());
 exports.WindowService = WindowService;

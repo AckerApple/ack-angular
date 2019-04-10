@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const i0 = require("@angular/core");
-const i1 = require("./ScrollPastFixed.component");
+var i0 = require("@angular/core");
+var i1 = require("./ScrollPastFixed.component");
 var styles_ScrollPastFixed = [];
 var RenderType_ScrollPastFixed = i0.ɵcrt({ encapsulation: 2, styles: styles_ScrollPastFixed, data: {} });
 exports.RenderType_ScrollPastFixed = RenderType_ScrollPastFixed;

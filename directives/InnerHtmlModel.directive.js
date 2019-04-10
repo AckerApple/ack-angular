@@ -9,13 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-let InnerHtmlModel = class InnerHtmlModel {
-    constructor(element) {
+var core_1 = require("@angular/core");
+var InnerHtmlModel = (function () {
+    function InnerHtmlModel(element) {
+        var _this = this;
         this.element = element;
         this.innerHtmlModelChange = new core_1.EventEmitter();
-        this.observer = new MutationObserver(() => this.setModel());
-        const config = {
+        this.observer = new MutationObserver(function () { return _this.setModel(); });
+        var config = {
             attributes: true,
             childList: true,
             characterData: true,
@@ -23,29 +24,31 @@ let InnerHtmlModel = class InnerHtmlModel {
         };
         this.observer.observe(this.element.nativeElement, config);
     }
-    ngOnChanges() {
-        Promise.resolve().then(() => this.setModel());
-    }
-    setModel() {
+    InnerHtmlModel.prototype.ngOnChanges = function () {
+        var _this = this;
+        Promise.resolve().then(function () { return _this.setModel(); });
+    };
+    InnerHtmlModel.prototype.setModel = function () {
         this.innerHtmlModel = this.element.nativeElement.innerHTML;
         this.innerHtmlModelChange.emit(this.innerHtmlModel);
-    }
-    ngOnDestroy() {
+    };
+    InnerHtmlModel.prototype.ngOnDestroy = function () {
         this.observer.disconnect();
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], InnerHtmlModel.prototype, "innerHtmlModel", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], InnerHtmlModel.prototype, "innerHtmlModelChange", void 0);
-InnerHtmlModel = __decorate([
-    core_1.Directive({
-        selector: '[innerHtmlModel]'
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], InnerHtmlModel);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], InnerHtmlModel.prototype, "innerHtmlModel", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], InnerHtmlModel.prototype, "innerHtmlModelChange", void 0);
+    InnerHtmlModel = __decorate([
+        core_1.Directive({
+            selector: '[innerHtmlModel]'
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], InnerHtmlModel);
+    return InnerHtmlModel;
+}());
 exports.InnerHtmlModel = InnerHtmlModel;

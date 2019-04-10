@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,10 +20,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-const http_1 = require("@angular/common/http");
-const AckCache_1 = require("./AckCache");
-const AckQue_1 = require("./AckQue");
+var core_1 = require("@angular/core");
+var http_1 = require("@angular/common/http");
+var AckCache_1 = require("./AckCache");
+var AckQue_1 = require("./AckQue");
 function TimeOutError(message) {
     Error["captureStackTrace"](this, this.constructor);
     this.name = this.constructor.name;
@@ -22,8 +33,8 @@ function TimeOutError(message) {
 }
 exports.TimeOutError = TimeOutError;
 TimeOutError.prototype = Object.create(Error.prototype);
-let AckApi = class AckApi {
-    constructor(HttpClient) {
+var AckApi = (function () {
+    function AckApi(HttpClient) {
         this.HttpClient = HttpClient;
         this.response = new core_1.EventEmitter();
         this.Request = new core_1.EventEmitter();
@@ -41,90 +52,95 @@ let AckApi = class AckApi {
         };
         this.paramConfig();
     }
-    paramConfig() { }
-    registerHandler(name, handler, options) {
+    AckApi.prototype.paramConfig = function () { };
+    AckApi.prototype.registerHandler = function (name, handler, options) {
+        var _this = this;
         options = options || { maxTry: 50 };
-        handler = handler || (config => this.request(config));
+        handler = handler || (function (config) { return _this.request(config); });
         this.AckQue.registerHandler(name, handler);
         return this;
-    }
-    getQue(name) {
+    };
+    AckApi.prototype.getQue = function (name) {
         return this.AckQue.get(name);
-    }
-    getCache(name) {
+    };
+    AckApi.prototype.getCache = function (name) {
         return this.AckCache.get(name);
-    }
-    processQue(name) {
-        this.AckQue.paramHandler(name, config => this._fetch(config));
+    };
+    AckApi.prototype.processQue = function (name) {
+        var _this = this;
+        this.AckQue.paramHandler(name, function (config) { return _this._fetch(config); });
         return this.AckQue.processQue(name);
-    }
-    clearQue(name) {
+    };
+    AckApi.prototype.clearQue = function (name) {
         return this.AckQue.clear(name);
-    }
-    clearCache(name) {
+    };
+    AckApi.prototype.clearCache = function (name) {
         return this.AckCache.clear(name);
-    }
-    request(config) {
-        const defaults = Object.assign({}, this.config.$http);
-        defaults.headers = Object.assign({}, this.config.$http.headers);
-        const request = Object.assign(defaults, (config || {}));
+    };
+    AckApi.prototype.request = function (config) {
+        var defaults = __assign({}, this.config.$http);
+        defaults.headers = __assign({}, this.config.$http.headers);
+        var request = Object.assign(defaults, (config || {}));
         request.url = this.config.baseUrl + request.url;
         if (request.offlineModel) {
             return this.requestOfflineModel(request);
         }
         return this._fetch(request);
-    }
-    getCacheByNamedRequest(request) {
-        const offlineModel = request.offlineModel;
+    };
+    AckApi.prototype.getCacheByNamedRequest = function (request) {
+        var _this = this;
+        var offlineModel = request.offlineModel;
         return this.AckCache.get(offlineModel.name, offlineModel)
-            .then(routes => {
+            .then(function (routes) {
             routes = routes || {};
-            const cacheName = this.getStorageNameByRequest(request);
+            var cacheName = _this.getStorageNameByRequest(request);
             return routes[cacheName];
         })
-            .then(cache => this.processCacheGet(cache, request));
-    }
-    getStorageNameByRequest(request) {
+            .then(function (cache) { return _this.processCacheGet(cache, request); });
+    };
+    AckApi.prototype.getStorageNameByRequest = function (request) {
         if (request.params) {
-            const paramKeys = Object.keys(request.params);
+            var paramKeys = Object.keys(request.params);
             if (!paramKeys.length)
                 return request.url;
-            let url = request.url + (request.url.search(/\?/) >= 0 ? "&" : "?");
-            paramKeys.sort().forEach(name => url += name + "=" + request.params[name] + "&");
-            return url.substring(0, url.length - 1);
+            var url_1 = request.url + (request.url.search(/\?/) >= 0 ? "&" : "?");
+            paramKeys.sort().forEach(function (name) { return url_1 += name + "=" + request.params[name] + "&"; });
+            return url_1.substring(0, url_1.length - 1);
         }
         return request.url;
-    }
-    requestOfflineModel(request) {
-        let offlineModel = request.offlineModel;
+    };
+    AckApi.prototype.requestOfflineModel = function (request) {
+        var _this = this;
+        var offlineModel = request.offlineModel;
         if (offlineModel && offlineModel.constructor == String) {
             request.offlineModel = offlineModel = { name: request.offlineModel };
         }
         if (request.method === "GET") {
             return this.getCacheByNamedRequest(request);
         }
-        this.AckQue.paramHandler(offlineModel.name, config => this._fetch(config));
+        this.AckQue.paramHandler(offlineModel.name, function (config) { return _this._fetch(config); });
         return this._fetch(request)
-            .catch(e => this.postRequestFail(e, request));
-    }
-    processCacheGet(cache, cfg) {
+            .catch(function (e) { return _this.postRequestFail(e, request); });
+    };
+    AckApi.prototype.processCacheGet = function (cache, cfg) {
+        var _this = this;
         if (cache == null)
             return this._fetch(cfg);
-        const offlineModel = cfg.offlineModel;
+        var offlineModel = cfg.offlineModel;
         return this.AckCache.cacheToReturn(offlineModel.name, cache, offlineModel)
-            .then(rtn => {
-            const willExpire = this.AckCache.optionsKillCache(offlineModel);
+            .then(function (rtn) {
+            var willExpire = _this.AckCache.optionsKillCache(offlineModel);
             if (rtn && !willExpire) {
                 console.log("AckApi fetched cache that will never expire. Set offlineModel.expires=0 or offlineModel.maxAge=0 to avoid this message", rtn);
             }
             if (rtn != null) {
                 return rtn;
             }
-            return this._fetch(cfg);
+            return _this._fetch(cfg);
         });
-    }
-    postRequestFail(e, request) {
-        const saveWorthy = e.status == 0 || e.status == -1 || e.status == 503;
+    };
+    AckApi.prototype.postRequestFail = function (e, request) {
+        var saveWorthy = e.status == 0 || e.status == -1 || e.status == 503;
         if (!saveWorthy)
             return Promise.reject(e);
         request.sendFailMeta = request.sendFailMeta || {};
@@ -132,20 +148,21 @@ let AckApi = class AckApi {
         request.sendFailMeta.lastAttempt = new Date();
         request.sendFailMeta.attempts = request.sendFailMeta.attempts == null ? 1 : ++request.sendFailMeta.attempts;
         request.sendFailMeta.maxTry = request.sendFailMeta.maxTry || 50;
-        const tryAgainLater = request.sendFailMeta.maxTry && request.sendFailMeta.attempts <= request.sendFailMeta.maxTry;
+        var tryAgainLater = request.sendFailMeta.maxTry && request.sendFailMeta.attempts <= request.sendFailMeta.maxTry;
         e.sendFailMeta = request.sendFailMeta;
         if (tryAgainLater) {
-            const requestSave = Object.assign({}, request);
+            var requestSave = Object.assign({}, request);
             delete requestSave.offlineModel;
-            const offlineModel = request.offlineModel;
+            var offlineModel = request.offlineModel;
             return this.AckQue.set(offlineModel.name, requestSave)
-                .then(() => Promise.reject(e));
+                .then(function () { return Promise.reject(e); });
         }
         return Promise.reject(e);
-    }
-    _fetch(cfg) {
+    };
+    AckApi.prototype._fetch = function (cfg) {
+        var _this = this;
         upgradeConfig(cfg);
-        const cfgPlus = Object.assign({}, cfg);
+        var cfgPlus = __assign({}, cfg);
         if (cfg.params) {
             cfgPlus.params = new http_1.HttpParams({
                 fromObject: cfg.params
@@ -154,26 +171,26 @@ let AckApi = class AckApi {
         if (cfg.headers) {
             cfgPlus.headers = new http_1.HttpHeaders(cfg.headers);
         }
-        const request = new http_1.HttpRequest(cfg.method, cfg.url, cfg.body, cfgPlus);
-        const promise = (resolve, reject) => {
-            let resolved = false;
-            this.Request.emit(request);
-            const req = this.HttpClient.request(request)
-                .subscribe(event => {
+        var request = new http_1.HttpRequest(cfg.method, cfg.url, cfg.body, cfgPlus);
+        var promise = function (resolve, reject) {
+            var resolved = false;
+            _this.Request.emit(request);
+            var req = _this.HttpClient.request(request)
+                .subscribe(function (event) {
                 if (event.type === http_1.HttpEventType.Response) {
                     resolved = true;
                     resolve(event);
                 }
-            }, err => {
+            }, function (err) {
                 resolved = true;
                 reject(err);
             });
             if (cfg.timeout) {
-                setTimeout(() => {
+                setTimeout(function () {
                     if (resolved)
                         return;
                     req.unsubscribe();
-                    const timeoutError = new TimeOutError();
+                    var timeoutError = new TimeOutError();
                     Object.assign(timeoutError, request);
                     timeoutError.timeout = cfg.timeout;
                     reject(timeoutError);
@@ -181,13 +198,15 @@ let AckApi = class AckApi {
             }
         };
         return new Promise(promise)
-            .then((response) => this.processFetchByConfig(response, cfg))
-            .catch(e => this.httpFailByConfig(e, cfg));
-    }
-    processFetchByConfig(response, request) {
+            .then(function (response) {
+            return _this.processFetchByConfig(response, cfg);
+        })
+            .catch(function (e) { return _this.httpFailByConfig(e, cfg); });
+    };
+    AckApi.prototype.processFetchByConfig = function (response, request) {
         this.response.emit(response);
-        const data = response.body || response["_body"];
-        const isJson = data && response.headers.get("Content-Type") == "application/json";
+        var data = response.body || response["_body"];
+        var isJson = data && response.headers.get("Content-Type") == "application/json";
         if (isJson && !response["data"]) {
             try {
                 response["data"] = JSON.parse(data);
@@ -195,21 +214,21 @@ let AckApi = class AckApi {
             catch (e) { }
         }
         response["data"] = data;
-        const isDataMode = !request.promise || request.promise == "data";
-        const output = isDataMode ? data : response;
-        const isCacheReponse = request.method === "GET" && request.offlineModel;
+        var isDataMode = !request.promise || request.promise == "data";
+        var output = isDataMode ? data : response;
+        var isCacheReponse = request.method === "GET" && request.offlineModel;
         if (isCacheReponse) {
             return this.requestResponseToCache(request, output)
-                .then(() => output);
+                .then(function () { return output; });
         }
         return Promise.resolve(output);
-    }
-    httpFailByConfig(e, cfg) {
-        const isReduceData = cfg.catch == null || cfg.catch == "data";
-        const data = e["data"];
-        const isCatchData = isReduceData && data && data.error;
+    };
+    AckApi.prototype.httpFailByConfig = function (e, cfg) {
+        var isReduceData = cfg.catch == null || cfg.catch == "data";
+        var data = e["data"];
+        var isCatchData = isReduceData && data && data.error;
         if (isCatchData) {
-            const newError = new Error();
+            var newError = new Error();
             Object.assign(newError, e["data"].error);
             e = newError;
         }
@@ -221,56 +240,58 @@ let AckApi = class AckApi {
             this.ApiError.emit(e);
         }
         return Promise.reject(e);
-    }
-    requestResponseToCache(request, output) {
-        const cachename = request.offlineModel.name || request.offlineModel;
+    };
+    AckApi.prototype.requestResponseToCache = function (request, output) {
+        var _this = this;
+        var cachename = request.offlineModel.name || request.offlineModel;
         return this.AckCache.get(cachename)
-            .then(routes => {
+            .then(function (routes) {
             routes = routes || {};
-            const cacheName = this.getStorageNameByRequest(request);
+            var cacheName = _this.getStorageNameByRequest(request);
             routes[cacheName] = { cache: output };
-            this.AckCache.dataOptionsCache(routes[request.url], request.offlineModel, output);
+            _this.AckCache.dataOptionsCache(routes[request.url], request.offlineModel, output);
             return routes;
         })
-            .then(routes => this.AckCache.set(cachename, routes));
-    }
-    get(path, config) {
-        const cfg = Object.assign({}, config);
+            .then(function (routes) { return _this.AckCache.set(cachename, routes); });
+    };
+    AckApi.prototype.get = function (path, config) {
+        var cfg = Object.assign({}, config);
         cfg.method = "GET";
         cfg.url = path;
         return this.request(cfg);
-    }
-    post(path, data, config) {
-        const cfg = Object.assign({}, config);
+    };
+    AckApi.prototype.post = function (path, data, config) {
+        var cfg = Object.assign({}, config);
         cfg.method = "POST";
         cfg.body = data;
         cfg.url = path;
         return this.request(cfg);
-    }
-    delete(path, config) {
-        const cfg = Object.assign({}, config);
+    };
+    AckApi.prototype.delete = function (path, config) {
+        var cfg = Object.assign({}, config);
         cfg.method = "DELETE";
         cfg.url = path;
         return this.request(cfg);
-    }
-    put(path, data, config) {
-        const cfg = Object.assign({}, config);
+    };
+    AckApi.prototype.put = function (path, data, config) {
+        var cfg = Object.assign({}, config);
         cfg.method = "PUT";
         cfg.body = data;
         cfg.url = path;
         return this.request(cfg);
-    }
-};
-AckApi = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.HttpClient])
-], AckApi);
+    };
+    AckApi = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.HttpClient])
+    ], AckApi);
+    return AckApi;
+}());
 exports.AckApi = AckApi;
 function upgradeConfig(cfg) {
     cfg.method = cfg.method || "GET";
     cfg.reportProgress = cfg.reportProgress || false;
     if (cfg.params) {
-        for (let key in cfg.params) {
+        for (var key in cfg.params) {
             if (cfg.params[key] == null) {
                 cfg.params[key] = "";
             }

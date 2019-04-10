@@ -7,18 +7,18 @@ exports.invokeRotator = invokeRotator;
 function objectInvoker(object, plan) {
     var rtn = object;
     var subargs, item;
-    let newkey;
-    let key;
-    let typo;
-    for (let x = 0; x < plan.length; ++x) {
+    var newkey;
+    var key;
+    var typo;
+    for (var x = 0; x < plan.length; ++x) {
         key = plan[x];
         subargs = [];
         if (rtn == null) {
             typo = typeof (rtn);
-            const msg = "TypeError: Cannot read property '" + key + "' of " + typo + ". Invoke instructions: " + JSON.stringify(plan);
+            var msg = "TypeError: Cannot read property '" + key + "' of " + typo + ". Invoke instructions: " + JSON.stringify(plan);
             throw new Error(msg);
         }
-        let asFunc = key.constructor == Array;
+        var asFunc = key.constructor == Array;
         if (asFunc) {
             key = [];
             key.push.apply(key, plan[x]);
@@ -27,11 +27,11 @@ function objectInvoker(object, plan) {
             key = newkey;
         }
         item = rtn[key];
-        let isFunc = item && item.constructor == Function;
+        var isFunc = item && item.constructor == Function;
         if (asFunc && !isFunc) {
             if (item == null || item.constructor !== Function) {
                 typo = typeof (item);
-                const msg = "TypeError: '" + key + "' of " + typo + " is not a function. Invoke instructions: " + JSON.stringify(plan);
+                var msg = "TypeError: '" + key + "' of " + typo + " is not a function. Invoke instructions: " + JSON.stringify(plan);
                 throw new Error(msg);
             }
         }
@@ -46,16 +46,24 @@ function objectInvoker(object, plan) {
 }
 exports.objectInvoker = objectInvoker;
 function getInvokerBy(invoke) {
-    const isF = typeof invoke == 'function';
+    var isF = typeof invoke == 'function';
     if (isF) {
-        return function (...args) {
+        return function () {
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i] = arguments[_i];
+            }
             var x = invoke(args[0]);
             args.shift();
             return objectInvoker(x, args);
         };
     }
-    return function (...plan) {
-        const a = plan[0];
+    return function () {
+        var plan = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            plan[_i] = arguments[_i];
+        }
+        var a = plan[0];
         plan[0] = plan[1];
         plan[1] = a;
         return objectInvoker(invoke, [plan]);

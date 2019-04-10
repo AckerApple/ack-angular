@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const i0 = require("@angular/core");
-const i1 = require("@angular/common");
-const i2 = require("./declarations");
+var i0 = require("@angular/core");
+var i1 = require("@angular/common");
+var i2 = require("./declarations");
 var styles_InputHint = [];
 var RenderType_InputHint = i0.ɵcrt({ encapsulation: 2, styles: styles_InputHint, data: {} });
 exports.RenderType_InputHint = RenderType_InputHint;
