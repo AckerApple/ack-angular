@@ -19,8 +19,7 @@ import {
   @Input() elementSizeModel
   @Output() elementSizeModelChange = new EventEmitter()
 
-  constructor(public element:ElementRef){
-  }
+  constructor(public element:ElementRef){}
 
   ngAfterViewInit(){
     this.onResize = ()=>{
@@ -40,6 +39,7 @@ import {
       characterData: true,
       subtree: true
     }
+
     this.observer.observe(this.element.nativeElement, config);
 
     setTimeout(()=>this.setModel(), 800)
@@ -75,6 +75,10 @@ import {
   @Input() elementHeightModel
   @Output() elementHeightModelChange = new EventEmitter()
 
+  constructor(public element:ElementRef){
+    super( element )
+  }
+
   setModel(){
     this.elementHeightModel = this.element.nativeElement.offsetHeight
     this.elementHeightModelChange.emit(this.elementHeightModel)
@@ -86,6 +90,10 @@ import {
 }) export class ElementWidthModel extends ElementSizeModel{
   @Input() elementWidthModel
   @Output() elementWidthModelChange = new EventEmitter()
+
+  constructor(public element:ElementRef){
+    super( element )
+  }
 
   setModel(){
     this.elementWidthModel = this.element.nativeElement.offsetWidth

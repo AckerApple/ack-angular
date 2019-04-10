@@ -1,8 +1,11 @@
-import { Subscription } from "rxjs"
-import { Component, EventEmitter } from "@angular/core"
+import { Subscription } from "rxjs/internal/Subscription"
 import {
-  PageScrollService, PageScrollInstance
-} from "ngx-page-scroll"
+  Component//, EventEmitter
+} from "@angular/core"
+import {
+  PageScrollService
+  //, PageScrollInstance
+} from "ngx-page-scroll-core"
 
 import {
   Log,
@@ -168,8 +171,9 @@ const defaultUrl = window.location.origin+pathing+"/test.json"
 
   scrollToModuleImport(){
     setTimeout(()=>{
-      const pageScrollInstance = PageScrollInstance.simpleInstance(document, "#Import AckModule");
-      this.PageScrollService.start(pageScrollInstance);
+      this.PageScrollService.scroll({document:document, scrollTarget:"#Import AckModule"})
+      //const pageScrollInstance = PageScrollInstance.simpleInstance(document, "#Import AckModule");
+      //this.PageScrollService.start(pageScrollInstance);
     }, 600)
   }
 
@@ -289,7 +293,7 @@ const defaultUrl = window.location.origin+pathing+"/test.json"
 
   runAlert():Subscription{
     return this.Prompts.alert("This is an alert example")
-    .subscribe(result=>
+    .subscribe(()=>
       console.log("alert prompt closed")
     )
   }

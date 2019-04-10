@@ -74,7 +74,7 @@ export interface handlerConfig{
       mem.item = array.splice(index, 1)
       mem.array = array
     })
-    .then( ()=>this.handleQued(name, mem.item, handler))
+    .then( ()=>this.handleQued(mem.item, handler))
     .then( result=>mem.result=result )
     .then( ()=>this.setQue(name, mem.array) )
     .then( ()=>mem.result )
@@ -113,7 +113,10 @@ export interface handlerConfig{
     if(hand)return hand.handler
   }
 
-  handleQued(name:string, qued:any, handler:(qued:any)=>any){
+  handleQued(
+    qued:any,
+    handler:(qued:any)=>any
+  ){
     return Promise.resolve( handler(qued) )
   }
 
@@ -121,7 +124,7 @@ export interface handlerConfig{
   processQuedHandler( hand:handlerConfig ) : Promise<any>{
     const results = []
     const mem = {que:[]}
-    const eachHandle = this.eachHandler(hand.name, hand.handler)
+    const eachHandle = this.eachHandler( hand.handler )
 
     return this.get( hand.name )
     .then( que=>mem.que=que )
@@ -129,7 +132,7 @@ export interface handlerConfig{
     .then(()=>{
       var promise:Promise<any> = Promise.resolve()
       
-      mem.que.forEach((v,i)=>{
+      mem.que.forEach(v=>{
         promise = promise
         .then( ()=>eachHandle(v) )
         .catch( e=>e )
@@ -140,8 +143,10 @@ export interface handlerConfig{
     .then( ()=>results )
   }
 
-  eachHandler(name:string, handler:(qued:any)=>any){
-    return data=>this.handleQued(name, data, handler)
+  eachHandler(
+    handler:(qued:any)=>any
+  ){
+    return data=>this.handleQued(data, handler)
   }
 
   /** call manually in app when back online */
@@ -152,7 +157,7 @@ export interface handlerConfig{
 
   /** call manually in app when back online and sure you want to process all ques */
   processAllQues(){
-    const results = [], promises = []
+    const promises = []
 
     this.handlers.forEach(hand=>
       promises.push( this.processQuedHandler(hand) )

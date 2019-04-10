@@ -1,6 +1,6 @@
 import {
   ContentChild,
-  Directive,
+  //Directive,
   Component,
   Input,
   Output,
@@ -11,7 +11,7 @@ import {
   ViewChild,
 } from "@angular/core"
 
-import { AckModalLayout } from "./AckModalLayout.component"
+//import { AckModalLayout } from "./AckModalLayout.component"
 import { AckApp } from "../providers/AckApp.provider"
 import { string } from "./templates/ack-modal.pug"
 

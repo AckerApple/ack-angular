@@ -9,45 +9,43 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var ReplaceModel = (function () {
-    function ReplaceModel() {
+const core_1 = require("@angular/core");
+let ReplaceModel = class ReplaceModel {
+    constructor() {
         this.replaceModelChange = new core_1.EventEmitter();
     }
-    ReplaceModel.prototype.ngOnChanges = function (changes) {
-        var _this = this;
-        var isString = changes.replaceModel && this.replaceModel && this.replaceModel.constructor === String;
+    ngOnChanges(changes) {
+        const isString = changes.replaceModel && this.replaceModel && this.replaceModel.constructor === String;
         if (isString) {
-            Promise.resolve().then(function () { return _this.run(); });
+            Promise.resolve().then(() => this.run());
         }
-    };
-    ReplaceModel.prototype.run = function () {
-        var rx = new RegExp(this.replaceExpression, 'gi');
-        var oldModel = this.replaceModel;
-        var newModel = this.replaceModel.replace(rx, '');
+    }
+    run() {
+        const rx = new RegExp(this.replaceExpression, 'gi');
+        const oldModel = this.replaceModel;
+        const newModel = this.replaceModel.replace(rx, '');
         if (oldModel === newModel) {
             return;
         }
         this.replaceModel = newModel;
         this.replaceModelChange.emit(this.replaceModel);
-    };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], ReplaceModel.prototype, "replaceModel", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], ReplaceModel.prototype, "replaceModelChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], ReplaceModel.prototype, "replaceExpression", void 0);
-    ReplaceModel = __decorate([
-        core_1.Directive({
-            selector: '[replaceModel]'
-        })
-    ], ReplaceModel);
-    return ReplaceModel;
-}());
+    }
+};
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], ReplaceModel.prototype, "replaceModel", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], ReplaceModel.prototype, "replaceModelChange", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], ReplaceModel.prototype, "replaceExpression", void 0);
+ReplaceModel = __decorate([
+    core_1.Directive({
+        selector: '[replaceModel]'
+    })
+], ReplaceModel);
 exports.ReplaceModel = ReplaceModel;

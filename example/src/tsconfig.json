@@ -1,6 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "strict": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": true,
+    "noImplicitAny": false,
+    "target": "ES6",
     "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
@@ -8,9 +13,7 @@
     "experimentalDecorators": true,
     "noEmitHelpers": false,
     "allowJs": true,
-    "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
-    "lib": ["es2015", "dom"],
     "outDir": "../www"
   },
   "include":[

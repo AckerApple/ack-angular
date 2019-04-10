@@ -9,31 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var Prompts_1 = require("./Prompts");
-var AckApp = (function () {
-    function AckApp(prompts) {
+const core_1 = require("@angular/core");
+const Prompts_1 = require("./Prompts");
+let AckApp = class AckApp {
+    constructor(prompts) {
         this.prompts = prompts;
         this.warnedFixElements = true;
         this.modals = [];
     }
-    AckApp.prototype.registerModal = function (item) {
+    registerModal(item) {
         this.modals.push(item);
         return this;
-    };
-    AckApp.prototype.unregisterModal = function (item) {
-        for (var index = this.modals.length - 1; index >= 0; --index) {
+    }
+    unregisterModal(item) {
+        for (let index = this.modals.length - 1; index >= 0; --index) {
             if (this.modals[index] == item) {
                 this.modals.splice(index, 1);
                 break;
             }
         }
         return this;
-    };
-    AckApp = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [Prompts_1.Prompts])
-    ], AckApp);
-    return AckApp;
-}());
+    }
+};
+AckApp = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [Prompts_1.Prompts])
+], AckApp);
 exports.AckApp = AckApp;

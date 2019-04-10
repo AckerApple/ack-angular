@@ -2,9 +2,9 @@ import { Component } from "@angular/core";
 import { animations } from "ack-angular-fx"
 
 import {
-  PageScrollService,
-  PageScrollInstance
-} from "ngx-page-scroll"
+  PageScrollService
+  //,PageScrollInstance
+} from "ngx-page-scroll-core"
 
 import {string as pipesExamples} from "./templates/pipes-examples.pug"
 @Component({
@@ -19,8 +19,9 @@ import {string as pipesExamples} from "./templates/pipes-examples.pug"
 
   scrollToModuleImport(){
     setTimeout(()=>{
-      const pageScrollInstance = PageScrollInstance.simpleInstance(document, "#Import AckModule");
-      this.PageScrollService.start(pageScrollInstance);
+      this.PageScrollService.scroll({document:document, scrollTarget:"#Import AckModule"})
+      //const pageScrollInstance = PageScrollInstance.simpleInstance(document, "#Import AckModule");
+      //this.PageScrollService.start(pageScrollInstance);
     }, 600)
   }
 }

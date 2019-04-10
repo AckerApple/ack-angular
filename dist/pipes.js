@@ -9,316 +9,238 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var pipes = require("./pipes.class");
-var platform_browser_1 = require("@angular/platform-browser");
-var IndexTrack = (function () {
-    function IndexTrack() {
+const core_1 = require("@angular/core");
+const pipes = require("./pipes.class");
+const platform_browser_1 = require("@angular/platform-browser");
+let IndexTrack = class IndexTrack {
+    transform() {
+        return function (index) { return index; };
     }
-    IndexTrack.prototype.transform = function () {
-        return function (index, ob) { return index; };
-    };
-    IndexTrack = __decorate([
-        core_1.Pipe({ name: 'indexTrack' })
-    ], IndexTrack);
-    return IndexTrack;
-}());
+};
+IndexTrack = __decorate([
+    core_1.Pipe({ name: 'indexTrack' })
+], IndexTrack);
 exports.IndexTrack = IndexTrack;
-var Stringify = (function () {
-    function Stringify() {
-    }
-    Stringify.prototype.transform = function (input, spaces) {
+let Stringify = class Stringify {
+    transform(input, spaces) {
         return JSON.stringify(input, null, spaces);
-    };
-    Stringify = __decorate([
-        core_1.Pipe({ name: 'stringify' })
-    ], Stringify);
-    return Stringify;
-}());
+    }
+};
+Stringify = __decorate([
+    core_1.Pipe({ name: 'stringify' })
+], Stringify);
 exports.Stringify = Stringify;
-var ForceArray = (function () {
-    function ForceArray() {
-    }
-    ForceArray.prototype.transform = function (input, repeat, repeatValue) {
+let ForceArray = class ForceArray {
+    transform(input, repeat, repeatValue) {
         return pipes.array(input, repeat, repeatValue);
-    };
-    ForceArray = __decorate([
-        core_1.Pipe({ name: 'array' })
-    ], ForceArray);
-    return ForceArray;
-}());
+    }
+};
+ForceArray = __decorate([
+    core_1.Pipe({ name: 'array' })
+], ForceArray);
 exports.ForceArray = ForceArray;
-var ArrayOfObjects = (function () {
-    function ArrayOfObjects() {
-    }
-    ArrayOfObjects.prototype.transform = function (input, repeat, repeatValue) {
+let ArrayOfObjects = class ArrayOfObjects {
+    transform(input, repeat, repeatValue) {
         return pipes.arrayOfObjects(input, repeat, repeatValue);
-    };
-    ArrayOfObjects = __decorate([
-        core_1.Pipe({ name: 'arrayOfObjects' })
-    ], ArrayOfObjects);
-    return ArrayOfObjects;
-}());
+    }
+};
+ArrayOfObjects = __decorate([
+    core_1.Pipe({ name: 'arrayOfObjects' })
+], ArrayOfObjects);
 exports.ArrayOfObjects = ArrayOfObjects;
-var SafeUrl = (function () {
-    function SafeUrl(domSanitizer) {
+let SafeUrl = class SafeUrl {
+    constructor(domSanitizer) {
         this.domSanitizer = domSanitizer;
     }
-    SafeUrl.prototype.transform = function (input) {
+    transform(input) {
         return this.domSanitizer.bypassSecurityTrustResourceUrl(input);
-    };
-    SafeUrl = __decorate([
-        core_1.Pipe({ name: 'safeUrl' }),
-        __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
-    ], SafeUrl);
-    return SafeUrl;
-}());
+    }
+};
+SafeUrl = __decorate([
+    core_1.Pipe({ name: 'safeUrl' }),
+    __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
+], SafeUrl);
 exports.SafeUrl = SafeUrl;
-var SafeHtml = (function () {
-    function SafeHtml(domSanitizer) {
+let SafeHtml = class SafeHtml {
+    constructor(domSanitizer) {
         this.domSanitizer = domSanitizer;
     }
-    SafeHtml.prototype.transform = function (input) {
+    transform(input) {
         return this.domSanitizer.bypassSecurityTrustHtml(input);
-    };
-    SafeHtml = __decorate([
-        core_1.Pipe({ name: 'safeHtml' }),
-        __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
-    ], SafeHtml);
-    return SafeHtml;
-}());
+    }
+};
+SafeHtml = __decorate([
+    core_1.Pipe({ name: 'safeHtml' }),
+    __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
+], SafeHtml);
 exports.SafeHtml = SafeHtml;
-var SafeStyle = (function () {
-    function SafeStyle(domSanitizer) {
+let SafeStyle = class SafeStyle {
+    constructor(domSanitizer) {
         this.domSanitizer = domSanitizer;
     }
-    SafeStyle.prototype.transform = function (input) {
+    transform(input) {
         return this.domSanitizer.bypassSecurityTrustStyle(input);
-    };
-    SafeStyle = __decorate([
-        core_1.Pipe({ name: 'safeStyle' }),
-        __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
-    ], SafeStyle);
-    return SafeStyle;
-}());
+    }
+};
+SafeStyle = __decorate([
+    core_1.Pipe({ name: 'safeStyle' }),
+    __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
+], SafeStyle);
 exports.SafeStyle = SafeStyle;
-var Between = (function () {
-    function Between() {
-    }
-    Between.prototype.transform = function (input, a, b) { return pipes.between(input, a, b); };
-    Between = __decorate([
-        core_1.Pipe({ name: 'between' })
-    ], Between);
-    return Between;
-}());
+let Between = class Between {
+    transform(input, a, b) { return pipes.between(input, a, b); }
+};
+Between = __decorate([
+    core_1.Pipe({ name: 'between' })
+], Between);
 exports.Between = Between;
-var TextDownload = (function () {
-    function TextDownload() {
-    }
-    TextDownload.prototype.transform = function (input) { return pipes.textDownload(input); };
-    TextDownload = __decorate([
-        core_1.Pipe({ name: 'textDownload' })
-    ], TextDownload);
-    return TextDownload;
-}());
+let TextDownload = class TextDownload {
+    transform(input) { return pipes.textDownload(input); }
+};
+TextDownload = __decorate([
+    core_1.Pipe({ name: 'textDownload' })
+], TextDownload);
 exports.TextDownload = TextDownload;
-var NumberToPhone = (function () {
-    function NumberToPhone() {
-    }
-    NumberToPhone.prototype.transform = function (input) { return pipes.numberToPhone(input); };
-    NumberToPhone = __decorate([
-        core_1.Pipe({ name: 'numberToPhone' })
-    ], NumberToPhone);
-    return NumberToPhone;
-}());
+let NumberToPhone = class NumberToPhone {
+    transform(input) { return pipes.numberToPhone(input); }
+};
+NumberToPhone = __decorate([
+    core_1.Pipe({ name: 'numberToPhone' })
+], NumberToPhone);
 exports.NumberToPhone = NumberToPhone;
-var toNumber = (function () {
-    function toNumber() {
-    }
-    toNumber.prototype.transform = function (input) { return pipes.toNumber(input); };
-    toNumber = __decorate([
-        core_1.Pipe({ name: 'toNumber' })
-    ], toNumber);
-    return toNumber;
-}());
+let toNumber = class toNumber {
+    transform(input) { return pipes.toNumber(input); }
+};
+toNumber = __decorate([
+    core_1.Pipe({ name: 'toNumber' })
+], toNumber);
 exports.toNumber = toNumber;
-var NumberSuffix = (function () {
-    function NumberSuffix() {
-    }
-    NumberSuffix.prototype.transform = function (input, rtnInput) { return pipes.numberSuffix(input, rtnInput); };
-    NumberSuffix = __decorate([
-        core_1.Pipe({ name: 'numberSuffix' })
-    ], NumberSuffix);
-    return NumberSuffix;
-}());
+let NumberSuffix = class NumberSuffix {
+    transform(input, rtnInput) { return pipes.numberSuffix(input, rtnInput); }
+};
+NumberSuffix = __decorate([
+    core_1.Pipe({ name: 'numberSuffix' })
+], NumberSuffix);
 exports.NumberSuffix = NumberSuffix;
-var MarkdownAnchor = (function () {
-    function MarkdownAnchor() {
-    }
-    MarkdownAnchor.prototype.transform = function (input) { return pipes.markdownAnchor(input); };
-    MarkdownAnchor = __decorate([
-        core_1.Pipe({ name: 'markdownAnchor' })
-    ], MarkdownAnchor);
-    return MarkdownAnchor;
-}());
+let MarkdownAnchor = class MarkdownAnchor {
+    transform(input) { return pipes.markdownAnchor(input); }
+};
+MarkdownAnchor = __decorate([
+    core_1.Pipe({ name: 'markdownAnchor' })
+], MarkdownAnchor);
 exports.MarkdownAnchor = MarkdownAnchor;
-var Capitalize = (function () {
-    function Capitalize() {
-    }
-    Capitalize.prototype.transform = function (input) { return pipes.capitalize(input); };
-    Capitalize = __decorate([
-        core_1.Pipe({ name: 'capitalize' })
-    ], Capitalize);
-    return Capitalize;
-}());
+let Capitalize = class Capitalize {
+    transform(input) { return pipes.capitalize(input); }
+};
+Capitalize = __decorate([
+    core_1.Pipe({ name: 'capitalize' })
+], Capitalize);
 exports.Capitalize = Capitalize;
-var CapitalizeWords = (function () {
-    function CapitalizeWords() {
-    }
-    CapitalizeWords.prototype.transform = function (input) { return pipes.capitalizeWords(input); };
-    CapitalizeWords = __decorate([
-        core_1.Pipe({ name: 'capitalizeWords' })
-    ], CapitalizeWords);
-    return CapitalizeWords;
-}());
+let CapitalizeWords = class CapitalizeWords {
+    transform(input) { return pipes.capitalizeWords(input); }
+};
+CapitalizeWords = __decorate([
+    core_1.Pipe({ name: 'capitalizeWords' })
+], CapitalizeWords);
 exports.CapitalizeWords = CapitalizeWords;
-var Yesno = (function () {
-    function Yesno() {
-    }
-    Yesno.prototype.transform = function (input) { return pipes.yesno(input); };
-    Yesno = __decorate([
-        core_1.Pipe({ name: 'yesno' })
-    ], Yesno);
-    return Yesno;
-}());
+let Yesno = class Yesno {
+    transform(input) { return pipes.yesno(input); }
+};
+Yesno = __decorate([
+    core_1.Pipe({ name: 'yesno' })
+], Yesno);
 exports.Yesno = Yesno;
-var YesNo = (function () {
-    function YesNo() {
-    }
-    YesNo.prototype.transform = function (input) { return pipes.yesNo(input); };
-    YesNo = __decorate([
-        core_1.Pipe({ name: 'YesNo' })
-    ], YesNo);
-    return YesNo;
-}());
+let YesNo = class YesNo {
+    transform(input) { return pipes.yesNo(input); }
+};
+YesNo = __decorate([
+    core_1.Pipe({ name: 'YesNo' })
+], YesNo);
 exports.YesNo = YesNo;
-var BooleanPipe = (function () {
-    function BooleanPipe() {
-    }
-    BooleanPipe.prototype.transform = function (input) { return pipes.boolean(input); };
-    BooleanPipe = __decorate([
-        core_1.Pipe({ name: 'boolean' })
-    ], BooleanPipe);
-    return BooleanPipe;
-}());
+let BooleanPipe = class BooleanPipe {
+    transform(input) { return pipes.boolean(input); }
+};
+BooleanPipe = __decorate([
+    core_1.Pipe({ name: 'boolean' })
+], BooleanPipe);
 exports.BooleanPipe = BooleanPipe;
-var Bit = (function () {
-    function Bit() {
-    }
-    Bit.prototype.transform = function (input) { return pipes.bit(input); };
-    Bit = __decorate([
-        core_1.Pipe({ name: 'bit' })
-    ], Bit);
-    return Bit;
-}());
+let Bit = class Bit {
+    transform(input) { return pipes.bit(input); }
+};
+Bit = __decorate([
+    core_1.Pipe({ name: 'bit' })
+], Bit);
 exports.Bit = Bit;
-var Numbers = (function () {
-    function Numbers() {
-    }
-    Numbers.prototype.transform = function (input) { return pipes.numbers(input); };
-    Numbers = __decorate([
-        core_1.Pipe({ name: 'numbers' })
-    ], Numbers);
-    return Numbers;
-}());
+let Numbers = class Numbers {
+    transform(input) { return pipes.numbers(input); }
+};
+Numbers = __decorate([
+    core_1.Pipe({ name: 'numbers' })
+], Numbers);
 exports.Numbers = Numbers;
-var ADate = (function () {
-    function ADate() {
-    }
-    ADate.prototype.transform = function () { return pipes.aDate.apply(pipes.aDate, arguments); };
-    ADate = __decorate([
-        core_1.Pipe({ name: 'aDate' })
-    ], ADate);
-    return ADate;
-}());
+let ADate = class ADate {
+    transform() { return pipes.aDate.apply(pipes.aDate, arguments); }
+};
+ADate = __decorate([
+    core_1.Pipe({ name: 'aDate' })
+], ADate);
 exports.ADate = ADate;
-var AMath = (function () {
-    function AMath() {
-    }
-    AMath.prototype.transform = function () { return pipes.aMath.apply(pipes.aMath, arguments); };
-    AMath = __decorate([
-        core_1.Pipe({ name: 'aMath' })
-    ], AMath);
-    return AMath;
-}());
+let AMath = class AMath {
+    transform() { return pipes.aMath.apply(pipes.aMath, arguments); }
+};
+AMath = __decorate([
+    core_1.Pipe({ name: 'aMath' })
+], AMath);
 exports.AMath = AMath;
-var AString = (function () {
-    function AString() {
-    }
-    AString.prototype.transform = function () { return pipes.aString.apply(pipes.aString, arguments); };
-    AString = __decorate([
-        core_1.Pipe({ name: 'aString' })
-    ], AString);
-    return AString;
-}());
+let AString = class AString {
+    transform() { return pipes.aString.apply(pipes.aString, arguments); }
+};
+AString = __decorate([
+    core_1.Pipe({ name: 'aString' })
+], AString);
 exports.AString = AString;
-var ATime = (function () {
-    function ATime() {
-    }
-    ATime.prototype.transform = function () { return pipes.aTime.apply(pipes.aTime, arguments); };
-    ATime = __decorate([
-        core_1.Pipe({ name: 'aTime' })
-    ], ATime);
-    return ATime;
-}());
+let ATime = class ATime {
+    transform() { return pipes.aTime.apply(pipes.aTime, arguments); }
+};
+ATime = __decorate([
+    core_1.Pipe({ name: 'aTime' })
+], ATime);
 exports.ATime = ATime;
-var Ack = (function () {
-    function Ack() {
-    }
-    Ack.prototype.transform = function () { return pipes.ack.apply(pipes.ack, arguments); };
-    Ack = __decorate([
-        core_1.Pipe({ name: 'ack' })
-    ], Ack);
-    return Ack;
-}());
+let Ack = class Ack {
+    transform() { return pipes.ack.apply(pipes.ack, arguments); }
+};
+Ack = __decorate([
+    core_1.Pipe({ name: 'ack' })
+], Ack);
 exports.Ack = Ack;
-var Keys = (function () {
-    function Keys() {
-    }
-    Keys.prototype.transform = function (input) {
-        var type = typeof (input) == 'object';
-        var isOb = input && type;
-        var isArray = isOb && input.constructor == Array;
+let Keys = class Keys {
+    transform(input) {
+        const type = typeof (input) == 'object';
+        const isOb = input && type;
+        const isArray = isOb && input.constructor == Array;
         if (isArray) {
-            return input.map(function (value, index) { return index; });
+            return input.map((_value, index) => index);
         }
         return input ? Object.keys(input) : [];
-    };
-    Keys = __decorate([
-        core_1.Pipe({ name: 'keys' })
-    ], Keys);
-    return Keys;
-}());
+    }
+};
+Keys = __decorate([
+    core_1.Pipe({ name: 'keys' })
+], Keys);
 exports.Keys = Keys;
-var TypeofPipe = (function () {
-    function TypeofPipe() {
-    }
-    TypeofPipe.prototype.transform = function (input) { return typeof (input); };
-    TypeofPipe = __decorate([
-        core_1.Pipe({ name: 'typeof' })
-    ], TypeofPipe);
-    return TypeofPipe;
-}());
+let TypeofPipe = class TypeofPipe {
+    transform(input) { return typeof (input); }
+};
+TypeofPipe = __decorate([
+    core_1.Pipe({ name: 'typeof' })
+], TypeofPipe);
 exports.TypeofPipe = TypeofPipe;
-var ConsolePipe = (function () {
-    function ConsolePipe() {
-    }
-    ConsolePipe.prototype.transform = function () { return console.log.apply(console, arguments); };
-    ConsolePipe = __decorate([
-        core_1.Pipe({ name: 'console' })
-    ], ConsolePipe);
-    return ConsolePipe;
-}());
+let ConsolePipe = class ConsolePipe {
+    transform() { return console.log.apply(console, arguments); }
+};
+ConsolePipe = __decorate([
+    core_1.Pipe({ name: 'console' })
+], ConsolePipe);
 exports.ConsolePipe = ConsolePipe;
 exports.declarations = [
     IndexTrack,

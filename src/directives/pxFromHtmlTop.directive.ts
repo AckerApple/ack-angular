@@ -28,7 +28,7 @@ import {
     this.numberChange.emit(this.number)
   }
 
-  ngOnChanges( changes:any ){
+  ngOnChanges(){
     Promise.resolve().then(()=>{
       this.setter()
       this.emit()

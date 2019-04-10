@@ -9,56 +9,49 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var HtmlSizeWatcher_1 = require("./HtmlSizeWatcher");
-var ScreenHeightModel = (function () {
-    function ScreenHeightModel(HtmlSizeService) {
-        var _this = this;
+const core_1 = require("@angular/core");
+const HtmlSizeWatcher_1 = require("./HtmlSizeWatcher");
+let ScreenHeightModel = class ScreenHeightModel {
+    constructor(HtmlSizeService) {
         this.HtmlSizeService = HtmlSizeService;
         this.modelChange = new core_1.EventEmitter();
-        this.sub = this.HtmlSizeService.change.subscribe(function () { return _this.changed(); });
+        this.sub = this.HtmlSizeService.change.subscribe(() => this.changed());
         this.HtmlSizeService.checkWatchers();
     }
-    ScreenHeightModel.prototype.ngAfterViewInit = function () {
-        var _this = this;
-        Promise.resolve().then(function () {
-            return _this.setModel(_this.HtmlSizeService.htmlSize);
-        });
+    ngAfterViewInit() {
+        Promise.resolve().then(() => this.updateModel());
         this.delayCheck(250);
         this.delayCheck(1500);
-    };
-    ScreenHeightModel.prototype.delayCheck = function (num) {
-        var _this = this;
-        if (num === void 0) { num = 0; }
-        setTimeout(function () { return _this.setModel(_this.HtmlSizeService.htmlSize); }, num);
-    };
-    ScreenHeightModel.prototype.changed = function () {
+    }
+    delayCheck(num = 0) {
+        setTimeout(() => this.updateModel(), num);
+    }
+    changed() {
         if (!this.HtmlSizeService.htmlSize || !this.hasChanged())
             return;
-        this.setModel(this.HtmlSizeService.htmlSize);
-    };
-    ScreenHeightModel.prototype.hasChanged = function () {
+        this.updateModel();
+    }
+    hasChanged() {
         return this.model !== window.innerHeight;
-    };
-    ScreenHeightModel.prototype.setModel = function (model) {
+    }
+    updateModel() {
         this.model = window.innerHeight;
         this.modelChange.emit(this.model);
-    };
-    __decorate([
-        core_1.Input('screenHeightModel'),
-        __metadata("design:type", Number)
-    ], ScreenHeightModel.prototype, "model", void 0);
-    __decorate([
-        core_1.Output('screenHeightModelChange'),
-        __metadata("design:type", core_1.EventEmitter)
-    ], ScreenHeightModel.prototype, "modelChange", void 0);
-    ScreenHeightModel = __decorate([
-        core_1.Directive({
-            selector: '[screenHeightModel]',
-            exportAs: 'ScreenHeightModel'
-        }),
-        __metadata("design:paramtypes", [HtmlSizeWatcher_1.HtmlSizeService])
-    ], ScreenHeightModel);
-    return ScreenHeightModel;
-}());
+    }
+};
+__decorate([
+    core_1.Input('screenHeightModel'),
+    __metadata("design:type", Number)
+], ScreenHeightModel.prototype, "model", void 0);
+__decorate([
+    core_1.Output('screenHeightModelChange'),
+    __metadata("design:type", core_1.EventEmitter)
+], ScreenHeightModel.prototype, "modelChange", void 0);
+ScreenHeightModel = __decorate([
+    core_1.Directive({
+        selector: '[screenHeightModel]',
+        exportAs: 'ScreenHeightModel'
+    }),
+    __metadata("design:paramtypes", [HtmlSizeWatcher_1.HtmlSizeService])
+], ScreenHeightModel);
 exports.ScreenHeightModel = ScreenHeightModel;

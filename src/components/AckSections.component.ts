@@ -1,16 +1,11 @@
 import {
   ContentChild,
-  ContentChildren,
 
-  Directive,
   Component,
   Input,
-  Output,
-  EventEmitter,
   ElementRef,
   
-  TemplateRef,
-  ViewChild,
+  TemplateRef
 } from "@angular/core"
 
 import { SectionProvider } from "../providers/AckSections.provider"

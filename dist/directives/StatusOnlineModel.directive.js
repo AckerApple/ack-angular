@@ -9,35 +9,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var StatusOnlineModel = (function () {
-    function StatusOnlineModel() {
-        var _this = this;
+const core_1 = require("@angular/core");
+let StatusOnlineModel = class StatusOnlineModel {
+    constructor() {
         this.statusOnlineModelChange = new core_1.EventEmitter();
-        this.onChange = function () {
-            _this.statusOnlineModel = navigator.onLine;
-            _this.statusOnlineModelChange.emit(_this.statusOnlineModel);
+        this.onChange = () => {
+            this.statusOnlineModel = navigator.onLine;
+            this.statusOnlineModelChange.emit(this.statusOnlineModel);
         };
         window.addEventListener("online", this.onChange);
         window.addEventListener("offline", this.onChange);
-        Promise.resolve().then(function () { return _this.onChange(); });
+        Promise.resolve().then(() => this.onChange());
     }
-    StatusOnlineModel.prototype.ngOnDestroy = function () {
+    ngOnDestroy() {
         window.removeEventListener("online", this.onChange);
         window.removeEventListener("offline", this.onChange);
-    };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], StatusOnlineModel.prototype, "statusOnlineModel", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
-    ], StatusOnlineModel.prototype, "statusOnlineModelChange", void 0);
-    StatusOnlineModel = __decorate([
-        core_1.Directive({ selector: '[statusOnlineModel]' }),
-        __metadata("design:paramtypes", [])
-    ], StatusOnlineModel);
-    return StatusOnlineModel;
-}());
+    }
+};
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], StatusOnlineModel.prototype, "statusOnlineModel", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], StatusOnlineModel.prototype, "statusOnlineModelChange", void 0);
+StatusOnlineModel = __decorate([
+    core_1.Directive({ selector: '[statusOnlineModel]' }),
+    __metadata("design:paramtypes", [])
+], StatusOnlineModel);
 exports.StatusOnlineModel = StatusOnlineModel;

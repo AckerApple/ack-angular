@@ -8,7 +8,8 @@ import {
 } from "@angular/core"
 
 import {
-  htmlSize, HtmlSizeService
+  //htmlSize,
+  HtmlSizeService
 } from "./HtmlSizeWatcher"
 
 @Directive({
@@ -30,26 +31,26 @@ import {
 
   ngAfterViewInit(){
     Promise.resolve().then(()=>
-      this.setModel( this.HtmlSizeService.htmlSize )
+      this.updateModel()
     )
     this.delayCheck(250)
     this.delayCheck(1500)
   }
 
   delayCheck(num:number=0){
-    setTimeout(()=>this.setModel( this.HtmlSizeService.htmlSize ), num)//two way bind often needs init override
+    setTimeout(()=>this.updateModel(), num)//two way bind often needs init override
   }
 
   changed(){
     if( !this.HtmlSizeService.htmlSize || !this.hasChanged() )return
-    this.setModel( this.HtmlSizeService.htmlSize )
+    this.updateModel()
   }
 
   hasChanged(){
     return this.model !== window.innerHeight
   }
 
-  setModel( model:htmlSize ){
+  updateModel(){
     this.model = window.innerHeight
     this.modelChange.emit( this.model )
   }

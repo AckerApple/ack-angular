@@ -18,9 +18,9 @@ export declare class AckQue extends AckOffline {
     paramHandler(name: string, handler: (qued: any) => any): this;
     getQueHandDefByName(name: string): any;
     getQueHandlerByName(name: any): any;
-    handleQued(name: string, qued: any, handler: (qued: any) => any): Promise<any>;
+    handleQued(qued: any, handler: (qued: any) => any): Promise<any>;
     processQuedHandler(hand: handlerConfig): Promise<any>;
-    eachHandler(name: string, handler: (qued: any) => any): (data: any) => Promise<any>;
+    eachHandler(handler: (qued: any) => any): (data: any) => Promise<any>;
     processQue(name: string): Promise<any>;
     processAllQues(): Promise<any[]>;
 }

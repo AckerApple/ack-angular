@@ -9,32 +9,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var AckAggregate = (function () {
-    function AckAggregate() {
+const core_1 = require("@angular/core");
+let AckAggregate = class AckAggregate {
+    constructor() {
         this.outputChange = new core_1.EventEmitter();
     }
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], AckAggregate.prototype, "type", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Array)
-    ], AckAggregate.prototype, "keys", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Number)
-    ], AckAggregate.prototype, "output", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], AckAggregate.prototype, "outputChange", void 0);
-    AckAggregate = __decorate([
-        core_1.Directive({
-            selector: 'ack-aggregate'
-        })
-    ], AckAggregate);
-    return AckAggregate;
-}());
+};
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], AckAggregate.prototype, "type", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Array)
+], AckAggregate.prototype, "keys", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], AckAggregate.prototype, "output", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], AckAggregate.prototype, "outputChange", void 0);
+AckAggregate = __decorate([
+    core_1.Directive({
+        selector: 'ack-aggregate'
+    })
+], AckAggregate);
 exports.AckAggregate = AckAggregate;

@@ -39,9 +39,12 @@ export interface currentRoute{
 
     router.events.subscribe(event=>{
       if(event.constructor==NavigationEnd){
-        const params = {}//COMING REALLY SOON
+        //const params = {}//COMING REALLY SOON
         const current = this.getCurrent()
-        this.recordStateChange(current.config, current.params)
+        this.recordStateChange(
+          current.config,
+          current.params
+         )
       }
     })
 

@@ -1,5 +1,5 @@
 import {
-  Directive,
+//  Directive,
   Component,
   Input,
   Output,

@@ -3,16 +3,16 @@ import { Pipe } from '@angular/core';
 import * as pipes from "./pipes.class"
 
 import {
-  SafeHtml as SafeHtmler,//must be exported for AOT
-  SafeStyle as SafeStyler,//must be exported for AOT
-  SafeResourceUrl,
+  //SafeHtml as SafeHtmler,//must be exported for AOT
+  //SafeStyle as SafeStyler,//must be exported for AOT
+  //SafeResourceUrl,
   DomSanitizer
 } from '@angular/platform-browser';
 
 /* ONLY THIS FILE */
   @Pipe({name: 'indexTrack'}) export class IndexTrack {
     transform() {
-      return function(index, ob){return index}
+      return function(index){return index}
     }
   }
 
@@ -139,7 +139,7 @@ import {
     const isArray = isOb && input.constructor == Array
     
     if(isArray){
-      return input.map((value,index)=>index)
+      return input.map((_value,index)=>index)
     }
     
     return input ? Object.keys(input) : []

@@ -9,46 +9,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var FocusOn = (function () {
-    function FocusOn(element) {
+const core_1 = require("@angular/core");
+let FocusOn = class FocusOn {
+    constructor(element) {
         this.element = element;
         this.focusOnDelay = 0;
         this.focusThen = new core_1.EventEmitter();
     }
-    FocusOn.prototype.ngOnChanges = function (changes) {
-        var _this = this;
+    ngOnChanges(changes) {
         if (changes.focusOn && changes.focusOn.currentValue) {
             if (this.focusOnDelay === 0) {
-                Promise.resolve().then(function () { return _this.update(); });
+                Promise.resolve().then(() => this.update());
             }
             else {
-                setTimeout(function () { return _this.update(); }, this.focusOnDelay);
+                setTimeout(() => this.update(), this.focusOnDelay);
             }
         }
-    };
-    FocusOn.prototype.update = function () {
+    }
+    update() {
         this.element.nativeElement.focus();
         this.focusThen.emit();
-    };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], FocusOn.prototype, "focusOn", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], FocusOn.prototype, "focusOnDelay", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
-    ], FocusOn.prototype, "focusThen", void 0);
-    FocusOn = __decorate([
-        core_1.Directive({
-            selector: '[focusOn]'
-        }),
-        __metadata("design:paramtypes", [core_1.ElementRef])
-    ], FocusOn);
-    return FocusOn;
-}());
+    }
+};
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], FocusOn.prototype, "focusOn", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], FocusOn.prototype, "focusOnDelay", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], FocusOn.prototype, "focusThen", void 0);
+FocusOn = __decorate([
+    core_1.Directive({
+        selector: '[focusOn]'
+    }),
+    __metadata("design:paramtypes", [core_1.ElementRef])
+], FocusOn);
 exports.FocusOn = FocusOn;

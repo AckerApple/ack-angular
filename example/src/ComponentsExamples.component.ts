@@ -1,7 +1,8 @@
 import { getServerTime } from "./functions"
 import {
-  PageScrollService, PageScrollInstance
-} from "ngx-page-scroll"
+  PageScrollService
+  //, PageScrollInstance
+} from "ngx-page-scroll-core"
 import { Component } from "@angular/core";
 import { animations } from "ack-angular-fx"
 import { array as arrayOfObjects } from "./arrayOfObjects"
@@ -67,8 +68,9 @@ export interface selected{
 
   scrollToModuleImport(){
     setTimeout(()=>{
-      const pageScrollInstance = PageScrollInstance.simpleInstance(document, "#Import AckModule");
-      this.PageScrollService.start(pageScrollInstance);
+      this.PageScrollService.scroll({document:document, scrollTarget:"#Import AckModule"})
+      //const pageScrollInstance = PageScrollInstance.simpleInstance(document, "#Import AckModule");
+      //this.PageScrollService.start(pageScrollInstance);
     }, 600)
   }
 

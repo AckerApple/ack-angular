@@ -1,25 +1,21 @@
 {
   "compilerOptions": {
     "strict": false,
-    "strictPropertyInitialization": false,
     "noUnusedLocals": true,
-    "rootDir": ".",
+    "noUnusedParameters": true,
+    "noImplicitAny": false,
     "removeComments": true,
+    "rootDir": ".",
     "outDir": "../dist",
-    "target": "es5",
+    "target": "ES6",
     "module": "commonjs",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": false,
     "noEmitHelpers": false,
-    "noImplicitAny": false,
     "declaration": true,
-    "skipLibCheck": true,
     "stripInternal": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "lib": ["dom", "es2015"],
     "typeRoots": [
       "../node_modules/@types"
     ]
@@ -28,9 +24,5 @@
     "**/node_modules",
     "../node_modules",
     "**/*.spec.ts"
-  ],
-  "angularCompilerOptions": {
-    "skipMetadataEmit" : false,
-    "skipTemplateCodegen" : true
-  }
+  ]
 }

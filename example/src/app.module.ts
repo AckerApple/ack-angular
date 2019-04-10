@@ -1,10 +1,6 @@
 window["strapTime"] = Date.now()
 import { getServerTime } from "./functions"
-import {
-  Input,
-  Component,
-  NgModule
-} from "@angular/core";
+import { NgModule } from "@angular/core";
 import { AckFxModule } from "ack-angular-fx"
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -12,6 +8,7 @@ import { RouteWatchReporter } from "../../src/RouteWatchReporter"
 import { RouteReporter } from "../../src/RouteReporter.directive"
 import { AckModule } from "../../src"
 
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core'
 import { NgxPageScrollModule } from "ngx-page-scroll"
 
 import { ProviderExamples } from "./ProviderExamples.component"
@@ -41,14 +38,15 @@ import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   imports:[
-    BrowserModule
-    ,BrowserAnimationsModule
-    ,FormsModule
-    ,HttpClientModule
-    ,routing
-    ,NgxPageScrollModule
-    ,AckModule.forRoot()
-    ,AckFxModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    routing,
+    NgxPageScrollCoreModule.forRoot({ /* custom settings here */ }),
+    NgxPageScrollModule,
+    AckModule.forRoot(),
+    AckFxModule
   ]
   ,declarations: declarations
   ,providers:[

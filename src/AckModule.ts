@@ -2,9 +2,11 @@ import {
   ModuleWithProviders, NgModule
 } from "@angular/core"
 
+//deprecate importing this
 import { HttpClientModule } from "@angular/common/http"
+
 import { CommonModule } from "@angular/common"
-import { FormsModule }   from "@angular/forms"
+//import { FormsModule }   from "@angular/forms"
 
 import { providers } from "./providers"
 import { declarations as components } from "./declarations"
@@ -15,14 +17,19 @@ const declarations = [...components, ...pipes]
 @NgModule({
   imports:[
     CommonModule,
-    FormsModule,
+    //FormsModule,
+
+    //deprecate this dependency by seperating AckApi
     HttpClientModule
   ],
   declarations: declarations,
   //providers:providers,
   exports:[
-    FormsModule,
+    //FormsModule,
+    
+    //deprecate this
     HttpClientModule,
+    
     ...declarations,
    ]
 }) export class AckModule {

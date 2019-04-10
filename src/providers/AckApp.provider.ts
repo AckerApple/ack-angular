@@ -1,12 +1,16 @@
 import {
-  TemplateRef, Injectable,
+  //TemplateRef,
+  Injectable,
   ElementRef
 } from "@angular/core"
 import { AckModal } from "../components/AckModal.component"
 //import { AckSectionTemplates } from "../components/AckSectionTemplates.component"
 //import { AckAppHeader } from "../components/AckAppHeader.component"
 //import { AckAppFooter } from "../components/AckAppFooter.component"
-import { prompt, Prompts } from "./Prompts"
+import {
+  //prompt,
+  Prompts
+} from "./Prompts"
 
 @Injectable() export class AckApp{
   warnedFixElements:boolean = true

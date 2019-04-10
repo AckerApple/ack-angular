@@ -6,7 +6,10 @@ import {
 import {
   currentRoute, RouteWatchReporter
 } from "./RouteWatchReporter"
-import { NavigationStart, NavigationEnd } from "@angular/router";
+import {
+  //NavigationStart,
+  NavigationEnd
+} from "@angular/router";
 
 @Directive({
   selector: "route-reporter",

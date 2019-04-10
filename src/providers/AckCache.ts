@@ -30,7 +30,10 @@ export interface cacheModel{
     return maxAge && expired ? true : false
   }
 
-  hasExpired(stamp:number, expires:number){
+  hasExpired(
+    _stamp:number,
+    expires:number
+  ){
     const expired = Date.now() >= new Date(expires).getTime()
     return expires && expired ? true : false
   }
@@ -148,7 +151,11 @@ export interface cacheModel{
     return allCache
   }
 
-  set(name:string, cache:any, options:cacheModel=<cacheModel>{}) {
+  set(
+    name:string,
+    cache:any,
+    options:cacheModel=<cacheModel>{}
+  ) {
     options.name = options.name || name
     return super.get(name)
     .then( allCache=>this.dataOptionsCache(allCache, options, cache) )
@@ -156,7 +163,11 @@ export interface cacheModel{
   }
 
   /** aka set */
-  setCache(name:string, cache:any, options?:cacheModel){
-    return this.set(name, options)
+  setCache(
+    name:string,
+    cache:any,
+    options?:cacheModel
+  ){
+    return this.set(name, cache, options)
   }
 }

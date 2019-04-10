@@ -1,5 +1,7 @@
 import {
-  TemplateRef, ElementRef, ContentChildren
+  TemplateRef
+  //ElementRef,
+  //ContentChildren
 } from '@angular/core'
 
 export interface types{

@@ -23,7 +23,7 @@ import { SectionProvider } from "../providers/AckSections.provider"
     })
   }
 
-  ngOnChanges( changes ){
+  ngOnChanges(){
     if( this.inited ){
       this.check()
     }

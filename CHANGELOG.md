@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.11.8] - 2019-04-10
+- Ensured only rxjs needed items imported
+
 ## [1.11.8] - 2019-03-27
 - Now includes scss files
 

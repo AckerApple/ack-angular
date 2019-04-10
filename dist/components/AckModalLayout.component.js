@@ -9,13 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var AckApp_provider_1 = require("../providers/AckApp.provider");
-var ack_angular_fx_1 = require("ack-angular-fx");
-var ack_modal_layout_pug_1 = require("./templates/ack-modal-layout.pug");
-var AckModalLayout = (function () {
-    function AckModalLayout(element, AckApp) {
-        var _this = this;
+const core_1 = require("@angular/core");
+const AckApp_provider_1 = require("../providers/AckApp.provider");
+const ack_angular_fx_1 = require("ack-angular-fx");
+const ack_modal_layout_pug_1 = require("./templates/ack-modal-layout.pug");
+let AckModalLayout = class AckModalLayout {
+    constructor(element, AckApp) {
         this.element = element;
         this.AckApp = AckApp;
         this.zIndex = 20;
@@ -24,78 +23,75 @@ var AckModalLayout = (function () {
         this.isModelMode = false;
         this.showModel = true;
         this.showModelChange = new core_1.EventEmitter();
-        setTimeout(function () { return _this.clickListenForClose(); }, 400);
+        setTimeout(() => this.clickListenForClose(), 400);
     }
-    AckModalLayout.prototype.clickListenForClose = function () {
-        var _this = this;
-        this.element.nativeElement.addEventListener('click', function (event) {
-            if (!_this.allowClose)
+    clickListenForClose() {
+        this.element.nativeElement.addEventListener('click', event => {
+            if (!this.allowClose)
                 return false;
-            var eTar = event.srcElement || event.toElement || event.target;
-            var isDirectChild = eTar == _this.element.nativeElement.children[0] || eTar == _this.element.nativeElement.children[0].children[0];
+            const eTar = event.srcElement || event.toElement || event.target;
+            const isDirectChild = eTar == this.element.nativeElement.children[0] || eTar == this.element.nativeElement.children[0].children[0];
             if (isDirectChild) {
-                _this.fireClose();
+                this.fireClose();
             }
             return true;
         });
-    };
-    AckModalLayout.prototype.ngOnInit = function () {
-        var _this = this;
-        Promise.resolve().then(function () {
-            if (_this.isModelMode || (_this.isModelMode == null && _this.showModelChange.observers.length)) {
-                _this.isModelMode = true;
+    }
+    ngOnInit() {
+        Promise.resolve().then(() => {
+            if (this.isModelMode || (this.isModelMode == null && this.showModelChange.observers.length)) {
+                this.isModelMode = true;
             }
         });
-    };
-    AckModalLayout.prototype.fireClose = function () {
+    }
+    fireClose() {
         this.showModelChange.emit(this.showModel = false);
         this.close.emit(this);
-    };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Number)
-    ], AckModalLayout.prototype, "zIndex", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], AckModalLayout.prototype, "close", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], AckModalLayout.prototype, "allowClose", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], AckModalLayout.prototype, "wrapStyle", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], AckModalLayout.prototype, "wrapCellStyle", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], AckModalLayout.prototype, "backgroundColor", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], AckModalLayout.prototype, "isModelMode", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], AckModalLayout.prototype, "showModel", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], AckModalLayout.prototype, "showModelChange", void 0);
-    AckModalLayout = __decorate([
-        core_1.Component({
-            selector: 'ack-modal-layout',
-            template: ack_modal_layout_pug_1.string,
-            animations: ack_angular_fx_1.animations
-        }),
-        __metadata("design:paramtypes", [core_1.ElementRef,
-            AckApp_provider_1.AckApp])
-    ], AckModalLayout);
-    return AckModalLayout;
-}());
+    }
+};
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], AckModalLayout.prototype, "zIndex", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], AckModalLayout.prototype, "close", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], AckModalLayout.prototype, "allowClose", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], AckModalLayout.prototype, "wrapStyle", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], AckModalLayout.prototype, "wrapCellStyle", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], AckModalLayout.prototype, "backgroundColor", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], AckModalLayout.prototype, "isModelMode", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], AckModalLayout.prototype, "showModel", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], AckModalLayout.prototype, "showModelChange", void 0);
+AckModalLayout = __decorate([
+    core_1.Component({
+        selector: 'ack-modal-layout',
+        template: ack_modal_layout_pug_1.string,
+        animations: ack_angular_fx_1.animations
+    }),
+    __metadata("design:paramtypes", [core_1.ElementRef,
+        AckApp_provider_1.AckApp])
+], AckModalLayout);
 exports.AckModalLayout = AckModalLayout;

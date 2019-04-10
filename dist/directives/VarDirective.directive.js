@@ -9,31 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var VarDirective = (function () {
-    function VarDirective() {
+const core_1 = require("@angular/core");
+let VarDirective = class VarDirective {
+    constructor() {
         this.changed = new core_1.EventEmitter();
     }
-    VarDirective.prototype.ngOnChanges = function (changes) {
-        var _this = this;
+    ngOnChanges(changes) {
         if (changes.var) {
-            Promise.resolve().then(function () { return _this.changed.emit(_this.var); });
+            Promise.resolve().then(() => this.changed.emit(this.var));
         }
-    };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], VarDirective.prototype, "var", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], VarDirective.prototype, "changed", void 0);
-    VarDirective = __decorate([
-        core_1.Directive({
-            selector: "[var]",
-            exportAs: "var"
-        })
-    ], VarDirective);
-    return VarDirective;
-}());
+    }
+};
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], VarDirective.prototype, "var", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], VarDirective.prototype, "changed", void 0);
+VarDirective = __decorate([
+    core_1.Directive({
+        selector: "[var]",
+        exportAs: "var"
+    })
+], VarDirective);
 exports.VarDirective = VarDirective;

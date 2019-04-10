@@ -9,25 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var AckSections_provider_1 = require("../providers/AckSections.provider");
-var AckSectionTemplates = (function () {
-    function AckSectionTemplates(SectionProvider) {
+const core_1 = require("@angular/core");
+const AckSections_provider_1 = require("../providers/AckSections.provider");
+let AckSectionTemplates = class AckSectionTemplates {
+    constructor(SectionProvider) {
         this.SectionProvider = SectionProvider;
     }
-    AckSectionTemplates.prototype.ngAfterViewInit = function () {
-        var _this = this;
-        Promise.resolve().then(function () {
-            _this.check();
-            _this.inited = true;
+    ngAfterViewInit() {
+        Promise.resolve().then(() => {
+            this.check();
+            this.inited = true;
         });
-    };
-    AckSectionTemplates.prototype.ngOnChanges = function (changes) {
+    }
+    ngOnChanges() {
         if (this.inited) {
             this.check();
         }
-    };
-    AckSectionTemplates.prototype.check = function () {
+    }
+    check() {
         if (this.pushed)
             return;
         if (this.header) {
@@ -43,40 +42,38 @@ var AckSectionTemplates = (function () {
             this.SectionProvider.rightBodyTemplates.unshift(this.rightBody);
         }
         this.pushed = true;
-    };
-    AckSectionTemplates.prototype.ngOnDestroy = function () {
-        var _this = this;
-        Promise.resolve().then(function () { return _this.unregister(); });
-    };
-    AckSectionTemplates.prototype.unregister = function () {
+    }
+    ngOnDestroy() {
+        Promise.resolve().then(() => this.unregister());
+    }
+    unregister() {
         this.pushed = false;
         this.SectionProvider.unregisterHeaderTemplate(this.header);
         this.SectionProvider.unregisterFooterTemplate(this.footer);
         this.SectionProvider.unregisterTemplate(this.leftBody);
         this.SectionProvider.unregisterTemplate(this.rightBody);
-    };
-    __decorate([
-        core_1.ContentChild('sectionHeader'),
-        __metadata("design:type", core_1.TemplateRef)
-    ], AckSectionTemplates.prototype, "header", void 0);
-    __decorate([
-        core_1.ContentChild('sectionFooter'),
-        __metadata("design:type", core_1.TemplateRef)
-    ], AckSectionTemplates.prototype, "footer", void 0);
-    __decorate([
-        core_1.ContentChild('sectionLeftBody'),
-        __metadata("design:type", core_1.TemplateRef)
-    ], AckSectionTemplates.prototype, "leftBody", void 0);
-    __decorate([
-        core_1.ContentChild('sectionRightBody'),
-        __metadata("design:type", core_1.TemplateRef)
-    ], AckSectionTemplates.prototype, "rightBody", void 0);
-    AckSectionTemplates = __decorate([
-        core_1.Directive({
-            selector: "ack-section-templates"
-        }),
-        __metadata("design:paramtypes", [AckSections_provider_1.SectionProvider])
-    ], AckSectionTemplates);
-    return AckSectionTemplates;
-}());
+    }
+};
+__decorate([
+    core_1.ContentChild('sectionHeader'),
+    __metadata("design:type", core_1.TemplateRef)
+], AckSectionTemplates.prototype, "header", void 0);
+__decorate([
+    core_1.ContentChild('sectionFooter'),
+    __metadata("design:type", core_1.TemplateRef)
+], AckSectionTemplates.prototype, "footer", void 0);
+__decorate([
+    core_1.ContentChild('sectionLeftBody'),
+    __metadata("design:type", core_1.TemplateRef)
+], AckSectionTemplates.prototype, "leftBody", void 0);
+__decorate([
+    core_1.ContentChild('sectionRightBody'),
+    __metadata("design:type", core_1.TemplateRef)
+], AckSectionTemplates.prototype, "rightBody", void 0);
+AckSectionTemplates = __decorate([
+    core_1.Directive({
+        selector: "ack-section-templates"
+    }),
+    __metadata("design:paramtypes", [AckSections_provider_1.SectionProvider])
+], AckSectionTemplates);
 exports.AckSectionTemplates = AckSectionTemplates;

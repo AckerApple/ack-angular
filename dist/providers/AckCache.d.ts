@@ -12,7 +12,7 @@ export declare class AckCache extends AckOffline {
     validate(data: any, config: any): boolean;
     optionsKillCache(options: cacheModel): boolean;
     hasMaxAged(stamp: number, maxAge: number): boolean;
-    hasExpired(stamp: number, expires: number): boolean;
+    hasExpired(_stamp: number, expires: number): boolean;
     param(name: string, options?: cacheModel): Promise<any>;
     paramCache(name: string, options: cacheModel): Promise<any>;
     paramSave(name: string, options: cacheModel): Promise<any>;

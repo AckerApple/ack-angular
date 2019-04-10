@@ -8,7 +8,8 @@ import {
 } from "@angular/core"
 
 import {
-  htmlSize, HtmlSizeService
+  //htmlSize,
+  HtmlSizeService
 } from "./HtmlSizeWatcher"
 
 @Directive({
@@ -32,15 +33,18 @@ import {
   }
 
   changed(){
-    if( !this.HtmlSizeService.htmlSize || !this.hasChanged() )return
-    this.setModel( this.HtmlSizeService.htmlSize )
+    if( !this.HtmlSizeService.htmlSize
+    || !this.hasChanged()
+    )return
+    
+    this.updateModel()
   }
 
   hasChanged(){
     return this.screenWidthModel !== window.innerWidth
   }
 
-  setModel( model:htmlSize ){
+  updateModel(){
     this.screenWidthModel = window.innerWidth
     this.screenWidthModelChange.emit(this.screenWidthModel)
   }

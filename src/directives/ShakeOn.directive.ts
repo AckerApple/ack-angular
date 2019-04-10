@@ -1,5 +1,5 @@
 import {
-  hasClass,
+  //hasClass,
   addClass,
   removeClass
 } from "./FxOn.directive"

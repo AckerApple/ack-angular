@@ -1,6 +1,6 @@
 import { Subscription } from "rxjs/internal/Subscription";
 import { EventEmitter } from "@angular/core";
-import { htmlSize, HtmlSizeService } from "./HtmlSizeWatcher";
+import { HtmlSizeService } from "./HtmlSizeWatcher";
 export declare class ScreenWidthModel {
     HtmlSizeService: HtmlSizeService;
     sub: Subscription;
@@ -9,5 +9,5 @@ export declare class ScreenWidthModel {
     constructor(HtmlSizeService: HtmlSizeService);
     changed(): void;
     hasChanged(): boolean;
-    setModel(model: htmlSize): void;
+    updateModel(): void;
 }

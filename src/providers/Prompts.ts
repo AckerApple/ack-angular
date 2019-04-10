@@ -35,7 +35,7 @@ export interface prompt extends promptOptions{
 
   issuePrompt(prompt:prompt){
     this.prompts.push(prompt)
-    prompt.emitter.subscribe(result=>this.remove(prompt))
+    prompt.emitter.subscribe(()=>this.remove(prompt))
     return prompt.emitter
   }
 
