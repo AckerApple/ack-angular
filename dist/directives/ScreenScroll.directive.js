@@ -9,29 +9,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-let ScreenScroll = class ScreenScroll {
-    constructor() {
+var core_1 = require("@angular/core");
+var ScreenScroll = (function () {
+    function ScreenScroll() {
+        var _this = this;
         this.screenScroll = new core_1.EventEmitter();
-        this.onScroll = () => this.screenScroll.emit({ x: window['pageXOffset'], y: window['pageYOffset'] });
+        this.onScroll = function () {
+            return _this.screenScroll.emit({ x: window['pageXOffset'], y: window['pageYOffset'] });
+        };
         this.onScroll();
         window.addEventListener("scroll", this.onScroll);
     }
-    ngOnInit() {
-        Promise.resolve().then(() => this.onScroll());
-    }
-    ngOnDestroy() {
+    ScreenScroll.prototype.ngOnInit = function () {
+        var _this = this;
+        Promise.resolve().then(function () { return _this.onScroll(); });
+    };
+    ScreenScroll.prototype.ngOnDestroy = function () {
         window.removeEventListener("scroll", this.onScroll);
-    }
-};
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ScreenScroll.prototype, "screenScroll", void 0);
-ScreenScroll = __decorate([
-    core_1.Directive({
-        selector: '[screenScroll]'
-    }),
-    __metadata("design:paramtypes", [])
-], ScreenScroll);
+    };
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ScreenScroll.prototype, "screenScroll", void 0);
+    ScreenScroll = __decorate([
+        core_1.Directive({
+            selector: '[screenScroll]'
+        }),
+        __metadata("design:paramtypes", [])
+    ], ScreenScroll);
+    return ScreenScroll;
+}());
 exports.ScreenScroll = ScreenScroll;

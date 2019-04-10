@@ -6,7 +6,9 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RouteWatchReporter } from "../../src/RouteWatchReporter"
 import { RouteReporter } from "../../src/RouteReporter.directive"
-import { AckModule } from "../../src"
+import {
+  AckModule//, AckRouterModule
+} from "../../src"
 
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core'
 import { NgxPageScrollModule } from "ngx-page-scroll"
@@ -45,6 +47,7 @@ import { HttpClientModule } from "@angular/common/http";
     routing,
     NgxPageScrollCoreModule.forRoot({ /* custom settings here */ }),
     NgxPageScrollModule,
+    //AckRouterModule,
     AckModule.forRoot(),
     AckFxModule
   ]

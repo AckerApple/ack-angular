@@ -42,7 +42,7 @@ webpackContext.id = "../node_modules/moment-mini/locale sync recursive ^\\.\\/.*
 /*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, private, default */
 /***/ (function(module) {
 
-module.exports = {"name":"ack-angular","version":"1.12.0","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist","stats":"webpack-bundle-analyzer example/www/stats.json","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass src/ack-angular.scss dist/ack-angular.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example --stats-json","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist copy:scss build:js","copy:scss":"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.13.8","@angular/animations":"^7.2.12","@angular/cli":"^7.2.12","@angular/common":"^7.2.12","@angular/compiler":"^7.2.12","@angular/compiler-cli":"^7.2.12","@angular/core":"^7.2.12","@angular/forms":"^7.2.12","@angular/platform-browser":"^7.2.12","@angular/platform-browser-dynamic":"^7.2.12","@angular/router":"^7.2.12","@types/jasmine":"^3.3.12","ack-angular-fx":"^3.0.1","ack-css-boot":"^1.2.55","ack-path":"^1.5.19","ack-pug-bundler":"^1.4.0","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.5.6","animate.css":"^3.7.0","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.4.0","karma":"^4.0.1","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.5","karma-jasmine":"^2.0.1","karma-jasmine-html-reporter":"^1.4.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.3","ngx-page-scroll":"^6.0.0-beta.1","ngx-page-scroll-core":"^6.0.0-beta.1","npm-run-all":"^4.1.5","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.3","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.13","rxjs":"^6.4.0","ts-helpers":"^1.1.2","ts-node":"^8.0.3","typescript":"3.2.2","webpack-bundle-analyzer":"^3.3.0","zone.js":"^0.9.0"},"private":true};
+module.exports = {"name":"ack-angular","version":"1.12.2","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist","stats":"webpack-bundle-analyzer example/www/stats.json","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass src/ack-angular.scss dist/ack-angular.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example --stats-json","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist copy:scss build:js","copy:scss":"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.13.8","@angular/animations":"^7.2.12","@angular/cli":"^7.2.12","@angular/common":"^7.2.12","@angular/compiler":"^7.2.12","@angular/compiler-cli":"^7.2.12","@angular/core":"^7.2.12","@angular/forms":"^7.2.12","@angular/platform-browser":"^7.2.12","@angular/platform-browser-dynamic":"^7.2.12","@angular/router":"^7.2.12","@types/jasmine":"^3.3.12","ack-angular-fx":"^3.0.1","ack-css-boot":"^1.2.55","ack-path":"^1.5.19","ack-pug-bundler":"^1.4.0","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.5.6","animate.css":"^3.7.0","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.4.0","karma":"^4.0.1","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.5","karma-jasmine":"^2.0.1","karma-jasmine-html-reporter":"^1.4.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.3","ngx-page-scroll":"^6.0.0-beta.1","ngx-page-scroll-core":"^6.0.0-beta.1","npm-run-all":"^4.1.5","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.3","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.13","rxjs":"^6.4.0","ts-helpers":"^1.1.2","ts-node":"^8.0.3","typescript":"3.2.2","webpack-bundle-analyzer":"^3.3.0","zone.js":"^0.9.0"},"private":true};
 
 /***/ }),
 
@@ -62,36 +62,81 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var AckModule_1;
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const http_1 = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm2015/http.js");
-const common_1 = __webpack_require__(/*! @angular/common */ "../node_modules/@angular/common/fesm2015/common.js");
-const providers_1 = __webpack_require__(/*! ./providers */ "../src/providers.ts");
-const declarations_1 = __webpack_require__(/*! ./declarations */ "../src/declarations.ts");
-const pipes_1 = __webpack_require__(/*! ./pipes */ "../src/pipes.ts");
-const declarations = [...declarations_1.declarations, ...pipes_1.declarations];
-let AckModule = AckModule_1 = class AckModule {
-    static forRoot() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var http_1 = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
+var common_1 = __webpack_require__(/*! @angular/common */ "../node_modules/@angular/common/fesm5/common.js");
+var providers_1 = __webpack_require__(/*! ./providers */ "../src/providers.ts");
+var declarations_1 = __webpack_require__(/*! ./declarations */ "../src/declarations.ts");
+var pipes_1 = __webpack_require__(/*! ./pipes */ "../src/pipes.ts");
+var declarations = declarations_1.declarations.concat(pipes_1.declarations);
+var AckModule = (function () {
+    function AckModule() {
+    }
+    AckModule_1 = AckModule;
+    AckModule.forRoot = function () {
         return {
             ngModule: AckModule_1,
             providers: providers_1.providers
         };
-    }
-};
-AckModule = AckModule_1 = __decorate([
-    core_1.NgModule({
-        imports: [
-            common_1.CommonModule,
-            http_1.HttpClientModule
-        ],
-        declarations: declarations,
-        exports: [
-            http_1.HttpClientModule,
-            ...declarations,
-        ]
-    })
-], AckModule);
+    };
+    var AckModule_1;
+    AckModule = AckModule_1 = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule,
+                http_1.HttpClientModule
+            ],
+            declarations: declarations,
+            exports: [
+                http_1.HttpClientModule
+            ].concat(declarations)
+        })
+    ], AckModule);
+    return AckModule;
+}());
 exports.AckModule = AckModule;
+
+
+/***/ }),
+
+/***/ "../src/AckRouterModule.ts":
+/*!*********************************!*\
+  !*** ../src/AckRouterModule.ts ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var common_1 = __webpack_require__(/*! @angular/common */ "../node_modules/@angular/common/fesm5/common.js");
+var router_1 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
+var RouteWatchReporter_1 = __webpack_require__(/*! ./RouteWatchReporter */ "../src/RouteWatchReporter.ts");
+var RouteReporter_directive_1 = __webpack_require__(/*! ./RouteReporter.directive */ "../src/RouteReporter.directive.ts");
+var AckRouterModule = (function () {
+    function AckRouterModule() {
+    }
+    AckRouterModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule,
+                router_1.RouterModule
+            ],
+            declarations: [RouteReporter_directive_1.RouteReporter],
+            providers: [RouteWatchReporter_1.RouteWatchReporter],
+            exports: [RouteReporter_directive_1.RouteReporter, router_1.RouterModule]
+        })
+    ], AckRouterModule);
+    return AckRouterModule;
+}());
+exports.AckRouterModule = AckRouterModule;
 
 
 /***/ }),
@@ -115,12 +160,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const router_1 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm2015/router.js");
-const RouteWatchReporter_1 = __webpack_require__(/*! ./RouteWatchReporter */ "../src/RouteWatchReporter.ts");
-const router_2 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm2015/router.js");
-let RouteReporter = class RouteReporter {
-    constructor(RouteWatchReporter, ActivatedRoute) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var router_1 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
+var RouteWatchReporter_1 = __webpack_require__(/*! ./RouteWatchReporter */ "../src/RouteWatchReporter.ts");
+var router_2 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
+var RouteReporter = (function () {
+    function RouteReporter(RouteWatchReporter, ActivatedRoute) {
         this.RouteWatchReporter = RouteWatchReporter;
         this.ActivatedRoute = ActivatedRoute;
         this.stateChanger = new core_1.EventEmitter();
@@ -138,24 +183,27 @@ let RouteReporter = class RouteReporter {
         this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
         this.apply();
     }
-    ngOnInit() {
-        this.RouteWatchReporter.router.events.subscribe(event => {
+    RouteReporter.prototype.ngOnInit = function () {
+        var _this = this;
+        this.RouteWatchReporter.router.events.subscribe(function (event) {
             if (event.constructor === router_2.NavigationEnd) {
-                this.beforeChanger.emit(this.RouteWatchReporter);
-                this.apply();
-                Promise.resolve().then(() => this.emit());
+                _this.beforeChanger.emit(_this.RouteWatchReporter);
+                _this.apply();
+                Promise.resolve().then(function () { return _this.emit(); });
             }
         });
         if (this.ActivatedRoute) {
-            this.ActivatedRoute.data.subscribe(data => this.dataChange.emit(this.data = data));
+            this.ActivatedRoute.data.subscribe(function (data) {
+                return _this.dataChange.emit(_this.data = data);
+            });
         }
         this.RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
         this.apply();
-        Promise.resolve().then(() => {
-            this.emit();
-            this.querySub = this.RouteWatchReporter
+        Promise.resolve().then(function () {
+            _this.emit();
+            _this.querySub = _this.RouteWatchReporter
                 .activatedRoute.queryParams
-                .subscribe(query => this.queryChange.emit(query));
+                .subscribe(function (query) { return _this.queryChange.emit(query); });
         });
         if (this.onLoad) {
             this.onLoad({
@@ -164,153 +212,154 @@ let RouteReporter = class RouteReporter {
                 current: this.RouteWatchReporter.current
             });
         }
-    }
-    ngOnDestroy() {
+    };
+    RouteReporter.prototype.ngOnDestroy = function () {
         this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks);
         if (this.querySub) {
             this.querySub.unsubscribe();
         }
-    }
-    apply() {
-        const current = this.RouteWatchReporter.getCurrent();
+    };
+    RouteReporter.prototype.apply = function () {
+        var current = this.RouteWatchReporter.getCurrent();
         this.route = current.config;
         this.current = current;
         this.state = current;
         this.activated = current.ActivatedRoute;
         this.params = current.params || {};
         this.data = current.config.data || {};
-        const parent = current.parent;
+        var parent = current.parent;
         if (parent) {
-            const config = parent.config;
-            const ar = parent.ActivatedRoute;
+            var config = parent.config;
+            var ar = parent.ActivatedRoute;
             this.parentRoute = config;
             this.parent = ar;
             this.parentData = config.data;
         }
-    }
-    emit() {
+    };
+    RouteReporter.prototype.emit = function () {
         this.stateChanger.emit(this.RouteWatchReporter);
-        const current = this.RouteWatchReporter.getCurrent();
+        var current = this.RouteWatchReporter.getCurrent();
         this.routeChange.emit(current.config);
         this.stateChange.emit(current);
         this.activatedChange.emit(current.ActivatedRoute);
         this.paramsChange.emit(current.params);
         this.dataChange.emit(current.config.data);
-        const parent = current.parent;
+        var parent = current.parent;
         if (parent) {
-            const config = parent.config;
-            const ar = parent.ActivatedRoute;
+            var config = parent.config;
+            var ar = parent.ActivatedRoute;
             this.parentRouteChange.emit(config);
             this.parentChange.emit(ar);
             this.parentDataChange.emit(config.data);
         }
-    }
-    goBackTo(name, params) {
+    };
+    RouteReporter.prototype.goBackTo = function (name, params) {
         this.RouteWatchReporter.goBackTo(name, params);
-    }
-    tryBack(name, params) {
+    };
+    RouteReporter.prototype.tryBack = function (name, params) {
         this.RouteWatchReporter.tryBack(name, params);
-    }
-};
-RouteReporter.parameters = [[
-        RouteWatchReporter_1.RouteWatchReporter
-    ]];
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "onLoad", void 0);
-__decorate([
-    core_1.Output("onChange"),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "stateChanger", void 0);
-__decorate([
-    core_1.Output("beforeChange"),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "beforeChanger", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", router_1.ActivatedRoute)
-], RouteReporter.prototype, "activated", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], RouteReporter.prototype, "activatedChange", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "params", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], RouteReporter.prototype, "paramsChange", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "data", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], RouteReporter.prototype, "dataChange", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "query", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], RouteReporter.prototype, "queryChange", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "route", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], RouteReporter.prototype, "routeChange", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "parentRoute", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], RouteReporter.prototype, "parentRouteChange", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", router_1.ActivatedRoute)
-], RouteReporter.prototype, "parent", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], RouteReporter.prototype, "parentChange", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "parentData", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], RouteReporter.prototype, "parentDataChange", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "current", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "state", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], RouteReporter.prototype, "stateChange", void 0);
-RouteReporter = __decorate([
-    core_1.Directive({
-        selector: "route-reporter",
-        exportAs: "RouteReporter"
-    }),
-    __metadata("design:paramtypes", [RouteWatchReporter_1.RouteWatchReporter,
-        router_1.ActivatedRoute])
-], RouteReporter);
+    };
+    RouteReporter.parameters = [[
+            RouteWatchReporter_1.RouteWatchReporter
+        ]];
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "onLoad", void 0);
+    __decorate([
+        core_1.Output("onChange"),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "stateChanger", void 0);
+    __decorate([
+        core_1.Output("beforeChange"),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "beforeChanger", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", router_1.ActivatedRoute)
+    ], RouteReporter.prototype, "activated", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "activatedChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "params", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "paramsChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "data", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "dataChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "query", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "queryChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "route", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "routeChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "parentRoute", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "parentRouteChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", router_1.ActivatedRoute)
+    ], RouteReporter.prototype, "parent", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "parentChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "parentData", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "parentDataChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "current", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "state", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "stateChange", void 0);
+    RouteReporter = __decorate([
+        core_1.Directive({
+            selector: "route-reporter",
+            exportAs: "RouteReporter"
+        }),
+        __metadata("design:paramtypes", [RouteWatchReporter_1.RouteWatchReporter,
+            router_1.ActivatedRoute])
+    ], RouteReporter);
+    return RouteReporter;
+}());
 exports.RouteReporter = RouteReporter;
 
 
@@ -335,10 +384,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const router_1 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm2015/router.js");
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let RouteWatchReporter = class RouteWatchReporter {
-    constructor(router, activatedRoute) {
+var router_1 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var RouteWatchReporter = (function () {
+    function RouteWatchReporter(router, activatedRoute) {
+        var _this = this;
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.current = {};
@@ -348,25 +398,25 @@ let RouteWatchReporter = class RouteWatchReporter {
         this.isNextBackMode = false;
         this.isNextBackHistory = false;
         this.activatedRoute = activatedRoute;
-        this.$window = () => window;
+        this.$window = function () { return window; };
         this.$history = [];
-        router.events.subscribe(event => {
+        router.events.subscribe(function (event) {
             if (event.constructor == router_1.NavigationEnd) {
-                const current = this.getCurrent();
-                this.recordStateChange(current.config, current.params);
+                var current = _this.getCurrent();
+                _this.recordStateChange(current.config, current.params);
             }
         });
         this.current = this.getCurrent();
     }
-    getCurrent() {
-        let parent = this.activatedRoute;
-        let target = this.activatedRoute;
+    RouteWatchReporter.prototype.getCurrent = function () {
+        var parent = this.activatedRoute;
+        var target = this.activatedRoute;
         while (target.firstChild) {
             parent = target;
             target = target.firstChild;
         }
-        const snapshot = target.snapshot || {};
-        const parentSnap = parent.snapshot || {};
+        var snapshot = target.snapshot || {};
+        var parentSnap = parent.snapshot || {};
         return {
             ActivatedRoute: target,
             config: (target.routeConfig || target),
@@ -377,49 +427,49 @@ let RouteWatchReporter = class RouteWatchReporter {
                 params: parentSnap.params
             }
         };
-    }
-    getCurrentConfig() {
-        let target = this.activatedRoute;
+    };
+    RouteWatchReporter.prototype.getCurrentConfig = function () {
+        var target = this.activatedRoute;
         while (target.firstChild)
             target = target.firstChild;
         return (target.routeConfig || target);
-    }
-    getCurrentParams() {
-        let target = this.activatedRoute;
+    };
+    RouteWatchReporter.prototype.getCurrentParams = function () {
+        var target = this.activatedRoute;
         while (target.firstChild)
             target = target.firstChild;
         return target.snapshot.params;
-    }
-    isTrapHistory(toState, toParams) {
+    };
+    RouteWatchReporter.prototype.isTrapHistory = function (toState, toParams) {
         return this.isBackHistory(toState, toParams) && this.isForwardHistory(toState, toParams);
-    }
-    isBackHistory(toState, toParams) {
-        const $history = this.$history;
-        const isEven = $history.length > this.historyPos + 1;
-        const isNameMatch = isEven && toState && toState.name == $history[this.historyPos + 1].name;
+    };
+    RouteWatchReporter.prototype.isBackHistory = function (toState, toParams) {
+        var $history = this.$history;
+        var isEven = $history.length > this.historyPos + 1;
+        var isNameMatch = isEven && toState && toState.name == $history[this.historyPos + 1].name;
         return isNameMatch && this.isParamsMatch(toParams, $history[this.historyPos + 1].params);
-    }
-    isForwardHistory(toState, toParams) {
-        const $history = this.$history;
-        const isEven = !this.isNextBackMode && this.historyPos && $history.length > this.historyPos;
-        const isNameMatch = isEven && toState && toState.name == $history[this.historyPos - 1].name;
+    };
+    RouteWatchReporter.prototype.isForwardHistory = function (toState, toParams) {
+        var $history = this.$history;
+        var isEven = !this.isNextBackMode && this.historyPos && $history.length > this.historyPos;
+        var isNameMatch = isEven && toState && toState.name == $history[this.historyPos - 1].name;
         return isNameMatch && this.isParamsMatch(toParams, $history[this.historyPos - 1].params);
-    }
-    isParamsMatch(toParams, otherParams) {
+    };
+    RouteWatchReporter.prototype.isParamsMatch = function (toParams, otherParams) {
         if (!toParams || !otherParams) {
             return false;
         }
-        for (let x in toParams) {
+        for (var x in toParams) {
             if (toParams[x] != otherParams[x]) {
                 return false;
             }
         }
         return true;
-    }
-    recordStateChange(toState, toParams) {
+    };
+    RouteWatchReporter.prototype.recordStateChange = function (toState, toParams) {
         this.current = { params: toParams, config: toState };
-        let isForward = this.isForwardHistory(toState, toParams);
-        let isBackHistory = this.isNextBackHistory || this.isBackHistory(toState, toParams);
+        var isForward = this.isForwardHistory(toState, toParams);
+        var isBackHistory = this.isNextBackHistory || this.isBackHistory(toState, toParams);
         if (this.isOsAction && this.isTrapHistory(toState, toParams)) {
             if (this.isBackMode) {
                 isForward = false;
@@ -431,7 +481,7 @@ let RouteWatchReporter = class RouteWatchReporter {
         else {
             this.isBackMode = this.isNextBackMode || (this.isOsAction && isBackHistory);
         }
-        const $history = this.$history;
+        var $history = this.$history;
         if (!toState)
             return;
         if (isForward) {
@@ -442,20 +492,20 @@ let RouteWatchReporter = class RouteWatchReporter {
         }
         else {
             this.historyPos = 0;
-            const hist = { name: toState.name, params: toParams };
+            var hist = { name: toState.name, params: toParams };
             if (!Object.keys(toParams).length) {
                 delete hist.params;
             }
             $history.unshift(hist);
         }
         this.isNextBackHistory = false;
-    }
-    goBackTo(name, params) {
+    };
+    RouteWatchReporter.prototype.goBackTo = function (name, params) {
         this.isNextBackMode = true;
         this.isNextBackHistory = true;
         this.$state().go(name, params);
-    }
-    tryBack(name, params) {
+    };
+    RouteWatchReporter.prototype.tryBack = function (name, params) {
         if (this.$history.length) {
             this.isNextBackMode = true;
             this.isNextBackHistory = true;
@@ -464,37 +514,39 @@ let RouteWatchReporter = class RouteWatchReporter {
         else {
             this.goBackTo(name, params);
         }
-    }
-    watchDocument($document) {
+    };
+    RouteWatchReporter.prototype.watchDocument = function ($document) {
         this.watchDocByCallbacks($document, this.getDocumentCallbacks());
-    }
-    getDocumentCallbacks() {
-        const isBackButton = () => {
-            this.isOsAction = true;
+    };
+    RouteWatchReporter.prototype.getDocumentCallbacks = function () {
+        var _this = this;
+        var isBackButton = function () {
+            _this.isOsAction = true;
         };
-        const isNotBackButton = () => {
-            this.isOsAction = false;
+        var isNotBackButton = function () {
+            _this.isOsAction = false;
         };
         return {
             isBackButton: isBackButton,
             isNotBackButton: isNotBackButton
         };
-    }
-    watchDocByCallbacks($document, callbacks) {
+    };
+    RouteWatchReporter.prototype.watchDocByCallbacks = function ($document, callbacks) {
         $document.addEventListener('mouseout', callbacks.isBackButton);
         $document.addEventListener('mousedown', callbacks.isNotBackButton);
-    }
-    unwatchDocByCallbacks($document, callbacks) {
+    };
+    RouteWatchReporter.prototype.unwatchDocByCallbacks = function ($document, callbacks) {
         $document.removeEventListener('mouseout', callbacks.isBackButton);
         $document.removeEventListener('mouseover', callbacks.isNotBackButton);
         $document.removeEventListener('mousedown', callbacks.isNotBackButton);
-    }
-};
-RouteWatchReporter = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [router_1.Router,
-        router_1.ActivatedRoute])
-], RouteWatchReporter);
+    };
+    RouteWatchReporter = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [router_1.Router,
+            router_1.ActivatedRoute])
+    ], RouteWatchReporter);
+    return RouteWatchReporter;
+}());
 exports.RouteWatchReporter = RouteWatchReporter;
 
 
@@ -510,43 +562,60 @@ exports.RouteWatchReporter = RouteWatchReporter;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-class TemplateReader {
-    constructor(options) {
+var TemplateReader = (function () {
+    function TemplateReader(options) {
         this.types = {};
         this.templates = {};
         Object.assign(this, options);
     }
-    readTemplates(templateRefs) {
-        const count = templateRefs['_results'].length;
-        for (let x = count - 1; x >= 0; --x) {
-            let row = templateRefs['_results'][x];
+    TemplateReader.prototype.readTemplates = function (templateRefs) {
+        var count = templateRefs['_results'].length;
+        for (var x = count - 1; x >= 0; --x) {
+            var row = templateRefs['_results'][x];
             this.applyReferences(row._def.references, row);
         }
         if (this.lastTemplateName && (!this.templates[this.lastTemplateName] || !templateRefs.length)) {
             this.afterReadTemplates(templateRefs);
         }
-    }
-    afterReadTemplates(templateRefs) {
-        const index = templateRefs['_results'].length - 1;
-        const lastTemplate = templateRefs['_results'][index];
+    };
+    TemplateReader.prototype.afterReadTemplates = function (templateRefs) {
+        var index = templateRefs['_results'].length - 1;
+        var lastTemplate = templateRefs['_results'][index];
         if (!lastTemplate || !this.lastTemplateName)
             return;
-        const matched = this.applyReferences(lastTemplate._def.references, lastTemplate);
+        var matched = this.applyReferences(lastTemplate._def.references, lastTemplate);
         if (!matched) {
             this.templates[this.lastTemplateName] = lastTemplate;
         }
-    }
-    applyReferences(refs, row) {
-        for (let x in refs) {
+    };
+    TemplateReader.prototype.applyReferences = function (refs, row) {
+        for (var x in refs) {
             if (this.types[x]) {
                 this.templates[this.types[x]] = row;
                 return true;
             }
         }
         return false;
-    }
-}
+    };
+    return TemplateReader;
+}());
 exports.TemplateReader = TemplateReader;
+
+
+/***/ }),
+
+/***/ "../src/ack.ts":
+/*!*********************!*\
+  !*** ../src/ack.ts ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var browser_1 = __webpack_require__(/*! ack-x/browser */ "../node_modules/ack-x/browser.js");
+exports.ack = browser_1.ack;
 
 
 /***/ }),
@@ -570,52 +639,53 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const absolute_overflow_x_pug_1 = __webpack_require__(/*! ./templates/absolute-overflow-x.pug */ "../src/components/templates/absolute-overflow-x.pug.ts");
-let AbsoluteOverflowX = class AbsoluteOverflowX {
-    constructor(ElementRef) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var absolute_overflow_x_pug_1 = __webpack_require__(/*! ./templates/absolute-overflow-x.pug */ "../src/components/templates/absolute-overflow-x.pug.ts");
+var AbsoluteOverflowX = (function () {
+    function AbsoluteOverflowX(ElementRef) {
         this.ElementRef = ElementRef;
         this.active = true;
         this.overflow = 'auto';
     }
-    ngOnInit() {
+    AbsoluteOverflowX.prototype.ngOnInit = function () {
         this.checkDisplay();
-    }
-    ngOnChanges(changes) {
+    };
+    AbsoluteOverflowX.prototype.ngOnChanges = function (changes) {
         if (changes.active) {
             this.checkDisplay();
         }
-    }
-    ngAfterViewInit() {
+    };
+    AbsoluteOverflowX.prototype.ngAfterViewInit = function () {
         this.ElementRef.nativeElement.style.display = 'block';
-    }
-    checkDisplay() {
+    };
+    AbsoluteOverflowX.prototype.checkDisplay = function () {
         this.ElementRef.nativeElement.style.position = this.active ? 'relative' : 'static';
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AbsoluteOverflowX.prototype, "scrollBars", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AbsoluteOverflowX.prototype, "wrapClass", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AbsoluteOverflowX.prototype, "active", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], AbsoluteOverflowX.prototype, "overflow", void 0);
-AbsoluteOverflowX = __decorate([
-    core_1.Component({
-        selector: 'absolute-overflow-x',
-        template: absolute_overflow_x_pug_1.string
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], AbsoluteOverflowX);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AbsoluteOverflowX.prototype, "scrollBars", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AbsoluteOverflowX.prototype, "wrapClass", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AbsoluteOverflowX.prototype, "active", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], AbsoluteOverflowX.prototype, "overflow", void 0);
+    AbsoluteOverflowX = __decorate([
+        core_1.Component({
+            selector: 'absolute-overflow-x',
+            template: absolute_overflow_x_pug_1.string
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], AbsoluteOverflowX);
+    return AbsoluteOverflowX;
+}());
 exports.AbsoluteOverflowX = AbsoluteOverflowX;
 
 
@@ -637,18 +707,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const template = '<div style="display:inline-block;cursor:pointer;border:3px solid white;border-radius:50%;background-color:#666;color:white;text-align:center;font-family:Arial">' +
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var template = '<div style="display:inline-block;cursor:pointer;border:3px solid white;border-radius:50%;background-color:#666;color:white;text-align:center;font-family:Arial">' +
     '<div style="font-weight:bold;line-height:22px;font-size:23px;height:25px;width:25px">x</div>' +
     '</div>';
-let AckCloseIcon = class AckCloseIcon {
-};
-AckCloseIcon = __decorate([
-    core_1.Component({
-        selector: 'ack-close-icon',
-        template: template
-    })
-], AckCloseIcon);
+var AckCloseIcon = (function () {
+    function AckCloseIcon() {
+    }
+    AckCloseIcon = __decorate([
+        core_1.Component({
+            selector: 'ack-close-icon',
+            template: template
+        })
+    ], AckCloseIcon);
+    return AckCloseIcon;
+}());
 exports.AckCloseIcon = AckCloseIcon;
 
 
@@ -673,23 +746,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const AckApp_provider_1 = __webpack_require__(/*! ../providers/AckApp.provider */ "../src/providers/AckApp.provider.ts");
-const ack_fixed_element_stage_pug_1 = __webpack_require__(/*! ./templates/ack-fixed-element-stage.pug */ "../src/components/templates/ack-fixed-element-stage.pug.ts");
-let AckFixedElementStage = class AckFixedElementStage {
-    constructor(AckApp, ElementRef) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var AckApp_provider_1 = __webpack_require__(/*! ../providers/AckApp.provider */ "../src/providers/AckApp.provider.ts");
+var ack_fixed_element_stage_pug_1 = __webpack_require__(/*! ./templates/ack-fixed-element-stage.pug */ "../src/components/templates/ack-fixed-element-stage.pug.ts");
+var AckFixedElementStage = (function () {
+    function AckFixedElementStage(AckApp, ElementRef) {
         this.AckApp = AckApp;
         this.ElementRef = ElementRef;
         AckApp.fixedElementStage = ElementRef;
     }
-};
-AckFixedElementStage = __decorate([
-    core_1.Component({
-        selector: 'ack-fixed-element-stage',
-        template: ack_fixed_element_stage_pug_1.string
-    }),
-    __metadata("design:paramtypes", [AckApp_provider_1.AckApp, core_1.ElementRef])
-], AckFixedElementStage);
+    AckFixedElementStage = __decorate([
+        core_1.Component({
+            selector: 'ack-fixed-element-stage',
+            template: ack_fixed_element_stage_pug_1.string
+        }),
+        __metadata("design:paramtypes", [AckApp_provider_1.AckApp, core_1.ElementRef])
+    ], AckFixedElementStage);
+    return AckFixedElementStage;
+}());
 exports.AckFixedElementStage = AckFixedElementStage;
 
 
@@ -714,11 +788,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const AckApp_provider_1 = __webpack_require__(/*! ../providers/AckApp.provider */ "../src/providers/AckApp.provider.ts");
-const ack_modal_pug_1 = __webpack_require__(/*! ./templates/ack-modal.pug */ "../src/components/templates/ack-modal.pug.ts");
-let AckModal = class AckModal {
-    constructor(element, AckApp) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var AckApp_provider_1 = __webpack_require__(/*! ../providers/AckApp.provider */ "../src/providers/AckApp.provider.ts");
+var ack_modal_pug_1 = __webpack_require__(/*! ./templates/ack-modal.pug */ "../src/components/templates/ack-modal.pug.ts");
+var AckModal = (function () {
+    function AckModal(element, AckApp) {
         this.element = element;
         this.AckApp = AckApp;
         this.allowClose = true;
@@ -726,10 +800,10 @@ let AckModal = class AckModal {
         this.showModelChange = new core_1.EventEmitter();
         this.close = new core_1.EventEmitter();
     }
-    ngOnInit() {
+    AckModal.prototype.ngOnInit = function () {
         this.determineStage();
-    }
-    determineStage() {
+    };
+    AckModal.prototype.determineStage = function () {
         if (this.inline)
             return;
         if (this.AckApp.fixedElementStage) {
@@ -739,67 +813,68 @@ let AckModal = class AckModal {
             this.AckApp.warnedFixElements = true;
             console.warn('Please put the element tag <ack-fixed-element-stage> inside your app so <ack-modal> renders properly amongst other elements. OR set <ack-modal inline="true">');
         }
-    }
-    ngOnDestroy() {
+    };
+    AckModal.prototype.ngOnDestroy = function () {
         this.AckApp.unregisterModal(this);
-    }
-};
-__decorate([
-    core_1.ContentChild('body'),
-    __metadata("design:type", core_1.TemplateRef)
-], AckModal.prototype, "body", void 0);
-__decorate([
-    core_1.ViewChild('placeholder'),
-    __metadata("design:type", core_1.ElementRef)
-], AckModal.prototype, "layout", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], AckModal.prototype, "inline", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], AckModal.prototype, "isModelMode", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], AckModal.prototype, "allowClose", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], AckModal.prototype, "zIndex", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AckModal.prototype, "wrapStyle", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AckModal.prototype, "wrapCellStyle", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], AckModal.prototype, "backgroundColor", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], AckModal.prototype, "showModel", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], AckModal.prototype, "showModelChange", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], AckModal.prototype, "close", void 0);
-AckModal = __decorate([
-    core_1.Component({
-        selector: "ack-modal",
-        template: ack_modal_pug_1.string
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef,
-        AckApp_provider_1.AckApp])
-], AckModal);
+    };
+    __decorate([
+        core_1.ContentChild('body'),
+        __metadata("design:type", core_1.TemplateRef)
+    ], AckModal.prototype, "body", void 0);
+    __decorate([
+        core_1.ViewChild('placeholder'),
+        __metadata("design:type", core_1.ElementRef)
+    ], AckModal.prototype, "layout", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckModal.prototype, "inline", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckModal.prototype, "isModelMode", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckModal.prototype, "allowClose", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], AckModal.prototype, "zIndex", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckModal.prototype, "wrapStyle", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckModal.prototype, "wrapCellStyle", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], AckModal.prototype, "backgroundColor", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckModal.prototype, "showModel", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckModal.prototype, "showModelChange", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckModal.prototype, "close", void 0);
+    AckModal = __decorate([
+        core_1.Component({
+            selector: "ack-modal",
+            template: ack_modal_pug_1.string
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef,
+            AckApp_provider_1.AckApp])
+    ], AckModal);
+    return AckModal;
+}());
 exports.AckModal = AckModal;
 
 
@@ -824,12 +899,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const AckApp_provider_1 = __webpack_require__(/*! ../providers/AckApp.provider */ "../src/providers/AckApp.provider.ts");
-const ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
-const ack_modal_layout_pug_1 = __webpack_require__(/*! ./templates/ack-modal-layout.pug */ "../src/components/templates/ack-modal-layout.pug.ts");
-let AckModalLayout = class AckModalLayout {
-    constructor(element, AckApp) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var AckApp_provider_1 = __webpack_require__(/*! ../providers/AckApp.provider */ "../src/providers/AckApp.provider.ts");
+var ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
+var ack_modal_layout_pug_1 = __webpack_require__(/*! ./templates/ack-modal-layout.pug */ "../src/components/templates/ack-modal-layout.pug.ts");
+var AckModalLayout = (function () {
+    function AckModalLayout(element, AckApp) {
+        var _this = this;
         this.element = element;
         this.AckApp = AckApp;
         this.zIndex = 20;
@@ -838,77 +914,80 @@ let AckModalLayout = class AckModalLayout {
         this.isModelMode = false;
         this.showModel = true;
         this.showModelChange = new core_1.EventEmitter();
-        setTimeout(() => this.clickListenForClose(), 400);
+        setTimeout(function () { return _this.clickListenForClose(); }, 400);
     }
-    clickListenForClose() {
-        this.element.nativeElement.addEventListener('click', event => {
-            if (!this.allowClose)
+    AckModalLayout.prototype.clickListenForClose = function () {
+        var _this = this;
+        this.element.nativeElement.addEventListener('click', function (event) {
+            if (!_this.allowClose)
                 return false;
-            const eTar = event.srcElement || event.toElement || event.target;
-            const isDirectChild = eTar == this.element.nativeElement.children[0] || eTar == this.element.nativeElement.children[0].children[0];
+            var eTar = event.srcElement || event.toElement || event.target;
+            var isDirectChild = eTar == _this.element.nativeElement.children[0] || eTar == _this.element.nativeElement.children[0].children[0];
             if (isDirectChild) {
-                this.fireClose();
+                _this.fireClose();
             }
             return true;
         });
-    }
-    ngOnInit() {
-        Promise.resolve().then(() => {
-            if (this.isModelMode || (this.isModelMode == null && this.showModelChange.observers.length)) {
-                this.isModelMode = true;
+    };
+    AckModalLayout.prototype.ngOnInit = function () {
+        var _this = this;
+        Promise.resolve().then(function () {
+            if (_this.isModelMode || (_this.isModelMode == null && _this.showModelChange.observers.length)) {
+                _this.isModelMode = true;
             }
         });
-    }
-    fireClose() {
+    };
+    AckModalLayout.prototype.fireClose = function () {
         this.showModelChange.emit(this.showModel = false);
         this.close.emit(this);
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], AckModalLayout.prototype, "zIndex", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], AckModalLayout.prototype, "close", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], AckModalLayout.prototype, "allowClose", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AckModalLayout.prototype, "wrapStyle", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AckModalLayout.prototype, "wrapCellStyle", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AckModalLayout.prototype, "backgroundColor", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], AckModalLayout.prototype, "isModelMode", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], AckModalLayout.prototype, "showModel", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], AckModalLayout.prototype, "showModelChange", void 0);
-AckModalLayout = __decorate([
-    core_1.Component({
-        selector: 'ack-modal-layout',
-        template: ack_modal_layout_pug_1.string,
-        animations: ack_angular_fx_1.animations
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef,
-        AckApp_provider_1.AckApp])
-], AckModalLayout);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], AckModalLayout.prototype, "zIndex", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckModalLayout.prototype, "close", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckModalLayout.prototype, "allowClose", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckModalLayout.prototype, "wrapStyle", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckModalLayout.prototype, "wrapCellStyle", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckModalLayout.prototype, "backgroundColor", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckModalLayout.prototype, "isModelMode", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckModalLayout.prototype, "showModel", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckModalLayout.prototype, "showModelChange", void 0);
+    AckModalLayout = __decorate([
+        core_1.Component({
+            selector: 'ack-modal-layout',
+            template: ack_modal_layout_pug_1.string,
+            animations: ack_angular_fx_1.animations
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef,
+            AckApp_provider_1.AckApp])
+    ], AckModalLayout);
+    return AckModalLayout;
+}());
 exports.AckModalLayout = AckModalLayout;
 
 
@@ -933,12 +1012,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const pipes_class_1 = __webpack_require__(/*! ../pipes.class */ "../src/pipes.class.ts");
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const TemplateReader_class_1 = __webpack_require__(/*! ../TemplateReader.class */ "../src/TemplateReader.class.ts");
-const ack_options_pug_1 = __webpack_require__(/*! ./templates/ack-options.pug */ "../src/components/templates/ack-options.pug.ts");
-let AckOptions = class AckOptions {
-    constructor(ElementRef) {
+var pipes_class_1 = __webpack_require__(/*! ../pipes.class */ "../src/pipes.class.ts");
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var TemplateReader_class_1 = __webpack_require__(/*! ../TemplateReader.class */ "../src/TemplateReader.class.ts");
+var ack_options_pug_1 = __webpack_require__(/*! ./templates/ack-options.pug */ "../src/components/templates/ack-options.pug.ts");
+var AckOptions = (function () {
+    function AckOptions(ElementRef) {
         this.ElementRef = ElementRef;
         this.array = [];
         this.stylize = true;
@@ -951,21 +1030,22 @@ let AckOptions = class AckOptions {
         });
         this.modelChange = new core_1.EventEmitter();
     }
-    ngAfterViewInit() {
-        Promise.resolve().then(() => {
-            if (this.inputTemplateRefs) {
-                this.TemplateReader.readTemplates(this.inputTemplateRefs);
+    AckOptions.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        Promise.resolve().then(function () {
+            if (_this.inputTemplateRefs) {
+                _this.TemplateReader.readTemplates(_this.inputTemplateRefs);
             }
-            if (this.templateRefs) {
-                this.TemplateReader.readTemplates(this.templateRefs);
+            if (_this.templateRefs) {
+                _this.TemplateReader.readTemplates(_this.templateRefs);
             }
         });
-    }
-    selectItem(item) {
-        const value = this.getArrayItemValue(item);
-        const isArrayMode = this.multiple || this.modelAsArray;
+    };
+    AckOptions.prototype.selectItem = function (item) {
+        var value = this.getArrayItemValue(item);
+        var isArrayMode = this.multiple || this.modelAsArray;
         if (isArrayMode) {
-            const modelIndex = this.modelIndex(item);
+            var modelIndex = this.modelIndex(item);
             if (modelIndex >= 0) {
                 this.model.splice(modelIndex, 1);
             }
@@ -987,80 +1067,80 @@ let AckOptions = class AckOptions {
             }
         }
         this.emitChange();
-    }
-    emitChange() {
+    };
+    AckOptions.prototype.emitChange = function () {
         this.modelChange.emit(this.model);
-        const form = getParentByTagName(this.ElementRef.nativeElement, 'form');
+        var form = getParentByTagName(this.ElementRef.nativeElement, 'form');
         if (form)
             this.fireFormEvents(form);
-    }
-    fireFormEvents(form) {
-        let event = document.createEvent("HTMLEvents");
+    };
+    AckOptions.prototype.fireFormEvents = function (form) {
+        var event = document.createEvent("HTMLEvents");
         event.initEvent("input", true, true);
         form.dispatchEvent(event);
         event = document.createEvent("HTMLEvents");
         event.initEvent("change", true, true);
         form.dispatchEvent(event);
-    }
-    getArrayItemModel(item) {
+    };
+    AckOptions.prototype.getArrayItemModel = function (item) {
         if (this.arrayToModelKey != null) {
             if (this.arrayToModelKey == '') {
                 return item;
             }
-            const split = this.arrayToModelKey.split('.');
+            var split = this.arrayToModelKey.split('.');
             var scope = item;
             while (split.length) {
                 if (scope == null)
                     return null;
-                let key = split.shift();
+                var key = split.shift();
                 scope = scope[key];
             }
             return scope;
         }
         return this.getArrayItemValue(item);
-    }
-    getArrayItemValue(item) {
+    };
+    AckOptions.prototype.getArrayItemValue = function (item) {
         if (!this.arrayKey)
             return item;
-        let items = this.arrayKey.split('.');
+        var items = this.arrayKey.split('.');
         var scope = item;
         while (items.length) {
             if (scope == null)
                 return null;
-            let firstItem = items.shift();
+            var firstItem = items.shift();
             scope = scope[firstItem];
         }
         return scope;
-    }
-    getModelValueToArrayItem(modelValue) {
+    };
+    AckOptions.prototype.getModelValueToArrayItem = function (modelValue) {
         if (!this.modelKey)
             return modelValue;
-        let items = this.modelKey.split('.');
+        var items = this.modelKey.split('.');
         var scope = modelValue;
         while (items.length) {
             if (scope == null)
                 return null;
-            let firstItem = items.shift();
+            var firstItem = items.shift();
             scope = scope[firstItem];
         }
         return scope;
-    }
-    modelIndex(item) {
+    };
+    AckOptions.prototype.modelIndex = function (item) {
         this.model = pipes_class_1.array(this.model);
-        for (let i = this.model.length - 1; i >= 0; --i) {
-            let value = this.getArrayItemValue(item);
-            let modelValue = this.getModelValueToArrayItem(this.model[i]);
+        for (var i = this.model.length - 1; i >= 0; --i) {
+            var value = this.getArrayItemValue(item);
+            var modelValue = this.getModelValueToArrayItem(this.model[i]);
             if (value == modelValue)
                 return i;
         }
         return -1;
-    }
-    isItemSelected(item) {
+    };
+    AckOptions.prototype.isItemSelected = function (item) {
         return this.modelIndex(item) >= 0;
-    }
-    getItemClass(item) {
-        const selected = this.isItemSelected(item);
-        let string = '';
+    };
+    AckOptions.prototype.getItemClass = function (item) {
+        var selected = this.isItemSelected(item);
+        var string = '';
         if (this.stylize) {
             string += 'cursor-pointer pad-h pad-v-sm border-grey-6x border-bottom ';
         }
@@ -1071,70 +1151,71 @@ let AckOptions = class AckOptions {
             string += 'hover-bg-grey-5x ';
         }
         return string;
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AckOptions.prototype, "array", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], AckOptions.prototype, "stylize", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], AckOptions.prototype, "multiple", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], AckOptions.prototype, "modelAsArray", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], AckOptions.prototype, "max", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], AckOptions.prototype, "toggleable", void 0);
-__decorate([
-    core_1.ContentChildren(core_1.TemplateRef),
-    __metadata("design:type", Object)
-], AckOptions.prototype, "templateRefs", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AckOptions.prototype, "inputTemplateRefs", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AckOptions.prototype, "model", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], AckOptions.prototype, "modelChange", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], AckOptions.prototype, "arrayKey", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], AckOptions.prototype, "modelKey", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], AckOptions.prototype, "arrayToModelKey", void 0);
-AckOptions = __decorate([
-    core_1.Component({
-        selector: "ack-options",
-        template: ack_options_pug_1.string
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], AckOptions);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckOptions.prototype, "array", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckOptions.prototype, "stylize", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckOptions.prototype, "multiple", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckOptions.prototype, "modelAsArray", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], AckOptions.prototype, "max", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckOptions.prototype, "toggleable", void 0);
+    __decorate([
+        core_1.ContentChildren(core_1.TemplateRef),
+        __metadata("design:type", Object)
+    ], AckOptions.prototype, "templateRefs", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckOptions.prototype, "inputTemplateRefs", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckOptions.prototype, "model", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckOptions.prototype, "modelChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], AckOptions.prototype, "arrayKey", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], AckOptions.prototype, "modelKey", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], AckOptions.prototype, "arrayToModelKey", void 0);
+    AckOptions = __decorate([
+        core_1.Component({
+            selector: "ack-options",
+            template: ack_options_pug_1.string
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], AckOptions);
+    return AckOptions;
+}());
 exports.AckOptions = AckOptions;
 function getParentByTagName(node, tagname) {
-    let parent;
+    var parent;
     if (node === null || tagname === '')
         return;
     parent = node.parentNode;
@@ -1161,6 +1242,19 @@ exports.getParentByTagName = getParentByTagName;
 
 "use strict";
 
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1171,62 +1265,65 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const AckOptions_component_1 = __webpack_require__(/*! ./AckOptions.component */ "../src/components/AckOptions.component.ts");
-const ack_options_modal_pug_1 = __webpack_require__(/*! ./templates/ack-options-modal.pug */ "../src/components/templates/ack-options-modal.pug.ts");
-let AckOptionsModal = class AckOptionsModal extends AckOptions_component_1.AckOptions {
-    constructor() {
-        super(...arguments);
-        this.allowClose = true;
-        this.close = new core_1.EventEmitter();
-        this.backgroundColorChange = new core_1.EventEmitter();
-        this.showModel = true;
-        this.showModelChange = new core_1.EventEmitter();
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var AckOptions_component_1 = __webpack_require__(/*! ./AckOptions.component */ "../src/components/AckOptions.component.ts");
+var ack_options_modal_pug_1 = __webpack_require__(/*! ./templates/ack-options-modal.pug */ "../src/components/templates/ack-options-modal.pug.ts");
+var AckOptionsModal = (function (_super) {
+    __extends(AckOptionsModal, _super);
+    function AckOptionsModal() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.allowClose = true;
+        _this.close = new core_1.EventEmitter();
+        _this.backgroundColorChange = new core_1.EventEmitter();
+        _this.showModel = true;
+        _this.showModelChange = new core_1.EventEmitter();
+        return _this;
     }
-    fireModelChange(model) {
+    AckOptionsModal.prototype.fireModelChange = function (model) {
         if (!this.multiple)
             this.close.emit();
         this.modelChange.emit(model);
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], AckOptionsModal.prototype, "allowClose", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AckOptionsModal.prototype, "wrapStyle", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AckOptionsModal.prototype, "wrapCellStyle", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], AckOptionsModal.prototype, "close", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AckOptionsModal.prototype, "backgroundColor", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], AckOptionsModal.prototype, "backgroundColorChange", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], AckOptionsModal.prototype, "showModel", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], AckOptionsModal.prototype, "showModelChange", void 0);
-AckOptionsModal = __decorate([
-    core_1.Component({
-        selector: 'ack-options-modal',
-        template: ack_options_modal_pug_1.string
-    })
-], AckOptionsModal);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckOptionsModal.prototype, "allowClose", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckOptionsModal.prototype, "wrapStyle", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckOptionsModal.prototype, "wrapCellStyle", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckOptionsModal.prototype, "close", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckOptionsModal.prototype, "backgroundColor", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckOptionsModal.prototype, "backgroundColorChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckOptionsModal.prototype, "showModel", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckOptionsModal.prototype, "showModelChange", void 0);
+    AckOptionsModal = __decorate([
+        core_1.Component({
+            selector: 'ack-options-modal',
+            template: ack_options_modal_pug_1.string
+        })
+    ], AckOptionsModal);
+    return AckOptionsModal;
+}(AckOptions_component_1.AckOptions));
 exports.AckOptionsModal = AckOptionsModal;
 
 
@@ -1251,24 +1348,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const AckSections_provider_1 = __webpack_require__(/*! ../providers/AckSections.provider */ "../src/providers/AckSections.provider.ts");
-let AckSectionTemplates = class AckSectionTemplates {
-    constructor(SectionProvider) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var AckSections_provider_1 = __webpack_require__(/*! ../providers/AckSections.provider */ "../src/providers/AckSections.provider.ts");
+var AckSectionTemplates = (function () {
+    function AckSectionTemplates(SectionProvider) {
         this.SectionProvider = SectionProvider;
     }
-    ngAfterViewInit() {
-        Promise.resolve().then(() => {
-            this.check();
-            this.inited = true;
+    AckSectionTemplates.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        Promise.resolve().then(function () {
+            _this.check();
+            _this.inited = true;
         });
-    }
-    ngOnChanges() {
+    };
+    AckSectionTemplates.prototype.ngOnChanges = function () {
         if (this.inited) {
             this.check();
         }
-    }
-    check() {
+    };
+    AckSectionTemplates.prototype.check = function () {
         if (this.pushed)
             return;
         if (this.header) {
@@ -1284,40 +1382,42 @@ let AckSectionTemplates = class AckSectionTemplates {
             this.SectionProvider.rightBodyTemplates.unshift(this.rightBody);
         }
         this.pushed = true;
-    }
-    ngOnDestroy() {
-        Promise.resolve().then(() => this.unregister());
-    }
-    unregister() {
+    };
+    AckSectionTemplates.prototype.ngOnDestroy = function () {
+        var _this = this;
+        Promise.resolve().then(function () { return _this.unregister(); });
+    };
+    AckSectionTemplates.prototype.unregister = function () {
         this.pushed = false;
         this.SectionProvider.unregisterHeaderTemplate(this.header);
         this.SectionProvider.unregisterFooterTemplate(this.footer);
         this.SectionProvider.unregisterTemplate(this.leftBody);
         this.SectionProvider.unregisterTemplate(this.rightBody);
-    }
-};
-__decorate([
-    core_1.ContentChild('sectionHeader'),
-    __metadata("design:type", core_1.TemplateRef)
-], AckSectionTemplates.prototype, "header", void 0);
-__decorate([
-    core_1.ContentChild('sectionFooter'),
-    __metadata("design:type", core_1.TemplateRef)
-], AckSectionTemplates.prototype, "footer", void 0);
-__decorate([
-    core_1.ContentChild('sectionLeftBody'),
-    __metadata("design:type", core_1.TemplateRef)
-], AckSectionTemplates.prototype, "leftBody", void 0);
-__decorate([
-    core_1.ContentChild('sectionRightBody'),
-    __metadata("design:type", core_1.TemplateRef)
-], AckSectionTemplates.prototype, "rightBody", void 0);
-AckSectionTemplates = __decorate([
-    core_1.Directive({
-        selector: "ack-section-templates"
-    }),
-    __metadata("design:paramtypes", [AckSections_provider_1.SectionProvider])
-], AckSectionTemplates);
+    };
+    __decorate([
+        core_1.ContentChild('sectionHeader'),
+        __metadata("design:type", core_1.TemplateRef)
+    ], AckSectionTemplates.prototype, "header", void 0);
+    __decorate([
+        core_1.ContentChild('sectionFooter'),
+        __metadata("design:type", core_1.TemplateRef)
+    ], AckSectionTemplates.prototype, "footer", void 0);
+    __decorate([
+        core_1.ContentChild('sectionLeftBody'),
+        __metadata("design:type", core_1.TemplateRef)
+    ], AckSectionTemplates.prototype, "leftBody", void 0);
+    __decorate([
+        core_1.ContentChild('sectionRightBody'),
+        __metadata("design:type", core_1.TemplateRef)
+    ], AckSectionTemplates.prototype, "rightBody", void 0);
+    AckSectionTemplates = __decorate([
+        core_1.Directive({
+            selector: "ack-section-templates"
+        }),
+        __metadata("design:paramtypes", [AckSections_provider_1.SectionProvider])
+    ], AckSectionTemplates);
+    return AckSectionTemplates;
+}());
 exports.AckSectionTemplates = AckSectionTemplates;
 
 
@@ -1342,57 +1442,58 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const AckSections_provider_1 = __webpack_require__(/*! ../providers/AckSections.provider */ "../src/providers/AckSections.provider.ts");
-const ack_sections_pug_1 = __webpack_require__(/*! ./templates/ack-sections.pug */ "../src/components/templates/ack-sections.pug.ts");
-let AckSections = class AckSections {
-    constructor(SectionProvider, ElementRef) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var AckSections_provider_1 = __webpack_require__(/*! ../providers/AckSections.provider */ "../src/providers/AckSections.provider.ts");
+var ack_sections_pug_1 = __webpack_require__(/*! ./templates/ack-sections.pug */ "../src/components/templates/ack-sections.pug.ts");
+var AckSections = (function () {
+    function AckSections(SectionProvider, ElementRef) {
         this.SectionProvider = SectionProvider;
         this.ElementRef = ElementRef;
         this.mode = "calculate";
         this.zIndex = 19;
-        const elmStyle = ElementRef.nativeElement.style;
+        var elmStyle = ElementRef.nativeElement.style;
         elmStyle.height = "100%";
         elmStyle.display = "block";
     }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], AckSections.prototype, "mode", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], AckSections.prototype, "zIndex", void 0);
-__decorate([
-    core_1.ContentChild("table"),
-    __metadata("design:type", core_1.TemplateRef)
-], AckSections.prototype, "table", void 0);
-__decorate([
-    core_1.ContentChild("headerWrap"),
-    __metadata("design:type", core_1.TemplateRef)
-], AckSections.prototype, "headerWrap", void 0);
-__decorate([
-    core_1.ContentChild("bodyCell"),
-    __metadata("design:type", core_1.TemplateRef)
-], AckSections.prototype, "bodyCell", void 0);
-__decorate([
-    core_1.ContentChild("leftBodyWrap"),
-    __metadata("design:type", core_1.TemplateRef)
-], AckSections.prototype, "leftBodyWrap", void 0);
-__decorate([
-    core_1.ContentChild("rightBodyWrap"),
-    __metadata("design:type", core_1.TemplateRef)
-], AckSections.prototype, "rightBodyWrap", void 0);
-AckSections = __decorate([
-    core_1.Component({
-        selector: 'ack-sections',
-        template: ack_sections_pug_1.string,
-        providers: [AckSections_provider_1.SectionProvider]
-    }),
-    __metadata("design:paramtypes", [AckSections_provider_1.SectionProvider,
-        core_1.ElementRef])
-], AckSections);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], AckSections.prototype, "mode", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], AckSections.prototype, "zIndex", void 0);
+    __decorate([
+        core_1.ContentChild("table"),
+        __metadata("design:type", core_1.TemplateRef)
+    ], AckSections.prototype, "table", void 0);
+    __decorate([
+        core_1.ContentChild("headerWrap"),
+        __metadata("design:type", core_1.TemplateRef)
+    ], AckSections.prototype, "headerWrap", void 0);
+    __decorate([
+        core_1.ContentChild("bodyCell"),
+        __metadata("design:type", core_1.TemplateRef)
+    ], AckSections.prototype, "bodyCell", void 0);
+    __decorate([
+        core_1.ContentChild("leftBodyWrap"),
+        __metadata("design:type", core_1.TemplateRef)
+    ], AckSections.prototype, "leftBodyWrap", void 0);
+    __decorate([
+        core_1.ContentChild("rightBodyWrap"),
+        __metadata("design:type", core_1.TemplateRef)
+    ], AckSections.prototype, "rightBodyWrap", void 0);
+    AckSections = __decorate([
+        core_1.Component({
+            selector: 'ack-sections',
+            template: ack_sections_pug_1.string,
+            providers: [AckSections_provider_1.SectionProvider]
+        }),
+        __metadata("design:paramtypes", [AckSections_provider_1.SectionProvider,
+            core_1.ElementRef])
+    ], AckSections);
+    return AckSections;
+}());
 exports.AckSections = AckSections;
 
 
@@ -1417,66 +1518,67 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
-const error_well_pug_1 = __webpack_require__(/*! ./templates/error-well.pug */ "../src/components/templates/error-well.pug.ts");
-let ErrorWell = class ErrorWell {
-    constructor() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
+var error_well_pug_1 = __webpack_require__(/*! ./templates/error-well.pug */ "../src/components/templates/error-well.pug.ts");
+var ErrorWell = (function () {
+    function ErrorWell() {
         this.message = 'Unexpected Error Occured';
         this.closable = true;
         this.allowDetails = true;
         this.close = new core_1.EventEmitter();
     }
-    ngOnInit() {
+    ErrorWell.prototype.ngOnInit = function () {
         this.cssClasses = this.cssClasses || 'bg-danger border border-danger text-danger';
-    }
-    getErrorMessage(error) {
+    };
+    ErrorWell.prototype.getErrorMessage = function (error) {
         if (!error)
             return this.message;
         if (typeof error == 'string')
             return error;
         return error.message || error["statusText"] || this.message;
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], ErrorWell.prototype, "moreDetails", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], ErrorWell.prototype, "message", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Error)
-], ErrorWell.prototype, "error", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], ErrorWell.prototype, "cssClasses", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], ErrorWell.prototype, "closable", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], ErrorWell.prototype, "allowDetails", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], ErrorWell.prototype, "close", void 0);
-__decorate([
-    core_1.ContentChild("titleFooter"),
-    __metadata("design:type", core_1.TemplateRef)
-], ErrorWell.prototype, "titleFooter", void 0);
-ErrorWell = __decorate([
-    core_1.Component({
-        selector: 'error-well',
-        template: error_well_pug_1.string,
-        animations: ack_angular_fx_1.animations
-    })
-], ErrorWell);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], ErrorWell.prototype, "moreDetails", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], ErrorWell.prototype, "message", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Error)
+    ], ErrorWell.prototype, "error", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], ErrorWell.prototype, "cssClasses", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], ErrorWell.prototype, "closable", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], ErrorWell.prototype, "allowDetails", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], ErrorWell.prototype, "close", void 0);
+    __decorate([
+        core_1.ContentChild("titleFooter"),
+        __metadata("design:type", core_1.TemplateRef)
+    ], ErrorWell.prototype, "titleFooter", void 0);
+    ErrorWell = __decorate([
+        core_1.Component({
+            selector: 'error-well',
+            template: error_well_pug_1.string,
+            animations: ack_angular_fx_1.animations
+        })
+    ], ErrorWell);
+    return ErrorWell;
+}());
 exports.ErrorWell = ErrorWell;
 
 
@@ -1501,46 +1603,53 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const reader_header_body_pug_1 = __webpack_require__(/*! ./templates/reader-header-body.pug */ "../src/components/templates/reader-header-body.pug.ts");
-let ReaderHeaderBody = class ReaderHeaderBody {
-};
-__decorate([
-    core_1.ContentChild('reader-header'),
-    __metadata("design:type", core_1.TemplateRef)
-], ReaderHeaderBody.prototype, "readerHeader", void 0);
-ReaderHeaderBody = __decorate([
-    core_1.Component({
-        selector: 'reader-header-body',
-        template: reader_header_body_pug_1.string
-    })
-], ReaderHeaderBody);
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var reader_header_body_pug_1 = __webpack_require__(/*! ./templates/reader-header-body.pug */ "../src/components/templates/reader-header-body.pug.ts");
+var ReaderHeaderBody = (function () {
+    function ReaderHeaderBody() {
+    }
+    __decorate([
+        core_1.ContentChild('reader-header'),
+        __metadata("design:type", core_1.TemplateRef)
+    ], ReaderHeaderBody.prototype, "readerHeader", void 0);
+    ReaderHeaderBody = __decorate([
+        core_1.Component({
+            selector: 'reader-header-body',
+            template: reader_header_body_pug_1.string
+        })
+    ], ReaderHeaderBody);
+    return ReaderHeaderBody;
+}());
 exports.ReaderHeaderBody = ReaderHeaderBody;
-let ReaderHeader = class ReaderHeader {
-};
-ReaderHeader = __decorate([
-    core_1.Directive({
-        selector: 'reader-header'
-    })
-], ReaderHeader);
+var ReaderHeader = (function () {
+    function ReaderHeader() {
+    }
+    ReaderHeader = __decorate([
+        core_1.Directive({
+            selector: 'reader-header'
+        })
+    ], ReaderHeader);
+    return ReaderHeader;
+}());
 exports.ReaderHeader = ReaderHeader;
-let ReaderBody = class ReaderBody {
-    constructor(element) {
+var ReaderBody = (function () {
+    function ReaderBody(element) {
         this.element = element;
         element.nativeElement.style.height = '100%';
         element.nativeElement.style.display = 'block';
     }
-};
-__decorate([
-    core_1.ContentChild('reader-header'),
-    __metadata("design:type", core_1.TemplateRef)
-], ReaderBody.prototype, "readerHeader", void 0);
-ReaderBody = __decorate([
-    core_1.Directive({
-        selector: "reader-body"
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], ReaderBody);
+    __decorate([
+        core_1.ContentChild('reader-header'),
+        __metadata("design:type", core_1.TemplateRef)
+    ], ReaderBody.prototype, "readerHeader", void 0);
+    ReaderBody = __decorate([
+        core_1.Directive({
+            selector: "reader-body"
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], ReaderBody);
+    return ReaderBody;
+}());
 exports.ReaderBody = ReaderBody;
 
 
@@ -1565,31 +1674,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const scroll_past_fixed_pug_1 = __webpack_require__(/*! ./templates/scroll-past-fixed.pug */ "../src/components/templates/scroll-past-fixed.pug.ts");
-let ScrollPastFixed = class ScrollPastFixed {
-    constructor(ElementRef) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var scroll_past_fixed_pug_1 = __webpack_require__(/*! ./templates/scroll-past-fixed.pug */ "../src/components/templates/scroll-past-fixed.pug.ts");
+var ScrollPastFixed = (function () {
+    function ScrollPastFixed(ElementRef) {
         this.ElementRef = ElementRef;
     }
-    getReadElement() {
-        const children = this.ElementRef.nativeElement.children;
+    ScrollPastFixed.prototype.getReadElement = function () {
+        var children = this.ElementRef.nativeElement.children;
         return children[children.length - 2];
-    }
-    init() {
-        this.onScroll = () => this.check();
+    };
+    ScrollPastFixed.prototype.init = function () {
+        var _this = this;
+        this.onScroll = function () { return _this.check(); };
         window.addEventListener("scroll", this.onScroll);
         this.onScroll();
-    }
-    ngAfterViewInit() {
-        Promise.resolve().then(() => this.init());
-    }
-    check() {
-        const scrollPos = window['pageYOffset'];
+    };
+    ScrollPastFixed.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        Promise.resolve().then(function () { return _this.init(); });
+    };
+    ScrollPastFixed.prototype.check = function () {
+        var scrollPos = window['pageYOffset'];
         if (this.placeholder && this.placeholder <= scrollPos) {
             return;
         }
-        const elm = this.getReadElement();
-        const offsetTop = this.placeholder || getDistanceFromTop(elm);
+        var elm = this.getReadElement();
+        var offsetTop = this.placeholder || getDistanceFromTop(elm);
         if (offsetTop <= scrollPos) {
             this.currentPosition = 'fixed';
             this.placeholder = offsetTop;
@@ -1600,22 +1711,23 @@ let ScrollPastFixed = class ScrollPastFixed {
             delete this.placeholder;
             delete this.currentPosition;
         }
-    }
-};
-__decorate([
-    core_1.ViewChild('template'),
-    __metadata("design:type", core_1.TemplateRef)
-], ScrollPastFixed.prototype, "template", void 0);
-ScrollPastFixed = __decorate([
-    core_1.Component({
-        selector: 'scroll-past-fixed',
-        template: scroll_past_fixed_pug_1.string
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], ScrollPastFixed);
+    };
+    __decorate([
+        core_1.ViewChild('template'),
+        __metadata("design:type", core_1.TemplateRef)
+    ], ScrollPastFixed.prototype, "template", void 0);
+    ScrollPastFixed = __decorate([
+        core_1.Component({
+            selector: 'scroll-past-fixed',
+            template: scroll_past_fixed_pug_1.string
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], ScrollPastFixed);
+    return ScrollPastFixed;
+}());
 exports.ScrollPastFixed = ScrollPastFixed;
 function getDistanceFromTop(element) {
-    let yPos = 0;
+    var yPos = 0;
     while (element) {
         yPos += (element.offsetTop);
         element = element.offsetParent;
@@ -1796,90 +1908,95 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const AckSections_component_1 = __webpack_require__(/*! ./components/AckSections.component */ "../src/components/AckSections.component.ts");
-const AckSectionTemplates_component_1 = __webpack_require__(/*! ./components/AckSectionTemplates.component */ "../src/components/AckSectionTemplates.component.ts");
-const AckModal_component_1 = __webpack_require__(/*! ./components/AckModal.component */ "../src/components/AckModal.component.ts");
-const AckModalLayout_component_1 = __webpack_require__(/*! ./components/AckModalLayout.component */ "../src/components/AckModalLayout.component.ts");
-const AckCloseIcon_component_1 = __webpack_require__(/*! ./components/AckCloseIcon.component */ "../src/components/AckCloseIcon.component.ts");
-const AckOptions_component_1 = __webpack_require__(/*! ./components/AckOptions.component */ "../src/components/AckOptions.component.ts");
-const AckOptionsModal_component_1 = __webpack_require__(/*! ./components/AckOptionsModal.component */ "../src/components/AckOptionsModal.component.ts");
-const AbsoluteOverflowX_component_1 = __webpack_require__(/*! ./components/AbsoluteOverflowX.component */ "../src/components/AbsoluteOverflowX.component.ts");
-const ErrorWell_component_1 = __webpack_require__(/*! ./components/ErrorWell.component */ "../src/components/ErrorWell.component.ts");
-const AckFixedElementStage_component_1 = __webpack_require__(/*! ./components/AckFixedElementStage.component */ "../src/components/AckFixedElementStage.component.ts");
-const ReaderHeaderBody_component_1 = __webpack_require__(/*! ./components/ReaderHeaderBody.component */ "../src/components/ReaderHeaderBody.component.ts");
-const AckArray_directive_1 = __webpack_require__(/*! ./directives/AckArray.directive */ "../src/directives/AckArray.directive.ts");
-const AckAggregate_directive_1 = __webpack_require__(/*! ./directives/AckAggregate.directive */ "../src/directives/AckAggregate.directive.ts");
-const ScrollPastFixed_component_1 = __webpack_require__(/*! ./components/ScrollPastFixed.component */ "../src/components/ScrollPastFixed.component.ts");
-const ShakeOn_directive_1 = __webpack_require__(/*! ./directives/ShakeOn.directive */ "../src/directives/ShakeOn.directive.ts");
-const FxOn_directive_1 = __webpack_require__(/*! ./directives/FxOn.directive */ "../src/directives/FxOn.directive.ts");
-const FocusOn_directive_1 = __webpack_require__(/*! ./directives/FocusOn.directive */ "../src/directives/FocusOn.directive.ts");
-const Init_directive_1 = __webpack_require__(/*! ./directives/Init.directive */ "../src/directives/Init.directive.ts");
-const SelectOn_directive_1 = __webpack_require__(/*! ./directives/SelectOn.directive */ "../src/directives/SelectOn.directive.ts");
-const InnerHtmlModel_directive_1 = __webpack_require__(/*! ./directives/InnerHtmlModel.directive */ "../src/directives/InnerHtmlModel.directive.ts");
-const ReplaceModel_directive_1 = __webpack_require__(/*! ./directives/ReplaceModel.directive */ "../src/directives/ReplaceModel.directive.ts");
-const ElementSizeModel_directive_1 = __webpack_require__(/*! ./directives/ElementSizeModel.directive */ "../src/directives/ElementSizeModel.directive.ts");
-const ScreenScrollHeightDiff_directive_1 = __webpack_require__(/*! ./directives/ScreenScrollHeightDiff.directive */ "../src/directives/ScreenScrollHeightDiff.directive.ts");
-const ScreenScroll_directive_1 = __webpack_require__(/*! ./directives/ScreenScroll.directive */ "../src/directives/ScreenScroll.directive.ts");
-const PxFromHtmlTop_directive_1 = __webpack_require__(/*! ./directives/PxFromHtmlTop.directive */ "../src/directives/PxFromHtmlTop.directive.ts");
-const ScreenScrollModelY_directive_1 = __webpack_require__(/*! ./directives/ScreenScrollModelY.directive */ "../src/directives/ScreenScrollModelY.directive.ts");
-const ScreenWidthModel_directive_1 = __webpack_require__(/*! ./directives/ScreenWidthModel.directive */ "../src/directives/ScreenWidthModel.directive.ts");
-const ScreenHeightModel_directive_1 = __webpack_require__(/*! ./directives/ScreenHeightModel.directive */ "../src/directives/ScreenHeightModel.directive.ts");
-const HtmlWidthModel_directive_1 = __webpack_require__(/*! ./directives/HtmlWidthModel.directive */ "../src/directives/HtmlWidthModel.directive.ts");
-const HtmlHeightModel_directive_1 = __webpack_require__(/*! ./directives/HtmlHeightModel.directive */ "../src/directives/HtmlHeightModel.directive.ts");
-const StatusOnlineModel_directive_1 = __webpack_require__(/*! ./directives/StatusOnlineModel.directive */ "../src/directives/StatusOnlineModel.directive.ts");
-const StatusOfflineModel_directive_1 = __webpack_require__(/*! ./directives/StatusOfflineModel.directive */ "../src/directives/StatusOfflineModel.directive.ts");
-const VarDirective_directive_1 = __webpack_require__(/*! ./directives/VarDirective.directive */ "../src/directives/VarDirective.directive.ts");
-let EnterKey = class EnterKey {
-    constructor(element) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var AckSections_component_1 = __webpack_require__(/*! ./components/AckSections.component */ "../src/components/AckSections.component.ts");
+var AckSectionTemplates_component_1 = __webpack_require__(/*! ./components/AckSectionTemplates.component */ "../src/components/AckSectionTemplates.component.ts");
+var AckModal_component_1 = __webpack_require__(/*! ./components/AckModal.component */ "../src/components/AckModal.component.ts");
+var AckModalLayout_component_1 = __webpack_require__(/*! ./components/AckModalLayout.component */ "../src/components/AckModalLayout.component.ts");
+var AckCloseIcon_component_1 = __webpack_require__(/*! ./components/AckCloseIcon.component */ "../src/components/AckCloseIcon.component.ts");
+var AckOptions_component_1 = __webpack_require__(/*! ./components/AckOptions.component */ "../src/components/AckOptions.component.ts");
+var AckOptionsModal_component_1 = __webpack_require__(/*! ./components/AckOptionsModal.component */ "../src/components/AckOptionsModal.component.ts");
+var AbsoluteOverflowX_component_1 = __webpack_require__(/*! ./components/AbsoluteOverflowX.component */ "../src/components/AbsoluteOverflowX.component.ts");
+var ErrorWell_component_1 = __webpack_require__(/*! ./components/ErrorWell.component */ "../src/components/ErrorWell.component.ts");
+var AckFixedElementStage_component_1 = __webpack_require__(/*! ./components/AckFixedElementStage.component */ "../src/components/AckFixedElementStage.component.ts");
+var ReaderHeaderBody_component_1 = __webpack_require__(/*! ./components/ReaderHeaderBody.component */ "../src/components/ReaderHeaderBody.component.ts");
+var AckArray_directive_1 = __webpack_require__(/*! ./directives/AckArray.directive */ "../src/directives/AckArray.directive.ts");
+var AckAggregate_directive_1 = __webpack_require__(/*! ./directives/AckAggregate.directive */ "../src/directives/AckAggregate.directive.ts");
+var ScrollPastFixed_component_1 = __webpack_require__(/*! ./components/ScrollPastFixed.component */ "../src/components/ScrollPastFixed.component.ts");
+var ShakeOn_directive_1 = __webpack_require__(/*! ./directives/ShakeOn.directive */ "../src/directives/ShakeOn.directive.ts");
+var FxOn_directive_1 = __webpack_require__(/*! ./directives/FxOn.directive */ "../src/directives/FxOn.directive.ts");
+var FocusOn_directive_1 = __webpack_require__(/*! ./directives/FocusOn.directive */ "../src/directives/FocusOn.directive.ts");
+var Init_directive_1 = __webpack_require__(/*! ./directives/Init.directive */ "../src/directives/Init.directive.ts");
+var SelectOn_directive_1 = __webpack_require__(/*! ./directives/SelectOn.directive */ "../src/directives/SelectOn.directive.ts");
+var InnerHtmlModel_directive_1 = __webpack_require__(/*! ./directives/InnerHtmlModel.directive */ "../src/directives/InnerHtmlModel.directive.ts");
+var ReplaceModel_directive_1 = __webpack_require__(/*! ./directives/ReplaceModel.directive */ "../src/directives/ReplaceModel.directive.ts");
+var ElementSizeModel_directive_1 = __webpack_require__(/*! ./directives/ElementSizeModel.directive */ "../src/directives/ElementSizeModel.directive.ts");
+var ScreenScrollHeightDiff_directive_1 = __webpack_require__(/*! ./directives/ScreenScrollHeightDiff.directive */ "../src/directives/ScreenScrollHeightDiff.directive.ts");
+var ScreenScroll_directive_1 = __webpack_require__(/*! ./directives/ScreenScroll.directive */ "../src/directives/ScreenScroll.directive.ts");
+var PxFromHtmlTop_directive_1 = __webpack_require__(/*! ./directives/PxFromHtmlTop.directive */ "../src/directives/PxFromHtmlTop.directive.ts");
+var ScreenScrollModelY_directive_1 = __webpack_require__(/*! ./directives/ScreenScrollModelY.directive */ "../src/directives/ScreenScrollModelY.directive.ts");
+var ScreenWidthModel_directive_1 = __webpack_require__(/*! ./directives/ScreenWidthModel.directive */ "../src/directives/ScreenWidthModel.directive.ts");
+var ScreenHeightModel_directive_1 = __webpack_require__(/*! ./directives/ScreenHeightModel.directive */ "../src/directives/ScreenHeightModel.directive.ts");
+var HtmlWidthModel_directive_1 = __webpack_require__(/*! ./directives/HtmlWidthModel.directive */ "../src/directives/HtmlWidthModel.directive.ts");
+var HtmlHeightModel_directive_1 = __webpack_require__(/*! ./directives/HtmlHeightModel.directive */ "../src/directives/HtmlHeightModel.directive.ts");
+var StatusOnlineModel_directive_1 = __webpack_require__(/*! ./directives/StatusOnlineModel.directive */ "../src/directives/StatusOnlineModel.directive.ts");
+var StatusOfflineModel_directive_1 = __webpack_require__(/*! ./directives/StatusOfflineModel.directive */ "../src/directives/StatusOfflineModel.directive.ts");
+var VarDirective_directive_1 = __webpack_require__(/*! ./directives/VarDirective.directive */ "../src/directives/VarDirective.directive.ts");
+var EnterKey = (function () {
+    function EnterKey(element) {
+        var _this = this;
         this.element = element;
         this.enterKey = new core_1.EventEmitter();
-        element.nativeElement.addEventListener('keydown', (event) => {
+        element.nativeElement.addEventListener('keydown', function (event) {
             var yesNo = [13, 10].indexOf(event.which || event.keyCode) >= 0;
             if (yesNo) {
-                this.enterKey.emit(event);
+                _this.enterKey.emit(event);
             }
         });
     }
-};
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], EnterKey.prototype, "enterKey", void 0);
-EnterKey = __decorate([
-    core_1.Directive({ selector: '[enterKey]' }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], EnterKey);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], EnterKey.prototype, "enterKey", void 0);
+    EnterKey = __decorate([
+        core_1.Directive({ selector: '[enterKey]' }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], EnterKey);
+    return EnterKey;
+}());
 exports.EnterKey = EnterKey;
-let EscapeKey = class EscapeKey {
-    constructor(element) {
+var EscapeKey = (function () {
+    function EscapeKey(element) {
+        var _this = this;
         this.element = element;
         this.escapeKey = new core_1.EventEmitter();
-        element.nativeElement.addEventListener('keydown', (event) => {
-            const code = event.which || event.keyCode;
+        element.nativeElement.addEventListener('keydown', function (event) {
+            var code = event.which || event.keyCode;
             if (code == 27) {
-                this.escapeKey.emit(event);
+                _this.escapeKey.emit(event);
             }
         });
     }
-};
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], EscapeKey.prototype, "escapeKey", void 0);
-EscapeKey = __decorate([
-    core_1.Directive({ selector: '[escapeKey]' }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], EscapeKey);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], EscapeKey.prototype, "escapeKey", void 0);
+    EscapeKey = __decorate([
+        core_1.Directive({ selector: '[escapeKey]' }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], EscapeKey);
+    return EscapeKey;
+}());
 exports.EscapeKey = EscapeKey;
-let PreventBackKey = class PreventBackKey {
-    constructor(element) {
+var PreventBackKey = (function () {
+    function PreventBackKey(element) {
+        var _this = this;
         this.element = element;
         this.preventBackKey = new core_1.EventEmitter();
-        element.nativeElement.addEventListener('keydown', (event) => {
+        element.nativeElement.addEventListener('keydown', function (event) {
             var yesNo = [8].indexOf(event.which || event.keyCode) < 0;
             if (!yesNo) {
-                this.preventBackKey.emit(event);
+                _this.preventBackKey.emit(event);
                 if (event.preventDefault) {
                     event.preventDefault();
                 }
@@ -1887,24 +2004,26 @@ let PreventBackKey = class PreventBackKey {
             return yesNo;
         });
     }
-};
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], PreventBackKey.prototype, "preventBackKey", void 0);
-PreventBackKey = __decorate([
-    core_1.Directive({ selector: '[preventBackKey]' }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], PreventBackKey);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], PreventBackKey.prototype, "preventBackKey", void 0);
+    PreventBackKey = __decorate([
+        core_1.Directive({ selector: '[preventBackKey]' }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], PreventBackKey);
+    return PreventBackKey;
+}());
 exports.PreventBackKey = PreventBackKey;
-let PreventEnterKey = class PreventEnterKey {
-    constructor(element) {
+var PreventEnterKey = (function () {
+    function PreventEnterKey(element) {
+        var _this = this;
         this.element = element;
         this.preventEnterKey = new core_1.EventEmitter();
-        element.nativeElement.addEventListener('keydown', (event) => {
+        element.nativeElement.addEventListener('keydown', function (event) {
             var yesNo = [13, 10].indexOf(event.which || event.keyCode) < 0;
             if (!yesNo) {
-                this.preventEnterKey.emit(event);
+                _this.preventEnterKey.emit(event);
                 if (event.preventDefault) {
                     event.preventDefault();
                 }
@@ -1912,81 +2031,87 @@ let PreventEnterKey = class PreventEnterKey {
             return yesNo;
         });
     }
-};
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], PreventEnterKey.prototype, "preventEnterKey", void 0);
-PreventEnterKey = __decorate([
-    core_1.Directive({ selector: '[preventEnterKey]' }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], PreventEnterKey);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], PreventEnterKey.prototype, "preventEnterKey", void 0);
+    PreventEnterKey = __decorate([
+        core_1.Directive({ selector: '[preventEnterKey]' }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], PreventEnterKey);
+    return PreventEnterKey;
+}());
 exports.PreventEnterKey = PreventEnterKey;
-let InputHint = class InputHint {
-    constructor() {
+var InputHint = (function () {
+    function InputHint() {
         this.hintStyle = { 'font-size': '75%', 'color': '#BBB' };
     }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], InputHint.prototype, "hintStyle", void 0);
-InputHint = __decorate([
-    core_1.Component({
-        selector: 'input-hint',
-        template: '<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
-    })
-], InputHint);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], InputHint.prototype, "hintStyle", void 0);
+    InputHint = __decorate([
+        core_1.Component({
+            selector: 'input-hint',
+            template: '<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
+        })
+    ], InputHint);
+    return InputHint;
+}());
 exports.InputHint = InputHint;
-let FormChanged = class FormChanged {
-    constructor(element) {
+var FormChanged = (function () {
+    function FormChanged(element) {
+        var _this = this;
         this.element = element;
         this.formChanged = new core_1.EventEmitter();
-        this.onChange = (event) => {
-            this.formChanged.emit(event);
+        this.onChange = function (event) {
+            _this.formChanged.emit(event);
         };
         element.nativeElement.addEventListener('change', this.onChange);
     }
-    ngOnDestroy() {
+    FormChanged.prototype.ngOnDestroy = function () {
         this.element.nativeElement.removeEventListener('change', this.onChange);
-    }
-};
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], FormChanged.prototype, "formChanged", void 0);
-FormChanged = __decorate([
-    core_1.Directive({
-        selector: '[formChanged]'
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], FormChanged);
+    };
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], FormChanged.prototype, "formChanged", void 0);
+    FormChanged = __decorate([
+        core_1.Directive({
+            selector: '[formChanged]'
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], FormChanged);
+    return FormChanged;
+}());
 exports.FormChanged = FormChanged;
-let FormAlter = class FormAlter {
-    constructor(element) {
+var FormAlter = (function () {
+    function FormAlter(element) {
+        var _this = this;
         this.element = element;
         this.formAlter = new core_1.EventEmitter();
-        this.onChange = (event) => {
-            this.formAlter.emit(event);
+        this.onChange = function (event) {
+            _this.formAlter.emit(event);
         };
         element.nativeElement.addEventListener('input', this.onChange);
         element.nativeElement.addEventListener('change', this.onChange);
     }
-    ngOnDestroy() {
+    FormAlter.prototype.ngOnDestroy = function () {
         this.element.nativeElement.removeEventListener('change', this.onChange);
         this.element.nativeElement.removeEventListener('input', this.onChange);
-    }
-};
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], FormAlter.prototype, "formAlter", void 0);
-FormAlter = __decorate([
-    core_1.Directive({
-        selector: '[formAlter]'
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], FormAlter);
+    };
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], FormAlter.prototype, "formAlter", void 0);
+    FormAlter = __decorate([
+        core_1.Directive({
+            selector: '[formAlter]'
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], FormAlter);
+    return FormAlter;
+}());
 exports.FormAlter = FormAlter;
 exports.screenDirectives = [
     ScreenScrollModelY_directive_1.ScreenScrollModelY,
@@ -2009,8 +2134,8 @@ exports.declarations = [
     EnterKey,
     EscapeKey,
     PreventBackKey,
-    PreventEnterKey,
-    ...exports.screenDirectives,
+    PreventEnterKey
+].concat(exports.screenDirectives, [
     HtmlWidthModel_directive_1.HtmlWidthModel,
     HtmlHeightModel_directive_1.HtmlHeightModel,
     ShakeOn_directive_1.ShakeOn,
@@ -2036,7 +2161,7 @@ exports.declarations = [
     AckArray_directive_1.AckArray,
     AckAggregate_directive_1.AckAggregate,
     AckFixedElementStage_component_1.AckFixedElementStage
-];
+]);
 
 
 /***/ }),
@@ -2060,33 +2185,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let AckAggregate = class AckAggregate {
-    constructor() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var AckAggregate = (function () {
+    function AckAggregate() {
         this.outputChange = new core_1.EventEmitter();
     }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], AckAggregate.prototype, "type", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Array)
-], AckAggregate.prototype, "keys", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], AckAggregate.prototype, "output", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], AckAggregate.prototype, "outputChange", void 0);
-AckAggregate = __decorate([
-    core_1.Directive({
-        selector: 'ack-aggregate'
-    })
-], AckAggregate);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], AckAggregate.prototype, "type", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Array)
+    ], AckAggregate.prototype, "keys", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], AckAggregate.prototype, "output", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckAggregate.prototype, "outputChange", void 0);
+    AckAggregate = __decorate([
+        core_1.Directive({
+            selector: 'ack-aggregate'
+        })
+    ], AckAggregate);
+    return AckAggregate;
+}());
 exports.AckAggregate = AckAggregate;
 
 
@@ -2111,10 +2237,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const AckAggregate_directive_1 = __webpack_require__(/*! ./AckAggregate.directive */ "../src/directives/AckAggregate.directive.ts");
-let AckArray = class AckArray {
-    constructor(_iterableDiffers) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var AckAggregate_directive_1 = __webpack_require__(/*! ./AckAggregate.directive */ "../src/directives/AckAggregate.directive.ts");
+var AckArray = (function () {
+    function AckArray(_iterableDiffers) {
         this._iterableDiffers = _iterableDiffers;
         this.pushed = {};
         this.inSort = false;
@@ -2128,186 +2254,201 @@ let AckArray = class AckArray {
         this.loopStart = new core_1.EventEmitter();
         this.loopEach = new core_1.EventEmitter();
         this.loopEnd = new core_1.EventEmitter();
-        const f = this._iterableDiffers.find([]);
+        var f = this._iterableDiffers.find([]);
         this.iterableDiffer = f.create();
     }
-    ngOnInit() {
+    AckArray.prototype.ngOnInit = function () {
+        var _this = this;
         if (this.keyMapChange.observers.length) {
             if (!this.keyMap) {
-                Promise.resolve().then(() => {
-                    this.keyMap = {};
-                    this.keyMapChange.emit(this.keyMap);
+                Promise.resolve().then(function () {
+                    _this.keyMap = {};
+                    _this.keyMapChange.emit(_this.keyMap);
                 });
             }
             this.pushCreateMap();
         }
-    }
-    ngAfterViewInit() {
+    };
+    AckArray.prototype.ngAfterViewInit = function () {
+        var _this = this;
         if (this.AckAggregates) {
             this.pushAggregates(this.AckAggregates);
         }
         this.inited = true;
-        Promise.resolve().then(() => this.loop(true));
-    }
-    ngDoCheck() {
+        Promise.resolve().then(function () {
+            return _this.loop(true);
+        });
+    };
+    AckArray.prototype.ngDoCheck = function () {
+        var _this = this;
         if (!this.inited)
             return;
-        let changes = this.iterableDiffer.diff(this.array);
+        var changes = this.iterableDiffer.diff(this.array);
         if (changes) {
-            Promise.resolve().then(() => this.loop(false));
+            Promise.resolve().then(function () {
+                return _this.loop(false);
+            });
         }
-    }
-    ngOnChanges(changes) {
-        let loop = changes.array ? true : false;
+    };
+    AckArray.prototype.ngOnChanges = function (changes) {
+        var _this = this;
+        var loop = changes.array ? true : false;
         if (changes.pageAt) {
             this.pushCreatePages();
             loop = true;
         }
         if (this.inited && loop) {
-            Promise.resolve().then(() => this.loop(true));
+            Promise.resolve().then(function () {
+                return _this.loop(true);
+            });
         }
-    }
-    pushAggregates(aggs) {
-        aggs.forEach(agg => {
-            let memory;
+    };
+    AckArray.prototype.pushAggregates = function (aggs) {
+        var _this = this;
+        aggs.forEach(function (agg) {
+            var memory;
             switch (agg.type) {
                 default: {
-                    this.loopStart.subscribe(() => memory = 0);
-                    this.loopEach.subscribe(loop => {
-                        const value = this.getItemValueByKeys(loop.item, agg.keys);
+                    _this.loopStart.subscribe(function () { return memory = 0; });
+                    _this.loopEach.subscribe(function (loop) {
+                        var value = _this.getItemValueByKeys(loop.item, agg.keys);
                         if (value) {
                             memory = memory + value;
                         }
                     });
-                    this.loopEnd.subscribe(() => {
+                    _this.loopEnd.subscribe(function () {
                         agg.output = memory;
                         agg.outputChange.emit(memory);
                     });
                 }
             }
         });
-    }
-    getItemValueByKeys(item, keys) {
-        for (let x = 0; x < keys.length; ++x) {
-            let keyName = keys[x];
+    };
+    AckArray.prototype.getItemValueByKeys = function (item, keys) {
+        for (var x = 0; x < keys.length; ++x) {
+            var keyName = keys[x];
             item = item[keyName];
             if (item == null)
                 return null;
         }
         return item;
-    }
-    loop(reset) {
+    };
+    AckArray.prototype.loop = function (reset) {
         if (!this.array) {
             this.array = [];
         }
         this.loopStart.emit(reset);
-        const last = this.array.length;
-        for (let x = 0; x < last; ++x) {
+        var last = this.array.length;
+        for (var x = 0; x < last; ++x) {
             this.loopEach.emit({ index: x, item: this.array[x] });
         }
         this.loopEnd.emit();
-    }
-    pushCreateMap() {
+    };
+    AckArray.prototype.pushCreateMap = function () {
+        var _this = this;
         if (this.pushed.createMap)
             return;
         this.pushed.createMap = true;
-        this.loopStart.subscribe(() => this.keyMap = {});
-        this.loopEach.subscribe(ob => {
-            let key = this.getItemId(ob.item);
-            this.keyMap[key] = ob.item;
+        this.loopStart.subscribe(function () { return _this.keyMap = {}; });
+        this.loopEach.subscribe(function (ob) {
+            var key = _this.getItemId(ob.item);
+            _this.keyMap[key] = ob.item;
         });
-        this.loopEnd.subscribe(() => this.keyMapChange.emit(this.keyMap));
-    }
-    pushCreatePages() {
+        this.loopEnd.subscribe(function () { return _this.keyMapChange.emit(_this.keyMap); });
+    };
+    AckArray.prototype.pushCreatePages = function () {
+        var _this = this;
         if (this.pushed.createPages)
             return;
         this.pushed.createPages = true;
-        let pos = 0;
-        let last = 0;
-        this.loopStart.subscribe(reset => {
+        var pos = 0;
+        var last = 0;
+        this.loopStart.subscribe(function (reset) {
             pos = 0;
-            last = this.array.length;
+            last = _this.array.length;
             if (reset) {
-                this.pageChange.emit(this.page = 0);
+                _this.pageChange.emit(_this.page = 0);
             }
-            this.pages = this.pages || [];
-            this.pages.length = 0;
-            this.pages.push([]);
+            _this.pages = _this.pages || [];
+            _this.pages.length = 0;
+            _this.pages.push([]);
         });
-        this.loopEach.subscribe(ob => {
-            this.pages[pos].push(ob.item);
-            if (this.pages[pos].length == this.pageAt && ob.index < last - 1) {
-                this.pages.push([]);
+        this.loopEach.subscribe(function (ob) {
+            _this.pages[pos].push(ob.item);
+            if (_this.pages[pos].length == _this.pageAt && ob.index < last - 1) {
+                _this.pages.push([]);
                 ++pos;
             }
         });
-        this.loopEnd.subscribe(() => {
-            if (this.page && this.page >= this.pages.length) {
-                this.pageChange.emit(this.page = 0);
+        this.loopEnd.subscribe(function () {
+            if (_this.page && _this.page >= _this.pages.length) {
+                _this.pageChange.emit(_this.page = 0);
             }
-            this.pagesChange.emit(this.pages);
+            _this.pagesChange.emit(_this.pages);
         });
-    }
-    only(item) {
+    };
+    AckArray.prototype.only = function (item) {
         this.array.length = 0;
         this.array.push(item);
         this.arrayChange.emit(this.array);
         this.loop(true);
-    }
-    getItemId(item, itemIndexName) {
+    };
+    AckArray.prototype.getItemId = function (item, itemIndexName) {
         itemIndexName = itemIndexName || this.idKey;
         return itemIndexName ? item[itemIndexName] : item;
-    }
-    getCompareArray() {
+    };
+    AckArray.prototype.getCompareArray = function () {
+        var _this = this;
         if (this.array && this.idKey) {
-            return this.array.map(item => item[this.idKey]);
+            return this.array.map(function (item) { return item[_this.idKey]; });
         }
         return this.array || [];
-    }
-    selected(item) {
+    };
+    AckArray.prototype.selected = function (item) {
         return this.itemIndex(item) >= 0 ? true : false;
-    }
-    itemIndex(item, itemIndexName) {
-        const array = this.getCompareArray();
-        const itemId = this.getItemId(item, itemIndexName);
-        for (let x = array.length - 1; x >= 0; --x) {
+    };
+    AckArray.prototype.itemIndex = function (item, itemIndexName) {
+        var array = this.getCompareArray();
+        var itemId = this.getItemId(item, itemIndexName);
+        for (var x = array.length - 1; x >= 0; --x) {
             if (itemId == array[x]) {
                 return x;
             }
         }
         return -1;
-    }
-    toggle(item) {
-        const index = this.itemIndex(item);
+    };
+    AckArray.prototype.toggle = function (item) {
+        var index = this.itemIndex(item);
         if (index >= 0) {
             return this.splice(index);
         }
         return this.push(item);
-    }
-    push(item) {
+    };
+    AckArray.prototype.push = function (item) {
         this.param().push(item);
         this.loop(false);
         return this;
-    }
-    unshift(item) {
+    };
+    AckArray.prototype.unshift = function (item) {
         this.param().unshift(item);
         return this;
-    }
-    splice(x, y = 1) {
+    };
+    AckArray.prototype.splice = function (x, y) {
+        if (y === void 0) { y = 1; }
         this.param().splice(x, y);
         this.loop(false);
         return this;
-    }
-    param() {
+    };
+    AckArray.prototype.param = function () {
         if (!this.array)
             this.arrayChange.emit(this.array = []);
         return this.array;
-    }
-    toggleSort(arrayKey, sortType) {
+    };
+    AckArray.prototype.toggleSort = function (arrayKey, sortType) {
         if (this.inSort)
             return false;
         this.inSort = true;
-        let asc = false;
+        var asc = false;
         if (this.sortArray.length && this.sortArray[0].arrayKey) {
             asc = !this.sortArray[0].asc;
             this.sortArray[0] = {
@@ -2321,8 +2462,9 @@ let AckArray = class AckArray {
                 asc: asc
             });
         }
-        const toKey = function (a, index = 0) {
-            const value = a[arrayKey[index]];
+        var toKey = function (a, index) {
+            if (index === void 0) { index = 0; }
+            var value = a[arrayKey[index]];
             if (value == null || index == arrayKey.length - 1) {
                 return value;
             }
@@ -2331,13 +2473,13 @@ let AckArray = class AckArray {
         if (arrayKey.constructor != Array) {
             arrayKey = [arrayKey];
         }
-        const numberSort = !isNaN(sortType) || ["int", "number"].indexOf(sortType) >= 0;
+        var numberSort = !isNaN(sortType) || ["int", "number"].indexOf(sortType) >= 0;
         if (numberSort) {
             if (asc) {
-                this.array.sort((a, b) => Number(toKey(a)) - Number(toKey(b)));
+                this.array.sort(function (a, b) { return Number(toKey(a)) - Number(toKey(b)); });
             }
             else {
-                this.array.sort((b, a) => Number(toKey(a)) - Number(toKey(b)));
+                this.array.sort(function (b, a) { return Number(toKey(a)) - Number(toKey(b)); });
             }
         }
         else {
@@ -2346,14 +2488,14 @@ let AckArray = class AckArray {
                 case "time":
                 case "datetime":
                     if (asc) {
-                        this.array.sort((a, b) => {
+                        this.array.sort(function (a, b) {
                             a = new Date(toKey(a, 0));
                             b = new Date(toKey(b, 0));
                             return a == "Invalid Date" || a > b ? -1 : b == "Invalid Date" || a < b ? 1 : 0;
                         });
                     }
                     else {
-                        this.array.sort((b, a) => {
+                        this.array.sort(function (b, a) {
                             a = new Date(toKey(a, 0));
                             b = new Date(toKey(b, 0));
                             return a == "Invalid Date" || a > b ? -1 : b == "Invalid Date" || a < b ? 1 : 0;
@@ -2362,10 +2504,10 @@ let AckArray = class AckArray {
                     break;
                 default:
                     if (asc) {
-                        this.array.sort((a, b) => String(toKey(a) || "").toLowerCase() > String(toKey(b) || "").toLowerCase() ? 1 : -1);
+                        this.array.sort(function (a, b) { return String(toKey(a) || "").toLowerCase() > String(toKey(b) || "").toLowerCase() ? 1 : -1; });
                     }
                     else {
-                        this.array.sort((b, a) => String(toKey(a) || "").toLowerCase() > String(toKey(b) || "").toLowerCase() ? 1 : -1);
+                        this.array.sort(function (b, a) { return String(toKey(a) || "").toLowerCase() > String(toKey(b) || "").toLowerCase() ? 1 : -1; });
                     }
             }
         }
@@ -2374,59 +2516,60 @@ let AckArray = class AckArray {
         }
         this.inSort = false;
         this.loop(true);
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AckArray.prototype, "idKey", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], AckArray.prototype, "pageAt", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Array)
-], AckArray.prototype, "pages", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], AckArray.prototype, "pagesChange", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], AckArray.prototype, "page", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], AckArray.prototype, "pageChange", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Array)
-], AckArray.prototype, "array", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], AckArray.prototype, "arrayChange", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AckArray.prototype, "keyMap", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], AckArray.prototype, "keyMapChange", void 0);
-__decorate([
-    core_1.ContentChildren(AckAggregate_directive_1.AckAggregate),
-    __metadata("design:type", Array)
-], AckArray.prototype, "AckAggregates", void 0);
-AckArray = __decorate([
-    core_1.Directive({
-        selector: "ack-array",
-        exportAs: "AckArray"
-    }),
-    __metadata("design:paramtypes", [core_1.IterableDiffers])
-], AckArray);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckArray.prototype, "idKey", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], AckArray.prototype, "pageAt", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Array)
+    ], AckArray.prototype, "pages", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], AckArray.prototype, "pagesChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], AckArray.prototype, "page", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckArray.prototype, "pageChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Array)
+    ], AckArray.prototype, "array", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], AckArray.prototype, "arrayChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckArray.prototype, "keyMap", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], AckArray.prototype, "keyMapChange", void 0);
+    __decorate([
+        core_1.ContentChildren(AckAggregate_directive_1.AckAggregate),
+        __metadata("design:type", Array)
+    ], AckArray.prototype, "AckAggregates", void 0);
+    AckArray = __decorate([
+        core_1.Directive({
+            selector: "ack-array",
+            exportAs: "AckArray"
+        }),
+        __metadata("design:paramtypes", [core_1.IterableDiffers])
+    ], AckArray);
+    return AckArray;
+}());
 exports.AckArray = AckArray;
 
 
@@ -2441,6 +2584,19 @@ exports.AckArray = AckArray;
 
 "use strict";
 
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2451,120 +2607,130 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let ElementSizeModel = class ElementSizeModel {
-    constructor(element) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var ElementSizeModel = (function () {
+    function ElementSizeModel(element) {
         this.element = element;
         this.elementSizeModelChange = new core_1.EventEmitter();
     }
-    ngAfterViewInit() {
-        this.onResize = () => {
-            this.setModel();
+    ElementSizeModel.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this.onResize = function () {
+            _this.setModel();
         };
         window.addEventListener('resize', this.onResize);
-        Promise.resolve().then(() => this.setModel());
-        this.observer = new MutationObserver(() => {
-            this.setModel();
+        Promise.resolve().then(function () { return _this.setModel(); });
+        this.observer = new MutationObserver(function () {
+            _this.setModel();
         });
-        const config = {
+        var config = {
             attributes: true,
             childList: true,
             characterData: true,
             subtree: true
         };
         this.observer.observe(this.element.nativeElement, config);
-        setTimeout(() => this.setModel(), 800);
-    }
-    ngOnChanges() {
-        Promise.resolve().then(() => {
-            if (!this.inChange) {
-                this.setModel();
+        setTimeout(function () { return _this.setModel(); }, 800);
+    };
+    ElementSizeModel.prototype.ngOnChanges = function () {
+        var _this = this;
+        Promise.resolve().then(function () {
+            if (!_this.inChange) {
+                _this.setModel();
             }
         });
-    }
-    setModel() {
+    };
+    ElementSizeModel.prototype.setModel = function () {
+        var _this = this;
         this.elementSizeModel = this.elementSizeModel || {};
         this.inChange = true;
         this.elementSizeModel.width = this.element.nativeElement.offsetWidth;
         this.elementSizeModel.height = this.element.nativeElement.offsetHeight;
         this.elementSizeModelChange.emit(this.elementSizeModel);
-        Promise.resolve().then(() => this.inChange = false);
-    }
-    ngOnDestroy() {
+        Promise.resolve().then(function () { return _this.inChange = false; });
+    };
+    ElementSizeModel.prototype.ngOnDestroy = function () {
         this.observer.disconnect();
         window.removeEventListener('resize', this.onResize);
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], ElementSizeModel.prototype, "elementSizeModelWatch", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], ElementSizeModel.prototype, "elementSizeModel", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ElementSizeModel.prototype, "elementSizeModelChange", void 0);
-ElementSizeModel = __decorate([
-    core_1.Directive({
-        selector: '[elementSizeModel]'
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], ElementSizeModel);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], ElementSizeModel.prototype, "elementSizeModelWatch", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], ElementSizeModel.prototype, "elementSizeModel", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ElementSizeModel.prototype, "elementSizeModelChange", void 0);
+    ElementSizeModel = __decorate([
+        core_1.Directive({
+            selector: '[elementSizeModel]'
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], ElementSizeModel);
+    return ElementSizeModel;
+}());
 exports.ElementSizeModel = ElementSizeModel;
-let ElementHeightModel = class ElementHeightModel extends ElementSizeModel {
-    constructor(element) {
-        super(element);
-        this.element = element;
-        this.elementHeightModelChange = new core_1.EventEmitter();
+var ElementHeightModel = (function (_super) {
+    __extends(ElementHeightModel, _super);
+    function ElementHeightModel(element) {
+        var _this = _super.call(this, element) || this;
+        _this.element = element;
+        _this.elementHeightModelChange = new core_1.EventEmitter();
+        return _this;
     }
-    setModel() {
+    ElementHeightModel.prototype.setModel = function () {
         this.elementHeightModel = this.element.nativeElement.offsetHeight;
         this.elementHeightModelChange.emit(this.elementHeightModel);
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], ElementHeightModel.prototype, "elementHeightModel", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ElementHeightModel.prototype, "elementHeightModelChange", void 0);
-ElementHeightModel = __decorate([
-    core_1.Directive({
-        selector: '[elementHeightModel]'
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], ElementHeightModel);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], ElementHeightModel.prototype, "elementHeightModel", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ElementHeightModel.prototype, "elementHeightModelChange", void 0);
+    ElementHeightModel = __decorate([
+        core_1.Directive({
+            selector: '[elementHeightModel]'
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], ElementHeightModel);
+    return ElementHeightModel;
+}(ElementSizeModel));
 exports.ElementHeightModel = ElementHeightModel;
-let ElementWidthModel = class ElementWidthModel extends ElementSizeModel {
-    constructor(element) {
-        super(element);
-        this.element = element;
-        this.elementWidthModelChange = new core_1.EventEmitter();
+var ElementWidthModel = (function (_super) {
+    __extends(ElementWidthModel, _super);
+    function ElementWidthModel(element) {
+        var _this = _super.call(this, element) || this;
+        _this.element = element;
+        _this.elementWidthModelChange = new core_1.EventEmitter();
+        return _this;
     }
-    setModel() {
+    ElementWidthModel.prototype.setModel = function () {
         this.elementWidthModel = this.element.nativeElement.offsetWidth;
         this.elementWidthModelChange.emit(this.elementWidthModel);
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], ElementWidthModel.prototype, "elementWidthModel", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ElementWidthModel.prototype, "elementWidthModelChange", void 0);
-ElementWidthModel = __decorate([
-    core_1.Directive({
-        selector: '[elementWidthModel]'
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], ElementWidthModel);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], ElementWidthModel.prototype, "elementWidthModel", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ElementWidthModel.prototype, "elementWidthModelChange", void 0);
+    ElementWidthModel = __decorate([
+        core_1.Directive({
+            selector: '[elementWidthModel]'
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], ElementWidthModel);
+    return ElementWidthModel;
+}(ElementSizeModel));
 exports.ElementWidthModel = ElementWidthModel;
 
 
@@ -2589,46 +2755,48 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let FocusOn = class FocusOn {
-    constructor(element) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var FocusOn = (function () {
+    function FocusOn(element) {
         this.element = element;
         this.focusOnDelay = 0;
         this.focusThen = new core_1.EventEmitter();
     }
-    ngOnChanges(changes) {
+    FocusOn.prototype.ngOnChanges = function (changes) {
+        var _this = this;
         if (changes.focusOn && changes.focusOn.currentValue) {
             if (this.focusOnDelay === 0) {
-                Promise.resolve().then(() => this.update());
+                Promise.resolve().then(function () { return _this.update(); });
             }
             else {
-                setTimeout(() => this.update(), this.focusOnDelay);
+                setTimeout(function () { return _this.update(); }, this.focusOnDelay);
             }
         }
-    }
-    update() {
+    };
+    FocusOn.prototype.update = function () {
         this.element.nativeElement.focus();
         this.focusThen.emit();
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], FocusOn.prototype, "focusOn", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], FocusOn.prototype, "focusOnDelay", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], FocusOn.prototype, "focusThen", void 0);
-FocusOn = __decorate([
-    core_1.Directive({
-        selector: '[focusOn]'
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], FocusOn);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], FocusOn.prototype, "focusOn", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], FocusOn.prototype, "focusOnDelay", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], FocusOn.prototype, "focusThen", void 0);
+    FocusOn = __decorate([
+        core_1.Directive({
+            selector: '[focusOn]'
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], FocusOn);
+    return FocusOn;
+}());
 exports.FocusOn = FocusOn;
 
 
@@ -2653,9 +2821,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let FxOn = class FxOn {
-    constructor(element) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var FxOn = (function () {
+    function FxOn(element) {
         this.element = element;
         this.fxThen = new core_1.EventEmitter();
         this.fxTypes = [
@@ -2663,18 +2831,19 @@ let FxOn = class FxOn {
             "bounceIn", "bounceInDown", "bounceInLeft", "bounceInRight", "bounceInUp"
         ];
     }
-    ngOnInit() {
-        Promise.resolve().then(() => this.update());
-    }
-    update() {
+    FxOn.prototype.ngOnInit = function () {
+        var _this = this;
+        Promise.resolve().then(function () { return _this.update(); });
+    };
+    FxOn.prototype.update = function () {
         if (this.fxOn) {
             this.onTrue();
         }
         else {
             this.onFalse();
         }
-    }
-    ngOnChanges(changes) {
+    };
+    FxOn.prototype.ngOnChanges = function (changes) {
         if (changes.fxOn && changes.fxOn.currentValue != null && changes.fxOn.currentValue != changes.fxOn.previousValue) {
             this.update();
         }
@@ -2687,67 +2856,69 @@ let FxOn = class FxOn {
                 this.removeType();
             }
         }
-    }
-    onFalse() {
+    };
+    FxOn.prototype.onFalse = function () {
         this.removeType();
         if (this.timeout) {
             clearTimeout(this.timeout);
             delete this.timeout;
         }
-    }
-    removeType() {
-        const elm = this.element.nativeElement;
+    };
+    FxOn.prototype.removeType = function () {
+        var elm = this.element.nativeElement;
         removeClass(elm, this.fxClass);
         if (this.inlineTreated) {
             elm.style.display = 'inline';
             this.inlineTreated = false;
         }
-    }
-    applyType() {
-        const elm = this.element.nativeElement;
+    };
+    FxOn.prototype.applyType = function () {
+        var elm = this.element.nativeElement;
         if (elm.style && elm.style.display === 'inline' || getElementDefaultDisplay(elm) === 'inline') {
             this.inlineTreated = true;
             elm.style.display = 'inline-block';
         }
         addClass(elm, this.fxClass);
-    }
-    onTrue() {
+    };
+    FxOn.prototype.onTrue = function () {
+        var _this = this;
         this.applyType();
         if (this.fxForMs) {
-            this.timeout = setTimeout(() => {
-                this.onFalse();
-                this.fxThen.emit();
+            this.timeout = setTimeout(function () {
+                _this.onFalse();
+                _this.fxThen.emit();
             }, this.fxForMs);
         }
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], FxOn.prototype, "fxOn", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], FxOn.prototype, "fxClass", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], FxOn.prototype, "fxForMs", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], FxOn.prototype, "fxThen", void 0);
-FxOn = __decorate([
-    core_1.Directive({
-        selector: "[fxOn]",
-        exportAs: "FxOn"
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], FxOn);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], FxOn.prototype, "fxOn", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], FxOn.prototype, "fxClass", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], FxOn.prototype, "fxForMs", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], FxOn.prototype, "fxThen", void 0);
+    FxOn = __decorate([
+        core_1.Directive({
+            selector: "[fxOn]",
+            exportAs: "FxOn"
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], FxOn);
+    return FxOn;
+}());
 exports.FxOn = FxOn;
 function hasClass(el, className) {
-    const names = className.split(" ");
-    for (let x = names.length - 1; x >= 0; --x) {
+    var names = className.split(" ");
+    for (var x = names.length - 1; x >= 0; --x) {
         if (el.classList) {
             if (el.classList.contains(names[x])) {
                 continue;
@@ -2764,7 +2935,7 @@ function hasClass(el, className) {
 }
 exports.hasClass = hasClass;
 function addClass(el, className) {
-    className.split(' ').forEach(className => {
+    className.split(' ').forEach(function (className) {
         if (el.classList) {
             el.classList.add(className);
         }
@@ -2775,7 +2946,7 @@ function addClass(el, className) {
 }
 exports.addClass = addClass;
 function removeClass(el, className) {
-    className.split(' ').forEach(className => {
+    className.split(' ').forEach(function (className) {
         if (el.classList) {
             el.classList.remove(className);
         }
@@ -2804,6 +2975,19 @@ function getElementDefaultDisplay(tag) {
 
 "use strict";
 
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2814,37 +2998,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const HtmlSizeWatcher_1 = __webpack_require__(/*! ./HtmlSizeWatcher */ "../src/directives/HtmlSizeWatcher.ts");
-const HtmlWidthModel_directive_1 = __webpack_require__(/*! ./HtmlWidthModel.directive */ "../src/directives/HtmlWidthModel.directive.ts");
-let HtmlHeightModel = class HtmlHeightModel extends HtmlWidthModel_directive_1.HtmlWidthModel {
-    constructor(HtmlSizeService) {
-        super(HtmlSizeService);
-        this.HtmlSizeService = HtmlSizeService;
-        this.htmlHeightModelChange = new core_1.EventEmitter();
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var HtmlSizeWatcher_1 = __webpack_require__(/*! ./HtmlSizeWatcher */ "../src/directives/HtmlSizeWatcher.ts");
+var HtmlWidthModel_directive_1 = __webpack_require__(/*! ./HtmlWidthModel.directive */ "../src/directives/HtmlWidthModel.directive.ts");
+var HtmlHeightModel = (function (_super) {
+    __extends(HtmlHeightModel, _super);
+    function HtmlHeightModel(HtmlSizeService) {
+        var _this = _super.call(this, HtmlSizeService) || this;
+        _this.HtmlSizeService = HtmlSizeService;
+        _this.htmlHeightModelChange = new core_1.EventEmitter();
+        return _this;
     }
-    hasChanged() {
+    HtmlHeightModel.prototype.hasChanged = function () {
         return this.htmlHeightModel !== window.document.documentElement.clientHeight;
-    }
-    setModel(model) {
+    };
+    HtmlHeightModel.prototype.setModel = function (model) {
         this.htmlHeightModel = model.height;
         this.htmlHeightModelChange.emit(this.htmlHeightModel);
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], HtmlHeightModel.prototype, "htmlHeightModel", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], HtmlHeightModel.prototype, "htmlHeightModelChange", void 0);
-HtmlHeightModel = __decorate([
-    core_1.Directive({
-        selector: '[htmlHeightModel]'
-    }),
-    __metadata("design:paramtypes", [HtmlSizeWatcher_1.HtmlSizeService])
-], HtmlHeightModel);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], HtmlHeightModel.prototype, "htmlHeightModel", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], HtmlHeightModel.prototype, "htmlHeightModelChange", void 0);
+    HtmlHeightModel = __decorate([
+        core_1.Directive({
+            selector: '[htmlHeightModel]'
+        }),
+        __metadata("design:paramtypes", [HtmlSizeWatcher_1.HtmlSizeService])
+    ], HtmlHeightModel);
+    return HtmlHeightModel;
+}(HtmlWidthModel_directive_1.HtmlWidthModel));
 exports.HtmlHeightModel = HtmlHeightModel;
 
 
@@ -2869,36 +3056,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let HtmlSizeService = class HtmlSizeService {
-    constructor() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var HtmlSizeService = (function () {
+    function HtmlSizeService() {
+        var _this = this;
         this.change = new core_1.EventEmitter();
         this.htmlSize = { width: null, height: null };
-        this.onResize = () => {
-            this.htmlSize.width = window.document.documentElement.clientWidth;
-            this.htmlSize.height = window.document.documentElement.clientHeight;
-            this.change.emit();
+        this.onResize = function () {
+            _this.htmlSize.width = window.document.documentElement.clientWidth;
+            _this.htmlSize.height = window.document.documentElement.clientHeight;
+            _this.change.emit();
         };
         this.checkWatchers();
         this.onResize();
     }
-    checkWatchers() {
+    HtmlSizeService.prototype.checkWatchers = function () {
         if (this.change.observers.length) {
             window.addEventListener('resize', this.onResize);
         }
         else {
             window.removeEventListener('resize', this.onResize);
         }
-    }
-};
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], HtmlSizeService.prototype, "change", void 0);
-HtmlSizeService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [])
-], HtmlSizeService);
+    };
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], HtmlSizeService.prototype, "change", void 0);
+    HtmlSizeService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [])
+    ], HtmlSizeService);
+    return HtmlSizeService;
+}());
 exports.HtmlSizeService = HtmlSizeService;
 
 
@@ -2923,49 +3112,52 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const HtmlSizeWatcher_1 = __webpack_require__(/*! ./HtmlSizeWatcher */ "../src/directives/HtmlSizeWatcher.ts");
-let HtmlWidthModel = class HtmlWidthModel {
-    constructor(HtmlSizeService) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var HtmlSizeWatcher_1 = __webpack_require__(/*! ./HtmlSizeWatcher */ "../src/directives/HtmlSizeWatcher.ts");
+var HtmlWidthModel = (function () {
+    function HtmlWidthModel(HtmlSizeService) {
+        var _this = this;
         this.HtmlSizeService = HtmlSizeService;
         this.htmlWidthModelChange = new core_1.EventEmitter();
-        this.sub = this.HtmlSizeService.change.subscribe(() => this.changed());
+        this.sub = this.HtmlSizeService.change.subscribe(function () { return _this.changed(); });
         this.HtmlSizeService.checkWatchers();
     }
-    ngAfterViewInit() {
-        Promise.resolve().then(() => this.changed());
-    }
-    ngOnDestroy() {
+    HtmlWidthModel.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        Promise.resolve().then(function () { return _this.changed(); });
+    };
+    HtmlWidthModel.prototype.ngOnDestroy = function () {
         this.sub.unsubscribe();
         this.HtmlSizeService.checkWatchers();
-    }
-    changed() {
+    };
+    HtmlWidthModel.prototype.changed = function () {
         if (!this.HtmlSizeService.htmlSize || !this.hasChanged())
             return;
         this.setModel(this.HtmlSizeService.htmlSize);
-    }
-    hasChanged() {
+    };
+    HtmlWidthModel.prototype.hasChanged = function () {
         return this.htmlWidthModel !== window.document.documentElement.clientWidth;
-    }
-    setModel(htmlSize) {
+    };
+    HtmlWidthModel.prototype.setModel = function (htmlSize) {
         this.htmlWidthModel = htmlSize.width;
         this.htmlWidthModelChange.emit(this.htmlWidthModel);
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], HtmlWidthModel.prototype, "htmlWidthModel", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], HtmlWidthModel.prototype, "htmlWidthModelChange", void 0);
-HtmlWidthModel = __decorate([
-    core_1.Directive({
-        selector: '[htmlWidthModel]'
-    }),
-    __metadata("design:paramtypes", [HtmlSizeWatcher_1.HtmlSizeService])
-], HtmlWidthModel);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], HtmlWidthModel.prototype, "htmlWidthModel", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], HtmlWidthModel.prototype, "htmlWidthModelChange", void 0);
+    HtmlWidthModel = __decorate([
+        core_1.Directive({
+            selector: '[htmlWidthModel]'
+        }),
+        __metadata("design:paramtypes", [HtmlSizeWatcher_1.HtmlSizeService])
+    ], HtmlWidthModel);
+    return HtmlWidthModel;
+}());
 exports.HtmlWidthModel = HtmlWidthModel;
 
 
@@ -2990,24 +3182,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let Init = class Init {
-    constructor() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var Init = (function () {
+    function Init() {
         this.init = new core_1.EventEmitter();
     }
-    ngOnInit() {
+    Init.prototype.ngOnInit = function () {
         this.init.emit();
-    }
-};
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], Init.prototype, "init", void 0);
-Init = __decorate([
-    core_1.Directive({
-        selector: '[init]'
-    })
-], Init);
+    };
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], Init.prototype, "init", void 0);
+    Init = __decorate([
+        core_1.Directive({
+            selector: '[init]'
+        })
+    ], Init);
+    return Init;
+}());
 exports.Init = Init;
 
 
@@ -3032,13 +3225,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let InnerHtmlModel = class InnerHtmlModel {
-    constructor(element) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var InnerHtmlModel = (function () {
+    function InnerHtmlModel(element) {
+        var _this = this;
         this.element = element;
         this.innerHtmlModelChange = new core_1.EventEmitter();
-        this.observer = new MutationObserver(() => this.setModel());
-        const config = {
+        this.observer = new MutationObserver(function () { return _this.setModel(); });
+        var config = {
             attributes: true,
             childList: true,
             characterData: true,
@@ -3046,31 +3240,33 @@ let InnerHtmlModel = class InnerHtmlModel {
         };
         this.observer.observe(this.element.nativeElement, config);
     }
-    ngOnChanges() {
-        Promise.resolve().then(() => this.setModel());
-    }
-    setModel() {
+    InnerHtmlModel.prototype.ngOnChanges = function () {
+        var _this = this;
+        Promise.resolve().then(function () { return _this.setModel(); });
+    };
+    InnerHtmlModel.prototype.setModel = function () {
         this.innerHtmlModel = this.element.nativeElement.innerHTML;
         this.innerHtmlModelChange.emit(this.innerHtmlModel);
-    }
-    ngOnDestroy() {
+    };
+    InnerHtmlModel.prototype.ngOnDestroy = function () {
         this.observer.disconnect();
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], InnerHtmlModel.prototype, "innerHtmlModel", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], InnerHtmlModel.prototype, "innerHtmlModelChange", void 0);
-InnerHtmlModel = __decorate([
-    core_1.Directive({
-        selector: '[innerHtmlModel]'
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], InnerHtmlModel);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], InnerHtmlModel.prototype, "innerHtmlModel", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], InnerHtmlModel.prototype, "innerHtmlModelChange", void 0);
+    InnerHtmlModel = __decorate([
+        core_1.Directive({
+            selector: '[innerHtmlModel]'
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], InnerHtmlModel);
+    return InnerHtmlModel;
+}());
 exports.InnerHtmlModel = InnerHtmlModel;
 
 
@@ -3095,68 +3291,73 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let PxFromHtmlTop = class PxFromHtmlTop {
-    constructor(ElementRef) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var PxFromHtmlTop = (function () {
+    function PxFromHtmlTop(ElementRef) {
+        var _this = this;
         this.ElementRef = ElementRef;
         this.numberChange = new core_1.EventEmitter();
-        this.onScroll = () => {
-            this.setter();
-            this.emit();
+        this.onScroll = function () {
+            _this.setter();
+            _this.emit();
         };
         window.addEventListener("resize", this.onScroll);
         window.addEventListener("scroll", this.onScroll);
     }
-    emit() {
+    PxFromHtmlTop.prototype.emit = function () {
         this.numberChange.emit(this.number);
-    }
-    ngOnChanges() {
-        Promise.resolve().then(() => {
-            this.setter();
-            this.emit();
+    };
+    PxFromHtmlTop.prototype.ngOnChanges = function () {
+        var _this = this;
+        Promise.resolve().then(function () {
+            _this.setter();
+            _this.emit();
         });
         this.delayFire(250);
         this.delayFire(750);
         this.delayFire(1500);
-    }
-    setter() {
-        const top = this.ElementRef.nativeElement.getBoundingClientRect().top;
+    };
+    PxFromHtmlTop.prototype.setter = function () {
+        var top = this.ElementRef.nativeElement.getBoundingClientRect().top;
         this.number = top;
-    }
-    ngAfterViewInit() {
+    };
+    PxFromHtmlTop.prototype.ngAfterViewInit = function () {
         this.delayFire();
         this.delayFire(200);
-    }
-    delayFire(num = 0) {
-        setTimeout(() => {
-            this.setter();
-            this.emit();
+    };
+    PxFromHtmlTop.prototype.delayFire = function (num) {
+        var _this = this;
+        if (num === void 0) { num = 0; }
+        setTimeout(function () {
+            _this.setter();
+            _this.emit();
         }, num);
-    }
-    ngOnDestroy() {
+    };
+    PxFromHtmlTop.prototype.ngOnDestroy = function () {
         window.removeEventListener("scroll", this.onScroll);
         window.removeEventListener("resize", this.onScroll);
-    }
-};
-__decorate([
-    core_1.Input("pxFromHtmlTop"),
-    __metadata("design:type", Number)
-], PxFromHtmlTop.prototype, "number", void 0);
-__decorate([
-    core_1.Output("pxFromHtmlTopChange"),
-    __metadata("design:type", core_1.EventEmitter)
-], PxFromHtmlTop.prototype, "numberChange", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], PxFromHtmlTop.prototype, "watch", void 0);
-PxFromHtmlTop = __decorate([
-    core_1.Directive({
-        selector: "[pxFromHtmlTop]",
-        exportAs: "PxFromHtmlTop"
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], PxFromHtmlTop);
+    };
+    __decorate([
+        core_1.Input("pxFromHtmlTop"),
+        __metadata("design:type", Number)
+    ], PxFromHtmlTop.prototype, "number", void 0);
+    __decorate([
+        core_1.Output("pxFromHtmlTopChange"),
+        __metadata("design:type", core_1.EventEmitter)
+    ], PxFromHtmlTop.prototype, "numberChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], PxFromHtmlTop.prototype, "watch", void 0);
+    PxFromHtmlTop = __decorate([
+        core_1.Directive({
+            selector: "[pxFromHtmlTop]",
+            exportAs: "PxFromHtmlTop"
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], PxFromHtmlTop);
+    return PxFromHtmlTop;
+}());
 exports.PxFromHtmlTop = PxFromHtmlTop;
 
 
@@ -3181,45 +3382,47 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let ReplaceModel = class ReplaceModel {
-    constructor() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var ReplaceModel = (function () {
+    function ReplaceModel() {
         this.replaceModelChange = new core_1.EventEmitter();
     }
-    ngOnChanges(changes) {
-        const isString = changes.replaceModel && this.replaceModel && this.replaceModel.constructor === String;
+    ReplaceModel.prototype.ngOnChanges = function (changes) {
+        var _this = this;
+        var isString = changes.replaceModel && this.replaceModel && this.replaceModel.constructor === String;
         if (isString) {
-            Promise.resolve().then(() => this.run());
+            Promise.resolve().then(function () { return _this.run(); });
         }
-    }
-    run() {
-        const rx = new RegExp(this.replaceExpression, 'gi');
-        const oldModel = this.replaceModel;
-        const newModel = this.replaceModel.replace(rx, '');
+    };
+    ReplaceModel.prototype.run = function () {
+        var rx = new RegExp(this.replaceExpression, 'gi');
+        var oldModel = this.replaceModel;
+        var newModel = this.replaceModel.replace(rx, '');
         if (oldModel === newModel) {
             return;
         }
         this.replaceModel = newModel;
         this.replaceModelChange.emit(this.replaceModel);
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], ReplaceModel.prototype, "replaceModel", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], ReplaceModel.prototype, "replaceModelChange", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], ReplaceModel.prototype, "replaceExpression", void 0);
-ReplaceModel = __decorate([
-    core_1.Directive({
-        selector: '[replaceModel]'
-    })
-], ReplaceModel);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], ReplaceModel.prototype, "replaceModel", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], ReplaceModel.prototype, "replaceModelChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], ReplaceModel.prototype, "replaceExpression", void 0);
+    ReplaceModel = __decorate([
+        core_1.Directive({
+            selector: '[replaceModel]'
+        })
+    ], ReplaceModel);
+    return ReplaceModel;
+}());
 exports.ReplaceModel = ReplaceModel;
 
 
@@ -3244,51 +3447,58 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const HtmlSizeWatcher_1 = __webpack_require__(/*! ./HtmlSizeWatcher */ "../src/directives/HtmlSizeWatcher.ts");
-let ScreenHeightModel = class ScreenHeightModel {
-    constructor(HtmlSizeService) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var HtmlSizeWatcher_1 = __webpack_require__(/*! ./HtmlSizeWatcher */ "../src/directives/HtmlSizeWatcher.ts");
+var ScreenHeightModel = (function () {
+    function ScreenHeightModel(HtmlSizeService) {
+        var _this = this;
         this.HtmlSizeService = HtmlSizeService;
         this.modelChange = new core_1.EventEmitter();
-        this.sub = this.HtmlSizeService.change.subscribe(() => this.changed());
+        this.sub = this.HtmlSizeService.change.subscribe(function () { return _this.changed(); });
         this.HtmlSizeService.checkWatchers();
     }
-    ngAfterViewInit() {
-        Promise.resolve().then(() => this.updateModel());
+    ScreenHeightModel.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        Promise.resolve().then(function () {
+            return _this.updateModel();
+        });
         this.delayCheck(250);
         this.delayCheck(1500);
-    }
-    delayCheck(num = 0) {
-        setTimeout(() => this.updateModel(), num);
-    }
-    changed() {
+    };
+    ScreenHeightModel.prototype.delayCheck = function (num) {
+        var _this = this;
+        if (num === void 0) { num = 0; }
+        setTimeout(function () { return _this.updateModel(); }, num);
+    };
+    ScreenHeightModel.prototype.changed = function () {
         if (!this.HtmlSizeService.htmlSize || !this.hasChanged())
             return;
         this.updateModel();
-    }
-    hasChanged() {
+    };
+    ScreenHeightModel.prototype.hasChanged = function () {
         return this.model !== window.innerHeight;
-    }
-    updateModel() {
+    };
+    ScreenHeightModel.prototype.updateModel = function () {
         this.model = window.innerHeight;
         this.modelChange.emit(this.model);
-    }
-};
-__decorate([
-    core_1.Input('screenHeightModel'),
-    __metadata("design:type", Number)
-], ScreenHeightModel.prototype, "model", void 0);
-__decorate([
-    core_1.Output('screenHeightModelChange'),
-    __metadata("design:type", core_1.EventEmitter)
-], ScreenHeightModel.prototype, "modelChange", void 0);
-ScreenHeightModel = __decorate([
-    core_1.Directive({
-        selector: '[screenHeightModel]',
-        exportAs: 'ScreenHeightModel'
-    }),
-    __metadata("design:paramtypes", [HtmlSizeWatcher_1.HtmlSizeService])
-], ScreenHeightModel);
+    };
+    __decorate([
+        core_1.Input('screenHeightModel'),
+        __metadata("design:type", Number)
+    ], ScreenHeightModel.prototype, "model", void 0);
+    __decorate([
+        core_1.Output('screenHeightModelChange'),
+        __metadata("design:type", core_1.EventEmitter)
+    ], ScreenHeightModel.prototype, "modelChange", void 0);
+    ScreenHeightModel = __decorate([
+        core_1.Directive({
+            selector: '[screenHeightModel]',
+            exportAs: 'ScreenHeightModel'
+        }),
+        __metadata("design:paramtypes", [HtmlSizeWatcher_1.HtmlSizeService])
+    ], ScreenHeightModel);
+    return ScreenHeightModel;
+}());
 exports.ScreenHeightModel = ScreenHeightModel;
 
 
@@ -3313,31 +3523,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let ScreenScroll = class ScreenScroll {
-    constructor() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var ScreenScroll = (function () {
+    function ScreenScroll() {
+        var _this = this;
         this.screenScroll = new core_1.EventEmitter();
-        this.onScroll = () => this.screenScroll.emit({ x: window['pageXOffset'], y: window['pageYOffset'] });
+        this.onScroll = function () {
+            return _this.screenScroll.emit({ x: window['pageXOffset'], y: window['pageYOffset'] });
+        };
         this.onScroll();
         window.addEventListener("scroll", this.onScroll);
     }
-    ngOnInit() {
-        Promise.resolve().then(() => this.onScroll());
-    }
-    ngOnDestroy() {
+    ScreenScroll.prototype.ngOnInit = function () {
+        var _this = this;
+        Promise.resolve().then(function () { return _this.onScroll(); });
+    };
+    ScreenScroll.prototype.ngOnDestroy = function () {
         window.removeEventListener("scroll", this.onScroll);
-    }
-};
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ScreenScroll.prototype, "screenScroll", void 0);
-ScreenScroll = __decorate([
-    core_1.Directive({
-        selector: '[screenScroll]'
-    }),
-    __metadata("design:paramtypes", [])
-], ScreenScroll);
+    };
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ScreenScroll.prototype, "screenScroll", void 0);
+    ScreenScroll = __decorate([
+        core_1.Directive({
+            selector: '[screenScroll]'
+        }),
+        __metadata("design:paramtypes", [])
+    ], ScreenScroll);
+    return ScreenScroll;
+}());
 exports.ScreenScroll = ScreenScroll;
 
 
@@ -3362,41 +3577,43 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let ScreenScrollHeightDiff = class ScreenScrollHeightDiff {
-    constructor() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var ScreenScrollHeightDiff = (function () {
+    function ScreenScrollHeightDiff() {
+        var _this = this;
         this.screenScrollHeightDiffChange = new core_1.EventEmitter();
-        this.on = () => {
-            this.apply();
+        this.on = function () {
+            _this.apply();
         };
         window.addEventListener("scroll", this.on);
         window.addEventListener("resize", this.on);
     }
-    apply() {
+    ScreenScrollHeightDiff.prototype.apply = function () {
         this.screenScrollHeightDiff = document.body.scrollHeight - window.innerHeight;
         if (this.screenScrollHeightDiff < 0)
             this.screenScrollHeightDiff = 0;
         this.screenScrollHeightDiffChange.emit(this.screenScrollHeightDiff);
-    }
-    ngOnDestroy() {
+    };
+    ScreenScrollHeightDiff.prototype.ngOnDestroy = function () {
         window.removeEventListener("scroll", this.on);
         window.removeEventListener("resize", this.on);
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], ScreenScrollHeightDiff.prototype, "screenScrollHeightDiff", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ScreenScrollHeightDiff.prototype, "screenScrollHeightDiffChange", void 0);
-ScreenScrollHeightDiff = __decorate([
-    core_1.Directive({
-        selector: '[screenScrollHeightDiff]'
-    }),
-    __metadata("design:paramtypes", [])
-], ScreenScrollHeightDiff);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], ScreenScrollHeightDiff.prototype, "screenScrollHeightDiff", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ScreenScrollHeightDiff.prototype, "screenScrollHeightDiffChange", void 0);
+    ScreenScrollHeightDiff = __decorate([
+        core_1.Directive({
+            selector: '[screenScrollHeightDiff]'
+        }),
+        __metadata("design:paramtypes", [])
+    ], ScreenScrollHeightDiff);
+    return ScreenScrollHeightDiff;
+}());
 exports.ScreenScrollHeightDiff = ScreenScrollHeightDiff;
 
 
@@ -3421,38 +3638,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let ScreenScrollModelY = class ScreenScrollModelY {
-    constructor() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var ScreenScrollModelY = (function () {
+    function ScreenScrollModelY() {
+        var _this = this;
         this.screenScrollModelYChange = new core_1.EventEmitter();
-        this.onScroll = () => {
-            this.screenScrollModelY = window['pageYOffset'];
-            this.screenScrollModelYChange.emit(this.screenScrollModelY);
+        this.onScroll = function () {
+            _this.screenScrollModelY = window['pageYOffset'];
+            _this.screenScrollModelYChange.emit(_this.screenScrollModelY);
         };
         this.onScroll();
         window.addEventListener("scroll", this.onScroll);
     }
-    ngOnInit() {
-        Promise.resolve().then(() => this.onScroll());
-    }
-    ngOnDestroy() {
+    ScreenScrollModelY.prototype.ngOnInit = function () {
+        var _this = this;
+        Promise.resolve().then(function () { return _this.onScroll(); });
+    };
+    ScreenScrollModelY.prototype.ngOnDestroy = function () {
         window.removeEventListener("scroll", this.onScroll);
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], ScreenScrollModelY.prototype, "screenScrollModelY", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ScreenScrollModelY.prototype, "screenScrollModelYChange", void 0);
-ScreenScrollModelY = __decorate([
-    core_1.Directive({
-        selector: '[screenScrollModelY]'
-    }),
-    __metadata("design:paramtypes", [])
-], ScreenScrollModelY);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], ScreenScrollModelY.prototype, "screenScrollModelY", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ScreenScrollModelY.prototype, "screenScrollModelYChange", void 0);
+    ScreenScrollModelY = __decorate([
+        core_1.Directive({
+            selector: '[screenScrollModelY]'
+        }),
+        __metadata("design:paramtypes", [])
+    ], ScreenScrollModelY);
+    return ScreenScrollModelY;
+}());
 exports.ScreenScrollModelY = ScreenScrollModelY;
 
 
@@ -3477,46 +3697,48 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const HtmlSizeWatcher_1 = __webpack_require__(/*! ./HtmlSizeWatcher */ "../src/directives/HtmlSizeWatcher.ts");
-let ScreenWidthModel = class ScreenWidthModel {
-    constructor(HtmlSizeService) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var HtmlSizeWatcher_1 = __webpack_require__(/*! ./HtmlSizeWatcher */ "../src/directives/HtmlSizeWatcher.ts");
+var ScreenWidthModel = (function () {
+    function ScreenWidthModel(HtmlSizeService) {
+        var _this = this;
         this.HtmlSizeService = HtmlSizeService;
         this.screenWidthModelChange = new core_1.EventEmitter();
-        this.sub = this.HtmlSizeService.change.subscribe(() => this.changed());
+        this.sub = this.HtmlSizeService.change.subscribe(function () { return _this.changed(); });
         this.HtmlSizeService.checkWatchers();
         if (this.HtmlSizeService.htmlSize) {
             this.changed();
         }
     }
-    changed() {
+    ScreenWidthModel.prototype.changed = function () {
         if (!this.HtmlSizeService.htmlSize
             || !this.hasChanged())
             return;
         this.updateModel();
-    }
-    hasChanged() {
+    };
+    ScreenWidthModel.prototype.hasChanged = function () {
         return this.screenWidthModel !== window.innerWidth;
-    }
-    updateModel() {
+    };
+    ScreenWidthModel.prototype.updateModel = function () {
         this.screenWidthModel = window.innerWidth;
         this.screenWidthModelChange.emit(this.screenWidthModel);
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], ScreenWidthModel.prototype, "screenWidthModel", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], ScreenWidthModel.prototype, "screenWidthModelChange", void 0);
-ScreenWidthModel = __decorate([
-    core_1.Directive({
-        selector: '[screenWidthModel]'
-    }),
-    __metadata("design:paramtypes", [HtmlSizeWatcher_1.HtmlSizeService])
-], ScreenWidthModel);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], ScreenWidthModel.prototype, "screenWidthModel", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], ScreenWidthModel.prototype, "screenWidthModelChange", void 0);
+    ScreenWidthModel = __decorate([
+        core_1.Directive({
+            selector: '[screenWidthModel]'
+        }),
+        __metadata("design:paramtypes", [HtmlSizeWatcher_1.HtmlSizeService])
+    ], ScreenWidthModel);
+    return ScreenWidthModel;
+}());
 exports.ScreenWidthModel = ScreenWidthModel;
 
 
@@ -3541,44 +3763,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let SelectOn = class SelectOn {
-    constructor(element) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var SelectOn = (function () {
+    function SelectOn(element) {
         this.element = element;
         this.selectOnDelay = 0;
         this.selectThen = new core_1.EventEmitter();
     }
-    ngOnChanges(changes) {
+    SelectOn.prototype.ngOnChanges = function (changes) {
+        var _this = this;
         if (changes.selectOn && changes.selectOn.currentValue) {
             if (this.selectOnDelay === 0) {
-                Promise.resolve().then(() => this.update());
+                Promise.resolve().then(function () { return _this.update(); });
             }
-            setTimeout(() => this.update(), this.selectOnDelay);
+            setTimeout(function () { return _this.update(); }, this.selectOnDelay);
         }
-    }
-    update() {
+    };
+    SelectOn.prototype.update = function () {
         this.element.nativeElement.select();
         this.selectThen.emit();
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], SelectOn.prototype, "selectOn", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], SelectOn.prototype, "selectOnDelay", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], SelectOn.prototype, "selectThen", void 0);
-SelectOn = __decorate([
-    core_1.Directive({
-        selector: '[selectOn]'
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], SelectOn);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], SelectOn.prototype, "selectOn", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], SelectOn.prototype, "selectOnDelay", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], SelectOn.prototype, "selectThen", void 0);
+    SelectOn = __decorate([
+        core_1.Directive({
+            selector: '[selectOn]'
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], SelectOn);
+    return SelectOn;
+}());
 exports.SelectOn = SelectOn;
 
 
@@ -3603,10 +3827,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const FxOn_directive_1 = __webpack_require__(/*! ./FxOn.directive */ "../src/directives/FxOn.directive.ts");
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let ShakeOn = class ShakeOn {
-    constructor(element) {
+var FxOn_directive_1 = __webpack_require__(/*! ./FxOn.directive */ "../src/directives/FxOn.directive.ts");
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var ShakeOn = (function () {
+    function ShakeOn(element) {
         this.element = element;
         this.shakeConstant = false;
         this.shakeThen = new core_1.EventEmitter();
@@ -3616,14 +3840,15 @@ let ShakeOn = class ShakeOn {
             'shake-chunk'
         ];
     }
-    ngOnInit() {
-        Promise.resolve().then(() => this.update());
-    }
-    update() {
+    ShakeOn.prototype.ngOnInit = function () {
+        var _this = this;
+        Promise.resolve().then(function () { return _this.update(); });
+    };
+    ShakeOn.prototype.update = function () {
         this.shakeForMs = this.shakeForMs || 2000;
         this.shakeType = this.shakeType || 'shake-slow';
-    }
-    ngOnChanges(changes) {
+    };
+    ShakeOn.prototype.ngOnChanges = function (changes) {
         if (changes.shakeOn && changes.shakeOn.currentValue != null && changes.shakeOn.currentValue != changes.shakeOn.previousValue) {
             if (changes.shakeOn.currentValue) {
                 this.onTrue();
@@ -3634,7 +3859,7 @@ let ShakeOn = class ShakeOn {
         }
         if (changes.shakeType && changes.shakeType.currentValue != changes.shakeType.previousValue) {
             if (this.shakeOn) {
-                const pv = changes.shakeType.previousValue;
+                var pv = changes.shakeType.previousValue;
                 if (pv) {
                     FxOn_directive_1.removeClass(this.element.nativeElement, pv);
                 }
@@ -3644,59 +3869,61 @@ let ShakeOn = class ShakeOn {
                 this.removeType();
             }
         }
-    }
-    onFalse() {
+    };
+    ShakeOn.prototype.onFalse = function () {
         FxOn_directive_1.removeClass(this.element.nativeElement, 'shake-constant');
         this.removeType();
         if (this.timeout) {
             clearTimeout(this.timeout);
             delete this.timeout;
         }
-    }
-    removeType() {
+    };
+    ShakeOn.prototype.removeType = function () {
         FxOn_directive_1.removeClass(this.element.nativeElement, this.shakeType || 'shake-slow');
-    }
-    applyType() {
+    };
+    ShakeOn.prototype.applyType = function () {
         FxOn_directive_1.addClass(this.element.nativeElement, this.shakeType || 'shake-slow');
-    }
-    onTrue() {
+    };
+    ShakeOn.prototype.onTrue = function () {
+        var _this = this;
         FxOn_directive_1.addClass(this.element.nativeElement, 'shake-constant');
         this.applyType();
         if (!this.shakeConstant) {
-            this.timeout = setTimeout(() => {
-                this.onFalse();
-                this.shakeThen.emit(this);
+            this.timeout = setTimeout(function () {
+                _this.onFalse();
+                _this.shakeThen.emit(_this);
             }, this.shakeForMs);
         }
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], ShakeOn.prototype, "shakeConstant", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], ShakeOn.prototype, "shakeOn", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], ShakeOn.prototype, "shakeForMs", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], ShakeOn.prototype, "shakeType", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ShakeOn.prototype, "shakeThen", void 0);
-ShakeOn = __decorate([
-    core_1.Directive({
-        selector: "[shakeOn]",
-        exportAs: "ShakeOn"
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], ShakeOn);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], ShakeOn.prototype, "shakeConstant", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], ShakeOn.prototype, "shakeOn", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], ShakeOn.prototype, "shakeForMs", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], ShakeOn.prototype, "shakeType", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ShakeOn.prototype, "shakeThen", void 0);
+    ShakeOn = __decorate([
+        core_1.Directive({
+            selector: "[shakeOn]",
+            exportAs: "ShakeOn"
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], ShakeOn);
+    return ShakeOn;
+}());
 exports.ShakeOn = ShakeOn;
 
 
@@ -3721,35 +3948,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let StatusOfflineModel = class StatusOfflineModel {
-    constructor() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var StatusOfflineModel = (function () {
+    function StatusOfflineModel() {
+        var _this = this;
         this.statusOfflineModelChange = new core_1.EventEmitter();
-        this.onChange = () => {
-            this.statusOfflineModel = !navigator.onLine;
-            this.statusOfflineModelChange.emit(this.statusOfflineModel);
+        this.onChange = function () {
+            _this.statusOfflineModel = !navigator.onLine;
+            _this.statusOfflineModelChange.emit(_this.statusOfflineModel);
         };
         window.addEventListener("offline", this.onChange);
         window.addEventListener("online", this.onChange);
-        Promise.resolve().then(() => this.onChange());
+        Promise.resolve().then(function () { return _this.onChange(); });
     }
-    ngOnDestroy() {
+    StatusOfflineModel.prototype.ngOnDestroy = function () {
         window.removeEventListener("offline", this.onChange);
         window.removeEventListener("online", this.onChange);
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], StatusOfflineModel.prototype, "statusOfflineModel", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], StatusOfflineModel.prototype, "statusOfflineModelChange", void 0);
-StatusOfflineModel = __decorate([
-    core_1.Directive({ selector: '[statusOfflineModel]' }),
-    __metadata("design:paramtypes", [])
-], StatusOfflineModel);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], StatusOfflineModel.prototype, "statusOfflineModel", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], StatusOfflineModel.prototype, "statusOfflineModelChange", void 0);
+    StatusOfflineModel = __decorate([
+        core_1.Directive({ selector: '[statusOfflineModel]' }),
+        __metadata("design:paramtypes", [])
+    ], StatusOfflineModel);
+    return StatusOfflineModel;
+}());
 exports.StatusOfflineModel = StatusOfflineModel;
 
 
@@ -3774,35 +4003,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let StatusOnlineModel = class StatusOnlineModel {
-    constructor() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var StatusOnlineModel = (function () {
+    function StatusOnlineModel() {
+        var _this = this;
         this.statusOnlineModelChange = new core_1.EventEmitter();
-        this.onChange = () => {
-            this.statusOnlineModel = navigator.onLine;
-            this.statusOnlineModelChange.emit(this.statusOnlineModel);
+        this.onChange = function () {
+            _this.statusOnlineModel = navigator.onLine;
+            _this.statusOnlineModelChange.emit(_this.statusOnlineModel);
         };
         window.addEventListener("online", this.onChange);
         window.addEventListener("offline", this.onChange);
-        Promise.resolve().then(() => this.onChange());
+        Promise.resolve().then(function () { return _this.onChange(); });
     }
-    ngOnDestroy() {
+    StatusOnlineModel.prototype.ngOnDestroy = function () {
         window.removeEventListener("online", this.onChange);
         window.removeEventListener("offline", this.onChange);
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], StatusOnlineModel.prototype, "statusOnlineModel", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], StatusOnlineModel.prototype, "statusOnlineModelChange", void 0);
-StatusOnlineModel = __decorate([
-    core_1.Directive({ selector: '[statusOnlineModel]' }),
-    __metadata("design:paramtypes", [])
-], StatusOnlineModel);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], StatusOnlineModel.prototype, "statusOnlineModel", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], StatusOnlineModel.prototype, "statusOnlineModelChange", void 0);
+    StatusOnlineModel = __decorate([
+        core_1.Directive({ selector: '[statusOnlineModel]' }),
+        __metadata("design:paramtypes", [])
+    ], StatusOnlineModel);
+    return StatusOnlineModel;
+}());
 exports.StatusOnlineModel = StatusOnlineModel;
 
 
@@ -3827,31 +4058,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let VarDirective = class VarDirective {
-    constructor() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var VarDirective = (function () {
+    function VarDirective() {
         this.changed = new core_1.EventEmitter();
     }
-    ngOnChanges(changes) {
+    VarDirective.prototype.ngOnChanges = function (changes) {
+        var _this = this;
         if (changes.var) {
-            Promise.resolve().then(() => this.changed.emit(this.var));
+            Promise.resolve().then(function () { return _this.changed.emit(_this.var); });
         }
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], VarDirective.prototype, "var", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], VarDirective.prototype, "changed", void 0);
-VarDirective = __decorate([
-    core_1.Directive({
-        selector: "[var]",
-        exportAs: "var"
-    })
-], VarDirective);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], VarDirective.prototype, "var", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], VarDirective.prototype, "changed", void 0);
+    VarDirective = __decorate([
+        core_1.Directive({
+            selector: "[var]",
+            exportAs: "var"
+        })
+    ], VarDirective);
+    return VarDirective;
+}());
 exports.VarDirective = VarDirective;
 
 
@@ -3872,14 +4105,16 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var AckModule_1 = __webpack_require__(/*! ./AckModule */ "../src/AckModule.ts");
 exports.AckModule = AckModule_1.AckModule;
+var AckRouterModule_1 = __webpack_require__(/*! ./AckRouterModule */ "../src/AckRouterModule.ts");
+exports.AckRouterModule = AckRouterModule_1.AckRouterModule;
 var RouteWatchReporter_1 = __webpack_require__(/*! ./RouteWatchReporter */ "../src/RouteWatchReporter.ts");
 exports.RouteWatchReporter = RouteWatchReporter_1.RouteWatchReporter;
 var declarations_1 = __webpack_require__(/*! ./declarations */ "../src/declarations.ts");
 exports.components = declarations_1.declarations;
 var pipes_1 = __webpack_require__(/*! ./pipes */ "../src/pipes.ts");
 exports.pipes = pipes_1.declarations;
-var browser_1 = __webpack_require__(/*! ack-x/browser */ "../node_modules/ack-x/browser.js");
-exports.ack = browser_1.ack;
+var ack_1 = __webpack_require__(/*! ./ack */ "../src/ack.ts");
+exports.ack = ack_1.ack;
 var AckApi_1 = __webpack_require__(/*! ./providers/AckApi */ "../src/providers/AckApi.ts");
 exports.AckApi = AckApi_1.AckApi;
 var AckArray_directive_1 = __webpack_require__(/*! ./directives/AckArray.directive */ "../src/directives/AckArray.directive.ts");
@@ -3906,18 +4141,18 @@ exports.invokeRotator = invokeRotator;
 function objectInvoker(object, plan) {
     var rtn = object;
     var subargs, item;
-    let newkey;
-    let key;
-    let typo;
-    for (let x = 0; x < plan.length; ++x) {
+    var newkey;
+    var key;
+    var typo;
+    for (var x = 0; x < plan.length; ++x) {
         key = plan[x];
         subargs = [];
         if (rtn == null) {
             typo = typeof (rtn);
-            const msg = "TypeError: Cannot read property '" + key + "' of " + typo + ". Invoke instructions: " + JSON.stringify(plan);
+            var msg = "TypeError: Cannot read property '" + key + "' of " + typo + ". Invoke instructions: " + JSON.stringify(plan);
             throw new Error(msg);
         }
-        let asFunc = key.constructor == Array;
+        var asFunc = key.constructor == Array;
         if (asFunc) {
             key = [];
             key.push.apply(key, plan[x]);
@@ -3926,11 +4161,11 @@ function objectInvoker(object, plan) {
             key = newkey;
         }
         item = rtn[key];
-        let isFunc = item && item.constructor == Function;
+        var isFunc = item && item.constructor == Function;
         if (asFunc && !isFunc) {
             if (item == null || item.constructor !== Function) {
                 typo = typeof (item);
-                const msg = "TypeError: '" + key + "' of " + typo + " is not a function. Invoke instructions: " + JSON.stringify(plan);
+                var msg = "TypeError: '" + key + "' of " + typo + " is not a function. Invoke instructions: " + JSON.stringify(plan);
                 throw new Error(msg);
             }
         }
@@ -3945,16 +4180,24 @@ function objectInvoker(object, plan) {
 }
 exports.objectInvoker = objectInvoker;
 function getInvokerBy(invoke) {
-    const isF = typeof invoke == 'function';
+    var isF = typeof invoke == 'function';
     if (isF) {
-        return function (...args) {
+        return function () {
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i] = arguments[_i];
+            }
             var x = invoke(args[0]);
             args.shift();
             return objectInvoker(x, args);
         };
     }
-    return function (...plan) {
-        const a = plan[0];
+    return function () {
+        var plan = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            plan[_i] = arguments[_i];
+        }
+        var a = plan[0];
         plan[0] = plan[1];
         plan[1] = a;
         return objectInvoker(invoke, [plan]);
@@ -3975,7 +4218,7 @@ exports.getInvokerBy = getInvokerBy;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const browser_1 = __webpack_require__(/*! ack-x/browser */ "../node_modules/ack-x/browser.js");
+var browser_1 = __webpack_require__(/*! ack-x/browser */ "../node_modules/ack-x/browser.js");
 function between(input, a, b) {
     if (a == null || b == null)
         return false;
@@ -3995,7 +4238,8 @@ function toNumber(val) {
     return Number(numbers(val, "."));
 }
 exports.toNumber = toNumber;
-function numberSuffix(val, rtnVal = false) {
+function numberSuffix(val, rtnVal) {
+    if (rtnVal === void 0) { rtnVal = false; }
     var rtn = rtnVal ? val : '';
     val = Number(val);
     if (!val || isNaN(val))
@@ -4014,13 +4258,13 @@ function numberSuffix(val, rtnVal = false) {
 }
 exports.numberSuffix = numberSuffix;
 function array(input, repeat, repeatValue) {
-    const isArray = input != null && input.constructor == Array;
-    let rtn = isArray ? input : [];
+    var isArray = input != null && input.constructor == Array;
+    var rtn = isArray ? input : [];
     if (!repeat && !isArray && input != null) {
         rtn.push(input);
     }
     if (repeat && !isNaN(Number(repeat))) {
-        const val = typeof (repeatValue) === 'undefined' ? input : repeatValue;
+        var val = typeof (repeatValue) === 'undefined' ? input : repeatValue;
         while (rtn.length < repeat) {
             rtn.push(val);
         }
@@ -4029,7 +4273,7 @@ function array(input, repeat, repeatValue) {
 }
 exports.array = array;
 function arrayOfObjects(input, repeat, repeatValue) {
-    return array(input, repeat, repeatValue).map((v, i) => ({ value: v, index: i }));
+    return array(input, repeat, repeatValue).map(function (v, i) { return ({ value: v, index: i }); });
 }
 exports.arrayOfObjects = arrayOfObjects;
 function markdownAnchor(input) {
@@ -4060,7 +4304,7 @@ exports.yesNo = yesNo;
 function boolean(input) {
     if (input == null)
         return false;
-    const num = Number(input);
+    var num = Number(input);
     if (!isNaN(num)) {
         return Boolean(num) ? true : false;
     }
@@ -4078,7 +4322,7 @@ function bit(input) {
 }
 exports.bit = bit;
 function numbers(input, safeChars) {
-    let xString = '[^0-9';
+    var xString = '[^0-9';
     if (safeChars) {
         if (safeChars.length > 4) {
             safeChars = safeChars.substring(0, 4);
@@ -4086,7 +4330,7 @@ function numbers(input, safeChars) {
         xString += safeChars;
     }
     xString += ']';
-    const regX = new RegExp(xString, 'g');
+    var regX = new RegExp(xString, 'g');
     return input ? String(input).replace(regX, '') : input;
 }
 exports.numbers = numbers;
@@ -4112,35 +4356,35 @@ function capitalizeOne(input) {
 }
 exports.capitalizeOne = capitalizeOne;
 function a(name) {
-    const av = new browser_1.ack();
+    var av = new browser_1.ack();
     return invokeRotator_1.invokeRotator(av[name]);
 }
-const invokeRotator_1 = __webpack_require__(/*! ./invokeRotator */ "../src/invokeRotator.ts");
+var invokeRotator_1 = __webpack_require__(/*! ./invokeRotator */ "../src/invokeRotator.ts");
 exports.aDate = a('date');
 exports.aTime = a('time');
 exports.aMath = invokeRotator_1.invokeRotator(Math);
 exports.aString = invokeRotator_1.invokeRotator(String);
 exports.ack = invokeRotator_1.invokeRotator(browser_1.ack);
 exports.pipes = {
-    array,
-    markdownAnchor,
-    textDownload,
-    yesno,
-    yesNo,
-    numbers,
-    capitalizeWords,
-    capitalize,
-    capitalizeAfterSentence,
-    capitalizeOne,
-    toNumber,
-    numberToPhone,
-    numberSuffix,
+    array: array,
+    markdownAnchor: markdownAnchor,
+    textDownload: textDownload,
+    yesno: yesno,
+    yesNo: yesNo,
+    numbers: numbers,
+    capitalizeWords: capitalizeWords,
+    capitalize: capitalize,
+    capitalizeAfterSentence: capitalizeAfterSentence,
+    capitalizeOne: capitalizeOne,
+    toNumber: toNumber,
+    numberToPhone: numberToPhone,
+    numberSuffix: numberSuffix,
     aDate: exports.aDate,
     aMath: exports.aMath,
     aString: exports.aString,
     aTime: exports.aTime,
     ack: exports.ack,
-    between
+    between: between
 };
 
 
@@ -4165,238 +4409,316 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const pipes = __webpack_require__(/*! ./pipes.class */ "../src/pipes.class.ts");
-const platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "../node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
-let IndexTrack = class IndexTrack {
-    transform() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var pipes = __webpack_require__(/*! ./pipes.class */ "../src/pipes.class.ts");
+var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "../node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+var IndexTrack = (function () {
+    function IndexTrack() {
+    }
+    IndexTrack.prototype.transform = function () {
         return function (index) { return index; };
-    }
-};
-IndexTrack = __decorate([
-    core_1.Pipe({ name: 'indexTrack' })
-], IndexTrack);
+    };
+    IndexTrack = __decorate([
+        core_1.Pipe({ name: 'indexTrack' })
+    ], IndexTrack);
+    return IndexTrack;
+}());
 exports.IndexTrack = IndexTrack;
-let Stringify = class Stringify {
-    transform(input, spaces) {
+var Stringify = (function () {
+    function Stringify() {
+    }
+    Stringify.prototype.transform = function (input, spaces) {
         return JSON.stringify(input, null, spaces);
-    }
-};
-Stringify = __decorate([
-    core_1.Pipe({ name: 'stringify' })
-], Stringify);
+    };
+    Stringify = __decorate([
+        core_1.Pipe({ name: 'stringify' })
+    ], Stringify);
+    return Stringify;
+}());
 exports.Stringify = Stringify;
-let ForceArray = class ForceArray {
-    transform(input, repeat, repeatValue) {
+var ForceArray = (function () {
+    function ForceArray() {
+    }
+    ForceArray.prototype.transform = function (input, repeat, repeatValue) {
         return pipes.array(input, repeat, repeatValue);
-    }
-};
-ForceArray = __decorate([
-    core_1.Pipe({ name: 'array' })
-], ForceArray);
+    };
+    ForceArray = __decorate([
+        core_1.Pipe({ name: 'array' })
+    ], ForceArray);
+    return ForceArray;
+}());
 exports.ForceArray = ForceArray;
-let ArrayOfObjects = class ArrayOfObjects {
-    transform(input, repeat, repeatValue) {
+var ArrayOfObjects = (function () {
+    function ArrayOfObjects() {
+    }
+    ArrayOfObjects.prototype.transform = function (input, repeat, repeatValue) {
         return pipes.arrayOfObjects(input, repeat, repeatValue);
-    }
-};
-ArrayOfObjects = __decorate([
-    core_1.Pipe({ name: 'arrayOfObjects' })
-], ArrayOfObjects);
+    };
+    ArrayOfObjects = __decorate([
+        core_1.Pipe({ name: 'arrayOfObjects' })
+    ], ArrayOfObjects);
+    return ArrayOfObjects;
+}());
 exports.ArrayOfObjects = ArrayOfObjects;
-let SafeUrl = class SafeUrl {
-    constructor(domSanitizer) {
+var SafeUrl = (function () {
+    function SafeUrl(domSanitizer) {
         this.domSanitizer = domSanitizer;
     }
-    transform(input) {
+    SafeUrl.prototype.transform = function (input) {
         return this.domSanitizer.bypassSecurityTrustResourceUrl(input);
-    }
-};
-SafeUrl = __decorate([
-    core_1.Pipe({ name: 'safeUrl' }),
-    __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
-], SafeUrl);
+    };
+    SafeUrl = __decorate([
+        core_1.Pipe({ name: 'safeUrl' }),
+        __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
+    ], SafeUrl);
+    return SafeUrl;
+}());
 exports.SafeUrl = SafeUrl;
-let SafeHtml = class SafeHtml {
-    constructor(domSanitizer) {
+var SafeHtml = (function () {
+    function SafeHtml(domSanitizer) {
         this.domSanitizer = domSanitizer;
     }
-    transform(input) {
+    SafeHtml.prototype.transform = function (input) {
         return this.domSanitizer.bypassSecurityTrustHtml(input);
-    }
-};
-SafeHtml = __decorate([
-    core_1.Pipe({ name: 'safeHtml' }),
-    __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
-], SafeHtml);
+    };
+    SafeHtml = __decorate([
+        core_1.Pipe({ name: 'safeHtml' }),
+        __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
+    ], SafeHtml);
+    return SafeHtml;
+}());
 exports.SafeHtml = SafeHtml;
-let SafeStyle = class SafeStyle {
-    constructor(domSanitizer) {
+var SafeStyle = (function () {
+    function SafeStyle(domSanitizer) {
         this.domSanitizer = domSanitizer;
     }
-    transform(input) {
+    SafeStyle.prototype.transform = function (input) {
         return this.domSanitizer.bypassSecurityTrustStyle(input);
-    }
-};
-SafeStyle = __decorate([
-    core_1.Pipe({ name: 'safeStyle' }),
-    __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
-], SafeStyle);
+    };
+    SafeStyle = __decorate([
+        core_1.Pipe({ name: 'safeStyle' }),
+        __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
+    ], SafeStyle);
+    return SafeStyle;
+}());
 exports.SafeStyle = SafeStyle;
-let Between = class Between {
-    transform(input, a, b) { return pipes.between(input, a, b); }
-};
-Between = __decorate([
-    core_1.Pipe({ name: 'between' })
-], Between);
+var Between = (function () {
+    function Between() {
+    }
+    Between.prototype.transform = function (input, a, b) { return pipes.between(input, a, b); };
+    Between = __decorate([
+        core_1.Pipe({ name: 'between' })
+    ], Between);
+    return Between;
+}());
 exports.Between = Between;
-let TextDownload = class TextDownload {
-    transform(input) { return pipes.textDownload(input); }
-};
-TextDownload = __decorate([
-    core_1.Pipe({ name: 'textDownload' })
-], TextDownload);
+var TextDownload = (function () {
+    function TextDownload() {
+    }
+    TextDownload.prototype.transform = function (input) { return pipes.textDownload(input); };
+    TextDownload = __decorate([
+        core_1.Pipe({ name: 'textDownload' })
+    ], TextDownload);
+    return TextDownload;
+}());
 exports.TextDownload = TextDownload;
-let NumberToPhone = class NumberToPhone {
-    transform(input) { return pipes.numberToPhone(input); }
-};
-NumberToPhone = __decorate([
-    core_1.Pipe({ name: 'numberToPhone' })
-], NumberToPhone);
+var NumberToPhone = (function () {
+    function NumberToPhone() {
+    }
+    NumberToPhone.prototype.transform = function (input) { return pipes.numberToPhone(input); };
+    NumberToPhone = __decorate([
+        core_1.Pipe({ name: 'numberToPhone' })
+    ], NumberToPhone);
+    return NumberToPhone;
+}());
 exports.NumberToPhone = NumberToPhone;
-let toNumber = class toNumber {
-    transform(input) { return pipes.toNumber(input); }
-};
-toNumber = __decorate([
-    core_1.Pipe({ name: 'toNumber' })
-], toNumber);
+var toNumber = (function () {
+    function toNumber() {
+    }
+    toNumber.prototype.transform = function (input) { return pipes.toNumber(input); };
+    toNumber = __decorate([
+        core_1.Pipe({ name: 'toNumber' })
+    ], toNumber);
+    return toNumber;
+}());
 exports.toNumber = toNumber;
-let NumberSuffix = class NumberSuffix {
-    transform(input, rtnInput) { return pipes.numberSuffix(input, rtnInput); }
-};
-NumberSuffix = __decorate([
-    core_1.Pipe({ name: 'numberSuffix' })
-], NumberSuffix);
+var NumberSuffix = (function () {
+    function NumberSuffix() {
+    }
+    NumberSuffix.prototype.transform = function (input, rtnInput) { return pipes.numberSuffix(input, rtnInput); };
+    NumberSuffix = __decorate([
+        core_1.Pipe({ name: 'numberSuffix' })
+    ], NumberSuffix);
+    return NumberSuffix;
+}());
 exports.NumberSuffix = NumberSuffix;
-let MarkdownAnchor = class MarkdownAnchor {
-    transform(input) { return pipes.markdownAnchor(input); }
-};
-MarkdownAnchor = __decorate([
-    core_1.Pipe({ name: 'markdownAnchor' })
-], MarkdownAnchor);
+var MarkdownAnchor = (function () {
+    function MarkdownAnchor() {
+    }
+    MarkdownAnchor.prototype.transform = function (input) { return pipes.markdownAnchor(input); };
+    MarkdownAnchor = __decorate([
+        core_1.Pipe({ name: 'markdownAnchor' })
+    ], MarkdownAnchor);
+    return MarkdownAnchor;
+}());
 exports.MarkdownAnchor = MarkdownAnchor;
-let Capitalize = class Capitalize {
-    transform(input) { return pipes.capitalize(input); }
-};
-Capitalize = __decorate([
-    core_1.Pipe({ name: 'capitalize' })
-], Capitalize);
+var Capitalize = (function () {
+    function Capitalize() {
+    }
+    Capitalize.prototype.transform = function (input) { return pipes.capitalize(input); };
+    Capitalize = __decorate([
+        core_1.Pipe({ name: 'capitalize' })
+    ], Capitalize);
+    return Capitalize;
+}());
 exports.Capitalize = Capitalize;
-let CapitalizeWords = class CapitalizeWords {
-    transform(input) { return pipes.capitalizeWords(input); }
-};
-CapitalizeWords = __decorate([
-    core_1.Pipe({ name: 'capitalizeWords' })
-], CapitalizeWords);
+var CapitalizeWords = (function () {
+    function CapitalizeWords() {
+    }
+    CapitalizeWords.prototype.transform = function (input) { return pipes.capitalizeWords(input); };
+    CapitalizeWords = __decorate([
+        core_1.Pipe({ name: 'capitalizeWords' })
+    ], CapitalizeWords);
+    return CapitalizeWords;
+}());
 exports.CapitalizeWords = CapitalizeWords;
-let Yesno = class Yesno {
-    transform(input) { return pipes.yesno(input); }
-};
-Yesno = __decorate([
-    core_1.Pipe({ name: 'yesno' })
-], Yesno);
+var Yesno = (function () {
+    function Yesno() {
+    }
+    Yesno.prototype.transform = function (input) { return pipes.yesno(input); };
+    Yesno = __decorate([
+        core_1.Pipe({ name: 'yesno' })
+    ], Yesno);
+    return Yesno;
+}());
 exports.Yesno = Yesno;
-let YesNo = class YesNo {
-    transform(input) { return pipes.yesNo(input); }
-};
-YesNo = __decorate([
-    core_1.Pipe({ name: 'YesNo' })
-], YesNo);
+var YesNo = (function () {
+    function YesNo() {
+    }
+    YesNo.prototype.transform = function (input) { return pipes.yesNo(input); };
+    YesNo = __decorate([
+        core_1.Pipe({ name: 'YesNo' })
+    ], YesNo);
+    return YesNo;
+}());
 exports.YesNo = YesNo;
-let BooleanPipe = class BooleanPipe {
-    transform(input) { return pipes.boolean(input); }
-};
-BooleanPipe = __decorate([
-    core_1.Pipe({ name: 'boolean' })
-], BooleanPipe);
+var BooleanPipe = (function () {
+    function BooleanPipe() {
+    }
+    BooleanPipe.prototype.transform = function (input) { return pipes.boolean(input); };
+    BooleanPipe = __decorate([
+        core_1.Pipe({ name: 'boolean' })
+    ], BooleanPipe);
+    return BooleanPipe;
+}());
 exports.BooleanPipe = BooleanPipe;
-let Bit = class Bit {
-    transform(input) { return pipes.bit(input); }
-};
-Bit = __decorate([
-    core_1.Pipe({ name: 'bit' })
-], Bit);
+var Bit = (function () {
+    function Bit() {
+    }
+    Bit.prototype.transform = function (input) { return pipes.bit(input); };
+    Bit = __decorate([
+        core_1.Pipe({ name: 'bit' })
+    ], Bit);
+    return Bit;
+}());
 exports.Bit = Bit;
-let Numbers = class Numbers {
-    transform(input) { return pipes.numbers(input); }
-};
-Numbers = __decorate([
-    core_1.Pipe({ name: 'numbers' })
-], Numbers);
+var Numbers = (function () {
+    function Numbers() {
+    }
+    Numbers.prototype.transform = function (input) { return pipes.numbers(input); };
+    Numbers = __decorate([
+        core_1.Pipe({ name: 'numbers' })
+    ], Numbers);
+    return Numbers;
+}());
 exports.Numbers = Numbers;
-let ADate = class ADate {
-    transform() { return pipes.aDate.apply(pipes.aDate, arguments); }
-};
-ADate = __decorate([
-    core_1.Pipe({ name: 'aDate' })
-], ADate);
+var ADate = (function () {
+    function ADate() {
+    }
+    ADate.prototype.transform = function () { return pipes.aDate.apply(pipes.aDate, arguments); };
+    ADate = __decorate([
+        core_1.Pipe({ name: 'aDate' })
+    ], ADate);
+    return ADate;
+}());
 exports.ADate = ADate;
-let AMath = class AMath {
-    transform() { return pipes.aMath.apply(pipes.aMath, arguments); }
-};
-AMath = __decorate([
-    core_1.Pipe({ name: 'aMath' })
-], AMath);
+var AMath = (function () {
+    function AMath() {
+    }
+    AMath.prototype.transform = function () { return pipes.aMath.apply(pipes.aMath, arguments); };
+    AMath = __decorate([
+        core_1.Pipe({ name: 'aMath' })
+    ], AMath);
+    return AMath;
+}());
 exports.AMath = AMath;
-let AString = class AString {
-    transform() { return pipes.aString.apply(pipes.aString, arguments); }
-};
-AString = __decorate([
-    core_1.Pipe({ name: 'aString' })
-], AString);
+var AString = (function () {
+    function AString() {
+    }
+    AString.prototype.transform = function () { return pipes.aString.apply(pipes.aString, arguments); };
+    AString = __decorate([
+        core_1.Pipe({ name: 'aString' })
+    ], AString);
+    return AString;
+}());
 exports.AString = AString;
-let ATime = class ATime {
-    transform() { return pipes.aTime.apply(pipes.aTime, arguments); }
-};
-ATime = __decorate([
-    core_1.Pipe({ name: 'aTime' })
-], ATime);
+var ATime = (function () {
+    function ATime() {
+    }
+    ATime.prototype.transform = function () { return pipes.aTime.apply(pipes.aTime, arguments); };
+    ATime = __decorate([
+        core_1.Pipe({ name: 'aTime' })
+    ], ATime);
+    return ATime;
+}());
 exports.ATime = ATime;
-let Ack = class Ack {
-    transform() { return pipes.ack.apply(pipes.ack, arguments); }
-};
-Ack = __decorate([
-    core_1.Pipe({ name: 'ack' })
-], Ack);
+var Ack = (function () {
+    function Ack() {
+    }
+    Ack.prototype.transform = function () { return pipes.ack.apply(pipes.ack, arguments); };
+    Ack = __decorate([
+        core_1.Pipe({ name: 'ack' })
+    ], Ack);
+    return Ack;
+}());
 exports.Ack = Ack;
-let Keys = class Keys {
-    transform(input) {
-        const type = typeof (input) == 'object';
-        const isOb = input && type;
-        const isArray = isOb && input.constructor == Array;
+var Keys = (function () {
+    function Keys() {
+    }
+    Keys.prototype.transform = function (input) {
+        var type = typeof (input) == 'object';
+        var isOb = input && type;
+        var isArray = isOb && input.constructor == Array;
         if (isArray) {
-            return input.map((_value, index) => index);
+            return input.map(function (_value, index) { return index; });
         }
         return input ? Object.keys(input) : [];
-    }
-};
-Keys = __decorate([
-    core_1.Pipe({ name: 'keys' })
-], Keys);
+    };
+    Keys = __decorate([
+        core_1.Pipe({ name: 'keys' })
+    ], Keys);
+    return Keys;
+}());
 exports.Keys = Keys;
-let TypeofPipe = class TypeofPipe {
-    transform(input) { return typeof (input); }
-};
-TypeofPipe = __decorate([
-    core_1.Pipe({ name: 'typeof' })
-], TypeofPipe);
+var TypeofPipe = (function () {
+    function TypeofPipe() {
+    }
+    TypeofPipe.prototype.transform = function (input) { return typeof (input); };
+    TypeofPipe = __decorate([
+        core_1.Pipe({ name: 'typeof' })
+    ], TypeofPipe);
+    return TypeofPipe;
+}());
 exports.TypeofPipe = TypeofPipe;
-let ConsolePipe = class ConsolePipe {
-    transform() { return console.log.apply(console, arguments); }
-};
-ConsolePipe = __decorate([
-    core_1.Pipe({ name: 'console' })
-], ConsolePipe);
+var ConsolePipe = (function () {
+    function ConsolePipe() {
+    }
+    ConsolePipe.prototype.transform = function () { return console.log.apply(console, arguments); };
+    ConsolePipe = __decorate([
+        core_1.Pipe({ name: 'console' })
+    ], ConsolePipe);
+    return ConsolePipe;
+}());
 exports.ConsolePipe = ConsolePipe;
 exports.declarations = [
     IndexTrack,
@@ -4441,45 +4763,41 @@ exports.declarations = [
 
 "use strict";
 
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
 Object.defineProperty(exports, "__esModule", { value: true });
 var HtmlSizeWatcher_1 = __webpack_require__(/*! ./directives/HtmlSizeWatcher */ "../src/directives/HtmlSizeWatcher.ts");
 exports.HtmlSizeService = HtmlSizeWatcher_1.HtmlSizeService;
-const HtmlSizeWatcher_2 = __webpack_require__(/*! ./directives/HtmlSizeWatcher */ "../src/directives/HtmlSizeWatcher.ts");
+var HtmlSizeWatcher_2 = __webpack_require__(/*! ./directives/HtmlSizeWatcher */ "../src/directives/HtmlSizeWatcher.ts");
 var Log_1 = __webpack_require__(/*! ./providers/Log */ "../src/providers/Log.ts");
 exports.Log = Log_1.Log;
-const Log_2 = __webpack_require__(/*! ./providers/Log */ "../src/providers/Log.ts");
+var Log_2 = __webpack_require__(/*! ./providers/Log */ "../src/providers/Log.ts");
 var AckApp_provider_1 = __webpack_require__(/*! ./providers/AckApp.provider */ "../src/providers/AckApp.provider.ts");
 exports.AckApp = AckApp_provider_1.AckApp;
-const AckApp_provider_2 = __webpack_require__(/*! ./providers/AckApp.provider */ "../src/providers/AckApp.provider.ts");
+var AckApp_provider_2 = __webpack_require__(/*! ./providers/AckApp.provider */ "../src/providers/AckApp.provider.ts");
 var Prompts_1 = __webpack_require__(/*! ./providers/Prompts */ "../src/providers/Prompts.ts");
 exports.Prompts = Prompts_1.Prompts;
-const Prompts_2 = __webpack_require__(/*! ./providers/Prompts */ "../src/providers/Prompts.ts");
+var Prompts_2 = __webpack_require__(/*! ./providers/Prompts */ "../src/providers/Prompts.ts");
 var AckOffline_1 = __webpack_require__(/*! ./providers/AckOffline */ "../src/providers/AckOffline.ts");
 exports.AckOffline = AckOffline_1.AckOffline;
-const AckOffline_2 = __webpack_require__(/*! ./providers/AckOffline */ "../src/providers/AckOffline.ts");
+var AckOffline_2 = __webpack_require__(/*! ./providers/AckOffline */ "../src/providers/AckOffline.ts");
 var AckCache_1 = __webpack_require__(/*! ./providers/AckCache */ "../src/providers/AckCache.ts");
 exports.AckCache = AckCache_1.AckCache;
-const AckCache_2 = __webpack_require__(/*! ./providers/AckCache */ "../src/providers/AckCache.ts");
+var AckCache_2 = __webpack_require__(/*! ./providers/AckCache */ "../src/providers/AckCache.ts");
 var AckQue_1 = __webpack_require__(/*! ./providers/AckQue */ "../src/providers/AckQue.ts");
 exports.AckQue = AckQue_1.AckQue;
-const AckQue_2 = __webpack_require__(/*! ./providers/AckQue */ "../src/providers/AckQue.ts");
+var AckQue_2 = __webpack_require__(/*! ./providers/AckQue */ "../src/providers/AckQue.ts");
 var ErrorLog_1 = __webpack_require__(/*! ./providers/ErrorLog */ "../src/providers/ErrorLog.ts");
 exports.ErrorLog = ErrorLog_1.ErrorLog;
-const ErrorLog_2 = __webpack_require__(/*! ./providers/ErrorLog */ "../src/providers/ErrorLog.ts");
-__export(__webpack_require__(/*! ./providers/AckApi */ "../src/providers/AckApi.ts"));
-const AckApi_1 = __webpack_require__(/*! ./providers/AckApi */ "../src/providers/AckApi.ts");
+var ErrorLog_2 = __webpack_require__(/*! ./providers/ErrorLog */ "../src/providers/ErrorLog.ts");
+var AckApi_1 = __webpack_require__(/*! ./providers/AckApi */ "../src/providers/AckApi.ts");
 var UrlVars_1 = __webpack_require__(/*! ./providers/UrlVars */ "../src/providers/UrlVars.ts");
 exports.UrlVars = UrlVars_1.UrlVars;
-const UrlVars_2 = __webpack_require__(/*! ./providers/UrlVars */ "../src/providers/UrlVars.ts");
+var UrlVars_2 = __webpack_require__(/*! ./providers/UrlVars */ "../src/providers/UrlVars.ts");
 var WindowService_1 = __webpack_require__(/*! ./providers/WindowService */ "../src/providers/WindowService.ts");
 exports.WindowService = WindowService_1.WindowService;
-const WindowService_2 = __webpack_require__(/*! ./providers/WindowService */ "../src/providers/WindowService.ts");
+var WindowService_2 = __webpack_require__(/*! ./providers/WindowService */ "../src/providers/WindowService.ts");
 var DocumentService_1 = __webpack_require__(/*! ./providers/DocumentService */ "../src/providers/DocumentService.ts");
 exports.DocumentService = DocumentService_1.DocumentService;
-const DocumentService_2 = __webpack_require__(/*! ./providers/DocumentService */ "../src/providers/DocumentService.ts");
+var DocumentService_2 = __webpack_require__(/*! ./providers/DocumentService */ "../src/providers/DocumentService.ts");
 exports.providers = [
     Log_2.Log,
     ErrorLog_2.ErrorLog,
@@ -4507,6 +4825,17 @@ exports.providers = [
 
 "use strict";
 
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4517,10 +4846,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const http_1 = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm2015/http.js");
-const AckCache_1 = __webpack_require__(/*! ./AckCache */ "../src/providers/AckCache.ts");
-const AckQue_1 = __webpack_require__(/*! ./AckQue */ "../src/providers/AckQue.ts");
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var http_1 = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
+var AckCache_1 = __webpack_require__(/*! ./AckCache */ "../src/providers/AckCache.ts");
+var AckQue_1 = __webpack_require__(/*! ./AckQue */ "../src/providers/AckQue.ts");
 function TimeOutError(message) {
     Error["captureStackTrace"](this, this.constructor);
     this.name = this.constructor.name;
@@ -4530,8 +4859,8 @@ function TimeOutError(message) {
 }
 exports.TimeOutError = TimeOutError;
 TimeOutError.prototype = Object.create(Error.prototype);
-let AckApi = class AckApi {
-    constructor(HttpClient) {
+var AckApi = (function () {
+    function AckApi(HttpClient) {
         this.HttpClient = HttpClient;
         this.response = new core_1.EventEmitter();
         this.Request = new core_1.EventEmitter();
@@ -4549,90 +4878,95 @@ let AckApi = class AckApi {
         };
         this.paramConfig();
     }
-    paramConfig() { }
-    registerHandler(name, handler, options) {
+    AckApi.prototype.paramConfig = function () { };
+    AckApi.prototype.registerHandler = function (name, handler, options) {
+        var _this = this;
         options = options || { maxTry: 50 };
-        handler = handler || (config => this.request(config));
+        handler = handler || (function (config) { return _this.request(config); });
         this.AckQue.registerHandler(name, handler);
         return this;
-    }
-    getQue(name) {
+    };
+    AckApi.prototype.getQue = function (name) {
         return this.AckQue.get(name);
-    }
-    getCache(name) {
+    };
+    AckApi.prototype.getCache = function (name) {
         return this.AckCache.get(name);
-    }
-    processQue(name) {
-        this.AckQue.paramHandler(name, config => this._fetch(config));
+    };
+    AckApi.prototype.processQue = function (name) {
+        var _this = this;
+        this.AckQue.paramHandler(name, function (config) { return _this._fetch(config); });
         return this.AckQue.processQue(name);
-    }
-    clearQue(name) {
+    };
+    AckApi.prototype.clearQue = function (name) {
         return this.AckQue.clear(name);
-    }
-    clearCache(name) {
+    };
+    AckApi.prototype.clearCache = function (name) {
         return this.AckCache.clear(name);
-    }
-    request(config) {
-        const defaults = Object.assign({}, this.config.$http);
-        defaults.headers = Object.assign({}, this.config.$http.headers);
-        const request = Object.assign(defaults, (config || {}));
+    };
+    AckApi.prototype.request = function (config) {
+        var defaults = __assign({}, this.config.$http);
+        defaults.headers = __assign({}, this.config.$http.headers);
+        var request = Object.assign(defaults, (config || {}));
         request.url = this.config.baseUrl + request.url;
         if (request.offlineModel) {
             return this.requestOfflineModel(request);
         }
         return this._fetch(request);
-    }
-    getCacheByNamedRequest(request) {
-        const offlineModel = request.offlineModel;
+    };
+    AckApi.prototype.getCacheByNamedRequest = function (request) {
+        var _this = this;
+        var offlineModel = request.offlineModel;
         return this.AckCache.get(offlineModel.name, offlineModel)
-            .then(routes => {
+            .then(function (routes) {
             routes = routes || {};
-            const cacheName = this.getStorageNameByRequest(request);
+            var cacheName = _this.getStorageNameByRequest(request);
             return routes[cacheName];
         })
-            .then(cache => this.processCacheGet(cache, request));
-    }
-    getStorageNameByRequest(request) {
+            .then(function (cache) { return _this.processCacheGet(cache, request); });
+    };
+    AckApi.prototype.getStorageNameByRequest = function (request) {
         if (request.params) {
-            const paramKeys = Object.keys(request.params);
+            var paramKeys = Object.keys(request.params);
             if (!paramKeys.length)
                 return request.url;
-            let url = request.url + (request.url.search(/\?/) >= 0 ? "&" : "?");
-            paramKeys.sort().forEach(name => url += name + "=" + request.params[name] + "&");
-            return url.substring(0, url.length - 1);
+            var url_1 = request.url + (request.url.search(/\?/) >= 0 ? "&" : "?");
+            paramKeys.sort().forEach(function (name) { return url_1 += name + "=" + request.params[name] + "&"; });
+            return url_1.substring(0, url_1.length - 1);
         }
         return request.url;
-    }
-    requestOfflineModel(request) {
-        let offlineModel = request.offlineModel;
+    };
+    AckApi.prototype.requestOfflineModel = function (request) {
+        var _this = this;
+        var offlineModel = request.offlineModel;
         if (offlineModel && offlineModel.constructor == String) {
             request.offlineModel = offlineModel = { name: request.offlineModel };
         }
         if (request.method === "GET") {
             return this.getCacheByNamedRequest(request);
         }
-        this.AckQue.paramHandler(offlineModel.name, config => this._fetch(config));
+        this.AckQue.paramHandler(offlineModel.name, function (config) { return _this._fetch(config); });
         return this._fetch(request)
-            .catch(e => this.postRequestFail(e, request));
-    }
-    processCacheGet(cache, cfg) {
+            .catch(function (e) { return _this.postRequestFail(e, request); });
+    };
+    AckApi.prototype.processCacheGet = function (cache, cfg) {
+        var _this = this;
         if (cache == null)
             return this._fetch(cfg);
-        const offlineModel = cfg.offlineModel;
+        var offlineModel = cfg.offlineModel;
         return this.AckCache.cacheToReturn(offlineModel.name, cache, offlineModel)
-            .then(rtn => {
-            const willExpire = this.AckCache.optionsKillCache(offlineModel);
+            .then(function (rtn) {
+            var willExpire = _this.AckCache.optionsKillCache(offlineModel);
             if (rtn && !willExpire) {
                 console.log("AckApi fetched cache that will never expire. Set offlineModel.expires=0 or offlineModel.maxAge=0 to avoid this message", rtn);
             }
             if (rtn != null) {
                 return rtn;
             }
-            return this._fetch(cfg);
+            return _this._fetch(cfg);
         });
-    }
-    postRequestFail(e, request) {
-        const saveWorthy = e.status == 0 || e.status == -1 || e.status == 503;
+    };
+    AckApi.prototype.postRequestFail = function (e, request) {
+        var saveWorthy = e.status == 0 || e.status == -1 || e.status == 503;
         if (!saveWorthy)
             return Promise.reject(e);
         request.sendFailMeta = request.sendFailMeta || {};
@@ -4640,20 +4974,21 @@ let AckApi = class AckApi {
         request.sendFailMeta.lastAttempt = new Date();
         request.sendFailMeta.attempts = request.sendFailMeta.attempts == null ? 1 : ++request.sendFailMeta.attempts;
         request.sendFailMeta.maxTry = request.sendFailMeta.maxTry || 50;
-        const tryAgainLater = request.sendFailMeta.maxTry && request.sendFailMeta.attempts <= request.sendFailMeta.maxTry;
+        var tryAgainLater = request.sendFailMeta.maxTry && request.sendFailMeta.attempts <= request.sendFailMeta.maxTry;
         e.sendFailMeta = request.sendFailMeta;
         if (tryAgainLater) {
-            const requestSave = Object.assign({}, request);
+            var requestSave = Object.assign({}, request);
             delete requestSave.offlineModel;
-            const offlineModel = request.offlineModel;
+            var offlineModel = request.offlineModel;
             return this.AckQue.set(offlineModel.name, requestSave)
-                .then(() => Promise.reject(e));
+                .then(function () { return Promise.reject(e); });
         }
         return Promise.reject(e);
-    }
-    _fetch(cfg) {
+    };
+    AckApi.prototype._fetch = function (cfg) {
+        var _this = this;
         upgradeConfig(cfg);
-        const cfgPlus = Object.assign({}, cfg);
+        var cfgPlus = __assign({}, cfg);
         if (cfg.params) {
             cfgPlus.params = new http_1.HttpParams({
                 fromObject: cfg.params
@@ -4662,26 +4997,26 @@ let AckApi = class AckApi {
         if (cfg.headers) {
             cfgPlus.headers = new http_1.HttpHeaders(cfg.headers);
         }
-        const request = new http_1.HttpRequest(cfg.method, cfg.url, cfg.body, cfgPlus);
-        const promise = (resolve, reject) => {
-            let resolved = false;
-            this.Request.emit(request);
-            const req = this.HttpClient.request(request)
-                .subscribe(event => {
+        var request = new http_1.HttpRequest(cfg.method, cfg.url, cfg.body, cfgPlus);
+        var promise = function (resolve, reject) {
+            var resolved = false;
+            _this.Request.emit(request);
+            var req = _this.HttpClient.request(request)
+                .subscribe(function (event) {
                 if (event.type === http_1.HttpEventType.Response) {
                     resolved = true;
                     resolve(event);
                 }
-            }, err => {
+            }, function (err) {
                 resolved = true;
                 reject(err);
             });
             if (cfg.timeout) {
-                setTimeout(() => {
+                setTimeout(function () {
                     if (resolved)
                         return;
                     req.unsubscribe();
-                    const timeoutError = new TimeOutError();
+                    var timeoutError = new TimeOutError();
                     Object.assign(timeoutError, request);
                     timeoutError.timeout = cfg.timeout;
                     reject(timeoutError);
@@ -4689,13 +5024,15 @@ let AckApi = class AckApi {
             }
         };
         return new Promise(promise)
-            .then((response) => this.processFetchByConfig(response, cfg))
-            .catch(e => this.httpFailByConfig(e, cfg));
-    }
-    processFetchByConfig(response, request) {
+            .then(function (response) {
+            return _this.processFetchByConfig(response, cfg);
+        })
+            .catch(function (e) { return _this.httpFailByConfig(e, cfg); });
+    };
+    AckApi.prototype.processFetchByConfig = function (response, request) {
         this.response.emit(response);
-        const data = response.body || response["_body"];
-        const isJson = data && response.headers.get("Content-Type") == "application/json";
+        var data = response.body || response["_body"];
+        var isJson = data && response.headers.get("Content-Type") == "application/json";
         if (isJson && !response["data"]) {
             try {
                 response["data"] = JSON.parse(data);
@@ -4703,21 +5040,21 @@ let AckApi = class AckApi {
             catch (e) { }
         }
         response["data"] = data;
-        const isDataMode = !request.promise || request.promise == "data";
-        const output = isDataMode ? data : response;
-        const isCacheReponse = request.method === "GET" && request.offlineModel;
+        var isDataMode = !request.promise || request.promise == "data";
+        var output = isDataMode ? data : response;
+        var isCacheReponse = request.method === "GET" && request.offlineModel;
         if (isCacheReponse) {
             return this.requestResponseToCache(request, output)
-                .then(() => output);
+                .then(function () { return output; });
         }
         return Promise.resolve(output);
-    }
-    httpFailByConfig(e, cfg) {
-        const isReduceData = cfg.catch == null || cfg.catch == "data";
-        const data = e["data"];
-        const isCatchData = isReduceData && data && data.error;
+    };
+    AckApi.prototype.httpFailByConfig = function (e, cfg) {
+        var isReduceData = cfg.catch == null || cfg.catch == "data";
+        var data = e["data"];
+        var isCatchData = isReduceData && data && data.error;
         if (isCatchData) {
-            const newError = new Error();
+            var newError = new Error();
             Object.assign(newError, e["data"].error);
             e = newError;
         }
@@ -4729,56 +5066,58 @@ let AckApi = class AckApi {
             this.ApiError.emit(e);
         }
         return Promise.reject(e);
-    }
-    requestResponseToCache(request, output) {
-        const cachename = request.offlineModel.name || request.offlineModel;
+    };
+    AckApi.prototype.requestResponseToCache = function (request, output) {
+        var _this = this;
+        var cachename = request.offlineModel.name || request.offlineModel;
         return this.AckCache.get(cachename)
-            .then(routes => {
+            .then(function (routes) {
             routes = routes || {};
-            const cacheName = this.getStorageNameByRequest(request);
+            var cacheName = _this.getStorageNameByRequest(request);
             routes[cacheName] = { cache: output };
-            this.AckCache.dataOptionsCache(routes[request.url], request.offlineModel, output);
+            _this.AckCache.dataOptionsCache(routes[request.url], request.offlineModel, output);
             return routes;
         })
-            .then(routes => this.AckCache.set(cachename, routes));
-    }
-    get(path, config) {
-        const cfg = Object.assign({}, config);
+            .then(function (routes) { return _this.AckCache.set(cachename, routes); });
+    };
+    AckApi.prototype.get = function (path, config) {
+        var cfg = Object.assign({}, config);
         cfg.method = "GET";
         cfg.url = path;
         return this.request(cfg);
-    }
-    post(path, data, config) {
-        const cfg = Object.assign({}, config);
+    };
+    AckApi.prototype.post = function (path, data, config) {
+        var cfg = Object.assign({}, config);
         cfg.method = "POST";
         cfg.body = data;
         cfg.url = path;
         return this.request(cfg);
-    }
-    delete(path, config) {
-        const cfg = Object.assign({}, config);
+    };
+    AckApi.prototype.delete = function (path, config) {
+        var cfg = Object.assign({}, config);
         cfg.method = "DELETE";
         cfg.url = path;
         return this.request(cfg);
-    }
-    put(path, data, config) {
-        const cfg = Object.assign({}, config);
+    };
+    AckApi.prototype.put = function (path, data, config) {
+        var cfg = Object.assign({}, config);
         cfg.method = "PUT";
         cfg.body = data;
         cfg.url = path;
         return this.request(cfg);
-    }
-};
-AckApi = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.HttpClient])
-], AckApi);
+    };
+    AckApi = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.HttpClient])
+    ], AckApi);
+    return AckApi;
+}());
 exports.AckApi = AckApi;
 function upgradeConfig(cfg) {
     cfg.method = cfg.method || "GET";
     cfg.reportProgress = cfg.reportProgress || false;
     if (cfg.params) {
-        for (let key in cfg.params) {
+        for (var key in cfg.params) {
             if (cfg.params[key] == null) {
                 cfg.params[key] = "";
             }
@@ -4809,32 +5148,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const Prompts_1 = __webpack_require__(/*! ./Prompts */ "../src/providers/Prompts.ts");
-let AckApp = class AckApp {
-    constructor(prompts) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var Prompts_1 = __webpack_require__(/*! ./Prompts */ "../src/providers/Prompts.ts");
+var AckApp = (function () {
+    function AckApp(prompts) {
         this.prompts = prompts;
         this.warnedFixElements = true;
         this.modals = [];
     }
-    registerModal(item) {
+    AckApp.prototype.registerModal = function (item) {
         this.modals.push(item);
         return this;
-    }
-    unregisterModal(item) {
-        for (let index = this.modals.length - 1; index >= 0; --index) {
+    };
+    AckApp.prototype.unregisterModal = function (item) {
+        for (var index = this.modals.length - 1; index >= 0; --index) {
             if (this.modals[index] == item) {
                 this.modals.splice(index, 1);
                 break;
             }
         }
         return this;
-    }
-};
-AckApp = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [Prompts_1.Prompts])
-], AckApp);
+    };
+    AckApp = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [Prompts_1.Prompts])
+    ], AckApp);
+    return AckApp;
+}());
 exports.AckApp = AckApp;
 
 
@@ -4849,6 +5189,19 @@ exports.AckApp = AckApp;
 
 "use strict";
 
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4856,89 +5209,96 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const AckOffline_1 = __webpack_require__(/*! ./AckOffline */ "../src/providers/AckOffline.ts");
-let AckCache = class AckCache extends AckOffline_1.AckOffline {
-    constructor() {
-        super(...arguments);
-        this.prefix = "offline-cache";
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var AckOffline_1 = __webpack_require__(/*! ./AckOffline */ "../src/providers/AckOffline.ts");
+var AckCache = (function (_super) {
+    __extends(AckCache, _super);
+    function AckCache() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.prefix = "offline-cache";
+        return _this;
     }
-    validate(data, config) {
-        const exists = data !== null && typeof data.cache !== "undefined";
+    AckCache.prototype.validate = function (data, config) {
+        var exists = data !== null && typeof data.cache !== "undefined";
         return exists && !this.hasExpired(data._timestamp, data.expires || config.expires);
-    }
-    optionsKillCache(options) {
+    };
+    AckCache.prototype.optionsKillCache = function (options) {
         return options.maxAge == null && options.expires == null ? false : true;
-    }
-    hasMaxAged(stamp, maxAge) {
-        const diff = Date.now() - maxAge;
-        const expired = stamp <= diff;
+    };
+    AckCache.prototype.hasMaxAged = function (stamp, maxAge) {
+        var diff = Date.now() - maxAge;
+        var expired = stamp <= diff;
         return maxAge && expired ? true : false;
-    }
-    hasExpired(_stamp, expires) {
-        const expired = Date.now() >= new Date(expires).getTime();
+    };
+    AckCache.prototype.hasExpired = function (_stamp, expires) {
+        var expired = Date.now() >= new Date(expires).getTime();
         return expires && expired ? true : false;
-    }
-    param(name, options = {}) {
+    };
+    AckCache.prototype.param = function (name, options) {
+        if (options === void 0) { options = {}; }
         options.param = options.param || [];
         return this.getCache(name, options);
-    }
-    paramCache(name, options) {
+    };
+    AckCache.prototype.paramCache = function (name, options) {
         return this.param(name, options);
-    }
-    paramSave(name, options) {
+    };
+    AckCache.prototype.paramSave = function (name, options) {
+        var _this = this;
         return this.paramCache(name, options)
-            .then(items => this.setCache(name, items));
-    }
-    paramSaveCache(name, options) {
+            .then(function (items) { return _this.setCache(name, items); });
+    };
+    AckCache.prototype.paramSaveCache = function (name, options) {
         return this.paramSave(name, options);
-    }
-    cacheToReturn(name, data, options) {
+    };
+    AckCache.prototype.cacheToReturn = function (name, data, options) {
         if (data.cache == null && data._timestamp == null) {
             return Promise.resolve(data);
         }
-        const expires = data.expires || options.expires;
-        const maxAge = data.maxAge || options.maxAge;
+        var expires = data.expires || options.expires;
+        var maxAge = data.maxAge || options.maxAge;
         if (options.allowExpired || (!expires && !maxAge)) {
             return Promise.resolve(data.cache);
         }
-        const expired = expires && this.hasExpired(data._timestamp, expires);
-        const isMaxed = maxAge && this.hasMaxAged(data._timestamp, maxAge);
+        var expired = expires && this.hasExpired(data._timestamp, expires);
+        var isMaxed = maxAge && this.hasMaxAged(data._timestamp, maxAge);
         if (expired || isMaxed) {
             return this.selfDestructData(name, data)
-                .then(() => {
+                .then(function () {
                 if (options.param)
                     return Promise.resolve(options.param);
             });
         }
         return Promise.resolve(data['cache']);
-    }
-    selfDestructData(name, data) {
+    };
+    AckCache.prototype.selfDestructData = function (name, data) {
         if (this.dataDestructReady(data))
             return this.clear(name);
         return Promise.resolve();
-    }
-    dataDestructReady(data) {
-        const isMemMaxed = data['maxAge'] && this.hasMaxAged(data['_timestamp'], data['maxAge']);
-        const isMemExpired = data['expires'] && this.hasExpired(data['_timestamp'], data['expires']);
+    };
+    AckCache.prototype.dataDestructReady = function (data) {
+        var isMemMaxed = data['maxAge'] && this.hasMaxAged(data['_timestamp'], data['maxAge']);
+        var isMemExpired = data['expires'] && this.hasExpired(data['_timestamp'], data['expires']);
         return isMemMaxed || isMemExpired;
-    }
-    get(name, options = { expires: null }) {
-        return super.get(name)
-            .then(data => {
+    };
+    AckCache.prototype.get = function (name, options) {
+        var _this = this;
+        if (options === void 0) { options = { expires: null }; }
+        return _super.prototype.get.call(this, name)
+            .then(function (data) {
             if (data) {
-                return this.cacheToReturn(name, data, options);
+                return _this.cacheToReturn(name, data, options);
             }
             if (options.param)
                 return options.param;
             return;
         });
-    }
-    getCache(name, options) {
+    };
+    AckCache.prototype.getCache = function (name, options) {
         return this.get(name, options);
-    }
-    dataOptionsCache(allCache, options = {}, cache) {
-        const newOptions = {};
+    };
+    AckCache.prototype.dataOptionsCache = function (allCache, options, cache) {
+        if (options === void 0) { options = {}; }
+        var newOptions = {};
         newOptions._timestamp = Date.now();
         if (options.expires)
             newOptions.expires = options.expires;
@@ -4956,20 +5316,23 @@ let AckCache = class AckCache extends AckOffline_1.AckOffline {
             allCache.cache = cache;
         }
         return allCache;
-    }
-    set(name, cache, options = {}) {
+    };
+    AckCache.prototype.set = function (name, cache, options) {
+        var _this = this;
+        if (options === void 0) { options = {}; }
         options.name = options.name || name;
-        return super.get(name)
-            .then(allCache => this.dataOptionsCache(allCache, options, cache))
-            .then(data => super.set(name, data));
-    }
-    setCache(name, cache, options) {
+        return _super.prototype.get.call(this, name)
+            .then(function (allCache) { return _this.dataOptionsCache(allCache, options, cache); })
+            .then(function (data) { return _super.prototype.set.call(_this, name, data); });
+    };
+    AckCache.prototype.setCache = function (name, cache, options) {
         return this.set(name, cache, options);
-    }
-};
-AckCache = __decorate([
-    core_1.Injectable()
-], AckCache);
+    };
+    AckCache = __decorate([
+        core_1.Injectable()
+    ], AckCache);
+    return AckCache;
+}(AckOffline_1.AckOffline));
 exports.AckCache = AckCache;
 
 
@@ -4991,42 +5354,45 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const localForage = __webpack_require__(/*! localforage */ "../node_modules/localforage/dist/localforage.js");
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let AckOffline = class AckOffline {
-    constructor() {
+var localForage = __webpack_require__(/*! localforage */ "../node_modules/localforage/dist/localforage.js");
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var AckOffline = (function () {
+    function AckOffline() {
         this.prefix = "offline";
     }
-    set(name, data) {
+    AckOffline.prototype.set = function (name, data) {
         if (data && data.constructor == Object)
             data.offlineSavedAt = new Date().toString();
         if (data && data.constructor == Object)
             data.offlineCreatedAt = data.offlineCreatedAt || new Date().toString();
         return localForage.setItem(this.prefix + '-' + name, data);
-    }
-    get(name) {
+    };
+    AckOffline.prototype.get = function (name) {
         return localForage.getItem(this.prefix + '-' + name);
-    }
-    remove(name) {
+    };
+    AckOffline.prototype.remove = function (name) {
         return localForage.removeItem(this.prefix + '-' + name);
-    }
-    clear(name) { return this.remove(name); }
-    clearAll() {
-        return this.promiseNameArray().then((keys) => keys.forEach(name => this.remove(name)));
-    }
-    promiseNameArray() {
-        let keys = [];
-        return localForage.iterate((_, k) => {
-            if (k.startsWith(this.prefix)) {
-                keys.push(k.substring(this.prefix.length + 1, k.length));
+    };
+    AckOffline.prototype.clear = function (name) { return this.remove(name); };
+    AckOffline.prototype.clearAll = function () {
+        var _this = this;
+        return this.promiseNameArray().then(function (keys) { return keys.forEach(function (name) { return _this.remove(name); }); });
+    };
+    AckOffline.prototype.promiseNameArray = function () {
+        var _this = this;
+        var keys = [];
+        return localForage.iterate(function (_, k) {
+            if (k.startsWith(_this.prefix)) {
+                keys.push(k.substring(_this.prefix.length + 1, k.length));
             }
         })
-            .then(() => keys);
-    }
-};
-AckOffline = __decorate([
-    core_1.Injectable()
-], AckOffline);
+            .then(function () { return keys; });
+    };
+    AckOffline = __decorate([
+        core_1.Injectable()
+    ], AckOffline);
+    return AckOffline;
+}());
 exports.AckOffline = AckOffline;
 
 
@@ -5041,6 +5407,19 @@ exports.AckOffline = AckOffline;
 
 "use strict";
 
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5048,134 +5427,145 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const AckOffline_1 = __webpack_require__(/*! ./AckOffline */ "../src/providers/AckOffline.ts");
-let AckQue = class AckQue extends AckOffline_1.AckOffline {
-    constructor() {
-        super(...arguments);
-        this.prefix = "offline-que";
-        this.handlers = [];
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var AckOffline_1 = __webpack_require__(/*! ./AckOffline */ "../src/providers/AckOffline.ts");
+var AckQue = (function (_super) {
+    __extends(AckQue, _super);
+    function AckQue() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.prefix = "offline-que";
+        _this.handlers = [];
+        return _this;
     }
-    get(name) {
-        return super.get(name)
-            .then(data => data && data['que'] ? data['que'] : []);
-    }
-    getQue(name) {
+    AckQue.prototype.get = function (name) {
+        return _super.prototype.get.call(this, name)
+            .then(function (data) { return data && data['que'] ? data['que'] : []; });
+    };
+    AckQue.prototype.getQue = function (name) {
         return this.get(name);
-    }
-    setQue(name, que) {
+    };
+    AckQue.prototype.setQue = function (name, que) {
         return this.set(name, que);
-    }
-    que(name, queData) {
-        return super.get(name)
-            .then(data => {
+    };
+    AckQue.prototype.que = function (name, queData) {
+        var _this = this;
+        return _super.prototype.get.call(this, name)
+            .then(function (data) {
             data = data || {};
             data['que'] = data['que'] || [];
             if (queData.forEach) {
-                queData.forEach(x => {
+                queData.forEach(function (x) {
                     data['que'].push(x);
                 });
             }
             else {
                 data['que'].push(queData);
             }
-            return super.set(name, data);
+            return _super.prototype.set.call(_this, name, data);
         });
-    }
-    set(name, queData) {
+    };
+    AckQue.prototype.set = function (name, queData) {
         return this.que(name, queData);
-    }
-    dequeByIndex(name, index) {
+    };
+    AckQue.prototype.dequeByIndex = function (name, index) {
+        var _this = this;
         return this.getQue(name)
-            .then(array => {
+            .then(function (array) {
             array.splice(index, 1);
             return array;
         })
-            .then(array => this.setQue(name, array));
-    }
-    processQuedByIndex(name, index) {
-        const handler = this.getQueHandlerByName(name);
-        const mem = { item: null, array: null, result: null };
+            .then(function (array) { return _this.setQue(name, array); });
+    };
+    AckQue.prototype.processQuedByIndex = function (name, index) {
+        var _this = this;
+        var handler = this.getQueHandlerByName(name);
+        var mem = { item: null, array: null, result: null };
         return this.getQue(name)
-            .then(array => {
+            .then(function (array) {
             mem.item = array.splice(index, 1);
             mem.array = array;
         })
-            .then(() => this.handleQued(mem.item, handler))
-            .then(result => mem.result = result)
-            .then(() => this.setQue(name, mem.array))
-            .then(() => mem.result);
-    }
-    registerHandler(name, handler) {
-        this.handlers.push({ name, handler });
+            .then(function () { return _this.handleQued(mem.item, handler); })
+            .then(function (result) { return mem.result = result; })
+            .then(function () { return _this.setQue(name, mem.array); })
+            .then(function () { return mem.result; });
+    };
+    AckQue.prototype.registerHandler = function (name, handler) {
+        this.handlers.push({ name: name, handler: handler });
         return this;
-    }
-    registerQueHandler(name, handler) {
+    };
+    AckQue.prototype.registerQueHandler = function (name, handler) {
         return this.registerHandler(name, handler);
-    }
-    paramHandler(name, handler) {
-        for (let x = this.handlers.length - 1; x >= 0; --x) {
+    };
+    AckQue.prototype.paramHandler = function (name, handler) {
+        for (var x = this.handlers.length - 1; x >= 0; --x) {
             if (this.handlers[x].name == name) {
                 return this;
             }
         }
-        this.handlers.push({ name, handler });
+        this.handlers.push({ name: name, handler: handler });
         return this;
-    }
-    getQueHandDefByName(name) {
-        for (let i = this.handlers.length - 1; i >= 0; --i) {
+    };
+    AckQue.prototype.getQueHandDefByName = function (name) {
+        for (var i = this.handlers.length - 1; i >= 0; --i) {
             if (this.handlers[i].name == name)
                 return this.handlers[i];
         }
-    }
-    getQueHandlerByName(name) {
-        const hand = this.getQueHandDefByName(name);
+    };
+    AckQue.prototype.getQueHandlerByName = function (name) {
+        var hand = this.getQueHandDefByName(name);
         if (hand)
             return hand.handler;
-    }
-    handleQued(qued, handler) {
+    };
+    AckQue.prototype.handleQued = function (qued, handler) {
         return Promise.resolve(handler(qued));
-    }
-    processQuedHandler(hand) {
-        const results = [];
-        const mem = { que: [] };
-        const eachHandle = this.eachHandler(hand.handler);
+    };
+    AckQue.prototype.processQuedHandler = function (hand) {
+        var _this = this;
+        var results = [];
+        var mem = { que: [] };
+        var eachHandle = this.eachHandler(hand.handler);
         return this.get(hand.name)
-            .then(que => mem.que = que)
-            .then(() => this.clear(hand.name))
-            .then(() => {
+            .then(function (que) { return mem.que = que; })
+            .then(function () { return _this.clear(hand.name); })
+            .then(function () {
             var promise = Promise.resolve();
-            mem.que.forEach(v => {
+            mem.que.forEach(function (v) {
                 promise = promise
-                    .then(() => eachHandle(v))
-                    .catch(e => e)
-                    .then(r => results.push(r));
+                    .then(function () { return eachHandle(v); })
+                    .catch(function (e) { return e; })
+                    .then(function (r) { return results.push(r); });
             });
             return promise;
         })
-            .then(() => results);
-    }
-    eachHandler(handler) {
-        return data => this.handleQued(data, handler);
-    }
-    processQue(name) {
-        const handler = this.getQueHandDefByName(name);
+            .then(function () { return results; });
+    };
+    AckQue.prototype.eachHandler = function (handler) {
+        var _this = this;
+        return function (data) { return _this.handleQued(data, handler); };
+    };
+    AckQue.prototype.processQue = function (name) {
+        var handler = this.getQueHandDefByName(name);
         return handler ? this.processQuedHandler(handler) : Promise.resolve();
-    }
-    processAllQues() {
-        const promises = [];
-        this.handlers.forEach(hand => promises.push(this.processQuedHandler(hand)));
+    };
+    AckQue.prototype.processAllQues = function () {
+        var _this = this;
+        var promises = [];
+        this.handlers.forEach(function (hand) {
+            return promises.push(_this.processQuedHandler(hand));
+        });
         return Promise.all(promises)
-            .then(proms => {
-            const results = [];
-            proms.forEach(subArray => results.push.apply(results, subArray));
+            .then(function (proms) {
+            var results = [];
+            proms.forEach(function (subArray) { return results.push.apply(results, subArray); });
             return Promise.all(results);
         });
-    }
-};
-AckQue = __decorate([
-    core_1.Injectable()
-], AckQue);
+    };
+    AckQue = __decorate([
+        core_1.Injectable()
+    ], AckQue);
+    return AckQue;
+}(AckOffline_1.AckOffline));
 exports.AckQue = AckQue;
 
 
@@ -5197,38 +5587,39 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let SectionProvider = class SectionProvider {
-    constructor() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var SectionProvider = (function () {
+    function SectionProvider() {
         this.headerTemplates = [];
         this.footerTemplates = [];
         this.leftBodyTemplates = [];
         this.rightBodyTemplates = [];
     }
-    unregisterHeaderTemplate(item) {
+    SectionProvider.prototype.unregisterHeaderTemplate = function (item) {
         this.unregisterTemplateFrom(item, this.headerTemplates);
-    }
-    unregisterFooterTemplate(item) {
+    };
+    SectionProvider.prototype.unregisterFooterTemplate = function (item) {
         this.unregisterTemplateFrom(item, this.footerTemplates);
-    }
-    unregisterTemplateFrom(item, templates) {
-        for (let x = templates.length - 1; x >= 0; --x) {
+    };
+    SectionProvider.prototype.unregisterTemplateFrom = function (item, templates) {
+        for (var x = templates.length - 1; x >= 0; --x) {
             if (templates[x] === item) {
                 templates.splice(x, 1);
                 break;
             }
         }
-    }
-    unregisterTemplate(item) {
+    };
+    SectionProvider.prototype.unregisterTemplate = function (item) {
         this.unregisterTemplateFrom(item, this.headerTemplates);
         this.unregisterTemplateFrom(item, this.footerTemplates);
         this.unregisterTemplateFrom(item, this.leftBodyTemplates);
         this.unregisterTemplateFrom(item, this.rightBodyTemplates);
-    }
-};
-SectionProvider = __decorate([
-    core_1.Injectable()
-], SectionProvider);
+    };
+    SectionProvider = __decorate([
+        core_1.Injectable()
+    ], SectionProvider);
+    return SectionProvider;
+}());
 exports.SectionProvider = SectionProvider;
 
 
@@ -5250,14 +5641,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 function getDocument() { return document; }
-let DocumentService = class DocumentService {
-    get nativeElement() { return getDocument(); }
-};
-DocumentService = __decorate([
-    core_1.Injectable()
-], DocumentService);
+var DocumentService = (function () {
+    function DocumentService() {
+    }
+    Object.defineProperty(DocumentService.prototype, "nativeElement", {
+        get: function () { return getDocument(); },
+        enumerable: true,
+        configurable: true
+    });
+    DocumentService = __decorate([
+        core_1.Injectable()
+    ], DocumentService);
+    return DocumentService;
+}());
 exports.DocumentService = DocumentService;
 
 
@@ -5279,26 +5677,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let ErrorLog = class ErrorLog {
-    constructor() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var ErrorLog = (function () {
+    function ErrorLog() {
         this.log = [];
         this.maxLog = 30;
     }
-    monitorWindow(win) {
+    ErrorLog.prototype.monitorWindow = function (win) {
+        var _this = this;
         win = win || window;
-        const callback = (evt) => this.add(evt, false);
+        var callback = function (evt) { return _this.add(evt, false); };
         win.addEventListener('error', callback);
-    }
-    reject(err) {
-        const e = this.add(err);
+    };
+    ErrorLog.prototype.reject = function (err) {
+        var e = this.add(err);
         return Promise.reject(e);
-    }
-    rejector() {
-        return err => this.reject(err);
-    }
-    add(e, toConsole) {
-        const ob = this.paramAudit(e, toConsole);
+    };
+    ErrorLog.prototype.rejector = function () {
+        var _this = this;
+        return function (err) { return _this.reject(err); };
+    };
+    ErrorLog.prototype.add = function (e, toConsole) {
+        var ob = this.paramAudit(e, toConsole);
         this.log.unshift(ob);
         if (this.maxLog) {
             while (this.log.length > this.maxLog) {
@@ -5306,35 +5706,35 @@ let ErrorLog = class ErrorLog {
             }
         }
         return logObToErrorObject(ob);
-    }
-    paramAudit(e, toConsole) {
+    };
+    ErrorLog.prototype.paramAudit = function (e, toConsole) {
         if (e.constructor == String) {
             e = new Error(e);
         }
         if (toConsole == null || toConsole)
             console.error(e);
-        const err = this.objectifyError(e);
+        var err = this.objectifyError(e);
         err['datetime'] = err['datetime'] || getDateTimeString();
         if (!e.message && e.status == -1) {
             e.message = "Cannot connect to server";
             e.details = e.details || "Connection to internet maybe down. Also possible CORS needs be to enabled at remote server.";
         }
         return err;
-    }
-    objectifyError(err) {
-        const keys = Object.getOwnPropertyNames(err);
+    };
+    ErrorLog.prototype.objectifyError = function (err) {
+        var keys = Object.getOwnPropertyNames(err);
         keys.push.apply(keys, Object.keys(err));
-        const recErr = {};
-        keys.forEach(v => recErr[v] = err[v]);
-        const knownKeys = ["stack", "message", "name", "arguments", "type"];
-        knownKeys.forEach(key => {
+        var recErr = {};
+        keys.forEach(function (v) { return recErr[v] = err[v]; });
+        var knownKeys = ["stack", "message", "name", "arguments", "type"];
+        knownKeys.forEach(function (key) {
             if (typeof err[key] != 'undefined') {
                 recErr[key] = err[key];
             }
         });
-        const body = err.body || err._body;
+        var body = err.body || err._body;
         if (body && !err.data && err.headers) {
-            const contentType = err.headers.get('content-type');
+            var contentType = err.headers.get('content-type');
             if (contentType && contentType.toLowerCase() == 'application/json') {
                 try {
                     recErr.data = JSON.parse(body);
@@ -5343,15 +5743,16 @@ let ErrorLog = class ErrorLog {
             }
         }
         return recErr;
-    }
-    rethrow(err) {
-        const e = this.add(err);
+    };
+    ErrorLog.prototype.rethrow = function (err) {
+        var e = this.add(err);
         throw e;
-    }
-};
-ErrorLog = __decorate([
-    core_1.Injectable()
-], ErrorLog);
+    };
+    ErrorLog = __decorate([
+        core_1.Injectable()
+    ], ErrorLog);
+    return ErrorLog;
+}());
 exports.ErrorLog = ErrorLog;
 function getErrorMessage(err) {
     return err.message || err.statusText || err.name || 'Unexpected Error Occured';
@@ -5363,8 +5764,8 @@ function getResponseMessage(res) {
     return getErrorMessage(res);
 }
 function logObToErrorObject(log) {
-    const e = new Error(getResponseMessage(log));
-    Object.keys(log).forEach(v => e[v] = log[v]);
+    var e = new Error(getResponseMessage(log));
+    Object.keys(log).forEach(function (v) { return e[v] = log[v]; });
     return e;
 }
 function getDateTimeString() {
@@ -5390,14 +5791,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let Log = class Log {
-    constructor() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var Log = (function () {
+    function Log() {
         this.log = [];
         this.maxLog = 80;
     }
-    add(e, toConsole) {
-        const ob = this.paramAudit(e, toConsole);
+    Log.prototype.add = function (e, toConsole) {
+        var ob = this.paramAudit(e, toConsole);
         this.log.unshift(ob);
         if (this.maxLog) {
             while (this.log.length > this.maxLog) {
@@ -5405,8 +5806,8 @@ let Log = class Log {
             }
         }
         return e;
-    }
-    paramAudit(e, toConsole) {
+    };
+    Log.prototype.paramAudit = function (e, toConsole) {
         switch (e.constructor) {
             case String:
             case Boolean:
@@ -5418,11 +5819,12 @@ let Log = class Log {
             console.log(e);
         e['datetime'] = e['datetime'] || getDateTimeString();
         return e;
-    }
-};
-Log = __decorate([
-    core_1.Injectable()
-], Log);
+    };
+    Log = __decorate([
+        core_1.Injectable()
+    ], Log);
+    return Log;
+}());
 exports.Log = Log;
 function getDateTimeString() {
     return (function (d) { return (('0' + (d.getMonth() + 1)).slice(-2) + '/' + ('0' + d.getDate()).slice(-2) + '/' + d.getFullYear()); })(new Date()) + ' ' + (function (d) { var h = d.getHours(), t = 'AM', m = d.getMinutes(); var mn = m < 10 ? '0' + m : m; h = h >= 12 ? (t = 'PM', h - 12 || 12) : h == 0 ? 12 : h; return ('0' + h).slice(-2) + ':' + ('0' + mn).slice(-2) + ' ' + t; })(new Date());
@@ -5447,40 +5849,44 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-let Prompts = class Prompts {
-    constructor() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var Prompts = (function () {
+    function Prompts() {
         this.prompts = [];
     }
-    remove(prompt) {
-        for (let x = this.prompts.length - 1; x >= 0; --x) {
+    Prompts.prototype.remove = function (prompt) {
+        for (var x = this.prompts.length - 1; x >= 0; --x) {
             if (this.prompts[x] == prompt) {
                 this.prompts.splice(x, 1);
                 return;
             }
         }
-    }
-    issuePrompt(prompt) {
+    };
+    Prompts.prototype.issuePrompt = function (prompt) {
+        var _this = this;
         this.prompts.push(prompt);
-        prompt.emitter.subscribe(() => this.remove(prompt));
+        prompt.emitter.subscribe(function () { return _this.remove(prompt); });
         return prompt.emitter;
-    }
-    alert(message, options = {}) {
+    };
+    Prompts.prototype.alert = function (message, options) {
+        if (options === void 0) { options = {}; }
         options.emitter = new core_1.EventEmitter();
         options.type = "alert";
         options.message = message;
         return this.issuePrompt(options);
-    }
-    confirm(message, options = {}) {
+    };
+    Prompts.prototype.confirm = function (message, options) {
+        if (options === void 0) { options = {}; }
         options.emitter = new core_1.EventEmitter();
         options.type = "confirm";
         options.message = message;
         return this.issuePrompt(options);
-    }
-};
-Prompts = __decorate([
-    core_1.Injectable()
-], Prompts);
+    };
+    Prompts = __decorate([
+        core_1.Injectable()
+    ], Prompts);
+    return Prompts;
+}());
 exports.Prompts = Prompts;
 
 
@@ -5505,21 +5911,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const WindowService_1 = __webpack_require__(/*! ./WindowService */ "../src/providers/WindowService.ts");
-let UrlVars = class UrlVars {
-    constructor(WindowService) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var WindowService_1 = __webpack_require__(/*! ./WindowService */ "../src/providers/WindowService.ts");
+var UrlVars = (function () {
+    function UrlVars(WindowService) {
         this.WindowService = WindowService;
         this.vars = this.parse();
     }
-    parse() {
+    UrlVars.prototype.parse = function () {
         var regex = /[?&]([^=#]+)(=([^&#]*))?/g, url = this.WindowService.nativeWindow.location.href, params = {}, match;
         while (match = regex.exec(url)) {
             params[match[1]] = match[2] == null ? true : match[3];
         }
         return params;
-    }
-    get(name, param) {
+    };
+    UrlVars.prototype.get = function (name, param) {
         if (!name)
             return;
         if (this.vars && this.vars[name] != null)
@@ -5530,12 +5936,13 @@ let UrlVars = class UrlVars {
                 return this.vars[key];
         }
         return param;
-    }
-};
-UrlVars = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [WindowService_1.WindowService])
-], UrlVars);
+    };
+    UrlVars = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [WindowService_1.WindowService])
+    ], UrlVars);
+    return UrlVars;
+}());
 exports.UrlVars = UrlVars;
 
 
@@ -5557,15 +5964,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 function getWindow() { return window; }
-let WindowService = class WindowService {
-    get nativeElement() { return getWindow(); }
-    get nativeWindow() { return getWindow(); }
-};
-WindowService = __decorate([
-    core_1.Injectable()
-], WindowService);
+var WindowService = (function () {
+    function WindowService() {
+    }
+    Object.defineProperty(WindowService.prototype, "nativeElement", {
+        get: function () { return getWindow(); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(WindowService.prototype, "nativeWindow", {
+        get: function () { return getWindow(); },
+        enumerable: true,
+        configurable: true
+    });
+    WindowService = __decorate([
+        core_1.Injectable()
+    ], WindowService);
+    return WindowService;
+}());
 exports.WindowService = WindowService;
 
 
@@ -5610,32 +6028,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
-const packJson = __webpack_require__(/*! ../../package.json */ "../package.json");
-const functions_1 = __webpack_require__(/*! ./functions */ "./src/functions.ts");
-const states_object_1 = __webpack_require__(/*! ./states.object */ "./src/states.object.ts");
-const ack_app_stage_pug_1 = __webpack_require__(/*! ./templates/ack-app-stage.pug */ "./src/templates/ack-app-stage.pug.ts");
-let AckAppStage = class AckAppStage {
-    constructor() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
+var packJson = __webpack_require__(/*! ../../package.json */ "../package.json");
+var functions_1 = __webpack_require__(/*! ./functions */ "./src/functions.ts");
+var states_object_1 = __webpack_require__(/*! ./states.object */ "./src/states.object.ts");
+var ack_app_stage_pug_1 = __webpack_require__(/*! ./templates/ack-app-stage.pug */ "./src/templates/ack-app-stage.pug.ts");
+var AckAppStage = (function () {
+    function AckAppStage() {
         this.panelAnim = 'slideInRight';
         this.version = packJson['version'];
         this.menu = states_object_1.menu;
     }
-    ngAfterViewInit() {
+    AckAppStage.prototype.ngAfterViewInit = function () {
         console.log('Total Wire Time:', Date.now() - window['strapTime'] + 'ms');
         if (window['startAckTime']) {
             console.log('Overall Load Time:', Date.now() - window['startAckTime'] + 'ms', '@', functions_1.getServerTime());
         }
-    }
-};
-AckAppStage = __decorate([
-    core_1.Component({
-        selector: 'ack-app-stage',
-        template: ack_app_stage_pug_1.string,
-        animations: ack_angular_fx_1.animations
-    })
-], AckAppStage);
+    };
+    AckAppStage = __decorate([
+        core_1.Component({
+            selector: 'ack-app-stage',
+            template: ack_app_stage_pug_1.string,
+            animations: ack_angular_fx_1.animations
+        })
+    ], AckAppStage);
+    return AckAppStage;
+}());
 exports.AckAppStage = AckAppStage;
 
 
@@ -5657,20 +6076,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const animation_examples_pug_1 = __webpack_require__(/*! ./templates/animation-examples.pug */ "./src/templates/animation-examples.pug.ts");
-const ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
-let AnimationExamples = class AnimationExamples {
-    constructor() {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var animation_examples_pug_1 = __webpack_require__(/*! ./templates/animation-examples.pug */ "./src/templates/animation-examples.pug.ts");
+var ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
+var AnimationExamples = (function () {
+    function AnimationExamples() {
         this.list = ['abc', 'defg', 'hij', 'klm', 'opq', 'rst', 'uvx', 'yz'];
     }
-};
-AnimationExamples = __decorate([
-    core_1.Component({
-        template: animation_examples_pug_1.string,
-        animations: ack_angular_fx_1.animations
-    })
-], AnimationExamples);
+    AnimationExamples = __decorate([
+        core_1.Component({
+            template: animation_examples_pug_1.string,
+            animations: ack_angular_fx_1.animations
+        })
+    ], AnimationExamples);
+    return AnimationExamples;
+}());
 exports.AnimationExamples = AnimationExamples;
 
 
@@ -5695,14 +6115,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const functions_1 = __webpack_require__(/*! ./functions */ "./src/functions.ts");
-const ngx_page_scroll_core_1 = __webpack_require__(/*! ngx-page-scroll-core */ "../node_modules/ngx-page-scroll-core/fesm2015/ngx-page-scroll-core.js");
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
-const arrayOfObjects_1 = __webpack_require__(/*! ./arrayOfObjects */ "./src/arrayOfObjects.ts");
-const components_examples_pug_1 = __webpack_require__(/*! ./templates/components-examples.pug */ "./src/templates/components-examples.pug.ts");
-let ComponentsExamples = class ComponentsExamples {
-    constructor(PageScrollService) {
+var functions_1 = __webpack_require__(/*! ./functions */ "./src/functions.ts");
+var ngx_page_scroll_core_1 = __webpack_require__(/*! ngx-page-scroll-core */ "../node_modules/ngx-page-scroll-core/fesm5/ngx-page-scroll-core.js");
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
+var arrayOfObjects_1 = __webpack_require__(/*! ./arrayOfObjects */ "./src/arrayOfObjects.ts");
+var components_examples_pug_1 = __webpack_require__(/*! ./templates/components-examples.pug */ "./src/templates/components-examples.pug.ts");
+var ComponentsExamples = (function () {
+    function ComponentsExamples(PageScrollService) {
         this.PageScrollService = PageScrollService;
         this.fxClass = "bounce";
         this.initArray = [{ value: 0 }, { value: 1 }, { value: 2 }];
@@ -5722,29 +6142,31 @@ let ComponentsExamples = class ComponentsExamples {
         ];
         this.absoluteOverflowXActive = true;
     }
-    causeError() {
+    ComponentsExamples.prototype.causeError = function () {
         this.error = new Error("An intended error was caused @ " + functions_1.getServerTime());
-    }
-    scrollToModuleImport() {
-        setTimeout(() => {
-            this.PageScrollService.scroll({ document: document, scrollTarget: "#Import AckModule" });
+    };
+    ComponentsExamples.prototype.scrollToModuleImport = function () {
+        var _this = this;
+        setTimeout(function () {
+            _this.PageScrollService.scroll({ document: document, scrollTarget: "#Import AckModule" });
         }, 600);
-    }
-    setModalWrapStyle(v) {
+    };
+    ComponentsExamples.prototype.setModalWrapStyle = function (v) {
         try {
             this.modalWrapStyle = JSON.parse(v);
         }
         catch (e) { }
-    }
-};
-ComponentsExamples = __decorate([
-    core_1.Component({
-        selector: "components-examples",
-        template: components_examples_pug_1.string,
-        animations: ack_angular_fx_1.animations
-    }),
-    __metadata("design:paramtypes", [ngx_page_scroll_core_1.PageScrollService])
-], ComponentsExamples);
+    };
+    ComponentsExamples = __decorate([
+        core_1.Component({
+            selector: "components-examples",
+            template: components_examples_pug_1.string,
+            animations: ack_angular_fx_1.animations
+        }),
+        __metadata("design:paramtypes", [ngx_page_scroll_core_1.PageScrollService])
+    ], ComponentsExamples);
+    return ComponentsExamples;
+}());
 exports.ComponentsExamples = ComponentsExamples;
 
 
@@ -5769,23 +6191,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const jjs_woz_pug_1 = __webpack_require__(/*! ./templates/jjs-woz.pug */ "./src/templates/jjs-woz.pug.ts");
-let JjsWoz = class JjsWoz {
-    constructor(ElementRef) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var jjs_woz_pug_1 = __webpack_require__(/*! ./templates/jjs-woz.pug */ "./src/templates/jjs-woz.pug.ts");
+var JjsWoz = (function () {
+    function JjsWoz(ElementRef) {
         this.ElementRef = ElementRef;
     }
-    ngOnInit() {
+    JjsWoz.prototype.ngOnInit = function () {
         this.ElementRef.nativeElement.getElementsByTagName('audio')[0].play();
-    }
-};
-JjsWoz = __decorate([
-    core_1.Component({
-        selector: 'jjs-woz',
-        template: jjs_woz_pug_1.string
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], JjsWoz);
+    };
+    JjsWoz = __decorate([
+        core_1.Component({
+            selector: 'jjs-woz',
+            template: jjs_woz_pug_1.string
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], JjsWoz);
+    return JjsWoz;
+}());
 exports.JjsWoz = JjsWoz;
 
 
@@ -5807,16 +6230,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const overview_examples_pug_1 = __webpack_require__(/*! ./templates/overview-examples.pug */ "./src/templates/overview-examples.pug.ts");
-let OverviewExamples = class OverviewExamples {
-};
-OverviewExamples = __decorate([
-    core_1.Component({
-        selector: 'overview-examples',
-        template: overview_examples_pug_1.string
-    })
-], OverviewExamples);
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var overview_examples_pug_1 = __webpack_require__(/*! ./templates/overview-examples.pug */ "./src/templates/overview-examples.pug.ts");
+var OverviewExamples = (function () {
+    function OverviewExamples() {
+    }
+    OverviewExamples = __decorate([
+        core_1.Component({
+            selector: 'overview-examples',
+            template: overview_examples_pug_1.string
+        })
+    ], OverviewExamples);
+    return OverviewExamples;
+}());
 exports.OverviewExamples = OverviewExamples;
 
 
@@ -5841,30 +6267,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
-const ngx_page_scroll_core_1 = __webpack_require__(/*! ngx-page-scroll-core */ "../node_modules/ngx-page-scroll-core/fesm2015/ngx-page-scroll-core.js");
-const pipes_examples_pug_1 = __webpack_require__(/*! ./templates/pipes-examples.pug */ "./src/templates/pipes-examples.pug.ts");
-let PipesExamples = class PipesExamples {
-    constructor(PageScrollService) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
+var ngx_page_scroll_core_1 = __webpack_require__(/*! ngx-page-scroll-core */ "../node_modules/ngx-page-scroll-core/fesm5/ngx-page-scroll-core.js");
+var pipes_examples_pug_1 = __webpack_require__(/*! ./templates/pipes-examples.pug */ "./src/templates/pipes-examples.pug.ts");
+var PipesExamples = (function () {
+    function PipesExamples(PageScrollService) {
         this.PageScrollService = PageScrollService;
         this.views = {};
         this.simpleArray = ["a", "b", "c"];
     }
-    scrollToModuleImport() {
-        setTimeout(() => {
-            this.PageScrollService.scroll({ document: document, scrollTarget: "#Import AckModule" });
+    PipesExamples.prototype.scrollToModuleImport = function () {
+        var _this = this;
+        setTimeout(function () {
+            _this.PageScrollService.scroll({ document: document, scrollTarget: "#Import AckModule" });
         }, 600);
-    }
-};
-PipesExamples = __decorate([
-    core_1.Component({
-        selector: "pipes-examples",
-        template: pipes_examples_pug_1.string,
-        animations: ack_angular_fx_1.animations
-    }),
-    __metadata("design:paramtypes", [ngx_page_scroll_core_1.PageScrollService])
-], PipesExamples);
+    };
+    PipesExamples = __decorate([
+        core_1.Component({
+            selector: "pipes-examples",
+            template: pipes_examples_pug_1.string,
+            animations: ack_angular_fx_1.animations
+        }),
+        __metadata("design:paramtypes", [ngx_page_scroll_core_1.PageScrollService])
+    ], PipesExamples);
+    return PipesExamples;
+}());
 exports.PipesExamples = PipesExamples;
 
 
@@ -5889,15 +6317,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const ngx_page_scroll_core_1 = __webpack_require__(/*! ngx-page-scroll-core */ "../node_modules/ngx-page-scroll-core/fesm2015/ngx-page-scroll-core.js");
-const src_1 = __webpack_require__(/*! ../../src */ "../src/index.ts");
-const ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
-const provider_examples_pug_1 = __webpack_require__(/*! ./templates/provider-examples.pug */ "./src/templates/provider-examples.pug.ts");
-const pathing = window.location.pathname.split("/").slice(0, -1).join("/");
-const defaultUrl = window.location.origin + pathing + "/test.json";
-let ProviderExamples = class ProviderExamples {
-    constructor(Log, ErrorLog, PageScrollService, AckOffline, AckCache, AckQue, AckApi, Prompts) {
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var ngx_page_scroll_core_1 = __webpack_require__(/*! ngx-page-scroll-core */ "../node_modules/ngx-page-scroll-core/fesm5/ngx-page-scroll-core.js");
+var src_1 = __webpack_require__(/*! ../../src */ "../src/index.ts");
+var ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
+var provider_examples_pug_1 = __webpack_require__(/*! ./templates/provider-examples.pug */ "./src/templates/provider-examples.pug.ts");
+var pathing = window.location.pathname.split("/").slice(0, -1).join("/");
+var defaultUrl = window.location.origin + pathing + "/test.json";
+var ProviderExamples = (function () {
+    function ProviderExamples(Log, ErrorLog, PageScrollService, AckOffline, AckCache, AckQue, AckApi, Prompts) {
+        var _this = this;
         this.Log = Log;
         this.ErrorLog = ErrorLog;
         this.PageScrollService = PageScrollService;
@@ -5925,95 +6354,103 @@ let ProviderExamples = class ProviderExamples {
             }
         };
         this.ErrorLog.monitorWindow();
-        this.AckQue.registerHandler("ackNgQueTest", item => this.processQueItem(item));
+        this.AckQue.registerHandler("ackNgQueTest", function (item) { return _this.processQueItem(item); });
     }
-    ngOnInit() {
-        window.addEventListener("online", () => {
+    ProviderExamples.prototype.ngOnInit = function () {
+        var _this = this;
+        window.addEventListener("online", function () {
             if (navigator.onLine) {
-                this.backOnlineAt = getServerTime();
-                this.processQue();
-                this.processHttpQue();
+                _this.backOnlineAt = getServerTime();
+                _this.processQue();
+                _this.processHttpQue();
             }
         });
         this.loadHttpHeaderConfigArray();
         this.reloadData();
-    }
-    clearHttpQue() {
-        return this.AckApi.clearQue("ackHttpTests").then(() => this.readHttpQueArray(false));
-    }
-    clearHttpCache() {
-        return this.AckApi.clearCache("ackHttpTests").then(() => this.readHttpCache());
-    }
-    sendHttp() {
+    };
+    ProviderExamples.prototype.clearHttpQue = function () {
+        var _this = this;
+        return this.AckApi.clearQue("ackHttpTests").then(function () { return _this.readHttpQueArray(false); });
+    };
+    ProviderExamples.prototype.clearHttpCache = function () {
+        var _this = this;
+        return this.AckApi.clearCache("ackHttpTests").then(function () { return _this.readHttpCache(); });
+    };
+    ProviderExamples.prototype.sendHttp = function () {
+        var _this = this;
         delete this.httpError;
         delete this.httpResponse;
         this.viewHttpSub = false;
-        let promise = Promise.resolve();
+        var promise = Promise.resolve();
         if (!navigator.onLine && this.httpConfig.method != "GET") {
             this.httpError = new Error("Offline mode detected. Request qued");
             promise = this.AckApi.AckQue.set("ackHttpTests", this.httpConfig);
         }
         else {
             promise = this.AckApi.request(this.httpConfig)
-                .then(res => {
-                this.httpResponse = res;
-                delete this.httpError;
+                .then(function (res) {
+                _this.httpResponse = res;
+                delete _this.httpError;
             })
-                .catch(e => {
-                this.httpError = e;
-                delete this.httpResponse;
+                .catch(function (e) {
+                _this.httpError = e;
+                delete _this.httpResponse;
             });
         }
         return promise
-            .then(() => this.readHttpQueArray(false))
-            .then(() => this.readHttpCache());
-    }
-    readHttpHeaderConfigArray() {
-        for (let x = 0; x < this.httpHeaderConfigArray.length; ++x) {
-            let headDef = this.httpHeaderConfigArray[x];
+            .then(function () { return _this.readHttpQueArray(false); })
+            .then(function () { return _this.readHttpCache(); });
+    };
+    ProviderExamples.prototype.readHttpHeaderConfigArray = function () {
+        for (var x = 0; x < this.httpHeaderConfigArray.length; ++x) {
+            var headDef = this.httpHeaderConfigArray[x];
             this.httpConfig.headers[headDef.name] = headDef.value;
         }
-    }
-    readHttpQueArray(process) {
+    };
+    ProviderExamples.prototype.readHttpQueArray = function (process) {
+        var _this = this;
         return this.AckApi.getQue("ackHttpTests")
-            .then(que => {
-            this.httpQueArray = que;
-            const doProcess = process || process == null && que.length && navigator.onLine;
+            .then(function (que) {
+            _this.httpQueArray = que;
+            var doProcess = process || process == null && que.length && navigator.onLine;
             if (doProcess) {
-                return this.processHttpQue();
+                return _this.processHttpQue();
             }
         });
-    }
-    readHttpCache() {
+    };
+    ProviderExamples.prototype.readHttpCache = function () {
+        var _this = this;
         return this.AckApi.getCache("ackHttpTests")
-            .then(cache => this.httpCache = cache);
-    }
-    processHttpQue() {
+            .then(function (cache) { return _this.httpCache = cache; });
+    };
+    ProviderExamples.prototype.processHttpQue = function () {
+        var _this = this;
         return this.AckApi.processQue("ackHttpTests")
-            .then(() => this.readHttpQueArray(false));
-    }
-    loadHttpHeaderConfigArray() {
-        const rtn = [];
-        for (let name in this.httpConfig.headers) {
-            if (!name.length)
+            .then(function () { return _this.readHttpQueArray(false); });
+    };
+    ProviderExamples.prototype.loadHttpHeaderConfigArray = function () {
+        var rtn = [];
+        for (var name_1 in this.httpConfig.headers) {
+            if (!name_1.length)
                 continue;
-            rtn.push({ name, value: this.httpConfig.headers[name] });
+            rtn.push({ name: name_1, value: this.httpConfig.headers[name_1] });
         }
         this.httpHeaderConfigArray.length = 0;
         this.httpHeaderConfigArray.push.apply(this.httpHeaderConfigArray, rtn);
-    }
-    causeErrorLog() {
+    };
+    ProviderExamples.prototype.causeErrorLog = function () {
         this.ErrorLog.add("Error " + this.ErrorLog.log.length + " of " + this.ErrorLog.maxLog + " fired @ " + getServerTime());
-    }
-    causeLog() {
+    };
+    ProviderExamples.prototype.causeLog = function () {
         this.Log.add("Log " + this.Log.log.length + " of " + this.Log.maxLog + " fired @ " + getServerTime());
-    }
-    scrollToModuleImport() {
-        setTimeout(() => {
-            this.PageScrollService.scroll({ document: document, scrollTarget: "#Import AckModule" });
+    };
+    ProviderExamples.prototype.scrollToModuleImport = function () {
+        var _this = this;
+        setTimeout(function () {
+            _this.PageScrollService.scroll({ document: document, scrollTarget: "#Import AckModule" });
         }, 600);
-    }
-    reloadData() {
+    };
+    ProviderExamples.prototype.reloadData = function () {
         return Promise.all([
             this.readOffline(),
             this.readQue(),
@@ -6021,108 +6458,126 @@ let ProviderExamples = class ProviderExamples {
             this.readHttpQueArray(),
             this.readHttpCache()
         ]);
-    }
-    readOffline() {
+    };
+    ProviderExamples.prototype.readOffline = function () {
+        var _this = this;
         this.AckOffline.get("ack-angular")
-            .then(data => this.offlineStorage = data);
-    }
-    readQue() {
+            .then(function (data) { return _this.offlineStorage = data; });
+    };
+    ProviderExamples.prototype.readQue = function () {
+        var _this = this;
         return this.AckQue.getQue("ackNgQueTest")
-            .then(que => this.queArray = que);
-    }
-    readCache() {
+            .then(function (que) { return _this.queArray = que; });
+    };
+    ProviderExamples.prototype.readCache = function () {
+        var _this = this;
         return this.AckCache.get("ackNgCacheTest")
-            .then(cache => this.cacheStorage = cache)
-            .then(() => this.readCacheObject())
-            .catch(e => {
+            .then(function (cache) { return _this.cacheStorage = cache; })
+            .then(function () { return _this.readCacheObject(); })
+            .catch(function (e) {
             if (e.code && e.code == 401) {
                 return;
             }
             return Promise.reject(e);
         });
-    }
-    readCacheObject() {
+    };
+    ProviderExamples.prototype.readCacheObject = function () {
+        var _this = this;
         return this.AckOffline.get("ackNgCacheTest")
-            .then(v => {
-            this.cache = v;
+            .then(function (v) {
+            _this.cache = v;
             if (v) {
-                this.cache.seconds = (v["expires"] - v["_timestamp"]) / 1000;
+                _this.cache.seconds = (v["expires"] - v["_timestamp"]) / 1000;
             }
         });
-    }
-    clearAllOffline() {
+    };
+    ProviderExamples.prototype.clearAllOffline = function () {
+        var _this = this;
         this.AckOffline.clearAll()
-            .then(() => this.reloadData());
-    }
-    setCache(value, seconds) {
-        const expires = new Date(Date.now() + (seconds * 1000)).getTime();
+            .then(function () { return _this.reloadData(); });
+    };
+    ProviderExamples.prototype.setCache = function (value, seconds) {
+        var _this = this;
+        var expires = new Date(Date.now() + (seconds * 1000)).getTime();
         return this.AckCache.set("ackNgCacheTest", value, { expires: expires })
-            .then(() => this.readCache());
-    }
-    clearCache() {
+            .then(function () { return _this.readCache(); });
+    };
+    ProviderExamples.prototype.clearCache = function () {
+        var _this = this;
         this.AckCache.clear("ackNgCacheTest")
-            .then(() => this.readCache());
-    }
-    clearOffline() {
+            .then(function () { return _this.readCache(); });
+    };
+    ProviderExamples.prototype.clearOffline = function () {
+        var _this = this;
         this.offlineStorage = "";
         this.AckOffline.clear("ack-angular")
-            .then(() => this.readOffline());
-    }
-    setOffline(string) {
+            .then(function () { return _this.readOffline(); });
+    };
+    ProviderExamples.prototype.setOffline = function (string) {
         this.offlineStorage = string;
         this.AckOffline.set("ack-angular", string);
-    }
-    clearQue() {
+    };
+    ProviderExamples.prototype.clearQue = function () {
+        var _this = this;
         return this.AckQue.clear("ackNgQueTest")
-            .then(() => this.readQue());
-    }
-    que(itemData) {
+            .then(function () { return _this.readQue(); });
+    };
+    ProviderExamples.prototype.que = function (itemData) {
+        var _this = this;
         this.queStorage = "";
         return this.AckQue.que("ackNgQueTest", itemData)
-            .then(() => this.readQue());
-    }
-    dequeByIndex(index) {
+            .then(function () { return _this.readQue(); });
+    };
+    ProviderExamples.prototype.dequeByIndex = function (index) {
+        var _this = this;
         return this.AckQue.dequeByIndex("ackNgQueTest", index)
-            .then(() => this.readQue());
-    }
-    processQueItem(itemData) {
+            .then(function () { return _this.readQue(); });
+    };
+    ProviderExamples.prototype.processQueItem = function (itemData) {
         return getServerTime() + " : ack-touched-data : " + itemData;
-    }
-    processQuedByIndex(index) {
+    };
+    ProviderExamples.prototype.processQuedByIndex = function (index) {
+        var _this = this;
         return this.AckQue.processQuedByIndex("ackNgQueTest", index)
-            .then(result => this.processQueResults.push(result))
-            .then(() => this.readQue());
-    }
-    processQue() {
+            .then(function (result) { return _this.processQueResults.push(result); })
+            .then(function () { return _this.readQue(); });
+    };
+    ProviderExamples.prototype.processQue = function () {
+        var _this = this;
         return this.AckQue.processQue("ackNgQueTest")
-            .then(results => this.processQueResults.push.apply(this.processQueResults, results))
-            .then(() => this.readQue())
-            .catch(e => this.error = e);
-    }
-    runConfirm() {
+            .then(function (results) { return _this.processQueResults.push.apply(_this.processQueResults, results); })
+            .then(function () { return _this.readQue(); })
+            .catch(function (e) { return _this.error = e; });
+    };
+    ProviderExamples.prototype.runConfirm = function () {
         return this.Prompts.confirm("This is a confirm example")
-            .subscribe(result => console.log("result of confirm:" + result));
-    }
-    runAlert() {
+            .subscribe(function (result) {
+            return console.log("result of confirm:" + result);
+        });
+    };
+    ProviderExamples.prototype.runAlert = function () {
         return this.Prompts.alert("This is an alert example")
-            .subscribe(() => console.log("alert prompt closed"));
-    }
-};
-ProviderExamples = __decorate([
-    core_1.Component({
-        selector: "provider-examples",
-        template: provider_examples_pug_1.string,
-        animations: ack_angular_fx_1.animations
-    }),
-    __metadata("design:paramtypes", [src_1.Log,
-        src_1.ErrorLog,
-        ngx_page_scroll_core_1.PageScrollService,
-        src_1.AckOffline,
-        src_1.AckCache,
-        src_1.AckQue,
-        src_1.AckApi,
-        src_1.Prompts])
-], ProviderExamples);
+            .subscribe(function () {
+            return console.log("alert prompt closed");
+        });
+    };
+    ProviderExamples = __decorate([
+        core_1.Component({
+            selector: "provider-examples",
+            template: provider_examples_pug_1.string,
+            animations: ack_angular_fx_1.animations
+        }),
+        __metadata("design:paramtypes", [src_1.Log,
+            src_1.ErrorLog,
+            ngx_page_scroll_core_1.PageScrollService,
+            src_1.AckOffline,
+            src_1.AckCache,
+            src_1.AckQue,
+            src_1.AckApi,
+            src_1.Prompts])
+    ], ProviderExamples);
+    return ProviderExamples;
+}());
 exports.ProviderExamples = ProviderExamples;
 function getServerTime(d) {
     d = d || new Date();
@@ -6152,24 +6607,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 window["strapTime"] = Date.now();
-const functions_1 = __webpack_require__(/*! ./functions */ "./src/functions.ts");
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
-const platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "../node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
-const animations_1 = __webpack_require__(/*! @angular/platform-browser/animations */ "../node_modules/@angular/platform-browser/fesm2015/animations.js");
-const RouteWatchReporter_1 = __webpack_require__(/*! ../../src/RouteWatchReporter */ "../src/RouteWatchReporter.ts");
-const RouteReporter_directive_1 = __webpack_require__(/*! ../../src/RouteReporter.directive */ "../src/RouteReporter.directive.ts");
-const src_1 = __webpack_require__(/*! ../../src */ "../src/index.ts");
-const ngx_page_scroll_core_1 = __webpack_require__(/*! ngx-page-scroll-core */ "../node_modules/ngx-page-scroll-core/fesm2015/ngx-page-scroll-core.js");
-const ngx_page_scroll_1 = __webpack_require__(/*! ngx-page-scroll */ "../node_modules/ngx-page-scroll/fesm2015/ngx-page-scroll.js");
-const ProviderExamples_component_1 = __webpack_require__(/*! ./ProviderExamples.component */ "./src/ProviderExamples.component.ts");
-const AckAppStage_component_1 = __webpack_require__(/*! ./AckAppStage.component */ "./src/AckAppStage.component.ts");
-const states_object_1 = __webpack_require__(/*! ./states.object */ "./src/states.object.ts");
-const AnimationExamples_component_1 = __webpack_require__(/*! ./AnimationExamples.component */ "./src/AnimationExamples.component.ts");
-const JjsWoz_component_1 = __webpack_require__(/*! ./JjsWoz.component */ "./src/JjsWoz.component.ts");
-const OverviewExamples_component_1 = __webpack_require__(/*! ./OverviewExamples.component */ "./src/OverviewExamples.component.ts");
-const ComponentsExamples_component_1 = __webpack_require__(/*! ./ComponentsExamples.component */ "./src/ComponentsExamples.component.ts");
-const PipesExamples_component_1 = __webpack_require__(/*! ./PipesExamples.component */ "./src/PipesExamples.component.ts");
+var functions_1 = __webpack_require__(/*! ./functions */ "./src/functions.ts");
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
+var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "../node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+var animations_1 = __webpack_require__(/*! @angular/platform-browser/animations */ "../node_modules/@angular/platform-browser/fesm5/animations.js");
+var RouteWatchReporter_1 = __webpack_require__(/*! ../../src/RouteWatchReporter */ "../src/RouteWatchReporter.ts");
+var RouteReporter_directive_1 = __webpack_require__(/*! ../../src/RouteReporter.directive */ "../src/RouteReporter.directive.ts");
+var src_1 = __webpack_require__(/*! ../../src */ "../src/index.ts");
+var ngx_page_scroll_core_1 = __webpack_require__(/*! ngx-page-scroll-core */ "../node_modules/ngx-page-scroll-core/fesm5/ngx-page-scroll-core.js");
+var ngx_page_scroll_1 = __webpack_require__(/*! ngx-page-scroll */ "../node_modules/ngx-page-scroll/fesm5/ngx-page-scroll.js");
+var ProviderExamples_component_1 = __webpack_require__(/*! ./ProviderExamples.component */ "./src/ProviderExamples.component.ts");
+var AckAppStage_component_1 = __webpack_require__(/*! ./AckAppStage.component */ "./src/AckAppStage.component.ts");
+var states_object_1 = __webpack_require__(/*! ./states.object */ "./src/states.object.ts");
+var AnimationExamples_component_1 = __webpack_require__(/*! ./AnimationExamples.component */ "./src/AnimationExamples.component.ts");
+var JjsWoz_component_1 = __webpack_require__(/*! ./JjsWoz.component */ "./src/JjsWoz.component.ts");
+var OverviewExamples_component_1 = __webpack_require__(/*! ./OverviewExamples.component */ "./src/OverviewExamples.component.ts");
+var ComponentsExamples_component_1 = __webpack_require__(/*! ./ComponentsExamples.component */ "./src/ComponentsExamples.component.ts");
+var PipesExamples_component_1 = __webpack_require__(/*! ./PipesExamples.component */ "./src/PipesExamples.component.ts");
 exports.declarations = [
     AckAppStage_component_1.AckAppStage,
     RouteReporter_directive_1.RouteReporter,
@@ -6178,33 +6633,35 @@ exports.declarations = [
     ComponentsExamples_component_1.ComponentsExamples,
     PipesExamples_component_1.PipesExamples,
     ProviderExamples_component_1.ProviderExamples,
-    JjsWoz_component_1.JjsWoz,
-    ...states_object_1.declarations
-];
-const forms_1 = __webpack_require__(/*! @angular/forms */ "../node_modules/@angular/forms/fesm2015/forms.js");
-const http_1 = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm2015/http.js");
-let AppModule = class AppModule {
-};
-AppModule = __decorate([
-    core_1.NgModule({
-        imports: [
-            platform_browser_1.BrowserModule,
-            animations_1.BrowserAnimationsModule,
-            forms_1.FormsModule,
-            http_1.HttpClientModule,
-            states_object_1.routing,
-            ngx_page_scroll_core_1.NgxPageScrollCoreModule.forRoot({}),
-            ngx_page_scroll_1.NgxPageScrollModule,
-            src_1.AckModule.forRoot(),
-            ack_angular_fx_1.AckFxModule
-        ],
-        declarations: exports.declarations,
-        providers: [
-            RouteWatchReporter_1.RouteWatchReporter
-        ],
-        bootstrap: [AckAppStage_component_1.AckAppStage]
-    })
-], AppModule);
+    JjsWoz_component_1.JjsWoz
+].concat(states_object_1.declarations);
+var forms_1 = __webpack_require__(/*! @angular/forms */ "../node_modules/@angular/forms/fesm5/forms.js");
+var http_1 = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                platform_browser_1.BrowserModule,
+                animations_1.BrowserAnimationsModule,
+                forms_1.FormsModule,
+                http_1.HttpClientModule,
+                states_object_1.routing,
+                ngx_page_scroll_core_1.NgxPageScrollCoreModule.forRoot({}),
+                ngx_page_scroll_1.NgxPageScrollModule,
+                src_1.AckModule.forRoot(),
+                ack_angular_fx_1.AckFxModule
+            ],
+            declarations: exports.declarations,
+            providers: [
+                RouteWatchReporter_1.RouteWatchReporter
+            ],
+            bootstrap: [AckAppStage_component_1.AckAppStage]
+        })
+    ], AppModule);
+    return AppModule;
+}());
 exports.AppModule = AppModule;
 console.log("Ng Define Time", Date.now() - window["strapTime"] + "ms", "@", functions_1.getServerTime());
 
@@ -6278,9 +6735,9 @@ exports.getServerTime = getServerTime;
 Object.defineProperty(exports, "__esModule", { value: true });
 __webpack_require__(/*! zone.js */ "../node_modules/zone.js/dist/zone.js");
 __webpack_require__(/*! reflect-metadata */ "../node_modules/reflect-metadata/Reflect.js");
-const platform_browser_dynamic_1 = __webpack_require__(/*! @angular/platform-browser-dynamic */ "../node_modules/@angular/platform-browser-dynamic/fesm2015/platform-browser-dynamic.js");
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const app_module_1 = __webpack_require__(/*! ./app.module */ "./src/app.module.ts");
+var platform_browser_dynamic_1 = __webpack_require__(/*! @angular/platform-browser-dynamic */ "../node_modules/@angular/platform-browser-dynamic/fesm5/platform-browser-dynamic.js");
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var app_module_1 = __webpack_require__(/*! ./app.module */ "./src/app.module.ts");
 core_1.enableProdMode();
 platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule);
 
@@ -6303,19 +6760,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const router_1 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm2015/router.js");
-const core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
-const ComponentsExamples_component_1 = __webpack_require__(/*! ./ComponentsExamples.component */ "./src/ComponentsExamples.component.ts");
-const OverviewExamples_component_1 = __webpack_require__(/*! ./OverviewExamples.component */ "./src/OverviewExamples.component.ts");
-const PipesExamples_component_1 = __webpack_require__(/*! ./PipesExamples.component */ "./src/PipesExamples.component.ts");
-const ProviderExamples_component_1 = __webpack_require__(/*! ./ProviderExamples.component */ "./src/ProviderExamples.component.ts");
-const AnimationExamples_component_1 = __webpack_require__(/*! ./AnimationExamples.component */ "./src/AnimationExamples.component.ts");
-const JjsWoz_component_1 = __webpack_require__(/*! ./JjsWoz.component */ "./src/JjsWoz.component.ts");
-let FakeComponent = class FakeComponent {
-};
-FakeComponent = __decorate([
-    core_1.Component({ template: '' })
-], FakeComponent);
+var router_1 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var ComponentsExamples_component_1 = __webpack_require__(/*! ./ComponentsExamples.component */ "./src/ComponentsExamples.component.ts");
+var OverviewExamples_component_1 = __webpack_require__(/*! ./OverviewExamples.component */ "./src/OverviewExamples.component.ts");
+var PipesExamples_component_1 = __webpack_require__(/*! ./PipesExamples.component */ "./src/PipesExamples.component.ts");
+var ProviderExamples_component_1 = __webpack_require__(/*! ./ProviderExamples.component */ "./src/ProviderExamples.component.ts");
+var AnimationExamples_component_1 = __webpack_require__(/*! ./AnimationExamples.component */ "./src/AnimationExamples.component.ts");
+var JjsWoz_component_1 = __webpack_require__(/*! ./JjsWoz.component */ "./src/JjsWoz.component.ts");
+var FakeComponent = (function () {
+    function FakeComponent() {
+    }
+    FakeComponent = __decorate([
+        core_1.Component({ template: '' })
+    ], FakeComponent);
+    return FakeComponent;
+}());
 exports.FakeComponent = FakeComponent;
 exports.declarations = [
     FakeComponent
@@ -6365,11 +6825,10 @@ exports.menu = [
         }
     }
 ];
-exports.routes = [
-    ...exports.menu,
+exports.routes = exports.menu.concat([
     { path: '', redirectTo: 'overview', pathMatch: 'full' },
     { path: '**', redirectTo: 'overview' }
-];
+]);
 exports.routeConfig = { useHash: true, initialNavigation: true, enableTracing: false };
 exports.routing = router_1.RouterModule.forRoot(exports.routes, exports.routeConfig);
 
@@ -6720,13 +7179,19 @@ exports.string = "<h2 class=\"margin-top-0\">Jersey Jack's The Wizard of Oz</h2>
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.string = "<h2 class=\"margin-top-0\">Overview</h2><p class=\"pad-h\"><strong>ack-angular</strong>&nbsp;is extra special directives, components, providers and pipes to aide in tackling everyday Angular2 driven development.</p><h4>Table of Contents</h4><ul class=\"margin-top-0\"><li><a href=\"#Install ack-angular\" pageScroll=\"pageScroll\">Install ack-angular</a></li><li><a href=\"#Import AckModule\" pageScroll=\"pageScroll\">Import AckModule</a></li><li><a href=\"#Requirements\" pageScroll=\"pageScroll\">Requirements</a></li><li><a href=\"#This Demo Area\" pageScroll=\"pageScroll\">This Demo Area</a></li><li><a href=\"#Available Stylesheets\" pageScroll=\"pageScroll\">Available Stylesheets</a></li><li><a href=\"#Resources\" pageScroll=\"pageScroll\">Resources</a></li><li><a href=\"#My Personal TypeScript Opinion\" pageScroll=\"pageScroll\">My Personal TypeScript Opinion</a></li><li><a href=\"#ack-angularjs\" pageScroll=\"pageScroll\">ack-angularjs</a></li></ul><br/><h3 class=\"margin-bottom-0\" id=\"Install ack-angular\">Install ack-angular</h3><p>Install jsDependencies via <a href=\"https://www.npmjs.com/package/ack-webpack\">ack-webpack</a></p><div class=\"pad text-grey-2x text-sm\">NOTE : ack-webpack reads the jsDependencies in a package.json to then install packages. Also when ack-webpack is installed, it auto adds a script entry to your package.json file to make CLI commands easier.</div><strong>Step 1</strong><pre class=\"code-sample\">npm install ack-webpack --save-dev</pre><strong>Step 2</strong><pre class=\"code-sample\">npm run ack-webpack -- install ack-angular</pre><br/><h3 class=\"margin-bottom-0\" id=\"Import AckModule\">Import AckModule</h3><div class=\"pad\"><p>Most all functionality can be achieved by importing AckModule</p><p>Example</p><pre class=\"code-sample\">import &#123; AckModule &#125; from \"ack-angular\"" +
+exports.string = "<h2 class=\"margin-top-0\">Overview</h2><p class=\"pad-h\"><strong>ack-angular</strong>&nbsp;is extra special directives, components, providers and pipes to aide in tackling everyday Angular2 driven development.</p><h4>Table of Contents</h4><ul class=\"margin-top-0\"><li><a href=\"#Install ack-angular\" pageScroll=\"pageScroll\">Install ack-angular</a></li><li><a href=\"#Import AckModule\" pageScroll=\"pageScroll\">Import AckModule</a></li><li><a href=\"#Requirements\" pageScroll=\"pageScroll\">Requirements</a></li><li><a href=\"#This Demo Area\" pageScroll=\"pageScroll\">This Demo Area</a></li><li><a href=\"#Available Stylesheets\" pageScroll=\"pageScroll\">Available Stylesheets</a></li><li><a href=\"#Resources\" pageScroll=\"pageScroll\">Resources</a></li><li><a href=\"#My Personal TypeScript Opinion\" pageScroll=\"pageScroll\">My Personal TypeScript Opinion</a></li><li><a href=\"#ack-angularjs\" pageScroll=\"pageScroll\">ack-angularjs</a></li></ul><br/><h3 class=\"margin-bottom-0\" id=\"Install ack-angular\">Install ack-angular</h3><p>Install jsDependencies via <a href=\"https://www.npmjs.com/package/ack-webpack\">ack-webpack</a></p><div class=\"pad text-grey-2x text-sm\">NOTE : ack-webpack reads the jsDependencies in a package.json to then install packages. Also when ack-webpack is installed, it auto adds a script entry to your package.json file to make CLI commands easier.</div><strong>Step 1</strong><pre class=\"code-sample\">npm install ack-webpack --save-dev</pre><strong>Step 2</strong><pre class=\"code-sample\">npm run ack-webpack -- install ack-angular</pre><br/><h3 class=\"margin-bottom-0\" id=\"Import AckModule\">Import AckModule</h3><div class=\"pad\"><p>Most all functionality can be achieved by importing AckModule</p><p>Example</p><pre class=\"code-sample\">import &#123;" +
+    "\n  AckModule," +
+    "\n  AckRouterModule//if using routing components" +
+    "\n&#125; from \"ack-angular\"" +
     "\nimport &#123; NgModule &#125; from \"@angular/core\"" +
     "\n" +
     "\n@NgModule(&#123;" +
-    "\n  imports:[ AckModule.forRoot() ]" +
+    "\n  imports:[" +
+    "\n    AckModule.forRoot()," +
+    "\n    AckRouterModule" +
+    "\n  ]" +
     "\n&#125;)" +
-    "\n</pre><div class=\"pad-xxs\"><div class=\"pad bg-warning bg-warning text-warning\">NOTE : You need to have the <a href=\"https://www.typescriptlang.org/docs/handbook/compiler-options.html\">allowSyntheticDefaultImports compiler option</a> set to <strong>true</strong> in your <a href=\"https://www.typescriptlang.org/docs/handbook/tsconfig-json.html\">tsconfig.json</a>.</div></div></div><br/><h3 class=\"margin-bottom-0\" id=\"Requirements\">Requirements</h3><div class=\"pad\"><p>It is very important to understand what connects where</p></div><ul><li>core angular components are expected to have already been installed</li><ul><li>reflect-metadata</li><li>@angular/core</li><li>@angular/forms</li><li>@angular/common/http</li></ul><li>jsDependencies</li><ul><li><a href=\"https://www.npmjs.com/package/ack-angular-fx\">ack-angular-fx</a></li><ul><li>only required for animation implementing</li><li>The following code would depend on ack-angular-fx installation<pre class=\"code-sample\">import * as fx from \"ack-angular/fx\"</pre></li></ul><li><a href=\"https://www.npmjs.com/package/@angular/router\">@angular/router</a></li><ul><li>only required for @angular/router based ack-angular component and services</li><li>The following code would depend on @angular/router installation<pre class=\"code-sample\">import &#123; RouteReporter &#125; from \"ack-angular/RouteReporter.directive\"" +
+    "\n</pre><div class=\"pad-xxs\"><div class=\"pad bg-warning bg-warning text-warning\">NOTE : You need to have the <a href=\"https://www.typescriptlang.org/docs/handbook/compiler-options.html\">allowSyntheticDefaultImports compiler option</a> set to <strong>true</strong> in your <a href=\"https://www.typescriptlang.org/docs/handbook/tsconfig-json.html\">tsconfig.json</a>.</div></div></div><br/><h3 class=\"margin-bottom-0\" id=\"Requirements\">Requirements</h3><div class=\"pad\"><p>It is very important to understand what connects where</p></div><ul><li>core angular components are expected to have already been installed</li><ul><li>reflect-metadata</li><li>@angular/core</li><li>@angular/common/http</li></ul><li>jsDependencies</li><ul><li><a href=\"https://www.npmjs.com/package/ack-angular-fx\">ack-angular-fx</a></li><ul><li>only required for animation implementing</li><li>The following code would depend on ack-angular-fx installation<pre class=\"code-sample\">import * as fx from \"ack-angular/fx\"</pre></li></ul><li><a href=\"https://www.npmjs.com/package/@angular/router\">@angular/router</a></li><ul><li>only required for @angular/router based ack-angular component and services</li><li>The following code would depend on @angular/router installation<pre class=\"code-sample\">import &#123; RouteReporter &#125; from \"ack-angular/RouteReporter.directive\"" +
     "\nimport &#123; RouteWatchReporter &#125; from \"ack-angular/RouteWatchReporter\"</pre></li></ul><li><a href=\"https://www.npmjs.com/package/ui-router-ng2\">ui-router-ng2</a></li><ul><li>only required for ui-router-ng2 based ack-angular component and services</li><li>The following code would depend on ui-router-ng2 installation<pre class=\"code-sample\">import &#123; UiRouteReporter &#125; from \"ack-angular/UiRouteReporter.directive\"" +
     "\nimport &#123; UiRouteWatchReporter &#125; from \"ack-angular/UiRouteWatchReporter\"" +
     "\n</pre></li></ul></ul></ul><br/><h3 id=\"This Demo Area\">This Demo Area</h3><ul><li>Uses hash routing to support github's gh-pages servers which do not support html5 non-hash routing</li><li>Pagescrolling, which is not a jsDependency of ack-angular, is provided by <a href=\"https://www.npmjs.com/package/ng2-page-scroll\">ng2-page-scroll</a></li></ul><br/><h3 id=\"Available Stylesheets\">Available Stylesheets</h3><div class=\"pad-h\"><p>ack-angular offers common animation, Ionic, and Bootstrap like classes</p></div><ul><li><a href=\"https://www.npmjs.com/package/csshake\">csshake</a></li><ul><li>File Location : ack-angular/csshake.css</li></ul><li><a href=\"https://www.npmjs.com/package/ack-css-boot\">ack-css-boot</a></li><ul><li>File Location : ack-angular/ack-css-boot.css</li></ul><li>ack-angular</li><ul><li>Includes the following stylesheets</li><ul><li><span class=\"code-sample\" style=\"display:inline\">* &#123;box-sizing:border-box&#125;</span></li><li>csshake</li><li>ack-css-boot</li></ul></ul></ul><br/><h3 id=\"Resources\">Resources</h3><ul><li><a href=\"https://github.com/AckerApple/ack-angular\">Repository</a></li><li><a href=\"https://angular.io/docs/ts/latest/guide/cheatsheet.html\">Angular2 Cheatsheet</a></li></ul><h3 id=\"My Personal TypeScript Opinion\">My Personal TypeScript Opinion</h3><div class=\"pad-h\"><div class=\"border-left-5 border-grey-5x bg-stable pad\"><i>\"TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.\"\"</i><div class=\"text-sm pad-top\"><a href=\"https://www.typescriptlang.org/\">typescriptlang.org</a></div></div><p>The above statement is just not 100% true, it's more like 96.5%</p></div><ul><li>ISSUE : <a href=\"https://github.com/Microsoft/TypeScript/issues/6373\">TS2339</a></li><ul><li>Error Message : Property 'name' does not exist on type '&#123;&#125;'</li><li>Cannot create object and then add properties to it that were not already defined</li><li><pre class=\"code-sample\">let obj = &#123;&#125;" +

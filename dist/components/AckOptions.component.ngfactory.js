@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const i0 = require("@angular/core");
-const i1 = require("@angular/common");
-const i2 = require("../pipes");
-const i3 = require("./AckOptions.component");
+var i0 = require("@angular/core");
+var i1 = require("@angular/common");
+var i2 = require("../pipes");
+var i3 = require("./AckOptions.component");
 var styles_AckOptions = [];
 var RenderType_AckOptions = i0.ɵcrt({ encapsulation: 2, styles: styles_AckOptions, data: {} });
 exports.RenderType_AckOptions = RenderType_AckOptions;

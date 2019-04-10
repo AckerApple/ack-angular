@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const i0 = require("@angular/core");
-const i1 = require("./AckModalLayout.component.ngfactory");
-const i2 = require("./AckModalLayout.component");
-const i3 = require("../providers/AckApp.provider");
-const i4 = require("@angular/common");
-const i5 = require("./AckFixedElementStage.component");
+var i0 = require("@angular/core");
+var i1 = require("./AckModalLayout.component.ngfactory");
+var i2 = require("./AckModalLayout.component");
+var i3 = require("../providers/AckApp.provider");
+var i4 = require("@angular/common");
+var i5 = require("./AckFixedElementStage.component");
 var styles_AckFixedElementStage = [];
 var RenderType_AckFixedElementStage = i0.ɵcrt({ encapsulation: 2, styles: styles_AckFixedElementStage, data: {} });
 exports.RenderType_AckFixedElementStage = RenderType_AckFixedElementStage;

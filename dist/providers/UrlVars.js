@@ -9,21 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-const WindowService_1 = require("./WindowService");
-let UrlVars = class UrlVars {
-    constructor(WindowService) {
+var core_1 = require("@angular/core");
+var WindowService_1 = require("./WindowService");
+var UrlVars = (function () {
+    function UrlVars(WindowService) {
         this.WindowService = WindowService;
         this.vars = this.parse();
     }
-    parse() {
+    UrlVars.prototype.parse = function () {
         var regex = /[?&]([^=#]+)(=([^&#]*))?/g, url = this.WindowService.nativeWindow.location.href, params = {}, match;
         while (match = regex.exec(url)) {
             params[match[1]] = match[2] == null ? true : match[3];
         }
         return params;
-    }
-    get(name, param) {
+    };
+    UrlVars.prototype.get = function (name, param) {
         if (!name)
             return;
         if (this.vars && this.vars[name] != null)
@@ -34,10 +34,11 @@ let UrlVars = class UrlVars {
                 return this.vars[key];
         }
         return param;
-    }
-};
-UrlVars = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [WindowService_1.WindowService])
-], UrlVars);
+    };
+    UrlVars = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [WindowService_1.WindowService])
+    ], UrlVars);
+    return UrlVars;
+}());
 exports.UrlVars = UrlVars;

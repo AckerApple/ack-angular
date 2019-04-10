@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const i0 = require("@angular/core");
-const i1 = require("./AckCloseIcon.component");
+var i0 = require("@angular/core");
+var i1 = require("./AckCloseIcon.component");
 var styles_AckCloseIcon = [];
 var RenderType_AckCloseIcon = i0.ɵcrt({ encapsulation: 2, styles: styles_AckCloseIcon, data: {} });
 exports.RenderType_AckCloseIcon = RenderType_AckCloseIcon;

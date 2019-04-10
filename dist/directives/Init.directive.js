@@ -9,22 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-let Init = class Init {
-    constructor() {
+var core_1 = require("@angular/core");
+var Init = (function () {
+    function Init() {
         this.init = new core_1.EventEmitter();
     }
-    ngOnInit() {
+    Init.prototype.ngOnInit = function () {
         this.init.emit();
-    }
-};
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], Init.prototype, "init", void 0);
-Init = __decorate([
-    core_1.Directive({
-        selector: '[init]'
-    })
-], Init);
+    };
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], Init.prototype, "init", void 0);
+    Init = __decorate([
+        core_1.Directive({
+            selector: '[init]'
+        })
+    ], Init);
+    return Init;
+}());
 exports.Init = Init;

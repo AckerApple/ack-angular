@@ -20,8 +20,6 @@ import {string as pipesExamples} from "./templates/pipes-examples.pug"
   scrollToModuleImport(){
     setTimeout(()=>{
       this.PageScrollService.scroll({document:document, scrollTarget:"#Import AckModule"})
-      //const pageScrollInstance = PageScrollInstance.simpleInstance(document, "#Import AckModule");
-      //this.PageScrollService.start(pageScrollInstance);
     }, 600)
   }
 }

@@ -6,36 +6,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-let SectionProvider = class SectionProvider {
-    constructor() {
+var core_1 = require("@angular/core");
+var SectionProvider = (function () {
+    function SectionProvider() {
         this.headerTemplates = [];
         this.footerTemplates = [];
         this.leftBodyTemplates = [];
         this.rightBodyTemplates = [];
     }
-    unregisterHeaderTemplate(item) {
+    SectionProvider.prototype.unregisterHeaderTemplate = function (item) {
         this.unregisterTemplateFrom(item, this.headerTemplates);
-    }
-    unregisterFooterTemplate(item) {
+    };
+    SectionProvider.prototype.unregisterFooterTemplate = function (item) {
         this.unregisterTemplateFrom(item, this.footerTemplates);
-    }
-    unregisterTemplateFrom(item, templates) {
-        for (let x = templates.length - 1; x >= 0; --x) {
+    };
+    SectionProvider.prototype.unregisterTemplateFrom = function (item, templates) {
+        for (var x = templates.length - 1; x >= 0; --x) {
             if (templates[x] === item) {
                 templates.splice(x, 1);
                 break;
             }
         }
-    }
-    unregisterTemplate(item) {
+    };
+    SectionProvider.prototype.unregisterTemplate = function (item) {
         this.unregisterTemplateFrom(item, this.headerTemplates);
         this.unregisterTemplateFrom(item, this.footerTemplates);
         this.unregisterTemplateFrom(item, this.leftBodyTemplates);
         this.unregisterTemplateFrom(item, this.rightBodyTemplates);
-    }
-};
-SectionProvider = __decorate([
-    core_1.Injectable()
-], SectionProvider);
+    };
+    SectionProvider = __decorate([
+        core_1.Injectable()
+    ], SectionProvider);
+    return SectionProvider;
+}());
 exports.SectionProvider = SectionProvider;

@@ -5,7 +5,7 @@
     "noUnusedParameters": true,
     "removeComments": true,
     "noImplicitAny": false,
-    "target": "ES6",
+    "target": "ES5",
     "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,

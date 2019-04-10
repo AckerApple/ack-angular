@@ -1,8 +1,12 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
-## [1.11.8] - 2019-04-10
+## [1.12.2] - 2019-04-10
+- Added AckRouterModule
+
+## [1.12.0] - 2019-04-10
 - Ensured only rxjs needed items imported
+- updated dependencies
 
 ## [1.11.8] - 2019-03-27
 - Now includes scss files

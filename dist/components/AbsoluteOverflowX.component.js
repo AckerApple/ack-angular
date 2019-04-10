@@ -9,50 +9,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-const absolute_overflow_x_pug_1 = require("./templates/absolute-overflow-x.pug");
-let AbsoluteOverflowX = class AbsoluteOverflowX {
-    constructor(ElementRef) {
+var core_1 = require("@angular/core");
+var absolute_overflow_x_pug_1 = require("./templates/absolute-overflow-x.pug");
+var AbsoluteOverflowX = (function () {
+    function AbsoluteOverflowX(ElementRef) {
         this.ElementRef = ElementRef;
         this.active = true;
         this.overflow = 'auto';
     }
-    ngOnInit() {
+    AbsoluteOverflowX.prototype.ngOnInit = function () {
         this.checkDisplay();
-    }
-    ngOnChanges(changes) {
+    };
+    AbsoluteOverflowX.prototype.ngOnChanges = function (changes) {
         if (changes.active) {
             this.checkDisplay();
         }
-    }
-    ngAfterViewInit() {
+    };
+    AbsoluteOverflowX.prototype.ngAfterViewInit = function () {
         this.ElementRef.nativeElement.style.display = 'block';
-    }
-    checkDisplay() {
+    };
+    AbsoluteOverflowX.prototype.checkDisplay = function () {
         this.ElementRef.nativeElement.style.position = this.active ? 'relative' : 'static';
-    }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AbsoluteOverflowX.prototype, "scrollBars", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AbsoluteOverflowX.prototype, "wrapClass", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], AbsoluteOverflowX.prototype, "active", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], AbsoluteOverflowX.prototype, "overflow", void 0);
-AbsoluteOverflowX = __decorate([
-    core_1.Component({
-        selector: 'absolute-overflow-x',
-        template: absolute_overflow_x_pug_1.string
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], AbsoluteOverflowX);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AbsoluteOverflowX.prototype, "scrollBars", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AbsoluteOverflowX.prototype, "wrapClass", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], AbsoluteOverflowX.prototype, "active", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], AbsoluteOverflowX.prototype, "overflow", void 0);
+    AbsoluteOverflowX = __decorate([
+        core_1.Component({
+            selector: 'absolute-overflow-x',
+            template: absolute_overflow_x_pug_1.string
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], AbsoluteOverflowX);
+    return AbsoluteOverflowX;
+}());
 exports.AbsoluteOverflowX = AbsoluteOverflowX;

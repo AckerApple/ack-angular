@@ -6,33 +6,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var AckModule_1;
-const core_1 = require("@angular/core");
-const http_1 = require("@angular/common/http");
-const common_1 = require("@angular/common");
-const providers_1 = require("./providers");
-const declarations_1 = require("./declarations");
-const pipes_1 = require("./pipes");
-const declarations = [...declarations_1.declarations, ...pipes_1.declarations];
-let AckModule = AckModule_1 = class AckModule {
-    static forRoot() {
+var core_1 = require("@angular/core");
+var http_1 = require("@angular/common/http");
+var common_1 = require("@angular/common");
+var providers_1 = require("./providers");
+var declarations_1 = require("./declarations");
+var pipes_1 = require("./pipes");
+var declarations = declarations_1.declarations.concat(pipes_1.declarations);
+var AckModule = (function () {
+    function AckModule() {
+    }
+    AckModule_1 = AckModule;
+    AckModule.forRoot = function () {
         return {
             ngModule: AckModule_1,
             providers: providers_1.providers
         };
-    }
-};
-AckModule = AckModule_1 = __decorate([
-    core_1.NgModule({
-        imports: [
-            common_1.CommonModule,
-            http_1.HttpClientModule
-        ],
-        declarations: declarations,
-        exports: [
-            http_1.HttpClientModule,
-            ...declarations,
-        ]
-    })
-], AckModule);
+    };
+    var AckModule_1;
+    AckModule = AckModule_1 = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule,
+                http_1.HttpClientModule
+            ],
+            declarations: declarations,
+            exports: [
+                http_1.HttpClientModule
+            ].concat(declarations)
+        })
+    ], AckModule);
+    return AckModule;
+}());
 exports.AckModule = AckModule;

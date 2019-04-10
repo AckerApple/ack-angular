@@ -9,21 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-const AckApp_provider_1 = require("../providers/AckApp.provider");
-const ack_fixed_element_stage_pug_1 = require("./templates/ack-fixed-element-stage.pug");
-let AckFixedElementStage = class AckFixedElementStage {
-    constructor(AckApp, ElementRef) {
+var core_1 = require("@angular/core");
+var AckApp_provider_1 = require("../providers/AckApp.provider");
+var ack_fixed_element_stage_pug_1 = require("./templates/ack-fixed-element-stage.pug");
+var AckFixedElementStage = (function () {
+    function AckFixedElementStage(AckApp, ElementRef) {
         this.AckApp = AckApp;
         this.ElementRef = ElementRef;
         AckApp.fixedElementStage = ElementRef;
     }
-};
-AckFixedElementStage = __decorate([
-    core_1.Component({
-        selector: 'ack-fixed-element-stage',
-        template: ack_fixed_element_stage_pug_1.string
-    }),
-    __metadata("design:paramtypes", [AckApp_provider_1.AckApp, core_1.ElementRef])
-], AckFixedElementStage);
+    AckFixedElementStage = __decorate([
+        core_1.Component({
+            selector: 'ack-fixed-element-stage',
+            template: ack_fixed_element_stage_pug_1.string
+        }),
+        __metadata("design:paramtypes", [AckApp_provider_1.AckApp, core_1.ElementRef])
+    ], AckFixedElementStage);
+    return AckFixedElementStage;
+}());
 exports.AckFixedElementStage = AckFixedElementStage;

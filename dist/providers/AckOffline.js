@@ -6,40 +6,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const localForage = require("localforage");
-const core_1 = require("@angular/core");
-let AckOffline = class AckOffline {
-    constructor() {
+var localForage = require("localforage");
+var core_1 = require("@angular/core");
+var AckOffline = (function () {
+    function AckOffline() {
         this.prefix = "offline";
     }
-    set(name, data) {
+    AckOffline.prototype.set = function (name, data) {
         if (data && data.constructor == Object)
             data.offlineSavedAt = new Date().toString();
         if (data && data.constructor == Object)
             data.offlineCreatedAt = data.offlineCreatedAt || new Date().toString();
         return localForage.setItem(this.prefix + '-' + name, data);
-    }
-    get(name) {
+    };
+    AckOffline.prototype.get = function (name) {
         return localForage.getItem(this.prefix + '-' + name);
-    }
-    remove(name) {
+    };
+    AckOffline.prototype.remove = function (name) {
         return localForage.removeItem(this.prefix + '-' + name);
-    }
-    clear(name) { return this.remove(name); }
-    clearAll() {
-        return this.promiseNameArray().then((keys) => keys.forEach(name => this.remove(name)));
-    }
-    promiseNameArray() {
-        let keys = [];
-        return localForage.iterate((_, k) => {
-            if (k.startsWith(this.prefix)) {
-                keys.push(k.substring(this.prefix.length + 1, k.length));
+    };
+    AckOffline.prototype.clear = function (name) { return this.remove(name); };
+    AckOffline.prototype.clearAll = function () {
+        var _this = this;
+        return this.promiseNameArray().then(function (keys) { return keys.forEach(function (name) { return _this.remove(name); }); });
+    };
+    AckOffline.prototype.promiseNameArray = function () {
+        var _this = this;
+        var keys = [];
+        return localForage.iterate(function (_, k) {
+            if (k.startsWith(_this.prefix)) {
+                keys.push(k.substring(_this.prefix.length + 1, k.length));
             }
         })
-            .then(() => keys);
-    }
-};
-AckOffline = __decorate([
-    core_1.Injectable()
-], AckOffline);
+            .then(function () { return keys; });
+    };
+    AckOffline = __decorate([
+        core_1.Injectable()
+    ], AckOffline);
+    return AckOffline;
+}());
 exports.AckOffline = AckOffline;

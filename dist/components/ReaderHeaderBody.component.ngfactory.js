@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const i0 = require("@angular/core");
-const i1 = require("@angular/common");
-const i2 = require("./ReaderHeaderBody.component");
+var i0 = require("@angular/core");
+var i1 = require("@angular/common");
+var i2 = require("./ReaderHeaderBody.component");
 var styles_ReaderHeaderBody = [];
 var RenderType_ReaderHeaderBody = i0.ɵcrt({ encapsulation: 2, styles: styles_ReaderHeaderBody, data: {} });
 exports.RenderType_ReaderHeaderBody = RenderType_ReaderHeaderBody;

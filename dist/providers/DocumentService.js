@@ -6,12 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
+var core_1 = require("@angular/core");
 function getDocument() { return document; }
-let DocumentService = class DocumentService {
-    get nativeElement() { return getDocument(); }
-};
-DocumentService = __decorate([
-    core_1.Injectable()
-], DocumentService);
+var DocumentService = (function () {
+    function DocumentService() {
+    }
+    Object.defineProperty(DocumentService.prototype, "nativeElement", {
+        get: function () { return getDocument(); },
+        enumerable: true,
+        configurable: true
+    });
+    DocumentService = __decorate([
+        core_1.Injectable()
+    ], DocumentService);
+    return DocumentService;
+}());
 exports.DocumentService = DocumentService;

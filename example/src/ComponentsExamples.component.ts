@@ -6,7 +6,9 @@ import {
 import { Component } from "@angular/core";
 import { animations } from "ack-angular-fx"
 import { array as arrayOfObjects } from "./arrayOfObjects"
-import {string as componentsExamples} from "./templates/components-examples.pug"
+import {
+  string as componentsExamples
+} from "./templates/components-examples.pug"
 
 export interface selected{
   letter:string
@@ -69,8 +71,6 @@ export interface selected{
   scrollToModuleImport(){
     setTimeout(()=>{
       this.PageScrollService.scroll({document:document, scrollTarget:"#Import AckModule"})
-      //const pageScrollInstance = PageScrollInstance.simpleInstance(document, "#Import AckModule");
-      //this.PageScrollService.start(pageScrollInstance);
     }, 600)
   }
 

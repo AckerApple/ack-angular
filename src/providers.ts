@@ -22,7 +22,7 @@ import { AckQue } from "./providers/AckQue";
 export { ErrorLog } from "./providers/ErrorLog";
 import { ErrorLog } from "./providers/ErrorLog";
 
-export * from "./providers/AckApi";
+//export * from "./providers/AckApi";
 import { AckApi } from "./providers/AckApi";
 
 export { UrlVars } from "./providers/UrlVars";
