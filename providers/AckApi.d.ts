@@ -1,27 +1,8 @@
 import { EventEmitter } from "@angular/core";
 import { HttpClient, HttpRequest, HttpResponse, HttpEvent } from "@angular/common/http";
-import { AckCache, cacheModel } from "./AckCache";
+import { AckCache } from "./AckCache";
 import { AckQue } from "./AckQue";
-export interface sendFailMeta {
-    offlineId?: number | string;
-    lastAttempt?: Date;
-    attempts?: number;
-    maxTry?: number;
-}
-export interface httpOptions {
-    url?: string;
-    params?: any;
-    body?: any;
-    method?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE" | string;
-    headers?: any;
-    timeout?: number;
-    offlineModel?: cacheModel | string;
-    sendFailMeta?: sendFailMeta;
-    promise?: "response" | "all" | "data" | string;
-    reportProgress?: boolean;
-    responseType?: "text" | "json";
-    catch?: "data";
-}
+import { sendFailMeta, httpOptions } from "../httpOptions";
 export interface apiConfig {
     baseUrl?: string;
     $http?: httpOptions;

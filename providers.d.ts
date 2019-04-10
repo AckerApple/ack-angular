@@ -13,7 +13,6 @@ import { AckCache } from "./providers/AckCache";
 export { AckQue } from "./providers/AckQue";
 import { AckQue } from "./providers/AckQue";
 export { ErrorLog } from "./providers/ErrorLog";
-export * from "./providers/AckApi";
 import { AckApi } from "./providers/AckApi";
 export { UrlVars } from "./providers/UrlVars";
 import { UrlVars } from "./providers/UrlVars";

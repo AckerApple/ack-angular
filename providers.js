@@ -1,7 +1,4 @@
 "use strict";
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
 Object.defineProperty(exports, "__esModule", { value: true });
 var HtmlSizeWatcher_1 = require("./directives/HtmlSizeWatcher");
 exports.HtmlSizeService = HtmlSizeWatcher_1.HtmlSizeService;
@@ -27,7 +24,6 @@ const AckQue_2 = require("./providers/AckQue");
 var ErrorLog_1 = require("./providers/ErrorLog");
 exports.ErrorLog = ErrorLog_1.ErrorLog;
 const ErrorLog_2 = require("./providers/ErrorLog");
-__export(require("./providers/AckApi"));
 const AckApi_1 = require("./providers/AckApi");
 var UrlVars_1 = require("./providers/UrlVars");
 exports.UrlVars = UrlVars_1.UrlVars;
