@@ -1,3 +1,4 @@
+import { BehaviorSubject } from "rxjs/internal/BehaviorSubject"
 import {
   EventEmitter, Output, Input,
   ContentChildren, Directive,
@@ -31,8 +32,10 @@ export interface loop{
  
 
   @Input() pageAt:number = 0//when to page aka maxrows
-  @Input() pages:any[]
-  @Output() pagesChange = new EventEmitter()
+  @Input() pages:any[][]//(any[])[]
+  @Output() pagesChange:BehaviorSubject<any[][]> = new BehaviorSubject(null)
+  //@Output() pagesChange:EventEmitter<any[][]> = new EventEmitter()
+  
   //a chance to know when current viewed page should be zero
   @Input() page:number = 0
   @Output() pageChange:EventEmitter<number> = new EventEmitter()
@@ -207,7 +210,8 @@ export interface loop{
         this.pageChange.emit(this.page = 0)
       }
 
-      this.pagesChange.emit( this.pages )
+      //this.pagesChange.emit( this.pages )
+      this.pagesChange.next( this.pages )
     })
   }
 

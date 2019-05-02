@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var BehaviorSubject_1 = require("rxjs/internal/BehaviorSubject");
 var core_1 = require("@angular/core");
 var AckAggregate_directive_1 = require("./AckAggregate.directive");
 var AckArray = (function () {
@@ -18,7 +19,7 @@ var AckArray = (function () {
         this.inSort = false;
         this.sortArray = [];
         this.pageAt = 0;
-        this.pagesChange = new core_1.EventEmitter();
+        this.pagesChange = new BehaviorSubject_1.BehaviorSubject(null);
         this.page = 0;
         this.pageChange = new core_1.EventEmitter();
         this.arrayChange = new core_1.EventEmitter();
@@ -156,7 +157,7 @@ var AckArray = (function () {
             if (_this.page && _this.page >= _this.pages.length) {
                 _this.pageChange.emit(_this.page = 0);
             }
-            _this.pagesChange.emit(_this.pages);
+            _this.pagesChange.next(_this.pages);
         });
     };
     AckArray.prototype.only = function (item) {
@@ -303,7 +304,7 @@ var AckArray = (function () {
     ], AckArray.prototype, "pages", void 0);
     __decorate([
         core_1.Output(),
-        __metadata("design:type", Object)
+        __metadata("design:type", BehaviorSubject_1.BehaviorSubject)
     ], AckArray.prototype, "pagesChange", void 0);
     __decorate([
         core_1.Input(),

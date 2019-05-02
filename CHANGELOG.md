@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.12.3] - 2019-05-02
+- AckArray binding pagesChange uses BehaviorSubject instead of EventEmitter
+
 ## [1.12.2] - 2019-04-10
 - Added AckRouterModule
 
