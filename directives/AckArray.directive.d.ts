@@ -1,3 +1,4 @@
+import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
 import { EventEmitter, IterableDiffers, IterableDiffer } from "@angular/core";
 import { AckAggregate } from "./AckAggregate.directive";
 export interface sortDef {
@@ -17,8 +18,8 @@ export declare class AckArray {
     sortArray: sortDef[];
     idKey: any;
     pageAt: number;
-    pages: any[];
-    pagesChange: EventEmitter<{}>;
+    pages: any[][];
+    pagesChange: BehaviorSubject<any[][]>;
     page: number;
     pageChange: EventEmitter<number>;
     array: any[];
