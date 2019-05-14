@@ -62,7 +62,7 @@
     "@types/jasmine": "^3.3.12",
     "ack-angular-fx": "^3.0.1",
     "ack-css-boot": "^1.2.58",
-    "ack-path": "^1.5.19",
+    "ack-path": "^1.6.1",
     "ack-pug-bundler": "^1.4.0",
     "ack-reload": "^2.0.12",
     "ack-sass": "^1.1.1",
