@@ -14,7 +14,7 @@ import { Injectable } from '@angular/core';
     return localForage.setItem(this.prefix+'-'+name, data)
   }
 
-  get(name:string) {
+  get(name:string):Promise<any>{
     return localForage.getItem(this.prefix+'-'+name)
   }
 

@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.12.4] - 2019-05-14
+- Updated ack-css-boot
+
 ## [1.12.3] - 2019-05-02
 - AckArray binding pagesChange uses BehaviorSubject instead of EventEmitter
 

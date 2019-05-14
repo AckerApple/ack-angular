@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "1.12.3",
+  "version": "1.12.4",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -61,7 +61,7 @@
     "@angular/router": "^7.2.12",
     "@types/jasmine": "^3.3.12",
     "ack-angular-fx": "^3.0.1",
-    "ack-css-boot": "^1.2.55",
+    "ack-css-boot": "^1.2.58",
     "ack-path": "^1.5.19",
     "ack-pug-bundler": "^1.4.0",
     "ack-reload": "^2.0.12",
