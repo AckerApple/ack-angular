@@ -1,4 +1,4 @@
-import { cacheModel } from "./providers/AckCache";
+import { cacheModel } from "./modules/offline/AckCache";
 export interface sendFailMeta {
     offlineId?: number | string;
     lastAttempt?: Date;

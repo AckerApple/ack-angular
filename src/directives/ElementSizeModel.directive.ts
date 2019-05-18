@@ -11,8 +11,8 @@ import {
 }) export class ElementSizeModel{
   onResize
   observer
-  timeout
-  inChange
+  timeout:any
+  inChange:boolean
 
   @Input() elementSizeModelWatch:any//causes ngOnChanges to fire
 
@@ -60,7 +60,9 @@ import {
     this.elementSizeModel.height = this.element.nativeElement.offsetHeight
     this.elementSizeModelChange.emit(this.elementSizeModel)
     
-    Promise.resolve().then(()=>this.inChange=false)
+    Promise.resolve().then(()=>{
+      this.inChange=false
+    })
   }
 
   ngOnDestroy(){
@@ -86,7 +88,8 @@ import {
 }
 
 @Directive({
-  selector: '[elementWidthModel]'
+  selector: '[elementWidthModel]',
+  exportAs: 'ElementWidthModel'
 }) export class ElementWidthModel extends ElementSizeModel{
   @Input() elementWidthModel
   @Output() elementWidthModelChange = new EventEmitter()

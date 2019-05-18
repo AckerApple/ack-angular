@@ -7,7 +7,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/common/http");
 var common_1 = require("@angular/common");
 var providers_1 = require("./providers");
 var declarations_1 = require("./declarations");
@@ -27,13 +26,10 @@ var AckModule = (function () {
     AckModule = AckModule_1 = __decorate([
         core_1.NgModule({
             imports: [
-                common_1.CommonModule,
-                http_1.HttpClientModule
+                common_1.CommonModule
             ],
             declarations: declarations,
-            exports: [
-                http_1.HttpClientModule
-            ].concat(declarations)
+            exports: declarations.slice()
         })
     ], AckModule);
     return AckModule;

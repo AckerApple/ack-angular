@@ -4,8 +4,8 @@ import { NgModule } from "@angular/core";
 import { AckFxModule } from "ack-angular-fx"
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { RouteWatchReporter } from "../../src/RouteWatchReporter"
-import { RouteReporter } from "../../src/RouteReporter.directive"
+import { RouteWatchReporter } from "../../src/modules/router/RouteWatchReporter"
+import { RouteReporter } from "../../src/modules/router/RouteReporter.directive"
 import {
   AckModule//, AckRouterModule
 } from "../../src"

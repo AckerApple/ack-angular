@@ -1,7 +1,7 @@
 import { EventEmitter } from "@angular/core";
 import { HttpClient, HttpRequest, HttpResponse, HttpEvent } from "@angular/common/http";
-import { AckCache } from "./AckCache";
-import { AckQue } from "./AckQue";
+import { AckCache } from "../modules/offline/AckCache";
+import { AckQue } from "../modules/offline/AckQue";
 import { sendFailMeta, httpOptions } from "../httpOptions";
 export interface apiConfig {
     baseUrl?: string;

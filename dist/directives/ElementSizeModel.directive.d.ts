@@ -4,7 +4,7 @@ export declare class ElementSizeModel {
     onResize: any;
     observer: any;
     timeout: any;
-    inChange: any;
+    inChange: boolean;
     elementSizeModelWatch: any;
     elementSizeModel: any;
     elementSizeModelChange: EventEmitter<{}>;

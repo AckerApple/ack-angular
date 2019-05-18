@@ -1,6 +1,10 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.13.0] - 2019-05-17
+- moved offline to modules folder
+- moved routers to modules folder
+
 ## [1.12.4] - 2019-05-14
 - Updated ack-css-boot
 

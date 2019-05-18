@@ -15,7 +15,7 @@ import { AckQue } from "./AckQue"
 
 import {
   sendFailMeta, httpOptions
-} from "../httpOptions"
+} from "../../httpOptions"
 
 export interface apiConfig{
   //promise? : "all"|"data"//typically just the body data is promised

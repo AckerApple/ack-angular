@@ -42,7 +42,7 @@ webpackContext.id = "../node_modules/moment-mini/locale sync recursive ^\\.\\/.*
 /*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, private, default */
 /***/ (function(module) {
 
-module.exports = {"name":"ack-angular","version":"1.12.4","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist","stats":"webpack-bundle-analyzer example/www/stats.json","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass src/ack-angular.scss dist/ack-angular.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example --stats-json","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist copy:scss build:js","copy:scss":"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.13.8","@angular/animations":"^7.2.12","@angular/cli":"^7.2.12","@angular/common":"^7.2.12","@angular/compiler":"^7.2.12","@angular/compiler-cli":"^7.2.12","@angular/core":"^7.2.12","@angular/forms":"^7.2.12","@angular/platform-browser":"^7.2.12","@angular/platform-browser-dynamic":"^7.2.12","@angular/router":"^7.2.12","@types/jasmine":"^3.3.12","ack-angular-fx":"^3.0.1","ack-css-boot":"^1.2.58","ack-path":"^1.6.2","ack-pug-bundler":"^1.4.0","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.5.6","animate.css":"^3.7.0","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.4.0","karma":"^4.0.1","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.5","karma-jasmine":"^2.0.1","karma-jasmine-html-reporter":"^1.4.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.3","ngx-page-scroll":"^6.0.0-beta.1","ngx-page-scroll-core":"^6.0.0-beta.1","npm-run-all":"^4.1.5","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.3","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.13","rxjs":"^6.4.0","ts-helpers":"^1.1.2","ts-node":"^8.0.3","typescript":"3.2.2","webpack-bundle-analyzer":"^3.3.0","zone.js":"^0.9.0"},"private":true};
+module.exports = {"name":"ack-angular","version":"1.13.0","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist","stats":"webpack-bundle-analyzer example/www/stats.json","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass src/ack-angular.scss dist/ack-angular.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example --stats-json","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist copy:scss build:js","copy:scss":"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.13.8","@angular/animations":"^7.2.12","@angular/cli":"^7.2.12","@angular/common":"^7.2.12","@angular/compiler":"^7.2.12","@angular/compiler-cli":"^7.2.12","@angular/core":"^7.2.12","@angular/forms":"^7.2.12","@angular/platform-browser":"^7.2.12","@angular/platform-browser-dynamic":"^7.2.12","@angular/router":"^7.2.12","@types/jasmine":"^3.3.12","ack-angular-fx":"^3.0.1","ack-css-boot":"^1.2.58","ack-path":"^1.6.2","ack-pug-bundler":"^1.4.0","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.5.6","animate.css":"^3.7.0","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.4.0","karma":"^4.0.1","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.5","karma-jasmine":"^2.0.1","karma-jasmine-html-reporter":"^1.4.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.3","ngx-page-scroll":"^6.0.0-beta.1","ngx-page-scroll-core":"^6.0.0-beta.1","npm-run-all":"^4.1.5","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.3","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.13","rxjs":"^6.4.0","ts-helpers":"^1.1.2","ts-node":"^8.0.3","typescript":"3.2.2","webpack-bundle-analyzer":"^3.3.0","zone.js":"^0.9.0"},"private":true};
 
 /***/ }),
 
@@ -63,7 +63,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-var http_1 = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
 var common_1 = __webpack_require__(/*! @angular/common */ "../node_modules/@angular/common/fesm5/common.js");
 var providers_1 = __webpack_require__(/*! ./providers */ "../src/providers.ts");
 var declarations_1 = __webpack_require__(/*! ./declarations */ "../src/declarations.ts");
@@ -83,471 +82,15 @@ var AckModule = (function () {
     AckModule = AckModule_1 = __decorate([
         core_1.NgModule({
             imports: [
-                common_1.CommonModule,
-                http_1.HttpClientModule
+                common_1.CommonModule
             ],
             declarations: declarations,
-            exports: [
-                http_1.HttpClientModule
-            ].concat(declarations)
+            exports: declarations.slice()
         })
     ], AckModule);
     return AckModule;
 }());
 exports.AckModule = AckModule;
-
-
-/***/ }),
-
-/***/ "../src/AckRouterModule.ts":
-/*!*********************************!*\
-  !*** ../src/AckRouterModule.ts ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-var common_1 = __webpack_require__(/*! @angular/common */ "../node_modules/@angular/common/fesm5/common.js");
-var router_1 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
-var RouteWatchReporter_1 = __webpack_require__(/*! ./RouteWatchReporter */ "../src/RouteWatchReporter.ts");
-var RouteReporter_directive_1 = __webpack_require__(/*! ./RouteReporter.directive */ "../src/RouteReporter.directive.ts");
-var AckRouterModule = (function () {
-    function AckRouterModule() {
-    }
-    AckRouterModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                common_1.CommonModule,
-                router_1.RouterModule
-            ],
-            declarations: [RouteReporter_directive_1.RouteReporter],
-            providers: [RouteWatchReporter_1.RouteWatchReporter],
-            exports: [RouteReporter_directive_1.RouteReporter, router_1.RouterModule]
-        })
-    ], AckRouterModule);
-    return AckRouterModule;
-}());
-exports.AckRouterModule = AckRouterModule;
-
-
-/***/ }),
-
-/***/ "../src/RouteReporter.directive.ts":
-/*!*****************************************!*\
-  !*** ../src/RouteReporter.directive.ts ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-var router_1 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
-var RouteWatchReporter_1 = __webpack_require__(/*! ./RouteWatchReporter */ "../src/RouteWatchReporter.ts");
-var router_2 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
-var RouteReporter = (function () {
-    function RouteReporter(RouteWatchReporter, ActivatedRoute) {
-        this.RouteWatchReporter = RouteWatchReporter;
-        this.ActivatedRoute = ActivatedRoute;
-        this.stateChanger = new core_1.EventEmitter();
-        this.beforeChanger = new core_1.EventEmitter();
-        this.activatedChange = new core_1.EventEmitter();
-        this.paramsChange = new core_1.EventEmitter();
-        this.dataChange = new core_1.EventEmitter();
-        this.queryChange = new core_1.EventEmitter();
-        this.routeChange = new core_1.EventEmitter();
-        this.parentRouteChange = new core_1.EventEmitter();
-        this.parentChange = new core_1.EventEmitter();
-        this.parentDataChange = new core_1.EventEmitter();
-        this.stateChange = new core_1.EventEmitter();
-        this.$document = document;
-        this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
-        this.apply();
-    }
-    RouteReporter.prototype.ngOnInit = function () {
-        var _this = this;
-        this.RouteWatchReporter.router.events.subscribe(function (event) {
-            if (event.constructor === router_2.NavigationEnd) {
-                _this.beforeChanger.emit(_this.RouteWatchReporter);
-                _this.apply();
-                Promise.resolve().then(function () { return _this.emit(); });
-            }
-        });
-        if (this.ActivatedRoute) {
-            this.ActivatedRoute.data.subscribe(function (data) {
-                return _this.dataChange.emit(_this.data = data);
-            });
-        }
-        this.RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
-        this.apply();
-        Promise.resolve().then(function () {
-            _this.emit();
-            _this.querySub = _this.RouteWatchReporter
-                .activatedRoute.queryParams
-                .subscribe(function (query) { return _this.queryChange.emit(query); });
-        });
-        if (this.onLoad) {
-            this.onLoad({
-                state: this.RouteWatchReporter.current,
-                params: this.RouteWatchReporter.current.params,
-                current: this.RouteWatchReporter.current
-            });
-        }
-    };
-    RouteReporter.prototype.ngOnDestroy = function () {
-        this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks);
-        if (this.querySub) {
-            this.querySub.unsubscribe();
-        }
-    };
-    RouteReporter.prototype.apply = function () {
-        var current = this.RouteWatchReporter.getCurrent();
-        this.route = current.config;
-        this.current = current;
-        this.state = current;
-        this.activated = current.ActivatedRoute;
-        this.params = current.params || {};
-        this.data = current.config.data || {};
-        var parent = current.parent;
-        if (parent) {
-            var config = parent.config;
-            var ar = parent.ActivatedRoute;
-            this.parentRoute = config;
-            this.parent = ar;
-            this.parentData = config.data;
-        }
-    };
-    RouteReporter.prototype.emit = function () {
-        this.stateChanger.emit(this.RouteWatchReporter);
-        var current = this.RouteWatchReporter.getCurrent();
-        this.routeChange.emit(current.config);
-        this.stateChange.emit(current);
-        this.activatedChange.emit(current.ActivatedRoute);
-        this.paramsChange.emit(current.params);
-        this.dataChange.emit(current.config.data);
-        var parent = current.parent;
-        if (parent) {
-            var config = parent.config;
-            var ar = parent.ActivatedRoute;
-            this.parentRouteChange.emit(config);
-            this.parentChange.emit(ar);
-            this.parentDataChange.emit(config.data);
-        }
-    };
-    RouteReporter.prototype.goBackTo = function (name, params) {
-        this.RouteWatchReporter.goBackTo(name, params);
-    };
-    RouteReporter.prototype.tryBack = function (name, params) {
-        this.RouteWatchReporter.tryBack(name, params);
-    };
-    RouteReporter.parameters = [[
-            RouteWatchReporter_1.RouteWatchReporter
-        ]];
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "onLoad", void 0);
-    __decorate([
-        core_1.Output("onChange"),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "stateChanger", void 0);
-    __decorate([
-        core_1.Output("beforeChange"),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "beforeChanger", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", router_1.ActivatedRoute)
-    ], RouteReporter.prototype, "activated", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], RouteReporter.prototype, "activatedChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "params", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], RouteReporter.prototype, "paramsChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "data", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], RouteReporter.prototype, "dataChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "query", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], RouteReporter.prototype, "queryChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "route", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], RouteReporter.prototype, "routeChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "parentRoute", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], RouteReporter.prototype, "parentRouteChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", router_1.ActivatedRoute)
-    ], RouteReporter.prototype, "parent", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], RouteReporter.prototype, "parentChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "parentData", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], RouteReporter.prototype, "parentDataChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "current", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], RouteReporter.prototype, "state", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], RouteReporter.prototype, "stateChange", void 0);
-    RouteReporter = __decorate([
-        core_1.Directive({
-            selector: "route-reporter",
-            exportAs: "RouteReporter"
-        }),
-        __metadata("design:paramtypes", [RouteWatchReporter_1.RouteWatchReporter,
-            router_1.ActivatedRoute])
-    ], RouteReporter);
-    return RouteReporter;
-}());
-exports.RouteReporter = RouteReporter;
-
-
-/***/ }),
-
-/***/ "../src/RouteWatchReporter.ts":
-/*!************************************!*\
-  !*** ../src/RouteWatchReporter.ts ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var router_1 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
-var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-var RouteWatchReporter = (function () {
-    function RouteWatchReporter(router, activatedRoute) {
-        var _this = this;
-        this.router = router;
-        this.activatedRoute = activatedRoute;
-        this.current = {};
-        this.historyPos = 0;
-        this.isBackMode = false;
-        this.isOsAction = false;
-        this.isNextBackMode = false;
-        this.isNextBackHistory = false;
-        this.activatedRoute = activatedRoute;
-        this.$window = function () { return window; };
-        this.$history = [];
-        router.events.subscribe(function (event) {
-            if (event.constructor == router_1.NavigationEnd) {
-                var current = _this.getCurrent();
-                _this.recordStateChange(current.config, current.params);
-            }
-        });
-        this.current = this.getCurrent();
-    }
-    RouteWatchReporter.prototype.getCurrent = function () {
-        var parent = this.activatedRoute;
-        var target = this.activatedRoute;
-        while (target.firstChild) {
-            parent = target;
-            target = target.firstChild;
-        }
-        var snapshot = target.snapshot || {};
-        var parentSnap = parent.snapshot || {};
-        return {
-            ActivatedRoute: target,
-            config: (target.routeConfig || target),
-            params: snapshot.params,
-            parent: {
-                ActivatedRoute: parent,
-                config: (parent.routeConfig || parent),
-                params: parentSnap.params
-            }
-        };
-    };
-    RouteWatchReporter.prototype.getCurrentConfig = function () {
-        var target = this.activatedRoute;
-        while (target.firstChild)
-            target = target.firstChild;
-        return (target.routeConfig || target);
-    };
-    RouteWatchReporter.prototype.getCurrentParams = function () {
-        var target = this.activatedRoute;
-        while (target.firstChild)
-            target = target.firstChild;
-        return target.snapshot.params;
-    };
-    RouteWatchReporter.prototype.isTrapHistory = function (toState, toParams) {
-        return this.isBackHistory(toState, toParams) && this.isForwardHistory(toState, toParams);
-    };
-    RouteWatchReporter.prototype.isBackHistory = function (toState, toParams) {
-        var $history = this.$history;
-        var isEven = $history.length > this.historyPos + 1;
-        var isNameMatch = isEven && toState && toState.name == $history[this.historyPos + 1].name;
-        return isNameMatch && this.isParamsMatch(toParams, $history[this.historyPos + 1].params);
-    };
-    RouteWatchReporter.prototype.isForwardHistory = function (toState, toParams) {
-        var $history = this.$history;
-        var isEven = !this.isNextBackMode && this.historyPos && $history.length > this.historyPos;
-        var isNameMatch = isEven && toState && toState.name == $history[this.historyPos - 1].name;
-        return isNameMatch && this.isParamsMatch(toParams, $history[this.historyPos - 1].params);
-    };
-    RouteWatchReporter.prototype.isParamsMatch = function (toParams, otherParams) {
-        if (!toParams || !otherParams) {
-            return false;
-        }
-        for (var x in toParams) {
-            if (toParams[x] != otherParams[x]) {
-                return false;
-            }
-        }
-        return true;
-    };
-    RouteWatchReporter.prototype.recordStateChange = function (toState, toParams) {
-        this.current = { params: toParams, config: toState };
-        var isForward = this.isForwardHistory(toState, toParams);
-        var isBackHistory = this.isNextBackHistory || this.isBackHistory(toState, toParams);
-        if (this.isOsAction && this.isTrapHistory(toState, toParams)) {
-            if (this.isBackMode) {
-                isForward = false;
-            }
-            else {
-                isBackHistory = false;
-            }
-        }
-        else {
-            this.isBackMode = this.isNextBackMode || (this.isOsAction && isBackHistory);
-        }
-        var $history = this.$history;
-        if (!toState)
-            return;
-        if (isForward) {
-            --this.historyPos;
-        }
-        else if (this.isBackMode) {
-            ++this.historyPos;
-        }
-        else {
-            this.historyPos = 0;
-            var hist = { name: toState.name, params: toParams };
-            if (!Object.keys(toParams).length) {
-                delete hist.params;
-            }
-            $history.unshift(hist);
-        }
-        this.isNextBackHistory = false;
-    };
-    RouteWatchReporter.prototype.goBackTo = function (name, params) {
-        this.isNextBackMode = true;
-        this.isNextBackHistory = true;
-        this.$state().go(name, params);
-    };
-    RouteWatchReporter.prototype.tryBack = function (name, params) {
-        if (this.$history.length) {
-            this.isNextBackMode = true;
-            this.isNextBackHistory = true;
-            this.$window().history.back();
-        }
-        else {
-            this.goBackTo(name, params);
-        }
-    };
-    RouteWatchReporter.prototype.watchDocument = function ($document) {
-        this.watchDocByCallbacks($document, this.getDocumentCallbacks());
-    };
-    RouteWatchReporter.prototype.getDocumentCallbacks = function () {
-        var _this = this;
-        var isBackButton = function () {
-            _this.isOsAction = true;
-        };
-        var isNotBackButton = function () {
-            _this.isOsAction = false;
-        };
-        return {
-            isBackButton: isBackButton,
-            isNotBackButton: isNotBackButton
-        };
-    };
-    RouteWatchReporter.prototype.watchDocByCallbacks = function ($document, callbacks) {
-        $document.addEventListener('mouseout', callbacks.isBackButton);
-        $document.addEventListener('mousedown', callbacks.isNotBackButton);
-    };
-    RouteWatchReporter.prototype.unwatchDocByCallbacks = function ($document, callbacks) {
-        $document.removeEventListener('mouseout', callbacks.isBackButton);
-        $document.removeEventListener('mouseover', callbacks.isNotBackButton);
-        $document.removeEventListener('mousedown', callbacks.isNotBackButton);
-    };
-    RouteWatchReporter = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [router_1.Router,
-            router_1.ActivatedRoute])
-    ], RouteWatchReporter);
-    return RouteWatchReporter;
-}());
-exports.RouteWatchReporter = RouteWatchReporter;
 
 
 /***/ }),
@@ -2648,7 +2191,9 @@ var ElementSizeModel = (function () {
         this.elementSizeModel.width = this.element.nativeElement.offsetWidth;
         this.elementSizeModel.height = this.element.nativeElement.offsetHeight;
         this.elementSizeModelChange.emit(this.elementSizeModel);
-        Promise.resolve().then(function () { return _this.inChange = false; });
+        Promise.resolve().then(function () {
+            _this.inChange = false;
+        });
     };
     ElementSizeModel.prototype.ngOnDestroy = function () {
         this.observer.disconnect();
@@ -2726,7 +2271,8 @@ var ElementWidthModel = (function (_super) {
     ], ElementWidthModel.prototype, "elementWidthModelChange", void 0);
     ElementWidthModel = __decorate([
         core_1.Directive({
-            selector: '[elementWidthModel]'
+            selector: '[elementWidthModel]',
+            exportAs: 'ElementWidthModel'
         }),
         __metadata("design:paramtypes", [core_1.ElementRef])
     ], ElementWidthModel);
@@ -4106,9 +3652,9 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var AckModule_1 = __webpack_require__(/*! ./AckModule */ "../src/AckModule.ts");
 exports.AckModule = AckModule_1.AckModule;
-var AckRouterModule_1 = __webpack_require__(/*! ./AckRouterModule */ "../src/AckRouterModule.ts");
+var AckRouterModule_1 = __webpack_require__(/*! ./modules/router/AckRouterModule */ "../src/modules/router/AckRouterModule.ts");
 exports.AckRouterModule = AckRouterModule_1.AckRouterModule;
-var RouteWatchReporter_1 = __webpack_require__(/*! ./RouteWatchReporter */ "../src/RouteWatchReporter.ts");
+var RouteWatchReporter_1 = __webpack_require__(/*! ./modules/router/RouteWatchReporter */ "../src/modules/router/RouteWatchReporter.ts");
 exports.RouteWatchReporter = RouteWatchReporter_1.RouteWatchReporter;
 var declarations_1 = __webpack_require__(/*! ./declarations */ "../src/declarations.ts");
 exports.components = declarations_1.declarations;
@@ -4116,7 +3662,7 @@ var pipes_1 = __webpack_require__(/*! ./pipes */ "../src/pipes.ts");
 exports.pipes = pipes_1.declarations;
 var ack_1 = __webpack_require__(/*! ./ack */ "../src/ack.ts");
 exports.ack = ack_1.ack;
-var AckApi_1 = __webpack_require__(/*! ./providers/AckApi */ "../src/providers/AckApi.ts");
+var AckApi_1 = __webpack_require__(/*! ./modules/offline/AckApi */ "../src/modules/offline/AckApi.ts");
 exports.AckApi = AckApi_1.AckApi;
 var AckArray_directive_1 = __webpack_require__(/*! ./directives/AckArray.directive */ "../src/directives/AckArray.directive.ts");
 exports.AckArray = AckArray_directive_1.AckArray;
@@ -4205,6 +3751,1185 @@ function getInvokerBy(invoke) {
     };
 }
 exports.getInvokerBy = getInvokerBy;
+
+
+/***/ }),
+
+/***/ "../src/modules/offline/AckApi.ts":
+/*!****************************************!*\
+  !*** ../src/modules/offline/AckApi.ts ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var http_1 = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
+var AckCache_1 = __webpack_require__(/*! ./AckCache */ "../src/modules/offline/AckCache.ts");
+var AckQue_1 = __webpack_require__(/*! ./AckQue */ "../src/modules/offline/AckQue.ts");
+function TimeOutError(message) {
+    Error["captureStackTrace"](this, this.constructor);
+    this.name = this.constructor.name;
+    this.status = 504;
+    this.code = "gateway_timeout";
+    this.message = message || "Could not connect to server or server did not respond in a timely manner. Please check internet connection and then try again.";
+}
+exports.TimeOutError = TimeOutError;
+TimeOutError.prototype = Object.create(Error.prototype);
+var AckApi = (function () {
+    function AckApi(HttpClient) {
+        this.HttpClient = HttpClient;
+        this.response = new core_1.EventEmitter();
+        this.Request = new core_1.EventEmitter();
+        this.AuthError = new core_1.EventEmitter();
+        this.ApiError = new core_1.EventEmitter();
+        this.AckCache = new AckCache_1.AckCache();
+        this.AckQue = new AckQue_1.AckQue();
+        this.config = {
+            baseUrl: "",
+            $http: {
+                method: "GET",
+                headers: {},
+                timeout: 6500
+            }
+        };
+        this.paramConfig();
+    }
+    AckApi.prototype.paramConfig = function () { };
+    AckApi.prototype.registerHandler = function (name, handler, options) {
+        var _this = this;
+        options = options || { maxTry: 50 };
+        handler = handler || (function (config) { return _this.request(config); });
+        this.AckQue.registerHandler(name, handler);
+        return this;
+    };
+    AckApi.prototype.getQue = function (name) {
+        return this.AckQue.get(name);
+    };
+    AckApi.prototype.getCache = function (name) {
+        return this.AckCache.get(name);
+    };
+    AckApi.prototype.processQue = function (name) {
+        var _this = this;
+        this.AckQue.paramHandler(name, function (config) { return _this._fetch(config); });
+        return this.AckQue.processQue(name);
+    };
+    AckApi.prototype.clearQue = function (name) {
+        return this.AckQue.clear(name);
+    };
+    AckApi.prototype.clearCache = function (name) {
+        return this.AckCache.clear(name);
+    };
+    AckApi.prototype.request = function (config) {
+        var defaults = __assign({}, this.config.$http);
+        defaults.headers = __assign({}, this.config.$http.headers);
+        var request = Object.assign(defaults, (config || {}));
+        request.url = this.config.baseUrl + request.url;
+        if (request.offlineModel) {
+            return this.requestOfflineModel(request);
+        }
+        return this._fetch(request);
+    };
+    AckApi.prototype.getCacheByNamedRequest = function (request) {
+        var _this = this;
+        var offlineModel = request.offlineModel;
+        return this.AckCache.get(offlineModel.name, offlineModel)
+            .then(function (routes) {
+            routes = routes || {};
+            var cacheName = _this.getStorageNameByRequest(request);
+            return routes[cacheName];
+        })
+            .then(function (cache) { return _this.processCacheGet(cache, request); });
+    };
+    AckApi.prototype.getStorageNameByRequest = function (request) {
+        if (request.params) {
+            var paramKeys = Object.keys(request.params);
+            if (!paramKeys.length)
+                return request.url;
+            var url_1 = request.url + (request.url.search(/\?/) >= 0 ? "&" : "?");
+            paramKeys.sort().forEach(function (name) { return url_1 += name + "=" + request.params[name] + "&"; });
+            return url_1.substring(0, url_1.length - 1);
+        }
+        return request.url;
+    };
+    AckApi.prototype.requestOfflineModel = function (request) {
+        var _this = this;
+        var offlineModel = request.offlineModel;
+        if (offlineModel && offlineModel.constructor == String) {
+            request.offlineModel = offlineModel = { name: request.offlineModel };
+        }
+        if (request.method === "GET") {
+            return this.getCacheByNamedRequest(request);
+        }
+        this.AckQue.paramHandler(offlineModel.name, function (config) { return _this._fetch(config); });
+        return this._fetch(request)
+            .catch(function (e) { return _this.postRequestFail(e, request); });
+    };
+    AckApi.prototype.processCacheGet = function (cache, cfg) {
+        var _this = this;
+        if (cache == null)
+            return this._fetch(cfg);
+        var offlineModel = cfg.offlineModel;
+        return this.AckCache.cacheToReturn(offlineModel.name, cache, offlineModel)
+            .then(function (rtn) {
+            var willExpire = _this.AckCache.optionsKillCache(offlineModel);
+            if (rtn && !willExpire) {
+                console.log("AckApi fetched cache that will never expire. Set offlineModel.expires=0 or offlineModel.maxAge=0 to avoid this message", rtn);
+            }
+            if (rtn != null) {
+                return rtn;
+            }
+            return _this._fetch(cfg);
+        });
+    };
+    AckApi.prototype.postRequestFail = function (e, request) {
+        var saveWorthy = e.status == 0 || e.status == -1 || e.status == 503;
+        if (!saveWorthy)
+            return Promise.reject(e);
+        request.sendFailMeta = request.sendFailMeta || {};
+        request.sendFailMeta.offlineId = Date.now();
+        request.sendFailMeta.lastAttempt = new Date();
+        request.sendFailMeta.attempts = request.sendFailMeta.attempts == null ? 1 : ++request.sendFailMeta.attempts;
+        request.sendFailMeta.maxTry = request.sendFailMeta.maxTry || 50;
+        var tryAgainLater = request.sendFailMeta.maxTry && request.sendFailMeta.attempts <= request.sendFailMeta.maxTry;
+        e.sendFailMeta = request.sendFailMeta;
+        if (tryAgainLater) {
+            var requestSave = Object.assign({}, request);
+            delete requestSave.offlineModel;
+            var offlineModel = request.offlineModel;
+            return this.AckQue.set(offlineModel.name, requestSave)
+                .then(function () { return Promise.reject(e); });
+        }
+        return Promise.reject(e);
+    };
+    AckApi.prototype._fetch = function (cfg) {
+        var _this = this;
+        upgradeConfig(cfg);
+        var cfgPlus = __assign({}, cfg);
+        if (cfg.params) {
+            cfgPlus.params = new http_1.HttpParams({
+                fromObject: cfg.params
+            });
+        }
+        if (cfg.headers) {
+            cfgPlus.headers = new http_1.HttpHeaders(cfg.headers);
+        }
+        var request = new http_1.HttpRequest(cfg.method, cfg.url, cfg.body, cfgPlus);
+        var promise = function (resolve, reject) {
+            var resolved = false;
+            _this.Request.emit(request);
+            var req = _this.HttpClient.request(request)
+                .subscribe(function (event) {
+                if (event.type === http_1.HttpEventType.Response) {
+                    resolved = true;
+                    resolve(event);
+                }
+            }, function (err) {
+                resolved = true;
+                reject(err);
+            });
+            if (cfg.timeout) {
+                setTimeout(function () {
+                    if (resolved)
+                        return;
+                    req.unsubscribe();
+                    var timeoutError = new TimeOutError();
+                    Object.assign(timeoutError, request);
+                    timeoutError.timeout = cfg.timeout;
+                    reject(timeoutError);
+                }, cfg.timeout);
+            }
+        };
+        return new Promise(promise)
+            .then(function (response) {
+            return _this.processFetchByConfig(response, cfg);
+        })
+            .catch(function (e) { return _this.httpFailByConfig(e, cfg); });
+    };
+    AckApi.prototype.processFetchByConfig = function (response, request) {
+        this.response.emit(response);
+        var data = response.body || response["_body"];
+        var isJson = data && response.headers.get("Content-Type") == "application/json";
+        if (isJson && !response["data"]) {
+            try {
+                response["data"] = JSON.parse(data);
+            }
+            catch (e) { }
+        }
+        response["data"] = data;
+        var isDataMode = !request.promise || request.promise == "data";
+        var output = isDataMode ? data : response;
+        var isCacheReponse = request.method === "GET" && request.offlineModel;
+        if (isCacheReponse) {
+            return this.requestResponseToCache(request, output)
+                .then(function () { return output; });
+        }
+        return Promise.resolve(output);
+    };
+    AckApi.prototype.httpFailByConfig = function (e, cfg) {
+        var isReduceData = cfg.catch == null || cfg.catch == "data";
+        var data = e["data"];
+        var isCatchData = isReduceData && data && data.error;
+        if (isCatchData) {
+            var newError = new Error();
+            Object.assign(newError, e["data"].error);
+            e = newError;
+        }
+        e["method"] = e["method"] || cfg.method;
+        if (e["status"] == 401) {
+            this.AuthError.emit(e);
+        }
+        else {
+            this.ApiError.emit(e);
+        }
+        return Promise.reject(e);
+    };
+    AckApi.prototype.requestResponseToCache = function (request, output) {
+        var _this = this;
+        var cachename = request.offlineModel.name || request.offlineModel;
+        return this.AckCache.get(cachename)
+            .then(function (routes) {
+            routes = routes || {};
+            var cacheName = _this.getStorageNameByRequest(request);
+            routes[cacheName] = { cache: output };
+            _this.AckCache.dataOptionsCache(routes[request.url], request.offlineModel, output);
+            return routes;
+        })
+            .then(function (routes) { return _this.AckCache.set(cachename, routes); });
+    };
+    AckApi.prototype.get = function (path, config) {
+        var cfg = Object.assign({}, config);
+        cfg.method = "GET";
+        cfg.url = path;
+        return this.request(cfg);
+    };
+    AckApi.prototype.post = function (path, data, config) {
+        var cfg = Object.assign({}, config);
+        cfg.method = "POST";
+        cfg.body = data;
+        cfg.url = path;
+        return this.request(cfg);
+    };
+    AckApi.prototype.delete = function (path, config) {
+        var cfg = Object.assign({}, config);
+        cfg.method = "DELETE";
+        cfg.url = path;
+        return this.request(cfg);
+    };
+    AckApi.prototype.put = function (path, data, config) {
+        var cfg = Object.assign({}, config);
+        cfg.method = "PUT";
+        cfg.body = data;
+        cfg.url = path;
+        return this.request(cfg);
+    };
+    AckApi = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.HttpClient])
+    ], AckApi);
+    return AckApi;
+}());
+exports.AckApi = AckApi;
+function upgradeConfig(cfg) {
+    cfg.method = cfg.method || "GET";
+    cfg.reportProgress = cfg.reportProgress || false;
+    if (cfg.params) {
+        for (var key in cfg.params) {
+            if (cfg.params[key] == null) {
+                cfg.params[key] = "";
+            }
+        }
+    }
+    return cfg;
+}
+
+
+/***/ }),
+
+/***/ "../src/modules/offline/AckCache.ts":
+/*!******************************************!*\
+  !*** ../src/modules/offline/AckCache.ts ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var AckOffline_1 = __webpack_require__(/*! ./AckOffline */ "../src/modules/offline/AckOffline.ts");
+var AckCache = (function (_super) {
+    __extends(AckCache, _super);
+    function AckCache() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.prefix = "offline-cache";
+        return _this;
+    }
+    AckCache.prototype.validate = function (data, config) {
+        var exists = data !== null && typeof data.cache !== "undefined";
+        return exists && !this.hasExpired(data._timestamp, data.expires || config.expires);
+    };
+    AckCache.prototype.optionsKillCache = function (options) {
+        return options.maxAge == null && options.expires == null ? false : true;
+    };
+    AckCache.prototype.hasMaxAged = function (stamp, maxAge) {
+        var diff = Date.now() - maxAge;
+        var expired = stamp <= diff;
+        return maxAge && expired ? true : false;
+    };
+    AckCache.prototype.hasExpired = function (_stamp, expires) {
+        var expired = Date.now() >= new Date(expires).getTime();
+        return expires && expired ? true : false;
+    };
+    AckCache.prototype.param = function (name, options) {
+        if (options === void 0) { options = {}; }
+        options.param = options.param || [];
+        return this.getCache(name, options);
+    };
+    AckCache.prototype.paramCache = function (name, options) {
+        return this.param(name, options);
+    };
+    AckCache.prototype.paramSave = function (name, options) {
+        var _this = this;
+        return this.paramCache(name, options)
+            .then(function (items) { return _this.setCache(name, items); });
+    };
+    AckCache.prototype.paramSaveCache = function (name, options) {
+        return this.paramSave(name, options);
+    };
+    AckCache.prototype.cacheToReturn = function (name, data, options) {
+        if (data.cache == null && data._timestamp == null) {
+            return Promise.resolve(data);
+        }
+        var expires = data.expires || options.expires;
+        var maxAge = data.maxAge || options.maxAge;
+        if (options.allowExpired || (!expires && !maxAge)) {
+            return Promise.resolve(data.cache);
+        }
+        var expired = expires && this.hasExpired(data._timestamp, expires);
+        var isMaxed = maxAge && this.hasMaxAged(data._timestamp, maxAge);
+        if (expired || isMaxed) {
+            return this.selfDestructData(name, data)
+                .then(function () {
+                if (options.param)
+                    return Promise.resolve(options.param);
+            });
+        }
+        return Promise.resolve(data['cache']);
+    };
+    AckCache.prototype.selfDestructData = function (name, data) {
+        if (this.dataDestructReady(data))
+            return this.clear(name);
+        return Promise.resolve();
+    };
+    AckCache.prototype.dataDestructReady = function (data) {
+        var isMemMaxed = data['maxAge'] && this.hasMaxAged(data['_timestamp'], data['maxAge']);
+        var isMemExpired = data['expires'] && this.hasExpired(data['_timestamp'], data['expires']);
+        return isMemMaxed || isMemExpired;
+    };
+    AckCache.prototype.get = function (name, options) {
+        var _this = this;
+        if (options === void 0) { options = { expires: null }; }
+        return _super.prototype.get.call(this, name)
+            .then(function (data) {
+            if (data) {
+                return _this.cacheToReturn(name, data, options);
+            }
+            if (options.param)
+                return options.param;
+            return;
+        });
+    };
+    AckCache.prototype.getCache = function (name, options) {
+        return this.get(name, options);
+    };
+    AckCache.prototype.dataOptionsCache = function (allCache, options, cache) {
+        if (options === void 0) { options = {}; }
+        var newOptions = {};
+        newOptions._timestamp = Date.now();
+        if (options.expires)
+            newOptions.expires = options.expires;
+        if (options.maxAge)
+            newOptions.maxAge = options.maxAge;
+        allCache = allCache && allCache.constructor != String ? allCache : {};
+        Object.assign(allCache, newOptions);
+        if (cache && cache.constructor == String) {
+            allCache.cache = cache;
+        }
+        else if (allCache.cache && allCache.cache.constructor != String) {
+            Object.assign(allCache.cache, cache);
+        }
+        else {
+            allCache.cache = cache;
+        }
+        return allCache;
+    };
+    AckCache.prototype.set = function (name, cache, options) {
+        var _this = this;
+        if (options === void 0) { options = {}; }
+        options.name = options.name || name;
+        return _super.prototype.get.call(this, name)
+            .then(function (allCache) { return _this.dataOptionsCache(allCache, options, cache); })
+            .then(function (data) { return _super.prototype.set.call(_this, name, data); });
+    };
+    AckCache.prototype.setCache = function (name, cache, options) {
+        return this.set(name, cache, options);
+    };
+    AckCache = __decorate([
+        core_1.Injectable()
+    ], AckCache);
+    return AckCache;
+}(AckOffline_1.AckOffline));
+exports.AckCache = AckCache;
+
+
+/***/ }),
+
+/***/ "../src/modules/offline/AckOffline.ts":
+/*!********************************************!*\
+  !*** ../src/modules/offline/AckOffline.ts ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var localForage = __webpack_require__(/*! localforage */ "../node_modules/localforage/dist/localforage.js");
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var AckOffline = (function () {
+    function AckOffline() {
+        this.prefix = "offline";
+    }
+    AckOffline.prototype.set = function (name, data) {
+        if (data && data.constructor == Object)
+            data.offlineSavedAt = new Date().toString();
+        if (data && data.constructor == Object)
+            data.offlineCreatedAt = data.offlineCreatedAt || new Date().toString();
+        return localForage.setItem(this.prefix + '-' + name, data);
+    };
+    AckOffline.prototype.get = function (name) {
+        return localForage.getItem(this.prefix + '-' + name);
+    };
+    AckOffline.prototype.remove = function (name) {
+        return localForage.removeItem(this.prefix + '-' + name);
+    };
+    AckOffline.prototype.clear = function (name) { return this.remove(name); };
+    AckOffline.prototype.clearAll = function () {
+        var _this = this;
+        return this.promiseNameArray().then(function (keys) { return keys.forEach(function (name) { return _this.remove(name); }); });
+    };
+    AckOffline.prototype.promiseNameArray = function () {
+        var _this = this;
+        var keys = [];
+        return localForage.iterate(function (_, k) {
+            if (k.startsWith(_this.prefix)) {
+                keys.push(k.substring(_this.prefix.length + 1, k.length));
+            }
+        })
+            .then(function () { return keys; });
+    };
+    AckOffline = __decorate([
+        core_1.Injectable()
+    ], AckOffline);
+    return AckOffline;
+}());
+exports.AckOffline = AckOffline;
+
+
+/***/ }),
+
+/***/ "../src/modules/offline/AckQue.ts":
+/*!****************************************!*\
+  !*** ../src/modules/offline/AckQue.ts ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var AckOffline_1 = __webpack_require__(/*! ./AckOffline */ "../src/modules/offline/AckOffline.ts");
+var AckQue = (function (_super) {
+    __extends(AckQue, _super);
+    function AckQue() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.prefix = "offline-que";
+        _this.handlers = [];
+        return _this;
+    }
+    AckQue.prototype.get = function (name) {
+        return _super.prototype.get.call(this, name)
+            .then(function (data) { return data && data['que'] ? data['que'] : []; });
+    };
+    AckQue.prototype.getQue = function (name) {
+        return this.get(name);
+    };
+    AckQue.prototype.setQue = function (name, que) {
+        return this.set(name, que);
+    };
+    AckQue.prototype.que = function (name, queData) {
+        var _this = this;
+        return _super.prototype.get.call(this, name)
+            .then(function (data) {
+            data = data || {};
+            data['que'] = data['que'] || [];
+            if (queData.forEach) {
+                queData.forEach(function (x) {
+                    data['que'].push(x);
+                });
+            }
+            else {
+                data['que'].push(queData);
+            }
+            return _super.prototype.set.call(_this, name, data);
+        });
+    };
+    AckQue.prototype.set = function (name, queData) {
+        return this.que(name, queData);
+    };
+    AckQue.prototype.dequeByIndex = function (name, index) {
+        var _this = this;
+        return this.getQue(name)
+            .then(function (array) {
+            array.splice(index, 1);
+            return array;
+        })
+            .then(function (array) { return _this.setQue(name, array); });
+    };
+    AckQue.prototype.processQuedByIndex = function (name, index) {
+        var _this = this;
+        var handler = this.getQueHandlerByName(name);
+        var mem = { item: null, array: null, result: null };
+        return this.getQue(name)
+            .then(function (array) {
+            mem.item = array.splice(index, 1);
+            mem.array = array;
+        })
+            .then(function () { return _this.handleQued(mem.item, handler); })
+            .then(function (result) { return mem.result = result; })
+            .then(function () { return _this.setQue(name, mem.array); })
+            .then(function () { return mem.result; });
+    };
+    AckQue.prototype.registerHandler = function (name, handler) {
+        this.handlers.push({ name: name, handler: handler });
+        return this;
+    };
+    AckQue.prototype.registerQueHandler = function (name, handler) {
+        return this.registerHandler(name, handler);
+    };
+    AckQue.prototype.paramHandler = function (name, handler) {
+        for (var x = this.handlers.length - 1; x >= 0; --x) {
+            if (this.handlers[x].name == name) {
+                return this;
+            }
+        }
+        this.handlers.push({ name: name, handler: handler });
+        return this;
+    };
+    AckQue.prototype.getQueHandDefByName = function (name) {
+        for (var i = this.handlers.length - 1; i >= 0; --i) {
+            if (this.handlers[i].name == name)
+                return this.handlers[i];
+        }
+    };
+    AckQue.prototype.getQueHandlerByName = function (name) {
+        var hand = this.getQueHandDefByName(name);
+        if (hand)
+            return hand.handler;
+    };
+    AckQue.prototype.handleQued = function (qued, handler) {
+        return Promise.resolve(handler(qued));
+    };
+    AckQue.prototype.processQuedHandler = function (hand) {
+        var _this = this;
+        var results = [];
+        var mem = { que: [] };
+        var eachHandle = this.eachHandler(hand.handler);
+        return this.get(hand.name)
+            .then(function (que) { return mem.que = que; })
+            .then(function () { return _this.clear(hand.name); })
+            .then(function () {
+            var promise = Promise.resolve();
+            mem.que.forEach(function (v) {
+                promise = promise
+                    .then(function () { return eachHandle(v); })
+                    .catch(function (e) { return e; })
+                    .then(function (r) { return results.push(r); });
+            });
+            return promise;
+        })
+            .then(function () { return results; });
+    };
+    AckQue.prototype.eachHandler = function (handler) {
+        var _this = this;
+        return function (data) { return _this.handleQued(data, handler); };
+    };
+    AckQue.prototype.processQue = function (name) {
+        var handler = this.getQueHandDefByName(name);
+        return handler ? this.processQuedHandler(handler) : Promise.resolve();
+    };
+    AckQue.prototype.processAllQues = function () {
+        var _this = this;
+        var promises = [];
+        this.handlers.forEach(function (hand) {
+            return promises.push(_this.processQuedHandler(hand));
+        });
+        return Promise.all(promises)
+            .then(function (proms) {
+            var results = [];
+            proms.forEach(function (subArray) { return results.push.apply(results, subArray); });
+            return Promise.all(results);
+        });
+    };
+    AckQue = __decorate([
+        core_1.Injectable()
+    ], AckQue);
+    return AckQue;
+}(AckOffline_1.AckOffline));
+exports.AckQue = AckQue;
+
+
+/***/ }),
+
+/***/ "../src/modules/offline/index.ts":
+/*!***************************************!*\
+  !*** ../src/modules/offline/index.ts ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var AckOffline_1 = __webpack_require__(/*! ./AckOffline */ "../src/modules/offline/AckOffline.ts");
+exports.AckOffline = AckOffline_1.AckOffline;
+var AckCache_1 = __webpack_require__(/*! ./AckCache */ "../src/modules/offline/AckCache.ts");
+exports.AckCache = AckCache_1.AckCache;
+var AckQue_1 = __webpack_require__(/*! ./AckQue */ "../src/modules/offline/AckQue.ts");
+exports.AckQue = AckQue_1.AckQue;
+var AckApi_1 = __webpack_require__(/*! ./AckApi */ "../src/modules/offline/AckApi.ts");
+exports.AckApi = AckApi_1.AckApi;
+
+
+/***/ }),
+
+/***/ "../src/modules/router/AckRouterModule.ts":
+/*!************************************************!*\
+  !*** ../src/modules/router/AckRouterModule.ts ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var common_1 = __webpack_require__(/*! @angular/common */ "../node_modules/@angular/common/fesm5/common.js");
+var router_1 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
+var RouteWatchReporter_1 = __webpack_require__(/*! ./RouteWatchReporter */ "../src/modules/router/RouteWatchReporter.ts");
+var RouteReporter_directive_1 = __webpack_require__(/*! ./RouteReporter.directive */ "../src/modules/router/RouteReporter.directive.ts");
+var AckRouterModule = (function () {
+    function AckRouterModule() {
+    }
+    AckRouterModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule,
+                router_1.RouterModule
+            ],
+            declarations: [RouteReporter_directive_1.RouteReporter],
+            providers: [RouteWatchReporter_1.RouteWatchReporter],
+            exports: [RouteReporter_directive_1.RouteReporter, router_1.RouterModule]
+        })
+    ], AckRouterModule);
+    return AckRouterModule;
+}());
+exports.AckRouterModule = AckRouterModule;
+
+
+/***/ }),
+
+/***/ "../src/modules/router/RouteReporter.directive.ts":
+/*!********************************************************!*\
+  !*** ../src/modules/router/RouteReporter.directive.ts ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var router_1 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
+var RouteWatchReporter_1 = __webpack_require__(/*! ./RouteWatchReporter */ "../src/modules/router/RouteWatchReporter.ts");
+var router_2 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
+var RouteReporter = (function () {
+    function RouteReporter(RouteWatchReporter, ActivatedRoute) {
+        this.RouteWatchReporter = RouteWatchReporter;
+        this.ActivatedRoute = ActivatedRoute;
+        this.stateChanger = new core_1.EventEmitter();
+        this.beforeChanger = new core_1.EventEmitter();
+        this.activatedChange = new core_1.EventEmitter();
+        this.paramsChange = new core_1.EventEmitter();
+        this.dataChange = new core_1.EventEmitter();
+        this.queryChange = new core_1.EventEmitter();
+        this.routeChange = new core_1.EventEmitter();
+        this.parentRouteChange = new core_1.EventEmitter();
+        this.parentChange = new core_1.EventEmitter();
+        this.parentDataChange = new core_1.EventEmitter();
+        this.stateChange = new core_1.EventEmitter();
+        this.$document = document;
+        this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
+        this.apply();
+    }
+    RouteReporter.prototype.ngOnInit = function () {
+        var _this = this;
+        this.RouteWatchReporter.router.events.subscribe(function (event) {
+            if (event.constructor === router_2.NavigationEnd) {
+                _this.beforeChanger.emit(_this.RouteWatchReporter);
+                _this.apply();
+                Promise.resolve().then(function () { return _this.emit(); });
+            }
+        });
+        if (this.ActivatedRoute) {
+            this.ActivatedRoute.data.subscribe(function (data) {
+                return _this.dataChange.emit(_this.data = data);
+            });
+        }
+        this.RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
+        this.apply();
+        Promise.resolve().then(function () {
+            _this.emit();
+            _this.querySub = _this.RouteWatchReporter
+                .activatedRoute.queryParams
+                .subscribe(function (query) { return _this.queryChange.emit(query); });
+        });
+        if (this.onLoad) {
+            this.onLoad({
+                state: this.RouteWatchReporter.current,
+                params: this.RouteWatchReporter.current.params,
+                current: this.RouteWatchReporter.current
+            });
+        }
+    };
+    RouteReporter.prototype.ngOnDestroy = function () {
+        this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks);
+        if (this.querySub) {
+            this.querySub.unsubscribe();
+        }
+    };
+    RouteReporter.prototype.apply = function () {
+        var current = this.RouteWatchReporter.getCurrent();
+        this.route = current.config;
+        this.current = current;
+        this.state = current;
+        this.activated = current.ActivatedRoute;
+        this.params = current.params || {};
+        this.data = current.config.data || {};
+        var parent = current.parent;
+        if (parent) {
+            var config = parent.config;
+            var ar = parent.ActivatedRoute;
+            this.parentRoute = config;
+            this.parent = ar;
+            this.parentData = config.data;
+        }
+    };
+    RouteReporter.prototype.emit = function () {
+        this.stateChanger.emit(this.RouteWatchReporter);
+        var current = this.RouteWatchReporter.getCurrent();
+        this.routeChange.emit(current.config);
+        this.stateChange.emit(current);
+        this.activatedChange.emit(current.ActivatedRoute);
+        this.paramsChange.emit(current.params);
+        this.dataChange.emit(current.config.data);
+        var parent = current.parent;
+        if (parent) {
+            var config = parent.config;
+            var ar = parent.ActivatedRoute;
+            this.parentRouteChange.emit(config);
+            this.parentChange.emit(ar);
+            this.parentDataChange.emit(config.data);
+        }
+    };
+    RouteReporter.prototype.goBackTo = function (name, params) {
+        this.RouteWatchReporter.goBackTo(name, params);
+    };
+    RouteReporter.prototype.tryBack = function (name, params) {
+        this.RouteWatchReporter.tryBack(name, params);
+    };
+    RouteReporter.parameters = [[
+            RouteWatchReporter_1.RouteWatchReporter
+        ]];
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "onLoad", void 0);
+    __decorate([
+        core_1.Output("onChange"),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "stateChanger", void 0);
+    __decorate([
+        core_1.Output("beforeChange"),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "beforeChanger", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", router_1.ActivatedRoute)
+    ], RouteReporter.prototype, "activated", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "activatedChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "params", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "paramsChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "data", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "dataChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "query", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "queryChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "route", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "routeChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "parentRoute", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "parentRouteChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", router_1.ActivatedRoute)
+    ], RouteReporter.prototype, "parent", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "parentChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "parentData", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "parentDataChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "current", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], RouteReporter.prototype, "state", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], RouteReporter.prototype, "stateChange", void 0);
+    RouteReporter = __decorate([
+        core_1.Directive({
+            selector: "route-reporter",
+            exportAs: "RouteReporter"
+        }),
+        __metadata("design:paramtypes", [RouteWatchReporter_1.RouteWatchReporter,
+            router_1.ActivatedRoute])
+    ], RouteReporter);
+    return RouteReporter;
+}());
+exports.RouteReporter = RouteReporter;
+
+
+/***/ }),
+
+/***/ "../src/modules/router/RouteWatchReporter.ts":
+/*!***************************************************!*\
+  !*** ../src/modules/router/RouteWatchReporter.ts ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var router_1 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var RouteWatchReporter = (function () {
+    function RouteWatchReporter(router, activatedRoute) {
+        var _this = this;
+        this.router = router;
+        this.activatedRoute = activatedRoute;
+        this.current = {};
+        this.historyPos = 0;
+        this.isBackMode = false;
+        this.isOsAction = false;
+        this.isNextBackMode = false;
+        this.isNextBackHistory = false;
+        this.activatedRoute = activatedRoute;
+        this.$window = function () { return window; };
+        this.$history = [];
+        router.events.subscribe(function (event) {
+            if (event.constructor == router_1.NavigationEnd) {
+                var current = _this.getCurrent();
+                _this.recordStateChange(current.config, current.params);
+            }
+        });
+        this.current = this.getCurrent();
+    }
+    RouteWatchReporter.prototype.getCurrent = function () {
+        var parent = this.activatedRoute;
+        var target = this.activatedRoute;
+        while (target.firstChild) {
+            parent = target;
+            target = target.firstChild;
+        }
+        var snapshot = target.snapshot || {};
+        var parentSnap = parent.snapshot || {};
+        return {
+            ActivatedRoute: target,
+            config: (target.routeConfig || target),
+            params: snapshot.params,
+            parent: {
+                ActivatedRoute: parent,
+                config: (parent.routeConfig || parent),
+                params: parentSnap.params
+            }
+        };
+    };
+    RouteWatchReporter.prototype.getCurrentConfig = function () {
+        var target = this.activatedRoute;
+        while (target.firstChild)
+            target = target.firstChild;
+        return (target.routeConfig || target);
+    };
+    RouteWatchReporter.prototype.getCurrentParams = function () {
+        var target = this.activatedRoute;
+        while (target.firstChild)
+            target = target.firstChild;
+        return target.snapshot.params;
+    };
+    RouteWatchReporter.prototype.isTrapHistory = function (toState, toParams) {
+        return this.isBackHistory(toState, toParams) && this.isForwardHistory(toState, toParams);
+    };
+    RouteWatchReporter.prototype.isBackHistory = function (toState, toParams) {
+        var $history = this.$history;
+        var isEven = $history.length > this.historyPos + 1;
+        var isNameMatch = isEven && toState && toState.name == $history[this.historyPos + 1].name;
+        return isNameMatch && this.isParamsMatch(toParams, $history[this.historyPos + 1].params);
+    };
+    RouteWatchReporter.prototype.isForwardHistory = function (toState, toParams) {
+        var $history = this.$history;
+        var isEven = !this.isNextBackMode && this.historyPos && $history.length > this.historyPos;
+        var isNameMatch = isEven && toState && toState.name == $history[this.historyPos - 1].name;
+        return isNameMatch && this.isParamsMatch(toParams, $history[this.historyPos - 1].params);
+    };
+    RouteWatchReporter.prototype.isParamsMatch = function (toParams, otherParams) {
+        if (!toParams || !otherParams) {
+            return false;
+        }
+        for (var x in toParams) {
+            if (toParams[x] != otherParams[x]) {
+                return false;
+            }
+        }
+        return true;
+    };
+    RouteWatchReporter.prototype.recordStateChange = function (toState, toParams) {
+        this.current = { params: toParams, config: toState };
+        var isForward = this.isForwardHistory(toState, toParams);
+        var isBackHistory = this.isNextBackHistory || this.isBackHistory(toState, toParams);
+        if (this.isOsAction && this.isTrapHistory(toState, toParams)) {
+            if (this.isBackMode) {
+                isForward = false;
+            }
+            else {
+                isBackHistory = false;
+            }
+        }
+        else {
+            this.isBackMode = this.isNextBackMode || (this.isOsAction && isBackHistory);
+        }
+        var $history = this.$history;
+        if (!toState)
+            return;
+        if (isForward) {
+            --this.historyPos;
+        }
+        else if (this.isBackMode) {
+            ++this.historyPos;
+        }
+        else {
+            this.historyPos = 0;
+            var hist = { name: toState.name, params: toParams };
+            if (!Object.keys(toParams).length) {
+                delete hist.params;
+            }
+            $history.unshift(hist);
+        }
+        this.isNextBackHistory = false;
+    };
+    RouteWatchReporter.prototype.goBackTo = function (name, params) {
+        this.isNextBackMode = true;
+        this.isNextBackHistory = true;
+        this.$state().go(name, params);
+    };
+    RouteWatchReporter.prototype.tryBack = function (name, params) {
+        if (this.$history.length) {
+            this.isNextBackMode = true;
+            this.isNextBackHistory = true;
+            this.$window().history.back();
+        }
+        else {
+            this.goBackTo(name, params);
+        }
+    };
+    RouteWatchReporter.prototype.watchDocument = function ($document) {
+        this.watchDocByCallbacks($document, this.getDocumentCallbacks());
+    };
+    RouteWatchReporter.prototype.getDocumentCallbacks = function () {
+        var _this = this;
+        var isBackButton = function () {
+            _this.isOsAction = true;
+        };
+        var isNotBackButton = function () {
+            _this.isOsAction = false;
+        };
+        return {
+            isBackButton: isBackButton,
+            isNotBackButton: isNotBackButton
+        };
+    };
+    RouteWatchReporter.prototype.watchDocByCallbacks = function ($document, callbacks) {
+        $document.addEventListener('mouseout', callbacks.isBackButton);
+        $document.addEventListener('mousedown', callbacks.isNotBackButton);
+    };
+    RouteWatchReporter.prototype.unwatchDocByCallbacks = function ($document, callbacks) {
+        $document.removeEventListener('mouseout', callbacks.isBackButton);
+        $document.removeEventListener('mouseover', callbacks.isNotBackButton);
+        $document.removeEventListener('mousedown', callbacks.isNotBackButton);
+    };
+    RouteWatchReporter = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [router_1.Router,
+            router_1.ActivatedRoute])
+    ], RouteWatchReporter);
+    return RouteWatchReporter;
+}());
+exports.RouteWatchReporter = RouteWatchReporter;
 
 
 /***/ }),
@@ -4777,19 +5502,9 @@ var AckApp_provider_2 = __webpack_require__(/*! ./providers/AckApp.provider */ "
 var Prompts_1 = __webpack_require__(/*! ./providers/Prompts */ "../src/providers/Prompts.ts");
 exports.Prompts = Prompts_1.Prompts;
 var Prompts_2 = __webpack_require__(/*! ./providers/Prompts */ "../src/providers/Prompts.ts");
-var AckOffline_1 = __webpack_require__(/*! ./providers/AckOffline */ "../src/providers/AckOffline.ts");
-exports.AckOffline = AckOffline_1.AckOffline;
-var AckOffline_2 = __webpack_require__(/*! ./providers/AckOffline */ "../src/providers/AckOffline.ts");
-var AckCache_1 = __webpack_require__(/*! ./providers/AckCache */ "../src/providers/AckCache.ts");
-exports.AckCache = AckCache_1.AckCache;
-var AckCache_2 = __webpack_require__(/*! ./providers/AckCache */ "../src/providers/AckCache.ts");
-var AckQue_1 = __webpack_require__(/*! ./providers/AckQue */ "../src/providers/AckQue.ts");
-exports.AckQue = AckQue_1.AckQue;
-var AckQue_2 = __webpack_require__(/*! ./providers/AckQue */ "../src/providers/AckQue.ts");
 var ErrorLog_1 = __webpack_require__(/*! ./providers/ErrorLog */ "../src/providers/ErrorLog.ts");
 exports.ErrorLog = ErrorLog_1.ErrorLog;
 var ErrorLog_2 = __webpack_require__(/*! ./providers/ErrorLog */ "../src/providers/ErrorLog.ts");
-var AckApi_1 = __webpack_require__(/*! ./providers/AckApi */ "../src/providers/AckApi.ts");
 var UrlVars_1 = __webpack_require__(/*! ./providers/UrlVars */ "../src/providers/UrlVars.ts");
 exports.UrlVars = UrlVars_1.UrlVars;
 var UrlVars_2 = __webpack_require__(/*! ./providers/UrlVars */ "../src/providers/UrlVars.ts");
@@ -4803,329 +5518,12 @@ exports.providers = [
     Log_2.Log,
     ErrorLog_2.ErrorLog,
     AckApp_provider_2.AckApp,
-    AckOffline_2.AckOffline,
-    AckCache_2.AckCache,
-    AckQue_2.AckQue,
-    AckApi_1.AckApi,
     UrlVars_2.UrlVars,
     WindowService_2.WindowService,
     DocumentService_2.DocumentService,
     Prompts_2.Prompts,
     HtmlSizeWatcher_2.HtmlSizeService
 ];
-
-
-/***/ }),
-
-/***/ "../src/providers/AckApi.ts":
-/*!**********************************!*\
-  !*** ../src/providers/AckApi.ts ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-var http_1 = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
-var AckCache_1 = __webpack_require__(/*! ./AckCache */ "../src/providers/AckCache.ts");
-var AckQue_1 = __webpack_require__(/*! ./AckQue */ "../src/providers/AckQue.ts");
-function TimeOutError(message) {
-    Error["captureStackTrace"](this, this.constructor);
-    this.name = this.constructor.name;
-    this.status = 504;
-    this.code = "gateway_timeout";
-    this.message = message || "Could not connect to server or server did not respond in a timely manner. Please check internet connection and then try again.";
-}
-exports.TimeOutError = TimeOutError;
-TimeOutError.prototype = Object.create(Error.prototype);
-var AckApi = (function () {
-    function AckApi(HttpClient) {
-        this.HttpClient = HttpClient;
-        this.response = new core_1.EventEmitter();
-        this.Request = new core_1.EventEmitter();
-        this.AuthError = new core_1.EventEmitter();
-        this.ApiError = new core_1.EventEmitter();
-        this.AckCache = new AckCache_1.AckCache();
-        this.AckQue = new AckQue_1.AckQue();
-        this.config = {
-            baseUrl: "",
-            $http: {
-                method: "GET",
-                headers: {},
-                timeout: 6500
-            }
-        };
-        this.paramConfig();
-    }
-    AckApi.prototype.paramConfig = function () { };
-    AckApi.prototype.registerHandler = function (name, handler, options) {
-        var _this = this;
-        options = options || { maxTry: 50 };
-        handler = handler || (function (config) { return _this.request(config); });
-        this.AckQue.registerHandler(name, handler);
-        return this;
-    };
-    AckApi.prototype.getQue = function (name) {
-        return this.AckQue.get(name);
-    };
-    AckApi.prototype.getCache = function (name) {
-        return this.AckCache.get(name);
-    };
-    AckApi.prototype.processQue = function (name) {
-        var _this = this;
-        this.AckQue.paramHandler(name, function (config) { return _this._fetch(config); });
-        return this.AckQue.processQue(name);
-    };
-    AckApi.prototype.clearQue = function (name) {
-        return this.AckQue.clear(name);
-    };
-    AckApi.prototype.clearCache = function (name) {
-        return this.AckCache.clear(name);
-    };
-    AckApi.prototype.request = function (config) {
-        var defaults = __assign({}, this.config.$http);
-        defaults.headers = __assign({}, this.config.$http.headers);
-        var request = Object.assign(defaults, (config || {}));
-        request.url = this.config.baseUrl + request.url;
-        if (request.offlineModel) {
-            return this.requestOfflineModel(request);
-        }
-        return this._fetch(request);
-    };
-    AckApi.prototype.getCacheByNamedRequest = function (request) {
-        var _this = this;
-        var offlineModel = request.offlineModel;
-        return this.AckCache.get(offlineModel.name, offlineModel)
-            .then(function (routes) {
-            routes = routes || {};
-            var cacheName = _this.getStorageNameByRequest(request);
-            return routes[cacheName];
-        })
-            .then(function (cache) { return _this.processCacheGet(cache, request); });
-    };
-    AckApi.prototype.getStorageNameByRequest = function (request) {
-        if (request.params) {
-            var paramKeys = Object.keys(request.params);
-            if (!paramKeys.length)
-                return request.url;
-            var url_1 = request.url + (request.url.search(/\?/) >= 0 ? "&" : "?");
-            paramKeys.sort().forEach(function (name) { return url_1 += name + "=" + request.params[name] + "&"; });
-            return url_1.substring(0, url_1.length - 1);
-        }
-        return request.url;
-    };
-    AckApi.prototype.requestOfflineModel = function (request) {
-        var _this = this;
-        var offlineModel = request.offlineModel;
-        if (offlineModel && offlineModel.constructor == String) {
-            request.offlineModel = offlineModel = { name: request.offlineModel };
-        }
-        if (request.method === "GET") {
-            return this.getCacheByNamedRequest(request);
-        }
-        this.AckQue.paramHandler(offlineModel.name, function (config) { return _this._fetch(config); });
-        return this._fetch(request)
-            .catch(function (e) { return _this.postRequestFail(e, request); });
-    };
-    AckApi.prototype.processCacheGet = function (cache, cfg) {
-        var _this = this;
-        if (cache == null)
-            return this._fetch(cfg);
-        var offlineModel = cfg.offlineModel;
-        return this.AckCache.cacheToReturn(offlineModel.name, cache, offlineModel)
-            .then(function (rtn) {
-            var willExpire = _this.AckCache.optionsKillCache(offlineModel);
-            if (rtn && !willExpire) {
-                console.log("AckApi fetched cache that will never expire. Set offlineModel.expires=0 or offlineModel.maxAge=0 to avoid this message", rtn);
-            }
-            if (rtn != null) {
-                return rtn;
-            }
-            return _this._fetch(cfg);
-        });
-    };
-    AckApi.prototype.postRequestFail = function (e, request) {
-        var saveWorthy = e.status == 0 || e.status == -1 || e.status == 503;
-        if (!saveWorthy)
-            return Promise.reject(e);
-        request.sendFailMeta = request.sendFailMeta || {};
-        request.sendFailMeta.offlineId = Date.now();
-        request.sendFailMeta.lastAttempt = new Date();
-        request.sendFailMeta.attempts = request.sendFailMeta.attempts == null ? 1 : ++request.sendFailMeta.attempts;
-        request.sendFailMeta.maxTry = request.sendFailMeta.maxTry || 50;
-        var tryAgainLater = request.sendFailMeta.maxTry && request.sendFailMeta.attempts <= request.sendFailMeta.maxTry;
-        e.sendFailMeta = request.sendFailMeta;
-        if (tryAgainLater) {
-            var requestSave = Object.assign({}, request);
-            delete requestSave.offlineModel;
-            var offlineModel = request.offlineModel;
-            return this.AckQue.set(offlineModel.name, requestSave)
-                .then(function () { return Promise.reject(e); });
-        }
-        return Promise.reject(e);
-    };
-    AckApi.prototype._fetch = function (cfg) {
-        var _this = this;
-        upgradeConfig(cfg);
-        var cfgPlus = __assign({}, cfg);
-        if (cfg.params) {
-            cfgPlus.params = new http_1.HttpParams({
-                fromObject: cfg.params
-            });
-        }
-        if (cfg.headers) {
-            cfgPlus.headers = new http_1.HttpHeaders(cfg.headers);
-        }
-        var request = new http_1.HttpRequest(cfg.method, cfg.url, cfg.body, cfgPlus);
-        var promise = function (resolve, reject) {
-            var resolved = false;
-            _this.Request.emit(request);
-            var req = _this.HttpClient.request(request)
-                .subscribe(function (event) {
-                if (event.type === http_1.HttpEventType.Response) {
-                    resolved = true;
-                    resolve(event);
-                }
-            }, function (err) {
-                resolved = true;
-                reject(err);
-            });
-            if (cfg.timeout) {
-                setTimeout(function () {
-                    if (resolved)
-                        return;
-                    req.unsubscribe();
-                    var timeoutError = new TimeOutError();
-                    Object.assign(timeoutError, request);
-                    timeoutError.timeout = cfg.timeout;
-                    reject(timeoutError);
-                }, cfg.timeout);
-            }
-        };
-        return new Promise(promise)
-            .then(function (response) {
-            return _this.processFetchByConfig(response, cfg);
-        })
-            .catch(function (e) { return _this.httpFailByConfig(e, cfg); });
-    };
-    AckApi.prototype.processFetchByConfig = function (response, request) {
-        this.response.emit(response);
-        var data = response.body || response["_body"];
-        var isJson = data && response.headers.get("Content-Type") == "application/json";
-        if (isJson && !response["data"]) {
-            try {
-                response["data"] = JSON.parse(data);
-            }
-            catch (e) { }
-        }
-        response["data"] = data;
-        var isDataMode = !request.promise || request.promise == "data";
-        var output = isDataMode ? data : response;
-        var isCacheReponse = request.method === "GET" && request.offlineModel;
-        if (isCacheReponse) {
-            return this.requestResponseToCache(request, output)
-                .then(function () { return output; });
-        }
-        return Promise.resolve(output);
-    };
-    AckApi.prototype.httpFailByConfig = function (e, cfg) {
-        var isReduceData = cfg.catch == null || cfg.catch == "data";
-        var data = e["data"];
-        var isCatchData = isReduceData && data && data.error;
-        if (isCatchData) {
-            var newError = new Error();
-            Object.assign(newError, e["data"].error);
-            e = newError;
-        }
-        e["method"] = e["method"] || cfg.method;
-        if (e["status"] == 401) {
-            this.AuthError.emit(e);
-        }
-        else {
-            this.ApiError.emit(e);
-        }
-        return Promise.reject(e);
-    };
-    AckApi.prototype.requestResponseToCache = function (request, output) {
-        var _this = this;
-        var cachename = request.offlineModel.name || request.offlineModel;
-        return this.AckCache.get(cachename)
-            .then(function (routes) {
-            routes = routes || {};
-            var cacheName = _this.getStorageNameByRequest(request);
-            routes[cacheName] = { cache: output };
-            _this.AckCache.dataOptionsCache(routes[request.url], request.offlineModel, output);
-            return routes;
-        })
-            .then(function (routes) { return _this.AckCache.set(cachename, routes); });
-    };
-    AckApi.prototype.get = function (path, config) {
-        var cfg = Object.assign({}, config);
-        cfg.method = "GET";
-        cfg.url = path;
-        return this.request(cfg);
-    };
-    AckApi.prototype.post = function (path, data, config) {
-        var cfg = Object.assign({}, config);
-        cfg.method = "POST";
-        cfg.body = data;
-        cfg.url = path;
-        return this.request(cfg);
-    };
-    AckApi.prototype.delete = function (path, config) {
-        var cfg = Object.assign({}, config);
-        cfg.method = "DELETE";
-        cfg.url = path;
-        return this.request(cfg);
-    };
-    AckApi.prototype.put = function (path, data, config) {
-        var cfg = Object.assign({}, config);
-        cfg.method = "PUT";
-        cfg.body = data;
-        cfg.url = path;
-        return this.request(cfg);
-    };
-    AckApi = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.HttpClient])
-    ], AckApi);
-    return AckApi;
-}());
-exports.AckApi = AckApi;
-function upgradeConfig(cfg) {
-    cfg.method = cfg.method || "GET";
-    cfg.reportProgress = cfg.reportProgress || false;
-    if (cfg.params) {
-        for (var key in cfg.params) {
-            if (cfg.params[key] == null) {
-                cfg.params[key] = "";
-            }
-        }
-    }
-    return cfg;
-}
 
 
 /***/ }),
@@ -5177,397 +5575,6 @@ var AckApp = (function () {
     return AckApp;
 }());
 exports.AckApp = AckApp;
-
-
-/***/ }),
-
-/***/ "../src/providers/AckCache.ts":
-/*!************************************!*\
-  !*** ../src/providers/AckCache.ts ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-var AckOffline_1 = __webpack_require__(/*! ./AckOffline */ "../src/providers/AckOffline.ts");
-var AckCache = (function (_super) {
-    __extends(AckCache, _super);
-    function AckCache() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.prefix = "offline-cache";
-        return _this;
-    }
-    AckCache.prototype.validate = function (data, config) {
-        var exists = data !== null && typeof data.cache !== "undefined";
-        return exists && !this.hasExpired(data._timestamp, data.expires || config.expires);
-    };
-    AckCache.prototype.optionsKillCache = function (options) {
-        return options.maxAge == null && options.expires == null ? false : true;
-    };
-    AckCache.prototype.hasMaxAged = function (stamp, maxAge) {
-        var diff = Date.now() - maxAge;
-        var expired = stamp <= diff;
-        return maxAge && expired ? true : false;
-    };
-    AckCache.prototype.hasExpired = function (_stamp, expires) {
-        var expired = Date.now() >= new Date(expires).getTime();
-        return expires && expired ? true : false;
-    };
-    AckCache.prototype.param = function (name, options) {
-        if (options === void 0) { options = {}; }
-        options.param = options.param || [];
-        return this.getCache(name, options);
-    };
-    AckCache.prototype.paramCache = function (name, options) {
-        return this.param(name, options);
-    };
-    AckCache.prototype.paramSave = function (name, options) {
-        var _this = this;
-        return this.paramCache(name, options)
-            .then(function (items) { return _this.setCache(name, items); });
-    };
-    AckCache.prototype.paramSaveCache = function (name, options) {
-        return this.paramSave(name, options);
-    };
-    AckCache.prototype.cacheToReturn = function (name, data, options) {
-        if (data.cache == null && data._timestamp == null) {
-            return Promise.resolve(data);
-        }
-        var expires = data.expires || options.expires;
-        var maxAge = data.maxAge || options.maxAge;
-        if (options.allowExpired || (!expires && !maxAge)) {
-            return Promise.resolve(data.cache);
-        }
-        var expired = expires && this.hasExpired(data._timestamp, expires);
-        var isMaxed = maxAge && this.hasMaxAged(data._timestamp, maxAge);
-        if (expired || isMaxed) {
-            return this.selfDestructData(name, data)
-                .then(function () {
-                if (options.param)
-                    return Promise.resolve(options.param);
-            });
-        }
-        return Promise.resolve(data['cache']);
-    };
-    AckCache.prototype.selfDestructData = function (name, data) {
-        if (this.dataDestructReady(data))
-            return this.clear(name);
-        return Promise.resolve();
-    };
-    AckCache.prototype.dataDestructReady = function (data) {
-        var isMemMaxed = data['maxAge'] && this.hasMaxAged(data['_timestamp'], data['maxAge']);
-        var isMemExpired = data['expires'] && this.hasExpired(data['_timestamp'], data['expires']);
-        return isMemMaxed || isMemExpired;
-    };
-    AckCache.prototype.get = function (name, options) {
-        var _this = this;
-        if (options === void 0) { options = { expires: null }; }
-        return _super.prototype.get.call(this, name)
-            .then(function (data) {
-            if (data) {
-                return _this.cacheToReturn(name, data, options);
-            }
-            if (options.param)
-                return options.param;
-            return;
-        });
-    };
-    AckCache.prototype.getCache = function (name, options) {
-        return this.get(name, options);
-    };
-    AckCache.prototype.dataOptionsCache = function (allCache, options, cache) {
-        if (options === void 0) { options = {}; }
-        var newOptions = {};
-        newOptions._timestamp = Date.now();
-        if (options.expires)
-            newOptions.expires = options.expires;
-        if (options.maxAge)
-            newOptions.maxAge = options.maxAge;
-        allCache = allCache && allCache.constructor != String ? allCache : {};
-        Object.assign(allCache, newOptions);
-        if (cache && cache.constructor == String) {
-            allCache.cache = cache;
-        }
-        else if (allCache.cache && allCache.cache.constructor != String) {
-            Object.assign(allCache.cache, cache);
-        }
-        else {
-            allCache.cache = cache;
-        }
-        return allCache;
-    };
-    AckCache.prototype.set = function (name, cache, options) {
-        var _this = this;
-        if (options === void 0) { options = {}; }
-        options.name = options.name || name;
-        return _super.prototype.get.call(this, name)
-            .then(function (allCache) { return _this.dataOptionsCache(allCache, options, cache); })
-            .then(function (data) { return _super.prototype.set.call(_this, name, data); });
-    };
-    AckCache.prototype.setCache = function (name, cache, options) {
-        return this.set(name, cache, options);
-    };
-    AckCache = __decorate([
-        core_1.Injectable()
-    ], AckCache);
-    return AckCache;
-}(AckOffline_1.AckOffline));
-exports.AckCache = AckCache;
-
-
-/***/ }),
-
-/***/ "../src/providers/AckOffline.ts":
-/*!**************************************!*\
-  !*** ../src/providers/AckOffline.ts ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var localForage = __webpack_require__(/*! localforage */ "../node_modules/localforage/dist/localforage.js");
-var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-var AckOffline = (function () {
-    function AckOffline() {
-        this.prefix = "offline";
-    }
-    AckOffline.prototype.set = function (name, data) {
-        if (data && data.constructor == Object)
-            data.offlineSavedAt = new Date().toString();
-        if (data && data.constructor == Object)
-            data.offlineCreatedAt = data.offlineCreatedAt || new Date().toString();
-        return localForage.setItem(this.prefix + '-' + name, data);
-    };
-    AckOffline.prototype.get = function (name) {
-        return localForage.getItem(this.prefix + '-' + name);
-    };
-    AckOffline.prototype.remove = function (name) {
-        return localForage.removeItem(this.prefix + '-' + name);
-    };
-    AckOffline.prototype.clear = function (name) { return this.remove(name); };
-    AckOffline.prototype.clearAll = function () {
-        var _this = this;
-        return this.promiseNameArray().then(function (keys) { return keys.forEach(function (name) { return _this.remove(name); }); });
-    };
-    AckOffline.prototype.promiseNameArray = function () {
-        var _this = this;
-        var keys = [];
-        return localForage.iterate(function (_, k) {
-            if (k.startsWith(_this.prefix)) {
-                keys.push(k.substring(_this.prefix.length + 1, k.length));
-            }
-        })
-            .then(function () { return keys; });
-    };
-    AckOffline = __decorate([
-        core_1.Injectable()
-    ], AckOffline);
-    return AckOffline;
-}());
-exports.AckOffline = AckOffline;
-
-
-/***/ }),
-
-/***/ "../src/providers/AckQue.ts":
-/*!**********************************!*\
-  !*** ../src/providers/AckQue.ts ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-var AckOffline_1 = __webpack_require__(/*! ./AckOffline */ "../src/providers/AckOffline.ts");
-var AckQue = (function (_super) {
-    __extends(AckQue, _super);
-    function AckQue() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.prefix = "offline-que";
-        _this.handlers = [];
-        return _this;
-    }
-    AckQue.prototype.get = function (name) {
-        return _super.prototype.get.call(this, name)
-            .then(function (data) { return data && data['que'] ? data['que'] : []; });
-    };
-    AckQue.prototype.getQue = function (name) {
-        return this.get(name);
-    };
-    AckQue.prototype.setQue = function (name, que) {
-        return this.set(name, que);
-    };
-    AckQue.prototype.que = function (name, queData) {
-        var _this = this;
-        return _super.prototype.get.call(this, name)
-            .then(function (data) {
-            data = data || {};
-            data['que'] = data['que'] || [];
-            if (queData.forEach) {
-                queData.forEach(function (x) {
-                    data['que'].push(x);
-                });
-            }
-            else {
-                data['que'].push(queData);
-            }
-            return _super.prototype.set.call(_this, name, data);
-        });
-    };
-    AckQue.prototype.set = function (name, queData) {
-        return this.que(name, queData);
-    };
-    AckQue.prototype.dequeByIndex = function (name, index) {
-        var _this = this;
-        return this.getQue(name)
-            .then(function (array) {
-            array.splice(index, 1);
-            return array;
-        })
-            .then(function (array) { return _this.setQue(name, array); });
-    };
-    AckQue.prototype.processQuedByIndex = function (name, index) {
-        var _this = this;
-        var handler = this.getQueHandlerByName(name);
-        var mem = { item: null, array: null, result: null };
-        return this.getQue(name)
-            .then(function (array) {
-            mem.item = array.splice(index, 1);
-            mem.array = array;
-        })
-            .then(function () { return _this.handleQued(mem.item, handler); })
-            .then(function (result) { return mem.result = result; })
-            .then(function () { return _this.setQue(name, mem.array); })
-            .then(function () { return mem.result; });
-    };
-    AckQue.prototype.registerHandler = function (name, handler) {
-        this.handlers.push({ name: name, handler: handler });
-        return this;
-    };
-    AckQue.prototype.registerQueHandler = function (name, handler) {
-        return this.registerHandler(name, handler);
-    };
-    AckQue.prototype.paramHandler = function (name, handler) {
-        for (var x = this.handlers.length - 1; x >= 0; --x) {
-            if (this.handlers[x].name == name) {
-                return this;
-            }
-        }
-        this.handlers.push({ name: name, handler: handler });
-        return this;
-    };
-    AckQue.prototype.getQueHandDefByName = function (name) {
-        for (var i = this.handlers.length - 1; i >= 0; --i) {
-            if (this.handlers[i].name == name)
-                return this.handlers[i];
-        }
-    };
-    AckQue.prototype.getQueHandlerByName = function (name) {
-        var hand = this.getQueHandDefByName(name);
-        if (hand)
-            return hand.handler;
-    };
-    AckQue.prototype.handleQued = function (qued, handler) {
-        return Promise.resolve(handler(qued));
-    };
-    AckQue.prototype.processQuedHandler = function (hand) {
-        var _this = this;
-        var results = [];
-        var mem = { que: [] };
-        var eachHandle = this.eachHandler(hand.handler);
-        return this.get(hand.name)
-            .then(function (que) { return mem.que = que; })
-            .then(function () { return _this.clear(hand.name); })
-            .then(function () {
-            var promise = Promise.resolve();
-            mem.que.forEach(function (v) {
-                promise = promise
-                    .then(function () { return eachHandle(v); })
-                    .catch(function (e) { return e; })
-                    .then(function (r) { return results.push(r); });
-            });
-            return promise;
-        })
-            .then(function () { return results; });
-    };
-    AckQue.prototype.eachHandler = function (handler) {
-        var _this = this;
-        return function (data) { return _this.handleQued(data, handler); };
-    };
-    AckQue.prototype.processQue = function (name) {
-        var handler = this.getQueHandDefByName(name);
-        return handler ? this.processQuedHandler(handler) : Promise.resolve();
-    };
-    AckQue.prototype.processAllQues = function () {
-        var _this = this;
-        var promises = [];
-        this.handlers.forEach(function (hand) {
-            return promises.push(_this.processQuedHandler(hand));
-        });
-        return Promise.all(promises)
-            .then(function (proms) {
-            var results = [];
-            proms.forEach(function (subArray) { return results.push.apply(results, subArray); });
-            return Promise.all(results);
-        });
-    };
-    AckQue = __decorate([
-        core_1.Injectable()
-    ], AckQue);
-    return AckQue;
-}(AckOffline_1.AckOffline));
-exports.AckQue = AckQue;
 
 
 /***/ }),
@@ -6321,6 +6328,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 var ngx_page_scroll_core_1 = __webpack_require__(/*! ngx-page-scroll-core */ "../node_modules/ngx-page-scroll-core/fesm5/ngx-page-scroll-core.js");
 var src_1 = __webpack_require__(/*! ../../src */ "../src/index.ts");
+var offline_1 = __webpack_require__(/*! ../../src/modules/offline */ "../src/modules/offline/index.ts");
 var ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
 var provider_examples_pug_1 = __webpack_require__(/*! ./templates/provider-examples.pug */ "./src/templates/provider-examples.pug.ts");
 var pathing = window.location.pathname.split("/").slice(0, -1).join("/");
@@ -6571,9 +6579,9 @@ var ProviderExamples = (function () {
         __metadata("design:paramtypes", [src_1.Log,
             src_1.ErrorLog,
             ngx_page_scroll_core_1.PageScrollService,
-            src_1.AckOffline,
-            src_1.AckCache,
-            src_1.AckQue,
+            offline_1.AckOffline,
+            offline_1.AckCache,
+            offline_1.AckQue,
             src_1.AckApi,
             src_1.Prompts])
     ], ProviderExamples);
@@ -6613,8 +6621,8 @@ var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/
 var ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
 var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "../node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 var animations_1 = __webpack_require__(/*! @angular/platform-browser/animations */ "../node_modules/@angular/platform-browser/fesm5/animations.js");
-var RouteWatchReporter_1 = __webpack_require__(/*! ../../src/RouteWatchReporter */ "../src/RouteWatchReporter.ts");
-var RouteReporter_directive_1 = __webpack_require__(/*! ../../src/RouteReporter.directive */ "../src/RouteReporter.directive.ts");
+var RouteWatchReporter_1 = __webpack_require__(/*! ../../src/modules/router/RouteWatchReporter */ "../src/modules/router/RouteWatchReporter.ts");
+var RouteReporter_directive_1 = __webpack_require__(/*! ../../src/modules/router/RouteReporter.directive */ "../src/modules/router/RouteReporter.directive.ts");
 var src_1 = __webpack_require__(/*! ../../src */ "../src/index.ts");
 var ngx_page_scroll_core_1 = __webpack_require__(/*! ngx-page-scroll-core */ "../node_modules/ngx-page-scroll-core/fesm5/ngx-page-scroll-core.js");
 var ngx_page_scroll_1 = __webpack_require__(/*! ngx-page-scroll */ "../node_modules/ngx-page-scroll/fesm5/ngx-page-scroll.js");

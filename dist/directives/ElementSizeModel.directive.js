@@ -62,7 +62,9 @@ var ElementSizeModel = (function () {
         this.elementSizeModel.width = this.element.nativeElement.offsetWidth;
         this.elementSizeModel.height = this.element.nativeElement.offsetHeight;
         this.elementSizeModelChange.emit(this.elementSizeModel);
-        Promise.resolve().then(function () { return _this.inChange = false; });
+        Promise.resolve().then(function () {
+            _this.inChange = false;
+        });
     };
     ElementSizeModel.prototype.ngOnDestroy = function () {
         this.observer.disconnect();
@@ -140,7 +142,8 @@ var ElementWidthModel = (function (_super) {
     ], ElementWidthModel.prototype, "elementWidthModelChange", void 0);
     ElementWidthModel = __decorate([
         core_1.Directive({
-            selector: '[elementWidthModel]'
+            selector: '[elementWidthModel]',
+            exportAs: 'ElementWidthModel'
         }),
         __metadata("design:paramtypes", [core_1.ElementRef])
     ], ElementWidthModel);

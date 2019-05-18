@@ -10,13 +10,16 @@ import {
 import {
   Log,
   ErrorLog,
-  AckOffline,
-  AckCache,
-  AckQue,
   AckApi,
   Prompts,
   httpOptions
 } from "../../src"
+
+import {
+  AckOffline,
+  AckCache,
+  AckQue,
+} from "../../src/modules/offline"
 
 import { animations } from "ack-angular-fx"
 import { string as providerExamples } from "./templates/provider-examples.pug"
