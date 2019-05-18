@@ -22,8 +22,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
-var AckCache_1 = require("./AckCache");
-var AckQue_1 = require("./AckQue");
+var AckCache_1 = require("../modules/offline/AckCache");
+var AckQue_1 = require("../modules/offline/AckQue");
 function TimeOutError(message) {
     Error["captureStackTrace"](this, this.constructor);
     this.name = this.constructor.name;
