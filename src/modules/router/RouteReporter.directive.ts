@@ -1,7 +1,7 @@
 import { Subscription } from "rxjs/internal/Subscription"
 import { Directive, Input, Output, EventEmitter } from "@angular/core"
 import {
-  ActivatedRoute, Route
+  ActivatedRoute, Route, Router
 } from "@angular/router"
 import {
   currentRoute, RouteWatchReporter
@@ -15,6 +15,10 @@ import {
   selector: "route-reporter",
   exportAs:"RouteReporter"
 }) export class RouteReporter{
+  //routeHistory:string[]
+  //maxHistory:number = 10
+  //historyIndex:number = 0
+
   //deprecated
   @Input() onLoad
 
@@ -63,6 +67,7 @@ import {
   querySub:Subscription
   
   constructor(
+    public Router:Router,
     public RouteWatchReporter:RouteWatchReporter,
     public ActivatedRoute:ActivatedRoute
   ){
@@ -79,6 +84,7 @@ import {
 
         //allow one process to occur before reporting state has changed
         this.apply()
+        //this.addRouteToHistory()
         Promise.resolve().then(()=>this.emit())
       }
     })
@@ -116,7 +122,26 @@ import {
       this.querySub.unsubscribe()
     }
   }
-  
+/*
+  addRouteToHistory():void{
+    if(!this.routeHistory){
+      this.routeHistory=[]
+    }
+
+    const priorPage = this.routeHistory.length - 1
+    if(this.Router.url === this.routeHistory[ priorPage ]){
+      return
+    }
+
+    //remove old entries
+    while(this.routeHistory.length > this.maxHistory){
+      this.routeHistory.shift()
+    }
+
+    //oldest to recent BUT emailed as recent to oldest
+    this.routeHistory.push(this.Router.url)
+  }
+*/
   apply(){
     const current = this.RouteWatchReporter.getCurrent()
     

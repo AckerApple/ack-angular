@@ -1,8 +1,9 @@
 import { Subscription } from "rxjs/internal/Subscription";
 import { EventEmitter } from "@angular/core";
-import { ActivatedRoute, Route } from "@angular/router";
+import { ActivatedRoute, Route, Router } from "@angular/router";
 import { currentRoute, RouteWatchReporter } from "./RouteWatchReporter";
 export declare class RouteReporter {
+    Router: Router;
     RouteWatchReporter: RouteWatchReporter;
     ActivatedRoute: ActivatedRoute;
     onLoad: any;
@@ -32,7 +33,7 @@ export declare class RouteReporter {
     static parameters: (typeof RouteWatchReporter)[][];
     docCallbacks: any;
     querySub: Subscription;
-    constructor(RouteWatchReporter: RouteWatchReporter, ActivatedRoute: ActivatedRoute);
+    constructor(Router: Router, RouteWatchReporter: RouteWatchReporter, ActivatedRoute: ActivatedRoute);
     ngOnInit(): void;
     ngOnDestroy(): void;
     apply(): void;

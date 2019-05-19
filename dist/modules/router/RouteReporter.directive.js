@@ -14,7 +14,8 @@ var router_1 = require("@angular/router");
 var RouteWatchReporter_1 = require("./RouteWatchReporter");
 var router_2 = require("@angular/router");
 var RouteReporter = (function () {
-    function RouteReporter(RouteWatchReporter, ActivatedRoute) {
+    function RouteReporter(Router, RouteWatchReporter, ActivatedRoute) {
+        this.Router = Router;
         this.RouteWatchReporter = RouteWatchReporter;
         this.ActivatedRoute = ActivatedRoute;
         this.stateChanger = new core_1.EventEmitter();
@@ -204,7 +205,8 @@ var RouteReporter = (function () {
             selector: "route-reporter",
             exportAs: "RouteReporter"
         }),
-        __metadata("design:paramtypes", [RouteWatchReporter_1.RouteWatchReporter,
+        __metadata("design:paramtypes", [router_1.Router,
+            RouteWatchReporter_1.RouteWatchReporter,
             router_1.ActivatedRoute])
     ], RouteReporter);
     return RouteReporter;
