@@ -30,7 +30,6 @@ export declare class RouteReporter {
     stateChange: EventEmitter<currentRoute>;
     $document: any;
     $scope: any;
-    static parameters: (typeof RouteWatchReporter)[][];
     docCallbacks: any;
     querySub: Subscription;
     constructor(Router: Router, RouteWatchReporter: RouteWatchReporter, ActivatedRoute: ActivatedRoute);

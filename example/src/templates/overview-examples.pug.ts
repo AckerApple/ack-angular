@@ -7,7 +7,7 @@ export const string = "<h2 class=\"margin-top-0\">Overview</h2><p class=\"pad-h\
 "\n@NgModule(&#123;"+
 "\n  imports:["+
 "\n    AckModule.forRoot(),"+
-"\n    AckRouterModule"+
+"\n    AckRouterModule.forRoot()"+
 "\n  ]"+
 "\n&#125;)"+
 "\n</pre><div class=\"pad-xxs\"><div class=\"pad bg-warning bg-warning text-warning\">NOTE : You need to have the <a href=\"https://www.typescriptlang.org/docs/handbook/compiler-options.html\">allowSyntheticDefaultImports compiler option</a> set to <strong>true</strong> in your <a href=\"https://www.typescriptlang.org/docs/handbook/tsconfig-json.html\">tsconfig.json</a>.</div></div></div><br/><h3 class=\"margin-bottom-0\" id=\"Requirements\">Requirements</h3><div class=\"pad\"><p>It is very important to understand what connects where</p></div><ul><li>core angular components are expected to have already been installed</li><ul><li>reflect-metadata</li><li>@angular/core</li><li>@angular/common/http</li></ul><li>jsDependencies</li><ul><li><a href=\"https://www.npmjs.com/package/ack-angular-fx\">ack-angular-fx</a></li><ul><li>only required for animation implementing</li><li>The following code would depend on ack-angular-fx installation<pre class=\"code-sample\">import * as fx from \"ack-angular/fx\"</pre></li></ul><li><a href=\"https://www.npmjs.com/package/@angular/router\">@angular/router</a></li><ul><li>only required for @angular/router based ack-angular component and services</li><li>The following code would depend on @angular/router installation<pre class=\"code-sample\">import &#123; RouteReporter &#125; from \"ack-angular/RouteReporter.directive\""+

@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.13.2] - 2019-05-23
+- added endNumberWord pipe
+
 ## [1.13.0] - 2019-05-17
 - moved offline to modules folder
 - moved routers to modules folder

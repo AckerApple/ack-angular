@@ -10,6 +10,8 @@ import {
   maxHistory:number = 10
   historyIndex:number = 0
   subs:Subscription[] = []
+  forward:string//url
+  back:string//url
 
   constructor(
     public Router:Router
@@ -32,10 +34,22 @@ import {
   }
 
   addRouteToHistory():void{
-    const priorPage = this.routeHistory.length - 1
-    const matchesLast = this.Router.url === this.routeHistory[ priorPage ]
+    const priorPage = this.historyIndex + 1
+    const nextPage = this.historyIndex - 1
+    const matchesBack = this.routeHistory.length>=priorPage && this.Router.url === this.routeHistory[ priorPage ]
+    const matchesNext = this.routeHistory.length>=nextPage && this.Router.url === this.routeHistory[ nextPage ]
     const matchesCurrent = this.Router.url === this.routeHistory[ this.historyIndex ]
-    if(matchesCurrent || matchesLast){
+    
+    if( matchesNext ){
+      --this.historyIndex
+    }
+    
+    if( matchesBack ){
+      ++this.historyIndex
+    }
+
+    if(matchesNext || matchesCurrent || matchesBack){
+      this.applyNav()
       return
     }
 
@@ -47,20 +61,34 @@ import {
 
     //this.routeHistory.push(this.Router.url)
     this.routeHistory.splice(this.historyIndex, 0, this.Router.url)
-console.log('this.routeHistory', this.historyIndex, this.routeHistory)
+    this.applyNav()
+  }
+
+  applyNav(){
+    if( this.historyIndex<this.routeHistory.length ){
+      this.back = this.routeHistory[ this.historyIndex+1 ]
+    }else{
+      delete this.back
+    }
+
+    if( this.historyIndex>0 ){
+      this.forward = this.routeHistory[ this.historyIndex-1]
+    }else{
+      delete this.forward
+    }
   }
 
   goBack(){
     if( this.historyIndex===this.routeHistory.length-1 )return
-    ++this.historyIndex
-    const rh = this.routeHistory[ this.historyIndex ]
+    //++this.historyIndex
+    const rh = this.routeHistory[ this.historyIndex+1 ]
     this.Router.navigate([rh])
   }
 
   goForward(){
     if( this.historyIndex===0 )return
-    --this.historyIndex
-    const rh = this.routeHistory[ this.historyIndex ]
+    //--this.historyIndex
+    const rh = this.routeHistory[ this.historyIndex-1 ]
     this.Router.navigate([rh])
   }
 }

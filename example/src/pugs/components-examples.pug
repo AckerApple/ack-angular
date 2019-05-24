@@ -70,6 +70,44 @@ h3.margin-bottom-0(id="Tags") Tags
             &lt;/body&gt;
           &lt;/html&gt;
 
+  //-debug-area
+  .flex-1
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 debug-area
+        .text-grey-2x.max-width-400
+          |A super convenient way to debug and edit variables
+          ack-close-icon
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning(
+        "(click)"="views.debugArea=!views.debugArea"
+        "[ngClass]"="views.debugArea?'border-energized bg-energized':'border-info bg-info'"
+      )
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.debugArea"
+      "[@fadeInOutUp]"="1"
+    )
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;debug-area&gt;
+            &lt;debug-item name="someArray" [value]="someArray" type="array"&gt;&lt;/debug-item&gt;
+          &lt;/debug-area&gt;
+      h4.pad-sm.margin-0 Example Results
+          debug-area
+            debug-item(
+              name      = "arrayOfObjects"
+              "[value]" = "arrayOfObjects"
+              type      = "array"
+            )
+            debug-item(
+              name      = "selectedArray"
+              "[value]" = "selectedArray"
+              type      = "array"
+            )
+
   //-ack-close-icon
   .flex-1
     .border.border-grey-4x.border.border-bottom-0

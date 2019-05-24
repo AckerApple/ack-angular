@@ -4,7 +4,7 @@ import {
   ActivatedRoute, Route, Router
 } from "@angular/router"
 import {
-  currentRoute, RouteWatchReporter
+  currentRoute, RouteWatchReporter, getCurrentByActive
 } from "./RouteWatchReporter"
 import {
   //NavigationStart,
@@ -15,10 +15,6 @@ import {
   selector: "route-reporter",
   exportAs:"RouteReporter"
 }) export class RouteReporter{
-  //routeHistory:string[]
-  //maxHistory:number = 10
-  //historyIndex:number = 0
-
   //deprecated
   @Input() onLoad
 
@@ -60,9 +56,9 @@ import {
   $document
   $scope
 
-  static parameters = [[
+  /*static parameters = [[
     RouteWatchReporter
-  ]]
+  ]]*/
   docCallbacks
   querySub:Subscription
   
@@ -72,11 +68,12 @@ import {
     public ActivatedRoute:ActivatedRoute
   ){
     this.$document = document
-    this.docCallbacks = RouteWatchReporter.getDocumentCallbacks()
     this.apply()
   }
 
   ngOnInit(){
+    this.docCallbacks = this.RouteWatchReporter.getDocumentCallbacks()
+
     this.RouteWatchReporter.router.events.subscribe(event=>{
       //if(event.constructor == NavigationStart){}
       if(event.constructor === NavigationEnd){
@@ -143,7 +140,7 @@ import {
   }
 */
   apply(){
-    const current = this.RouteWatchReporter.getCurrent()
+    const current = getCurrentByActive( this.ActivatedRoute )
     
     this.route = current.config
     this.current = current

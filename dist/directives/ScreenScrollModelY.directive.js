@@ -38,7 +38,8 @@ var ScreenScrollModelY = (function () {
     ], ScreenScrollModelY.prototype, "screenScrollModelYChange", void 0);
     ScreenScrollModelY = __decorate([
         core_1.Directive({
-            selector: '[screenScrollModelY]'
+            selector: '[screenScrollModelY]',
+            exportAs: 'ScreenScrollModelY'
         }),
         __metadata("design:paramtypes", [])
     ], ScreenScrollModelY);

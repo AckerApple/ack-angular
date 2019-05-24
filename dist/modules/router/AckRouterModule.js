@@ -11,18 +11,29 @@ var common_1 = require("@angular/common");
 var router_1 = require("@angular/router");
 var RouteWatchReporter_1 = require("./RouteWatchReporter");
 var RouteReporter_directive_1 = require("./RouteReporter.directive");
+exports.providers = [RouteWatchReporter_1.RouteWatchReporter];
 var AckRouterModule = (function () {
     function AckRouterModule() {
     }
-    AckRouterModule = __decorate([
+    AckRouterModule_1 = AckRouterModule;
+    AckRouterModule.forRoot = function () {
+        return {
+            ngModule: AckRouterModule_1,
+            providers: exports.providers
+        };
+    };
+    var AckRouterModule_1;
+    AckRouterModule = AckRouterModule_1 = __decorate([
         core_1.NgModule({
             imports: [
                 common_1.CommonModule,
                 router_1.RouterModule
             ],
             declarations: [RouteReporter_directive_1.RouteReporter],
-            providers: [RouteWatchReporter_1.RouteWatchReporter],
-            exports: [RouteReporter_directive_1.RouteReporter, router_1.RouterModule]
+            exports: [
+                RouteReporter_directive_1.RouteReporter,
+                router_1.RouterModule
+            ]
         })
     ], AckRouterModule);
     return AckRouterModule;

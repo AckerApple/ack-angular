@@ -19,9 +19,9 @@ export interface currentRoute{
 */
 @Injectable() export class RouteWatchReporter{
   current  : any = {}
-  $history : any
+  $history : any = []
   $state   : any
-  $window  : any
+  //$window  : any
   
   historyPos : number = 0
   isBackMode : boolean = false
@@ -34,8 +34,6 @@ export interface currentRoute{
     public activatedRoute:ActivatedRoute
   ){
     this.activatedRoute = activatedRoute
-    this.$window = ()=>window
-    this.$history = []
 
     router.events.subscribe(event=>{
       if(event.constructor==NavigationEnd){
@@ -51,28 +49,12 @@ export interface currentRoute{
     this.current = this.getCurrent()
   }
 
+  $window(){
+    return window
+  }
+
   getCurrent():currentRoute{
-    let parent = this.activatedRoute
-    let target = this.activatedRoute
-    while(target.firstChild){
-      parent = target
-      target = target.firstChild
-    }
-
-    const snapshot = target.snapshot || <ActivatedRouteSnapshot>{}
-    const parentSnap = parent.snapshot || <ActivatedRouteSnapshot>{}
-
-    return {
-      ActivatedRoute:target,
-      config:<Route>(target.routeConfig || target),
-      params:snapshot.params,
-      parent:{
-        ActivatedRoute:parent,
-        config:<Route>(parent.routeConfig || parent),
-        params:parentSnap.params
-      }
-      //...target.routeConfig//may want to do away with this
-    }
+    return getCurrentByActive( this.activatedRoute )
   }
 
   getCurrentConfig():Route{
@@ -202,5 +184,29 @@ export interface currentRoute{
     $document.removeEventListener('mouseout', callbacks.isBackButton)
     $document.removeEventListener('mouseover', callbacks.isNotBackButton)
     $document.removeEventListener('mousedown', callbacks.isNotBackButton)    
+  }
+}
+
+export function getCurrentByActive( ActivatedRoute:ActivatedRoute ){
+  let parent = ActivatedRoute
+  let target = ActivatedRoute
+  while(target.firstChild){
+    parent = target
+    target = target.firstChild
+  }
+
+  const snapshot = target.snapshot || <ActivatedRouteSnapshot>{}
+  const parentSnap = parent.snapshot || <ActivatedRouteSnapshot>{}
+
+  return {
+    ActivatedRoute:target,
+    config:<Route>(target.routeConfig || target),
+    params:snapshot.params,
+    parent:{
+      ActivatedRoute:parent,
+      config:<Route>(parent.routeConfig || parent),
+      params:parentSnap.params
+    }
+    //...target.routeConfig//may want to do away with this
   }
 }

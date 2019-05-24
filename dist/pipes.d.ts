@@ -19,6 +19,14 @@ export declare class SafeUrl {
     constructor(domSanitizer: DomSanitizer);
     transform(input: any): import("@angular/platform-browser").SafeResourceUrl;
 }
+export declare class NumberWord {
+    constructor();
+    transform(input: any, number: any): string;
+}
+export declare class EndNumberWord {
+    constructor();
+    transform(input: any): "" | "s";
+}
 export declare class SafeHtml {
     private domSanitizer;
     constructor(domSanitizer: DomSanitizer);

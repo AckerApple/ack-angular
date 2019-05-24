@@ -6,7 +6,8 @@ import {
 } from "@angular/core"
 
 @Directive({
-  selector: '[screenScrollModelY]'
+  selector: '[screenScrollModelY]',
+  exportAs: 'ScreenScrollModelY'
 }) export class ScreenScrollModelY{
   onScroll
 

@@ -32,30 +32,51 @@ var RouteHistory = (function () {
         this.subs.forEach(function (sub) { return sub.unsubscribe(); });
     };
     RouteHistory.prototype.addRouteToHistory = function () {
-        var priorPage = this.routeHistory.length - 1;
-        var matchesLast = this.Router.url === this.routeHistory[priorPage];
+        var priorPage = this.historyIndex + 1;
+        var nextPage = this.historyIndex - 1;
+        var matchesBack = this.routeHistory.length >= priorPage && this.Router.url === this.routeHistory[priorPage];
+        var matchesNext = this.routeHistory.length >= nextPage && this.Router.url === this.routeHistory[nextPage];
         var matchesCurrent = this.Router.url === this.routeHistory[this.historyIndex];
-        if (matchesCurrent || matchesLast) {
+        if (matchesNext) {
+            --this.historyIndex;
+        }
+        if (matchesBack) {
+            ++this.historyIndex;
+        }
+        if (matchesNext || matchesCurrent || matchesBack) {
+            this.applyNav();
             return;
         }
         while (this.routeHistory.length > this.maxHistory) {
             this.routeHistory.pop();
         }
         this.routeHistory.splice(this.historyIndex, 0, this.Router.url);
-        console.log('this.routeHistory', this.historyIndex, this.routeHistory);
+        this.applyNav();
+    };
+    RouteHistory.prototype.applyNav = function () {
+        if (this.historyIndex < this.routeHistory.length) {
+            this.back = this.routeHistory[this.historyIndex + 1];
+        }
+        else {
+            delete this.back;
+        }
+        if (this.historyIndex > 0) {
+            this.forward = this.routeHistory[this.historyIndex - 1];
+        }
+        else {
+            delete this.forward;
+        }
     };
     RouteHistory.prototype.goBack = function () {
         if (this.historyIndex === this.routeHistory.length - 1)
             return;
-        ++this.historyIndex;
-        var rh = this.routeHistory[this.historyIndex];
+        var rh = this.routeHistory[this.historyIndex + 1];
         this.Router.navigate([rh]);
     };
     RouteHistory.prototype.goForward = function () {
         if (this.historyIndex === 0)
             return;
-        --this.historyIndex;
-        var rh = this.routeHistory[this.historyIndex];
+        var rh = this.routeHistory[this.historyIndex - 1];
         this.Router.navigate([rh]);
     };
     RouteHistory = __decorate([

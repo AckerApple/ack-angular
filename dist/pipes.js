@@ -74,6 +74,32 @@ var SafeUrl = (function () {
     return SafeUrl;
 }());
 exports.SafeUrl = SafeUrl;
+var NumberWord = (function () {
+    function NumberWord() {
+    }
+    NumberWord.prototype.transform = function (input, number) {
+        return input + (number && number == 1 ? '' : 's');
+    };
+    NumberWord = __decorate([
+        core_1.Pipe({ name: 'numberWord' }),
+        __metadata("design:paramtypes", [])
+    ], NumberWord);
+    return NumberWord;
+}());
+exports.NumberWord = NumberWord;
+var EndNumberWord = (function () {
+    function EndNumberWord() {
+    }
+    EndNumberWord.prototype.transform = function (input) {
+        return input && input == 1 ? '' : 's';
+    };
+    EndNumberWord = __decorate([
+        core_1.Pipe({ name: 'endNumberWord' }),
+        __metadata("design:paramtypes", [])
+    ], EndNumberWord);
+    return EndNumberWord;
+}());
+exports.EndNumberWord = EndNumberWord;
 var SafeHtml = (function () {
     function SafeHtml(domSanitizer) {
         this.domSanitizer = domSanitizer;
@@ -347,6 +373,8 @@ exports.declarations = [
     NumberToPhone,
     NumberSuffix,
     Bit,
+    NumberWord,
+    EndNumberWord,
     BooleanPipe,
     Between
 ];

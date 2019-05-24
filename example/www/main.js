@@ -42,7 +42,7 @@ webpackContext.id = "../node_modules/moment-mini/locale sync recursive ^\\.\\/.*
 /*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, private, default */
 /***/ (function(module) {
 
-module.exports = {"name":"ack-angular","version":"1.13.1","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist","stats":"webpack-bundle-analyzer example/www/stats.json","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass src/ack-angular.scss dist/ack-angular.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\"","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example --stats-json","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist copy:scss build:js","copy:scss":"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.13.8","@angular/animations":"^7.2.12","@angular/cli":"^7.2.12","@angular/common":"^7.2.12","@angular/compiler":"^7.2.12","@angular/compiler-cli":"^7.2.12","@angular/core":"^7.2.12","@angular/forms":"^7.2.12","@angular/platform-browser":"^7.2.12","@angular/platform-browser-dynamic":"^7.2.12","@angular/router":"^7.2.12","@types/jasmine":"^3.3.12","ack-angular-fx":"^3.0.1","ack-css-boot":"^1.2.58","ack-path":"^1.6.2","ack-pug-bundler":"^1.4.0","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.5.6","animate.css":"^3.7.0","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.4.0","karma":"^4.0.1","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.5","karma-jasmine":"^2.0.1","karma-jasmine-html-reporter":"^1.4.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.3","ngx-page-scroll":"^6.0.0-beta.1","ngx-page-scroll-core":"^6.0.0-beta.1","npm-run-all":"^4.1.5","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.3","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.13","rxjs":"^6.4.0","ts-helpers":"^1.1.2","ts-node":"^8.0.3","typescript":"3.2.2","webpack-bundle-analyzer":"^3.3.0","zone.js":"^0.9.0"},"private":true};
+module.exports = {"name":"ack-angular","version":"1.13.2","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist","stats":"webpack-bundle-analyzer example/www/stats.json","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass src/ack-angular.scss dist/ack-angular.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example compile:templates","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\" \"compile:templates -- --watch\"","compile:templates":"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example --stats-json","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist copy:scss build:js","copy:scss":"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.13.8","@angular/animations":"^7.2.12","@angular/cli":"^7.2.12","@angular/common":"^7.2.12","@angular/compiler":"^7.2.12","@angular/compiler-cli":"^7.2.12","@angular/core":"^7.2.12","@angular/forms":"^7.2.12","@angular/platform-browser":"^7.2.12","@angular/platform-browser-dynamic":"^7.2.12","@angular/router":"^7.2.12","@types/jasmine":"^3.3.12","ack-angular-fx":"^3.0.1","ack-css-boot":"^1.2.58","ack-path":"^1.6.2","ack-pug-bundler":"^1.4.0","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.5.6","animate.css":"^3.7.0","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.4.0","karma":"^4.0.1","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.5","karma-jasmine":"^2.0.1","karma-jasmine-html-reporter":"^1.4.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.3","ngx-page-scroll":"^6.0.0-beta.1","ngx-page-scroll-core":"^6.0.0-beta.1","npm-run-all":"^4.1.5","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.3","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.13","rxjs":"^6.4.0","ts-helpers":"^1.1.2","ts-node":"^8.0.3","typescript":"3.2.2","webpack-bundle-analyzer":"^3.3.0","zone.js":"^0.9.0"},"private":true};
 
 /***/ }),
 
@@ -1282,6 +1282,114 @@ exports.getDistanceFromTop = getDistanceFromTop;
 
 /***/ }),
 
+/***/ "../src/components/debug-area/DebugArea.component.ts":
+/*!***********************************************************!*\
+  !*** ../src/components/debug-area/DebugArea.component.ts ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var debug_area_template_1 = __webpack_require__(/*! ./debug-area.template */ "../src/components/debug-area/debug-area.template.ts");
+var DebugItem = (function () {
+    function DebugItem() {
+    }
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], DebugItem.prototype, "name", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], DebugItem.prototype, "value", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], DebugItem.prototype, "type", void 0);
+    __decorate([
+        core_1.ContentChild("rowTitle"),
+        __metadata("design:type", core_1.TemplateRef)
+    ], DebugItem.prototype, "rowTitle", void 0);
+    DebugItem = __decorate([
+        core_1.Directive({
+            selector: "debug-item"
+        })
+    ], DebugItem);
+    return DebugItem;
+}());
+exports.DebugItem = DebugItem;
+var DebugArea = (function () {
+    function DebugArea() {
+        this.editsMap = {};
+    }
+    DebugArea.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        if (this.DebugItems.length === 1) {
+            Promise.resolve().then(function () { return _this.debugItem = _this.DebugItems.first; });
+        }
+    };
+    DebugArea.prototype.updateDataByJsonString = function (item, string) {
+        try {
+            var json = JSON.parse(string);
+            for (var x in item)
+                delete item[x];
+            Object.assign(item, json);
+        }
+        catch (e) {
+            console.error('invalid json string');
+        }
+    };
+    DebugArea.prototype.apply = function (item, json) {
+        var ob = JSON.parse(json);
+        Object.assign(item, ob);
+    };
+    __decorate([
+        core_1.ContentChildren(DebugItem),
+        __metadata("design:type", core_1.QueryList)
+    ], DebugArea.prototype, "DebugItems", void 0);
+    DebugArea = __decorate([
+        core_1.Component({
+            selector: "debug-area",
+            template: debug_area_template_1.string
+        })
+    ], DebugArea);
+    return DebugArea;
+}());
+exports.DebugArea = DebugArea;
+exports.declarations = [
+    DebugItem, DebugArea
+];
+
+
+/***/ }),
+
+/***/ "../src/components/debug-area/debug-area.template.ts":
+/*!***********************************************************!*\
+  !*** ../src/components/debug-area/debug-area.template.ts ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.string = "<div class=\"child-pad-h-xs flex-wrap text-center\" *ngIf=\"DebugItems.length&gt;1\"><a class=\"cursor-pointer border border-grey-3x radius-5 flex-1\" *ngFor=\"let item of DebugItems\" [ngClass]=\"item===debugItem ? 'bg-positive text-white' : ''\" (click)=\"debugItem = debugItem===item ? null : item\">{{item.name}}<ng-container *ngIf=\"item.type==='array'\">&nbsp;( {{ item.value?.length || 0 }} )</ng-container></a></div><ng-container *ngIf=\"debugItem\"><h3 class=\"margin-bottom-0\">{{ debugItem.name }}</h3><ng-container *ngIf=\"debugItem.type==='array';else regdebug\"><ng-container #loop=\"var\" [var]=\"{view:0}\"></ng-container><pre class=\"bg-grey-3x margin-0 sample-code\" *ngFor=\"let data of debugItem.value;let ii=index\"><ng-container *ngIf=\"loop.var.view==ii\"><div class=\"flex-valign-center child-pad-xs\" style=\"padding:.4em;float:right\"><a class=\"fas fa-caret-square-left hover-bg-energized\" (click)=\"loop.var.view=ii===0 ? debugItem.value.length-1 : ii-1\">&lt;</a><a style=\"color:blue;\" (click)=\"editsMap[ii]=!editsMap[ii]\">edit</a><a style=\"color:blue;\" (click)=\"debugItem.type=null\">all</a><a class=\"fas fa-caret-square-right hover-bg-energized\" (click)=\"loop.var.view=ii===debugItem.value.length-1 ? 0 : ii+1\">&gt;</a></div><p><ng-container *ngIf=\"debugItem.rowTitle;else defaultRowLabel\"><ng-template *ngTemplateOutlet=\"debugItem.rowTitle;context:{index:ii}\"></ng-template></ng-container><ng-template #defaultRowLabel=\"\"><strong>Result {{ii}} of {{debugItem.value.length}} </strong></ng-template></p><absolute-overflow-x *ngIf=\"!editsMap[ii]\" style=\"font-size:0.8em;\"><pre>{{ data | json }}</pre></absolute-overflow-x><ng-container *ngIf=\"editsMap[ii]\"><textarea [name]=\"'editsMap' + ii\" style=\"width:100%;height:300px\" (change)=\"dataString = $event.target.value\">{{ data | json }}</textarea><div style=\"text-align:center\"><a style=\"color:blue;padding-top:.4em;\" (click)=\"updateDataByJsonString(data,dataString);editsMap[ii]=false\">save</a></div></ng-container></ng-container></pre></ng-container><ng-template #regdebug=\"\"><div class=\"pos-rel\"><div class=\"pos-abs right-0 z-index-10\"><div class=\"pad-xxs\"><i class=\"fas fa-pencil-alt hover-text-energized\" (click)=\"edit=!edit\" [class.text-calm]=\"edit\">edit</i></div></div></div><ng-container *ngIf=\"edit;else readMode\"><textarea class=\"width-full\" rows=\"30\" (change)=\"apply(debugItem.value,$event.target.value)\" wrap=\"off\">{{ debugItem.value | json }}</textarea></ng-container><ng-template #readMode=\"\"><absolute-overflow-x><pre class=\"code-sample\">{{ debugItem.value | json }}</pre></absolute-overflow-x></ng-template></ng-template></ng-container>";
+
+
+/***/ }),
+
 /***/ "../src/components/templates/absolute-overflow-x.pug.ts":
 /*!**************************************************************!*\
   !*** ../src/components/templates/absolute-overflow-x.pug.ts ***!
@@ -1322,7 +1430,7 @@ exports.string = "<ng-container *ngFor=\"let prompt of AckApp.prompts.prompts;le
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.string = "<div *ngIf=\"showModel || !isModelMode\" [@fadeInOutUp]=\"1\" style=\"position:fixed;top:0;left:0;height:100%;width:100%;overflow:auto;\" [style.z-index]=\"zIndex || 20\"><div style=\"height:100%;width:100%;padding:20px;display:inline-table;\" [ngStyle]=\"{'background-color':backgroundColor || 'rgba(255,255,255,0.95)'}\"><table style=\"height:100%;margin:auto\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" [ngStyle]=\"wrapStyle\"><tr><td (click)=\"allowClose ? fireClose() : 0\"></td></tr><tr><td valign=\"top\" [ngStyle]=\"wrapCellStyle\"><div *ngIf=\"allowClose\" style=\"position:relative\"><div style=\"position:absolute;bottom:-17px;right:-16px;border:1px solid #DDD;border-radius:50%;z-index:20\"><ack-close-icon (click)=\"fireClose()\"></ack-close-icon></div></div><ng-content></ng-content></td></tr><tr><td (click)=\"allowClose ? fireClose() : 0\"></td></tr></table></div></div>";
+exports.string = "<div *ngIf=\"showModel || !isModelMode\" [@fadeInOutUp]=\"1\" style=\"position:fixed;top:0;left:0;height:100%;width:100%;overflow:auto;\" [style.z-index]=\"zIndex || 20\"><div style=\"height:100%;width:100%;padding:20px;display:inline-table;\" [ngStyle]=\"{'background-color':backgroundColor || 'rgba(0,0,0,.7)'}\"><table style=\"height:100%;margin:auto\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" [ngStyle]=\"wrapStyle\"><tr><td (click)=\"allowClose ? fireClose() : 0\"></td></tr><tr><td valign=\"top\" [ngStyle]=\"wrapCellStyle\"><div *ngIf=\"allowClose\" style=\"position:relative\"><div style=\"position:absolute;bottom:-17px;right:-16px;border:1px solid #DDD;border-radius:50%;z-index:20\"><ack-close-icon (click)=\"fireClose()\"></ack-close-icon></div></div><ng-content></ng-content></td></tr><tr><td (click)=\"allowClose ? fireClose() : 0\"></td></tr></table></div></div>";
 
 
 /***/ }),
@@ -1463,6 +1571,7 @@ var AbsoluteOverflowX_component_1 = __webpack_require__(/*! ./components/Absolut
 var ErrorWell_component_1 = __webpack_require__(/*! ./components/ErrorWell.component */ "../src/components/ErrorWell.component.ts");
 var AckFixedElementStage_component_1 = __webpack_require__(/*! ./components/AckFixedElementStage.component */ "../src/components/AckFixedElementStage.component.ts");
 var ReaderHeaderBody_component_1 = __webpack_require__(/*! ./components/ReaderHeaderBody.component */ "../src/components/ReaderHeaderBody.component.ts");
+var DebugArea_component_1 = __webpack_require__(/*! ./components/debug-area/DebugArea.component */ "../src/components/debug-area/DebugArea.component.ts");
 var AckArray_directive_1 = __webpack_require__(/*! ./directives/AckArray.directive */ "../src/directives/AckArray.directive.ts");
 var AckAggregate_directive_1 = __webpack_require__(/*! ./directives/AckAggregate.directive */ "../src/directives/AckAggregate.directive.ts");
 var ScrollPastFixed_component_1 = __webpack_require__(/*! ./components/ScrollPastFixed.component */ "../src/components/ScrollPastFixed.component.ts");
@@ -1688,7 +1797,8 @@ exports.declarations = [
     ElementSizeModel_directive_1.ElementSizeModel,
     ElementSizeModel_directive_1.ElementWidthModel,
     ElementSizeModel_directive_1.ElementHeightModel,
-    InputHint,
+    InputHint
+], DebugArea_component_1.declarations, [
     ErrorWell_component_1.ErrorWell,
     AbsoluteOverflowX_component_1.AbsoluteOverflowX,
     ReaderHeaderBody_component_1.ReaderHeaderBody,
@@ -3214,7 +3324,8 @@ var ScreenScrollModelY = (function () {
     ], ScreenScrollModelY.prototype, "screenScrollModelYChange", void 0);
     ScreenScrollModelY = __decorate([
         core_1.Directive({
-            selector: '[screenScrollModelY]'
+            selector: '[screenScrollModelY]',
+            exportAs: 'ScreenScrollModelY'
         }),
         __metadata("design:paramtypes", [])
     ], ScreenScrollModelY);
@@ -4502,18 +4613,29 @@ var common_1 = __webpack_require__(/*! @angular/common */ "../node_modules/@angu
 var router_1 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
 var RouteWatchReporter_1 = __webpack_require__(/*! ./RouteWatchReporter */ "../src/modules/router/RouteWatchReporter.ts");
 var RouteReporter_directive_1 = __webpack_require__(/*! ./RouteReporter.directive */ "../src/modules/router/RouteReporter.directive.ts");
+exports.providers = [RouteWatchReporter_1.RouteWatchReporter];
 var AckRouterModule = (function () {
     function AckRouterModule() {
     }
-    AckRouterModule = __decorate([
+    AckRouterModule_1 = AckRouterModule;
+    AckRouterModule.forRoot = function () {
+        return {
+            ngModule: AckRouterModule_1,
+            providers: exports.providers
+        };
+    };
+    var AckRouterModule_1;
+    AckRouterModule = AckRouterModule_1 = __decorate([
         core_1.NgModule({
             imports: [
                 common_1.CommonModule,
                 router_1.RouterModule
             ],
             declarations: [RouteReporter_directive_1.RouteReporter],
-            providers: [RouteWatchReporter_1.RouteWatchReporter],
-            exports: [RouteReporter_directive_1.RouteReporter, router_1.RouterModule]
+            exports: [
+                RouteReporter_directive_1.RouteReporter,
+                router_1.RouterModule
+            ]
         })
     ], AckRouterModule);
     return AckRouterModule;
@@ -4563,11 +4685,11 @@ var RouteReporter = (function () {
         this.parentDataChange = new core_1.EventEmitter();
         this.stateChange = new core_1.EventEmitter();
         this.$document = document;
-        this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
         this.apply();
     }
     RouteReporter.prototype.ngOnInit = function () {
         var _this = this;
+        this.docCallbacks = this.RouteWatchReporter.getDocumentCallbacks();
         this.RouteWatchReporter.router.events.subscribe(function (event) {
             if (event.constructor === router_2.NavigationEnd) {
                 _this.beforeChanger.emit(_this.RouteWatchReporter);
@@ -4603,7 +4725,7 @@ var RouteReporter = (function () {
         }
     };
     RouteReporter.prototype.apply = function () {
-        var current = this.RouteWatchReporter.getCurrent();
+        var current = RouteWatchReporter_1.getCurrentByActive(this.ActivatedRoute);
         this.route = current.config;
         this.current = current;
         this.state = current;
@@ -4642,9 +4764,6 @@ var RouteReporter = (function () {
     RouteReporter.prototype.tryBack = function (name, params) {
         this.RouteWatchReporter.tryBack(name, params);
     };
-    RouteReporter.parameters = [[
-            RouteWatchReporter_1.RouteWatchReporter
-        ]];
     __decorate([
         core_1.Input(),
         __metadata("design:type", Object)
@@ -4776,14 +4895,13 @@ var RouteWatchReporter = (function () {
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.current = {};
+        this.$history = [];
         this.historyPos = 0;
         this.isBackMode = false;
         this.isOsAction = false;
         this.isNextBackMode = false;
         this.isNextBackHistory = false;
         this.activatedRoute = activatedRoute;
-        this.$window = function () { return window; };
-        this.$history = [];
         router.events.subscribe(function (event) {
             if (event.constructor == router_1.NavigationEnd) {
                 var current = _this.getCurrent();
@@ -4792,25 +4910,11 @@ var RouteWatchReporter = (function () {
         });
         this.current = this.getCurrent();
     }
+    RouteWatchReporter.prototype.$window = function () {
+        return window;
+    };
     RouteWatchReporter.prototype.getCurrent = function () {
-        var parent = this.activatedRoute;
-        var target = this.activatedRoute;
-        while (target.firstChild) {
-            parent = target;
-            target = target.firstChild;
-        }
-        var snapshot = target.snapshot || {};
-        var parentSnap = parent.snapshot || {};
-        return {
-            ActivatedRoute: target,
-            config: (target.routeConfig || target),
-            params: snapshot.params,
-            parent: {
-                ActivatedRoute: parent,
-                config: (parent.routeConfig || parent),
-                params: parentSnap.params
-            }
-        };
+        return getCurrentByActive(this.activatedRoute);
     };
     RouteWatchReporter.prototype.getCurrentConfig = function () {
         var target = this.activatedRoute;
@@ -4932,6 +5036,27 @@ var RouteWatchReporter = (function () {
     return RouteWatchReporter;
 }());
 exports.RouteWatchReporter = RouteWatchReporter;
+function getCurrentByActive(ActivatedRoute) {
+    var parent = ActivatedRoute;
+    var target = ActivatedRoute;
+    while (target.firstChild) {
+        parent = target;
+        target = target.firstChild;
+    }
+    var snapshot = target.snapshot || {};
+    var parentSnap = parent.snapshot || {};
+    return {
+        ActivatedRoute: target,
+        config: (target.routeConfig || target),
+        params: snapshot.params,
+        parent: {
+            ActivatedRoute: parent,
+            config: (parent.routeConfig || parent),
+            params: parentSnap.params
+        }
+    };
+}
+exports.getCurrentByActive = getCurrentByActive;
 
 
 /***/ }),
@@ -5202,6 +5327,32 @@ var SafeUrl = (function () {
     return SafeUrl;
 }());
 exports.SafeUrl = SafeUrl;
+var NumberWord = (function () {
+    function NumberWord() {
+    }
+    NumberWord.prototype.transform = function (input, number) {
+        return input + (number && number == 1 ? '' : 's');
+    };
+    NumberWord = __decorate([
+        core_1.Pipe({ name: 'numberWord' }),
+        __metadata("design:paramtypes", [])
+    ], NumberWord);
+    return NumberWord;
+}());
+exports.NumberWord = NumberWord;
+var EndNumberWord = (function () {
+    function EndNumberWord() {
+    }
+    EndNumberWord.prototype.transform = function (input) {
+        return input && input == 1 ? '' : 's';
+    };
+    EndNumberWord = __decorate([
+        core_1.Pipe({ name: 'endNumberWord' }),
+        __metadata("design:paramtypes", [])
+    ], EndNumberWord);
+    return EndNumberWord;
+}());
+exports.EndNumberWord = EndNumberWord;
 var SafeHtml = (function () {
     function SafeHtml(domSanitizer) {
         this.domSanitizer = domSanitizer;
@@ -5475,6 +5626,8 @@ exports.declarations = [
     NumberToPhone,
     NumberSuffix,
     Bit,
+    NumberWord,
+    EndNumberWord,
     BooleanPipe,
     Between
 ];
@@ -6623,8 +6776,7 @@ var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/
 var ack_angular_fx_1 = __webpack_require__(/*! ack-angular-fx */ "../node_modules/ack-angular-fx/dist/index.js");
 var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "../node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 var animations_1 = __webpack_require__(/*! @angular/platform-browser/animations */ "../node_modules/@angular/platform-browser/fesm5/animations.js");
-var RouteWatchReporter_1 = __webpack_require__(/*! ../../src/modules/router/RouteWatchReporter */ "../src/modules/router/RouteWatchReporter.ts");
-var RouteReporter_directive_1 = __webpack_require__(/*! ../../src/modules/router/RouteReporter.directive */ "../src/modules/router/RouteReporter.directive.ts");
+var AckRouterModule_1 = __webpack_require__(/*! ../../src/modules/router/AckRouterModule */ "../src/modules/router/AckRouterModule.ts");
 var src_1 = __webpack_require__(/*! ../../src */ "../src/index.ts");
 var ngx_page_scroll_core_1 = __webpack_require__(/*! ngx-page-scroll-core */ "../node_modules/ngx-page-scroll-core/fesm5/ngx-page-scroll-core.js");
 var ngx_page_scroll_1 = __webpack_require__(/*! ngx-page-scroll */ "../node_modules/ngx-page-scroll/fesm5/ngx-page-scroll.js");
@@ -6638,7 +6790,6 @@ var ComponentsExamples_component_1 = __webpack_require__(/*! ./ComponentsExample
 var PipesExamples_component_1 = __webpack_require__(/*! ./PipesExamples.component */ "./src/PipesExamples.component.ts");
 exports.declarations = [
     AckAppStage_component_1.AckAppStage,
-    RouteReporter_directive_1.RouteReporter,
     AnimationExamples_component_1.AnimationExamples,
     OverviewExamples_component_1.OverviewExamples,
     ComponentsExamples_component_1.ComponentsExamples,
@@ -6648,26 +6799,27 @@ exports.declarations = [
 ].concat(states_object_1.declarations);
 var forms_1 = __webpack_require__(/*! @angular/forms */ "../node_modules/@angular/forms/fesm5/forms.js");
 var http_1 = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
+exports.imports = [
+    platform_browser_1.BrowserModule,
+    animations_1.BrowserAnimationsModule,
+    forms_1.FormsModule,
+    http_1.HttpClientModule,
+    states_object_1.routing,
+    ngx_page_scroll_core_1.NgxPageScrollCoreModule.forRoot({}),
+    ngx_page_scroll_1.NgxPageScrollModule,
+    AckRouterModule_1.AckRouterModule.forRoot(),
+    src_1.AckModule.forRoot(),
+    ack_angular_fx_1.AckFxModule
+];
+console.log("declarations", exports.declarations);
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [
-                platform_browser_1.BrowserModule,
-                animations_1.BrowserAnimationsModule,
-                forms_1.FormsModule,
-                http_1.HttpClientModule,
-                states_object_1.routing,
-                ngx_page_scroll_core_1.NgxPageScrollCoreModule.forRoot({}),
-                ngx_page_scroll_1.NgxPageScrollModule,
-                src_1.AckModule.forRoot(),
-                ack_angular_fx_1.AckFxModule
-            ],
+            imports: exports.imports,
             declarations: exports.declarations,
-            providers: [
-                RouteWatchReporter_1.RouteWatchReporter
-            ],
+            providers: [],
             bootstrap: [AckAppStage_component_1.AckAppStage]
         })
     ], AppModule);
@@ -6930,7 +7082,9 @@ exports.string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"margin-
     "\n    &lt;ack-fixed-element-stage&gt;&lt;/ack-fixed-element-stage&gt;" +
     "\n  &lt;/body&gt;" +
     "\n&lt;/html&gt;" +
-    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>ack-close-icon</h3><div class=\"text-grey-2x max-width-400\">A super convenient html based close icon. No img refs. No style sheet refs<ack-close-icon></ack-close-icon></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackCloseIcon=!views.ackCloseIcon\" [ngClass]=\"views.ackCloseIcon?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackCloseIcon\" [@fadeInOutUp]=\"1\"><div class=\"pad\"><ack-close-icon (click)=\"views.ackCloseIcon=false\"></ack-close-icon></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-close-icon (click)=\"views.ackCloseIcon=false\"&gt;&lt;/ack-close-icon&gt;" +
+    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>debug-area</h3><div class=\"text-grey-2x max-width-400\">A super convenient way to debug and edit variables<ack-close-icon></ack-close-icon></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.debugArea=!views.debugArea\" [ngClass]=\"views.debugArea?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.debugArea\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;debug-area&gt;" +
+    "\n  &lt;debug-item name=\"someArray\" [value]=\"someArray\" type=\"array\"&gt;&lt;/debug-item&gt;" +
+    "\n&lt;/debug-area&gt;</pre></absolute-overflow-x><h4 class=\"pad-sm margin-0\">Example Results<debug-area><debug-item name=\"arrayOfObjects\" [value]=\"arrayOfObjects\" type=\"array\"></debug-item><debug-item name=\"selectedArray\" [value]=\"selectedArray\" type=\"array\"></debug-item></debug-area></h4></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>ack-close-icon</h3><div class=\"text-grey-2x max-width-400\">A super convenient html based close icon. No img refs. No style sheet refs<ack-close-icon></ack-close-icon></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackCloseIcon=!views.ackCloseIcon\" [ngClass]=\"views.ackCloseIcon?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackCloseIcon\" [@fadeInOutUp]=\"1\"><div class=\"pad\"><ack-close-icon (click)=\"views.ackCloseIcon=false\"></ack-close-icon></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-close-icon (click)=\"views.ackCloseIcon=false\"&gt;&lt;/ack-close-icon&gt;" +
     "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>ack-array</h3><div class=\"text-grey-2x\">Common array functionality available at a template level</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackArray=!views.ackArray\" [ngClass]=\"views.ackArray?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackArray\" [@fadeInOutUp]=\"1\"><ack-array #Array=\"AckArray\" [(array)]=\"selectedArray\" idKey=\"letter\" [(pageAt)]=\"pageAt\" [(pages)]=\"arrayPages\" [(keyMap)]=\"arrayMap\"><ack-aggregate type=\"sum\" [keys]=\"['number']\" [(output)]=\"sumNumber\"></ack-aggregate></ack-array><h4 class=\"pad-sm margin-0\">Bind Documentation</h4><ul><li>[(array)] - main array to stem functionality from</li><li>[idKey] - pointer to each array node id field</li><li>[pageAt] - what number to break array into page buckets</li><li>([pages]) - buckets of arrays based on pageAt</li></ul><h4 class=\"pad-sm margin-0\">API Documentation</h4><ul><li>toggle(item) - adds or removes item based on existence</li><li>push(item) - param and append item to array</li><li>unshift(item) - param and prepend item to array</li><li>splice(item) - remove item by index from array</li><li>param() - ensure array exists</li><li>only(item) - reduce array down to only item argument</li></ul><div class=\"pad-sm\"><h4 class=\"margin-0\">Usage Example: Toggle Items</h4><div class=\"text-grey-2x\">Take an arbitrary array (arrayOfObjects in demo) and allow a system of toggling selections</div></div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-array #Array=\"AckArray\" [(array)]=\"selectedArray\" idKey=\"letter\"&gt;&lt;/ack-array&gt;" +
     "\n&lt;ng-container *ngIf=\"Array&gt;" +
     "\n  &lt;div *ngFor=\"let item of arrayOfObjects\"&gt;" +
@@ -7199,7 +7353,7 @@ exports.string = "<h2 class=\"margin-top-0\">Overview</h2><p class=\"pad-h\"><st
     "\n@NgModule(&#123;" +
     "\n  imports:[" +
     "\n    AckModule.forRoot()," +
-    "\n    AckRouterModule" +
+    "\n    AckRouterModule.forRoot()" +
     "\n  ]" +
     "\n&#125;)" +
     "\n</pre><div class=\"pad-xxs\"><div class=\"pad bg-warning bg-warning text-warning\">NOTE : You need to have the <a href=\"https://www.typescriptlang.org/docs/handbook/compiler-options.html\">allowSyntheticDefaultImports compiler option</a> set to <strong>true</strong> in your <a href=\"https://www.typescriptlang.org/docs/handbook/tsconfig-json.html\">tsconfig.json</a>.</div></div></div><br/><h3 class=\"margin-bottom-0\" id=\"Requirements\">Requirements</h3><div class=\"pad\"><p>It is very important to understand what connects where</p></div><ul><li>core angular components are expected to have already been installed</li><ul><li>reflect-metadata</li><li>@angular/core</li><li>@angular/common/http</li></ul><li>jsDependencies</li><ul><li><a href=\"https://www.npmjs.com/package/ack-angular-fx\">ack-angular-fx</a></li><ul><li>only required for animation implementing</li><li>The following code would depend on ack-angular-fx installation<pre class=\"code-sample\">import * as fx from \"ack-angular/fx\"</pre></li></ul><li><a href=\"https://www.npmjs.com/package/@angular/router\">@angular/router</a></li><ul><li>only required for @angular/router based ack-angular component and services</li><li>The following code would depend on @angular/router installation<pre class=\"code-sample\">import &#123; RouteReporter &#125; from \"ack-angular/RouteReporter.directive\"" +
@@ -7240,7 +7394,7 @@ exports.string = "<h2 class=\"margin-top-0\">Pipes</h2><p class=\"text-sm text-g
     "\n  trusted style" +
     "\n&lt;/span&gt;</span><span class=\"pad-h\">== <span [ngStyle]=\"{'...':('...'|safeStyle)}\">safe styled</span></span></pre></absolute-overflow-x></div></div><div class=\"flex3 border-grey-6x border width-full\"><div class=\"pad-h\"><h3>safeHtml</h3><p class=\"text-sm text-grey-2x\">Cast string to safe html</p></div><a class=\"text-center block border pad-xxs hover-bg-warning\" (click)=\"views.safeHtml=!views.safeHtml\" [ngClass]=\"views.safeHtml?'border-energized bg-energized':'border-info bg-info'\">view details</a><div *ngIf=\"views.safeHtml\" [@fadeInOutUp]=\"1\"><absolute-overflow-x><pre class=\"code-sample margin-0\"><span ngNonBindable=\"ngNonBindable\">&lt;span class=\"safeHtml\" [innerHtml]=\"'&lt;style&gt;.safeHtml&#123;border:1px solid purple&#125;.safeHtml::before&#123;content:\\\"trusted html\\\"&#125;&lt;/style&gt;'|safeHtml\"&gt;" +
     "\n  untrusted html" +
-    "\n&lt;/span&gt;</span><span class=\"pad-h\">==&nbsp;</span><span class=\"safeHtml\" [innerHtml]=\"'&lt;style&gt;.safeHtml{border:1px solid purple}.safeHtml::before{content:\&quot;trusted html\&quot;}&lt;/style&gt;'|safeHtml\">untrusted html</span></pre></absolute-overflow-x></div></div><div class=\"flex2 border-grey-6x border\"><div class=\"pad-h\"><h3>markdownAnchor</h3><p class=\"text-sm text-grey-2x\">Cast string to a github markdown #anchor</p></div><a class=\"text-center block border pad-xxs hover-bg-warning\" (click)=\"views.markdownAnchor=!views.markdownAnchor\" [ngClass]=\"views.markdownAnchor?'border-energized bg-energized':'border-info bg-info'\">view details</a><div *ngIf=\"views.markdownAnchor\" [@fadeInOutUp]=\"1\"><absolute-overflow-x><pre class=\"code-sample margin-0\"><span ngNonBindable=\"ngNonBindable\">{{ 'Usage Examples' | markdownAnchor }}</span><span class=\"pad-h\">== {{ 'Usage Examples' | markdownAnchor }}</span></pre></absolute-overflow-x></div></div><div class=\"flex2 border-grey-6x border\"><div class=\"pad-h\"><h3>typeof</h3><p class=\"text-sm text-grey-2x\">Result of native javascript typeof</p></div><a class=\"text-center block border pad-xxs hover-bg-warning\" (click)=\"views.typeof=!views.typeof\" [ngClass]=\"views.typeof?'border-energized bg-energized':'border-info bg-info'\">view details</a><div *ngIf=\"views.typeof\" [@fadeInOutUp]=\"1\"><absolute-overflow-x><pre class=\"code-sample margin-0\"><span ngNonBindable=\"ngNonBindable\">{{ 0 | typeof }}</span><span class=\"pad-h\">== {{ 0 | typeof }}</span></pre></absolute-overflow-x></div></div><div class=\"flex2 border-grey-6x border\"><div class=\"pad-h\"><h3>between</h3><p class=\"text-sm text-grey-2x\">(input &gt;= a &amp;&amp; input &lt;= b) || (input &lt;= a &amp;&amp; input &gt;= b)</p></div><a class=\"text-center block border pad-xxs hover-bg-warning\" (click)=\"views.between=!views.between\" [ngClass]=\"views.between?'border-energized bg-energized':'border-info bg-info'\">view details</a><div *ngIf=\"views.between\" [@fadeInOutUp]=\"1\"><absolute-overflow-x><pre class=\"code-sample margin-0\"><span ngNonBindable=\"ngNonBindable\">{{ 10 | between : 5 : 15 }}</span><span class=\"pad-h\">== {{ 10 | between : 5 : 15 }}</span></pre></absolute-overflow-x></div></div><div class=\"flex2 border-grey-6x border\"><div class=\"pad-h\"><h3>numberSuffix</h3><p class=\"text-sm text-grey-2x\">suffix for a given number {{ 1|numberSuffix:1 }} {{ 2|numberSuffix:1 }} {{ 3|numberSuffix:1 }}</p></div><a class=\"text-center block border pad-xxs hover-bg-warning\" (click)=\"views.numberSuffix=!views.numberSuffix\" [ngClass]=\"views.numberSuffix?'border-energized bg-energized':'border-info bg-info'\">view details</a><div *ngIf=\"views.numberSuffix\" [@fadeInOutUp]=\"1\"><absolute-overflow-x><pre class=\"code-sample margin-0\"><div><span ngNonBindable=\"ngNonBindable\">1{{ 1 | numberSuffix }}</span><span class=\"pad-h\">== 1{{ 1 | numberSuffix }}</span></div><div><span ngNonBindable=\"ngNonBindable\">{{ 2 | numberSuffix : true }}</span><span class=\"pad-h\">== {{ 2 | numberSuffix : true }}</span></div><div><span ngNonBindable=\"ngNonBindable\">0{{ '0' | numberSuffix }}</span><span class=\"pad-h\">== 0{{ '0' | numberSuffix }}</span></div><div><span ngNonBindable=\"ngNonBindable\">{{ null | numberSuffix }}</span><span class=\"pad-h\">== {{ null | numberSuffix }}</span></div><div><span ngNonBindable=\"ngNonBindable\">13{{ '13' | numberSuffix }}</span><span class=\"pad-h\">== 13{{ '13' | numberSuffix }}</span></div><div><span ngNonBindable=\"ngNonBindable\">{{ '33' | numberSuffix : 1 }}</span><span class=\"pad-h\">== {{ '33' | numberSuffix : 1 }}</span></div></pre></absolute-overflow-x></div></div><div class=\"flex2 border-grey-6x border\"><div class=\"pad-h\"><h3>numberToPhone</h3><p class=\"text-sm text-grey-2x\">Converts numbers in input into basic phone format</p></div><a class=\"text-center block border pad-xxs hover-bg-warning\" (click)=\"views.numberToPhone=!views.numberToPhone\" [ngClass]=\"views.numberToPhone?'border-energized bg-energized':'border-info bg-info'\">view details</a><div *ngIf=\"views.numberToPhone\" [@fadeInOutUp]=\"1\"><absolute-overflow-x><pre class=\"code-sample margin-0\"><div><span ngNonBindable=\"ngNonBindable\">{{ 8779276969 | numberToPhone }}</span><span class=\"pad-h\">== {{ 8779276969 | numberToPhone }}</span></div><div><span ngNonBindable=\"ngNonBindable\">{{ 'L8O7V7E9D2O7C6T9O6R9S' | numberToPhone }}</span><span class=\"pad-h\">== {{ 'L8O7V7E9D2O7C6T9O6R9S' | numberToPhone }}</span></div><div><span ngNonBindable=\"ngNonBindable\">{{ 'L8O7V7E9D2O' | numberToPhone }}</span><span class=\"pad-h\">== {{ 'L8O7V7E9D2O7C6T9O6' | numberToPhone }}</span></div><div><span ngNonBindable=\"ngNonBindable\">{{ 'L8O7V7E9D2O7C6T9O6' | numberToPhone }}</span><span class=\"pad-h\">== {{ 'L8O7V7E9D2O' | numberToPhone }}</span></div></pre></absolute-overflow-x></div></div><div class=\"flex2 border-grey-6x border\"><div class=\"pad-h\"><h3>indexTrack</h3><p class=\"text-sm text-grey-2x\">Force ngFor into trackBy index</p></div><a class=\"text-center block border pad-xxs hover-bg-warning\" (click)=\"views.indexOf=!views.indexOf\" [ngClass]=\"views.indexOf?'border-energized bg-energized':'border-info bg-info'\">view details</a><div *ngIf=\"views.indexOf\" [@fadeInOutUp]=\"1\"><div class=\"pad-xs text-info text-sm\">Simple arrays like [\"a\",\"b\",\"c\"] are hard to work with ngFor + ngModel</div><strong>With indexTrack</strong><div *ngFor=\"let item of simpleArray; let i=index; trackBy:0|indexTrack\"><input class=\"width-full\" [(ngModel)]=\"simpleArray[i]\"/></div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div *ngFor=\"let item of simpleArray; let i=index; trackBy:0|indexTrack\"&gt;" +
+    "\n&lt;/span&gt;</span><span class=\"pad-h\">==&nbsp;</span><span class=\"safeHtml\" [innerHtml]=\"'&lt;style&gt;.safeHtml{border:1px solid purple}.safeHtml::before{content:\&quot;trusted html\&quot;}&lt;/style&gt;'|safeHtml\">untrusted html</span></pre></absolute-overflow-x></div></div><div class=\"flex2 border-grey-6x border\"><div class=\"pad-h\"><h3>markdownAnchor</h3><p class=\"text-sm text-grey-2x\">Cast string to a github markdown #anchor</p></div><a class=\"text-center block border pad-xxs hover-bg-warning\" (click)=\"views.markdownAnchor=!views.markdownAnchor\" [ngClass]=\"views.markdownAnchor?'border-energized bg-energized':'border-info bg-info'\">view details</a><div *ngIf=\"views.markdownAnchor\" [@fadeInOutUp]=\"1\"><absolute-overflow-x><pre class=\"code-sample margin-0\"><span ngNonBindable=\"ngNonBindable\">{{ 'Usage Examples' | markdownAnchor }}</span><span class=\"pad-h\">== {{ 'Usage Examples' | markdownAnchor }}</span></pre></absolute-overflow-x></div></div><div class=\"flex2 border-grey-6x border\"><div class=\"pad-h\"><h3>typeof</h3><p class=\"text-sm text-grey-2x\">Result of native javascript typeof</p></div><a class=\"text-center block border pad-xxs hover-bg-warning\" (click)=\"views.typeof=!views.typeof\" [ngClass]=\"views.typeof?'border-energized bg-energized':'border-info bg-info'\">view details</a><div *ngIf=\"views.typeof\" [@fadeInOutUp]=\"1\"><absolute-overflow-x><pre class=\"code-sample margin-0\"><span ngNonBindable=\"ngNonBindable\">{{ 0 | typeof }}</span><span class=\"pad-h\">== {{ 0 | typeof }}</span></pre></absolute-overflow-x></div></div><div class=\"flex2 border-grey-6x border\"><div class=\"pad-h\"><h3>endNumberWord</h3><p class=\"text-sm text-grey-2x\">Decides to add an \"s\" at the end of a word</p></div><a class=\"text-center block border pad-xxs hover-bg-warning\" (click)=\"views.endNumberWord=!views.endNumberWord\" [ngClass]=\"views.endNumberWord?'border-energized bg-energized':'border-info bg-info'\">view details</a><div *ngIf=\"views.endNumberWord\" [@fadeInOutUp]=\"1\"><absolute-overflow-x><pre class=\"code-sample margin-0\"><div><span ngNonBindable=\"ngNonBindable\">balloon{{ 0 | endNumberWord }}</span><span class=\"pad-h\">== balloon{{ 0 | endNumberWord }}</span></div><div><span ngNonBindable=\"ngNonBindable\">balloon{{ 1 | endNumberWord }}</span><span class=\"pad-h\">== balloon{{ 1 | endNumberWord }}</span></div><div><span ngNonBindable=\"ngNonBindable\">balloon{{ 2 | endNumberWord }}</span><span class=\"pad-h\">== balloon{{ 2 | endNumberWord }}</span></div><div><span ngNonBindable=\"ngNonBindable\">balloon{{ 2 | endNumberWord }}</span><span class=\"pad-h\">== balloon{{ 2 | endNumberWord }}</span></div></pre></absolute-overflow-x></div></div><div class=\"flex2 border-grey-6x border\"><div class=\"pad-h\"><h3>between</h3><p class=\"text-sm text-grey-2x\">(input &gt;= a &amp;&amp; input &lt;= b) || (input &lt;= a &amp;&amp; input &gt;= b)</p></div><a class=\"text-center block border pad-xxs hover-bg-warning\" (click)=\"views.between=!views.between\" [ngClass]=\"views.between?'border-energized bg-energized':'border-info bg-info'\">view details</a><div *ngIf=\"views.between\" [@fadeInOutUp]=\"1\"><absolute-overflow-x><pre class=\"code-sample margin-0\"><span ngNonBindable=\"ngNonBindable\">{{ 10 | between : 5 : 15 }}</span><span class=\"pad-h\">== {{ 10 | between : 5 : 15 }}</span></pre></absolute-overflow-x></div></div><div class=\"flex2 border-grey-6x border\"><div class=\"pad-h\"><h3>numberSuffix</h3><p class=\"text-sm text-grey-2x\">suffix for a given number {{ 1|numberSuffix:1 }} {{ 2|numberSuffix:1 }} {{ 3|numberSuffix:1 }}</p></div><a class=\"text-center block border pad-xxs hover-bg-warning\" (click)=\"views.numberSuffix=!views.numberSuffix\" [ngClass]=\"views.numberSuffix?'border-energized bg-energized':'border-info bg-info'\">view details</a><div *ngIf=\"views.numberSuffix\" [@fadeInOutUp]=\"1\"><absolute-overflow-x><pre class=\"code-sample margin-0\"><div><span ngNonBindable=\"ngNonBindable\">1{{ 1 | numberSuffix }}</span><span class=\"pad-h\">== 1{{ 1 | numberSuffix }}</span></div><div><span ngNonBindable=\"ngNonBindable\">{{ 2 | numberSuffix : true }}</span><span class=\"pad-h\">== {{ 2 | numberSuffix : true }}</span></div><div><span ngNonBindable=\"ngNonBindable\">0{{ '0' | numberSuffix }}</span><span class=\"pad-h\">== 0{{ '0' | numberSuffix }}</span></div><div><span ngNonBindable=\"ngNonBindable\">{{ null | numberSuffix }}</span><span class=\"pad-h\">== {{ null | numberSuffix }}</span></div><div><span ngNonBindable=\"ngNonBindable\">13{{ '13' | numberSuffix }}</span><span class=\"pad-h\">== 13{{ '13' | numberSuffix }}</span></div><div><span ngNonBindable=\"ngNonBindable\">{{ '33' | numberSuffix : 1 }}</span><span class=\"pad-h\">== {{ '33' | numberSuffix : 1 }}</span></div></pre></absolute-overflow-x></div></div><div class=\"flex2 border-grey-6x border\"><div class=\"pad-h\"><h3>numberToPhone</h3><p class=\"text-sm text-grey-2x\">Converts numbers in input into basic phone format</p></div><a class=\"text-center block border pad-xxs hover-bg-warning\" (click)=\"views.numberToPhone=!views.numberToPhone\" [ngClass]=\"views.numberToPhone?'border-energized bg-energized':'border-info bg-info'\">view details</a><div *ngIf=\"views.numberToPhone\" [@fadeInOutUp]=\"1\"><absolute-overflow-x><pre class=\"code-sample margin-0\"><div><span ngNonBindable=\"ngNonBindable\">{{ 8779276969 | numberToPhone }}</span><span class=\"pad-h\">== {{ 8779276969 | numberToPhone }}</span></div><div><span ngNonBindable=\"ngNonBindable\">{{ 'L8O7V7E9D2O7C6T9O6R9S' | numberToPhone }}</span><span class=\"pad-h\">== {{ 'L8O7V7E9D2O7C6T9O6R9S' | numberToPhone }}</span></div><div><span ngNonBindable=\"ngNonBindable\">{{ 'L8O7V7E9D2O' | numberToPhone }}</span><span class=\"pad-h\">== {{ 'L8O7V7E9D2O7C6T9O6' | numberToPhone }}</span></div><div><span ngNonBindable=\"ngNonBindable\">{{ 'L8O7V7E9D2O7C6T9O6' | numberToPhone }}</span><span class=\"pad-h\">== {{ 'L8O7V7E9D2O' | numberToPhone }}</span></div></pre></absolute-overflow-x></div></div><div class=\"flex2 border-grey-6x border\"><div class=\"pad-h\"><h3>indexTrack</h3><p class=\"text-sm text-grey-2x\">Force ngFor into trackBy index</p></div><a class=\"text-center block border pad-xxs hover-bg-warning\" (click)=\"views.indexOf=!views.indexOf\" [ngClass]=\"views.indexOf?'border-energized bg-energized':'border-info bg-info'\">view details</a><div *ngIf=\"views.indexOf\" [@fadeInOutUp]=\"1\"><div class=\"pad-xs text-info text-sm\">Simple arrays like [\"a\",\"b\",\"c\"] are hard to work with ngFor + ngModel</div><strong>With indexTrack</strong><div *ngFor=\"let item of simpleArray; let i=index; trackBy:0|indexTrack\"><input class=\"width-full\" [(ngModel)]=\"simpleArray[i]\"/></div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div *ngFor=\"let item of simpleArray; let i=index; trackBy:0|indexTrack\"&gt;" +
     "\n  &lt;input [(ngModel)]=\"simpleArray[i]\" /&gt;" +
     "\n&lt;/div&gt;</pre></absolute-overflow-x><br/><strong class=\"text-warning\">Without indexTrack</strong><div class=\"text-xs text-grey-2x pad-left-xs\">Inputs blur as you type in them</div><div *ngFor=\"let item of simpleArray; let i=index; trackBy:index\"><input class=\"width-full\" [(ngModel)]=\"simpleArray[i]\"/></div></div></div><div class=\"flex2 border-grey-6x border\"><div class=\"pad-h\"><h3>arrayOfObjects</h3><p class=\"text-sm text-grey-2x\" ngNonBindable=\"ngNonBindable\">Param and cast an array into an array of &#123;value, index&#125; objects</p></div><a class=\"text-center block border pad-xxs hover-bg-warning\" (click)=\"views.arrayOfObjects=!views.arrayOfObjects\" [ngClass]=\"views.arrayOfObjects?'border-energized bg-energized':'border-info bg-info'\">view details</a><div *ngIf=\"views.arrayOfObjects\" [@fadeInOutUp]=\"1\"><div class=\"pad-xs text-warning\">Having troubles with *ngFor [(ngModel)] for simple array of strings? Try indexTrack, it's within ack-angular, first because it works far better" +
     "\n</div><div class=\"pad-xs text-info text-sm\">Simple arrays like [\"a\",\"b\",\"c\"] are hard to work with ngFor + ngModel. This pipe can help with that (not as well as indexTrack pipe)</div><strong>With arrayOfObjects</strong><div *ngFor=\"let item of simpleArray|arrayOfObjects\"><input class=\"width-full\" [(ngModel)]=\"simpleArray[ item.index ]\"/></div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div *ngFor=\"let item of simpleArray|arrayOfObjects\"&gt;" +

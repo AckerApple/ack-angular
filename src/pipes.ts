@@ -41,6 +41,20 @@ import {
     }
   }
 
+  @Pipe({name: 'numberWord'}) export class NumberWord {
+    constructor() {}
+    transform(input, number) {
+      return input + (number && number==1 ? '' : 's')
+    }
+  }
+
+  @Pipe({name: 'endNumberWord'}) export class EndNumberWord {
+    constructor() {}
+    transform(input) {
+      return input && input==1 ? '' : 's'
+    }
+  }
+
   @Pipe({name: 'safeHtml'}) export class SafeHtml {
     constructor(private domSanitizer: DomSanitizer) {}
     transform(input) {
@@ -181,6 +195,8 @@ export const declarations = [
   NumberToPhone,
   NumberSuffix,
   Bit,
+  NumberWord,
+  EndNumberWord,
   BooleanPipe,
   Between
 ]

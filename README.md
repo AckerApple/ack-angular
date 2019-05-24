@@ -93,9 +93,7 @@ import { RouteReporter } from "ack-angular/RouteReporter.directive"
 import { NgModule } from '@angular/core';
 
 @NgModule({
-  imports:[ RouterModule.forRoot([], {}) ],
-  providers: [ UiRouteWatchReporter ],
-  declarations:[ UiRouteReporter ]
+  imports:[ RouterModule.forRoot() ]
 })
 ```
 

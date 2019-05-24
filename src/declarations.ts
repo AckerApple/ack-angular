@@ -19,6 +19,7 @@ import { AbsoluteOverflowX } from "./components/AbsoluteOverflowX.component"
 import { ErrorWell } from "./components/ErrorWell.component"
 import { AckFixedElementStage } from "./components/AckFixedElementStage.component"
 import { ReaderHeaderBody, ReaderHeader, ReaderBody } from "./components/ReaderHeaderBody.component"
+import { declarations as debugDecs } from "./components/debug-area/DebugArea.component"
 
 //DIRECTIVES
 import { AckArray } from "./directives/AckArray.directive"
@@ -198,6 +199,7 @@ export const declarations = [
   InputHint,
   
   //components
+  ...debugDecs,
   ErrorWell,
   AbsoluteOverflowX,
 

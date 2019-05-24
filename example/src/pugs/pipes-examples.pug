@@ -99,6 +99,31 @@ h3(id="Documentation") Documentation
 
   .flex2.border-grey-6x.border
     .pad-h
+      h3 endNumberWord
+      p.text-sm.text-grey-2x Decides to add an "s" at the end of a word
+    a.text-center.block.border.pad-xxs.hover-bg-warning(
+      "(click)"="views.endNumberWord=!views.endNumberWord"
+      "[ngClass]"="views.endNumberWord?'border-energized bg-energized':'border-info bg-info'"
+    )
+      |view details
+    div(*ngIf="views.endNumberWord" "[@fadeInOutUp]"=1)
+      absolute-overflow-x
+        pre.code-sample.margin-0
+          div
+            span(ngNonBindable) balloon{{ 0 | endNumberWord }}
+            span.pad-h == balloon{{ 0 | endNumberWord }}
+          div
+            span(ngNonBindable) balloon{{ 1 | endNumberWord }}
+            span.pad-h == balloon{{ 1 | endNumberWord }}
+          div
+            span(ngNonBindable) balloon{{ 2 | endNumberWord }}
+            span.pad-h == balloon{{ 2 | endNumberWord }}
+          div
+            span(ngNonBindable) balloon{{ 2 | endNumberWord }}
+            span.pad-h == balloon{{ 2 | endNumberWord }}
+
+  .flex2.border-grey-6x.border
+    .pad-h
       h3 between
       p.text-sm.text-grey-2x (input &gt;= a &amp;&amp; input &lt;= b) || (input &lt;= a &amp;&amp; input &gt;= b)
     a.text-center.block.border.pad-xxs.hover-bg-warning(
