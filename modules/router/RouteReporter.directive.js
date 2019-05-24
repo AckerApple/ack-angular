@@ -30,11 +30,11 @@ var RouteReporter = (function () {
         this.parentDataChange = new core_1.EventEmitter();
         this.stateChange = new core_1.EventEmitter();
         this.$document = document;
-        this.docCallbacks = RouteWatchReporter.getDocumentCallbacks();
         this.apply();
     }
     RouteReporter.prototype.ngOnInit = function () {
         var _this = this;
+        this.docCallbacks = this.RouteWatchReporter.getDocumentCallbacks();
         this.RouteWatchReporter.router.events.subscribe(function (event) {
             if (event.constructor === router_2.NavigationEnd) {
                 _this.beforeChanger.emit(_this.RouteWatchReporter);
@@ -70,7 +70,7 @@ var RouteReporter = (function () {
         }
     };
     RouteReporter.prototype.apply = function () {
-        var current = this.RouteWatchReporter.getCurrent();
+        var current = RouteWatchReporter_1.getCurrentByActive(this.ActivatedRoute);
         this.route = current.config;
         this.current = current;
         this.state = current;
@@ -109,9 +109,6 @@ var RouteReporter = (function () {
     RouteReporter.prototype.tryBack = function (name, params) {
         this.RouteWatchReporter.tryBack(name, params);
     };
-    RouteReporter.parameters = [[
-            RouteWatchReporter_1.RouteWatchReporter
-        ]];
     __decorate([
         core_1.Input(),
         __metadata("design:type", Object)

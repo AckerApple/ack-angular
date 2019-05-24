@@ -17,14 +17,13 @@ var RouteWatchReporter = (function () {
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.current = {};
+        this.$history = [];
         this.historyPos = 0;
         this.isBackMode = false;
         this.isOsAction = false;
         this.isNextBackMode = false;
         this.isNextBackHistory = false;
         this.activatedRoute = activatedRoute;
-        this.$window = function () { return window; };
-        this.$history = [];
         router.events.subscribe(function (event) {
             if (event.constructor == router_1.NavigationEnd) {
                 var current = _this.getCurrent();
@@ -33,25 +32,11 @@ var RouteWatchReporter = (function () {
         });
         this.current = this.getCurrent();
     }
+    RouteWatchReporter.prototype.$window = function () {
+        return window;
+    };
     RouteWatchReporter.prototype.getCurrent = function () {
-        var parent = this.activatedRoute;
-        var target = this.activatedRoute;
-        while (target.firstChild) {
-            parent = target;
-            target = target.firstChild;
-        }
-        var snapshot = target.snapshot || {};
-        var parentSnap = parent.snapshot || {};
-        return {
-            ActivatedRoute: target,
-            config: (target.routeConfig || target),
-            params: snapshot.params,
-            parent: {
-                ActivatedRoute: parent,
-                config: (parent.routeConfig || parent),
-                params: parentSnap.params
-            }
-        };
+        return getCurrentByActive(this.activatedRoute);
     };
     RouteWatchReporter.prototype.getCurrentConfig = function () {
         var target = this.activatedRoute;
@@ -173,3 +158,24 @@ var RouteWatchReporter = (function () {
     return RouteWatchReporter;
 }());
 exports.RouteWatchReporter = RouteWatchReporter;
+function getCurrentByActive(ActivatedRoute) {
+    var parent = ActivatedRoute;
+    var target = ActivatedRoute;
+    while (target.firstChild) {
+        parent = target;
+        target = target.firstChild;
+    }
+    var snapshot = target.snapshot || {};
+    var parentSnap = parent.snapshot || {};
+    return {
+        ActivatedRoute: target,
+        config: (target.routeConfig || target),
+        params: snapshot.params,
+        parent: {
+            ActivatedRoute: parent,
+            config: (parent.routeConfig || parent),
+            params: parentSnap.params
+        }
+    };
+}
+exports.getCurrentByActive = getCurrentByActive;

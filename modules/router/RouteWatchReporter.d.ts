@@ -11,13 +11,13 @@ export declare class RouteWatchReporter {
     current: any;
     $history: any;
     $state: any;
-    $window: any;
     historyPos: number;
     isBackMode: boolean;
     isOsAction: boolean;
     isNextBackMode: boolean;
     isNextBackHistory: boolean;
     constructor(router: Router, activatedRoute: ActivatedRoute);
+    $window(): Window;
     getCurrent(): currentRoute;
     getCurrentConfig(): Route;
     getCurrentParams(): any;
@@ -36,3 +36,13 @@ export declare class RouteWatchReporter {
     watchDocByCallbacks($document: any, callbacks: any): void;
     unwatchDocByCallbacks($document: any, callbacks: any): void;
 }
+export declare function getCurrentByActive(ActivatedRoute: ActivatedRoute): {
+    ActivatedRoute: ActivatedRoute;
+    config: Route;
+    params: import("@angular/router").Params;
+    parent: {
+        ActivatedRoute: ActivatedRoute;
+        config: Route;
+        params: import("@angular/router").Params;
+    };
+};

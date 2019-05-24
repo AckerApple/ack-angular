@@ -21,6 +21,7 @@ var AbsoluteOverflowX_component_1 = require("./components/AbsoluteOverflowX.comp
 var ErrorWell_component_1 = require("./components/ErrorWell.component");
 var AckFixedElementStage_component_1 = require("./components/AckFixedElementStage.component");
 var ReaderHeaderBody_component_1 = require("./components/ReaderHeaderBody.component");
+var DebugArea_component_1 = require("./components/debug-area/DebugArea.component");
 var AckArray_directive_1 = require("./directives/AckArray.directive");
 var AckAggregate_directive_1 = require("./directives/AckAggregate.directive");
 var ScrollPastFixed_component_1 = require("./components/ScrollPastFixed.component");
@@ -246,7 +247,8 @@ exports.declarations = [
     ElementSizeModel_directive_1.ElementSizeModel,
     ElementSizeModel_directive_1.ElementWidthModel,
     ElementSizeModel_directive_1.ElementHeightModel,
-    InputHint,
+    InputHint
+], DebugArea_component_1.declarations, [
     ErrorWell_component_1.ErrorWell,
     AbsoluteOverflowX_component_1.AbsoluteOverflowX,
     ReaderHeaderBody_component_1.ReaderHeaderBody,

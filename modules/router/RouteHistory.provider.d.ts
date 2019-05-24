@@ -6,10 +6,13 @@ export declare class RouteHistory {
     maxHistory: number;
     historyIndex: number;
     subs: Subscription[];
+    forward: string;
+    back: string;
     constructor(Router: Router);
     monitor(): void;
     ngOnDestroy(): void;
     addRouteToHistory(): void;
+    applyNav(): void;
     goBack(): void;
     goForward(): void;
 }
