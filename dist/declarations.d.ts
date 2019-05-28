@@ -3,10 +3,11 @@ import { AckSections } from "./components/AckSections.component";
 import { AckSectionTemplates } from "./components/AckSectionTemplates.component";
 import { AckModal } from "./components/AckModal.component";
 import { AckModalLayout } from "./components/AckModalLayout.component";
+import { AckFixedElementStage } from "./components/AckFixedElementStage.component";
+import { AckFixedElement } from "./components/AckFixedElement.component";
 import { AckCloseIcon } from "./components/AckCloseIcon.component";
 import { AckOptions } from "./components/AckOptions.component";
 import { AbsoluteOverflowX } from "./components/AbsoluteOverflowX.component";
-import { AckFixedElementStage } from "./components/AckFixedElementStage.component";
 import { ReaderBody } from "./components/ReaderHeaderBody.component";
 import { AckArray } from "./directives/AckArray.directive";
 import { ScrollPastFixed } from "./components/ScrollPastFixed.component";
@@ -64,4 +65,4 @@ export declare class FormAlter {
     ngOnDestroy(): void;
 }
 export declare const screenDirectives: (typeof ScrollPastFixed | typeof ScreenScrollHeightDiff | typeof ScreenScroll | typeof PxFromHtmlTop | typeof ScreenScrollModelY | typeof ScreenWidthModel | typeof ScreenHeightModel)[];
-export declare const declarations: (typeof SelectOn | typeof FocusOn | typeof InnerHtmlModel | typeof AckSections | typeof AckSectionTemplates | typeof AckModal | typeof AckModalLayout | typeof AckCloseIcon | typeof AckOptions | typeof AbsoluteOverflowX | typeof AckFixedElementStage | typeof ReaderBody | typeof AckArray | typeof ScrollPastFixed | typeof FxOn | typeof ShakeOn | typeof ElementSizeModel | typeof PxFromHtmlTop | typeof ScreenWidthModel | typeof ScreenHeightModel | typeof HtmlWidthModel | typeof EnterKey | typeof EscapeKey | typeof PreventBackKey | typeof PreventEnterKey | typeof FormChanged | typeof FormAlter)[];
+export declare const declarations: (typeof SelectOn | typeof FocusOn | typeof InnerHtmlModel | typeof AckSections | typeof AckSectionTemplates | typeof AckFixedElement | typeof AckModal | typeof AckModalLayout | typeof AckFixedElementStage | typeof AckCloseIcon | typeof AckOptions | typeof AbsoluteOverflowX | typeof ReaderBody | typeof AckArray | typeof ScrollPastFixed | typeof FxOn | typeof ShakeOn | typeof ElementSizeModel | typeof PxFromHtmlTop | typeof ScreenWidthModel | typeof ScreenHeightModel | typeof HtmlWidthModel | typeof EnterKey | typeof EscapeKey | typeof PreventBackKey | typeof PreventEnterKey | typeof FormChanged | typeof FormAlter)[];

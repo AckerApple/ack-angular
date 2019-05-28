@@ -270,6 +270,50 @@ exports.AckCloseIcon = AckCloseIcon;
 
 /***/ }),
 
+/***/ "../src/components/AckFixedElement.component.ts":
+/*!******************************************************!*\
+  !*** ../src/components/AckFixedElement.component.ts ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var AckApp_provider_1 = __webpack_require__(/*! ../providers/AckApp.provider */ "../src/providers/AckApp.provider.ts");
+var AckFixedElement = (function () {
+    function AckFixedElement(AckApp) {
+        this.AckApp = AckApp;
+        this.AckApp.fixedElms.push(this);
+    }
+    __decorate([
+        core_1.ViewChild('content'),
+        __metadata("design:type", core_1.TemplateRef)
+    ], AckFixedElement.prototype, "content", void 0);
+    AckFixedElement = __decorate([
+        core_1.Component({
+            selector: 'ack-fixed-element',
+            template: '<ng-template #content><ng-content></ng-content></ng-template>'
+        }),
+        __metadata("design:paramtypes", [AckApp_provider_1.AckApp])
+    ], AckFixedElement);
+    return AckFixedElement;
+}());
+exports.AckFixedElement = AckFixedElement;
+
+
+/***/ }),
+
 /***/ "../src/components/AckFixedElementStage.component.ts":
 /*!***********************************************************!*\
   !*** ../src/components/AckFixedElementStage.component.ts ***!
@@ -303,7 +347,8 @@ var AckFixedElementStage = (function () {
             selector: 'ack-fixed-element-stage',
             template: ack_fixed_element_stage_pug_1.string
         }),
-        __metadata("design:paramtypes", [AckApp_provider_1.AckApp, core_1.ElementRef])
+        __metadata("design:paramtypes", [AckApp_provider_1.AckApp,
+            core_1.ElementRef])
     ], AckFixedElementStage);
     return AckFixedElementStage;
 }());
@@ -1415,7 +1460,7 @@ exports.string = "<div [(elementHeightModel)]=\"elementHeightModel\" [ngClass]=\
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.string = "<ng-container *ngFor=\"let prompt of AckApp.prompts.prompts;let i=index\"><ack-modal-layout zIndex=\"99\" [allowClose]=\"0\"><div style=\"text-align:left;max-width:900px;border:1px solid #DDD;border-radius:5px;margin:1em;padding:1em;background-color:white;\"><h3 *ngIf=\"prompt.title\" style=\"margin-top:0;\">{{ prompt.title }}</h3><div style=\"padding-right:1em;\">{{ prompt.message }}</div><br/><br/><div style=\"text-align:right;\"><a *ngIf=\"prompt.type=='confirm'\" (click)=\"prompt.emitter.emit(false)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;margin-right:.5em;\">Cancel</a><a (click)=\"prompt.emitter.emit(true)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;\" [ngStyle]=\"{'font-weight':prompt.type=='confirm' ? 'bold' : null}\">OK</a></div></div></ack-modal-layout></ng-container><ng-container *ngFor=\"let item of AckApp.modals\"><ng-container *ngIf=\"!item.isModelMode || item.showModel\"><ng-template [ngTemplateOutlet]=\"item.layout\"></ng-template></ng-container></ng-container>";
+exports.string = "<ng-container *ngFor=\"let fixedElm of AckApp.fixedElms\"><ng-container *ngTemplateOutlet=\"fixedElm.content\"></ng-container></ng-container><ng-container *ngFor=\"let prompt of AckApp.prompts.prompts;let i=index\"><ack-modal-layout zIndex=\"99\" [allowClose]=\"0\"><div style=\"text-align:left;max-width:900px;border:1px solid #DDD;border-radius:5px;margin:1em;padding:1em;background-color:white;\"><h3 *ngIf=\"prompt.title\" style=\"margin-top:0;\">{{ prompt.title }}</h3><div style=\"padding-right:1em;\">{{ prompt.message }}</div><br/><br/><div style=\"text-align:right;\"><a *ngIf=\"prompt.type=='confirm'\" (click)=\"prompt.emitter.emit(false)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;margin-right:.5em;\">Cancel</a><a (click)=\"prompt.emitter.emit(true)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;\" [ngStyle]=\"{'font-weight':prompt.type=='confirm' ? 'bold' : null}\">OK</a></div></div></ack-modal-layout></ng-container><ng-container *ngFor=\"let item of AckApp.modals\"><ng-container *ngIf=\"!item.isModelMode || item.showModel\"><ng-template [ngTemplateOutlet]=\"item.layout\"></ng-template></ng-container></ng-container>";
 
 
 /***/ }),
@@ -1564,12 +1609,13 @@ var AckSections_component_1 = __webpack_require__(/*! ./components/AckSections.c
 var AckSectionTemplates_component_1 = __webpack_require__(/*! ./components/AckSectionTemplates.component */ "../src/components/AckSectionTemplates.component.ts");
 var AckModal_component_1 = __webpack_require__(/*! ./components/AckModal.component */ "../src/components/AckModal.component.ts");
 var AckModalLayout_component_1 = __webpack_require__(/*! ./components/AckModalLayout.component */ "../src/components/AckModalLayout.component.ts");
+var AckFixedElementStage_component_1 = __webpack_require__(/*! ./components/AckFixedElementStage.component */ "../src/components/AckFixedElementStage.component.ts");
+var AckFixedElement_component_1 = __webpack_require__(/*! ./components/AckFixedElement.component */ "../src/components/AckFixedElement.component.ts");
 var AckCloseIcon_component_1 = __webpack_require__(/*! ./components/AckCloseIcon.component */ "../src/components/AckCloseIcon.component.ts");
 var AckOptions_component_1 = __webpack_require__(/*! ./components/AckOptions.component */ "../src/components/AckOptions.component.ts");
 var AckOptionsModal_component_1 = __webpack_require__(/*! ./components/AckOptionsModal.component */ "../src/components/AckOptionsModal.component.ts");
 var AbsoluteOverflowX_component_1 = __webpack_require__(/*! ./components/AbsoluteOverflowX.component */ "../src/components/AbsoluteOverflowX.component.ts");
 var ErrorWell_component_1 = __webpack_require__(/*! ./components/ErrorWell.component */ "../src/components/ErrorWell.component.ts");
-var AckFixedElementStage_component_1 = __webpack_require__(/*! ./components/AckFixedElementStage.component */ "../src/components/AckFixedElementStage.component.ts");
 var ReaderHeaderBody_component_1 = __webpack_require__(/*! ./components/ReaderHeaderBody.component */ "../src/components/ReaderHeaderBody.component.ts");
 var DebugArea_component_1 = __webpack_require__(/*! ./components/debug-area/DebugArea.component */ "../src/components/debug-area/DebugArea.component.ts");
 var AckArray_directive_1 = __webpack_require__(/*! ./directives/AckArray.directive */ "../src/directives/AckArray.directive.ts");
@@ -1813,6 +1859,7 @@ exports.declarations = [
     AckModalLayout_component_1.AckModalLayout,
     AckArray_directive_1.AckArray,
     AckAggregate_directive_1.AckAggregate,
+    AckFixedElement_component_1.AckFixedElement,
     AckFixedElementStage_component_1.AckFixedElementStage
 ]);
 
@@ -5730,6 +5777,7 @@ var AckApp = (function () {
     function AckApp(prompts) {
         this.prompts = prompts;
         this.warnedFixElements = true;
+        this.fixedElms = [];
         this.modals = [];
     }
     AckApp.prototype.registerModal = function (item) {

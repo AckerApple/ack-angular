@@ -1,4 +1,9 @@
 ng-container(
+  *ngFor="let fixedElm of AckApp.fixedElms"
+)
+  ng-container(*ngTemplateOutlet="fixedElm.content")
+
+ng-container(
   *ngFor="let prompt of AckApp.prompts.prompts;let i=index"
 )
   ack-modal-layout(

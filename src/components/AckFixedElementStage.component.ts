@@ -7,7 +7,10 @@ import { string } from "./templates/ack-fixed-element-stage.pug"
   selector:'ack-fixed-element-stage',
   template:string
 }) export class AckFixedElementStage{
-  constructor(public AckApp:AckApp, public ElementRef:ElementRef){
+  constructor(
+    public AckApp:AckApp,
+    public ElementRef:ElementRef
+  ){
     AckApp.fixedElementStage = ElementRef
   }
 }

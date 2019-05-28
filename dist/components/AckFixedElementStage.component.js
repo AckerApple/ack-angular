@@ -23,7 +23,8 @@ var AckFixedElementStage = (function () {
             selector: 'ack-fixed-element-stage',
             template: ack_fixed_element_stage_pug_1.string
         }),
-        __metadata("design:paramtypes", [AckApp_provider_1.AckApp, core_1.ElementRef])
+        __metadata("design:paramtypes", [AckApp_provider_1.AckApp,
+            core_1.ElementRef])
     ], AckFixedElementStage);
     return AckFixedElementStage;
 }());

@@ -7,6 +7,7 @@ import { AckModal } from "../components/AckModal.component"
 //import { AckSectionTemplates } from "../components/AckSectionTemplates.component"
 //import { AckAppHeader } from "../components/AckAppHeader.component"
 //import { AckAppFooter } from "../components/AckAppFooter.component"
+import { AckFixedElement } from "../components/AckFixedElement.component"
 import {
   //prompt,
   Prompts
@@ -15,7 +16,8 @@ import {
 @Injectable() export class AckApp{
   warnedFixElements:boolean = true
   fixedElementStage:ElementRef
-
+  
+  fixedElms:AckFixedElement[] = []
   modals:AckModal[] = []
 
   constructor( public prompts:Prompts ){}

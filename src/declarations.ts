@@ -12,12 +12,13 @@ import { AckSections } from "./components/AckSections.component"
 import { AckSectionTemplates } from "./components/AckSectionTemplates.component"
 import { AckModal } from "./components/AckModal.component"
 import { AckModalLayout } from "./components/AckModalLayout.component"
+import { AckFixedElementStage } from "./components/AckFixedElementStage.component"
+import { AckFixedElement } from "./components/AckFixedElement.component"
 import { AckCloseIcon } from "./components/AckCloseIcon.component"
 import { AckOptions } from "./components/AckOptions.component"
 import { AckOptionsModal } from "./components/AckOptionsModal.component"
 import { AbsoluteOverflowX } from "./components/AbsoluteOverflowX.component"
 import { ErrorWell } from "./components/ErrorWell.component"
-import { AckFixedElementStage } from "./components/AckFixedElementStage.component"
 import { ReaderHeaderBody, ReaderHeader, ReaderBody } from "./components/ReaderHeaderBody.component"
 import { declarations as debugDecs } from "./components/debug-area/DebugArea.component"
 
@@ -218,5 +219,6 @@ export const declarations = [
   AckModalLayout,
   AckArray,
   AckAggregate,
+  AckFixedElement,
   AckFixedElementStage
 ]

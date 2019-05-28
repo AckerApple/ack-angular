@@ -15,6 +15,7 @@ var AckApp = (function () {
     function AckApp(prompts) {
         this.prompts = prompts;
         this.warnedFixElements = true;
+        this.fixedElms = [];
         this.modals = [];
     }
     AckApp.prototype.registerModal = function (item) {
