@@ -1,3 +1,4 @@
+import { Subscription } from "rxjs/internal/Subscription"
 import { BehaviorSubject } from "rxjs/internal/BehaviorSubject"
 import {
   EventEmitter, Output, Input,
@@ -40,7 +41,10 @@ export interface loop{
   @Input() page:number = 0
   @Output() pageChange:EventEmitter<number> = new EventEmitter()
 
+  //-deprecated
   @Input() array:any[]
+  @Input() array$:EventEmitter<any[]>
+  array$sub:Subscription
   @Output() arrayChange = new EventEmitter()
 
   //an system of creating an object by keys of array nodes
@@ -59,6 +63,12 @@ export interface loop{
     //watch deep changes
     const f = this._iterableDiffers.find([])
     this.iterableDiffer = f.create();
+  }
+
+  ngOnDestroy(){
+    if( this.array$sub ){
+      this.array$sub.unsubscribe
+    }
   }
 
   ngOnInit(){
@@ -98,6 +108,21 @@ export interface loop{
   }
 
   ngOnChanges(changes){
+    if( changes.array$ ){
+      if( this.array$sub ){
+        this.array$sub.unsubscribe()
+        delete this.array$sub
+      }
+
+      if( this.array$ ){
+        this.array$sub = this.array$.subscribe(array=>{
+          const reset = this.array != array
+          this.array = array
+          this.loop( reset )
+        })
+      }
+    }
+
     let loop = changes.array ? true : false
 
     if( changes.pageAt ){
