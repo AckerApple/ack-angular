@@ -10,31 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var Prompts_1 = require("./Prompts");
-var AckApp = (function () {
-    function AckApp(prompts) {
-        this.prompts = prompts;
-        this.warnedFixElements = true;
-        this.fixedElms = [];
-        this.modals = [];
+var AckApp_provider_1 = require("../providers/AckApp.provider");
+var AckFixedElement = (function () {
+    function AckFixedElement(AckApp) {
+        this.AckApp = AckApp;
+        this.AckApp.fixedElms.push(this);
     }
-    AckApp.prototype.registerModal = function (item) {
-        this.modals.push(item);
-        return this;
-    };
-    AckApp.prototype.unregisterModal = function (item) {
-        for (var index = this.modals.length - 1; index >= 0; --index) {
-            if (this.modals[index] == item) {
-                this.modals.splice(index, 1);
-                break;
-            }
-        }
-        return this;
-    };
-    AckApp = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [Prompts_1.Prompts])
-    ], AckApp);
-    return AckApp;
+    __decorate([
+        core_1.ViewChild('content'),
+        __metadata("design:type", core_1.TemplateRef)
+    ], AckFixedElement.prototype, "content", void 0);
+    AckFixedElement = __decorate([
+        core_1.Component({
+            selector: 'ack-fixed-element',
+            template: '<ng-template #content><ng-content></ng-content></ng-template>'
+        }),
+        __metadata("design:paramtypes", [AckApp_provider_1.AckApp])
+    ], AckFixedElement);
+    return AckFixedElement;
 }());
-exports.AckApp = AckApp;
+exports.AckFixedElement = AckFixedElement;

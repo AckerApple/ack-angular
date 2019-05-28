@@ -1,3 +1,4 @@
+import { Subscription } from "rxjs/internal/Subscription";
 import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
 import { EventEmitter, IterableDiffers, IterableDiffer } from "@angular/core";
 import { AckAggregate } from "./AckAggregate.directive";
@@ -23,6 +24,8 @@ export declare class AckArray {
     page: number;
     pageChange: EventEmitter<number>;
     array: any[];
+    array$: EventEmitter<any[]>;
+    array$sub: Subscription;
     arrayChange: EventEmitter<{}>;
     keyMap: any;
     keyMapChange: EventEmitter<{}>;
@@ -31,6 +34,7 @@ export declare class AckArray {
     loopEnd: EventEmitter<void>;
     AckAggregates: AckAggregate[];
     constructor(_iterableDiffers: IterableDiffers);
+    ngOnDestroy(): void;
     ngOnInit(): void;
     ngAfterViewInit(): void;
     ngDoCheck(): void;

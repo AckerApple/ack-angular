@@ -14,12 +14,13 @@ var AckSections_component_1 = require("./components/AckSections.component");
 var AckSectionTemplates_component_1 = require("./components/AckSectionTemplates.component");
 var AckModal_component_1 = require("./components/AckModal.component");
 var AckModalLayout_component_1 = require("./components/AckModalLayout.component");
+var AckFixedElementStage_component_1 = require("./components/AckFixedElementStage.component");
+var AckFixedElement_component_1 = require("./components/AckFixedElement.component");
 var AckCloseIcon_component_1 = require("./components/AckCloseIcon.component");
 var AckOptions_component_1 = require("./components/AckOptions.component");
 var AckOptionsModal_component_1 = require("./components/AckOptionsModal.component");
 var AbsoluteOverflowX_component_1 = require("./components/AbsoluteOverflowX.component");
 var ErrorWell_component_1 = require("./components/ErrorWell.component");
-var AckFixedElementStage_component_1 = require("./components/AckFixedElementStage.component");
 var ReaderHeaderBody_component_1 = require("./components/ReaderHeaderBody.component");
 var DebugArea_component_1 = require("./components/debug-area/DebugArea.component");
 var AckArray_directive_1 = require("./directives/AckArray.directive");
@@ -263,5 +264,6 @@ exports.declarations = [
     AckModalLayout_component_1.AckModalLayout,
     AckArray_directive_1.AckArray,
     AckAggregate_directive_1.AckAggregate,
+    AckFixedElement_component_1.AckFixedElement,
     AckFixedElementStage_component_1.AckFixedElementStage
 ]);

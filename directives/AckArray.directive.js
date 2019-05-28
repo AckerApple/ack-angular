@@ -30,6 +30,11 @@ var AckArray = (function () {
         var f = this._iterableDiffers.find([]);
         this.iterableDiffer = f.create();
     }
+    AckArray.prototype.ngOnDestroy = function () {
+        if (this.array$sub) {
+            this.array$sub.unsubscribe;
+        }
+    };
     AckArray.prototype.ngOnInit = function () {
         var _this = this;
         if (this.keyMapChange.observers.length) {
@@ -65,6 +70,19 @@ var AckArray = (function () {
     };
     AckArray.prototype.ngOnChanges = function (changes) {
         var _this = this;
+        if (changes.array$) {
+            if (this.array$sub) {
+                this.array$sub.unsubscribe();
+                delete this.array$sub;
+            }
+            if (this.array$) {
+                this.array$sub = this.array$.subscribe(function (array) {
+                    var reset = _this.array != array;
+                    _this.array = array;
+                    _this.loop(reset);
+                });
+            }
+        }
         var loop = changes.array ? true : false;
         if (changes.pageAt) {
             this.pushCreatePages();
@@ -318,6 +336,10 @@ var AckArray = (function () {
         core_1.Input(),
         __metadata("design:type", Array)
     ], AckArray.prototype, "array", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckArray.prototype, "array$", void 0);
     __decorate([
         core_1.Output(),
         __metadata("design:type", Object)
