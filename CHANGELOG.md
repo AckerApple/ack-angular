@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.13.5] - 2019-05-28
+- Added ack-fixed-element
+
 ## [1.13.2] - 2019-05-23
 - added endNumberWord pipe
 
