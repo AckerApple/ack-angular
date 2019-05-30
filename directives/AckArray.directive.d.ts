@@ -17,7 +17,8 @@ export declare class AckArray {
     pushed: any;
     inSort: boolean;
     sortArray: sortDef[];
-    idKey: any;
+    idKeys: string[];
+    merge: boolean;
     pageAt: number;
     pages: any[][];
     pagesChange: BehaviorSubject<any[][]>;
@@ -45,10 +46,9 @@ export declare class AckArray {
     pushCreateMap(): void;
     pushCreatePages(): void;
     only(item: any): void;
-    getItemId(item: any, itemIndexName?: string): any;
-    getCompareArray(): any[];
-    selected(item: any): boolean;
-    itemIndex(item: any, itemIndexName?: string): number;
+    getItemId(item: any): any;
+    getCompareArray(): (string | number)[];
+    itemIndex(item: any): number;
     toggle(item: any): this;
     push(item: any): this;
     unshift(item: any): this;
@@ -56,3 +56,4 @@ export declare class AckArray {
     param(): any[];
     toggleSort(arrayKey: string | string[], sortType: "date" | "time" | "datetime" | "int" | "number" | string | number): boolean;
 }
+export declare function mergeArrays(arrayOriginal: any[], arrayNew: any[], idKeys: string[]): void;
