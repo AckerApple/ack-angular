@@ -1,4 +1,3 @@
-import { Subscription } from "rxjs/internal/Subscription";
 import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
 import { EventEmitter, IterableDiffers, IterableDiffer } from "@angular/core";
 import { AckAggregate } from "./AckAggregate.directive";
@@ -10,24 +9,19 @@ export interface loop {
     index: number;
     item: any;
 }
-export declare class AckArray {
+import { AckArray as AckArrayClass } from './AckArray.class';
+export declare class AckArray extends AckArrayClass {
     private _iterableDiffers;
     iterableDiffer: IterableDiffer<any[]>;
     inited: boolean;
     pushed: any;
     inSort: boolean;
     sortArray: sortDef[];
-    idKeys: string[];
-    merge: boolean;
     pageAt: number;
     pages: any[][];
     pagesChange: BehaviorSubject<any[][]>;
     page: number;
     pageChange: EventEmitter<number>;
-    array: any[];
-    array$: EventEmitter<any[]>;
-    array$sub: Subscription;
-    arrayChange: EventEmitter<{}>;
     keyMap: any;
     keyMapChange: EventEmitter<{}>;
     loopStart: EventEmitter<boolean>;
@@ -35,7 +29,6 @@ export declare class AckArray {
     loopEnd: EventEmitter<void>;
     AckAggregates: AckAggregate[];
     constructor(_iterableDiffers: IterableDiffers);
-    ngOnDestroy(): void;
     ngOnInit(): void;
     ngAfterViewInit(): void;
     ngDoCheck(): void;
@@ -56,4 +49,3 @@ export declare class AckArray {
     param(): any[];
     toggleSort(arrayKey: string | string[], sortType: "date" | "time" | "datetime" | "int" | "number" | string | number): boolean;
 }
-export declare function mergeArrays(arrayOriginal: any[], arrayNew: any[], idKeys: string[]): void;
