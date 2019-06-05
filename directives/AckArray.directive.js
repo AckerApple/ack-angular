@@ -42,6 +42,7 @@ var AckArray = (function (_super) {
         _this.loopStart = new core_1.EventEmitter();
         _this.loopEach = new core_1.EventEmitter();
         _this.loopEnd = new core_1.EventEmitter();
+        _this.arrayChange = new core_1.EventEmitter();
         var f = _this._iterableDiffers.find([]);
         _this.iterableDiffer = f.create();
         return _this;
@@ -334,6 +335,26 @@ var AckArray = (function (_super) {
         core_1.ContentChildren(AckAggregate_directive_1.AckAggregate),
         __metadata("design:type", Array)
     ], AckArray.prototype, "AckAggregates", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Array)
+    ], AckArray.prototype, "idKeys", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckArray.prototype, "merge", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Array)
+    ], AckArray.prototype, "array", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], AckArray.prototype, "arrayChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckArray.prototype, "array$", void 0);
     AckArray = __decorate([
         core_1.Directive({
             selector: "ack-array",

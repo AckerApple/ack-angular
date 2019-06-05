@@ -28,6 +28,11 @@ export declare class AckArray extends AckArrayClass {
     loopEach: EventEmitter<loop>;
     loopEnd: EventEmitter<void>;
     AckAggregates: AckAggregate[];
+    idKeys: string[];
+    merge: boolean;
+    array: any[];
+    arrayChange: EventEmitter<{}>;
+    array$: EventEmitter<any[]>;
     constructor(_iterableDiffers: IterableDiffers);
     ngOnInit(): void;
     ngAfterViewInit(): void;
