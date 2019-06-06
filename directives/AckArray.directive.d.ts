@@ -1,3 +1,4 @@
+import { Subscription } from "rxjs/internal/Subscription";
 import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
 import { EventEmitter, IterableDiffers, IterableDiffer } from "@angular/core";
 import { AckAggregate } from "./AckAggregate.directive";
@@ -9,9 +10,9 @@ export interface loop {
     index: number;
     item: any;
 }
-import { AckArray as AckArrayClass } from './AckArray.class';
-export declare class AckArray extends AckArrayClass {
+export declare class AckArray {
     private _iterableDiffers;
+    array$sub: Subscription;
     iterableDiffer: IterableDiffer<any[]>;
     inited: boolean;
     pushed: any;
@@ -34,6 +35,7 @@ export declare class AckArray extends AckArrayClass {
     arrayChange: EventEmitter<{}>;
     array$: EventEmitter<any[]>;
     constructor(_iterableDiffers: IterableDiffers);
+    ngOnDestroy(): void;
     ngOnInit(): void;
     ngAfterViewInit(): void;
     ngDoCheck(): void;
@@ -54,3 +56,5 @@ export declare class AckArray extends AckArrayClass {
     param(): any[];
     toggleSort(arrayKey: string | string[], sortType: "date" | "time" | "datetime" | "int" | "number" | string | number): boolean;
 }
+export declare function dataKeysMatch(ao: any, an: any, idKeys: string[]): boolean;
+export declare function mergeArrays(arrayOriginal: any[], arrayNew: any[], idKeys: string[]): void;
