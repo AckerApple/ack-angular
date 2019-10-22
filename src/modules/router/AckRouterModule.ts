@@ -5,9 +5,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { RouteWatchReporter } from "./RouteWatchReporter"
+import { RouteHistory } from "./RouteHistory.provider"
 import { RouteReporter } from "./RouteReporter.directive"
 
-export const providers = [ RouteWatchReporter ]
+export const providers = [ RouteWatchReporter, RouteHistory ]
 
 @NgModule({
   imports:[
@@ -15,7 +16,7 @@ export const providers = [ RouteWatchReporter ]
     RouterModule
   ],
   declarations: [ RouteReporter ],
-  //providers:providers,
+  providers:providers,
   exports:[
     RouteReporter,
     RouterModule

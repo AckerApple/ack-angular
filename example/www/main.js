@@ -42,7 +42,7 @@ webpackContext.id = "../node_modules/moment-mini/locale sync recursive ^\\.\\/.*
 /*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, private, default */
 /***/ (function(module) {
 
-module.exports = {"name":"ack-angular","version":"1.13.6","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist","stats":"webpack-bundle-analyzer example/www/stats.json","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass src/ack-angular.scss dist/ack-angular.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example compile:templates","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\" \"compile:templates -- --watch\"","compile:templates":"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example --stats-json","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist copy:scss build:js","copy:scss":"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.13.8","@angular/animations":"^7.2.12","@angular/cli":"^7.2.12","@angular/common":"^7.2.12","@angular/compiler":"^7.2.12","@angular/compiler-cli":"^7.2.12","@angular/core":"^7.2.12","@angular/forms":"^7.2.12","@angular/platform-browser":"^7.2.12","@angular/platform-browser-dynamic":"^7.2.12","@angular/router":"^7.2.12","@types/jasmine":"^3.3.12","ack-angular-fx":"^3.0.1","ack-css-boot":"^1.2.58","ack-path":"^1.6.2","ack-pug-bundler":"^1.4.0","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.5.6","animate.css":"^3.7.0","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.4.0","karma":"^4.0.1","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.5","karma-jasmine":"^2.0.1","karma-jasmine-html-reporter":"^1.4.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.3","ngx-page-scroll":"^6.0.0-beta.1","ngx-page-scroll-core":"^6.0.0-beta.1","npm-run-all":"^4.1.5","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.3","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.13","rxjs":"^6.4.0","ts-helpers":"^1.1.2","ts-node":"^8.0.3","typescript":"3.2.2","webpack-bundle-analyzer":"^3.3.0","zone.js":"^0.9.0"},"private":true};
+module.exports = {"name":"ack-angular","version":"1.13.7","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist","stats":"webpack-bundle-analyzer example/www/stats.json","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass src/ack-angular.scss dist/ack-angular.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example compile:templates","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\" \"compile:templates -- --watch\"","compile:templates":"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example --stats-json","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist copy:scss build:js","copy:scss":"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.13.8","@angular/animations":"^7.2.12","@angular/cli":"^7.2.12","@angular/common":"^7.2.12","@angular/compiler":"^7.2.12","@angular/compiler-cli":"^7.2.12","@angular/core":"^7.2.12","@angular/forms":"^7.2.12","@angular/platform-browser":"^7.2.12","@angular/platform-browser-dynamic":"^7.2.12","@angular/router":"^7.2.12","@types/jasmine":"^3.3.12","ack-angular-fx":"^3.0.1","ack-css-boot":"^1.2.58","ack-path":"^1.6.2","ack-pug-bundler":"^1.4.0","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.5.6","animate.css":"^3.7.0","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.4.0","karma":"^4.0.1","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.5","karma-jasmine":"^2.0.1","karma-jasmine-html-reporter":"^1.4.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.3","ngx-page-scroll":"^6.0.0-beta.1","ngx-page-scroll-core":"^6.0.0-beta.1","npm-run-all":"^4.1.5","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.3","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.13","rxjs":"^6.4.0","ts-helpers":"^1.1.2","ts-node":"^8.0.3","typescript":"3.2.2","webpack-bundle-analyzer":"^3.3.0","zone.js":"^0.9.0"},"private":true};
 
 /***/ }),
 
@@ -4681,8 +4681,9 @@ var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/
 var common_1 = __webpack_require__(/*! @angular/common */ "../node_modules/@angular/common/fesm5/common.js");
 var router_1 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
 var RouteWatchReporter_1 = __webpack_require__(/*! ./RouteWatchReporter */ "../src/modules/router/RouteWatchReporter.ts");
+var RouteHistory_provider_1 = __webpack_require__(/*! ./RouteHistory.provider */ "../src/modules/router/RouteHistory.provider.ts");
 var RouteReporter_directive_1 = __webpack_require__(/*! ./RouteReporter.directive */ "../src/modules/router/RouteReporter.directive.ts");
-exports.providers = [RouteWatchReporter_1.RouteWatchReporter];
+exports.providers = [RouteWatchReporter_1.RouteWatchReporter, RouteHistory_provider_1.RouteHistory];
 var AckRouterModule = (function () {
     function AckRouterModule() {
     }
@@ -4701,6 +4702,7 @@ var AckRouterModule = (function () {
                 router_1.RouterModule
             ],
             declarations: [RouteReporter_directive_1.RouteReporter],
+            providers: exports.providers,
             exports: [
                 RouteReporter_directive_1.RouteReporter,
                 router_1.RouterModule
@@ -4710,6 +4712,106 @@ var AckRouterModule = (function () {
     return AckRouterModule;
 }());
 exports.AckRouterModule = AckRouterModule;
+
+
+/***/ }),
+
+/***/ "../src/modules/router/RouteHistory.provider.ts":
+/*!******************************************************!*\
+  !*** ../src/modules/router/RouteHistory.provider.ts ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+var router_1 = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
+var RouteHistory = (function () {
+    function RouteHistory(Router) {
+        this.Router = Router;
+        this.routeHistory = [];
+        this.maxHistory = 10;
+        this.historyIndex = 0;
+        this.subs = [];
+        this.monitor();
+    }
+    RouteHistory.prototype.monitor = function () {
+        var _this = this;
+        this.subs.push(this.Router.events.subscribe(function (event) {
+            if (event.constructor === router_1.NavigationEnd) {
+                _this.addRouteToHistory();
+            }
+        }));
+    };
+    RouteHistory.prototype.ngOnDestroy = function () {
+        this.subs.forEach(function (sub) { return sub.unsubscribe(); });
+    };
+    RouteHistory.prototype.addRouteToHistory = function () {
+        var priorPage = this.historyIndex + 1;
+        var nextPage = this.historyIndex - 1;
+        var matchesBack = this.routeHistory.length >= priorPage && this.Router.url === this.routeHistory[priorPage];
+        var matchesNext = this.routeHistory.length >= nextPage && this.Router.url === this.routeHistory[nextPage];
+        var matchesCurrent = this.Router.url === this.routeHistory[this.historyIndex];
+        if (matchesNext) {
+            --this.historyIndex;
+        }
+        if (matchesBack) {
+            ++this.historyIndex;
+        }
+        if (matchesNext || matchesCurrent || matchesBack) {
+            this.applyNav();
+            return;
+        }
+        while (this.routeHistory.length > this.maxHistory) {
+            this.routeHistory.pop();
+        }
+        this.routeHistory.splice(this.historyIndex, 0, this.Router.url);
+        this.applyNav();
+    };
+    RouteHistory.prototype.applyNav = function () {
+        if (this.historyIndex < this.routeHistory.length) {
+            this.back = this.routeHistory[this.historyIndex + 1];
+        }
+        else {
+            delete this.back;
+        }
+        if (this.historyIndex > 0) {
+            this.forward = this.routeHistory[this.historyIndex - 1];
+        }
+        else {
+            delete this.forward;
+        }
+    };
+    RouteHistory.prototype.goBack = function () {
+        if (this.historyIndex === this.routeHistory.length - 1)
+            return;
+        var rh = this.routeHistory[this.historyIndex + 1];
+        this.Router.navigate([rh]);
+    };
+    RouteHistory.prototype.goForward = function () {
+        if (this.historyIndex === 0)
+            return;
+        var rh = this.routeHistory[this.historyIndex - 1];
+        this.Router.navigate([rh]);
+    };
+    RouteHistory = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [router_1.Router])
+    ], RouteHistory);
+    return RouteHistory;
+}());
+exports.RouteHistory = RouteHistory;
 
 
 /***/ }),
@@ -7712,7 +7814,7 @@ exports.string = "<h2 class=\"margin-top-0\">Providers</h2><ng-container [(statu
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/adminapple/projects/Ack/browser/ Angular/ack-angular/src/example/src/index.ts */"./src/index.ts");
+module.exports = __webpack_require__(/*! /Users/acker/Projects/ack-angular/example/src/index.ts */"./src/index.ts");
 
 
 /***/ })
