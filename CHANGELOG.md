@@ -1,6 +1,15 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.13.10] - 2019-06-06
+- Added dependencies into distributed package
+
+## [1.13.8] - 2019-06-05
+- Added destroy call to ack-fixed-element
+
+## [1.13.7] - 2019-05-28
+- ack-array has merge option
+
 ## [1.13.5] - 2019-05-28
 - Added ack-fixed-element
 

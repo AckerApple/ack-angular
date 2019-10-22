@@ -7,6 +7,7 @@ import {
   IterableDiffer
 } from "@angular/core"
 import { AckAggregate } from "./AckAggregate.directive"
+//import { AckArrayJoin } from "./AckArrayJoin.directive"
 
 export interface sortDef{
   arrayKey : string | string[]
@@ -21,16 +22,15 @@ export interface loop{
 @Directive({
   selector:"ack-array",
   exportAs:"AckArray"
-}) export class AckArray {
+}) export class AckArray{
+  array$sub:Subscription
   iterableDiffer: IterableDiffer<any[]>//change detection
   inited:boolean
   pushed:any = {}
 
   inSort:boolean = false
   sortArray:sortDef[] = []
-  
-  @Input() idKey
- 
+   
 
   @Input() pageAt:number = 0//when to page aka maxrows
   @Input() pages:any[][]//(any[])[]
@@ -41,13 +41,7 @@ export interface loop{
   @Input() page:number = 0
   @Output() pageChange:EventEmitter<number> = new EventEmitter()
 
-  //-deprecated
-  @Input() array:any[]
-  @Input() array$:EventEmitter<any[]>
-  array$sub:Subscription
-  @Output() arrayChange = new EventEmitter()
-
-  //an system of creating an object by keys of array nodes
+  //describes unique fields of an object
   @Input() keyMap:any
   @Output() keyMapChange = new EventEmitter()
 
@@ -56,10 +50,20 @@ export interface loop{
   loopEnd:EventEmitter<void> = new EventEmitter()
 
   @ContentChildren(AckAggregate) AckAggregates:AckAggregate[]
+  //@ContentChildren(AckArrayJoin) AckArrayJoins:AckArrayJoin[]
+
+  @Input() idKeys:string[]
+  @Input() merge:boolean//new arrays will merge with original
+
+  @Input() array:any[]//-deprecated use array$
+  @Output() arrayChange = new EventEmitter()
+
+  @Input() array$:EventEmitter<any[]>
 
   constructor(
     private _iterableDiffers: IterableDiffers
   ){
+    //super()
     //watch deep changes
     const f = this._iterableDiffers.find([])
     this.iterableDiffer = f.create();
@@ -67,7 +71,7 @@ export interface loop{
 
   ngOnDestroy(){
     if( this.array$sub ){
-      this.array$sub.unsubscribe
+      this.array$sub.unsubscribe()
     }
   }
 
@@ -116,9 +120,13 @@ export interface loop{
 
       if( this.array$ ){
         this.array$sub = this.array$.subscribe(array=>{
-          const reset = this.array != array
-          this.array = array
-          this.loop( reset )
+          if( this.merge ){
+            mergeArrays(this.array,array,this.idKeys)
+          }else{          
+            const reset = this.array != array
+            this.array = array
+            this.loop( reset )
+          }
         })
       }
     }
@@ -136,7 +144,13 @@ export interface loop{
       )
     }
   }
-
+/*
+  performJoins(){
+    this.AckArrayJoins.forEach(join=>
+      join.joinTo( this.array )
+    )
+  }
+*/
   pushAggregates( aggs:AckAggregate[] ){
     aggs.forEach(agg=>{
       let memory
@@ -171,6 +185,8 @@ export interface loop{
   }
 
   loop( reset:boolean ) : void{
+    //super.loop( reset )
+
     if(!this.array){
       this.array = []
     }
@@ -181,6 +197,8 @@ export interface loop{
     for(let x=0; x < last; ++x){
       this.loopEach.emit({index:x, item:this.array[x]})
     }
+
+    //this.performJoins()
     
     this.loopEnd.emit()
   }
@@ -249,32 +267,28 @@ export interface loop{
   }
 
   //looks up id or the item itself is an ID
-  getItemId(item, itemIndexName?:string):any{
-    itemIndexName = itemIndexName || this.idKey
-    return itemIndexName ? item[itemIndexName] : item
+  getItemId(item):any{
+    return this.idKeys && this.idKeys[0] && item[ this.idKeys[0] ]
   }
 
-  getCompareArray(){
-    if(this.array && this.idKey){
-      return this.array.map(item=>item[this.idKey])
+  getCompareArray():(string|number)[]{
+    if(this.array && this.idKeys && this.idKeys.length){
+      const idKey = this.idKeys[0]
+      return this.array.map(item=>item[idKey])
     }
 
     return this.array || []
   }
-
+/*
   selected(item){
     return this.itemIndex(item) >= 0 ? true : false
   }
-
-  itemIndex(
-    item,//item to look for
-    itemIndexName?:string
-  ):number{
+*/
+  itemIndex( item ):number{
     const array = this.getCompareArray()
-    const itemId = this.getItemId(item, itemIndexName)
     
     for(let x=array.length-1; x >= 0; --x){
-      if(itemId==array[x]){
+      if( dataKeysMatch(array[x], item, this.idKeys) ){
         return x
       }
     }
@@ -393,4 +407,84 @@ export interface loop{
     this.inSort = false
     this.loop( true )//cause pages to be updated
   }
+}
+
+
+export function dataKeysMatch(ao,an,idKeys:string[]):boolean{
+  for(let x=idKeys.length-1; x >= 0; --x){
+    let idKey = idKeys[x]
+    if(ao[idKey]!=null && ao[idKey] !== an[idKey] ){
+      return false
+    }
+  }
+  return true
+}
+
+export function mergeArrays(
+  arrayOriginal:any[],
+  arrayNew:any[],
+  idKeys:string[]
+){
+
+  //removals
+  for(let x=arrayOriginal.length-1; x >= 0; --x){
+    let ao = arrayOriginal[x]
+    let an = arrayNew[x]
+    
+    //quick match
+    if(an && dataKeysMatch(ao,an,idKeys) ){
+      continue
+    }
+
+    let found = false
+    for(let xx=arrayNew.length-1; xx >= 0; --xx){
+      if( dataKeysMatch(ao, arrayNew[xx], idKeys)){
+        found = true
+        break
+      }
+    }
+
+    if(found)continue        
+
+    arrayOriginal.splice(x,1)
+  }
+
+  //merge and add
+  for(let x=0; x < arrayNew.length; ++x){
+    let ao = arrayOriginal[x]
+    let an = arrayNew[x]
+    let found = false
+
+    //try by index match first, may to near identical arrays
+    if(ao && dataKeysMatch(ao,an,idKeys)){
+      mergeObjects(ao, an)
+      continue
+    }
+
+    //try to match by loop against loop
+    for(let xx=arrayOriginal.length-1; xx >= 0; --xx){
+      ao = arrayOriginal[xx]
+      if( dataKeysMatch(ao,an,idKeys) ){
+        mergeObjects(ao, an)
+        found = true
+        continue
+      }
+    }
+
+    if( found ){
+      continue
+    }
+
+    //not found, add to array
+    //arrayOriginal.unshift(an)
+    arrayOriginal.splice(x,0,an)
+  }
+}
+
+
+function mergeObjects(ao:object, an:object){
+  for(let x in ao){
+    delete ao[x]
+  }
+  Object.assign(ao, an)
 }

@@ -15,4 +15,14 @@ import { AckApp } from "../providers/AckApp.provider"
   ){
     this.AckApp.fixedElms.push(this)
   }
+
+  ngOnDestroy(){
+    for(let x=this.AckApp.fixedElms.length-1; x >= 0; --x){
+      const iClass = this.AckApp.fixedElms[x]
+      if( iClass === this ){
+        this.AckApp.fixedElms.splice(x,1)
+        break
+      }
+    }
+  }
 }

@@ -1,0 +1,33 @@
+/* NOT IN USE YET */
+//import { Subscription } from "rxjs/internal/Subscription"
+//import { BehaviorSubject } from "rxjs/internal/BehaviorSubject"
+import {
+  //EventEmitter, Output, Input,
+  //ContentChildren,
+  Directive
+} from "@angular/core"
+
+import { AckArray } from './AckArray.class'
+
+@Directive({
+  selector:"ack-array-join",
+  exportAs:"AckArrayJoin"
+}) export class AckArrayJoin extends AckArray{
+  rootArray:any
+
+  loop( reset:boolean ){
+    super.loop( reset )
+    this.tryJoin()
+  }
+
+  joinTo( array:any[] ){
+    this.rootArray = array
+    this.tryJoin()
+  }
+
+  tryJoin(){
+    if( !this.rootArray || !this.array){
+      return
+    }
+  }
+}

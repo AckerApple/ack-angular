@@ -39,10 +39,10 @@ webpackContext.id = "../node_modules/moment-mini/locale sync recursive ^\\.\\/.*
 /*!***********************!*\
   !*** ../package.json ***!
   \***********************/
-/*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, private, default */
+/*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, dependencies, devDependencies, private, default */
 /***/ (function(module) {
 
-module.exports = {"name":"ack-angular","version":"1.13.6","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist","stats":"webpack-bundle-analyzer example/www/stats.json","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass src/ack-angular.scss dist/ack-angular.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example compile:templates","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\" \"compile:templates -- --watch\"","compile:templates":"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example --stats-json","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist copy:scss build:js","copy:scss":"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","devDependencies":{"@angular-devkit/build-angular":"~0.13.8","@angular/animations":"^7.2.12","@angular/cli":"^7.2.12","@angular/common":"^7.2.12","@angular/compiler":"^7.2.12","@angular/compiler-cli":"^7.2.12","@angular/core":"^7.2.12","@angular/forms":"^7.2.12","@angular/platform-browser":"^7.2.12","@angular/platform-browser-dynamic":"^7.2.12","@angular/router":"^7.2.12","@types/jasmine":"^3.3.12","ack-angular-fx":"^3.0.1","ack-css-boot":"^1.2.58","ack-path":"^1.6.2","ack-pug-bundler":"^1.4.0","ack-reload":"^2.0.12","ack-sass":"^1.1.1","ack-x":"^1.5.6","animate.css":"^3.7.0","classlist-polyfill":"^1.2.0","csshake":"^1.5.3","jasmine":"^3.4.0","karma":"^4.0.1","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.5","karma-jasmine":"^2.0.1","karma-jasmine-html-reporter":"^1.4.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.3","ngx-page-scroll":"^6.0.0-beta.1","ngx-page-scroll-core":"^6.0.0-beta.1","npm-run-all":"^4.1.5","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.3","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.13","rxjs":"^6.4.0","ts-helpers":"^1.1.2","ts-node":"^8.0.3","typescript":"3.2.2","webpack-bundle-analyzer":"^3.3.0","zone.js":"^0.9.0"},"private":true};
+module.exports = {"name":"ack-angular","version":"1.13.9","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist","stats":"webpack-bundle-analyzer example/www/stats.json","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass src/ack-angular.scss dist/ack-angular.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example compile:templates","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\" \"compile:templates -- --watch\"","compile:templates":"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example --stats-json","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist copy:scss build:js","copy:scss":"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","dependencies":{"ack-x":"^1.5.6","ack-css-boot":"^1.2.58","ack-angular-fx":"^3.0.1","csshake":"^1.5.3","animate.css":"^3.7.0"},"devDependencies":{"@angular-devkit/build-angular":"~0.13.8","@angular/animations":"^7.2.12","@angular/cli":"^7.2.12","@angular/common":"^7.2.12","@angular/compiler":"^7.2.12","@angular/compiler-cli":"^7.2.12","@angular/core":"^7.2.12","@angular/forms":"^7.2.12","@angular/platform-browser":"^7.2.12","@angular/platform-browser-dynamic":"^7.2.12","@angular/router":"^7.2.12","@types/jasmine":"^3.3.12","ack-path":"^1.6.2","ack-pug-bundler":"^1.4.0","ack-reload":"^2.0.12","ack-sass":"^1.1.1","classlist-polyfill":"^1.2.0","jasmine":"^3.4.0","karma":"^4.0.1","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.5","karma-jasmine":"^2.0.1","karma-jasmine-html-reporter":"^1.4.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.3","ngx-page-scroll":"^6.0.0-beta.1","ngx-page-scroll-core":"^6.0.0-beta.1","npm-run-all":"^4.1.5","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.3","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.13","rxjs":"^6.4.0","ts-helpers":"^1.1.2","ts-node":"^8.0.3","typescript":"3.2.2","webpack-bundle-analyzer":"^3.3.0","zone.js":"^0.9.0"},"private":true};
 
 /***/ }),
 
@@ -296,6 +296,15 @@ var AckFixedElement = (function () {
         this.AckApp = AckApp;
         this.AckApp.fixedElms.push(this);
     }
+    AckFixedElement.prototype.ngOnDestroy = function () {
+        for (var x = this.AckApp.fixedElms.length - 1; x >= 0; --x) {
+            var iClass = this.AckApp.fixedElms[x];
+            if (iClass === this) {
+                this.AckApp.fixedElms.splice(x, 1);
+                break;
+            }
+        }
+    };
     __decorate([
         core_1.ViewChild('content'),
         __metadata("design:type", core_1.TemplateRef)
@@ -1950,17 +1959,17 @@ var AckArray = (function () {
         this.pagesChange = new BehaviorSubject_1.BehaviorSubject(null);
         this.page = 0;
         this.pageChange = new core_1.EventEmitter();
-        this.arrayChange = new core_1.EventEmitter();
         this.keyMapChange = new core_1.EventEmitter();
         this.loopStart = new core_1.EventEmitter();
         this.loopEach = new core_1.EventEmitter();
         this.loopEnd = new core_1.EventEmitter();
+        this.arrayChange = new core_1.EventEmitter();
         var f = this._iterableDiffers.find([]);
         this.iterableDiffer = f.create();
     }
     AckArray.prototype.ngOnDestroy = function () {
         if (this.array$sub) {
-            this.array$sub.unsubscribe;
+            this.array$sub.unsubscribe();
         }
     };
     AckArray.prototype.ngOnInit = function () {
@@ -2005,9 +2014,14 @@ var AckArray = (function () {
             }
             if (this.array$) {
                 this.array$sub = this.array$.subscribe(function (array) {
-                    var reset = _this.array != array;
-                    _this.array = array;
-                    _this.loop(reset);
+                    if (_this.merge) {
+                        mergeArrays(_this.array, array, _this.idKeys);
+                    }
+                    else {
+                        var reset = _this.array != array;
+                        _this.array = array;
+                        _this.loop(reset);
+                    }
                 });
             }
         }
@@ -2112,25 +2126,20 @@ var AckArray = (function () {
         this.arrayChange.emit(this.array);
         this.loop(true);
     };
-    AckArray.prototype.getItemId = function (item, itemIndexName) {
-        itemIndexName = itemIndexName || this.idKey;
-        return itemIndexName ? item[itemIndexName] : item;
+    AckArray.prototype.getItemId = function (item) {
+        return this.idKeys && this.idKeys[0] && item[this.idKeys[0]];
     };
     AckArray.prototype.getCompareArray = function () {
-        var _this = this;
-        if (this.array && this.idKey) {
-            return this.array.map(function (item) { return item[_this.idKey]; });
+        if (this.array && this.idKeys && this.idKeys.length) {
+            var idKey_1 = this.idKeys[0];
+            return this.array.map(function (item) { return item[idKey_1]; });
         }
         return this.array || [];
     };
-    AckArray.prototype.selected = function (item) {
-        return this.itemIndex(item) >= 0 ? true : false;
-    };
-    AckArray.prototype.itemIndex = function (item, itemIndexName) {
+    AckArray.prototype.itemIndex = function (item) {
         var array = this.getCompareArray();
-        var itemId = this.getItemId(item, itemIndexName);
         for (var x = array.length - 1; x >= 0; --x) {
-            if (itemId == array[x]) {
+            if (dataKeysMatch(array[x], item, this.idKeys)) {
                 return x;
             }
         }
@@ -2238,10 +2247,6 @@ var AckArray = (function () {
     };
     __decorate([
         core_1.Input(),
-        __metadata("design:type", Object)
-    ], AckArray.prototype, "idKey", void 0);
-    __decorate([
-        core_1.Input(),
         __metadata("design:type", Number)
     ], AckArray.prototype, "pageAt", void 0);
     __decorate([
@@ -2262,18 +2267,6 @@ var AckArray = (function () {
     ], AckArray.prototype, "pageChange", void 0);
     __decorate([
         core_1.Input(),
-        __metadata("design:type", Array)
-    ], AckArray.prototype, "array", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], AckArray.prototype, "array$", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
-    ], AckArray.prototype, "arrayChange", void 0);
-    __decorate([
-        core_1.Input(),
         __metadata("design:type", Object)
     ], AckArray.prototype, "keyMap", void 0);
     __decorate([
@@ -2284,6 +2277,26 @@ var AckArray = (function () {
         core_1.ContentChildren(AckAggregate_directive_1.AckAggregate),
         __metadata("design:type", Array)
     ], AckArray.prototype, "AckAggregates", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Array)
+    ], AckArray.prototype, "idKeys", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], AckArray.prototype, "merge", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Array)
+    ], AckArray.prototype, "array", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], AckArray.prototype, "arrayChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckArray.prototype, "array$", void 0);
     AckArray = __decorate([
         core_1.Directive({
             selector: "ack-array",
@@ -2294,6 +2307,63 @@ var AckArray = (function () {
     return AckArray;
 }());
 exports.AckArray = AckArray;
+function dataKeysMatch(ao, an, idKeys) {
+    for (var x = idKeys.length - 1; x >= 0; --x) {
+        var idKey = idKeys[x];
+        if (ao[idKey] != null && ao[idKey] !== an[idKey]) {
+            return false;
+        }
+    }
+    return true;
+}
+exports.dataKeysMatch = dataKeysMatch;
+function mergeArrays(arrayOriginal, arrayNew, idKeys) {
+    for (var x = arrayOriginal.length - 1; x >= 0; --x) {
+        var ao = arrayOriginal[x];
+        var an = arrayNew[x];
+        if (an && dataKeysMatch(ao, an, idKeys)) {
+            continue;
+        }
+        var found = false;
+        for (var xx = arrayNew.length - 1; xx >= 0; --xx) {
+            if (dataKeysMatch(ao, arrayNew[xx], idKeys)) {
+                found = true;
+                break;
+            }
+        }
+        if (found)
+            continue;
+        arrayOriginal.splice(x, 1);
+    }
+    for (var x = 0; x < arrayNew.length; ++x) {
+        var ao = arrayOriginal[x];
+        var an = arrayNew[x];
+        var found = false;
+        if (ao && dataKeysMatch(ao, an, idKeys)) {
+            mergeObjects(ao, an);
+            continue;
+        }
+        for (var xx = arrayOriginal.length - 1; xx >= 0; --xx) {
+            ao = arrayOriginal[xx];
+            if (dataKeysMatch(ao, an, idKeys)) {
+                mergeObjects(ao, an);
+                found = true;
+                continue;
+            }
+        }
+        if (found) {
+            continue;
+        }
+        arrayOriginal.splice(x, 0, an);
+    }
+}
+exports.mergeArrays = mergeArrays;
+function mergeObjects(ao, an) {
+    for (var x in ao) {
+        delete ao[x];
+    }
+    Object.assign(ao, an);
+}
 
 
 /***/ }),

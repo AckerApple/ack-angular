@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "1.13.6",
+  "version": "1.13.10",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -48,6 +48,13 @@
     "url": "https://github.com/AckerApple/ack-angular/issues"
   },
   "homepage": "https://github.com/AckerApple/ack-angular#readme",
+  "dependencies":{
+    "ack-x": "^1.5.6",
+    "ack-css-boot": "^1.2.58",
+    "ack-angular-fx": "^3.0.1",
+    "csshake": "^1.5.3",
+    "animate.css": "^3.7.0"
+  },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.8",
     "@angular/animations": "^7.2.12",
@@ -61,16 +68,11 @@
     "@angular/platform-browser-dynamic": "^7.2.12",
     "@angular/router": "^7.2.12",
     "@types/jasmine": "^3.3.12",
-    "ack-angular-fx": "^3.0.1",
-    "ack-css-boot": "^1.2.58",
     "ack-path": "^1.6.2",
     "ack-pug-bundler": "^1.4.0",
     "ack-reload": "^2.0.12",
     "ack-sass": "^1.1.1",
-    "ack-x": "^1.5.6",
-    "animate.css": "^3.7.0",
     "classlist-polyfill": "^1.2.0",
-    "csshake": "^1.5.3",
     "jasmine": "^3.4.0",
     "karma": "^4.0.1",
     "karma-chrome-launcher": "^2.2.0",
