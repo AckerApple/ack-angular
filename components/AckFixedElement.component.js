@@ -16,15 +16,6 @@ var AckFixedElement = (function () {
         this.AckApp = AckApp;
         this.AckApp.fixedElms.push(this);
     }
-    AckFixedElement.prototype.ngOnDestroy = function () {
-        for (var x = this.AckApp.fixedElms.length - 1; x >= 0; --x) {
-            var iClass = this.AckApp.fixedElms[x];
-            if (iClass === this) {
-                this.AckApp.fixedElms.splice(x, 1);
-                break;
-            }
-        }
-    };
     __decorate([
         core_1.ViewChild('content'),
         __metadata("design:type", core_1.TemplateRef)

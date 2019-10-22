@@ -22,17 +22,17 @@ var AckArray = (function () {
         this.pagesChange = new BehaviorSubject_1.BehaviorSubject(null);
         this.page = 0;
         this.pageChange = new core_1.EventEmitter();
+        this.arrayChange = new core_1.EventEmitter();
         this.keyMapChange = new core_1.EventEmitter();
         this.loopStart = new core_1.EventEmitter();
         this.loopEach = new core_1.EventEmitter();
         this.loopEnd = new core_1.EventEmitter();
-        this.arrayChange = new core_1.EventEmitter();
         var f = this._iterableDiffers.find([]);
         this.iterableDiffer = f.create();
     }
     AckArray.prototype.ngOnDestroy = function () {
         if (this.array$sub) {
-            this.array$sub.unsubscribe();
+            this.array$sub.unsubscribe;
         }
     };
     AckArray.prototype.ngOnInit = function () {
@@ -77,14 +77,9 @@ var AckArray = (function () {
             }
             if (this.array$) {
                 this.array$sub = this.array$.subscribe(function (array) {
-                    if (_this.merge) {
-                        mergeArrays(_this.array, array, _this.idKeys);
-                    }
-                    else {
-                        var reset = _this.array != array;
-                        _this.array = array;
-                        _this.loop(reset);
-                    }
+                    var reset = _this.array != array;
+                    _this.array = array;
+                    _this.loop(reset);
                 });
             }
         }
@@ -189,20 +184,25 @@ var AckArray = (function () {
         this.arrayChange.emit(this.array);
         this.loop(true);
     };
-    AckArray.prototype.getItemId = function (item) {
-        return this.idKeys && this.idKeys[0] && item[this.idKeys[0]];
+    AckArray.prototype.getItemId = function (item, itemIndexName) {
+        itemIndexName = itemIndexName || this.idKey;
+        return itemIndexName ? item[itemIndexName] : item;
     };
     AckArray.prototype.getCompareArray = function () {
-        if (this.array && this.idKeys && this.idKeys.length) {
-            var idKey_1 = this.idKeys[0];
-            return this.array.map(function (item) { return item[idKey_1]; });
+        var _this = this;
+        if (this.array && this.idKey) {
+            return this.array.map(function (item) { return item[_this.idKey]; });
         }
         return this.array || [];
     };
-    AckArray.prototype.itemIndex = function (item) {
+    AckArray.prototype.selected = function (item) {
+        return this.itemIndex(item) >= 0 ? true : false;
+    };
+    AckArray.prototype.itemIndex = function (item, itemIndexName) {
         var array = this.getCompareArray();
+        var itemId = this.getItemId(item, itemIndexName);
         for (var x = array.length - 1; x >= 0; --x) {
-            if (dataKeysMatch(array[x], item, this.idKeys)) {
+            if (itemId == array[x]) {
                 return x;
             }
         }
@@ -310,6 +310,10 @@ var AckArray = (function () {
     };
     __decorate([
         core_1.Input(),
+        __metadata("design:type", Object)
+    ], AckArray.prototype, "idKey", void 0);
+    __decorate([
+        core_1.Input(),
         __metadata("design:type", Number)
     ], AckArray.prototype, "pageAt", void 0);
     __decorate([
@@ -330,6 +334,18 @@ var AckArray = (function () {
     ], AckArray.prototype, "pageChange", void 0);
     __decorate([
         core_1.Input(),
+        __metadata("design:type", Array)
+    ], AckArray.prototype, "array", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], AckArray.prototype, "array$", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], AckArray.prototype, "arrayChange", void 0);
+    __decorate([
+        core_1.Input(),
         __metadata("design:type", Object)
     ], AckArray.prototype, "keyMap", void 0);
     __decorate([
@@ -340,26 +356,6 @@ var AckArray = (function () {
         core_1.ContentChildren(AckAggregate_directive_1.AckAggregate),
         __metadata("design:type", Array)
     ], AckArray.prototype, "AckAggregates", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Array)
-    ], AckArray.prototype, "idKeys", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], AckArray.prototype, "merge", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Array)
-    ], AckArray.prototype, "array", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
-    ], AckArray.prototype, "arrayChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], AckArray.prototype, "array$", void 0);
     AckArray = __decorate([
         core_1.Directive({
             selector: "ack-array",
@@ -370,60 +366,3 @@ var AckArray = (function () {
     return AckArray;
 }());
 exports.AckArray = AckArray;
-function dataKeysMatch(ao, an, idKeys) {
-    for (var x = idKeys.length - 1; x >= 0; --x) {
-        var idKey = idKeys[x];
-        if (ao[idKey] != null && ao[idKey] !== an[idKey]) {
-            return false;
-        }
-    }
-    return true;
-}
-exports.dataKeysMatch = dataKeysMatch;
-function mergeArrays(arrayOriginal, arrayNew, idKeys) {
-    for (var x = arrayOriginal.length - 1; x >= 0; --x) {
-        var ao = arrayOriginal[x];
-        var an = arrayNew[x];
-        if (an && dataKeysMatch(ao, an, idKeys)) {
-            continue;
-        }
-        var found = false;
-        for (var xx = arrayNew.length - 1; xx >= 0; --xx) {
-            if (dataKeysMatch(ao, arrayNew[xx], idKeys)) {
-                found = true;
-                break;
-            }
-        }
-        if (found)
-            continue;
-        arrayOriginal.splice(x, 1);
-    }
-    for (var x = 0; x < arrayNew.length; ++x) {
-        var ao = arrayOriginal[x];
-        var an = arrayNew[x];
-        var found = false;
-        if (ao && dataKeysMatch(ao, an, idKeys)) {
-            mergeObjects(ao, an);
-            continue;
-        }
-        for (var xx = arrayOriginal.length - 1; xx >= 0; --xx) {
-            ao = arrayOriginal[xx];
-            if (dataKeysMatch(ao, an, idKeys)) {
-                mergeObjects(ao, an);
-                found = true;
-                continue;
-            }
-        }
-        if (found) {
-            continue;
-        }
-        arrayOriginal.splice(x, 0, an);
-    }
-}
-exports.mergeArrays = mergeArrays;
-function mergeObjects(ao, an) {
-    for (var x in ao) {
-        delete ao[x];
-    }
-    Object.assign(ao, an);
-}

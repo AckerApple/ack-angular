@@ -4,5 +4,4 @@ export declare class AckFixedElement {
     AckApp: AckApp;
     content: TemplateRef<ElementRef>;
     constructor(AckApp: AckApp);
-    ngOnDestroy(): void;
 }
