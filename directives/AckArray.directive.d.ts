@@ -12,27 +12,28 @@ export interface loop {
 }
 export declare class AckArray {
     private _iterableDiffers;
+    array$sub: Subscription;
     iterableDiffer: IterableDiffer<any[]>;
     inited: boolean;
     pushed: any;
     inSort: boolean;
     sortArray: sortDef[];
-    idKey: any;
     pageAt: number;
     pages: any[][];
     pagesChange: BehaviorSubject<any[][]>;
     page: number;
     pageChange: EventEmitter<number>;
-    array: any[];
-    array$: EventEmitter<any[]>;
-    array$sub: Subscription;
-    arrayChange: EventEmitter<{}>;
     keyMap: any;
     keyMapChange: EventEmitter<{}>;
     loopStart: EventEmitter<boolean>;
     loopEach: EventEmitter<loop>;
     loopEnd: EventEmitter<void>;
     AckAggregates: AckAggregate[];
+    idKeys: string[];
+    merge: boolean;
+    array: any[];
+    arrayChange: EventEmitter<{}>;
+    array$: EventEmitter<any[]>;
     constructor(_iterableDiffers: IterableDiffers);
     ngOnDestroy(): void;
     ngOnInit(): void;
@@ -45,10 +46,9 @@ export declare class AckArray {
     pushCreateMap(): void;
     pushCreatePages(): void;
     only(item: any): void;
-    getItemId(item: any, itemIndexName?: string): any;
-    getCompareArray(): any[];
-    selected(item: any): boolean;
-    itemIndex(item: any, itemIndexName?: string): number;
+    getItemId(item: any): any;
+    getCompareArray(): (string | number)[];
+    itemIndex(item: any): number;
     toggle(item: any): this;
     push(item: any): this;
     unshift(item: any): this;
@@ -56,3 +56,5 @@ export declare class AckArray {
     param(): any[];
     toggleSort(arrayKey: string | string[], sortType: "date" | "time" | "datetime" | "int" | "number" | string | number): boolean;
 }
+export declare function dataKeysMatch(ao: any, an: any, idKeys: string[]): boolean;
+export declare function mergeArrays(arrayOriginal: any[], arrayNew: any[], idKeys: string[]): void;
