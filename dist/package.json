@@ -1,6 +1,10 @@
 {
   "name": "ack-angular",
+<<<<<<< HEAD
   "version": "1.13.10",
+=======
+  "version": "1.13.8",
+>>>>>>> b93466860f3e1af2f8ffa2ce7c0d2e34065f64e0
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "index.js",
   "typings": "index.d.ts",
