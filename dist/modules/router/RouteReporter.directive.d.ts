@@ -7,7 +7,7 @@ export declare class RouteReporter {
     RouteWatchReporter: RouteWatchReporter;
     ActivatedRoute: ActivatedRoute;
     onLoad: any;
-    stateChanger: EventEmitter<{}>;
+    stateChanger: EventEmitter<RouteWatchReporter>;
     beforeChanger: EventEmitter<{}>;
     activated: ActivatedRoute;
     activatedChange: EventEmitter<ActivatedRoute>;

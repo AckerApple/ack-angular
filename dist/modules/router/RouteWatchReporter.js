@@ -42,7 +42,7 @@ var RouteWatchReporter = (function () {
         var target = this.activatedRoute;
         while (target.firstChild)
             target = target.firstChild;
-        return (target.routeConfig || target);
+        return (target.routeConfig || target["config"] || target);
     };
     RouteWatchReporter.prototype.getCurrentParams = function () {
         var target = this.activatedRoute;
@@ -169,11 +169,11 @@ function getCurrentByActive(ActivatedRoute) {
     var parentSnap = parent.snapshot || {};
     return {
         ActivatedRoute: target,
-        config: (target.routeConfig || target),
+        config: (target.routeConfig || target["config"] || target),
         params: snapshot.params,
         parent: {
             ActivatedRoute: parent,
-            config: (parent.routeConfig || parent),
+            config: (parent.routeConfig || target["config"] || parent),
             params: parentSnap.params
         }
     };

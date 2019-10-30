@@ -271,7 +271,13 @@ exports.ADate = ADate;
 var AMath = (function () {
     function AMath() {
     }
-    AMath.prototype.transform = function () { return pipes.aMath.apply(pipes.aMath, arguments); };
+    AMath.prototype.transform = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        return pipes.aMath.apply(pipes.aMath, args);
+    };
     AMath = __decorate([
         core_1.Pipe({ name: 'aMath' })
     ], AMath);

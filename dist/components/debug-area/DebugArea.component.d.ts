@@ -6,6 +6,8 @@ export declare class DebugItem {
     rowTitle: TemplateRef<ElementRef>;
 }
 export declare class DebugArea {
+    edit: boolean;
+    dataString: string;
     editsMap: any;
     debugItem: DebugItem;
     DebugItems: QueryList<DebugItem>;

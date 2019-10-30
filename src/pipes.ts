@@ -23,7 +23,7 @@ import {
   }
 
   @Pipe({name: 'array'}) export class ForceArray {
-    transform(input, repeat, repeatValue) {
+    transform(input, repeat?, repeatValue?) {
       return pipes.array(input, repeat, repeatValue)
     }
   }
@@ -90,7 +90,7 @@ import {
 }
 
 @Pipe({name: 'numberSuffix'}) export class NumberSuffix {
-  transform(input:string, rtnInput){return pipes.numberSuffix(input, rtnInput)}
+  transform(input:string, rtnInput?){return pipes.numberSuffix(input, rtnInput)}
 }
 
 @Pipe({name: 'markdownAnchor'}) export class MarkdownAnchor {
@@ -131,7 +131,7 @@ import {
 }
 
 @Pipe({name: 'aMath'}) export class AMath {
-  transform(){return pipes.aMath.apply(pipes.aMath, arguments)}
+  transform(...args){return pipes.aMath.apply(pipes.aMath, args)}
 }
 
 @Pipe({name: 'aString'}) export class AString {

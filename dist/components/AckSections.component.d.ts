@@ -11,5 +11,9 @@ export declare class AckSections {
     leftBodyWrap: TemplateRef<any>;
     rightBodyWrap: TemplateRef<any>;
     htmlHeightModel: number;
+    headerHeight: number;
+    leftBodyWidth: number;
+    footerHeight: number;
+    rightBodyWidth: number;
     constructor(SectionProvider: SectionProvider, ElementRef: ElementRef);
 }

@@ -18,10 +18,10 @@ import {
   //deprecated
   @Input() onLoad
 
-  @Output("onChange") stateChanger = new EventEmitter()
+  @Output("onChange") stateChanger: EventEmitter<RouteWatchReporter> = new EventEmitter()
   @Output("beforeChange") beforeChanger = new EventEmitter()
 
-  @Input() activated:ActivatedRoute//ignored in
+  @Input() public activated:ActivatedRoute//ignored in
   @Output() activatedChange:EventEmitter<ActivatedRoute> = new EventEmitter()
 
   @Input() params:any//ignored in

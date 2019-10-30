@@ -38,6 +38,11 @@ import { string } from "./templates/ack-sections.pug"
 
   htmlHeightModel:number
 
+  headerHeight: number
+  leftBodyWidth: number
+  footerHeight: number
+  rightBodyWidth: number
+
   constructor(
     public SectionProvider:SectionProvider,
     public ElementRef:ElementRef

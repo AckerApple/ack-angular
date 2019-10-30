@@ -18,6 +18,8 @@ import { string as template } from "./debug-area.template"
   selector:"debug-area",
   template:template
 }) export class DebugArea{
+  edit:boolean
+  dataString: string
   editsMap:any = {}//map of debug edits
   debugItem:DebugItem
   

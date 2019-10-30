@@ -20,7 +20,6 @@ export interface prompt extends promptOptions{
   emitter:EventEmitter<boolean>
 }
 
-/** Http util with offline config for request failures */
 @Injectable() export class Prompts{
   prompts:prompt[] = []
  

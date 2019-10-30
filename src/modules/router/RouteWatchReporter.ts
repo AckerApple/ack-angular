@@ -60,7 +60,7 @@ export interface currentRoute{
   getCurrentConfig():Route{
     let target = this.activatedRoute
     while(target.firstChild)target=target.firstChild
-    return <Route>(target.routeConfig || target)
+    return <Route>(target.routeConfig || target["config"] || target)
   }
 
   getCurrentParams():any{
@@ -200,13 +200,12 @@ export function getCurrentByActive( ActivatedRoute:ActivatedRoute ){
 
   return {
     ActivatedRoute:target,
-    config:<Route>(target.routeConfig || target),
+    config:<Route>(target.routeConfig || target["config"] || target),
     params:snapshot.params,
     parent:{
       ActivatedRoute:parent,
-      config:<Route>(parent.routeConfig || parent),
+      config:<Route>(parent.routeConfig || target["config"] || parent),
       params:parentSnap.params
     }
-    //...target.routeConfig//may want to do away with this
   }
 }
