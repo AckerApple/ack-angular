@@ -62,6 +62,7 @@ var RouteHistory = (function () {
             var newBack = this.routeHistory[this.routeHistory.length - 1].split("/");
             newBack.pop();
             this.back = newBack.join("/");
+            ++this.historyIndex;
         }
         else {
             delete this.back;
