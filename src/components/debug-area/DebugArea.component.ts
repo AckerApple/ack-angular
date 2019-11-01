@@ -1,5 +1,5 @@
 import {
-  TemplateRef, ElementRef,
+  Output, EventEmitter, TemplateRef, ElementRef,
   Input, ContentChildren, ContentChild,
   Directive, Component, QueryList
 } from "@angular/core"
@@ -12,6 +12,7 @@ import { string as template } from "./debug-area.template"
   @Input() value:any
   @Input() type:"array"|string
   @ContentChild("rowTitle") rowTitle:TemplateRef<ElementRef>
+  @Output() save:EventEmitter<any> = new EventEmitter()
 }
 
 @Component({
@@ -32,20 +33,22 @@ import { string as template } from "./debug-area.template"
   }
 
   //update data from debug area
-  updateDataByJsonString(item:any, string:string){
+  updateDataByJsonString(item:any, string:string, debugItem: DebugItem){
     try{
       const json = JSON.parse(string)
       for(let x in item)delete item[x]
       Object.assign(item, json)
       //this.arrayChange.emit(this.array)
+      debugItem.save.emit(item);
     }catch(e){
       console.error('invalid json string')
     }
   }
 
-  apply(item:any, json:string){
+  apply(item:any, json:string, debugItem: DebugItem){
     const ob = JSON.parse(json)
     Object.assign(item, ob)
+    debugItem.save.emit(item);
   }
 }
 

@@ -13,6 +13,7 @@ var core_1 = require("@angular/core");
 var debug_area_template_1 = require("./debug-area.template");
 var DebugItem = (function () {
     function DebugItem() {
+        this.save = new core_1.EventEmitter();
     }
     __decorate([
         core_1.Input(),
@@ -30,6 +31,10 @@ var DebugItem = (function () {
         core_1.ContentChild("rowTitle"),
         __metadata("design:type", core_1.TemplateRef)
     ], DebugItem.prototype, "rowTitle", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], DebugItem.prototype, "save", void 0);
     DebugItem = __decorate([
         core_1.Directive({
             selector: "debug-item"
@@ -48,20 +53,22 @@ var DebugArea = (function () {
             Promise.resolve().then(function () { return _this.debugItem = _this.DebugItems.first; });
         }
     };
-    DebugArea.prototype.updateDataByJsonString = function (item, string) {
+    DebugArea.prototype.updateDataByJsonString = function (item, string, debugItem) {
         try {
             var json = JSON.parse(string);
             for (var x in item)
                 delete item[x];
             Object.assign(item, json);
+            debugItem.save.emit(item);
         }
         catch (e) {
             console.error('invalid json string');
         }
     };
-    DebugArea.prototype.apply = function (item, json) {
+    DebugArea.prototype.apply = function (item, json, debugItem) {
         var ob = JSON.parse(json);
         Object.assign(item, ob);
+        debugItem.save.emit(item);
     };
     __decorate([
         core_1.ContentChildren(DebugItem),

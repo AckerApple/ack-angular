@@ -65,8 +65,15 @@ import {
   }
 
   applyNav(){
-    if( this.historyIndex<this.routeHistory.length ){
+    const posAvail = this.historyIndex < this.routeHistory.length-1
+
+    if( posAvail ){
       this.back = this.routeHistory[ this.historyIndex+1 ]
+    } else if (this.routeHistory.length) {
+        const newBack = this.routeHistory[this.routeHistory.length - 1].split("/");
+        newBack.pop();
+        this.back = newBack.join("/");
+        ++this.historyIndex;
     }else{
       delete this.back
     }

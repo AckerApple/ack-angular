@@ -24,7 +24,7 @@ ng-container(*ngIf="debugItem")
           ) &lt;
           a(
             style     = "color:blue;"
-            "(click)"="editsMap[ii]=!editsMap[ii]"
+            "(click)" = "editsMap[ii]=!editsMap[ii]"
           ) edit
           a(
             style    = "color:blue;"
@@ -56,7 +56,7 @@ ng-container(*ngIf="debugItem")
           div(style="text-align:center")
             a(
               style     = "color:blue;padding-top:.4em;"
-              "(click)" = "updateDataByJsonString(data,dataString);editsMap[ii]=false"
+              "(click)" = "updateDataByJsonString(data, dataString, debugItem);editsMap[ii]=false"
             ) save
 
   ng-template(#regdebug="")
@@ -70,7 +70,7 @@ ng-container(*ngIf="debugItem")
     ng-container(*ngIf="edit;else readMode")
       textarea.width-full(
         rows = "30"
-        "(change)" = "apply(debugItem.value,$event.target.value)"
+        "(change)" = "apply(debugItem.value,$event.target.value, debugItem)"
         wrap = "off"
       )
         |{{ debugItem.value | json }}

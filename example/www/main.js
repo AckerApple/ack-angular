@@ -42,7 +42,7 @@ webpackContext.id = "../node_modules/moment-mini/locale sync recursive ^\\.\\/.*
 /*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, dependencies, devDependencies, private, default */
 /***/ (function(module) {
 
-module.exports = {"name":"ack-angular","version":"1.13.12","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist","stats":"webpack-bundle-analyzer example/www/stats.json","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass src/ack-angular.scss dist/ack-angular.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example compile:templates","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\" \"compile:templates -- --watch\"","compile:templates":"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example --stats-json","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist copy:scss build:js","copy:scss":"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","dependencies":{"ack-x":"^1.5.6","ack-css-boot":"^1.2.58","ack-angular-fx":"^3.0.1","csshake":"^1.5.3","animate.css":"^3.7.0"},"devDependencies":{"@angular-devkit/build-angular":"~0.13.8","@angular/animations":"^7.2.12","@angular/cli":"^7.2.12","@angular/common":"^7.2.12","@angular/compiler":"^7.2.12","@angular/compiler-cli":"^7.2.12","@angular/core":"^7.2.12","@angular/forms":"^7.2.12","@angular/platform-browser":"^7.2.12","@angular/platform-browser-dynamic":"^7.2.12","@angular/router":"^7.2.12","@types/jasmine":"^3.3.12","ack-path":"^1.6.2","ack-pug-bundler":"^1.4.0","ack-reload":"^2.0.12","ack-sass":"^1.1.1","classlist-polyfill":"^1.2.0","jasmine":"^3.4.0","karma":"^4.0.1","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.5","karma-jasmine":"^2.0.1","karma-jasmine-html-reporter":"^1.4.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.3","ngx-page-scroll":"^6.0.0-beta.1","ngx-page-scroll-core":"^6.0.0-beta.1","npm-run-all":"^4.1.5","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.3","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.13","rxjs":"^6.4.0","ts-helpers":"^1.1.2","ts-node":"^8.0.3","typescript":"3.2.2","webpack-bundle-analyzer":"^3.3.0","zone.js":"^0.9.0"},"private":true};
+module.exports = {"name":"ack-angular","version":"1.13.15","description":"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2","main":"dist/index.js","typings":"dist/index.d.ts","scripts":{"start":"ack-reload -d example/www","build:index":"pug example/src/index.pug --out example/src","build:css":"npm-run-all build:css:ack-css-boot build:css:csshake build:css:dist","stats":"webpack-bundle-analyzer example/www/stats.json","build:css:ack-css-boot":"ack-sass node_modules/ack-css-boot/scss/ack-css-boot.scss dist/ack-css-boot.css --production","build:css:csshake":"ack-sass node_modules/csshake/scss/csshake.scss dist/csshake.css --production","build:css:dist":"ack-sass src/ack-angular.scss dist/ack-angular.css --production","install:example":"npm install --prefix example","test":"ng test --browser PhantomJS --single-run","test:watch":"ng test","build:dist":"ngc --declaration --project src","watch:dist":"watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/","build:assets":"npm-run-all build:assets:src build:assets:example compile:templates","build:assets:src":"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts","build:assets:example":"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts","watch:assets":"npm-run-all --parallel \"build:assets:src -- --watch\" \"build:assets:example -- --watch\" \"compile:templates -- --watch\"","compile:templates":"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne","watch":"npm-run-all --parallel build:index watch:dist watch:assets watch:js","watch:js":"ng serve example --port 4201 --open","build:js":"ng build example --stats-json","build:universal":"npm-run-all build:index build:css build:assets compile:dist:package","build":"npm-run-all build:universal build:dist copy:scss build:js","copy:scss":"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss","compile:dist:package":"node scripts/update-dist-package.js"},"repository":{"type":"git","url":"git+https://github.com/AckerApple/ack-angular.git"},"keywords":["ng","Angular","directives","components","pipes","providers"],"author":"Acker Dawn Apple","license":"MIT","bugs":{"url":"https://github.com/AckerApple/ack-angular/issues"},"homepage":"https://github.com/AckerApple/ack-angular#readme","dependencies":{"ack-x":"^1.5.6","ack-css-boot":"^1.2.58","ack-angular-fx":"^3.0.1","csshake":"^1.5.3","animate.css":"^3.7.0"},"devDependencies":{"@angular-devkit/build-angular":"~0.13.8","@angular/animations":"^7.2.12","@angular/cli":"^7.2.12","@angular/common":"^7.2.12","@angular/compiler":"^7.2.12","@angular/compiler-cli":"^7.2.12","@angular/core":"^7.2.12","@angular/forms":"^7.2.12","@angular/platform-browser":"^7.2.12","@angular/platform-browser-dynamic":"^7.2.12","@angular/router":"^7.2.12","@types/jasmine":"^3.3.12","ack-path":"^1.6.2","ack-pug-bundler":"^1.4.0","ack-reload":"^2.0.12","ack-sass":"^1.1.1","classlist-polyfill":"^1.2.0","jasmine":"^3.4.0","karma":"^4.0.1","karma-chrome-launcher":"^2.2.0","karma-coverage-istanbul-reporter":"^2.0.5","karma-jasmine":"^2.0.1","karma-jasmine-html-reporter":"^1.4.0","karma-phantomjs-launcher":"^1.0.4","localforage":"^1.7.3","ngx-page-scroll":"^6.0.0-beta.1","ngx-page-scroll-core":"^6.0.0-beta.1","npm-run-all":"^4.1.5","phantomjs-prebuilt":"^2.1.16","pug":"^2.0.3","pug-cli":"^1.0.0-alpha6","reflect-metadata":"^0.1.13","rxjs":"^6.4.0","ts-helpers":"^1.1.2","ts-node":"^8.0.3","typescript":"3.2.2","webpack-bundle-analyzer":"^3.3.0","zone.js":"^0.9.0"},"private":true};
 
 /***/ }),
 
@@ -1359,6 +1359,7 @@ var core_1 = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/
 var debug_area_template_1 = __webpack_require__(/*! ./debug-area.template */ "../src/components/debug-area/debug-area.template.ts");
 var DebugItem = (function () {
     function DebugItem() {
+        this.save = new core_1.EventEmitter();
     }
     __decorate([
         core_1.Input(),
@@ -1376,6 +1377,10 @@ var DebugItem = (function () {
         core_1.ContentChild("rowTitle"),
         __metadata("design:type", core_1.TemplateRef)
     ], DebugItem.prototype, "rowTitle", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], DebugItem.prototype, "save", void 0);
     DebugItem = __decorate([
         core_1.Directive({
             selector: "debug-item"
@@ -1394,20 +1399,22 @@ var DebugArea = (function () {
             Promise.resolve().then(function () { return _this.debugItem = _this.DebugItems.first; });
         }
     };
-    DebugArea.prototype.updateDataByJsonString = function (item, string) {
+    DebugArea.prototype.updateDataByJsonString = function (item, string, debugItem) {
         try {
             var json = JSON.parse(string);
             for (var x in item)
                 delete item[x];
             Object.assign(item, json);
+            debugItem.save.emit(item);
         }
         catch (e) {
             console.error('invalid json string');
         }
     };
-    DebugArea.prototype.apply = function (item, json) {
+    DebugArea.prototype.apply = function (item, json, debugItem) {
         var ob = JSON.parse(json);
         Object.assign(item, ob);
+        debugItem.save.emit(item);
     };
     __decorate([
         core_1.ContentChildren(DebugItem),
@@ -1439,7 +1446,7 @@ exports.declarations = [
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.string = "<div class=\"child-pad-h-xs flex-wrap text-center\" *ngIf=\"DebugItems.length&gt;1\"><a class=\"cursor-pointer border border-grey-3x radius-5 flex-1\" *ngFor=\"let item of DebugItems\" [ngClass]=\"item===debugItem ? 'bg-positive text-white' : ''\" (click)=\"debugItem = debugItem===item ? null : item\">{{item.name}}<ng-container *ngIf=\"item.type==='array'\">&nbsp;( {{ item.value?.length || 0 }} )</ng-container></a></div><ng-container *ngIf=\"debugItem\"><h3 class=\"margin-bottom-0\">{{ debugItem.name }}</h3><ng-container *ngIf=\"debugItem.type==='array';else regdebug\"><ng-container #loop=\"var\" [var]=\"{view:0}\"></ng-container><pre class=\"bg-grey-3x margin-0 sample-code\" *ngFor=\"let data of debugItem.value;let ii=index\"><ng-container *ngIf=\"loop.var.view==ii\"><div class=\"flex-valign-center child-pad-xs\" style=\"padding:.4em;float:right\"><a class=\"fas fa-caret-square-left hover-bg-energized\" (click)=\"loop.var.view=ii===0 ? debugItem.value.length-1 : ii-1\">&lt;</a><a style=\"color:blue;\" (click)=\"editsMap[ii]=!editsMap[ii]\">edit</a><a style=\"color:blue;\" (click)=\"debugItem.type=null\">all</a><a class=\"fas fa-caret-square-right hover-bg-energized\" (click)=\"loop.var.view=ii===debugItem.value.length-1 ? 0 : ii+1\">&gt;</a></div><p><ng-container *ngIf=\"debugItem.rowTitle;else defaultRowLabel\"><ng-template *ngTemplateOutlet=\"debugItem.rowTitle;context:{index:ii}\"></ng-template></ng-container><ng-template #defaultRowLabel=\"\"><strong>Result {{ii}} of {{debugItem.value.length}} </strong></ng-template></p><absolute-overflow-x *ngIf=\"!editsMap[ii]\" style=\"font-size:0.8em;\"><pre>{{ data | json }}</pre></absolute-overflow-x><ng-container *ngIf=\"editsMap[ii]\"><textarea [name]=\"'editsMap' + ii\" style=\"width:100%;height:300px\" (change)=\"dataString = $event.target.value\">{{ data | json }}</textarea><div style=\"text-align:center\"><a style=\"color:blue;padding-top:.4em;\" (click)=\"updateDataByJsonString(data,dataString);editsMap[ii]=false\">save</a></div></ng-container></ng-container></pre></ng-container><ng-template #regdebug=\"\"><div class=\"pos-rel\"><div class=\"pos-abs right-0 z-index-10\"><div class=\"pad-xxs\"><i class=\"fas fa-pencil-alt hover-text-energized\" (click)=\"edit=!edit\" [class.text-calm]=\"edit\">edit</i></div></div></div><ng-container *ngIf=\"edit;else readMode\"><textarea class=\"width-full\" rows=\"30\" (change)=\"apply(debugItem.value,$event.target.value)\" wrap=\"off\">{{ debugItem.value | json }}</textarea></ng-container><ng-template #readMode=\"\"><absolute-overflow-x><pre class=\"code-sample\">{{ debugItem.value | json }}</pre></absolute-overflow-x></ng-template></ng-template></ng-container>";
+exports.string = "<div class=\"child-pad-h-xs flex-wrap text-center\" *ngIf=\"DebugItems.length&gt;1\"><a class=\"cursor-pointer border border-grey-3x radius-5 flex-1\" *ngFor=\"let item of DebugItems\" [ngClass]=\"item===debugItem ? 'bg-positive text-white' : ''\" (click)=\"debugItem = debugItem===item ? null : item\">{{item.name}}<ng-container *ngIf=\"item.type==='array'\">&nbsp;( {{ item.value?.length || 0 }} )</ng-container></a></div><ng-container *ngIf=\"debugItem\"><h3 class=\"margin-bottom-0\">{{ debugItem.name }}</h3><ng-container *ngIf=\"debugItem.type==='array';else regdebug\"><ng-container #loop=\"var\" [var]=\"{view:0}\"></ng-container><pre class=\"bg-grey-3x margin-0 sample-code\" *ngFor=\"let data of debugItem.value;let ii=index\"><ng-container *ngIf=\"loop.var.view==ii\"><div class=\"flex-valign-center child-pad-xs\" style=\"padding:.4em;float:right\"><a class=\"fas fa-caret-square-left hover-bg-energized\" (click)=\"loop.var.view=ii===0 ? debugItem.value.length-1 : ii-1\">&lt;</a><a style=\"color:blue;\" (click)=\"editsMap[ii]=!editsMap[ii]\">edit</a><a style=\"color:blue;\" (click)=\"debugItem.type=null\">all</a><a class=\"fas fa-caret-square-right hover-bg-energized\" (click)=\"loop.var.view=ii===debugItem.value.length-1 ? 0 : ii+1\">&gt;</a></div><p><ng-container *ngIf=\"debugItem.rowTitle;else defaultRowLabel\"><ng-template *ngTemplateOutlet=\"debugItem.rowTitle;context:{index:ii}\"></ng-template></ng-container><ng-template #defaultRowLabel=\"\"><strong>Result {{ii}} of {{debugItem.value.length}} </strong></ng-template></p><absolute-overflow-x *ngIf=\"!editsMap[ii]\" style=\"font-size:0.8em;\"><pre>{{ data | json }}</pre></absolute-overflow-x><ng-container *ngIf=\"editsMap[ii]\"><textarea [name]=\"'editsMap' + ii\" style=\"width:100%;height:300px\" (change)=\"dataString = $event.target.value\">{{ data | json }}</textarea><div style=\"text-align:center\"><a style=\"color:blue;padding-top:.4em;\" (click)=\"updateDataByJsonString(data, dataString, debugItem);editsMap[ii]=false\">save</a></div></ng-container></ng-container></pre></ng-container><ng-template #regdebug=\"\"><div class=\"pos-rel\"><div class=\"pos-abs right-0 z-index-10\"><div class=\"pad-xxs\"><i class=\"fas fa-pencil-alt hover-text-energized\" (click)=\"edit=!edit\" [class.text-calm]=\"edit\">edit</i></div></div></div><ng-container *ngIf=\"edit;else readMode\"><textarea class=\"width-full\" rows=\"30\" (change)=\"apply(debugItem.value,$event.target.value, debugItem)\" wrap=\"off\">{{ debugItem.value | json }}</textarea></ng-container><ng-template #readMode=\"\"><absolute-overflow-x><pre class=\"code-sample\">{{ debugItem.value | json }}</pre></absolute-overflow-x></ng-template></ng-template></ng-container>";
 
 
 /***/ }),
@@ -4850,8 +4857,15 @@ var RouteHistory = (function () {
         this.applyNav();
     };
     RouteHistory.prototype.applyNav = function () {
-        if (this.historyIndex < this.routeHistory.length) {
+        var posAvail = this.historyIndex < this.routeHistory.length - 1;
+        if (posAvail) {
             this.back = this.routeHistory[this.historyIndex + 1];
+        }
+        else if (this.routeHistory.length) {
+            var newBack = this.routeHistory[this.routeHistory.length - 1].split("/");
+            newBack.pop();
+            this.back = newBack.join("/");
+            ++this.historyIndex;
         }
         else {
             delete this.back;
@@ -5755,7 +5769,13 @@ exports.Numbers = Numbers;
 var ADate = (function () {
     function ADate() {
     }
-    ADate.prototype.transform = function () { return pipes.aDate.apply(pipes.aDate, arguments); };
+    ADate.prototype.transform = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        return pipes.aDate.apply(pipes.aDate, args);
+    };
     ADate = __decorate([
         core_1.Pipe({ name: 'aDate' })
     ], ADate);
@@ -5781,7 +5801,13 @@ exports.AMath = AMath;
 var AString = (function () {
     function AString() {
     }
-    AString.prototype.transform = function () { return pipes.aString.apply(pipes.aString, arguments); };
+    AString.prototype.transform = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        return pipes.aString.apply(pipes.aString, args);
+    };
     AString = __decorate([
         core_1.Pipe({ name: 'aString' })
     ], AString);
@@ -5791,7 +5817,13 @@ exports.AString = AString;
 var ATime = (function () {
     function ATime() {
     }
-    ATime.prototype.transform = function () { return pipes.aTime.apply(pipes.aTime, arguments); };
+    ATime.prototype.transform = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        return pipes.aTime.apply(pipes.aTime, args);
+    };
     ATime = __decorate([
         core_1.Pipe({ name: 'aTime' })
     ], ATime);
@@ -5801,7 +5833,13 @@ exports.ATime = ATime;
 var Ack = (function () {
     function Ack() {
     }
-    Ack.prototype.transform = function () { return pipes.ack.apply(pipes.ack, arguments); };
+    Ack.prototype.transform = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        return pipes.ack.apply(pipes.ack, args);
+    };
     Ack = __decorate([
         core_1.Pipe({ name: 'ack' })
     ], Ack);

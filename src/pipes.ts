@@ -127,7 +127,7 @@ import {
 }
 
 @Pipe({name: 'aDate'}) export class ADate {
-  transform(){return pipes.aDate.apply(pipes.aDate, arguments)}
+  transform(...args){return pipes.aDate.apply(pipes.aDate, args)}
 }
 
 @Pipe({name: 'aMath'}) export class AMath {
@@ -135,15 +135,15 @@ import {
 }
 
 @Pipe({name: 'aString'}) export class AString {
-  transform(){return pipes.aString.apply(pipes.aString, arguments)}
+  transform(...args){return pipes.aString.apply(pipes.aString, args)}
 }
 
 @Pipe({name: 'aTime'}) export class ATime {
-  transform(){return pipes.aTime.apply(pipes.aTime, arguments)}
+  transform(...args){return pipes.aTime.apply(pipes.aTime, args)}
 }
 
 @Pipe({name: 'ack'}) export class Ack {
-  transform(){return pipes.ack.apply(pipes.ack, arguments)}
+  transform(...args){return pipes.ack.apply(pipes.ack, args)}
 }
 
 @Pipe({name: 'keys'}) export class Keys {

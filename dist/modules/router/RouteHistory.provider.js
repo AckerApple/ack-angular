@@ -54,8 +54,15 @@ var RouteHistory = (function () {
         this.applyNav();
     };
     RouteHistory.prototype.applyNav = function () {
-        if (this.historyIndex < this.routeHistory.length) {
+        var posAvail = this.historyIndex < this.routeHistory.length - 1;
+        if (posAvail) {
             this.back = this.routeHistory[this.historyIndex + 1];
+        }
+        else if (this.routeHistory.length) {
+            var newBack = this.routeHistory[this.routeHistory.length - 1].split("/");
+            newBack.pop();
+            this.back = newBack.join("/");
+            ++this.historyIndex;
         }
         else {
             delete this.back;
