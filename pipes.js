@@ -261,7 +261,13 @@ exports.Numbers = Numbers;
 var ADate = (function () {
     function ADate() {
     }
-    ADate.prototype.transform = function () { return pipes.aDate.apply(pipes.aDate, arguments); };
+    ADate.prototype.transform = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        return pipes.aDate.apply(pipes.aDate, args);
+    };
     ADate = __decorate([
         core_1.Pipe({ name: 'aDate' })
     ], ADate);
@@ -287,7 +293,13 @@ exports.AMath = AMath;
 var AString = (function () {
     function AString() {
     }
-    AString.prototype.transform = function () { return pipes.aString.apply(pipes.aString, arguments); };
+    AString.prototype.transform = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        return pipes.aString.apply(pipes.aString, args);
+    };
     AString = __decorate([
         core_1.Pipe({ name: 'aString' })
     ], AString);
@@ -297,7 +309,13 @@ exports.AString = AString;
 var ATime = (function () {
     function ATime() {
     }
-    ATime.prototype.transform = function () { return pipes.aTime.apply(pipes.aTime, arguments); };
+    ATime.prototype.transform = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        return pipes.aTime.apply(pipes.aTime, args);
+    };
     ATime = __decorate([
         core_1.Pipe({ name: 'aTime' })
     ], ATime);
@@ -307,7 +325,13 @@ exports.ATime = ATime;
 var Ack = (function () {
     function Ack() {
     }
-    Ack.prototype.transform = function () { return pipes.ack.apply(pipes.ack, arguments); };
+    Ack.prototype.transform = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        return pipes.ack.apply(pipes.ack, args);
+    };
     Ack = __decorate([
         core_1.Pipe({ name: 'ack' })
     ], Ack);
