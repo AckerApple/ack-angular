@@ -115,7 +115,7 @@ var RouteReporter = (function () {
     ], RouteReporter.prototype, "onLoad", void 0);
     __decorate([
         core_1.Output("onChange"),
-        __metadata("design:type", Object)
+        __metadata("design:type", core_1.EventEmitter)
     ], RouteReporter.prototype, "stateChanger", void 0);
     __decorate([
         core_1.Output("beforeChange"),

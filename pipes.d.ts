@@ -6,7 +6,7 @@ export declare class Stringify {
     transform(input: any, spaces: any): string;
 }
 export declare class ForceArray {
-    transform(input: any, repeat: any, repeatValue: any): any[];
+    transform(input: any, repeat?: any, repeatValue?: any): any[];
 }
 export declare class ArrayOfObjects {
     transform(input: any, repeat: any, repeatValue: any): {
@@ -50,7 +50,7 @@ export declare class toNumber {
     transform(input: string): number;
 }
 export declare class NumberSuffix {
-    transform(input: string, rtnInput: any): string;
+    transform(input: string, rtnInput?: any): string;
 }
 export declare class MarkdownAnchor {
     transform(input: string): string;
@@ -80,7 +80,7 @@ export declare class ADate {
     transform(): any;
 }
 export declare class AMath {
-    transform(): any;
+    transform(...args: any[]): any;
 }
 export declare class AString {
     transform(): any;
@@ -100,4 +100,4 @@ export declare class TypeofPipe {
 export declare class ConsolePipe {
     transform(): any;
 }
-export declare const declarations: (typeof Stringify | typeof ForceArray | typeof SafeUrl | typeof SafeHtml | typeof SafeStyle | typeof Between | typeof TextDownload)[];
+export declare const declarations: (typeof Stringify | typeof SafeUrl | typeof SafeHtml | typeof SafeStyle | typeof Between | typeof TextDownload)[];
