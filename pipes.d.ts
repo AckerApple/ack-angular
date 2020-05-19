@@ -100,4 +100,4 @@ export declare class TypeofPipe {
 export declare class ConsolePipe {
     transform(): any;
 }
-export declare const declarations: (typeof Stringify | typeof SafeUrl | typeof SafeHtml | typeof SafeStyle | typeof Between | typeof TextDownload)[];
+export declare const declarations: (typeof SafeUrl | typeof SafeHtml | typeof SafeStyle | typeof ADate)[];

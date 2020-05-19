@@ -7,7 +7,7 @@ export declare class ElementSizeModel {
     inChange: boolean;
     elementSizeModelWatch: any;
     elementSizeModel: any;
-    elementSizeModelChange: EventEmitter<{}>;
+    elementSizeModelChange: EventEmitter<any>;
     constructor(element: ElementRef);
     ngAfterViewInit(): void;
     ngOnChanges(): void;
@@ -17,14 +17,14 @@ export declare class ElementSizeModel {
 export declare class ElementHeightModel extends ElementSizeModel {
     element: ElementRef;
     elementHeightModel: any;
-    elementHeightModelChange: EventEmitter<{}>;
+    elementHeightModelChange: EventEmitter<any>;
     constructor(element: ElementRef);
     setModel(): void;
 }
 export declare class ElementWidthModel extends ElementSizeModel {
     element: ElementRef;
     elementWidthModel: any;
-    elementWidthModelChange: EventEmitter<{}>;
+    elementWidthModelChange: EventEmitter<any>;
     constructor(element: ElementRef);
     setModel(): void;
 }

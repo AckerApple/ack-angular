@@ -5,7 +5,7 @@ export declare class InnerHtmlModel {
     observer: any;
     timeout: any;
     innerHtmlModel: any;
-    innerHtmlModelChange: EventEmitter<{}>;
+    innerHtmlModelChange: EventEmitter<any>;
     constructor(element: ElementRef);
     ngOnChanges(): void;
     setModel(): void;
