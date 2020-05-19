@@ -16,9 +16,7 @@ import {
 } from "../../src"
 
 import {
-  AckOffline,
-  AckCache,
-  AckQue,
+  AckOffline, AckCache, AckQue
 } from "../../src/modules/offline"
 
 import { animations } from "ack-angular-fx"
@@ -30,7 +28,7 @@ const defaultUrl = window.location.origin+pathing+"/test.json"
 @Component({
   selector: "provider-examples"
   ,template: providerExamples
-  ,animations:animations
+  ,animations: animations
 }) export class ProviderExamples {
   views:any = {}
   statusOnlineModel:boolean

@@ -36,24 +36,24 @@ export declare class EscapeKey {
 }
 export declare class PreventBackKey {
     element: ElementRef;
-    preventBackKey: EventEmitter<{}>;
+    preventBackKey: EventEmitter<any>;
     constructor(element: ElementRef);
 }
 export declare class PreventEnterKey {
     element: ElementRef;
-    preventEnterKey: EventEmitter<{}>;
+    preventEnterKey: EventEmitter<any>;
     constructor(element: ElementRef);
 }
 export declare class InputHint {
     hintStyle: {
         'font-size': string;
-        'color': string;
+        color: string;
     };
 }
 export declare class FormChanged {
     element: ElementRef;
     onChange: any;
-    formChanged: EventEmitter<{}>;
+    formChanged: EventEmitter<any>;
     constructor(element: ElementRef);
     ngOnDestroy(): void;
 }

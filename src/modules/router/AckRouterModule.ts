@@ -16,7 +16,7 @@ export const providers = [ RouteWatchReporter, RouteHistory ]
     RouterModule
   ],
   declarations: [ RouteReporter ],
-  providers:providers,
+  // providers:providers,
   exports:[
     RouteReporter,
     RouterModule

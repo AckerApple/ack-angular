@@ -3,12 +3,9 @@
     "strict": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitAny": false,
     "removeComments": true,
     "rootDir": ".",
     "outDir": "../dist",
-    "target": "ES5",
-    "module": "commonjs",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -18,11 +15,23 @@
     "stripInternal": true,
     "typeRoots": [
       "../node_modules/@types"
-    ]
+    ],
+    "target": "es2015",
+    "module": "esnext",
+    "importHelpers": true,
+    "lib": ["es2018", "dom"],
+    "types": ["node"]
   },
   "exclude": [
     "**/node_modules",
     "../node_modules",
     "**/*.spec.ts"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "enableIvy": false,
+    "skipMetadataEmit" : false,
+    "skipTemplateCodegen" : true,
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
 }

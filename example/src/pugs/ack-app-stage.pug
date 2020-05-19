@@ -30,8 +30,7 @@ reader-header-body(style="font-size:16px;")
               "[ngClass]" = "{'strong bg-energized':stateName==item.path}"
               "[href]"  = "'#/' + item.path"
             ) {{ item.data.title }}
-    fx-tracker(
-      #fx = "FxTracker"
+    fx-tracker( #fx=""
       "[activatedRoute]" = "routerOutlet.activated ? routerOutlet.activatedRoute : null"
     )
     table.height-full.width-full(

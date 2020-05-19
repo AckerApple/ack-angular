@@ -5,8 +5,6 @@
     "noUnusedParameters": true,
     "removeComments": true,
     "noImplicitAny": false,
-    "target": "ES5",
-    "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
@@ -14,7 +12,13 @@
     "noEmitHelpers": false,
     "allowJs": true,
     "suppressImplicitAnyIndexErrors": true,
-    "outDir": "../www"
+    "outDir": "../www",
+
+    "target": "es2015",
+    "module": "esnext",
+    "importHelpers": true,
+    "lib": ["es2018", "dom"]
+
   },
   "include":[
     "../package.json",
@@ -22,5 +26,10 @@
   ],
   "files": [
     "typings.d.ts"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "enableIvy": false,
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
 }

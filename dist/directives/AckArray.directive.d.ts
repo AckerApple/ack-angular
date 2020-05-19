@@ -24,7 +24,7 @@ export declare class AckArray {
     page: number;
     pageChange: EventEmitter<number>;
     keyMap: any;
-    keyMapChange: EventEmitter<{}>;
+    keyMapChange: EventEmitter<any>;
     loopStart: EventEmitter<boolean>;
     loopEach: EventEmitter<loop>;
     loopEnd: EventEmitter<void>;
@@ -32,7 +32,7 @@ export declare class AckArray {
     idKeys: string[];
     merge: boolean;
     array: any[];
-    arrayChange: EventEmitter<{}>;
+    arrayChange: EventEmitter<any>;
     array$: EventEmitter<any[]>;
     constructor(_iterableDiffers: IterableDiffers);
     ngOnDestroy(): void;

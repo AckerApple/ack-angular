@@ -5,7 +5,7 @@ export declare class ShakeOn {
     shakeOn: any;
     shakeForMs: any;
     shakeType: any;
-    shakeThen: EventEmitter<{}>;
+    shakeThen: EventEmitter<any>;
     timeout: number;
     shakeTypes: string[];
     constructor(element: ElementRef);

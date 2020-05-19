@@ -7,10 +7,9 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 
 import { AckRouterModule } from "../../src/modules/router/AckRouterModule"
+import { AckOfflineModule } from "../../src/modules/offline/module";
 
-import {
-  AckModule
-} from "../../src"
+import { AckModule } from "../../src"
 
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core'
 import { NgxPageScrollModule } from "ngx-page-scroll"
@@ -51,6 +50,7 @@ export const imports = [
   NgxPageScrollModule,
   AckRouterModule.forRoot(),
   AckModule.forRoot(),
+  AckOfflineModule.forRoot(),
   AckFxModule
 ]
 

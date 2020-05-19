@@ -1,3 +1,3 @@
 export declare class DocumentService {
-    readonly nativeElement: any;
+    get nativeElement(): any;
 }
