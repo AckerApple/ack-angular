@@ -1,4 +1,4 @@
 export declare class WindowService {
-    readonly nativeElement: any;
-    readonly nativeWindow: any;
+    get nativeElement(): any;
+    get nativeWindow(): any;
 }

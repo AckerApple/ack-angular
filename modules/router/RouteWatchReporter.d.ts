@@ -17,7 +17,7 @@ export declare class RouteWatchReporter {
     isNextBackMode: boolean;
     isNextBackHistory: boolean;
     constructor(router: Router, activatedRoute: ActivatedRoute);
-    $window(): Window;
+    $window(): Window & typeof globalThis;
     getCurrent(): currentRoute;
     getCurrentConfig(): Route;
     getCurrentParams(): any;
