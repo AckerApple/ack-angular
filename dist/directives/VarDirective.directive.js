@@ -1,6 +1,5 @@
-import { __decorate, __metadata } from "tslib";
 import { Directive, Input, EventEmitter, Output } from "@angular/core";
-let VarDirective = class VarDirective {
+export class VarDirective {
     constructor() {
         this.changed = new EventEmitter();
     }
@@ -9,19 +8,14 @@ let VarDirective = class VarDirective {
             Promise.resolve().then(() => this.changed.emit(this.var));
         }
     }
+}
+VarDirective.decorators = [
+    { type: Directive, args: [{
+                selector: "[var]",
+                exportAs: "var"
+            },] }
+];
+VarDirective.propDecorators = {
+    var: [{ type: Input }],
+    changed: [{ type: Output }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], VarDirective.prototype, "var", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], VarDirective.prototype, "changed", void 0);
-VarDirective = __decorate([
-    Directive({
-        selector: "[var]",
-        exportAs: "var"
-    })
-], VarDirective);
-export { VarDirective };

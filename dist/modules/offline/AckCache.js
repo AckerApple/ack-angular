@@ -1,7 +1,6 @@
-import { __decorate } from "tslib";
 import { Injectable } from '@angular/core';
 import { AckOffline } from './AckOffline';
-let AckCache = class AckCache extends AckOffline {
+export class AckCache extends AckOffline {
     constructor() {
         super(...arguments);
         this.prefix = "offline-cache";
@@ -109,8 +108,7 @@ let AckCache = class AckCache extends AckOffline {
     setCache(name, cache, options) {
         return this.set(name, cache, options);
     }
-};
-AckCache = __decorate([
-    Injectable()
-], AckCache);
-export { AckCache };
+}
+AckCache.decorators = [
+    { type: Injectable }
+];

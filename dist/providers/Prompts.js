@@ -1,6 +1,5 @@
-import { __decorate } from "tslib";
 import { Injectable, EventEmitter } from '@angular/core';
-let Prompts = class Prompts {
+export class Prompts {
     constructor() {
         this.prompts = [];
     }
@@ -29,8 +28,7 @@ let Prompts = class Prompts {
         options.message = message;
         return this.issuePrompt(options);
     }
-};
-Prompts = __decorate([
-    Injectable()
-], Prompts);
-export { Prompts };
+}
+Prompts.decorators = [
+    { type: Injectable }
+];

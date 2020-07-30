@@ -31,9 +31,9 @@ import { Injectable } from '@angular/core';
   }
 
   //api error to js Error object
-  paramAudit(e, toConsole?){
-    if(e.constructor==String){
-      e = new Error(e)
+  paramAudit(e: any, toConsole?){
+    if(e.constructor === String){
+      e = new Error(e as string);
     }
 
     if(toConsole==null || toConsole)console.error(e)
@@ -53,10 +53,10 @@ import { Injectable } from '@angular/core';
   objectifyError(err){
     const keys = Object.getOwnPropertyNames(err)
     keys.push.apply(keys, Object.keys(err))
-    
+
     const recErr:{data?:any} = {}//new Error(err.message || err.name || err.type || 'Unexpected Error Occured')
     keys.forEach(v=>recErr[v]=err[v])
-    
+
     const knownKeys = ["stack","message","name","arguments","type"]
     knownKeys.forEach(key=>{
       if(typeof err[key]!='undefined'){

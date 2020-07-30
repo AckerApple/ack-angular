@@ -1,7 +1,6 @@
-import { __decorate, __metadata } from "tslib";
 import { Injectable } from '@angular/core';
 import { WindowService } from "./WindowService";
-let UrlVars = class UrlVars {
+export class UrlVars {
     constructor(WindowService) {
         this.WindowService = WindowService;
         this.vars = this.parse();
@@ -25,9 +24,10 @@ let UrlVars = class UrlVars {
         }
         return param;
     }
-};
-UrlVars = __decorate([
-    Injectable(),
-    __metadata("design:paramtypes", [WindowService])
-], UrlVars);
-export { UrlVars };
+}
+UrlVars.decorators = [
+    { type: Injectable }
+];
+UrlVars.ctorParameters = () => [
+    { type: WindowService }
+];

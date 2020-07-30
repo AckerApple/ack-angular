@@ -1,7 +1,6 @@
-import { __decorate, __metadata } from "tslib";
 import { Directive, TemplateRef, ContentChild } from "@angular/core";
 import { SectionProvider } from "../providers/AckSections.provider";
-let AckSectionTemplates = class AckSectionTemplates {
+export class AckSectionTemplates {
     constructor(SectionProvider) {
         this.SectionProvider = SectionProvider;
     }
@@ -43,27 +42,18 @@ let AckSectionTemplates = class AckSectionTemplates {
         this.SectionProvider.unregisterTemplate(this.leftBody);
         this.SectionProvider.unregisterTemplate(this.rightBody);
     }
+}
+AckSectionTemplates.decorators = [
+    { type: Directive, args: [{
+                selector: "ack-section-templates"
+            },] }
+];
+AckSectionTemplates.ctorParameters = () => [
+    { type: SectionProvider }
+];
+AckSectionTemplates.propDecorators = {
+    header: [{ type: ContentChild, args: ['sectionHeader',] }],
+    footer: [{ type: ContentChild, args: ['sectionFooter',] }],
+    leftBody: [{ type: ContentChild, args: ['sectionLeftBody',] }],
+    rightBody: [{ type: ContentChild, args: ['sectionRightBody',] }]
 };
-__decorate([
-    ContentChild('sectionHeader'),
-    __metadata("design:type", TemplateRef)
-], AckSectionTemplates.prototype, "header", void 0);
-__decorate([
-    ContentChild('sectionFooter'),
-    __metadata("design:type", TemplateRef)
-], AckSectionTemplates.prototype, "footer", void 0);
-__decorate([
-    ContentChild('sectionLeftBody'),
-    __metadata("design:type", TemplateRef)
-], AckSectionTemplates.prototype, "leftBody", void 0);
-__decorate([
-    ContentChild('sectionRightBody'),
-    __metadata("design:type", TemplateRef)
-], AckSectionTemplates.prototype, "rightBody", void 0);
-AckSectionTemplates = __decorate([
-    Directive({
-        selector: "ack-section-templates"
-    }),
-    __metadata("design:paramtypes", [SectionProvider])
-], AckSectionTemplates);
-export { AckSectionTemplates };

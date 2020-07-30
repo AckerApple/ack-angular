@@ -1,6 +1,5 @@
-import { __decorate, __metadata } from "tslib";
 import { Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
-let FxOn = class FxOn {
+export class FxOn {
     constructor(element) {
         this.element = element;
         this.fxThen = new EventEmitter();
@@ -66,31 +65,22 @@ let FxOn = class FxOn {
             }, this.fxForMs);
         }
     }
+}
+FxOn.decorators = [
+    { type: Directive, args: [{
+                selector: "[fxOn]",
+                exportAs: "FxOn"
+            },] }
+];
+FxOn.ctorParameters = () => [
+    { type: ElementRef }
+];
+FxOn.propDecorators = {
+    fxOn: [{ type: Input }],
+    fxClass: [{ type: Input }],
+    fxForMs: [{ type: Input }],
+    fxThen: [{ type: Output }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Boolean)
-], FxOn.prototype, "fxOn", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", String)
-], FxOn.prototype, "fxClass", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], FxOn.prototype, "fxForMs", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], FxOn.prototype, "fxThen", void 0);
-FxOn = __decorate([
-    Directive({
-        selector: "[fxOn]",
-        exportAs: "FxOn"
-    }),
-    __metadata("design:paramtypes", [ElementRef])
-], FxOn);
-export { FxOn };
 export function hasClass(el, className) {
     const names = className.split(" ");
     for (let x = names.length - 1; x >= 0; --x) {

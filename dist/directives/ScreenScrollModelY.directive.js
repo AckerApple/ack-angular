@@ -1,6 +1,5 @@
-import { __decorate, __metadata } from "tslib";
 import { Directive, Input, Output, EventEmitter } from "@angular/core";
-let ScreenScrollModelY = class ScreenScrollModelY {
+export class ScreenScrollModelY {
     constructor() {
         this.screenScrollModelYChange = new EventEmitter();
         this.onScroll = () => {
@@ -16,20 +15,15 @@ let ScreenScrollModelY = class ScreenScrollModelY {
     ngOnDestroy() {
         window.removeEventListener("scroll", this.onScroll);
     }
+}
+ScreenScrollModelY.decorators = [
+    { type: Directive, args: [{
+                selector: '[screenScrollModelY]',
+                exportAs: 'ScreenScrollModelY'
+            },] }
+];
+ScreenScrollModelY.ctorParameters = () => [];
+ScreenScrollModelY.propDecorators = {
+    screenScrollModelY: [{ type: Input }],
+    screenScrollModelYChange: [{ type: Output }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], ScreenScrollModelY.prototype, "screenScrollModelY", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], ScreenScrollModelY.prototype, "screenScrollModelYChange", void 0);
-ScreenScrollModelY = __decorate([
-    Directive({
-        selector: '[screenScrollModelY]',
-        exportAs: 'ScreenScrollModelY'
-    }),
-    __metadata("design:paramtypes", [])
-], ScreenScrollModelY);
-export { ScreenScrollModelY };

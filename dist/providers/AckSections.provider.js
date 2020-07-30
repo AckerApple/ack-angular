@@ -1,6 +1,5 @@
-import { __decorate } from "tslib";
 import { Injectable } from "@angular/core";
-let SectionProvider = class SectionProvider {
+export class SectionProvider {
     constructor() {
         this.headerTemplates = [];
         this.footerTemplates = [];
@@ -27,8 +26,7 @@ let SectionProvider = class SectionProvider {
         this.unregisterTemplateFrom(item, this.leftBodyTemplates);
         this.unregisterTemplateFrom(item, this.rightBodyTemplates);
     }
-};
-SectionProvider = __decorate([
-    Injectable()
-], SectionProvider);
-export { SectionProvider };
+}
+SectionProvider.decorators = [
+    { type: Injectable }
+];

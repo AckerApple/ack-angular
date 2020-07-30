@@ -1,9 +1,8 @@
-import { __decorate, __metadata } from "tslib";
 import { Directive, Input, Output, EventEmitter } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { RouteWatchReporter, getCurrentByActive } from "./RouteWatchReporter";
 import { NavigationEnd } from "@angular/router";
-let RouteReporter = class RouteReporter {
+export class RouteReporter {
     constructor(Router, RouteWatchReporter, ActivatedRoute) {
         this.Router = Router;
         this.RouteWatchReporter = RouteWatchReporter;
@@ -96,102 +95,39 @@ let RouteReporter = class RouteReporter {
     tryBack(name, params) {
         this.RouteWatchReporter.tryBack(name, params);
     }
+}
+RouteReporter.decorators = [
+    { type: Directive, args: [{
+                selector: "route-reporter",
+                exportAs: "RouteReporter"
+            },] }
+];
+RouteReporter.ctorParameters = () => [
+    { type: Router },
+    { type: RouteWatchReporter },
+    { type: ActivatedRoute }
+];
+RouteReporter.propDecorators = {
+    onLoad: [{ type: Input }],
+    stateChanger: [{ type: Output, args: ["onChange",] }],
+    beforeChanger: [{ type: Output, args: ["beforeChange",] }],
+    activated: [{ type: Input }],
+    activatedChange: [{ type: Output }],
+    params: [{ type: Input }],
+    paramsChange: [{ type: Output }],
+    data: [{ type: Input }],
+    dataChange: [{ type: Output }],
+    query: [{ type: Input }],
+    queryChange: [{ type: Output }],
+    route: [{ type: Input }],
+    routeChange: [{ type: Output }],
+    parentRoute: [{ type: Input }],
+    parentRouteChange: [{ type: Output }],
+    parent: [{ type: Input }],
+    parentChange: [{ type: Output }],
+    parentData: [{ type: Input }],
+    parentDataChange: [{ type: Output }],
+    current: [{ type: Input }],
+    state: [{ type: Input }],
+    stateChange: [{ type: Output }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "onLoad", void 0);
-__decorate([
-    Output("onChange"),
-    __metadata("design:type", EventEmitter)
-], RouteReporter.prototype, "stateChanger", void 0);
-__decorate([
-    Output("beforeChange"),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "beforeChanger", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", ActivatedRoute)
-], RouteReporter.prototype, "activated", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], RouteReporter.prototype, "activatedChange", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "params", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], RouteReporter.prototype, "paramsChange", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "data", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], RouteReporter.prototype, "dataChange", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "query", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], RouteReporter.prototype, "queryChange", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "route", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], RouteReporter.prototype, "routeChange", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "parentRoute", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], RouteReporter.prototype, "parentRouteChange", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", ActivatedRoute)
-], RouteReporter.prototype, "parent", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], RouteReporter.prototype, "parentChange", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "parentData", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], RouteReporter.prototype, "parentDataChange", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "current", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], RouteReporter.prototype, "state", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], RouteReporter.prototype, "stateChange", void 0);
-RouteReporter = __decorate([
-    Directive({
-        selector: "route-reporter",
-        exportAs: "RouteReporter"
-    }),
-    __metadata("design:paramtypes", [Router,
-        RouteWatchReporter,
-        ActivatedRoute])
-], RouteReporter);
-export { RouteReporter };

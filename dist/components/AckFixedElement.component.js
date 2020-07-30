@@ -1,7 +1,6 @@
-import { __decorate, __metadata } from "tslib";
 import { TemplateRef, ViewChild, Component } from "@angular/core";
 import { AckApp } from "../providers/AckApp.provider";
-let AckFixedElement = class AckFixedElement {
+export class AckFixedElement {
     constructor(AckApp) {
         this.AckApp = AckApp;
         this.AckApp.fixedElms.push(this);
@@ -15,16 +14,16 @@ let AckFixedElement = class AckFixedElement {
             }
         }
     }
+}
+AckFixedElement.decorators = [
+    { type: Component, args: [{
+                selector: 'ack-fixed-element',
+                template: '<ng-template #content><ng-content></ng-content></ng-template>'
+            },] }
+];
+AckFixedElement.ctorParameters = () => [
+    { type: AckApp }
+];
+AckFixedElement.propDecorators = {
+    content: [{ type: ViewChild, args: ['content',] }]
 };
-__decorate([
-    ViewChild('content'),
-    __metadata("design:type", TemplateRef)
-], AckFixedElement.prototype, "content", void 0);
-AckFixedElement = __decorate([
-    Component({
-        selector: 'ack-fixed-element',
-        template: '<ng-template #content><ng-content></ng-content></ng-template>'
-    }),
-    __metadata("design:paramtypes", [AckApp])
-], AckFixedElement);
-export { AckFixedElement };

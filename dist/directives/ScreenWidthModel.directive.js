@@ -1,7 +1,6 @@
-import { __decorate, __metadata } from "tslib";
 import { Directive, Input, Output, EventEmitter } from "@angular/core";
 import { HtmlSizeService } from "./HtmlSizeWatcher";
-let ScreenWidthModel = class ScreenWidthModel {
+export class ScreenWidthModel {
     constructor(HtmlSizeService) {
         this.HtmlSizeService = HtmlSizeService;
         this.screenWidthModelChange = new EventEmitter();
@@ -24,19 +23,16 @@ let ScreenWidthModel = class ScreenWidthModel {
         this.screenWidthModel = window.innerWidth;
         this.screenWidthModelChange.emit(this.screenWidthModel);
     }
+}
+ScreenWidthModel.decorators = [
+    { type: Directive, args: [{
+                selector: '[screenWidthModel]'
+            },] }
+];
+ScreenWidthModel.ctorParameters = () => [
+    { type: HtmlSizeService }
+];
+ScreenWidthModel.propDecorators = {
+    screenWidthModel: [{ type: Input }],
+    screenWidthModelChange: [{ type: Output }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Number)
-], ScreenWidthModel.prototype, "screenWidthModel", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], ScreenWidthModel.prototype, "screenWidthModelChange", void 0);
-ScreenWidthModel = __decorate([
-    Directive({
-        selector: '[screenWidthModel]'
-    }),
-    __metadata("design:paramtypes", [HtmlSizeService])
-], ScreenWidthModel);
-export { ScreenWidthModel };

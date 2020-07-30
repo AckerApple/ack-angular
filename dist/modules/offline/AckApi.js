@@ -1,4 +1,3 @@
-import { __decorate, __metadata } from "tslib";
 import { Injectable, EventEmitter } from "@angular/core";
 import { HttpParams, HttpEventType, HttpHeaders, HttpClient, HttpRequest } from "@angular/common/http";
 import { AckCache } from "./AckCache";
@@ -11,7 +10,7 @@ export function TimeOutError(message) {
     this.message = message || "Could not connect to server or server did not respond in a timely manner. Please check internet connection and then try again.";
 }
 TimeOutError.prototype = Object.create(Error.prototype);
-let AckApi = class AckApi {
+export class AckApi {
     constructor(HttpClient) {
         this.HttpClient = HttpClient;
         this.response = new EventEmitter();
@@ -249,12 +248,13 @@ let AckApi = class AckApi {
         cfg.url = path;
         return this.request(cfg);
     }
-};
-AckApi = __decorate([
-    Injectable(),
-    __metadata("design:paramtypes", [HttpClient])
-], AckApi);
-export { AckApi };
+}
+AckApi.decorators = [
+    { type: Injectable }
+];
+AckApi.ctorParameters = () => [
+    { type: HttpClient }
+];
 function upgradeConfig(cfg) {
     cfg.method = cfg.method || "GET";
     cfg.reportProgress = cfg.reportProgress || false;

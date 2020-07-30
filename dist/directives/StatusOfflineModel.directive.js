@@ -1,6 +1,5 @@
-import { __decorate, __metadata } from "tslib";
 import { Directive, Input, Output, EventEmitter } from "@angular/core";
-let StatusOfflineModel = class StatusOfflineModel {
+export class StatusOfflineModel {
     constructor() {
         this.statusOfflineModelChange = new EventEmitter();
         this.onChange = () => {
@@ -15,17 +14,12 @@ let StatusOfflineModel = class StatusOfflineModel {
         window.removeEventListener("offline", this.onChange);
         window.removeEventListener("online", this.onChange);
     }
+}
+StatusOfflineModel.decorators = [
+    { type: Directive, args: [{ selector: '[statusOfflineModel]' },] }
+];
+StatusOfflineModel.ctorParameters = () => [];
+StatusOfflineModel.propDecorators = {
+    statusOfflineModel: [{ type: Input }],
+    statusOfflineModelChange: [{ type: Output }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], StatusOfflineModel.prototype, "statusOfflineModel", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], StatusOfflineModel.prototype, "statusOfflineModelChange", void 0);
-StatusOfflineModel = __decorate([
-    Directive({ selector: '[statusOfflineModel]' }),
-    __metadata("design:paramtypes", [])
-], StatusOfflineModel);
-export { StatusOfflineModel };

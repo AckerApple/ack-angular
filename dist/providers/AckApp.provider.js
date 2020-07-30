@@ -1,7 +1,6 @@
-import { __decorate, __metadata } from "tslib";
 import { Injectable } from "@angular/core";
 import { Prompts } from "./Prompts";
-let AckApp = class AckApp {
+export class AckApp {
     constructor(prompts) {
         this.prompts = prompts;
         this.warnedFixElements = true;
@@ -21,9 +20,10 @@ let AckApp = class AckApp {
         }
         return this;
     }
-};
-AckApp = __decorate([
-    Injectable(),
-    __metadata("design:paramtypes", [Prompts])
-], AckApp);
-export { AckApp };
+}
+AckApp.decorators = [
+    { type: Injectable }
+];
+AckApp.ctorParameters = () => [
+    { type: Prompts }
+];

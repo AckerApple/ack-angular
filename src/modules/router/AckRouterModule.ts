@@ -22,7 +22,7 @@ export const providers = [ RouteWatchReporter, RouteHistory ]
     RouterModule
   ]
 }) export class AckRouterModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<any> {
     return {
       ngModule: AckRouterModule,
       providers: providers

@@ -1,6 +1,5 @@
-import { __decorate, __metadata } from "tslib";
 import { Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
-let SelectOn = class SelectOn {
+export class SelectOn {
     constructor(element) {
         this.element = element;
         this.selectOnDelay = 0;
@@ -18,23 +17,17 @@ let SelectOn = class SelectOn {
         this.element.nativeElement.select();
         this.selectThen.emit();
     }
+}
+SelectOn.decorators = [
+    { type: Directive, args: [{
+                selector: '[selectOn]'
+            },] }
+];
+SelectOn.ctorParameters = () => [
+    { type: ElementRef }
+];
+SelectOn.propDecorators = {
+    selectOn: [{ type: Input }],
+    selectOnDelay: [{ type: Input }],
+    selectThen: [{ type: Output }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], SelectOn.prototype, "selectOn", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], SelectOn.prototype, "selectOnDelay", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], SelectOn.prototype, "selectThen", void 0);
-SelectOn = __decorate([
-    Directive({
-        selector: '[selectOn]'
-    }),
-    __metadata("design:paramtypes", [ElementRef])
-], SelectOn);
-export { SelectOn };

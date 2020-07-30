@@ -1,8 +1,7 @@
-import { __decorate, __metadata } from "tslib";
 import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
 import { EventEmitter, Output, Input, ContentChildren, Directive, IterableDiffers } from "@angular/core";
 import { AckAggregate } from "./AckAggregate.directive";
-let AckArray = class AckArray {
+export class AckArray {
     constructor(_iterableDiffers) {
         this._iterableDiffers = _iterableDiffers;
         this.pushed = {};
@@ -283,67 +282,31 @@ let AckArray = class AckArray {
         this.inSort = false;
         this.loop(true);
     }
+}
+AckArray.decorators = [
+    { type: Directive, args: [{
+                selector: "ack-array",
+                exportAs: "AckArray"
+            },] }
+];
+AckArray.ctorParameters = () => [
+    { type: IterableDiffers }
+];
+AckArray.propDecorators = {
+    pageAt: [{ type: Input }],
+    pages: [{ type: Input }],
+    pagesChange: [{ type: Output }],
+    page: [{ type: Input }],
+    pageChange: [{ type: Output }],
+    keyMap: [{ type: Input }],
+    keyMapChange: [{ type: Output }],
+    AckAggregates: [{ type: ContentChildren, args: [AckAggregate,] }],
+    idKeys: [{ type: Input }],
+    merge: [{ type: Input }],
+    array: [{ type: Input }],
+    arrayChange: [{ type: Output }],
+    array$: [{ type: Input }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Number)
-], AckArray.prototype, "pageAt", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Array)
-], AckArray.prototype, "pages", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", BehaviorSubject)
-], AckArray.prototype, "pagesChange", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Number)
-], AckArray.prototype, "page", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], AckArray.prototype, "pageChange", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], AckArray.prototype, "keyMap", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], AckArray.prototype, "keyMapChange", void 0);
-__decorate([
-    ContentChildren(AckAggregate),
-    __metadata("design:type", Array)
-], AckArray.prototype, "AckAggregates", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Array)
-], AckArray.prototype, "idKeys", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Boolean)
-], AckArray.prototype, "merge", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Array)
-], AckArray.prototype, "array", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], AckArray.prototype, "arrayChange", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", EventEmitter)
-], AckArray.prototype, "array$", void 0);
-AckArray = __decorate([
-    Directive({
-        selector: "ack-array",
-        exportAs: "AckArray"
-    }),
-    __metadata("design:paramtypes", [IterableDiffers])
-], AckArray);
-export { AckArray };
 export function dataKeysMatch(ao, an, idKeys) {
     for (let x = idKeys.length - 1; x >= 0; --x) {
         let idKey = idKeys[x];

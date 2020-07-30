@@ -1,6 +1,5 @@
-import { __decorate, __metadata } from "tslib";
 import { Input, Output, EventEmitter, Directive } from "@angular/core";
-let ReplaceModel = class ReplaceModel {
+export class ReplaceModel {
     constructor() {
         this.replaceModelChange = new EventEmitter();
     }
@@ -20,22 +19,14 @@ let ReplaceModel = class ReplaceModel {
         this.replaceModel = newModel;
         this.replaceModelChange.emit(this.replaceModel);
     }
+}
+ReplaceModel.decorators = [
+    { type: Directive, args: [{
+                selector: '[replaceModel]'
+            },] }
+];
+ReplaceModel.propDecorators = {
+    replaceModel: [{ type: Input }],
+    replaceModelChange: [{ type: Output }],
+    replaceExpression: [{ type: Input }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", String)
-], ReplaceModel.prototype, "replaceModel", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], ReplaceModel.prototype, "replaceModelChange", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", String)
-], ReplaceModel.prototype, "replaceExpression", void 0);
-ReplaceModel = __decorate([
-    Directive({
-        selector: '[replaceModel]'
-    })
-], ReplaceModel);
-export { ReplaceModel };

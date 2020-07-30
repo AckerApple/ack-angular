@@ -1,7 +1,6 @@
-import { __decorate, __metadata } from "tslib";
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Injectable } from '@angular/core';
-let RouteWatchReporter = class RouteWatchReporter {
+export class RouteWatchReporter {
     constructor(router, activatedRoute) {
         this.router = router;
         this.activatedRoute = activatedRoute;
@@ -138,13 +137,14 @@ let RouteWatchReporter = class RouteWatchReporter {
         $document.removeEventListener('mouseover', callbacks.isNotBackButton);
         $document.removeEventListener('mousedown', callbacks.isNotBackButton);
     }
-};
-RouteWatchReporter = __decorate([
-    Injectable(),
-    __metadata("design:paramtypes", [Router,
-        ActivatedRoute])
-], RouteWatchReporter);
-export { RouteWatchReporter };
+}
+RouteWatchReporter.decorators = [
+    { type: Injectable }
+];
+RouteWatchReporter.ctorParameters = () => [
+    { type: Router },
+    { type: ActivatedRoute }
+];
 export function getCurrentByActive(ActivatedRoute) {
     let parent = ActivatedRoute;
     let target = ActivatedRoute;

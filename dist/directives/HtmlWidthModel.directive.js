@@ -1,7 +1,6 @@
-import { __decorate, __metadata } from "tslib";
 import { Directive, Input, Output, EventEmitter } from "@angular/core";
 import { HtmlSizeService } from "./HtmlSizeWatcher";
-let HtmlWidthModel = class HtmlWidthModel {
+export class HtmlWidthModel {
     constructor(HtmlSizeService) {
         this.HtmlSizeService = HtmlSizeService;
         this.htmlWidthModelChange = new EventEmitter();
@@ -27,19 +26,16 @@ let HtmlWidthModel = class HtmlWidthModel {
         this.htmlWidthModel = htmlSize.width;
         this.htmlWidthModelChange.emit(this.htmlWidthModel);
     }
+}
+HtmlWidthModel.decorators = [
+    { type: Directive, args: [{
+                selector: '[htmlWidthModel]'
+            },] }
+];
+HtmlWidthModel.ctorParameters = () => [
+    { type: HtmlSizeService }
+];
+HtmlWidthModel.propDecorators = {
+    htmlWidthModel: [{ type: Input }],
+    htmlWidthModelChange: [{ type: Output }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Number)
-], HtmlWidthModel.prototype, "htmlWidthModel", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], HtmlWidthModel.prototype, "htmlWidthModelChange", void 0);
-HtmlWidthModel = __decorate([
-    Directive({
-        selector: '[htmlWidthModel]'
-    }),
-    __metadata("design:paramtypes", [HtmlSizeService])
-], HtmlWidthModel);
-export { HtmlWidthModel };

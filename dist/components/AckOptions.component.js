@@ -1,9 +1,8 @@
-import { __decorate, __metadata } from "tslib";
 import { array } from "../pipes.class";
 import { ElementRef, ContentChildren, TemplateRef, Component, Input, Output, EventEmitter } from "@angular/core";
 import { TemplateReader } from "../TemplateReader.class";
 import { string as ackOptions } from "./templates/ack-options.pug";
-let AckOptions = class AckOptions {
+export class AckOptions {
     constructor(ElementRef) {
         this.ElementRef = ElementRef;
         this.array = [];
@@ -138,67 +137,31 @@ let AckOptions = class AckOptions {
         }
         return string;
     }
+}
+AckOptions.decorators = [
+    { type: Component, args: [{
+                selector: "ack-options",
+                template: ackOptions
+            },] }
+];
+AckOptions.ctorParameters = () => [
+    { type: ElementRef }
+];
+AckOptions.propDecorators = {
+    array: [{ type: Input }],
+    stylize: [{ type: Input }],
+    multiple: [{ type: Input }],
+    modelAsArray: [{ type: Input }],
+    max: [{ type: Input }],
+    toggleable: [{ type: Input }],
+    templateRefs: [{ type: ContentChildren, args: [TemplateRef,] }],
+    inputTemplateRefs: [{ type: Input }],
+    model: [{ type: Input }],
+    modelChange: [{ type: Output }],
+    arrayKey: [{ type: Input }],
+    modelKey: [{ type: Input }],
+    arrayToModelKey: [{ type: Input }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], AckOptions.prototype, "array", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Boolean)
-], AckOptions.prototype, "stylize", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Boolean)
-], AckOptions.prototype, "multiple", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Boolean)
-], AckOptions.prototype, "modelAsArray", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Number)
-], AckOptions.prototype, "max", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Boolean)
-], AckOptions.prototype, "toggleable", void 0);
-__decorate([
-    ContentChildren(TemplateRef),
-    __metadata("design:type", Object)
-], AckOptions.prototype, "templateRefs", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], AckOptions.prototype, "inputTemplateRefs", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], AckOptions.prototype, "model", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], AckOptions.prototype, "modelChange", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", String)
-], AckOptions.prototype, "arrayKey", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", String)
-], AckOptions.prototype, "modelKey", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", String)
-], AckOptions.prototype, "arrayToModelKey", void 0);
-AckOptions = __decorate([
-    Component({
-        selector: "ack-options",
-        template: ackOptions
-    }),
-    __metadata("design:paramtypes", [ElementRef])
-], AckOptions);
-export { AckOptions };
 export function getParentByTagName(node, tagname) {
     let parent;
     if (node === null || tagname === '')

@@ -1,6 +1,5 @@
-import { __decorate, __metadata } from "tslib";
 import { Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
-let FocusOn = class FocusOn {
+export class FocusOn {
     constructor(element) {
         this.element = element;
         this.focusOnDelay = 0;
@@ -20,23 +19,17 @@ let FocusOn = class FocusOn {
         this.element.nativeElement.focus();
         this.focusThen.emit();
     }
+}
+FocusOn.decorators = [
+    { type: Directive, args: [{
+                selector: '[focusOn]'
+            },] }
+];
+FocusOn.ctorParameters = () => [
+    { type: ElementRef }
+];
+FocusOn.propDecorators = {
+    focusOn: [{ type: Input }],
+    focusOnDelay: [{ type: Input }],
+    focusThen: [{ type: Output }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], FocusOn.prototype, "focusOn", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], FocusOn.prototype, "focusOnDelay", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], FocusOn.prototype, "focusThen", void 0);
-FocusOn = __decorate([
-    Directive({
-        selector: '[focusOn]'
-    }),
-    __metadata("design:paramtypes", [ElementRef])
-], FocusOn);
-export { FocusOn };

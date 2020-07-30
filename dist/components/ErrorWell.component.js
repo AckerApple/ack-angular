@@ -1,8 +1,7 @@
-import { __decorate, __metadata } from "tslib";
 import { EventEmitter, Output, Input, ContentChild, Component, TemplateRef } from "@angular/core";
 import { animations } from "ack-angular-fx";
 import { string as errorWell } from "./templates/error-well.pug";
-let ErrorWell = class ErrorWell {
+export class ErrorWell {
     constructor() {
         this.message = 'Unexpected Error Occured';
         this.closable = true;
@@ -19,44 +18,21 @@ let ErrorWell = class ErrorWell {
             return error;
         return error.message || error["statusText"] || this.message;
     }
+}
+ErrorWell.decorators = [
+    { type: Component, args: [{
+                selector: 'error-well',
+                template: errorWell,
+                animations: animations
+            },] }
+];
+ErrorWell.propDecorators = {
+    moreDetails: [{ type: Input }],
+    message: [{ type: Input }],
+    error: [{ type: Input }],
+    cssClasses: [{ type: Input }],
+    closable: [{ type: Input }],
+    allowDetails: [{ type: Input }],
+    close: [{ type: Output }],
+    titleFooter: [{ type: ContentChild, args: ["titleFooter",] }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Boolean)
-], ErrorWell.prototype, "moreDetails", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", String)
-], ErrorWell.prototype, "message", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Error)
-], ErrorWell.prototype, "error", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", String)
-], ErrorWell.prototype, "cssClasses", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Boolean)
-], ErrorWell.prototype, "closable", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Boolean)
-], ErrorWell.prototype, "allowDetails", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], ErrorWell.prototype, "close", void 0);
-__decorate([
-    ContentChild("titleFooter"),
-    __metadata("design:type", TemplateRef)
-], ErrorWell.prototype, "titleFooter", void 0);
-ErrorWell = __decorate([
-    Component({
-        selector: 'error-well',
-        template: errorWell,
-        animations: animations
-    })
-], ErrorWell);
-export { ErrorWell };

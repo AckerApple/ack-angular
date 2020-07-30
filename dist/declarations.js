@@ -1,4 +1,3 @@
-import { __decorate, __metadata } from "tslib";
 import { Component, Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
 import { AckSections } from "./components/AckSections.component";
 import { AckSectionTemplates } from "./components/AckSectionTemplates.component";
@@ -35,7 +34,7 @@ import { HtmlHeightModel } from "./directives/HtmlHeightModel.directive";
 import { StatusOnlineModel } from "./directives/StatusOnlineModel.directive";
 import { StatusOfflineModel } from "./directives/StatusOfflineModel.directive";
 import { VarDirective } from "./directives/VarDirective.directive";
-let EnterKey = class EnterKey {
+export class EnterKey {
     constructor(element) {
         this.element = element;
         this.enterKey = new EventEmitter();
@@ -46,17 +45,17 @@ let EnterKey = class EnterKey {
             }
         });
     }
+}
+EnterKey.decorators = [
+    { type: Directive, args: [{ selector: '[enterKey]' },] }
+];
+EnterKey.ctorParameters = () => [
+    { type: ElementRef }
+];
+EnterKey.propDecorators = {
+    enterKey: [{ type: Output }]
 };
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], EnterKey.prototype, "enterKey", void 0);
-EnterKey = __decorate([
-    Directive({ selector: '[enterKey]' }),
-    __metadata("design:paramtypes", [ElementRef])
-], EnterKey);
-export { EnterKey };
-let EscapeKey = class EscapeKey {
+export class EscapeKey {
     constructor(element) {
         this.element = element;
         this.escapeKey = new EventEmitter();
@@ -67,17 +66,17 @@ let EscapeKey = class EscapeKey {
             }
         });
     }
+}
+EscapeKey.decorators = [
+    { type: Directive, args: [{ selector: '[escapeKey]' },] }
+];
+EscapeKey.ctorParameters = () => [
+    { type: ElementRef }
+];
+EscapeKey.propDecorators = {
+    escapeKey: [{ type: Output }]
 };
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], EscapeKey.prototype, "escapeKey", void 0);
-EscapeKey = __decorate([
-    Directive({ selector: '[escapeKey]' }),
-    __metadata("design:paramtypes", [ElementRef])
-], EscapeKey);
-export { EscapeKey };
-let PreventBackKey = class PreventBackKey {
+export class PreventBackKey {
     constructor(element) {
         this.element = element;
         this.preventBackKey = new EventEmitter();
@@ -92,17 +91,17 @@ let PreventBackKey = class PreventBackKey {
             return yesNo;
         });
     }
+}
+PreventBackKey.decorators = [
+    { type: Directive, args: [{ selector: '[preventBackKey]' },] }
+];
+PreventBackKey.ctorParameters = () => [
+    { type: ElementRef }
+];
+PreventBackKey.propDecorators = {
+    preventBackKey: [{ type: Output }]
 };
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], PreventBackKey.prototype, "preventBackKey", void 0);
-PreventBackKey = __decorate([
-    Directive({ selector: '[preventBackKey]' }),
-    __metadata("design:paramtypes", [ElementRef])
-], PreventBackKey);
-export { PreventBackKey };
-let PreventEnterKey = class PreventEnterKey {
+export class PreventEnterKey {
     constructor(element) {
         this.element = element;
         this.preventEnterKey = new EventEmitter();
@@ -117,33 +116,31 @@ let PreventEnterKey = class PreventEnterKey {
             return yesNo;
         });
     }
+}
+PreventEnterKey.decorators = [
+    { type: Directive, args: [{ selector: '[preventEnterKey]' },] }
+];
+PreventEnterKey.ctorParameters = () => [
+    { type: ElementRef }
+];
+PreventEnterKey.propDecorators = {
+    preventEnterKey: [{ type: Output }]
 };
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], PreventEnterKey.prototype, "preventEnterKey", void 0);
-PreventEnterKey = __decorate([
-    Directive({ selector: '[preventEnterKey]' }),
-    __metadata("design:paramtypes", [ElementRef])
-], PreventEnterKey);
-export { PreventEnterKey };
-let InputHint = class InputHint {
+export class InputHint {
     constructor() {
         this.hintStyle = { 'font-size': '75%', 'color': '#BBB' };
     }
+}
+InputHint.decorators = [
+    { type: Component, args: [{
+                selector: 'input-hint',
+                template: '<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
+            },] }
+];
+InputHint.propDecorators = {
+    hintStyle: [{ type: Input }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], InputHint.prototype, "hintStyle", void 0);
-InputHint = __decorate([
-    Component({
-        selector: 'input-hint',
-        template: '<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
-    })
-], InputHint);
-export { InputHint };
-let FormChanged = class FormChanged {
+export class FormChanged {
     constructor(element) {
         this.element = element;
         this.formChanged = new EventEmitter();
@@ -155,19 +152,19 @@ let FormChanged = class FormChanged {
     ngOnDestroy() {
         this.element.nativeElement.removeEventListener('change', this.onChange);
     }
+}
+FormChanged.decorators = [
+    { type: Directive, args: [{
+                selector: '[formChanged]'
+            },] }
+];
+FormChanged.ctorParameters = () => [
+    { type: ElementRef }
+];
+FormChanged.propDecorators = {
+    formChanged: [{ type: Output }]
 };
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], FormChanged.prototype, "formChanged", void 0);
-FormChanged = __decorate([
-    Directive({
-        selector: '[formChanged]'
-    }),
-    __metadata("design:paramtypes", [ElementRef])
-], FormChanged);
-export { FormChanged };
-let FormAlter = class FormAlter {
+export class FormAlter {
     constructor(element) {
         this.element = element;
         this.formAlter = new EventEmitter();
@@ -181,18 +178,18 @@ let FormAlter = class FormAlter {
         this.element.nativeElement.removeEventListener('change', this.onChange);
         this.element.nativeElement.removeEventListener('input', this.onChange);
     }
+}
+FormAlter.decorators = [
+    { type: Directive, args: [{
+                selector: '[formAlter]'
+            },] }
+];
+FormAlter.ctorParameters = () => [
+    { type: ElementRef }
+];
+FormAlter.propDecorators = {
+    formAlter: [{ type: Output }]
 };
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], FormAlter.prototype, "formAlter", void 0);
-FormAlter = __decorate([
-    Directive({
-        selector: '[formAlter]'
-    }),
-    __metadata("design:paramtypes", [ElementRef])
-], FormAlter);
-export { FormAlter };
 export const screenDirectives = [
     ScreenScrollModelY,
     ScreenWidthModel,

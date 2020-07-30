@@ -1,6 +1,5 @@
-import { __decorate, __metadata } from "tslib";
 import { Directive, ElementRef, Input, Output, EventEmitter } from "@angular/core";
-let PxFromHtmlTop = class PxFromHtmlTop {
+export class PxFromHtmlTop {
     constructor(ElementRef) {
         this.ElementRef = ElementRef;
         this.numberChange = new EventEmitter();
@@ -41,24 +40,18 @@ let PxFromHtmlTop = class PxFromHtmlTop {
         window.removeEventListener("scroll", this.onScroll);
         window.removeEventListener("resize", this.onScroll);
     }
+}
+PxFromHtmlTop.decorators = [
+    { type: Directive, args: [{
+                selector: "[pxFromHtmlTop]",
+                exportAs: "PxFromHtmlTop"
+            },] }
+];
+PxFromHtmlTop.ctorParameters = () => [
+    { type: ElementRef }
+];
+PxFromHtmlTop.propDecorators = {
+    number: [{ type: Input, args: ["pxFromHtmlTop",] }],
+    numberChange: [{ type: Output, args: ["pxFromHtmlTopChange",] }],
+    watch: [{ type: Input }]
 };
-__decorate([
-    Input("pxFromHtmlTop"),
-    __metadata("design:type", Number)
-], PxFromHtmlTop.prototype, "number", void 0);
-__decorate([
-    Output("pxFromHtmlTopChange"),
-    __metadata("design:type", EventEmitter)
-], PxFromHtmlTop.prototype, "numberChange", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], PxFromHtmlTop.prototype, "watch", void 0);
-PxFromHtmlTop = __decorate([
-    Directive({
-        selector: "[pxFromHtmlTop]",
-        exportAs: "PxFromHtmlTop"
-    }),
-    __metadata("design:paramtypes", [ElementRef])
-], PxFromHtmlTop);
-export { PxFromHtmlTop };

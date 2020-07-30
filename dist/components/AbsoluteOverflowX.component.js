@@ -1,7 +1,6 @@
-import { __decorate, __metadata } from "tslib";
 import { ElementRef, Component, Input } from "@angular/core";
 import { string } from "./templates/absolute-overflow-x.pug";
-let AbsoluteOverflowX = class AbsoluteOverflowX {
+export class AbsoluteOverflowX {
     constructor(ElementRef) {
         this.ElementRef = ElementRef;
         this.active = true;
@@ -21,28 +20,19 @@ let AbsoluteOverflowX = class AbsoluteOverflowX {
     checkDisplay() {
         this.ElementRef.nativeElement.style.position = this.active ? 'relative' : 'static';
     }
+}
+AbsoluteOverflowX.decorators = [
+    { type: Component, args: [{
+                selector: 'absolute-overflow-x',
+                template: string
+            },] }
+];
+AbsoluteOverflowX.ctorParameters = () => [
+    { type: ElementRef }
+];
+AbsoluteOverflowX.propDecorators = {
+    scrollBars: [{ type: Input }],
+    wrapClass: [{ type: Input }],
+    active: [{ type: Input }],
+    overflow: [{ type: Input }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], AbsoluteOverflowX.prototype, "scrollBars", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], AbsoluteOverflowX.prototype, "wrapClass", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], AbsoluteOverflowX.prototype, "active", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", String)
-], AbsoluteOverflowX.prototype, "overflow", void 0);
-AbsoluteOverflowX = __decorate([
-    Component({
-        selector: 'absolute-overflow-x',
-        template: string
-    }),
-    __metadata("design:paramtypes", [ElementRef])
-], AbsoluteOverflowX);
-export { AbsoluteOverflowX };

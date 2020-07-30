@@ -1,7 +1,6 @@
-import { __decorate } from "tslib";
 import * as localForage from "localforage";
 import { Injectable } from '@angular/core';
-let AckOffline = class AckOffline {
+export class AckOffline {
     constructor() {
         this.prefix = "offline";
     }
@@ -31,8 +30,7 @@ let AckOffline = class AckOffline {
         })
             .then(() => keys);
     }
-};
-AckOffline = __decorate([
-    Injectable()
-], AckOffline);
-export { AckOffline };
+}
+AckOffline.decorators = [
+    { type: Injectable }
+];

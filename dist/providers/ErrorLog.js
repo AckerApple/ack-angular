@@ -1,6 +1,5 @@
-import { __decorate } from "tslib";
 import { Injectable } from '@angular/core';
-let ErrorLog = class ErrorLog {
+export class ErrorLog {
     constructor() {
         this.log = [];
         this.maxLog = 30;
@@ -28,7 +27,7 @@ let ErrorLog = class ErrorLog {
         return logObToErrorObject(ob);
     }
     paramAudit(e, toConsole) {
-        if (e.constructor == String) {
+        if (e.constructor === String) {
             e = new Error(e);
         }
         if (toConsole == null || toConsole)
@@ -68,11 +67,10 @@ let ErrorLog = class ErrorLog {
         const e = this.add(err);
         throw e;
     }
-};
-ErrorLog = __decorate([
-    Injectable()
-], ErrorLog);
-export { ErrorLog };
+}
+ErrorLog.decorators = [
+    { type: Injectable }
+];
 function getErrorMessage(err) {
     return err.message || err.statusText || err.name || 'Unexpected Error Occured';
 }

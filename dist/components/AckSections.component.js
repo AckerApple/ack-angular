@@ -1,8 +1,7 @@
-import { __decorate, __metadata } from "tslib";
 import { ContentChild, Component, Input, ElementRef, TemplateRef } from "@angular/core";
 import { SectionProvider } from "../providers/AckSections.provider";
 import { string } from "./templates/ack-sections.pug";
-let AckSections = class AckSections {
+export class AckSections {
     constructor(SectionProvider, ElementRef) {
         this.SectionProvider = SectionProvider;
         this.ElementRef = ElementRef;
@@ -12,42 +11,24 @@ let AckSections = class AckSections {
         elmStyle.height = "100%";
         elmStyle.display = "block";
     }
+}
+AckSections.decorators = [
+    { type: Component, args: [{
+                selector: 'ack-sections',
+                template: string,
+                providers: [SectionProvider]
+            },] }
+];
+AckSections.ctorParameters = () => [
+    { type: SectionProvider },
+    { type: ElementRef }
+];
+AckSections.propDecorators = {
+    mode: [{ type: Input }],
+    zIndex: [{ type: Input }],
+    table: [{ type: ContentChild, args: ["table",] }],
+    headerWrap: [{ type: ContentChild, args: ["headerWrap",] }],
+    bodyCell: [{ type: ContentChild, args: ["bodyCell",] }],
+    leftBodyWrap: [{ type: ContentChild, args: ["leftBodyWrap",] }],
+    rightBodyWrap: [{ type: ContentChild, args: ["rightBodyWrap",] }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", String)
-], AckSections.prototype, "mode", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Number)
-], AckSections.prototype, "zIndex", void 0);
-__decorate([
-    ContentChild("table"),
-    __metadata("design:type", TemplateRef)
-], AckSections.prototype, "table", void 0);
-__decorate([
-    ContentChild("headerWrap"),
-    __metadata("design:type", TemplateRef)
-], AckSections.prototype, "headerWrap", void 0);
-__decorate([
-    ContentChild("bodyCell"),
-    __metadata("design:type", TemplateRef)
-], AckSections.prototype, "bodyCell", void 0);
-__decorate([
-    ContentChild("leftBodyWrap"),
-    __metadata("design:type", TemplateRef)
-], AckSections.prototype, "leftBodyWrap", void 0);
-__decorate([
-    ContentChild("rightBodyWrap"),
-    __metadata("design:type", TemplateRef)
-], AckSections.prototype, "rightBodyWrap", void 0);
-AckSections = __decorate([
-    Component({
-        selector: 'ack-sections',
-        template: string,
-        providers: [SectionProvider]
-    }),
-    __metadata("design:paramtypes", [SectionProvider,
-        ElementRef])
-], AckSections);
-export { AckSections };

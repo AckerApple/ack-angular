@@ -1,231 +1,209 @@
-import { __decorate, __metadata } from "tslib";
 import { Pipe } from '@angular/core';
 import * as pipes from "./pipes.class";
 import { DomSanitizer } from '@angular/platform-browser';
-let IndexTrack = class IndexTrack {
+export class IndexTrack {
     transform() {
         return function (index) { return index; };
     }
-};
-IndexTrack = __decorate([
-    Pipe({ name: 'indexTrack' })
-], IndexTrack);
-export { IndexTrack };
-let Stringify = class Stringify {
+}
+IndexTrack.decorators = [
+    { type: Pipe, args: [{ name: 'indexTrack' },] }
+];
+export class Stringify {
     transform(input, spaces) {
         return JSON.stringify(input, null, spaces);
     }
-};
-Stringify = __decorate([
-    Pipe({ name: 'stringify' })
-], Stringify);
-export { Stringify };
-let ForceArray = class ForceArray {
+}
+Stringify.decorators = [
+    { type: Pipe, args: [{ name: 'stringify' },] }
+];
+export class ForceArray {
     transform(input, repeat, repeatValue) {
         return pipes.array(input, repeat, repeatValue);
     }
-};
-ForceArray = __decorate([
-    Pipe({ name: 'array' })
-], ForceArray);
-export { ForceArray };
-let ArrayOfObjects = class ArrayOfObjects {
+}
+ForceArray.decorators = [
+    { type: Pipe, args: [{ name: 'array' },] }
+];
+export class ArrayOfObjects {
     transform(input, repeat, repeatValue) {
         return pipes.arrayOfObjects(input, repeat, repeatValue);
     }
-};
-ArrayOfObjects = __decorate([
-    Pipe({ name: 'arrayOfObjects' })
-], ArrayOfObjects);
-export { ArrayOfObjects };
-let SafeUrl = class SafeUrl {
+}
+ArrayOfObjects.decorators = [
+    { type: Pipe, args: [{ name: 'arrayOfObjects' },] }
+];
+export class SafeUrl {
     constructor(domSanitizer) {
         this.domSanitizer = domSanitizer;
     }
     transform(input) {
         return this.domSanitizer.bypassSecurityTrustResourceUrl(input);
     }
-};
-SafeUrl = __decorate([
-    Pipe({ name: 'safeUrl' }),
-    __metadata("design:paramtypes", [DomSanitizer])
-], SafeUrl);
-export { SafeUrl };
-let NumberWord = class NumberWord {
+}
+SafeUrl.decorators = [
+    { type: Pipe, args: [{ name: 'safeUrl' },] }
+];
+SafeUrl.ctorParameters = () => [
+    { type: DomSanitizer }
+];
+export class NumberWord {
     constructor() { }
     transform(input, number) {
         return input + (number && number == 1 ? '' : 's');
     }
-};
-NumberWord = __decorate([
-    Pipe({ name: 'numberWord' }),
-    __metadata("design:paramtypes", [])
-], NumberWord);
-export { NumberWord };
-let EndNumberWord = class EndNumberWord {
+}
+NumberWord.decorators = [
+    { type: Pipe, args: [{ name: 'numberWord' },] }
+];
+NumberWord.ctorParameters = () => [];
+export class EndNumberWord {
     constructor() { }
     transform(input) {
         return input && input == 1 ? '' : 's';
     }
-};
-EndNumberWord = __decorate([
-    Pipe({ name: 'endNumberWord' }),
-    __metadata("design:paramtypes", [])
-], EndNumberWord);
-export { EndNumberWord };
-let SafeHtml = class SafeHtml {
+}
+EndNumberWord.decorators = [
+    { type: Pipe, args: [{ name: 'endNumberWord' },] }
+];
+EndNumberWord.ctorParameters = () => [];
+export class SafeHtml {
     constructor(domSanitizer) {
         this.domSanitizer = domSanitizer;
     }
     transform(input) {
         return this.domSanitizer.bypassSecurityTrustHtml(input);
     }
-};
-SafeHtml = __decorate([
-    Pipe({ name: 'safeHtml' }),
-    __metadata("design:paramtypes", [DomSanitizer])
-], SafeHtml);
-export { SafeHtml };
-let SafeStyle = class SafeStyle {
+}
+SafeHtml.decorators = [
+    { type: Pipe, args: [{ name: 'safeHtml' },] }
+];
+SafeHtml.ctorParameters = () => [
+    { type: DomSanitizer }
+];
+export class SafeStyle {
     constructor(domSanitizer) {
         this.domSanitizer = domSanitizer;
     }
     transform(input) {
         return this.domSanitizer.bypassSecurityTrustStyle(input);
     }
-};
-SafeStyle = __decorate([
-    Pipe({ name: 'safeStyle' }),
-    __metadata("design:paramtypes", [DomSanitizer])
-], SafeStyle);
-export { SafeStyle };
-let Between = class Between {
+}
+SafeStyle.decorators = [
+    { type: Pipe, args: [{ name: 'safeStyle' },] }
+];
+SafeStyle.ctorParameters = () => [
+    { type: DomSanitizer }
+];
+export class Between {
     transform(input, a, b) { return pipes.between(input, a, b); }
-};
-Between = __decorate([
-    Pipe({ name: 'between' })
-], Between);
-export { Between };
-let TextDownload = class TextDownload {
+}
+Between.decorators = [
+    { type: Pipe, args: [{ name: 'between' },] }
+];
+export class TextDownload {
     transform(input) { return pipes.textDownload(input); }
-};
-TextDownload = __decorate([
-    Pipe({ name: 'textDownload' })
-], TextDownload);
-export { TextDownload };
-let NumberToPhone = class NumberToPhone {
+}
+TextDownload.decorators = [
+    { type: Pipe, args: [{ name: 'textDownload' },] }
+];
+export class NumberToPhone {
     transform(input) { return pipes.numberToPhone(input); }
-};
-NumberToPhone = __decorate([
-    Pipe({ name: 'numberToPhone' })
-], NumberToPhone);
-export { NumberToPhone };
-let toNumber = class toNumber {
+}
+NumberToPhone.decorators = [
+    { type: Pipe, args: [{ name: 'numberToPhone' },] }
+];
+export class toNumber {
     transform(input) { return pipes.toNumber(input); }
-};
-toNumber = __decorate([
-    Pipe({ name: 'toNumber' })
-], toNumber);
-export { toNumber };
-let NumberSuffix = class NumberSuffix {
+}
+toNumber.decorators = [
+    { type: Pipe, args: [{ name: 'toNumber' },] }
+];
+export class NumberSuffix {
     transform(input, rtnInput) { return pipes.numberSuffix(input, rtnInput); }
-};
-NumberSuffix = __decorate([
-    Pipe({ name: 'numberSuffix' })
-], NumberSuffix);
-export { NumberSuffix };
-let MarkdownAnchor = class MarkdownAnchor {
+}
+NumberSuffix.decorators = [
+    { type: Pipe, args: [{ name: 'numberSuffix' },] }
+];
+export class MarkdownAnchor {
     transform(input) { return pipes.markdownAnchor(input); }
-};
-MarkdownAnchor = __decorate([
-    Pipe({ name: 'markdownAnchor' })
-], MarkdownAnchor);
-export { MarkdownAnchor };
-let Capitalize = class Capitalize {
+}
+MarkdownAnchor.decorators = [
+    { type: Pipe, args: [{ name: 'markdownAnchor' },] }
+];
+export class Capitalize {
     transform(input) { return pipes.capitalize(input); }
-};
-Capitalize = __decorate([
-    Pipe({ name: 'capitalize' })
-], Capitalize);
-export { Capitalize };
-let CapitalizeWords = class CapitalizeWords {
+}
+Capitalize.decorators = [
+    { type: Pipe, args: [{ name: 'capitalize' },] }
+];
+export class CapitalizeWords {
     transform(input) { return pipes.capitalizeWords(input); }
-};
-CapitalizeWords = __decorate([
-    Pipe({ name: 'capitalizeWords' })
-], CapitalizeWords);
-export { CapitalizeWords };
-let Yesno = class Yesno {
+}
+CapitalizeWords.decorators = [
+    { type: Pipe, args: [{ name: 'capitalizeWords' },] }
+];
+export class Yesno {
     transform(input) { return pipes.yesno(input); }
-};
-Yesno = __decorate([
-    Pipe({ name: 'yesno' })
-], Yesno);
-export { Yesno };
-let YesNo = class YesNo {
+}
+Yesno.decorators = [
+    { type: Pipe, args: [{ name: 'yesno' },] }
+];
+export class YesNo {
     transform(input) { return pipes.yesNo(input); }
-};
-YesNo = __decorate([
-    Pipe({ name: 'YesNo' })
-], YesNo);
-export { YesNo };
-let BooleanPipe = class BooleanPipe {
+}
+YesNo.decorators = [
+    { type: Pipe, args: [{ name: 'YesNo' },] }
+];
+export class BooleanPipe {
     transform(input) { return pipes.boolean(input); }
-};
-BooleanPipe = __decorate([
-    Pipe({ name: 'boolean' })
-], BooleanPipe);
-export { BooleanPipe };
-let Bit = class Bit {
+}
+BooleanPipe.decorators = [
+    { type: Pipe, args: [{ name: 'boolean' },] }
+];
+export class Bit {
     transform(input) { return pipes.bit(input); }
-};
-Bit = __decorate([
-    Pipe({ name: 'bit' })
-], Bit);
-export { Bit };
-let Numbers = class Numbers {
+}
+Bit.decorators = [
+    { type: Pipe, args: [{ name: 'bit' },] }
+];
+export class Numbers {
     transform(input) { return pipes.numbers(input); }
-};
-Numbers = __decorate([
-    Pipe({ name: 'numbers' })
-], Numbers);
-export { Numbers };
-let ADate = class ADate {
+}
+Numbers.decorators = [
+    { type: Pipe, args: [{ name: 'numbers' },] }
+];
+export class ADate {
     transform(...args) { return pipes.aDate.apply(pipes.aDate, args); }
-};
-ADate = __decorate([
-    Pipe({ name: 'aDate' })
-], ADate);
-export { ADate };
-let AMath = class AMath {
+}
+ADate.decorators = [
+    { type: Pipe, args: [{ name: 'aDate' },] }
+];
+export class AMath {
     transform(...args) { return pipes.aMath.apply(pipes.aMath, args); }
-};
-AMath = __decorate([
-    Pipe({ name: 'aMath' })
-], AMath);
-export { AMath };
-let AString = class AString {
+}
+AMath.decorators = [
+    { type: Pipe, args: [{ name: 'aMath' },] }
+];
+export class AString {
     transform(...args) { return pipes.aString.apply(pipes.aString, args); }
-};
-AString = __decorate([
-    Pipe({ name: 'aString' })
-], AString);
-export { AString };
-let ATime = class ATime {
+}
+AString.decorators = [
+    { type: Pipe, args: [{ name: 'aString' },] }
+];
+export class ATime {
     transform(...args) { return pipes.aTime.apply(pipes.aTime, args); }
-};
-ATime = __decorate([
-    Pipe({ name: 'aTime' })
-], ATime);
-export { ATime };
-let Ack = class Ack {
+}
+ATime.decorators = [
+    { type: Pipe, args: [{ name: 'aTime' },] }
+];
+export class Ack {
     transform(...args) { return pipes.ack.apply(pipes.ack, args); }
-};
-Ack = __decorate([
-    Pipe({ name: 'ack' })
-], Ack);
-export { Ack };
-let Keys = class Keys {
+}
+Ack.decorators = [
+    { type: Pipe, args: [{ name: 'ack' },] }
+];
+export class Keys {
     transform(input) {
         const type = typeof (input) == 'object';
         const isOb = input && type;
@@ -235,25 +213,22 @@ let Keys = class Keys {
         }
         return input ? Object.keys(input) : [];
     }
-};
-Keys = __decorate([
-    Pipe({ name: 'keys' })
-], Keys);
-export { Keys };
-let TypeofPipe = class TypeofPipe {
+}
+Keys.decorators = [
+    { type: Pipe, args: [{ name: 'keys' },] }
+];
+export class TypeofPipe {
     transform(input) { return typeof (input); }
-};
-TypeofPipe = __decorate([
-    Pipe({ name: 'typeof' })
-], TypeofPipe);
-export { TypeofPipe };
-let ConsolePipe = class ConsolePipe {
+}
+TypeofPipe.decorators = [
+    { type: Pipe, args: [{ name: 'typeof' },] }
+];
+export class ConsolePipe {
     transform() { return console.log.apply(console, arguments); }
-};
-ConsolePipe = __decorate([
-    Pipe({ name: 'console' })
-], ConsolePipe);
-export { ConsolePipe };
+}
+ConsolePipe.decorators = [
+    { type: Pipe, args: [{ name: 'console' },] }
+];
 export const declarations = [
     IndexTrack,
     Stringify,

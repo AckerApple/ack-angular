@@ -1,7 +1,6 @@
-import { __decorate, __metadata } from "tslib";
 import { Injectable } from "@angular/core";
 import { Router, NavigationEnd } from "@angular/router";
-let RouteHistory = class RouteHistory {
+export class RouteHistory {
     constructor(Router) {
         this.Router = Router;
         this.routeHistory = [];
@@ -75,9 +74,10 @@ let RouteHistory = class RouteHistory {
         const rh = this.routeHistory[this.historyIndex - 1];
         this.Router.navigate([rh]);
     }
-};
-RouteHistory = __decorate([
-    Injectable(),
-    __metadata("design:paramtypes", [Router])
-], RouteHistory);
-export { RouteHistory };
+}
+RouteHistory.decorators = [
+    { type: Injectable }
+];
+RouteHistory.ctorParameters = () => [
+    { type: Router }
+];

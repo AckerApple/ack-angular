@@ -1,7 +1,6 @@
-import { __decorate, __metadata } from "tslib";
 import { Directive, Input, Output, EventEmitter } from "@angular/core";
 import { HtmlSizeService } from "./HtmlSizeWatcher";
-let ScreenHeightModel = class ScreenHeightModel {
+export class ScreenHeightModel {
     constructor(HtmlSizeService) {
         this.HtmlSizeService = HtmlSizeService;
         this.modelChange = new EventEmitter();
@@ -28,20 +27,17 @@ let ScreenHeightModel = class ScreenHeightModel {
         this.model = window.innerHeight;
         this.modelChange.emit(this.model);
     }
+}
+ScreenHeightModel.decorators = [
+    { type: Directive, args: [{
+                selector: '[screenHeightModel]',
+                exportAs: 'ScreenHeightModel'
+            },] }
+];
+ScreenHeightModel.ctorParameters = () => [
+    { type: HtmlSizeService }
+];
+ScreenHeightModel.propDecorators = {
+    model: [{ type: Input, args: ['screenHeightModel',] }],
+    modelChange: [{ type: Output, args: ['screenHeightModelChange',] }]
 };
-__decorate([
-    Input('screenHeightModel'),
-    __metadata("design:type", Number)
-], ScreenHeightModel.prototype, "model", void 0);
-__decorate([
-    Output('screenHeightModelChange'),
-    __metadata("design:type", EventEmitter)
-], ScreenHeightModel.prototype, "modelChange", void 0);
-ScreenHeightModel = __decorate([
-    Directive({
-        selector: '[screenHeightModel]',
-        exportAs: 'ScreenHeightModel'
-    }),
-    __metadata("design:paramtypes", [HtmlSizeService])
-], ScreenHeightModel);
-export { ScreenHeightModel };

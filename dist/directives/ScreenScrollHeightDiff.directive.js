@@ -1,6 +1,5 @@
-import { __decorate, __metadata } from "tslib";
 import { Directive, Input, Output, EventEmitter } from "@angular/core";
-let ScreenScrollHeightDiff = class ScreenScrollHeightDiff {
+export class ScreenScrollHeightDiff {
     constructor() {
         this.screenScrollHeightDiffChange = new EventEmitter();
         this.on = () => {
@@ -19,19 +18,14 @@ let ScreenScrollHeightDiff = class ScreenScrollHeightDiff {
         window.removeEventListener("scroll", this.on);
         window.removeEventListener("resize", this.on);
     }
+}
+ScreenScrollHeightDiff.decorators = [
+    { type: Directive, args: [{
+                selector: '[screenScrollHeightDiff]'
+            },] }
+];
+ScreenScrollHeightDiff.ctorParameters = () => [];
+ScreenScrollHeightDiff.propDecorators = {
+    screenScrollHeightDiff: [{ type: Input }],
+    screenScrollHeightDiffChange: [{ type: Output }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], ScreenScrollHeightDiff.prototype, "screenScrollHeightDiff", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], ScreenScrollHeightDiff.prototype, "screenScrollHeightDiffChange", void 0);
-ScreenScrollHeightDiff = __decorate([
-    Directive({
-        selector: '[screenScrollHeightDiff]'
-    }),
-    __metadata("design:paramtypes", [])
-], ScreenScrollHeightDiff);
-export { ScreenScrollHeightDiff };

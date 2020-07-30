@@ -1,7 +1,6 @@
-import { __decorate } from "tslib";
 import { Injectable } from '@angular/core';
 import { AckOffline } from './AckOffline';
-let AckQue = class AckQue extends AckOffline {
+export class AckQue extends AckOffline {
     constructor() {
         super(...arguments);
         this.prefix = "offline-que";
@@ -123,8 +122,7 @@ let AckQue = class AckQue extends AckOffline {
             return Promise.all(results);
         });
     }
-};
-AckQue = __decorate([
-    Injectable()
-], AckQue);
-export { AckQue };
+}
+AckQue.decorators = [
+    { type: Injectable }
+];

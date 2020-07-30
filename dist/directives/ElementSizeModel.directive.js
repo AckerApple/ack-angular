@@ -1,6 +1,5 @@
-import { __decorate, __metadata } from "tslib";
 import { Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
-let ElementSizeModel = class ElementSizeModel {
+export class ElementSizeModel {
     constructor(element) {
         this.element = element;
         this.elementSizeModelChange = new EventEmitter();
@@ -44,27 +43,21 @@ let ElementSizeModel = class ElementSizeModel {
         this.observer.disconnect();
         window.removeEventListener('resize', this.onResize);
     }
+}
+ElementSizeModel.decorators = [
+    { type: Directive, args: [{
+                selector: '[elementSizeModel]'
+            },] }
+];
+ElementSizeModel.ctorParameters = () => [
+    { type: ElementRef }
+];
+ElementSizeModel.propDecorators = {
+    elementSizeModelWatch: [{ type: Input }],
+    elementSizeModel: [{ type: Input }],
+    elementSizeModelChange: [{ type: Output }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], ElementSizeModel.prototype, "elementSizeModelWatch", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], ElementSizeModel.prototype, "elementSizeModel", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], ElementSizeModel.prototype, "elementSizeModelChange", void 0);
-ElementSizeModel = __decorate([
-    Directive({
-        selector: '[elementSizeModel]'
-    }),
-    __metadata("design:paramtypes", [ElementRef])
-], ElementSizeModel);
-export { ElementSizeModel };
-let ElementHeightModel = class ElementHeightModel extends ElementSizeModel {
+export class ElementHeightModel extends ElementSizeModel {
     constructor(element) {
         super(element);
         this.element = element;
@@ -74,23 +67,20 @@ let ElementHeightModel = class ElementHeightModel extends ElementSizeModel {
         this.elementHeightModel = this.element.nativeElement.offsetHeight;
         this.elementHeightModelChange.emit(this.elementHeightModel);
     }
+}
+ElementHeightModel.decorators = [
+    { type: Directive, args: [{
+                selector: '[elementHeightModel]'
+            },] }
+];
+ElementHeightModel.ctorParameters = () => [
+    { type: ElementRef }
+];
+ElementHeightModel.propDecorators = {
+    elementHeightModel: [{ type: Input }],
+    elementHeightModelChange: [{ type: Output }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], ElementHeightModel.prototype, "elementHeightModel", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], ElementHeightModel.prototype, "elementHeightModelChange", void 0);
-ElementHeightModel = __decorate([
-    Directive({
-        selector: '[elementHeightModel]'
-    }),
-    __metadata("design:paramtypes", [ElementRef])
-], ElementHeightModel);
-export { ElementHeightModel };
-let ElementWidthModel = class ElementWidthModel extends ElementSizeModel {
+export class ElementWidthModel extends ElementSizeModel {
     constructor(element) {
         super(element);
         this.element = element;
@@ -100,20 +90,17 @@ let ElementWidthModel = class ElementWidthModel extends ElementSizeModel {
         this.elementWidthModel = this.element.nativeElement.offsetWidth;
         this.elementWidthModelChange.emit(this.elementWidthModel);
     }
+}
+ElementWidthModel.decorators = [
+    { type: Directive, args: [{
+                selector: '[elementWidthModel]',
+                exportAs: 'ElementWidthModel'
+            },] }
+];
+ElementWidthModel.ctorParameters = () => [
+    { type: ElementRef }
+];
+ElementWidthModel.propDecorators = {
+    elementWidthModel: [{ type: Input }],
+    elementWidthModelChange: [{ type: Output }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], ElementWidthModel.prototype, "elementWidthModel", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], ElementWidthModel.prototype, "elementWidthModelChange", void 0);
-ElementWidthModel = __decorate([
-    Directive({
-        selector: '[elementWidthModel]',
-        exportAs: 'ElementWidthModel'
-    }),
-    __metadata("design:paramtypes", [ElementRef])
-], ElementWidthModel);
-export { ElementWidthModel };

@@ -1,7 +1,6 @@
-import { __decorate, __metadata } from "tslib";
 import { addClass, removeClass } from "./FxOn.directive";
 import { Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
-let ShakeOn = class ShakeOn {
+export class ShakeOn {
     constructor(element) {
         this.element = element;
         this.shakeConstant = false;
@@ -65,32 +64,20 @@ let ShakeOn = class ShakeOn {
             }, this.shakeForMs);
         }
     }
+}
+ShakeOn.decorators = [
+    { type: Directive, args: [{
+                selector: "[shakeOn]",
+                exportAs: "ShakeOn"
+            },] }
+];
+ShakeOn.ctorParameters = () => [
+    { type: ElementRef }
+];
+ShakeOn.propDecorators = {
+    shakeConstant: [{ type: Input }],
+    shakeOn: [{ type: Input }],
+    shakeForMs: [{ type: Input }],
+    shakeType: [{ type: Input }],
+    shakeThen: [{ type: Output }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], ShakeOn.prototype, "shakeConstant", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], ShakeOn.prototype, "shakeOn", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], ShakeOn.prototype, "shakeForMs", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], ShakeOn.prototype, "shakeType", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], ShakeOn.prototype, "shakeThen", void 0);
-ShakeOn = __decorate([
-    Directive({
-        selector: "[shakeOn]",
-        exportAs: "ShakeOn"
-    }),
-    __metadata("design:paramtypes", [ElementRef])
-], ShakeOn);
-export { ShakeOn };

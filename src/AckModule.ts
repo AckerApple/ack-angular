@@ -21,7 +21,7 @@ const declarations = [...components, ...pipes]
     ...declarations,
    ]
 }) export class AckModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<any> {
     return {
       ngModule: AckModule,
       providers: providers

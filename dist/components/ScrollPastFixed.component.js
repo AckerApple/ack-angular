@@ -1,7 +1,6 @@
-import { __decorate, __metadata } from "tslib";
 import { ViewChild, TemplateRef, ElementRef, Component } from "@angular/core";
 import { string } from "./templates/scroll-past-fixed.pug";
-let ScrollPastFixed = class ScrollPastFixed {
+export class ScrollPastFixed {
     constructor(ElementRef) {
         this.ElementRef = ElementRef;
     }
@@ -35,19 +34,19 @@ let ScrollPastFixed = class ScrollPastFixed {
             delete this.currentPosition;
         }
     }
+}
+ScrollPastFixed.decorators = [
+    { type: Component, args: [{
+                selector: 'scroll-past-fixed',
+                template: string
+            },] }
+];
+ScrollPastFixed.ctorParameters = () => [
+    { type: ElementRef }
+];
+ScrollPastFixed.propDecorators = {
+    template: [{ type: ViewChild, args: ['template',] }]
 };
-__decorate([
-    ViewChild('template'),
-    __metadata("design:type", TemplateRef)
-], ScrollPastFixed.prototype, "template", void 0);
-ScrollPastFixed = __decorate([
-    Component({
-        selector: 'scroll-past-fixed',
-        template: string
-    }),
-    __metadata("design:paramtypes", [ElementRef])
-], ScrollPastFixed);
-export { ScrollPastFixed };
 export function getDistanceFromTop(element) {
     let yPos = 0;
     while (element) {

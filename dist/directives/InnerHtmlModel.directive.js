@@ -1,6 +1,5 @@
-import { __decorate, __metadata } from "tslib";
 import { Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
-let InnerHtmlModel = class InnerHtmlModel {
+export class InnerHtmlModel {
     constructor(element) {
         this.element = element;
         this.innerHtmlModelChange = new EventEmitter();
@@ -23,19 +22,16 @@ let InnerHtmlModel = class InnerHtmlModel {
     ngOnDestroy() {
         this.observer.disconnect();
     }
+}
+InnerHtmlModel.decorators = [
+    { type: Directive, args: [{
+                selector: '[innerHtmlModel]'
+            },] }
+];
+InnerHtmlModel.ctorParameters = () => [
+    { type: ElementRef }
+];
+InnerHtmlModel.propDecorators = {
+    innerHtmlModel: [{ type: Input }],
+    innerHtmlModelChange: [{ type: Output }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], InnerHtmlModel.prototype, "innerHtmlModel", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", Object)
-], InnerHtmlModel.prototype, "innerHtmlModelChange", void 0);
-InnerHtmlModel = __decorate([
-    Directive({
-        selector: '[innerHtmlModel]'
-    }),
-    __metadata("design:paramtypes", [ElementRef])
-], InnerHtmlModel);
-export { InnerHtmlModel };

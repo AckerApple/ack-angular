@@ -1,6 +1,5 @@
-import { __decorate, __metadata } from "tslib";
 import { Injectable, Output, EventEmitter } from "@angular/core";
-let HtmlSizeService = class HtmlSizeService {
+export class HtmlSizeService {
     constructor() {
         this.change = new EventEmitter();
         this.htmlSize = { width: null, height: null };
@@ -20,13 +19,11 @@ let HtmlSizeService = class HtmlSizeService {
             window.removeEventListener('resize', this.onResize);
         }
     }
+}
+HtmlSizeService.decorators = [
+    { type: Injectable }
+];
+HtmlSizeService.ctorParameters = () => [];
+HtmlSizeService.propDecorators = {
+    change: [{ type: Output }]
 };
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], HtmlSizeService.prototype, "change", void 0);
-HtmlSizeService = __decorate([
-    Injectable(),
-    __metadata("design:paramtypes", [])
-], HtmlSizeService);
-export { HtmlSizeService };

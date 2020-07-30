@@ -13,7 +13,7 @@ import { providers } from "./providers"
     HttpClientModule
   ]
 }) export class AckOfflineModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<any> {
     return {
       ngModule: AckOfflineModule,
       providers: providers

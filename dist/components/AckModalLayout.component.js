@@ -1,9 +1,8 @@
-import { __decorate, __metadata } from "tslib";
 import { Component, Input, Output, EventEmitter, ElementRef } from "@angular/core";
 import { AckApp } from "../providers/AckApp.provider";
 import { animations } from "ack-angular-fx";
 import { string } from "./templates/ack-modal-layout.pug";
-let AckModalLayout = class AckModalLayout {
+export class AckModalLayout {
     constructor(element, AckApp) {
         this.element = element;
         this.AckApp = AckApp;
@@ -38,50 +37,26 @@ let AckModalLayout = class AckModalLayout {
         this.showModelChange.emit(this.showModel = false);
         this.close.emit(this);
     }
+}
+AckModalLayout.decorators = [
+    { type: Component, args: [{
+                selector: 'ack-modal-layout',
+                template: string,
+                animations: animations
+            },] }
+];
+AckModalLayout.ctorParameters = () => [
+    { type: ElementRef },
+    { type: AckApp }
+];
+AckModalLayout.propDecorators = {
+    zIndex: [{ type: Input }],
+    close: [{ type: Output }],
+    allowClose: [{ type: Input }],
+    wrapStyle: [{ type: Input }],
+    wrapCellStyle: [{ type: Input }],
+    backgroundColor: [{ type: Input }],
+    isModelMode: [{ type: Input }],
+    showModel: [{ type: Input }],
+    showModelChange: [{ type: Output }]
 };
-__decorate([
-    Input(),
-    __metadata("design:type", Number)
-], AckModalLayout.prototype, "zIndex", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], AckModalLayout.prototype, "close", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Boolean)
-], AckModalLayout.prototype, "allowClose", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], AckModalLayout.prototype, "wrapStyle", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], AckModalLayout.prototype, "wrapCellStyle", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], AckModalLayout.prototype, "backgroundColor", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Boolean)
-], AckModalLayout.prototype, "isModelMode", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Boolean)
-], AckModalLayout.prototype, "showModel", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], AckModalLayout.prototype, "showModelChange", void 0);
-AckModalLayout = __decorate([
-    Component({
-        selector: 'ack-modal-layout',
-        template: string,
-        animations: animations
-    }),
-    __metadata("design:paramtypes", [ElementRef,
-        AckApp])
-], AckModalLayout);
-export { AckModalLayout };
