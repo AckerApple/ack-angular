@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.15.0] - 2020-10-14
+- Built with Angular 11
+
 ## [1.13.11] - 2019-10-21
 - provide RouteHistory
 
