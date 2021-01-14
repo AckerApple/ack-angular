@@ -44,6 +44,7 @@ export declare class AckArray {
     getItemValueByKeys(item: any, keys: string[]): any;
     loop(reset: boolean): void;
     pushCreateMap(): void;
+    /** adds to loop functionality how to create pages */
     pushCreatePages(): void;
     only(item: any): void;
     getItemId(item: any): any;

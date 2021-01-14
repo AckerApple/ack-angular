@@ -1,4 +1,5 @@
 import { EventEmitter, ElementRef } from "@angular/core";
+/** runs shake instructions when condition returns a truthy value */
 export declare class ShakeOn {
     element: ElementRef;
     shakeConstant: boolean;

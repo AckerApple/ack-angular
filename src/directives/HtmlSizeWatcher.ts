@@ -9,10 +9,10 @@ export interface htmlSize{
   height: number
 }
 
-@Injectable() export class HtmlSizeService{
+@Injectable() export class HtmlSizeService {
   private onResize:()=>void
   htmlSize:htmlSize
-  
+
   @Output() change:EventEmitter<void> = new EventEmitter()
 
   constructor(){

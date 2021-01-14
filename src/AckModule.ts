@@ -15,8 +15,7 @@ const declarations = [...components, ...pipes]
   imports:[
     CommonModule
   ],
-  declarations: declarations,
-  //providers:providers,
+  declarations, providers,
   exports:[
     ...declarations,
    ]

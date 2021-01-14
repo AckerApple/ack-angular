@@ -15,7 +15,8 @@
     "install:example": "npm install --prefix example",
     "test": "ng test --browser PhantomJS --single-run",
     "test:watch": "ng test",
-    "build:dist": "ngc --project src/tsconfig.json",
+    "build:dist:old": "ngc --project src/tsconfig.json",
+    "build:dist": "ng-packagr -p package.json",
     "watch:dist": "watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/",
     "build:assets": "npm-run-all build:assets:src build:assets:example compile:templates",
     "build:assets:src": "ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts",
@@ -51,7 +52,6 @@
   },
   "homepage": "https://github.com/AckerApple/ack-angular#readme",
   "dependencies": {
-    "@types/node": "^14.14.20",
     "ack-angular-fx": "^4.1.0",
     "ack-css-boot": "^1.2.66",
     "ack-x": "^1.6.0",
@@ -60,6 +60,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1100.7",
+    "@angular-devkit/build-ng-packagr": "^0.1002.0",
     "@angular/animations": "^11.0.9",
     "@angular/cli": "^11.0.7",
     "@angular/common": "^11.0.9",
@@ -84,6 +85,7 @@
     "karma-jasmine-html-reporter": "^1.5.4",
     "karma-phantomjs-launcher": "^1.0.4",
     "localforage": "^1.9.0",
+    "ng-packagr": "^11.0.3",
     "ngx-page-scroll": "^7.0.3",
     "ngx-page-scroll-core": "^7.0.3",
     "npm-run-all": "^4.1.5",
@@ -97,6 +99,18 @@
     "typescript": "~4.0.0",
     "webpack-bundle-analyzer": "^4.3.0",
     "zone.js": "~0.11.3"
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "src/index.ts"
+    },
+    "whitelistedNonPeerDependencies": [
+      "ack-angular-fx",
+      "ack-css-boot",
+      "ack-x",
+      "animate.css",
+      "csshake"
+    ]
   },
   "private": true
 }

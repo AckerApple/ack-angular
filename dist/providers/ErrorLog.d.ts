@@ -8,8 +8,10 @@ export declare class ErrorLog {
     paramAudit(e: any, toConsole?: any): {
         data?: any;
     };
+    /** Convert Error object to a regular object */
     objectifyError(err: any): {
         data?: any;
     };
+    /** same as reject but uses native throw instead of native Promise.reject */
     rethrow(err: any): void;
 }

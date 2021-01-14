@@ -37,9 +37,11 @@ export declare class SafeStyle {
     constructor(domSanitizer: DomSanitizer);
     transform(input: any): import("@angular/platform-browser").SafeStyle;
 }
+/** (input>=a && input<=b) || (input>=b && input<=a) */
 export declare class Between {
     transform(input: any, a: any, b: any): boolean;
 }
+/** use with bypassSecurityTrustResourceUrl for href */
 export declare class TextDownload {
     transform(input: string): any;
 }
@@ -71,7 +73,7 @@ export declare class BooleanPipe {
     transform(input: any): boolean;
 }
 export declare class Bit {
-    transform(input: any): 1 | 0;
+    transform(input: any): 0 | 1;
 }
 export declare class Numbers {
     transform(input: any): any;
