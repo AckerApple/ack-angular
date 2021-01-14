@@ -1,5 +1,5 @@
 //import { StateService } from "ui-router-ng2";
-import { RouterModule } from '@angular/router';
+import { ExtraOptions, RouterModule } from '@angular/router';
 import { Component} from '@angular/core';
 import { ComponentsExamples } from './ComponentsExamples.component';
 import { OverviewExamples } from './OverviewExamples.component';
@@ -66,5 +66,9 @@ export const routes = [
   {path: '**',   redirectTo: 'overview' }//404
 ]
 
-export const routeConfig = {useHash:true, initialNavigation:true, enableTracing:false}
+export const routeConfig: ExtraOptions = {
+  useHash:true,
+  initialNavigation: 'enabled',
+  enableTracing:false
+}
 export const routing = RouterModule.forRoot(routes, routeConfig)
