@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "1.15.0",
+  "version": "1.15.1",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "bundles/ack-angular.umd.js",
   "typings": "ack-angular.d.ts",
@@ -27,10 +27,8 @@
     "ack-css-boot": "^1.2.66",
     "ack-x": "^1.6.0",
     "animate.css": "^4.1.1",
-    "csshake": "^1.5.3",
-    "tslib": "^2.0.0"
+    "csshake": "^1.5.3"
   },
-  "private": true,
   "module": "fesm2015/ack-angular.js",
   "es2015": "fesm2015/ack-angular.js",
   "esm2015": "esm2015/ack-angular.js",
