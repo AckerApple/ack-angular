@@ -1,0 +1,2 @@
+export { ack } from "ack-x/browser";
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYWNrLmpzIiwic291cmNlUm9vdCI6Ii4uLy4uL3NyYy8iLCJzb3VyY2VzIjpbImFjay50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsR0FBRyxFQUFFLE1BQU0sZUFBZSxDQUFBIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IHsgYWNrIH0gZnJvbSBcImFjay14L2Jyb3dzZXJcIiJdfQ==

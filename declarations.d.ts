@@ -34,11 +34,13 @@ export declare class EscapeKey {
     escapeKey: EventEmitter<Event>;
     constructor(element: ElementRef);
 }
+/** Disallow keyboard access to the backspace key */
 export declare class PreventBackKey {
     element: ElementRef;
     preventBackKey: EventEmitter<any>;
     constructor(element: ElementRef);
 }
+/** Disallow keyboard access to the enter keys */
 export declare class PreventEnterKey {
     element: ElementRef;
     preventEnterKey: EventEmitter<any>;
@@ -50,6 +52,7 @@ export declare class InputHint {
         color: string;
     };
 }
+/** adds form element onchange listener via addEventListener('change') that calls formChanged scope argument */
 export declare class FormChanged {
     element: ElementRef;
     onChange: any;
@@ -57,6 +60,7 @@ export declare class FormChanged {
     constructor(element: ElementRef);
     ngOnDestroy(): void;
 }
+/** when ever change or input form event triggered, bindings are called */
 export declare class FormAlter {
     element: ElementRef;
     onChange: (Event: any) => void;

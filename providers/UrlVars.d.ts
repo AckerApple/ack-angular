@@ -4,5 +4,6 @@ export declare class UrlVars {
     vars: any;
     constructor(WindowService: WindowService);
     parse(): {};
+    /** case in-sensative variable fetch */
     get(name: any, param?: any): any;
 }

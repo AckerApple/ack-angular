@@ -5,6 +5,11 @@ export interface currentRoute {
     params: any;
     parent?: currentRoute;
 }
+/** A stateful connection to ui-router history
+ - .stateChange() with arguments MUST be called at every state change
+ - Has 99% accuracy of knowing if OS back or forward button has been used
+   - Their is no web event for knowing if OS button is used.
+*/
 export declare class RouteWatchReporter {
     router: Router;
     activatedRoute: ActivatedRoute;

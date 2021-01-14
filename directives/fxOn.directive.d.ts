@@ -1,4 +1,8 @@
 import { EventEmitter, ElementRef } from "@angular/core";
+/**
+  Applies css class when condition returns a truthy value. Allows timed removal
+  Html inline elms cannot be animated. They will be upgraded to display inline-block
+*/
 export declare class FxOn {
     element: ElementRef;
     fxOn: boolean;
