@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "1.15.0",
+  "version": "1.15.1",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -26,8 +26,8 @@
     "watch": "npm-run-all --parallel build:index watch:dist watch:assets watch:js",
     "watch:js": "ng serve example --port 4201 --open",
     "build:js": "ng build example --stats-json",
-    "build:universal": "npm-run-all build:index build:css build:assets compile:dist:package",
-    "build": "npm-run-all build:universal build:dist copy:scss build:js",
+    "build:universal": "npm-run-all build:index build:css build:assets",
+    "build": "npm-run-all build:universal build:dist compile:dist:package copy:scss build:js",
     "copy:scss": "ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss",
     "compile:dist:package": "node scripts/update-dist-package.js",
     "save": "git add . && git commit -m \"update\" && git push",

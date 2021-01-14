@@ -25,3 +25,14 @@ function manageExample(){
 }
 
 //manageExample()
+
+function modDistPackage() {
+  const packRequirePath = '../dist/package.json'
+  const packPath = require.resolve(packRequirePath)
+  const pack = require(packPath)
+  delete pack.private
+
+  fs.writeFileSync(packPath, JSON.stringify(pack, null, 2))
+}
+
+modDistPackage()
