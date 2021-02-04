@@ -692,9 +692,16 @@ function between(input, a, b) {
         return false;
     return (input >= a && input <= b) || (input <= a && input >= b) ? true : false;
 }
+function replaceMaxLength(input, max, replacement = '...') {
+    if ((input === null || input === void 0 ? void 0 : input.length) > max) {
+        return input.slice(0, max) + replacement;
+    }
+    return input;
+}
 function numberToPhone(val) {
-    if (val == null || !val)
+    if (val == null || !val) {
         return val;
+    }
     val = String(val).replace(/[^0-9]/g, '');
     if (val.length == 0)
         return val;
@@ -820,25 +827,26 @@ const aString = invokeRotator(String);
 const ack = invokeRotator(ack$1);
 // maybe deprecated . Remove in future releases. Just an array ref of all pipes
 const pipes = {
+    ack,
+    aDate,
+    aMath,
     array,
-    markdownAnchor,
-    textDownload,
-    yesno,
-    yesNo,
-    numbers,
-    capitalizeWords,
+    aString,
+    aTime,
+    between,
     capitalize,
     capitalizeAfterSentence,
     capitalizeOne,
-    toNumber,
-    numberToPhone,
+    capitalizeWords,
+    numbers,
     numberSuffix,
-    aDate,
-    aMath,
-    aString,
-    aTime,
-    ack,
-    between
+    numberToPhone,
+    markdownAnchor,
+    replaceMaxLength,
+    textDownload,
+    toNumber,
+    yesno,
+    yesNo,
 };
 
 class TemplateReader {
@@ -2927,6 +2935,14 @@ class Between {
 Between.decorators = [
     { type: Pipe, args: [{ name: 'between' },] }
 ];
+class ReplaceMaxLength {
+    transform(input, max, replacement) {
+        return replaceMaxLength(input, max, replacement);
+    }
+}
+ReplaceMaxLength.decorators = [
+    { type: Pipe, args: [{ name: 'replaceMaxLength' },] }
+];
 /** use with bypassSecurityTrustResourceUrl for href */
 class TextDownload {
     transform(input) { return textDownload(input); }
@@ -3087,7 +3103,8 @@ const declarations$2 = [
     NumberWord,
     EndNumberWord,
     BooleanPipe,
-    Between
+    Between,
+    ReplaceMaxLength,
 ];
 
 const declarations$3 = [...declarations$1, ...declarations$2];
@@ -4176,5 +4193,5 @@ function upgradeConfig(cfg) {
  * Generated bundle index. Do not edit.
  */
 
-export { AckApi, AckApp, AckArray, AckModule, AckRouterModule, DocumentService, ErrorLog, HtmlSizeService, Log, Prompts, RouteWatchReporter, UrlVars, WindowService, declarations$1 as components, declarations$2 as pipes, providers, providers$1 as ɵa, EnterKey as ɵb, Yesno as ɵba, YesNo as ɵbb, BooleanPipe as ɵbc, Bit as ɵbd, Numbers as ɵbe, ADate as ɵbf, AMath as ɵbg, AString as ɵbh, ATime as ɵbi, Ack as ɵbj, Keys as ɵbk, TypeofPipe as ɵbl, ConsolePipe as ɵbm, Init as ɵbn, SelectOn as ɵbo, FocusOn as ɵbp, VarDirective as ɵbq, InnerHtmlModel as ɵbr, ReplaceModel as ɵbs, ScreenScrollModelY as ɵbt, ScreenWidthModel as ɵbu, ScreenHeightModel as ɵbv, ScreenScroll as ɵbw, ScrollPastFixed as ɵbx, string$a as ɵby, ScreenScrollHeightDiff as ɵbz, EscapeKey as ɵc, PxFromHtmlTop as ɵca, HtmlWidthModel as ɵcb, HtmlHeightModel as ɵcc, ShakeOn as ɵcd, FxOn as ɵce, StatusOnlineModel as ɵcf, StatusOfflineModel as ɵcg, ElementSizeModel as ɵch, ElementHeightModel as ɵci, ElementWidthModel as ɵcj, DebugItem as ɵck, DebugArea as ɵcl, declarations as ɵcm, string$9 as ɵcn, ErrorWell as ɵco, string$7 as ɵcp, AbsoluteOverflowX as ɵcq, string$6 as ɵcr, ReaderHeaderBody as ɵcs, ReaderHeader as ɵct, ReaderBody as ɵcu, string$8 as ɵcv, AckCloseIcon as ɵcw, AckSections as ɵcx, string as ɵcy, SectionProvider as ɵcz, PreventBackKey as ɵd, AckSectionTemplates as ɵda, AckOptions as ɵdb, string$4 as ɵdc, AckOptionsModal as ɵdd, string$5 as ɵde, AckModal as ɵdf, string$1 as ɵdg, AckModalLayout as ɵdh, string$2 as ɵdi, AckAggregate as ɵdj, AckFixedElement as ɵdk, AckFixedElementStage as ɵdl, string$3 as ɵdm, RouteReporter as ɵdn, RouteHistory as ɵdo, PreventEnterKey as ɵe, InputHint as ɵf, FormChanged as ɵg, FormAlter as ɵh, screenDirectives as ɵi, IndexTrack as ɵj, Stringify as ɵk, ForceArray as ɵl, ArrayOfObjects as ɵm, SafeUrl as ɵn, NumberWord as ɵo, EndNumberWord as ɵp, SafeHtml as ɵq, SafeStyle as ɵr, Between as ɵs, TextDownload as ɵt, NumberToPhone as ɵu, toNumber$1 as ɵv, NumberSuffix as ɵw, MarkdownAnchor as ɵx, Capitalize as ɵy, CapitalizeWords as ɵz };
+export { AckApi, AckApp, AckArray, AckModule, AckRouterModule, DocumentService, ErrorLog, HtmlSizeService, Log, Prompts, RouteWatchReporter, UrlVars, WindowService, declarations$1 as components, declarations$2 as pipes, providers, providers$1 as ɵa, EnterKey as ɵb, CapitalizeWords as ɵba, Yesno as ɵbb, YesNo as ɵbc, BooleanPipe as ɵbd, Bit as ɵbe, Numbers as ɵbf, ADate as ɵbg, AMath as ɵbh, AString as ɵbi, ATime as ɵbj, Ack as ɵbk, Keys as ɵbl, TypeofPipe as ɵbm, ConsolePipe as ɵbn, Init as ɵbo, SelectOn as ɵbp, FocusOn as ɵbq, VarDirective as ɵbr, InnerHtmlModel as ɵbs, ReplaceModel as ɵbt, ScreenScrollModelY as ɵbu, ScreenWidthModel as ɵbv, ScreenHeightModel as ɵbw, ScreenScroll as ɵbx, ScrollPastFixed as ɵby, string$a as ɵbz, EscapeKey as ɵc, ScreenScrollHeightDiff as ɵca, PxFromHtmlTop as ɵcb, HtmlWidthModel as ɵcc, HtmlHeightModel as ɵcd, ShakeOn as ɵce, FxOn as ɵcf, StatusOnlineModel as ɵcg, StatusOfflineModel as ɵch, ElementSizeModel as ɵci, ElementHeightModel as ɵcj, ElementWidthModel as ɵck, DebugItem as ɵcl, DebugArea as ɵcm, declarations as ɵcn, string$9 as ɵco, ErrorWell as ɵcp, string$7 as ɵcq, AbsoluteOverflowX as ɵcr, string$6 as ɵcs, ReaderHeaderBody as ɵct, ReaderHeader as ɵcu, ReaderBody as ɵcv, string$8 as ɵcw, AckCloseIcon as ɵcx, AckSections as ɵcy, string as ɵcz, PreventBackKey as ɵd, SectionProvider as ɵda, AckSectionTemplates as ɵdb, AckOptions as ɵdc, string$4 as ɵdd, AckOptionsModal as ɵde, string$5 as ɵdf, AckModal as ɵdg, string$1 as ɵdh, AckModalLayout as ɵdi, string$2 as ɵdj, AckAggregate as ɵdk, AckFixedElement as ɵdl, AckFixedElementStage as ɵdm, string$3 as ɵdn, RouteReporter as ɵdo, RouteHistory as ɵdp, PreventEnterKey as ɵe, InputHint as ɵf, FormChanged as ɵg, FormAlter as ɵh, screenDirectives as ɵi, IndexTrack as ɵj, Stringify as ɵk, ForceArray as ɵl, ArrayOfObjects as ɵm, SafeUrl as ɵn, NumberWord as ɵo, EndNumberWord as ɵp, SafeHtml as ɵq, SafeStyle as ɵr, Between as ɵs, ReplaceMaxLength as ɵt, TextDownload as ɵu, NumberToPhone as ɵv, toNumber$1 as ɵw, NumberSuffix as ɵx, MarkdownAnchor as ɵy, Capitalize as ɵz };
 //# sourceMappingURL=ack-angular.js.map

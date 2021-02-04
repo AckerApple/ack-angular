@@ -9,10 +9,7 @@ export declare class ForceArray {
     transform(input: any, repeat?: any, repeatValue?: any): any[];
 }
 export declare class ArrayOfObjects {
-    transform(input: any, repeat: any, repeatValue: any): {
-        value: any;
-        index: number;
-    }[];
+    transform(input: any, repeat: any, repeatValue: any): any[];
 }
 export declare class SafeUrl {
     private domSanitizer;
@@ -41,12 +38,15 @@ export declare class SafeStyle {
 export declare class Between {
     transform(input: any, a: any, b: any): boolean;
 }
+export declare class ReplaceMaxLength {
+    transform(input: string, max: number, replacement: string): string;
+}
 /** use with bypassSecurityTrustResourceUrl for href */
 export declare class TextDownload {
     transform(input: string): any;
 }
 export declare class NumberToPhone {
-    transform(input: string): any;
+    transform(input: string): unknown;
 }
 export declare class toNumber {
     transform(input: string): number;

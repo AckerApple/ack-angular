@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.15.2] - 2021-02-04
+- Added replaceMaxLength pipe
+
 ## [1.15.0] - 2020-10-14
 - Built with Angular 11
 

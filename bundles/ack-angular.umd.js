@@ -1032,9 +1032,17 @@
             return false;
         return (input >= a && input <= b) || (input <= a && input >= b) ? true : false;
     }
+    function replaceMaxLength(input, max, replacement) {
+        if (replacement === void 0) { replacement = '...'; }
+        if ((input === null || input === void 0 ? void 0 : input.length) > max) {
+            return input.slice(0, max) + replacement;
+        }
+        return input;
+    }
     function numberToPhone(val) {
-        if (val == null || !val)
+        if (val == null || !val) {
             return val;
+        }
         val = String(val).replace(/[^0-9]/g, '');
         if (val.length == 0)
             return val;
@@ -1161,25 +1169,26 @@
     var ack = invokeRotator(browser.ack);
     // maybe deprecated . Remove in future releases. Just an array ref of all pipes
     var pipes = {
+        ack: ack,
+        aDate: aDate,
+        aMath: aMath,
         array: array,
-        markdownAnchor: markdownAnchor,
-        textDownload: textDownload,
-        yesno: yesno,
-        yesNo: yesNo,
-        numbers: numbers,
-        capitalizeWords: capitalizeWords,
+        aString: aString,
+        aTime: aTime,
+        between: between,
         capitalize: capitalize,
         capitalizeAfterSentence: capitalizeAfterSentence,
         capitalizeOne: capitalizeOne,
-        toNumber: toNumber,
-        numberToPhone: numberToPhone,
+        capitalizeWords: capitalizeWords,
+        numbers: numbers,
         numberSuffix: numberSuffix,
-        aDate: aDate,
-        aMath: aMath,
-        aString: aString,
-        aTime: aTime,
-        ack: ack,
-        between: between
+        numberToPhone: numberToPhone,
+        markdownAnchor: markdownAnchor,
+        replaceMaxLength: replaceMaxLength,
+        textDownload: textDownload,
+        toNumber: toNumber,
+        yesno: yesno,
+        yesNo: yesNo,
     };
 
     var TemplateReader = /** @class */ (function () {
@@ -3391,6 +3400,17 @@
     Between.decorators = [
         { type: core.Pipe, args: [{ name: 'between' },] }
     ];
+    var ReplaceMaxLength = /** @class */ (function () {
+        function ReplaceMaxLength() {
+        }
+        ReplaceMaxLength.prototype.transform = function (input, max, replacement) {
+            return replaceMaxLength(input, max, replacement);
+        };
+        return ReplaceMaxLength;
+    }());
+    ReplaceMaxLength.decorators = [
+        { type: core.Pipe, args: [{ name: 'replaceMaxLength' },] }
+    ];
     /** use with bypassSecurityTrustResourceUrl for href */
     var TextDownload = /** @class */ (function () {
         function TextDownload() {
@@ -3641,7 +3661,8 @@
         NumberWord,
         EndNumberWord,
         BooleanPipe,
-        Between
+        Between,
+        ReplaceMaxLength,
     ];
 
     var declarations$3 = __spread(declarations$1, declarations$2);
@@ -4795,75 +4816,76 @@
     exports.providers = providers;
     exports.ɵa = providers$1;
     exports.ɵb = EnterKey;
-    exports.ɵba = Yesno;
-    exports.ɵbb = YesNo;
-    exports.ɵbc = BooleanPipe;
-    exports.ɵbd = Bit;
-    exports.ɵbe = Numbers;
-    exports.ɵbf = ADate;
-    exports.ɵbg = AMath;
-    exports.ɵbh = AString;
-    exports.ɵbi = ATime;
-    exports.ɵbj = Ack;
-    exports.ɵbk = Keys;
-    exports.ɵbl = TypeofPipe;
-    exports.ɵbm = ConsolePipe;
-    exports.ɵbn = Init;
-    exports.ɵbo = SelectOn;
-    exports.ɵbp = FocusOn;
-    exports.ɵbq = VarDirective;
-    exports.ɵbr = InnerHtmlModel;
-    exports.ɵbs = ReplaceModel;
-    exports.ɵbt = ScreenScrollModelY;
-    exports.ɵbu = ScreenWidthModel;
-    exports.ɵbv = ScreenHeightModel;
-    exports.ɵbw = ScreenScroll;
-    exports.ɵbx = ScrollPastFixed;
-    exports.ɵby = string$a;
-    exports.ɵbz = ScreenScrollHeightDiff;
+    exports.ɵba = CapitalizeWords;
+    exports.ɵbb = Yesno;
+    exports.ɵbc = YesNo;
+    exports.ɵbd = BooleanPipe;
+    exports.ɵbe = Bit;
+    exports.ɵbf = Numbers;
+    exports.ɵbg = ADate;
+    exports.ɵbh = AMath;
+    exports.ɵbi = AString;
+    exports.ɵbj = ATime;
+    exports.ɵbk = Ack;
+    exports.ɵbl = Keys;
+    exports.ɵbm = TypeofPipe;
+    exports.ɵbn = ConsolePipe;
+    exports.ɵbo = Init;
+    exports.ɵbp = SelectOn;
+    exports.ɵbq = FocusOn;
+    exports.ɵbr = VarDirective;
+    exports.ɵbs = InnerHtmlModel;
+    exports.ɵbt = ReplaceModel;
+    exports.ɵbu = ScreenScrollModelY;
+    exports.ɵbv = ScreenWidthModel;
+    exports.ɵbw = ScreenHeightModel;
+    exports.ɵbx = ScreenScroll;
+    exports.ɵby = ScrollPastFixed;
+    exports.ɵbz = string$a;
     exports.ɵc = EscapeKey;
-    exports.ɵca = PxFromHtmlTop;
-    exports.ɵcb = HtmlWidthModel;
-    exports.ɵcc = HtmlHeightModel;
-    exports.ɵcd = ShakeOn;
-    exports.ɵce = FxOn;
-    exports.ɵcf = StatusOnlineModel;
-    exports.ɵcg = StatusOfflineModel;
-    exports.ɵch = ElementSizeModel;
-    exports.ɵci = ElementHeightModel;
-    exports.ɵcj = ElementWidthModel;
-    exports.ɵck = DebugItem;
-    exports.ɵcl = DebugArea;
-    exports.ɵcm = declarations;
-    exports.ɵcn = string$9;
-    exports.ɵco = ErrorWell;
-    exports.ɵcp = string$7;
-    exports.ɵcq = AbsoluteOverflowX;
-    exports.ɵcr = string$6;
-    exports.ɵcs = ReaderHeaderBody;
-    exports.ɵct = ReaderHeader;
-    exports.ɵcu = ReaderBody;
-    exports.ɵcv = string$8;
-    exports.ɵcw = AckCloseIcon;
-    exports.ɵcx = AckSections;
-    exports.ɵcy = string;
-    exports.ɵcz = SectionProvider;
+    exports.ɵca = ScreenScrollHeightDiff;
+    exports.ɵcb = PxFromHtmlTop;
+    exports.ɵcc = HtmlWidthModel;
+    exports.ɵcd = HtmlHeightModel;
+    exports.ɵce = ShakeOn;
+    exports.ɵcf = FxOn;
+    exports.ɵcg = StatusOnlineModel;
+    exports.ɵch = StatusOfflineModel;
+    exports.ɵci = ElementSizeModel;
+    exports.ɵcj = ElementHeightModel;
+    exports.ɵck = ElementWidthModel;
+    exports.ɵcl = DebugItem;
+    exports.ɵcm = DebugArea;
+    exports.ɵcn = declarations;
+    exports.ɵco = string$9;
+    exports.ɵcp = ErrorWell;
+    exports.ɵcq = string$7;
+    exports.ɵcr = AbsoluteOverflowX;
+    exports.ɵcs = string$6;
+    exports.ɵct = ReaderHeaderBody;
+    exports.ɵcu = ReaderHeader;
+    exports.ɵcv = ReaderBody;
+    exports.ɵcw = string$8;
+    exports.ɵcx = AckCloseIcon;
+    exports.ɵcy = AckSections;
+    exports.ɵcz = string;
     exports.ɵd = PreventBackKey;
-    exports.ɵda = AckSectionTemplates;
-    exports.ɵdb = AckOptions;
-    exports.ɵdc = string$4;
-    exports.ɵdd = AckOptionsModal;
-    exports.ɵde = string$5;
-    exports.ɵdf = AckModal;
-    exports.ɵdg = string$1;
-    exports.ɵdh = AckModalLayout;
-    exports.ɵdi = string$2;
-    exports.ɵdj = AckAggregate;
-    exports.ɵdk = AckFixedElement;
-    exports.ɵdl = AckFixedElementStage;
-    exports.ɵdm = string$3;
-    exports.ɵdn = RouteReporter;
-    exports.ɵdo = RouteHistory;
+    exports.ɵda = SectionProvider;
+    exports.ɵdb = AckSectionTemplates;
+    exports.ɵdc = AckOptions;
+    exports.ɵdd = string$4;
+    exports.ɵde = AckOptionsModal;
+    exports.ɵdf = string$5;
+    exports.ɵdg = AckModal;
+    exports.ɵdh = string$1;
+    exports.ɵdi = AckModalLayout;
+    exports.ɵdj = string$2;
+    exports.ɵdk = AckAggregate;
+    exports.ɵdl = AckFixedElement;
+    exports.ɵdm = AckFixedElementStage;
+    exports.ɵdn = string$3;
+    exports.ɵdo = RouteReporter;
+    exports.ɵdp = RouteHistory;
     exports.ɵe = PreventEnterKey;
     exports.ɵf = InputHint;
     exports.ɵg = FormChanged;
@@ -4879,13 +4901,13 @@
     exports.ɵq = SafeHtml;
     exports.ɵr = SafeStyle;
     exports.ɵs = Between;
-    exports.ɵt = TextDownload;
-    exports.ɵu = NumberToPhone;
-    exports.ɵv = toNumber$1;
-    exports.ɵw = NumberSuffix;
-    exports.ɵx = MarkdownAnchor;
-    exports.ɵy = Capitalize;
-    exports.ɵz = CapitalizeWords;
+    exports.ɵt = ReplaceMaxLength;
+    exports.ɵu = TextDownload;
+    exports.ɵv = NumberToPhone;
+    exports.ɵw = toNumber$1;
+    exports.ɵx = NumberSuffix;
+    exports.ɵy = MarkdownAnchor;
+    exports.ɵz = Capitalize;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
