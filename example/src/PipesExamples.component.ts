@@ -6,11 +6,10 @@ import {
   //,PageScrollInstance
 } from "ngx-page-scroll-core"
 
-import {string as pipesExamples} from "./templates/pipes-examples.pug"
 @Component({
-  selector: "pipes-examples"
-  ,template: pipesExamples
-  ,animations:animations
+  selector: "pipes-examples",
+  templateUrl: './templates/pipes-examples.html',
+  animations: animations,
 }) export class PipesExamples {
   views:any = {}
   simpleArray = ["a","b","c"]

@@ -1,13 +1,29 @@
 import { ack as ackX } from "ack-x/browser"
 
-export function between(input, a, b) {
+export function between(
+  input: number, a: number, b: number
+) {
   if(a==null || b==null)return false
   return (input >= a && input <= b) || (input <= a && input >= b) ? true : false
 }
 
-export function numberToPhone(val){
-    if (val == null || !val)return val
-    
+export function replaceMaxLength(
+  input:string, max: number, replacement: string = '...'
+): string {
+  if(input?.length > max) {
+    return input.slice(0, max) + replacement
+  }
+
+  return input
+}
+
+export function numberToPhone(
+  val: number | string
+): string | unknown {
+    if (val == null || !val){
+      return val
+    }
+
     val = String(val).replace(/[^0-9]/g, '')
 
     if ( val.length==0 )return val
@@ -15,11 +31,13 @@ export function numberToPhone(val){
     return '(' + val.substring(0, 3) + ') ' + val.substring(3, 6) + '-' + val.substring(6, 10)
 }
 
-export function toNumber(val){
+export function toNumber(val: string | number){
     return Number( numbers(val, ".") )
 }
 
-export function numberSuffix(val, rtnVal=false){
+export function numberSuffix(
+  val: number | string, rtnVal=false
+){
   var rtn = rtnVal ? val : ''
   val = Number(val)
 
@@ -41,13 +59,13 @@ export function numberSuffix(val, rtnVal=false){
 
 /** if input is array returned otherwise array created with  */
 export function array(
-  input,
+  input: string | any[],
   repeat?:number,
-  repeatValue?
-):any[]{
+  repeatValue?: unknown | number | string
+): any[] {
   const isArray = input!=null && input.constructor == Array
-  let rtn = isArray ? input : []
-  
+  let rtn: any[] = isArray ? input as any[] : []
+
   if(!repeat && !isArray && input!=null){
     rtn.push(input)
   }
@@ -62,7 +80,11 @@ export function array(
   return rtn
 }
 
-export function arrayOfObjects(input, repeat?:number, repeatValue?){
+export function arrayOfObjects(
+  input: string | any[],
+  repeat?:number,
+  repeatValue?: unknown | string | number
+): any[] {
   return array(input, repeat, repeatValue).map((v,i)=>({value:v, index:i}))
 }
 
@@ -91,7 +113,7 @@ export function yesNo(input:any){
 
 export function boolean(input:any){
   if(input==null)return false
-  
+
   const num = Number(input)
   if(!isNaN(num)){
     return Boolean(num) ? true : false;
@@ -114,7 +136,7 @@ export function numbers(
   safeChars?:string//upto 4 acceptable characters
 ){
   let xString = '[^0-9'
-  
+
   if( safeChars ){
     if( safeChars.length>4 ){
       safeChars = safeChars.substring(0, 4)//do not allow safeChars to create a maliscous regx
@@ -125,7 +147,7 @@ export function numbers(
 
   xString += ']'
   const regX = new RegExp(xString, 'g')
-  
+
   return input ? String(input).replace(regX,'') : input
 }
 
@@ -166,23 +188,24 @@ export const ack = invokeRotator( ackX )
 
 // maybe deprecated . Remove in future releases. Just an array ref of all pipes
 export const pipes = {
+  ack,
+  aDate,
+  aMath,
   array,
-  markdownAnchor,
-  textDownload,
-  yesno,
-  yesNo,
-  numbers,
-  capitalizeWords,
+  aString,
+  aTime,
+  between,
   capitalize,
   capitalizeAfterSentence,
   capitalizeOne,
-  toNumber,
-  numberToPhone,
+  capitalizeWords,
+  numbers,
   numberSuffix,
-  aDate,
-  aMath,
-  aString,
-  aTime,
-  ack,
-  between
+  numberToPhone,
+  markdownAnchor,
+  replaceMaxLength,
+  textDownload,
+  toNumber,
+  yesno,
+  yesNo,
 }

@@ -76,6 +76,14 @@ import {
   transform(input, a, b) {return pipes.between(input, a, b)}
 }
 
+@Pipe({name: 'replaceMaxLength'}) export class ReplaceMaxLength {
+  transform(
+   input:string, max: number, replacement: string
+  ) {
+    return pipes.replaceMaxLength(input, max, replacement)
+  }
+}
+
 /** use with bypassSecurityTrustResourceUrl for href */
 @Pipe({name: 'textDownload'}) export class TextDownload {
   transform(input:string){return pipes.textDownload(input)}
@@ -151,11 +159,11 @@ import {
     const type = typeof(input)=='object'
     const isOb = input && type
     const isArray = isOb && input.constructor == Array
-    
+
     if(isArray){
       return input.map((_value,index)=>index)
     }
-    
+
     return input ? Object.keys(input) : []
   }
 }
@@ -198,5 +206,6 @@ export const declarations = [
   NumberWord,
   EndNumberWord,
   BooleanPipe,
-  Between
+  Between,
+  ReplaceMaxLength,
 ]
