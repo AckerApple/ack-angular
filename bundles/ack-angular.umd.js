@@ -2399,6 +2399,123 @@
         init: [{ type: core.Output }]
     };
 
+    var ContentModel = /** @class */ (function () {
+        function ContentModel(elm) {
+            this.elm = elm;
+            this.changeDone = new core.EventEmitter();
+            this.inputChange = new core.EventEmitter();
+            // Below, avoid using (contentModelChange) ... use (inputChange) instead
+            this.contentModelChange = new core.EventEmitter();
+            this.enterEnds = false;
+            this.enter = new core.EventEmitter(); // fires when enter key used
+            this.recentInputs = 0; // check in/out user input to prevent updating content right after user input
+            this.elm.nativeElement.setAttribute('contenteditable', true);
+        }
+        ContentModel.prototype.ngOnDestroy = function () {
+            this.elm.nativeElement.removeAttribute('contenteditable');
+        };
+        ContentModel.prototype.ngOnChanges = function () {
+            var nElm = this.elm.nativeElement;
+            // do not redraw if we are currently changing the input
+            if (this.recentInputs) {
+                --this.recentInputs;
+                return;
+            }
+            var usePlaceholder = this.evalPlaceholder();
+            if (!usePlaceholder) {
+                nElm.textContent = this.contentModel;
+            }
+        };
+        ContentModel.prototype.evalPlaceholder = function (placeholder) {
+            var nElm = this.elm.nativeElement;
+            var usePlaceholder = this.contentModel == null || this.contentModel === '';
+            if (usePlaceholder) {
+                nElm.textContent = placeholder == null ? this.placeholder : placeholder;
+                return true;
+            }
+            return false;
+        };
+        ContentModel.prototype.onKeyDown = function (event) {
+            this.checkplaceholder();
+            var key = event.which || event.keyCode;
+            // enter key treatment
+            if (this.enterEnds && key === 13) {
+                event.preventDefault();
+                event.stopPropagation();
+                this.onBlur();
+                this.enter.emit();
+                return;
+            }
+            if (this.maxLength) {
+                var newValue = this.elm.nativeElement.textContent;
+                var maxLength = Number(this.maxLength);
+                var maxed = this.maxLength && newValue.length > maxLength;
+                if (maxed) {
+                    var isDelete = [8, 46].indexOf(key) >= 0;
+                    if (!isDelete) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        return;
+                    }
+                }
+            }
+        };
+        ContentModel.prototype.onInput = function () {
+            var newValue = this.elm.nativeElement.textContent;
+            var maxLength = Number(this.maxLength);
+            if (this.maxLength && newValue.length > maxLength) {
+                return;
+            }
+            ++this.recentInputs;
+            this.contentModel = newValue;
+            // Below, caused focus loss blur because the model updates and causes redraw so now we use this.recentInputs
+            this.contentModelChange.emit(this.contentModel);
+            this.inputChange.emit(this.contentModel);
+        };
+        ContentModel.prototype.onFocus = function () {
+            this.lastValue = this.contentModel;
+            this.evalPlaceholder('');
+            /* 10-12: moved into keydown check
+            this.checkplaceholder();
+            */
+        };
+        ContentModel.prototype.checkplaceholder = function () {
+            if (this.placeholder && this.elm.nativeElement.textContent === this.placeholder) {
+                this.elm.nativeElement.textContent = '';
+            }
+        };
+        ContentModel.prototype.onBlur = function () {
+            if (this.lastValue !== this.elm.nativeElement.textContent) {
+                this.contentModelChange.emit(this.contentModel); // we have to emit here for change otherwise keyboard blur caused during key changes
+                this.changeDone.emit(this.contentModel);
+            }
+            this.evalPlaceholder();
+        };
+        return ContentModel;
+    }());
+    ContentModel.decorators = [
+        { type: core.Directive, args: [{
+                    selector: '[contentModel]'
+                },] }
+    ];
+    ContentModel.ctorParameters = function () { return [
+        { type: core.ElementRef }
+    ]; };
+    ContentModel.propDecorators = {
+        changeDone: [{ type: core.Output }],
+        contentModel: [{ type: core.Input }],
+        inputChange: [{ type: core.Output }],
+        contentModelChange: [{ type: core.Output }],
+        placeholder: [{ type: core.Input }],
+        maxLength: [{ type: core.Input }],
+        enterEnds: [{ type: core.Input }],
+        enter: [{ type: core.Output }],
+        onKeyDown: [{ type: core.HostListener, args: ['keydown', ['$event'],] }],
+        onInput: [{ type: core.HostListener, args: ['input',] }],
+        onFocus: [{ type: core.HostListener, args: ['focus',] }],
+        onBlur: [{ type: core.HostListener, args: ['blur',] }]
+    };
+
     var SelectOn = /** @class */ (function () {
         function SelectOn(element) {
             this.element = element;
@@ -3223,6 +3340,7 @@
         SelectOn,
         FocusOn,
         VarDirective,
+        ContentModel,
         InnerHtmlModel,
         ReplaceModel,
         FormAlter,
@@ -4834,58 +4952,59 @@
     exports.ɵbp = SelectOn;
     exports.ɵbq = FocusOn;
     exports.ɵbr = VarDirective;
-    exports.ɵbs = InnerHtmlModel;
-    exports.ɵbt = ReplaceModel;
-    exports.ɵbu = ScreenScrollModelY;
-    exports.ɵbv = ScreenWidthModel;
-    exports.ɵbw = ScreenHeightModel;
-    exports.ɵbx = ScreenScroll;
-    exports.ɵby = ScrollPastFixed;
-    exports.ɵbz = string$a;
+    exports.ɵbs = ContentModel;
+    exports.ɵbt = InnerHtmlModel;
+    exports.ɵbu = ReplaceModel;
+    exports.ɵbv = ScreenScrollModelY;
+    exports.ɵbw = ScreenWidthModel;
+    exports.ɵbx = ScreenHeightModel;
+    exports.ɵby = ScreenScroll;
+    exports.ɵbz = ScrollPastFixed;
     exports.ɵc = EscapeKey;
-    exports.ɵca = ScreenScrollHeightDiff;
-    exports.ɵcb = PxFromHtmlTop;
-    exports.ɵcc = HtmlWidthModel;
-    exports.ɵcd = HtmlHeightModel;
-    exports.ɵce = ShakeOn;
-    exports.ɵcf = FxOn;
-    exports.ɵcg = StatusOnlineModel;
-    exports.ɵch = StatusOfflineModel;
-    exports.ɵci = ElementSizeModel;
-    exports.ɵcj = ElementHeightModel;
-    exports.ɵck = ElementWidthModel;
-    exports.ɵcl = DebugItem;
-    exports.ɵcm = DebugArea;
-    exports.ɵcn = declarations;
-    exports.ɵco = string$9;
-    exports.ɵcp = ErrorWell;
-    exports.ɵcq = string$7;
-    exports.ɵcr = AbsoluteOverflowX;
-    exports.ɵcs = string$6;
-    exports.ɵct = ReaderHeaderBody;
-    exports.ɵcu = ReaderHeader;
-    exports.ɵcv = ReaderBody;
-    exports.ɵcw = string$8;
-    exports.ɵcx = AckCloseIcon;
-    exports.ɵcy = AckSections;
-    exports.ɵcz = string;
+    exports.ɵca = string$a;
+    exports.ɵcb = ScreenScrollHeightDiff;
+    exports.ɵcc = PxFromHtmlTop;
+    exports.ɵcd = HtmlWidthModel;
+    exports.ɵce = HtmlHeightModel;
+    exports.ɵcf = ShakeOn;
+    exports.ɵcg = FxOn;
+    exports.ɵch = StatusOnlineModel;
+    exports.ɵci = StatusOfflineModel;
+    exports.ɵcj = ElementSizeModel;
+    exports.ɵck = ElementHeightModel;
+    exports.ɵcl = ElementWidthModel;
+    exports.ɵcm = DebugItem;
+    exports.ɵcn = DebugArea;
+    exports.ɵco = declarations;
+    exports.ɵcp = string$9;
+    exports.ɵcq = ErrorWell;
+    exports.ɵcr = string$7;
+    exports.ɵcs = AbsoluteOverflowX;
+    exports.ɵct = string$6;
+    exports.ɵcu = ReaderHeaderBody;
+    exports.ɵcv = ReaderHeader;
+    exports.ɵcw = ReaderBody;
+    exports.ɵcx = string$8;
+    exports.ɵcy = AckCloseIcon;
+    exports.ɵcz = AckSections;
     exports.ɵd = PreventBackKey;
-    exports.ɵda = SectionProvider;
-    exports.ɵdb = AckSectionTemplates;
-    exports.ɵdc = AckOptions;
-    exports.ɵdd = string$4;
-    exports.ɵde = AckOptionsModal;
-    exports.ɵdf = string$5;
-    exports.ɵdg = AckModal;
-    exports.ɵdh = string$1;
-    exports.ɵdi = AckModalLayout;
-    exports.ɵdj = string$2;
-    exports.ɵdk = AckAggregate;
-    exports.ɵdl = AckFixedElement;
-    exports.ɵdm = AckFixedElementStage;
-    exports.ɵdn = string$3;
-    exports.ɵdo = RouteReporter;
-    exports.ɵdp = RouteHistory;
+    exports.ɵda = string;
+    exports.ɵdb = SectionProvider;
+    exports.ɵdc = AckSectionTemplates;
+    exports.ɵdd = AckOptions;
+    exports.ɵde = string$4;
+    exports.ɵdf = AckOptionsModal;
+    exports.ɵdg = string$5;
+    exports.ɵdh = AckModal;
+    exports.ɵdi = string$1;
+    exports.ɵdj = AckModalLayout;
+    exports.ɵdk = string$2;
+    exports.ɵdl = AckAggregate;
+    exports.ɵdm = AckFixedElement;
+    exports.ɵdn = AckFixedElementStage;
+    exports.ɵdo = string$3;
+    exports.ɵdp = RouteReporter;
+    exports.ɵdq = RouteHistory;
     exports.ɵe = PreventEnterKey;
     exports.ɵf = InputHint;
     exports.ɵg = FormChanged;

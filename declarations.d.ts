@@ -14,6 +14,7 @@ import { ScrollPastFixed } from "./components/ScrollPastFixed.component";
 import { ShakeOn } from "./directives/ShakeOn.directive";
 import { FxOn } from "./directives/FxOn.directive";
 import { FocusOn } from "./directives/FocusOn.directive";
+import { ContentModel } from "./directives/ContentModel.directive";
 import { SelectOn } from "./directives/SelectOn.directive";
 import { InnerHtmlModel } from "./directives/InnerHtmlModel.directive";
 import { ElementSizeModel } from "./directives/ElementSizeModel.directive";
@@ -69,4 +70,4 @@ export declare class FormAlter {
     ngOnDestroy(): void;
 }
 export declare const screenDirectives: (typeof ScrollPastFixed | typeof ScreenScrollHeightDiff | typeof ScreenScroll | typeof PxFromHtmlTop | typeof ScreenScrollModelY | typeof ScreenWidthModel | typeof ScreenHeightModel)[];
-export declare const declarations: (typeof SelectOn | typeof FocusOn | typeof InnerHtmlModel | typeof AckSections | typeof AckSectionTemplates | typeof AckFixedElement | typeof AckModal | typeof AckModalLayout | typeof AckFixedElementStage | typeof AckCloseIcon | typeof AckOptions | typeof AbsoluteOverflowX | typeof ReaderBody | typeof AckArray | typeof ScrollPastFixed | typeof FxOn | typeof ShakeOn | typeof ElementSizeModel | typeof PxFromHtmlTop | typeof ScreenWidthModel | typeof ScreenHeightModel | typeof HtmlWidthModel | typeof EnterKey | typeof EscapeKey | typeof PreventBackKey | typeof PreventEnterKey | typeof FormChanged | typeof FormAlter)[];
+export declare const declarations: (typeof SelectOn | typeof FocusOn | typeof ContentModel | typeof InnerHtmlModel | typeof AckSections | typeof AckSectionTemplates | typeof AckFixedElement | typeof AckModal | typeof AckModalLayout | typeof AckFixedElementStage | typeof AckCloseIcon | typeof AckOptions | typeof AbsoluteOverflowX | typeof ReaderBody | typeof AckArray | typeof ScrollPastFixed | typeof FxOn | typeof ShakeOn | typeof ElementSizeModel | typeof PxFromHtmlTop | typeof ScreenWidthModel | typeof ScreenHeightModel | typeof HtmlWidthModel | typeof EnterKey | typeof EscapeKey | typeof PreventBackKey | typeof PreventEnterKey | typeof FormChanged | typeof FormAlter)[];

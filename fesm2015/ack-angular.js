@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable, Output, Component, ElementRef, Input, ContentChild, Directive, ViewChild, ContentChildren, TemplateRef, IterableDiffers, Pipe, NgModule } from '@angular/core';
+import { EventEmitter, Injectable, Output, Component, ElementRef, Input, ContentChild, Directive, ViewChild, ContentChildren, TemplateRef, IterableDiffers, HostListener, Pipe, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { animations } from 'ack-angular-fx';
 import { ack as ack$1 } from 'ack-x/browser';
@@ -2016,6 +2016,122 @@ Init.propDecorators = {
     init: [{ type: Output }]
 };
 
+class ContentModel {
+    constructor(elm) {
+        this.elm = elm;
+        this.changeDone = new EventEmitter();
+        this.inputChange = new EventEmitter();
+        // Below, avoid using (contentModelChange) ... use (inputChange) instead
+        this.contentModelChange = new EventEmitter();
+        this.enterEnds = false;
+        this.enter = new EventEmitter(); // fires when enter key used
+        this.recentInputs = 0; // check in/out user input to prevent updating content right after user input
+        this.elm.nativeElement.setAttribute('contenteditable', true);
+    }
+    ngOnDestroy() {
+        this.elm.nativeElement.removeAttribute('contenteditable');
+    }
+    ngOnChanges() {
+        const nElm = this.elm.nativeElement;
+        // do not redraw if we are currently changing the input
+        if (this.recentInputs) {
+            --this.recentInputs;
+            return;
+        }
+        const usePlaceholder = this.evalPlaceholder();
+        if (!usePlaceholder) {
+            nElm.textContent = this.contentModel;
+        }
+    }
+    evalPlaceholder(placeholder) {
+        const nElm = this.elm.nativeElement;
+        const usePlaceholder = this.contentModel == null || this.contentModel === '';
+        if (usePlaceholder) {
+            nElm.textContent = placeholder == null ? this.placeholder : placeholder;
+            return true;
+        }
+        return false;
+    }
+    onKeyDown(event) {
+        this.checkplaceholder();
+        const key = event.which || event.keyCode;
+        // enter key treatment
+        if (this.enterEnds && key === 13) {
+            event.preventDefault();
+            event.stopPropagation();
+            this.onBlur();
+            this.enter.emit();
+            return;
+        }
+        if (this.maxLength) {
+            const newValue = this.elm.nativeElement.textContent;
+            const maxLength = Number(this.maxLength);
+            const maxed = this.maxLength && newValue.length > maxLength;
+            if (maxed) {
+                const isDelete = [8, 46].indexOf(key) >= 0;
+                if (!isDelete) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    return;
+                }
+            }
+        }
+    }
+    onInput() {
+        const newValue = this.elm.nativeElement.textContent;
+        const maxLength = Number(this.maxLength);
+        if (this.maxLength && newValue.length > maxLength) {
+            return;
+        }
+        ++this.recentInputs;
+        this.contentModel = newValue;
+        // Below, caused focus loss blur because the model updates and causes redraw so now we use this.recentInputs
+        this.contentModelChange.emit(this.contentModel);
+        this.inputChange.emit(this.contentModel);
+    }
+    onFocus() {
+        this.lastValue = this.contentModel;
+        this.evalPlaceholder('');
+        /* 10-12: moved into keydown check
+        this.checkplaceholder();
+        */
+    }
+    checkplaceholder() {
+        if (this.placeholder && this.elm.nativeElement.textContent === this.placeholder) {
+            this.elm.nativeElement.textContent = '';
+        }
+    }
+    onBlur() {
+        if (this.lastValue !== this.elm.nativeElement.textContent) {
+            this.contentModelChange.emit(this.contentModel); // we have to emit here for change otherwise keyboard blur caused during key changes
+            this.changeDone.emit(this.contentModel);
+        }
+        this.evalPlaceholder();
+    }
+}
+ContentModel.decorators = [
+    { type: Directive, args: [{
+                selector: '[contentModel]'
+            },] }
+];
+ContentModel.ctorParameters = () => [
+    { type: ElementRef }
+];
+ContentModel.propDecorators = {
+    changeDone: [{ type: Output }],
+    contentModel: [{ type: Input }],
+    inputChange: [{ type: Output }],
+    contentModelChange: [{ type: Output }],
+    placeholder: [{ type: Input }],
+    maxLength: [{ type: Input }],
+    enterEnds: [{ type: Input }],
+    enter: [{ type: Output }],
+    onKeyDown: [{ type: HostListener, args: ['keydown', ['$event'],] }],
+    onInput: [{ type: HostListener, args: ['input',] }],
+    onFocus: [{ type: HostListener, args: ['focus',] }],
+    onBlur: [{ type: HostListener, args: ['blur',] }]
+};
+
 class SelectOn {
     constructor(element) {
         this.element = element;
@@ -2779,6 +2895,7 @@ const declarations$1 = [
     SelectOn,
     FocusOn,
     VarDirective,
+    ContentModel,
     InnerHtmlModel,
     ReplaceModel,
     FormAlter,
@@ -4193,5 +4310,5 @@ function upgradeConfig(cfg) {
  * Generated bundle index. Do not edit.
  */
 
-export { AckApi, AckApp, AckArray, AckModule, AckRouterModule, DocumentService, ErrorLog, HtmlSizeService, Log, Prompts, RouteWatchReporter, UrlVars, WindowService, declarations$1 as components, declarations$2 as pipes, providers, providers$1 as ɵa, EnterKey as ɵb, CapitalizeWords as ɵba, Yesno as ɵbb, YesNo as ɵbc, BooleanPipe as ɵbd, Bit as ɵbe, Numbers as ɵbf, ADate as ɵbg, AMath as ɵbh, AString as ɵbi, ATime as ɵbj, Ack as ɵbk, Keys as ɵbl, TypeofPipe as ɵbm, ConsolePipe as ɵbn, Init as ɵbo, SelectOn as ɵbp, FocusOn as ɵbq, VarDirective as ɵbr, InnerHtmlModel as ɵbs, ReplaceModel as ɵbt, ScreenScrollModelY as ɵbu, ScreenWidthModel as ɵbv, ScreenHeightModel as ɵbw, ScreenScroll as ɵbx, ScrollPastFixed as ɵby, string$a as ɵbz, EscapeKey as ɵc, ScreenScrollHeightDiff as ɵca, PxFromHtmlTop as ɵcb, HtmlWidthModel as ɵcc, HtmlHeightModel as ɵcd, ShakeOn as ɵce, FxOn as ɵcf, StatusOnlineModel as ɵcg, StatusOfflineModel as ɵch, ElementSizeModel as ɵci, ElementHeightModel as ɵcj, ElementWidthModel as ɵck, DebugItem as ɵcl, DebugArea as ɵcm, declarations as ɵcn, string$9 as ɵco, ErrorWell as ɵcp, string$7 as ɵcq, AbsoluteOverflowX as ɵcr, string$6 as ɵcs, ReaderHeaderBody as ɵct, ReaderHeader as ɵcu, ReaderBody as ɵcv, string$8 as ɵcw, AckCloseIcon as ɵcx, AckSections as ɵcy, string as ɵcz, PreventBackKey as ɵd, SectionProvider as ɵda, AckSectionTemplates as ɵdb, AckOptions as ɵdc, string$4 as ɵdd, AckOptionsModal as ɵde, string$5 as ɵdf, AckModal as ɵdg, string$1 as ɵdh, AckModalLayout as ɵdi, string$2 as ɵdj, AckAggregate as ɵdk, AckFixedElement as ɵdl, AckFixedElementStage as ɵdm, string$3 as ɵdn, RouteReporter as ɵdo, RouteHistory as ɵdp, PreventEnterKey as ɵe, InputHint as ɵf, FormChanged as ɵg, FormAlter as ɵh, screenDirectives as ɵi, IndexTrack as ɵj, Stringify as ɵk, ForceArray as ɵl, ArrayOfObjects as ɵm, SafeUrl as ɵn, NumberWord as ɵo, EndNumberWord as ɵp, SafeHtml as ɵq, SafeStyle as ɵr, Between as ɵs, ReplaceMaxLength as ɵt, TextDownload as ɵu, NumberToPhone as ɵv, toNumber$1 as ɵw, NumberSuffix as ɵx, MarkdownAnchor as ɵy, Capitalize as ɵz };
+export { AckApi, AckApp, AckArray, AckModule, AckRouterModule, DocumentService, ErrorLog, HtmlSizeService, Log, Prompts, RouteWatchReporter, UrlVars, WindowService, declarations$1 as components, declarations$2 as pipes, providers, providers$1 as ɵa, EnterKey as ɵb, CapitalizeWords as ɵba, Yesno as ɵbb, YesNo as ɵbc, BooleanPipe as ɵbd, Bit as ɵbe, Numbers as ɵbf, ADate as ɵbg, AMath as ɵbh, AString as ɵbi, ATime as ɵbj, Ack as ɵbk, Keys as ɵbl, TypeofPipe as ɵbm, ConsolePipe as ɵbn, Init as ɵbo, SelectOn as ɵbp, FocusOn as ɵbq, VarDirective as ɵbr, ContentModel as ɵbs, InnerHtmlModel as ɵbt, ReplaceModel as ɵbu, ScreenScrollModelY as ɵbv, ScreenWidthModel as ɵbw, ScreenHeightModel as ɵbx, ScreenScroll as ɵby, ScrollPastFixed as ɵbz, EscapeKey as ɵc, string$a as ɵca, ScreenScrollHeightDiff as ɵcb, PxFromHtmlTop as ɵcc, HtmlWidthModel as ɵcd, HtmlHeightModel as ɵce, ShakeOn as ɵcf, FxOn as ɵcg, StatusOnlineModel as ɵch, StatusOfflineModel as ɵci, ElementSizeModel as ɵcj, ElementHeightModel as ɵck, ElementWidthModel as ɵcl, DebugItem as ɵcm, DebugArea as ɵcn, declarations as ɵco, string$9 as ɵcp, ErrorWell as ɵcq, string$7 as ɵcr, AbsoluteOverflowX as ɵcs, string$6 as ɵct, ReaderHeaderBody as ɵcu, ReaderHeader as ɵcv, ReaderBody as ɵcw, string$8 as ɵcx, AckCloseIcon as ɵcy, AckSections as ɵcz, PreventBackKey as ɵd, string as ɵda, SectionProvider as ɵdb, AckSectionTemplates as ɵdc, AckOptions as ɵdd, string$4 as ɵde, AckOptionsModal as ɵdf, string$5 as ɵdg, AckModal as ɵdh, string$1 as ɵdi, AckModalLayout as ɵdj, string$2 as ɵdk, AckAggregate as ɵdl, AckFixedElement as ɵdm, AckFixedElementStage as ɵdn, string$3 as ɵdo, RouteReporter as ɵdp, RouteHistory as ɵdq, PreventEnterKey as ɵe, InputHint as ɵf, FormChanged as ɵg, FormAlter as ɵh, screenDirectives as ɵi, IndexTrack as ɵj, Stringify as ɵk, ForceArray as ɵl, ArrayOfObjects as ɵm, SafeUrl as ɵn, NumberWord as ɵo, EndNumberWord as ɵp, SafeHtml as ɵq, SafeStyle as ɵr, Between as ɵs, ReplaceMaxLength as ɵt, TextDownload as ɵu, NumberToPhone as ɵv, toNumber$1 as ɵw, NumberSuffix as ɵx, MarkdownAnchor as ɵy, Capitalize as ɵz };
 //# sourceMappingURL=ack-angular.js.map
