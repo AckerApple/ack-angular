@@ -39,7 +39,7 @@ export interface selected{
   viewScreenHeightModel:number
   viewScreenWidthModel:number
   screenScrollCount:number = 0
-  
+
   viewShakeOn:boolean
 
   viewSelectOn
@@ -58,12 +58,13 @@ export interface selected{
     arrayOfObjects[2],
     arrayOfObjects[4],
     arrayOfObjects[6],
-    arrayOfObjects[8] 
+    arrayOfObjects[8]
   ]
   absoluteOverflowXActive = true//control the absolute-overflow-x example
+  contentModel = 'This is some demo content being displayed'
 
   constructor(public PageScrollService:PageScrollService){}
-  
+
   causeError(){
     this.error = new Error( "An intended error was caused @ "+getServerTime() )
   }

@@ -30,6 +30,7 @@ import { ShakeOn } from "./directives/ShakeOn.directive"
 import { FxOn } from "./directives/FxOn.directive"
 import { FocusOn } from "./directives/FocusOn.directive"
 import { Init } from "./directives/Init.directive"
+import { ContentModel } from "./directives/ContentModel.directive"
 import { SelectOn } from "./directives/SelectOn.directive"
 import { InnerHtmlModel } from "./directives/InnerHtmlModel.directive"
 import { ReplaceModel } from "./directives/ReplaceModel.directive"
@@ -62,7 +63,7 @@ export class EnterKey{
 @Directive({selector:'[escapeKey]'})
 export class EscapeKey{
   @Output() escapeKey:EventEmitter<Event> = new EventEmitter()
-  
+
   constructor(public element:ElementRef){
     element.nativeElement.addEventListener('keydown', (event)=>{
       const code = event.which||event.keyCode
@@ -177,6 +178,7 @@ export const declarations = [
   SelectOn,
   FocusOn,
   VarDirective,
+  ContentModel,
   InnerHtmlModel,
   ReplaceModel,
   FormAlter,
@@ -185,7 +187,7 @@ export const declarations = [
   EscapeKey,
   PreventBackKey,
   PreventEnterKey,
-  
+
   ...screenDirectives,
 
   HtmlWidthModel,
@@ -198,7 +200,7 @@ export const declarations = [
   ElementWidthModel,
   ElementHeightModel,
   InputHint,
-  
+
   //components
   ...debugDecs,
   ErrorWell,

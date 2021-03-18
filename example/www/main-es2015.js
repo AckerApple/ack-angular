@@ -2290,21 +2290,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _directives_FxOn_directive__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./directives/FxOn.directive */ "UV2o");
 /* harmony import */ var _directives_FocusOn_directive__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./directives/FocusOn.directive */ "xM1n");
 /* harmony import */ var _directives_Init_directive__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./directives/Init.directive */ "eNHZ");
-/* harmony import */ var _directives_SelectOn_directive__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./directives/SelectOn.directive */ "6DBY");
-/* harmony import */ var _directives_InnerHtmlModel_directive__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./directives/InnerHtmlModel.directive */ "dLpJ");
-/* harmony import */ var _directives_ReplaceModel_directive__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./directives/ReplaceModel.directive */ "eTfi");
-/* harmony import */ var _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./directives/ElementSizeModel.directive */ "unt3");
-/* harmony import */ var _directives_ScreenScrollHeightDiff_directive__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./directives/ScreenScrollHeightDiff.directive */ "2Uos");
-/* harmony import */ var _directives_ScreenScroll_directive__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./directives/ScreenScroll.directive */ "/2xC");
-/* harmony import */ var _directives_PxFromHtmlTop_directive__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./directives/PxFromHtmlTop.directive */ "v+h3");
-/* harmony import */ var _directives_ScreenScrollModelY_directive__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./directives/ScreenScrollModelY.directive */ "q90b");
-/* harmony import */ var _directives_ScreenWidthModel_directive__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./directives/ScreenWidthModel.directive */ "stBn");
-/* harmony import */ var _directives_ScreenHeightModel_directive__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./directives/ScreenHeightModel.directive */ "SJOV");
-/* harmony import */ var _directives_HtmlWidthModel_directive__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./directives/HtmlWidthModel.directive */ "7RV/");
-/* harmony import */ var _directives_HtmlHeightModel_directive__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./directives/HtmlHeightModel.directive */ "5sUW");
-/* harmony import */ var _directives_StatusOnlineModel_directive__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./directives/StatusOnlineModel.directive */ "IyaO");
-/* harmony import */ var _directives_StatusOfflineModel_directive__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./directives/StatusOfflineModel.directive */ "zFTS");
-/* harmony import */ var _directives_VarDirective_directive__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./directives/VarDirective.directive */ "jaOU");
+/* harmony import */ var _directives_ContentModel_directive__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./directives/ContentModel.directive */ "nuEm");
+/* harmony import */ var _directives_SelectOn_directive__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./directives/SelectOn.directive */ "6DBY");
+/* harmony import */ var _directives_InnerHtmlModel_directive__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./directives/InnerHtmlModel.directive */ "dLpJ");
+/* harmony import */ var _directives_ReplaceModel_directive__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./directives/ReplaceModel.directive */ "eTfi");
+/* harmony import */ var _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./directives/ElementSizeModel.directive */ "unt3");
+/* harmony import */ var _directives_ScreenScrollHeightDiff_directive__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./directives/ScreenScrollHeightDiff.directive */ "2Uos");
+/* harmony import */ var _directives_ScreenScroll_directive__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./directives/ScreenScroll.directive */ "/2xC");
+/* harmony import */ var _directives_PxFromHtmlTop_directive__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./directives/PxFromHtmlTop.directive */ "v+h3");
+/* harmony import */ var _directives_ScreenScrollModelY_directive__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./directives/ScreenScrollModelY.directive */ "q90b");
+/* harmony import */ var _directives_ScreenWidthModel_directive__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./directives/ScreenWidthModel.directive */ "stBn");
+/* harmony import */ var _directives_ScreenHeightModel_directive__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./directives/ScreenHeightModel.directive */ "SJOV");
+/* harmony import */ var _directives_HtmlWidthModel_directive__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./directives/HtmlWidthModel.directive */ "7RV/");
+/* harmony import */ var _directives_HtmlHeightModel_directive__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./directives/HtmlHeightModel.directive */ "5sUW");
+/* harmony import */ var _directives_StatusOnlineModel_directive__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./directives/StatusOnlineModel.directive */ "IyaO");
+/* harmony import */ var _directives_StatusOfflineModel_directive__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./directives/StatusOfflineModel.directive */ "zFTS");
+/* harmony import */ var _directives_VarDirective_directive__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./directives/VarDirective.directive */ "jaOU");
+
 
 
 
@@ -2512,21 +2514,22 @@ FormAlter = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 ], FormAlter);
 
 const screenDirectives = [
-    _directives_ScreenScrollModelY_directive__WEBPACK_IMPORTED_MODULE_29__["ScreenScrollModelY"],
-    _directives_ScreenWidthModel_directive__WEBPACK_IMPORTED_MODULE_30__["ScreenWidthModel"],
-    _directives_ScreenHeightModel_directive__WEBPACK_IMPORTED_MODULE_31__["ScreenHeightModel"],
-    _directives_ScreenScroll_directive__WEBPACK_IMPORTED_MODULE_27__["ScreenScroll"],
+    _directives_ScreenScrollModelY_directive__WEBPACK_IMPORTED_MODULE_30__["ScreenScrollModelY"],
+    _directives_ScreenWidthModel_directive__WEBPACK_IMPORTED_MODULE_31__["ScreenWidthModel"],
+    _directives_ScreenHeightModel_directive__WEBPACK_IMPORTED_MODULE_32__["ScreenHeightModel"],
+    _directives_ScreenScroll_directive__WEBPACK_IMPORTED_MODULE_28__["ScreenScroll"],
     _components_ScrollPastFixed_component__WEBPACK_IMPORTED_MODULE_17__["ScrollPastFixed"],
-    _directives_ScreenScrollHeightDiff_directive__WEBPACK_IMPORTED_MODULE_26__["ScreenScrollHeightDiff"],
-    _directives_PxFromHtmlTop_directive__WEBPACK_IMPORTED_MODULE_28__["PxFromHtmlTop"]
+    _directives_ScreenScrollHeightDiff_directive__WEBPACK_IMPORTED_MODULE_27__["ScreenScrollHeightDiff"],
+    _directives_PxFromHtmlTop_directive__WEBPACK_IMPORTED_MODULE_29__["PxFromHtmlTop"]
 ];
 const declarations = [
     _directives_Init_directive__WEBPACK_IMPORTED_MODULE_21__["Init"],
-    _directives_SelectOn_directive__WEBPACK_IMPORTED_MODULE_22__["SelectOn"],
+    _directives_SelectOn_directive__WEBPACK_IMPORTED_MODULE_23__["SelectOn"],
     _directives_FocusOn_directive__WEBPACK_IMPORTED_MODULE_20__["FocusOn"],
-    _directives_VarDirective_directive__WEBPACK_IMPORTED_MODULE_36__["VarDirective"],
-    _directives_InnerHtmlModel_directive__WEBPACK_IMPORTED_MODULE_23__["InnerHtmlModel"],
-    _directives_ReplaceModel_directive__WEBPACK_IMPORTED_MODULE_24__["ReplaceModel"],
+    _directives_VarDirective_directive__WEBPACK_IMPORTED_MODULE_37__["VarDirective"],
+    _directives_ContentModel_directive__WEBPACK_IMPORTED_MODULE_22__["ContentModel"],
+    _directives_InnerHtmlModel_directive__WEBPACK_IMPORTED_MODULE_24__["InnerHtmlModel"],
+    _directives_ReplaceModel_directive__WEBPACK_IMPORTED_MODULE_25__["ReplaceModel"],
     FormAlter,
     FormChanged,
     EnterKey,
@@ -2534,15 +2537,15 @@ const declarations = [
     PreventBackKey,
     PreventEnterKey,
     ...screenDirectives,
-    _directives_HtmlWidthModel_directive__WEBPACK_IMPORTED_MODULE_32__["HtmlWidthModel"],
-    _directives_HtmlHeightModel_directive__WEBPACK_IMPORTED_MODULE_33__["HtmlHeightModel"],
+    _directives_HtmlWidthModel_directive__WEBPACK_IMPORTED_MODULE_33__["HtmlWidthModel"],
+    _directives_HtmlHeightModel_directive__WEBPACK_IMPORTED_MODULE_34__["HtmlHeightModel"],
     _directives_ShakeOn_directive__WEBPACK_IMPORTED_MODULE_18__["ShakeOn"],
     _directives_FxOn_directive__WEBPACK_IMPORTED_MODULE_19__["FxOn"],
-    _directives_StatusOnlineModel_directive__WEBPACK_IMPORTED_MODULE_34__["StatusOnlineModel"],
-    _directives_StatusOfflineModel_directive__WEBPACK_IMPORTED_MODULE_35__["StatusOfflineModel"],
-    _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_25__["ElementSizeModel"],
-    _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_25__["ElementWidthModel"],
-    _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_25__["ElementHeightModel"],
+    _directives_StatusOnlineModel_directive__WEBPACK_IMPORTED_MODULE_35__["StatusOnlineModel"],
+    _directives_StatusOfflineModel_directive__WEBPACK_IMPORTED_MODULE_36__["StatusOfflineModel"],
+    _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_26__["ElementSizeModel"],
+    _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_26__["ElementWidthModel"],
+    _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_26__["ElementHeightModel"],
     InputHint,
     ..._components_debug_area_DebugArea_component__WEBPACK_IMPORTED_MODULE_14__["declarations"],
     _components_ErrorWell_component__WEBPACK_IMPORTED_MODULE_12__["ErrorWell"],
@@ -5071,7 +5074,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, dependencies, devDependencies, ngPackage, private, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"ack-angular\",\"version\":\"1.16.0\",\"description\":\"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\",\"main\":\"dist/index.js\",\"typings\":\"dist/index.d.ts\",\"scripts\":{\"start\":\"ng serve example --port 4201 --open\",\"start:old\":\"ack-reload -d ./example/www\",\"build:index\":\"pug example/src/index.pug --out example/src\",\"stats\":\"webpack-bundle-analyzer example/www/stats.json\",\"install:example\":\"npm install --prefix example\",\"test\":\"ng test --browser PhantomJS --single-run\",\"test:watch\":\"ng test\",\"build:dist:old\":\"ngc --project src/tsconfig.json\",\"build:dist\":\"ng-packagr -p package.json\",\"watch:dist\":\"watch \\\"npm-run-all build:dist\\\" src/ --ignoreDirectoryPattern=/pugs/\",\"build:assets\":\"npm-run-all build:assets:src build:assets:example compile:templates\",\"build:assets:src\":\"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts\",\"build:assets:example\":\"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts\",\"watch:assets\":\"npm-run-all --parallel \\\"build:assets:src -- --watch\\\" \\\"build:assets:example -- --watch\\\" \\\"compile:templates -- --watch\\\"\",\"compile:templates\":\"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne\",\"watch\":\"npm-run-all --parallel build:index watch:dist watch:assets watch:js\",\"watch:js\":\"ng serve example --port 4201 --open\",\"build:js\":\"ng build example --stats-json\",\"build:universal\":\"npm-run-all build:index build:assets\",\"build\":\"npm-run-all build:universal build:dist compile:dist:package copy:scss build:js\",\"copy:scss\":\"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss\",\"compile:dist:package\":\"node scripts/update-dist-package.js\",\"save\":\"git add . && git commit -m \\\"update\\\" && git push\",\"deploy\":\"npm-run-all build deploy:gh-pages deploy:npm save\",\"deploy:npm\":\"cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \\\"update\\\" && git push && npm publish\",\"deploy:gh-pages\":\"cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \\\"update\\\" && git push\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/AckerApple/ack-angular.git\"},\"keywords\":[\"ng\",\"Angular\",\"directives\",\"components\",\"pipes\",\"providers\"],\"author\":\"Acker Dawn Apple\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/AckerApple/ack-angular/issues\"},\"homepage\":\"https://github.com/AckerApple/ack-angular#readme\",\"dependencies\":{\"ack-angular-fx\":\"^4.1.0\",\"ack-css-boot\":\"^1.2.66\",\"ack-x\":\"^1.6.0\",\"animate.css\":\"^4.1.1\",\"csshake\":\"^1.5.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1101.2\",\"@angular-devkit/build-ng-packagr\":\"^0.1002.0\",\"@angular/animations\":\"^11.1.2\",\"@angular/cli\":\"^11.1.2\",\"@angular/common\":\"^11.1.2\",\"@angular/compiler\":\"^11.1.2\",\"@angular/compiler-cli\":\"^11.1.2\",\"@angular/core\":\"^11.1.2\",\"@angular/forms\":\"^11.1.2\",\"@angular/platform-browser\":\"^11.1.2\",\"@angular/platform-browser-dynamic\":\"^11.1.2\",\"@angular/router\":\"^11.1.2\",\"@types/jasmine\":\"^3.6.3\",\"ack-path\":\"^1.8.0\",\"ack-pug-bundler\":\"^1.4.8\",\"classlist-polyfill\":\"^1.2.0\",\"jasmine\":\"^3.6.4\",\"karma\":\"^6.1.0\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-coverage-istanbul-reporter\":\"^3.0.3\",\"karma-jasmine\":\"^4.0.1\",\"karma-jasmine-html-reporter\":\"^1.5.4\",\"karma-phantomjs-launcher\":\"^1.0.4\",\"localforage\":\"^1.9.0\",\"ng-packagr\":\"^11.1.3\",\"ngx-page-scroll\":\"^7.0.3\",\"ngx-page-scroll-core\":\"^7.0.3\",\"npm-run-all\":\"^4.1.5\",\"phantomjs-prebuilt\":\"^2.1.16\",\"pug\":\"^3.0.0\",\"pug-cli\":\"^1.0.0-alpha6\",\"reflect-metadata\":\"^0.1.13\",\"rxjs\":\"^6.6.3\",\"ts-helpers\":\"^1.1.2\",\"ts-node\":\"^9.1.1\",\"typescript\":\"~4.1.3\",\"webpack-bundle-analyzer\":\"^4.4.0\",\"zone.js\":\"~0.11.3\"},\"ngPackage\":{\"lib\":{\"entryFile\":\"src/index.ts\"},\"whitelistedNonPeerDependencies\":[\"ack-angular-fx\",\"ack-css-boot\",\"ack-x\",\"animate.css\",\"csshake\"]},\"private\":true}");
+module.exports = JSON.parse("{\"name\":\"ack-angular\",\"version\":\"1.16.1\",\"description\":\"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\",\"main\":\"dist/index.js\",\"typings\":\"dist/index.d.ts\",\"scripts\":{\"start\":\"ng serve example --port 4201 --open\",\"start:old\":\"ack-reload -d ./example/www\",\"build:index\":\"pug example/src/index.pug --out example/src\",\"stats\":\"webpack-bundle-analyzer example/www/stats.json\",\"install:example\":\"npm install --prefix example\",\"test\":\"ng test --browser PhantomJS --single-run\",\"test:watch\":\"ng test\",\"build:dist:old\":\"ngc --project src/tsconfig.json\",\"build:dist\":\"ng-packagr -p package.json\",\"watch:dist\":\"watch \\\"npm-run-all build:dist\\\" src/ --ignoreDirectoryPattern=/pugs/\",\"build:assets\":\"npm-run-all build:assets:src build:assets:example compile:templates\",\"build:assets:src\":\"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts\",\"build:assets:example\":\"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts\",\"watch:assets\":\"npm-run-all --parallel \\\"build:assets:src -- --watch\\\" \\\"build:assets:example -- --watch\\\" \\\"compile:templates -- --watch\\\"\",\"compile:templates\":\"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne\",\"watch\":\"npm-run-all --parallel build:index watch:dist watch:assets watch:js\",\"watch:js\":\"ng serve example --port 4201 --open\",\"build:js\":\"ng build example --stats-json\",\"build:universal\":\"npm-run-all build:index build:assets\",\"build\":\"npm-run-all build:universal build:dist compile:dist:package copy:scss build:js\",\"copy:scss\":\"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss\",\"compile:dist:package\":\"node scripts/update-dist-package.js\",\"save\":\"git add . && git commit -m \\\"update\\\" && git push\",\"deploy\":\"npm-run-all build deploy:gh-pages deploy:npm save\",\"deploy:npm\":\"cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \\\"update\\\" && git push && npm publish\",\"deploy:gh-pages\":\"cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \\\"update\\\" && git push\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/AckerApple/ack-angular.git\"},\"keywords\":[\"ng\",\"Angular\",\"directives\",\"components\",\"pipes\",\"providers\"],\"author\":\"Acker Dawn Apple\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/AckerApple/ack-angular/issues\"},\"homepage\":\"https://github.com/AckerApple/ack-angular#readme\",\"dependencies\":{\"ack-angular-fx\":\"^4.1.0\",\"ack-css-boot\":\"^1.2.66\",\"ack-x\":\"^1.6.0\",\"animate.css\":\"^4.1.1\",\"csshake\":\"^1.5.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1101.2\",\"@angular-devkit/build-ng-packagr\":\"^0.1002.0\",\"@angular/animations\":\"^11.1.2\",\"@angular/cli\":\"^11.1.2\",\"@angular/common\":\"^11.1.2\",\"@angular/compiler\":\"^11.1.2\",\"@angular/compiler-cli\":\"^11.1.2\",\"@angular/core\":\"^11.1.2\",\"@angular/forms\":\"^11.1.2\",\"@angular/platform-browser\":\"^11.1.2\",\"@angular/platform-browser-dynamic\":\"^11.1.2\",\"@angular/router\":\"^11.1.2\",\"@types/jasmine\":\"^3.6.3\",\"ack-path\":\"^1.8.0\",\"ack-pug-bundler\":\"^1.4.8\",\"classlist-polyfill\":\"^1.2.0\",\"jasmine\":\"^3.6.4\",\"karma\":\"^6.1.0\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-coverage-istanbul-reporter\":\"^3.0.3\",\"karma-jasmine\":\"^4.0.1\",\"karma-jasmine-html-reporter\":\"^1.5.4\",\"karma-phantomjs-launcher\":\"^1.0.4\",\"localforage\":\"^1.9.0\",\"ng-packagr\":\"^11.1.3\",\"ngx-page-scroll\":\"^7.0.3\",\"ngx-page-scroll-core\":\"^7.0.3\",\"npm-run-all\":\"^4.1.5\",\"phantomjs-prebuilt\":\"^2.1.16\",\"pug\":\"^3.0.0\",\"pug-cli\":\"^1.0.0-alpha6\",\"reflect-metadata\":\"^0.1.13\",\"rxjs\":\"^6.6.3\",\"ts-helpers\":\"^1.1.2\",\"ts-node\":\"^9.1.1\",\"typescript\":\"~4.1.3\",\"webpack-bundle-analyzer\":\"^4.4.0\",\"zone.js\":\"~0.11.3\"},\"ngPackage\":{\"lib\":{\"entryFile\":\"src/index.ts\"},\"whitelistedNonPeerDependencies\":[\"ack-angular-fx\",\"ack-css-boot\",\"ack-x\",\"animate.css\",\"csshake\"]},\"private\":true}");
 
 /***/ }),
 
@@ -5451,6 +5454,134 @@ function getParentByTagName(node, tagname) {
     }
     return;
 }
+
+
+/***/ }),
+
+/***/ "nuEm":
+/*!**************************************************!*\
+  !*** ./src/directives/ContentModel.directive.ts ***!
+  \**************************************************/
+/*! exports provided: ContentModel */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContentModel", function() { return ContentModel; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+
+
+let ContentModel = class ContentModel {
+    constructor(elm) {
+        this.elm = elm;
+        this.changeDone = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.inputChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.contentModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.enterEnds = false;
+        this.enter = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.recentInputs = 0;
+        this.elm.nativeElement.setAttribute('contenteditable', true);
+    }
+    ngOnDestroy() {
+        this.elm.nativeElement.removeAttribute('contenteditable');
+    }
+    ngOnChanges() {
+        const nElm = this.elm.nativeElement;
+        if (this.recentInputs) {
+            --this.recentInputs;
+            return;
+        }
+        const usePlaceholder = this.evalPlaceholder();
+        if (!usePlaceholder) {
+            nElm.textContent = this.contentModel;
+        }
+    }
+    evalPlaceholder(placeholder) {
+        const nElm = this.elm.nativeElement;
+        const usePlaceholder = this.contentModel == null || this.contentModel === '';
+        if (usePlaceholder) {
+            nElm.textContent = placeholder == null ? this.placeholder : placeholder;
+            return true;
+        }
+        return false;
+    }
+    onKeyDown(event) {
+        this.checkplaceholder();
+        const key = event.which || event.keyCode;
+        if (this.enterEnds && key === 13) {
+            event.preventDefault();
+            event.stopPropagation();
+            this.onBlur();
+            this.enter.emit();
+            return;
+        }
+        if (this.maxLength) {
+            const newValue = this.elm.nativeElement.textContent;
+            const maxLength = Number(this.maxLength);
+            const maxed = this.maxLength && newValue.length > maxLength;
+            if (maxed) {
+                const isDelete = [8, 46].indexOf(key) >= 0;
+                if (!isDelete) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    return;
+                }
+            }
+        }
+    }
+    onInput() {
+        const newValue = this.elm.nativeElement.textContent;
+        const maxLength = Number(this.maxLength);
+        if (this.maxLength && newValue.length > maxLength) {
+            return;
+        }
+        ++this.recentInputs;
+        this.contentModel = newValue;
+        this.contentModelChange.emit(this.contentModel);
+        this.inputChange.emit(this.contentModel);
+    }
+    onFocus() {
+        this.lastValue = this.contentModel;
+        this.evalPlaceholder('');
+    }
+    checkplaceholder() {
+        if (this.placeholder && this.elm.nativeElement.textContent === this.placeholder) {
+            this.elm.nativeElement.textContent = '';
+        }
+    }
+    onBlur() {
+        if (this.lastValue !== this.elm.nativeElement.textContent) {
+            this.contentModelChange.emit(this.contentModel);
+            this.changeDone.emit(this.contentModel);
+        }
+        this.evalPlaceholder();
+    }
+};
+ContentModel.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
+];
+ContentModel.propDecorators = {
+    changeDone: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
+    contentModel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    inputChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
+    contentModelChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
+    placeholder: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    maxLength: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    enterEnds: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    enter: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
+    onKeyDown: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['keydown', ['$event'],] }],
+    onInput: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['input',] }],
+    onFocus: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['focus',] }],
+    onBlur: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['blur',] }]
+};
+ContentModel = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: '[contentModel]'
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
+], ContentModel);
+
 
 
 /***/ }),
@@ -5852,13 +5983,13 @@ const string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"margin-xx
     "\n&lt;/select&gt;" +
     "\n&lt;input type=\"checkbox\" id=\"shakeConstant\" [(ngModel)]=\"shakeConstant\" (change)=\"shakeOn=$event.target.checked\" /&gt;" +
     "\n&lt;input [(ngModel)]=\"shakeForMs\" (change)=\"shakeOn=true\" /&gt;" +
-    "\n</pre></absolute-overflow-x></div></div></div><br/><h3 class=\"margin-bottom-0\" id=\"TwoWayBinds\">Two Way Binds</h3><div class=\"flex-wrap child-margin-xxs\"> <div class=\"flex-1\" [class.width-full]=\"views.statusOnlineModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(statusOnlineModel)]=\"statusOnlineModel\"></div><div class=\"pad-h\"><h3>[(statusOnlineModel)]</h3><div class=\"text-grey-2x max-width-400\">Get browser internet status. <strong>IS ONLINE</strong> :<div class=\"inline-block width-50\">&nbsp;{{ statusOnlineModel }}</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.statusOnlineModel=!views.statusOnlineModel\" [ngClass]=\"views.statusOnlineModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.statusOnlineModel\" [@fadeInOutUp]=\"1\"><div class=\"pad\"><div class=\"pad bg-warning border-warning border text-warning\">Completely turn off your internet and the online status will change.<br/>A delay is expected during transition from offline to online</div></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div(\"[(statusOnlineModel)]\"=\"statusOnlineModel\")&gt;" +
+    "\n</pre></absolute-overflow-x></div></div></div><br/><h3 class=\"margin-bottom-0\" id=\"TwoWayBinds\">Two Way Binds</h3><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1\" [class.width-full]=\"views.statusOnlineModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(statusOnlineModel)]=\"statusOnlineModel\"></div><div class=\"pad-h\"><h3>[(statusOnlineModel)]</h3><div class=\"text-grey-2x max-width-400\">Get browser internet status. <strong>IS ONLINE</strong> :<div class=\"inline-block width-50\">&nbsp;{{ statusOnlineModel }}</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.statusOnlineModel=!views.statusOnlineModel\" [ngClass]=\"views.statusOnlineModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.statusOnlineModel\" [@fadeInOutUp]=\"1\"><div class=\"pad\"><div class=\"pad bg-warning border-warning border text-warning\">Completely turn off your internet and the online status will change.<br/>A delay is expected during transition from offline to online</div></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div(\"[(statusOnlineModel)]\"=\"statusOnlineModel\")&gt;" +
     "\n  |statusOnlineModel : {{ statusOnlineModel ? 'online' : 'offline'}}" +
     "\n&lt;/div&gt;" +
-    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.statusOfflineModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(statusOfflineModel)]=\"statusOfflineModel\"></div><div class=\"pad-h\"><h3>[(statusOfflineModel)]</h3><div class=\"text-grey-2x max-width-400\">Get browser internet status. <strong>IS OFFLINE</strong> :<div class=\"inline-block width-50\">&nbsp;{{ statusOfflineModel }}</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.statusOfflineModel=!views.statusOfflineModel\" [ngClass]=\"views.statusOfflineModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.statusOfflineModel\" [@fadeInOutUp]=\"1\"><div class=\"pad\"><div class=\"pad bg-warning border-warning border text-warning\"></div>Completely turn off your internet and the offline status will change<br/>A delay is expected during transition from offline to online</div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div(\"[(statusOfflineModel)]\"=\"statusOfflineModel\")&gt;" +
+    "\n</pre></absolute-overflow-x></div></div><!-- statusOfflineModel--><div class=\"flex-1\" [class.width-full]=\"views.statusOfflineModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(statusOfflineModel)]=\"statusOfflineModel\"></div><div class=\"pad-h\"><h3>[(statusOfflineModel)]</h3><div class=\"text-grey-2x max-width-400\">Get browser internet status. <strong>IS OFFLINE</strong> :<div class=\"inline-block width-50\">&nbsp;{{ statusOfflineModel }}</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.statusOfflineModel=!views.statusOfflineModel\" [ngClass]=\"views.statusOfflineModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.statusOfflineModel\" [@fadeInOutUp]=\"1\"><div class=\"pad\"><div class=\"pad bg-warning border-warning border text-warning\"></div>Completely turn off your internet and the offline status will change<br/>A delay is expected during transition from offline to online</div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div(\"[(statusOfflineModel)]\"=\"statusOfflineModel\")&gt;" +
     "\n  |statusOfflineModel : {{ statusOfflineModel ? 'offline' : 'online'}}" +
     "\n&lt;/div&gt;" +
-    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.pxFromHtmlTop\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[pxFromHtmlTop]</h3><div class=\"text-grey-2x\">Get element position from top of screen.<div class=\"inline-block width-50\" [(pxFromHtmlTop)]=\"pxFromHtmlTop\">Currently:&nbsp;{{pxFromHtmlTop}}</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.pxFromHtmlTop=!views.pxFromHtmlTop\" [ngClass]=\"views.pxFromHtmlTop ? 'border-energized bg-energized' : 'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.pxFromHtmlTop\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(pxFromHtmlTop)]=\"pxFromHtmlTop\" &gt;" +
+    "\n</pre></absolute-overflow-x></div></div><!-- pxFromHtmlTop--><div class=\"flex-1\" [class.width-full]=\"views.pxFromHtmlTop\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[pxFromHtmlTop]</h3><div class=\"text-grey-2x\">Get element position from top of screen.<div class=\"inline-block width-50\" [(pxFromHtmlTop)]=\"pxFromHtmlTop\">Currently:&nbsp;{{pxFromHtmlTop}}</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.pxFromHtmlTop=!views.pxFromHtmlTop\" [ngClass]=\"views.pxFromHtmlTop ? 'border-energized bg-energized' : 'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.pxFromHtmlTop\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(pxFromHtmlTop)]=\"pxFromHtmlTop\" &gt;" +
     "\n&nbsp;&nbsp;pxFromHtmlTop: {{ pxFromHtmlTop }}" +
     "\n&lt;/div&gt;" +
     "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.screenScrollHeightDiff\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(screenScrollHeightDiff)]=\"screenScrollHeightDiff\"></div><div class=\"pad-h\"><h3>[(screenScrollHeightDiff)]</h3><div class=\"text-grey-2x\">Model of how many pixels overflow past the screen height (screenHeight - scrollHeight).<div>Currently :<div class=\"inline-block width-50\">&nbsp;{{ screenScrollHeightDiff }}</div></div><div class=\"pad text-grey-3x text-smx\">resize window height to see change</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.screenScrollHeightDiff=!views.screenScrollHeightDiff\" [ngClass]=\"views.screenScrollHeightDiff?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.screenScrollHeightDiff\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(screenScrollHeightDiff)]=\"screenScrollHeightDiff\" &gt;" +
@@ -5881,6 +6012,7 @@ const string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"margin-xx
     "\n&lt;/div&gt;" +
     "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.innerHtmlModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[(innerHtmlModel)]</h3><div class=\"text-grey-2x max-width-400\">Capture an elements innerHTML into a model</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.innerHtmlModel=!views.innerHtmlModel\" [ngClass]=\"views.innerHtmlModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.innerHtmlModel\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Example</h4><div [(innerHtmlModel)]=\"innerHtmlModel\"><button (click)=\"contentArray.push('')\">add content</button><span *ngFor=\"let item of contentArray\">&#10;<button (click)=\"contentArray.push('')\">add content</button></span></div><absolute-overflow-x><pre class=\"code-sample margin-0\">{{ innerHtmlModel }}</pre></absolute-overflow-x><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;span&gt; Enter Count : {{preventEnterCount || 0}} &lt;/span&gt;" +
     "\n&lt;input type=\"text\" (enterKey)=\"preventEnterCount=preventEnterCount==null?1:preventEnterCount+1\" placeholder=\"type here and use enter key\" /&gt;" +
+    "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.contentModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[(contentModel)]</h3><div class=\"text-grey-2x max-width-400\">Capture an elements innerHTML into a model</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.contentModel=!views.contentModel\" [ngClass]=\"views.contentModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.contentModel\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Example</h4><div [(contentModel)]=\"contentModel\">You can tap to edit this content here</div><absolute-overflow-x><pre class=\"code-sample margin-0\">{{ contentModel }}</pre></absolute-overflow-x><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(contentModel)]=\"contentModel\"&gt;{{ contentModel }}&lt;/div&gt;" +
     "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.absoluteOverflowX\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>absolute-overflow-x</h3><div class=\"text-grey-2x max-width-400\">Control pre and nowrap elements x-axis overflow</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.absoluteOverflowX=!views.absoluteOverflowX\" [ngClass]=\"views.absoluteOverflowX?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.absoluteOverflowX\" [@fadeInOutUp]=\"1\"><div class=\"pad\"><div class=\"pad bg-info text-info text-info\">Often, pre elements and nowrap styles, make it hard to contronl x-axis overflow.<p>The following component, uses a relative and a absolute position elements along with height monitoring to manage x-axis overflow.</p><p>A no-sroll-bar option is defaulted to remove overflow scroll bars.</p></div></div><h4 class=\"pad-sm margin-0\">Bindings</h4><li>[scrollBars]</li><li>[wrapClass]</li><li>[active] = true</li><li>[overflow]:'auto'|'none'|'hidden'|'scroll' = 'auto'</li><h4 class=\"pad-sm margin-0\">Example</h4><div class=\"pad\"><absolute-overflow-x [active]=\"absoluteOverflowXActive\"><div class=\"nowrap\">&nbsp;&nbsp;This content all runs on one line flat out for as long as I can stand to stand typing at a Veridesk in Delray Beach, FL. Not that long it turns out...</div></absolute-overflow-x><label for=\"absoluteOverflowXActive\"><input type=\"checkbox\" [(ngModel)]=\"absoluteOverflowXActive\" id=\"absoluteOverflowXActive\"/>&nbsp;&nbsp;Overflow On/Off \"active\" Toggle</label><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;absolute-overflow-x&gt;" +
     "\n&nbsp;&nbsp;&lt;div style=\"white-space:nowrap;\"&gt;" +
     "\n&nbsp;&nbsp;&nbsp;&nbsp;This content all runs on one line flat out for as long as I can stand to stand typing at a Veridesk in Delray Beach, FL. Not that long it turns out..." +

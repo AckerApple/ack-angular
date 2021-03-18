@@ -37,7 +37,7 @@ ul
 
 br
 
-h3.margin-bottom-0(id="Tags") Tags
+h2.margin-bottom-0(id="Tags") Tags
 .flex-wrap.child-margin-xxs
 
   //-ack-fixed-element-stage
@@ -181,7 +181,7 @@ h3.margin-bottom-0(id="Tags") Tags
       .pad-sm
         h4.margin-0 Usage Example: Toggle Items
         .text-grey-2x Take an arbitrary array (arrayOfObjects in demo) and allow a system of toggling selections
-      
+
       absolute-overflow-x
         pre.code-sample.margin-0(ngNonBindable).
           &lt;ack-array #Array="AckArray" [(array)]="selectedArray" idKey="letter"&gt;&lt;/ack-array&gt;
@@ -228,7 +228,7 @@ h3.margin-bottom-0(id="Tags") Tags
           &lt;pre&gt;
             {{ objectOfArrays | json}}
           &lt;/pre&gt;
-    
+
       //-prove array to map works
       h5.pad-sm.margin-0 Example Selected Map
       absolute-overflow-x
@@ -268,7 +268,7 @@ h3.margin-bottom-0(id="Tags") Tags
           &lt;ack-array [(array)]="[&#123;parentOb:&#123;childOb:&#123;value:33&#125;&#125;&#125;]"&gt;
             &lt;ack-aggregate type="sum" [(output)]="sumAmount" keys="['parentOb','childOb','value']"&gt;&lt;/ack-aggregate&gt;
           &lt;/ack-array&gt;
-          
+
           Your sum of &#123;&#123; sumAmount &#125;&#125; should be equal to 33
       .pad-xxs.
         Your sum is {{ sumNumber }}
@@ -335,9 +335,9 @@ h3.margin-bottom-0(id="Tags") Tags
             &#123;&#123; ackOptionString &#125;&#125;
           &lt;/div&gt;
           &lt;ack-options [array]="['x','y','z']" [(model)]="ackOptionString" toggleable&gt;&lt;/ack-options&gt;
-          
+
           &lt;hr /&gt;
-          
+
           &lt;div *ngIf="ackOptionArray?.length"&gt;
             &lt;strong&gt; Selected Options: &lt;/strong&gt;
             &lt;pre&gt; &#123;&#123; ackOptionArray | json &#125;&#125; &lt;/pre&gt;
@@ -460,7 +460,7 @@ h3.margin-bottom-0(id="Tags") Tags
         div(*ngIf="ackOptionStringModal" "[@fadeInOutUp]"="1")
           strong Selected Option:
           |&nbsp;{{ ackOptionStringModal }}
-        
+
         //-SELECT ONE
         ack-options-modal(
           "[(showModel)]"= "showAckOptionsStringModal"
@@ -472,7 +472,7 @@ h3.margin-bottom-0(id="Tags") Tags
         )
           .pad-right-3x Select Something Below
         button("(click)"="showAckOptionsStringModal=!showAckOptionsStringModal") select option
-        
+
         hr
 
         //-SELECT MULTIPLE
@@ -537,14 +537,14 @@ h3.margin-bottom-0(id="Tags") Tags
           &lt;button (click)="showAckOptionsStringModal=!showAckOptionsStringModal")&gt;
             select option
           &lt;/button&gt;
-          
+
           &lt;hr /&gt;
-          
+
           &lt;div *ngIf="ackOptionArrayModal?.length"&gt;
             &lt;strong&gt; Selected Options: &lt;/strong&gt;
             &lt;pre&gt; &#123;&#123; ackOptionArrayModal | json &#125;&#125; &lt;/pre&gt;
           &lt;/div&gt;
-          
+
           &lt;ack-options-modal
             [(showModel)]   = "showAckOptionsObjectModal"
             [array]         = "[&#123;name:'red'&#125;,&#123;name:'blue'&#125;,&#123;name:'green'&#125;]"
@@ -569,7 +569,7 @@ h3.margin-bottom-0(id="Tags") Tags
 
 br
 
-h3.margin-bottom-0(id="ExpressionBinds") Expression Binds
+h2.margin-bottom-0(id="ExpressionBinds") Expression Binds
 .flex-wrap.child-margin-xxs
 
   .flex-1([class.width-full]="views.init")
@@ -793,9 +793,9 @@ h3.margin-bottom-0(id="ExpressionBinds") Expression Binds
 
 br
 
-h3.margin-bottom-0(id="OneWayBinds") One Way Binds
+h2.margin-bottom-0(id="OneWayBinds") One Way Binds
 .flex-wrap.child-margin-xxs
-  
+
   .flex-1([class.width-full]="views.Var")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
@@ -1083,9 +1083,9 @@ h3.margin-bottom-0(id="OneWayBinds") One Way Binds
 
 br
 
-h3.margin-bottom-0(id="TwoWayBinds") Two Way Binds
+h2.margin-bottom-0(id="TwoWayBinds") Two Way Binds
 
-.flex-wrap.child-margin-xxs 
+.flex-wrap.child-margin-xxs
   .flex-1([class.width-full]="views.statusOnlineModel")
     .border.border-grey-4x.border.border-bottom-0
       div("[(statusOnlineModel)]"="statusOnlineModel")
@@ -1114,6 +1114,7 @@ h3.margin-bottom-0(id="TwoWayBinds") Two Way Binds
             |statusOnlineModel : {{ statusOnlineModel ? 'online' : 'offline'}}
           &lt;/div&gt;
 
+  // statusOfflineModel
   .flex-1([class.width-full]="views.statusOfflineModel")
     .border.border-grey-4x.border.border-bottom-0
       div("[(statusOfflineModel)]"="statusOfflineModel")
@@ -1142,6 +1143,7 @@ h3.margin-bottom-0(id="TwoWayBinds") Two Way Binds
             |statusOfflineModel : {{ statusOfflineModel ? 'offline' : 'online'}}
           &lt;/div&gt;
 
+  // pxFromHtmlTop
   .flex-1([class.width-full]="views.pxFromHtmlTop")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
@@ -1334,7 +1336,32 @@ h3.margin-bottom-0(id="TwoWayBinds") Two Way Binds
         pre.code-sample.margin-0(ngNonBindable).
           &lt;span&gt; Enter Count : {{preventEnterCount || 0}} &lt;/span&gt;
           &lt;input type="text" (enterKey)="preventEnterCount=preventEnterCount==null?1:preventEnterCount+1" placeholder="type here and use enter key" /&gt;
-  
+
+  .flex-1([class.width-full]="views.contentModel")
+    .border.border-grey-4x.border.border-bottom-0
+      .pad-h
+        h3 [(contentModel)]
+        .text-grey-2x.max-width-400
+          |Capture an elements innerHTML into a model
+        br
+    .text-center
+      a.block.border.pad-xxs.hover-bg-warning("(click)"="views.contentModel=!views.contentModel" "[ngClass]"="views.contentModel?'border-energized bg-energized':'border-info bg-info'")
+        |view details
+    .border.border-top-0.border-grey-4x.bg-stable(
+      *ngIf="views.contentModel"
+      "[@fadeInOutUp]"="1"
+    )
+      h4.pad-sm.margin-0 Example
+      div
+        |Tap to edit:&nbsp;
+        span("[(contentModel)]"="contentModel" placeholder="tap to create text")
+      absolute-overflow-x
+        pre.code-sample.margin-0 {{ contentModel }}
+      h4.pad-sm.margin-0 Usage Example
+      absolute-overflow-x
+        pre.code-sample.margin-0(ngNonBindable).
+          &lt;div [(contentModel)]="contentModel" placeholder="tap to create text"&gt;{{ contentModel }}&lt;/div&gt;
+
   .flex-1([class.width-full]="views.absoluteOverflowX")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
@@ -1354,7 +1381,7 @@ h3.margin-bottom-0(id="TwoWayBinds") Two Way Binds
           |Often, pre elements and nowrap styles, make it hard to contronl x-axis overflow.
           p The following component, uses a relative and a absolute position elements along with height monitoring to manage x-axis overflow.
           p A no-sroll-bar option is defaulted to remove overflow scroll bars.
-      
+
       h4.pad-sm.margin-0 Bindings
       li [scrollBars]
       li [wrapClass]
@@ -1453,7 +1480,7 @@ h3.margin-bottom-0(id="TwoWayBinds") Two Way Binds
 
 br
 
-h3.margin-bottom-0(id="LayoutComponents") Layout Components
+h2.margin-bottom-0(id="LayoutComponents") Layout Components
 .pad
   .pad.bg-warning.border-warning.text-warning.border
     |You will need to &lt;link&gt; one of two style sheets:
@@ -1463,7 +1490,7 @@ h3.margin-bottom-0(id="LayoutComponents") Layout Components
       li ack-angular/ack-css-boot.css
 
 .flex-wrap.child-margin-xxs
-  
+
   .flex-1([class.width-full]="views.errorWell")
     .border.border-grey-4x.border.border-bottom-0
       .pad-h
@@ -1509,7 +1536,7 @@ h3(id="ComplexComponents") Complex Components
 .pad-h
   p.margin-bottom-0 Components that have additional dependencies or restrictions
 .flex-wrap.child-margin-xxs
-  
+
   .flex-1.border.border-grey-4x.border([class.width-full]="views.routeReporter")
     .pad-h
       h3 route-reporter
@@ -1557,7 +1584,7 @@ h3(id="ComplexComponents") Complex Components
             span(ngNonBindable) {{ routeState.current?.config.name }}
             span &nbsp;==&nbsp;
             span {{ routeState.current?.config.name }}
-          
+
           div
             span(ngNonBindable) {{ query | json }}
             span &nbsp;==&nbsp;

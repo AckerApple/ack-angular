@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.16.1] - 2021-03-18
+- Added [(contentModel)]
+
 ## [1.16.0] - 2021-02-04
 - All dependencies updates
 
