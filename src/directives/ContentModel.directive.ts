@@ -69,9 +69,9 @@ import {
 
     // enter key treatment
     if (cancel) {
-      this.onBlur();
+      this.onBlur()
       cancelEvent(event)
-      this.enter.emit();
+      this.enter.emit()
       return;
     }
 
@@ -109,6 +109,9 @@ import {
   updateValue() {
     this.contentModel = this.elm.nativeElement.textContent
     this.contentModelChange.emit(this.contentModel);
+
+    // only update this onblur and focus
+    // this.lastValue = this.contentModel
   }
 
   @HostListener('focus') onFocus() {
@@ -127,6 +130,7 @@ import {
 
   @HostListener('blur') onBlur() {
     if (this.lastValue !== this.elm.nativeElement.textContent) {
+      this.lastValue = this.elm.nativeElement.textContent // now update it
       this.updateValue() // we have to emit here for change otherwise keyboard blur caused during key changes
       this.changeDone.emit(this.contentModel);
     }
