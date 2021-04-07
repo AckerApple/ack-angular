@@ -17,8 +17,8 @@ export declare class ContentModel implements OnChanges, OnDestroy {
     evalPlaceholder(placeholder?: string): boolean;
     shouldCancelEvent(event: Event): boolean;
     onKeyDown(event: Event): void;
-    onInput(event: Event): void;
-    recordValue(): void;
+    onInput(): void;
+    updateValue(): void;
     onFocus(): void;
     checkPlaceholder(): void;
     onBlur(): void;

@@ -2443,9 +2443,8 @@
             var cancel = this.shouldCancelEvent(event);
             // enter key treatment
             if (cancel) {
-                this.recordValue();
-                cancelEvent(event);
                 this.onBlur();
+                cancelEvent(event);
                 this.enter.emit();
                 return;
             }
@@ -2463,23 +2462,20 @@
                 }
             }
         };
-        ContentModel.prototype.onInput = function (event) {
-            if (this.shouldCancelEvent(event)) {
-            }
+        ContentModel.prototype.onInput = function () {
             var newValue = this.elm.nativeElement.textContent;
             var maxLength = Number(this.maxLength);
             if (this.maxLength && newValue.length > maxLength) {
                 return;
             }
             ++this.recentInputs;
-            this.recordValue();
-            this.contentModel = newValue;
+            this.updateValue();
             // Below, caused focus loss blur because the model updates and causes redraw so now we use this.recentInputs
-            this.contentModelChange.emit(this.contentModel);
             this.inputChange.emit(this.contentModel);
         };
-        ContentModel.prototype.recordValue = function () {
+        ContentModel.prototype.updateValue = function () {
             this.contentModel = this.elm.nativeElement.textContent;
+            this.contentModelChange.emit(this.contentModel);
         };
         ContentModel.prototype.onFocus = function () {
             this.lastValue = this.contentModel;
@@ -2495,7 +2491,7 @@
         };
         ContentModel.prototype.onBlur = function () {
             if (this.lastValue !== this.elm.nativeElement.textContent) {
-                this.contentModelChange.emit(this.contentModel); // we have to emit here for change otherwise keyboard blur caused during key changes
+                this.updateValue(); // we have to emit here for change otherwise keyboard blur caused during key changes
                 this.changeDone.emit(this.contentModel);
             }
             this.evalPlaceholder();
@@ -2520,7 +2516,7 @@
         enterEnds: [{ type: core.Input }],
         enter: [{ type: core.Output }],
         onKeyDown: [{ type: core.HostListener, args: ['keydown', ['$event'],] }],
-        onInput: [{ type: core.HostListener, args: ['input', ['$event'],] }],
+        onInput: [{ type: core.HostListener, args: ['input',] }],
         onFocus: [{ type: core.HostListener, args: ['focus',] }],
         onBlur: [{ type: core.HostListener, args: ['blur',] }]
     };
