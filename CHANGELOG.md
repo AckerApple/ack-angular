@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [1.16.2] - 2021-04-07
+- Fixed order of cancel operations in ContentModel
+
 ## [1.16.1] - 2021-03-18
 - Added [(contentModel)]
 

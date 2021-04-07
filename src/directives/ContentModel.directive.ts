@@ -69,9 +69,8 @@ import {
 
     // enter key treatment
     if (cancel) {
-      this.recordValue()
-      cancelEvent(event)
       this.onBlur();
+      cancelEvent(event)
       this.enter.emit();
       return;
     }
@@ -93,11 +92,7 @@ import {
     }
   }
 
-  @HostListener('input', ['$event']) onInput(event: Event) {
-    if (this.shouldCancelEvent(event)) {
-
-    }
-
+  @HostListener('input') onInput() {
     const newValue = this.elm.nativeElement.textContent;
     const maxLength = Number(this.maxLength);
 
@@ -106,15 +101,14 @@ import {
     }
 
     ++this.recentInputs;
-    this.recordValue()
-    this.contentModel = newValue;
+    this.updateValue()
     // Below, caused focus loss blur because the model updates and causes redraw so now we use this.recentInputs
-    this.contentModelChange.emit(this.contentModel);
     this.inputChange.emit(this.contentModel);
   }
 
-  recordValue() {
+  updateValue() {
     this.contentModel = this.elm.nativeElement.textContent
+    this.contentModelChange.emit(this.contentModel);
   }
 
   @HostListener('focus') onFocus() {
@@ -133,7 +127,7 @@ import {
 
   @HostListener('blur') onBlur() {
     if (this.lastValue !== this.elm.nativeElement.textContent) {
-      this.contentModelChange.emit(this.contentModel); // we have to emit here for change otherwise keyboard blur caused during key changes
+      this.updateValue() // we have to emit here for change otherwise keyboard blur caused during key changes
       this.changeDone.emit(this.contentModel);
     }
 
