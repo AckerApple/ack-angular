@@ -5075,7 +5075,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, dependencies, devDependencies, ngPackage, private, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"ack-angular\",\"version\":\"1.16.1\",\"description\":\"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\",\"main\":\"dist/index.js\",\"typings\":\"dist/index.d.ts\",\"scripts\":{\"start\":\"ng serve example --port 4201 --open\",\"start:old\":\"ack-reload -d ./example/www\",\"build:index\":\"pug example/src/index.pug --out example/src\",\"stats\":\"webpack-bundle-analyzer example/www/stats.json\",\"install:example\":\"npm install --prefix example\",\"test\":\"ng test --browser PhantomJS --single-run\",\"test:watch\":\"ng test\",\"build:dist:old\":\"ngc --project src/tsconfig.json\",\"build:dist\":\"ng-packagr -p package.json\",\"watch:dist\":\"watch \\\"npm-run-all build:dist\\\" src/ --ignoreDirectoryPattern=/pugs/\",\"build:assets\":\"npm-run-all build:assets:src build:assets:example compile:templates\",\"build:assets:src\":\"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts\",\"build:assets:example\":\"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts\",\"watch:assets\":\"npm-run-all --parallel \\\"build:assets:src -- --watch\\\" \\\"build:assets:example -- --watch\\\" \\\"compile:templates -- --watch\\\"\",\"compile:templates\":\"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne\",\"watch\":\"npm-run-all --parallel build:index watch:dist watch:assets watch:js\",\"watch:js\":\"ng serve example --port 4201 --open\",\"build:js\":\"ng build example --stats-json\",\"build:universal\":\"npm-run-all build:index build:assets\",\"build\":\"npm-run-all build:universal build:dist compile:dist:package copy:scss build:js\",\"copy:scss\":\"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss\",\"compile:dist:package\":\"node scripts/update-dist-package.js\",\"save\":\"git add . && git commit -m \\\"update\\\" && git push\",\"deploy\":\"npm-run-all build deploy:gh-pages deploy:npm save\",\"deploy:npm\":\"cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \\\"update\\\" && git push && npm publish\",\"deploy:gh-pages\":\"cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \\\"update\\\" && git push\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/AckerApple/ack-angular.git\"},\"keywords\":[\"ng\",\"Angular\",\"directives\",\"components\",\"pipes\",\"providers\"],\"author\":\"Acker Dawn Apple\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/AckerApple/ack-angular/issues\"},\"homepage\":\"https://github.com/AckerApple/ack-angular#readme\",\"dependencies\":{\"ack-angular-fx\":\"^4.1.0\",\"ack-css-boot\":\"^1.2.66\",\"ack-x\":\"^1.6.0\",\"animate.css\":\"^4.1.1\",\"csshake\":\"^1.5.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1101.2\",\"@angular-devkit/build-ng-packagr\":\"^0.1002.0\",\"@angular/animations\":\"^11.1.2\",\"@angular/cli\":\"^11.1.2\",\"@angular/common\":\"^11.1.2\",\"@angular/compiler\":\"^11.1.2\",\"@angular/compiler-cli\":\"^11.1.2\",\"@angular/core\":\"^11.1.2\",\"@angular/forms\":\"^11.1.2\",\"@angular/platform-browser\":\"^11.1.2\",\"@angular/platform-browser-dynamic\":\"^11.1.2\",\"@angular/router\":\"^11.1.2\",\"@types/jasmine\":\"^3.6.3\",\"ack-path\":\"^1.8.0\",\"ack-pug-bundler\":\"^1.4.8\",\"classlist-polyfill\":\"^1.2.0\",\"jasmine\":\"^3.6.4\",\"karma\":\"^6.1.0\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-coverage-istanbul-reporter\":\"^3.0.3\",\"karma-jasmine\":\"^4.0.1\",\"karma-jasmine-html-reporter\":\"^1.5.4\",\"karma-phantomjs-launcher\":\"^1.0.4\",\"localforage\":\"^1.9.0\",\"ng-packagr\":\"^11.1.3\",\"ngx-page-scroll\":\"^7.0.3\",\"ngx-page-scroll-core\":\"^7.0.3\",\"npm-run-all\":\"^4.1.5\",\"phantomjs-prebuilt\":\"^2.1.16\",\"pug\":\"^3.0.0\",\"pug-cli\":\"^1.0.0-alpha6\",\"reflect-metadata\":\"^0.1.13\",\"rxjs\":\"^6.6.3\",\"ts-helpers\":\"^1.1.2\",\"ts-node\":\"^9.1.1\",\"typescript\":\"~4.1.3\",\"webpack-bundle-analyzer\":\"^4.4.0\",\"zone.js\":\"~0.11.3\"},\"ngPackage\":{\"lib\":{\"entryFile\":\"src/index.ts\"},\"whitelistedNonPeerDependencies\":[\"ack-angular-fx\",\"ack-css-boot\",\"ack-x\",\"animate.css\",\"csshake\"]},\"private\":true}");
+module.exports = JSON.parse("{\"name\":\"ack-angular\",\"version\":\"1.16.2\",\"description\":\"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\",\"main\":\"dist/index.js\",\"typings\":\"dist/index.d.ts\",\"scripts\":{\"start\":\"ng serve example --port 4201 --open\",\"start:old\":\"ack-reload -d ./example/www\",\"build:index\":\"pug example/src/index.pug --out example/src\",\"stats\":\"webpack-bundle-analyzer example/www/stats.json\",\"install:example\":\"npm install --prefix example\",\"test\":\"ng test --browser PhantomJS --single-run\",\"test:watch\":\"ng test\",\"build:dist:old\":\"ngc --project src/tsconfig.json\",\"build:dist\":\"ng-packagr -p package.json\",\"watch:dist\":\"watch \\\"npm-run-all build:dist\\\" src/ --ignoreDirectoryPattern=/pugs/\",\"build:assets\":\"npm-run-all build:assets:src build:assets:example compile:templates\",\"build:assets:src\":\"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts\",\"build:assets:example\":\"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts\",\"watch:assets\":\"npm-run-all --parallel \\\"build:assets:src -- --watch\\\" \\\"build:assets:example -- --watch\\\" \\\"compile:templates -- --watch\\\"\",\"compile:templates\":\"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne\",\"watch\":\"npm-run-all --parallel build:index watch:dist watch:assets watch:js\",\"watch:js\":\"ng serve example --port 4201 --open\",\"build:js\":\"ng build example --stats-json\",\"build:universal\":\"npm-run-all build:index build:assets\",\"build\":\"npm-run-all build:universal build:dist compile:dist:package copy:scss build:js\",\"copy:scss\":\"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss\",\"compile:dist:package\":\"node scripts/update-dist-package.js\",\"save\":\"git add . && git commit -m \\\"update\\\" && git push\",\"deploy\":\"npm-run-all build deploy:gh-pages deploy:npm save\",\"deploy:npm\":\"cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \\\"update\\\" && git push && npm publish\",\"deploy:gh-pages\":\"cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \\\"update\\\" && git push\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/AckerApple/ack-angular.git\"},\"keywords\":[\"ng\",\"Angular\",\"directives\",\"components\",\"pipes\",\"providers\"],\"author\":\"Acker Dawn Apple\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/AckerApple/ack-angular/issues\"},\"homepage\":\"https://github.com/AckerApple/ack-angular#readme\",\"dependencies\":{\"ack-angular-fx\":\"^4.1.0\",\"ack-css-boot\":\"^1.2.66\",\"ack-x\":\"^1.6.0\",\"animate.css\":\"^4.1.1\",\"csshake\":\"^1.5.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1101.2\",\"@angular-devkit/build-ng-packagr\":\"^0.1002.0\",\"@angular/animations\":\"^11.1.2\",\"@angular/cli\":\"^11.1.2\",\"@angular/common\":\"^11.1.2\",\"@angular/compiler\":\"^11.1.2\",\"@angular/compiler-cli\":\"^11.1.2\",\"@angular/core\":\"^11.1.2\",\"@angular/forms\":\"^11.1.2\",\"@angular/platform-browser\":\"^11.1.2\",\"@angular/platform-browser-dynamic\":\"^11.1.2\",\"@angular/router\":\"^11.1.2\",\"@types/jasmine\":\"^3.6.3\",\"ack-path\":\"^1.8.0\",\"ack-pug-bundler\":\"^1.4.8\",\"classlist-polyfill\":\"^1.2.0\",\"jasmine\":\"^3.6.4\",\"karma\":\"^6.1.0\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-coverage-istanbul-reporter\":\"^3.0.3\",\"karma-jasmine\":\"^4.0.1\",\"karma-jasmine-html-reporter\":\"^1.5.4\",\"karma-phantomjs-launcher\":\"^1.0.4\",\"localforage\":\"^1.9.0\",\"ng-packagr\":\"^11.1.3\",\"ngx-page-scroll\":\"^7.0.3\",\"ngx-page-scroll-core\":\"^7.0.3\",\"npm-run-all\":\"^4.1.5\",\"phantomjs-prebuilt\":\"^2.1.16\",\"pug\":\"^3.0.0\",\"pug-cli\":\"^1.0.0-alpha6\",\"reflect-metadata\":\"^0.1.13\",\"rxjs\":\"^6.6.3\",\"ts-helpers\":\"^1.1.2\",\"ts-node\":\"^9.1.1\",\"typescript\":\"~4.1.3\",\"webpack-bundle-analyzer\":\"^4.4.0\",\"zone.js\":\"~0.11.3\"},\"ngPackage\":{\"lib\":{\"entryFile\":\"src/index.ts\"},\"whitelistedNonPeerDependencies\":[\"ack-angular-fx\",\"ack-css-boot\",\"ack-x\",\"animate.css\",\"csshake\"]},\"private\":true}");
 
 /***/ }),
 
@@ -5479,7 +5479,6 @@ let ContentModel = class ContentModel {
         this.changeDone = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.inputChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.contentModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.enterEnds = false;
         this.enter = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.recentInputs = 0;
         this.elm.nativeElement.setAttribute('contenteditable', true);
@@ -5507,13 +5506,16 @@ let ContentModel = class ContentModel {
         }
         return false;
     }
-    onKeyDown(event) {
-        this.checkplaceholder();
+    shouldCancelEvent(event) {
         const key = event.which || event.keyCode;
-        if (this.enterEnds && key === 13) {
-            event.preventDefault();
-            event.stopPropagation();
+        return this.enterEnds && key === 13;
+    }
+    onKeyDown(event) {
+        this.checkPlaceholder();
+        const cancel = this.shouldCancelEvent(event);
+        if (cancel) {
             this.onBlur();
+            cancelEvent(event);
             this.enter.emit();
             return;
         }
@@ -5521,11 +5523,11 @@ let ContentModel = class ContentModel {
             const newValue = this.elm.nativeElement.textContent;
             const maxLength = Number(this.maxLength);
             const maxed = this.maxLength && newValue.length > maxLength;
+            const key = event.which || event.keyCode;
             if (maxed) {
                 const isDelete = [8, 46].indexOf(key) >= 0;
                 if (!isDelete) {
-                    event.preventDefault();
-                    event.stopPropagation();
+                    cancelEvent(event);
                     return;
                 }
             }
@@ -5538,22 +5540,25 @@ let ContentModel = class ContentModel {
             return;
         }
         ++this.recentInputs;
-        this.contentModel = newValue;
-        this.contentModelChange.emit(this.contentModel);
+        this.updateValue();
         this.inputChange.emit(this.contentModel);
+    }
+    updateValue() {
+        this.contentModel = this.elm.nativeElement.textContent;
+        this.contentModelChange.emit(this.contentModel);
     }
     onFocus() {
         this.lastValue = this.contentModel;
         this.evalPlaceholder('');
     }
-    checkplaceholder() {
+    checkPlaceholder() {
         if (this.placeholder && this.elm.nativeElement.textContent === this.placeholder) {
             this.elm.nativeElement.textContent = '';
         }
     }
     onBlur() {
         if (this.lastValue !== this.elm.nativeElement.textContent) {
-            this.contentModelChange.emit(this.contentModel);
+            this.updateValue();
             this.changeDone.emit(this.contentModel);
         }
         this.evalPlaceholder();
@@ -5583,6 +5588,10 @@ ContentModel = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
 ], ContentModel);
 
+function cancelEvent(event) {
+    event.preventDefault();
+    event.stopPropagation();
+}
 
 
 /***/ }),
