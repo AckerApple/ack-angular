@@ -2023,7 +2023,6 @@ class ContentModel {
         this.inputChange = new EventEmitter();
         // Below, avoid using (contentModelChange) ... use (inputChange) instead
         this.contentModelChange = new EventEmitter();
-        this.enterEnds = false;
         this.enter = new EventEmitter(); // fires when enter key used
         this.recentInputs = 0; // check in/out user input to prevent updating content right after user input
         this.elm.nativeElement.setAttribute('contenteditable', true);
@@ -2052,13 +2051,17 @@ class ContentModel {
         }
         return false;
     }
-    onKeyDown(event) {
-        this.checkplaceholder();
+    shouldCancelEvent(event) {
         const key = event.which || event.keyCode;
+        return this.enterEnds && key === 13;
+    }
+    onKeyDown(event) {
+        this.checkPlaceholder();
+        const cancel = this.shouldCancelEvent(event);
         // enter key treatment
-        if (this.enterEnds && key === 13) {
-            event.preventDefault();
-            event.stopPropagation();
+        if (cancel) {
+            this.recordValue();
+            cancelEvent(event);
             this.onBlur();
             this.enter.emit();
             return;
@@ -2067,36 +2070,42 @@ class ContentModel {
             const newValue = this.elm.nativeElement.textContent;
             const maxLength = Number(this.maxLength);
             const maxed = this.maxLength && newValue.length > maxLength;
+            const key = event.which || event.keyCode;
             if (maxed) {
                 const isDelete = [8, 46].indexOf(key) >= 0;
                 if (!isDelete) {
-                    event.preventDefault();
-                    event.stopPropagation();
+                    cancelEvent(event);
                     return;
                 }
             }
         }
     }
-    onInput() {
+    onInput(event) {
+        if (this.shouldCancelEvent(event)) {
+        }
         const newValue = this.elm.nativeElement.textContent;
         const maxLength = Number(this.maxLength);
         if (this.maxLength && newValue.length > maxLength) {
             return;
         }
         ++this.recentInputs;
+        this.recordValue();
         this.contentModel = newValue;
         // Below, caused focus loss blur because the model updates and causes redraw so now we use this.recentInputs
         this.contentModelChange.emit(this.contentModel);
         this.inputChange.emit(this.contentModel);
     }
+    recordValue() {
+        this.contentModel = this.elm.nativeElement.textContent;
+    }
     onFocus() {
         this.lastValue = this.contentModel;
         this.evalPlaceholder('');
         /* 10-12: moved into keydown check
-        this.checkplaceholder();
+        this.checkPlaceholder();
         */
     }
-    checkplaceholder() {
+    checkPlaceholder() {
         if (this.placeholder && this.elm.nativeElement.textContent === this.placeholder) {
             this.elm.nativeElement.textContent = '';
         }
@@ -2127,10 +2136,14 @@ ContentModel.propDecorators = {
     enterEnds: [{ type: Input }],
     enter: [{ type: Output }],
     onKeyDown: [{ type: HostListener, args: ['keydown', ['$event'],] }],
-    onInput: [{ type: HostListener, args: ['input',] }],
+    onInput: [{ type: HostListener, args: ['input', ['$event'],] }],
     onFocus: [{ type: HostListener, args: ['focus',] }],
     onBlur: [{ type: HostListener, args: ['blur',] }]
 };
+function cancelEvent(event) {
+    event.preventDefault();
+    event.stopPropagation();
+}
 
 class SelectOn {
     constructor(element) {

@@ -2406,7 +2406,6 @@
             this.inputChange = new core.EventEmitter();
             // Below, avoid using (contentModelChange) ... use (inputChange) instead
             this.contentModelChange = new core.EventEmitter();
-            this.enterEnds = false;
             this.enter = new core.EventEmitter(); // fires when enter key used
             this.recentInputs = 0; // check in/out user input to prevent updating content right after user input
             this.elm.nativeElement.setAttribute('contenteditable', true);
@@ -2435,13 +2434,17 @@
             }
             return false;
         };
-        ContentModel.prototype.onKeyDown = function (event) {
-            this.checkplaceholder();
+        ContentModel.prototype.shouldCancelEvent = function (event) {
             var key = event.which || event.keyCode;
+            return this.enterEnds && key === 13;
+        };
+        ContentModel.prototype.onKeyDown = function (event) {
+            this.checkPlaceholder();
+            var cancel = this.shouldCancelEvent(event);
             // enter key treatment
-            if (this.enterEnds && key === 13) {
-                event.preventDefault();
-                event.stopPropagation();
+            if (cancel) {
+                this.recordValue();
+                cancelEvent(event);
                 this.onBlur();
                 this.enter.emit();
                 return;
@@ -2450,36 +2453,42 @@
                 var newValue = this.elm.nativeElement.textContent;
                 var maxLength = Number(this.maxLength);
                 var maxed = this.maxLength && newValue.length > maxLength;
+                var key = event.which || event.keyCode;
                 if (maxed) {
                     var isDelete = [8, 46].indexOf(key) >= 0;
                     if (!isDelete) {
-                        event.preventDefault();
-                        event.stopPropagation();
+                        cancelEvent(event);
                         return;
                     }
                 }
             }
         };
-        ContentModel.prototype.onInput = function () {
+        ContentModel.prototype.onInput = function (event) {
+            if (this.shouldCancelEvent(event)) {
+            }
             var newValue = this.elm.nativeElement.textContent;
             var maxLength = Number(this.maxLength);
             if (this.maxLength && newValue.length > maxLength) {
                 return;
             }
             ++this.recentInputs;
+            this.recordValue();
             this.contentModel = newValue;
             // Below, caused focus loss blur because the model updates and causes redraw so now we use this.recentInputs
             this.contentModelChange.emit(this.contentModel);
             this.inputChange.emit(this.contentModel);
         };
+        ContentModel.prototype.recordValue = function () {
+            this.contentModel = this.elm.nativeElement.textContent;
+        };
         ContentModel.prototype.onFocus = function () {
             this.lastValue = this.contentModel;
             this.evalPlaceholder('');
             /* 10-12: moved into keydown check
-            this.checkplaceholder();
+            this.checkPlaceholder();
             */
         };
-        ContentModel.prototype.checkplaceholder = function () {
+        ContentModel.prototype.checkPlaceholder = function () {
             if (this.placeholder && this.elm.nativeElement.textContent === this.placeholder) {
                 this.elm.nativeElement.textContent = '';
             }
@@ -2511,10 +2520,14 @@
         enterEnds: [{ type: core.Input }],
         enter: [{ type: core.Output }],
         onKeyDown: [{ type: core.HostListener, args: ['keydown', ['$event'],] }],
-        onInput: [{ type: core.HostListener, args: ['input',] }],
+        onInput: [{ type: core.HostListener, args: ['input', ['$event'],] }],
         onFocus: [{ type: core.HostListener, args: ['focus',] }],
         onBlur: [{ type: core.HostListener, args: ['blur',] }]
     };
+    function cancelEvent(event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
 
     var SelectOn = /** @class */ (function () {
         function SelectOn(element) {

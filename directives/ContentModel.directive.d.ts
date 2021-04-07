@@ -7,7 +7,7 @@ export declare class ContentModel implements OnChanges, OnDestroy {
     contentModelChange: EventEmitter<string>;
     placeholder?: string;
     maxLength?: number;
-    enterEnds: boolean;
+    enterEnds?: boolean;
     enter: EventEmitter<void>;
     recentInputs: number;
     lastValue?: string;
@@ -15,9 +15,11 @@ export declare class ContentModel implements OnChanges, OnDestroy {
     ngOnDestroy(): void;
     ngOnChanges(): void;
     evalPlaceholder(placeholder?: string): boolean;
-    onKeyDown(event: any): void;
-    onInput(): void;
+    shouldCancelEvent(event: Event): boolean;
+    onKeyDown(event: Event): void;
+    onInput(event: Event): void;
+    recordValue(): void;
     onFocus(): void;
-    checkplaceholder(): void;
+    checkPlaceholder(): void;
     onBlur(): void;
 }
