@@ -5479,7 +5479,6 @@ let ContentModel = class ContentModel {
         this.changeDone = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.inputChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.contentModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.enterEnds = false;
         this.enter = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.recentInputs = 0;
         this.elm.nativeElement.setAttribute('contenteditable', true);
@@ -5507,12 +5506,16 @@ let ContentModel = class ContentModel {
         }
         return false;
     }
-    onKeyDown(event) {
-        this.checkplaceholder();
+    shouldCancelEvent(event) {
         const key = event.which || event.keyCode;
-        if (this.enterEnds && key === 13) {
-            event.preventDefault();
-            event.stopPropagation();
+        return this.enterEnds && key === 13;
+    }
+    onKeyDown(event) {
+        this.checkPlaceholder();
+        const cancel = this.shouldCancelEvent(event);
+        if (cancel) {
+            this.recordValue();
+            cancelEvent(event);
             this.onBlur();
             this.enter.emit();
             return;
@@ -5521,32 +5524,38 @@ let ContentModel = class ContentModel {
             const newValue = this.elm.nativeElement.textContent;
             const maxLength = Number(this.maxLength);
             const maxed = this.maxLength && newValue.length > maxLength;
+            const key = event.which || event.keyCode;
             if (maxed) {
                 const isDelete = [8, 46].indexOf(key) >= 0;
                 if (!isDelete) {
-                    event.preventDefault();
-                    event.stopPropagation();
+                    cancelEvent(event);
                     return;
                 }
             }
         }
     }
-    onInput() {
+    onInput(event) {
+        if (this.shouldCancelEvent(event)) {
+        }
         const newValue = this.elm.nativeElement.textContent;
         const maxLength = Number(this.maxLength);
         if (this.maxLength && newValue.length > maxLength) {
             return;
         }
         ++this.recentInputs;
+        this.recordValue();
         this.contentModel = newValue;
         this.contentModelChange.emit(this.contentModel);
         this.inputChange.emit(this.contentModel);
+    }
+    recordValue() {
+        this.contentModel = this.elm.nativeElement.textContent;
     }
     onFocus() {
         this.lastValue = this.contentModel;
         this.evalPlaceholder('');
     }
-    checkplaceholder() {
+    checkPlaceholder() {
         if (this.placeholder && this.elm.nativeElement.textContent === this.placeholder) {
             this.elm.nativeElement.textContent = '';
         }
@@ -5572,7 +5581,7 @@ ContentModel.propDecorators = {
     enterEnds: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     enter: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
     onKeyDown: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['keydown', ['$event'],] }],
-    onInput: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['input',] }],
+    onInput: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['input', ['$event'],] }],
     onFocus: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['focus',] }],
     onBlur: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['blur',] }]
 };
@@ -5583,6 +5592,10 @@ ContentModel = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
 ], ContentModel);
 
+function cancelEvent(event) {
+    event.preventDefault();
+    event.stopPropagation();
+}
 
 
 /***/ }),

@@ -16,7 +16,7 @@ import {
   @Input() placeholder?: string;
   @Input() maxLength?: number;
 
-  @Input() enterEnds = false;
+  @Input() enterEnds?: boolean
   @Output() enter: EventEmitter<void> = new EventEmitter(); // fires when enter key used
 
   recentInputs = 0; // check in/out user input to prevent updating content right after user input
@@ -58,14 +58,19 @@ import {
     return false;
   }
 
-  @HostListener('keydown', ['$event']) onKeyDown(event) {
-    this.checkplaceholder();
-    const key = event.which || event.keyCode;
+  shouldCancelEvent(event: Event) {
+    const key = (event as any).which || (event as any).keyCode;
+    return this.enterEnds && key === 13
+  }
+
+  @HostListener('keydown', ['$event']) onKeyDown(event: Event) {
+    this.checkPlaceholder();
+    const cancel = this.shouldCancelEvent(event)
 
     // enter key treatment
-    if (this.enterEnds && key === 13) {
-      event.preventDefault();
-      event.stopPropagation();
+    if (cancel) {
+      this.recordValue()
+      cancelEvent(event)
       this.onBlur();
       this.enter.emit();
       return;
@@ -75,20 +80,24 @@ import {
       const newValue = this.elm.nativeElement.textContent;
       const maxLength = Number(this.maxLength);
       const maxed = this.maxLength && newValue.length > maxLength;
+      const key = (event as any).which || (event as any).keyCode;
 
       if (maxed) {
         const isDelete = [8, 46].indexOf( key ) >= 0;
 
         if (!isDelete) {
-          event.preventDefault();
-          event.stopPropagation();
+          cancelEvent(event)
           return;
         }
       }
     }
   }
 
-  @HostListener('input') onInput() {
+  @HostListener('input', ['$event']) onInput(event: Event) {
+    if (this.shouldCancelEvent(event)) {
+
+    }
+
     const newValue = this.elm.nativeElement.textContent;
     const maxLength = Number(this.maxLength);
 
@@ -97,21 +106,26 @@ import {
     }
 
     ++this.recentInputs;
+    this.recordValue()
     this.contentModel = newValue;
     // Below, caused focus loss blur because the model updates and causes redraw so now we use this.recentInputs
     this.contentModelChange.emit(this.contentModel);
     this.inputChange.emit(this.contentModel);
   }
 
+  recordValue() {
+    this.contentModel = this.elm.nativeElement.textContent
+  }
+
   @HostListener('focus') onFocus() {
     this.lastValue = this.contentModel;
     this.evalPlaceholder('');
     /* 10-12: moved into keydown check
-    this.checkplaceholder();
+    this.checkPlaceholder();
     */
   }
 
-  checkplaceholder() {
+  checkPlaceholder() {
     if (this.placeholder && this.elm.nativeElement.textContent === this.placeholder) {
       this.elm.nativeElement.textContent = '';
     }
@@ -125,4 +139,9 @@ import {
 
     this.evalPlaceholder();
   }
+}
+
+function cancelEvent(event: Event) {
+  event.preventDefault()
+  event.stopPropagation()
 }
