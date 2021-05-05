@@ -5,14 +5,14 @@ export declare class AckModal {
     AckApp: AckApp;
     body: TemplateRef<any>;
     layout: ElementRef;
-    inline: boolean;
-    isModelMode: boolean;
+    inline?: boolean;
+    isModelMode?: boolean;
     allowClose: boolean;
     zIndex: number;
     wrapStyle: any;
     wrapCellStyle: any;
-    backgroundColor: string;
-    showModel: boolean;
+    backgroundColor?: string;
+    showModel?: boolean;
     showModelChange: EventEmitter<boolean>;
     close: EventEmitter<any>;
     constructor(element: ElementRef, AckApp: AckApp);

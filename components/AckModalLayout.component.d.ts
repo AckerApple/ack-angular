@@ -14,6 +14,6 @@ export declare class AckModalLayout {
     showModelChange: EventEmitter<boolean>;
     constructor(element: ElementRef, AckApp: AckApp);
     clickListenForClose(): void;
-    ngOnInit(): void;
+    ngOnInit(): Promise<void>;
     fireClose(): void;
 }

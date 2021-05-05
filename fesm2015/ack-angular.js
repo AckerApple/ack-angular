@@ -499,7 +499,7 @@ class AckModalLayout {
         setTimeout(() => this.clickListenForClose(), 400);
     }
     clickListenForClose() {
-        this.element.nativeElement.addEventListener('click', event => {
+        this.element.nativeElement.addEventListener('click', (event) => {
             if (!this.allowClose)
                 return false;
             const eTar = event.srcElement || event.toElement || event.target;
@@ -511,7 +511,7 @@ class AckModalLayout {
         });
     }
     ngOnInit() {
-        Promise.resolve().then(() => {
+        return Promise.resolve().then(() => {
             if (this.isModelMode || (this.isModelMode == null && this.showModelChange.observers.length)) {
                 this.isModelMode = true;
             }
