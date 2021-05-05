@@ -16,17 +16,17 @@ import { string } from "./templates/ack-modal-layout.pug"
   template:string,
   animations:animations
 }) export class AckModalLayout{
-  @Input() zIndex:number = 20
-  @Output() close:EventEmitter<AckModalLayout> = new EventEmitter()
-  @Input() allowClose:boolean = true
+  @Input() zIndex: number = 20
+  @Output() close: EventEmitter<AckModalLayout> = new EventEmitter()
+  @Input() allowClose: boolean = true
 
-  @Input() wrapStyle:any
-  @Input() wrapCellStyle:any
-  @Input() backgroundColor:any
-  
-  @Input() isModelMode:boolean = false  
-  @Input() showModel:boolean = true
-  @Output() showModelChange:EventEmitter<boolean> = new EventEmitter()
+  @Input() wrapStyle: any
+  @Input() wrapCellStyle: any
+  @Input() backgroundColor: any
+
+  @Input() isModelMode: boolean = false
+  @Input() showModel: boolean = true
+  @Output() showModelChange: EventEmitter<boolean> = new EventEmitter()
   //@Input() template:ElementRef<any>
 
   constructor(
@@ -38,12 +38,12 @@ import { string } from "./templates/ack-modal-layout.pug"
   }
 
   clickListenForClose(){
-    this.element.nativeElement.addEventListener('click', event=>{
+    this.element.nativeElement.addEventListener('click', (event: any)=>{
       if(!this.allowClose)return false
 
       const eTar = event.srcElement || event.toElement || event.target
       const isDirectChild = eTar == this.element.nativeElement.children[0] || eTar == this.element.nativeElement.children[0].children[0]
-      
+
       if( isDirectChild ){
         this.fireClose()
       }
@@ -53,7 +53,7 @@ import { string } from "./templates/ack-modal-layout.pug"
   }
 
   ngOnInit(){
-    Promise.resolve().then(()=>{
+    return Promise.resolve().then(()=>{
       if( this.isModelMode || (this.isModelMode==null && this.showModelChange.observers.length) ){
         this.isModelMode = true
       }

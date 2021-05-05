@@ -1,5 +1,7 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
+## [1.18.0] - 2021-05-05
+- Updated ack-css-boot to 2.0.0 which just changes .border-v and .border-h
 
 ## [1.16.2] - [1.16.3] - 2021-04-07
 - Fixing order of cancel operations in ContentModel

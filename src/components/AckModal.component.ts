@@ -6,7 +6,7 @@ import {
   Output,
   EventEmitter,
   ElementRef,
-  
+
   TemplateRef,
   ViewChild,
 } from "@angular/core"
@@ -21,23 +21,23 @@ import { string } from "./templates/ack-modal.pug"
   //,exportAs:"AckModal"
   //,animations:animations
 }) export class AckModal{
-  @ContentChild('body') body:TemplateRef<any>
-  @ViewChild('placeholder') layout: ElementRef
+  @ContentChild('body') body!:TemplateRef<any>
+  @ViewChild('placeholder') layout!: ElementRef
 
   //one way binds
-  @Input() inline:boolean
-  @Input() isModelMode:boolean
+  @Input() inline?:boolean
+  @Input() isModelMode?:boolean
   @Input() allowClose:boolean = true
   @Input() zIndex:number = 20
 
-  @Input() wrapStyle:any
-  @Input() wrapCellStyle:any
-  @Input() backgroundColor:string
+  @Input() wrapStyle: any
+  @Input() wrapCellStyle: any
+  @Input() backgroundColor?: string
 
   //two way binds
-  @Input() showModel:boolean
+  @Input() showModel?: boolean
   @Output() showModelChange:EventEmitter<boolean> = new EventEmitter()
-  
+
   //one way expression binds
   @Output() close:EventEmitter<any> = new EventEmitter()
 
