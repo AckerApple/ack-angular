@@ -1,14 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = exports.ContainerComponent = void 0;
-var core_1 = require("@angular/core");
-var testing_1 = require("@angular/core/testing");
-var AckModule_1 = require("../AckModule");
+import { Component, NgModule } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { AckModule } from '../AckModule';
 var ContainerComponent = /** @class */ (function () {
     function ContainerComponent() {
     }
     ContainerComponent.decorators = [
-        { type: core_1.Component, args: [{
+        { type: Component, args: [{
                     selector: 'container',
                     //template:'none'
                     template: '<ack-array #AckArray="AckArray"></ack-array>'
@@ -16,29 +13,29 @@ var ContainerComponent = /** @class */ (function () {
     ];
     return ContainerComponent;
 }());
-exports.ContainerComponent = ContainerComponent;
+export { ContainerComponent };
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule.decorators = [
-        { type: core_1.NgModule, args: [{
+        { type: NgModule, args: [{
                     imports: [
-                        AckModule_1.AckModule.forRoot()
+                        AckModule.forRoot()
                     ],
                     declarations: [ContainerComponent]
                 },] }
     ];
     return AppModule;
 }());
-exports.AppModule = AppModule;
+export { AppModule };
 describe('ack-array', function () {
     var fixture;
     var component;
     beforeEach(function (done) {
-        testing_1.TestBed.configureTestingModule({ imports: [AppModule] });
-        testing_1.TestBed.compileComponents()
+        TestBed.configureTestingModule({ imports: [AppModule] });
+        TestBed.compileComponents()
             .then(function () {
-            fixture = testing_1.TestBed.createComponent(ContainerComponent);
+            fixture = TestBed.createComponent(ContainerComponent);
             fixture.detectChanges();
             component = fixture.componentInstance;
         })

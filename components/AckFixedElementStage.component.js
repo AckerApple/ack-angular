@@ -1,9 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AckFixedElementStage = void 0;
-var core_1 = require("@angular/core");
-var AckApp_provider_1 = require("../providers/AckApp.provider");
-var ack_fixed_element_stage_pug_1 = require("./templates/ack-fixed-element-stage.pug");
+import { ElementRef, Component } from "@angular/core";
+import { AckApp } from "../providers/AckApp.provider";
+import { string } from "./templates/ack-fixed-element-stage.pug";
 var AckFixedElementStage = /** @class */ (function () {
     function AckFixedElementStage(AckApp, ElementRef) {
         this.AckApp = AckApp;
@@ -11,16 +8,16 @@ var AckFixedElementStage = /** @class */ (function () {
         AckApp.fixedElementStage = ElementRef;
     }
     AckFixedElementStage.decorators = [
-        { type: core_1.Component, args: [{
+        { type: Component, args: [{
                     selector: 'ack-fixed-element-stage',
-                    template: ack_fixed_element_stage_pug_1.string
+                    template: string
                 },] }
     ];
     AckFixedElementStage.ctorParameters = function () { return [
-        { type: AckApp_provider_1.AckApp },
-        { type: core_1.ElementRef }
+        { type: AckApp },
+        { type: ElementRef }
     ]; };
     return AckFixedElementStage;
 }());
-exports.AckFixedElementStage = AckFixedElementStage;
+export { AckFixedElementStage };
 //# sourceMappingURL=AckFixedElementStage.component.js.map

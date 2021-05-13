@@ -1,8 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AckApp = void 0;
-var core_1 = require("@angular/core");
-var Prompts_1 = require("./Prompts");
+import { 
+//TemplateRef,
+Injectable } from "@angular/core";
+import { 
+//prompt,
+Prompts } from "./Prompts";
 var AckApp = /** @class */ (function () {
     function AckApp(prompts) {
         this.prompts = prompts;
@@ -24,14 +25,14 @@ var AckApp = /** @class */ (function () {
         return this;
     };
     AckApp.decorators = [
-        { type: core_1.Injectable }
+        { type: Injectable }
     ];
     AckApp.ctorParameters = function () { return [
         { type: 
             //prompt,
-            Prompts_1.Prompts }
+            Prompts }
     ]; };
     return AckApp;
 }());
-exports.AckApp = AckApp;
+export { AckApp };
 //# sourceMappingURL=AckApp.provider.js.map

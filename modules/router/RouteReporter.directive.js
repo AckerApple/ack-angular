@@ -1,26 +1,25 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.RouteReporter = void 0;
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var RouteWatchReporter_1 = require("./RouteWatchReporter");
-var router_2 = require("@angular/router");
+import { Directive, Input, Output, EventEmitter } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+import { RouteWatchReporter, getCurrentByActive } from "./RouteWatchReporter";
+import { 
+//NavigationStart,
+NavigationEnd } from "@angular/router";
 var RouteReporter = /** @class */ (function () {
     function RouteReporter(Router, RouteWatchReporter, ActivatedRoute) {
         this.Router = Router;
         this.RouteWatchReporter = RouteWatchReporter;
         this.ActivatedRoute = ActivatedRoute;
-        this.stateChanger = new core_1.EventEmitter();
-        this.beforeChanger = new core_1.EventEmitter();
-        this.activatedChange = new core_1.EventEmitter();
-        this.paramsChange = new core_1.EventEmitter();
-        this.dataChange = new core_1.EventEmitter();
-        this.queryChange = new core_1.EventEmitter();
-        this.routeChange = new core_1.EventEmitter();
-        this.parentRouteChange = new core_1.EventEmitter();
-        this.parentChange = new core_1.EventEmitter();
-        this.parentDataChange = new core_1.EventEmitter();
-        this.stateChange = new core_1.EventEmitter();
+        this.stateChanger = new EventEmitter();
+        this.beforeChanger = new EventEmitter();
+        this.activatedChange = new EventEmitter();
+        this.paramsChange = new EventEmitter();
+        this.dataChange = new EventEmitter();
+        this.queryChange = new EventEmitter();
+        this.routeChange = new EventEmitter();
+        this.parentRouteChange = new EventEmitter();
+        this.parentChange = new EventEmitter();
+        this.parentDataChange = new EventEmitter();
+        this.stateChange = new EventEmitter();
         this.$document = document;
         this.apply();
     }
@@ -29,7 +28,7 @@ var RouteReporter = /** @class */ (function () {
         this.docCallbacks = this.RouteWatchReporter.getDocumentCallbacks();
         this.RouteWatchReporter.router.events.subscribe(function (event) {
             //if(event.constructor == NavigationStart){}
-            if (event.constructor === router_2.NavigationEnd) {
+            if (event.constructor === NavigationEnd) {
                 _this.beforeChanger.emit(_this.RouteWatchReporter);
                 //allow one process to occur before reporting state has changed
                 _this.apply();
@@ -85,7 +84,7 @@ var RouteReporter = /** @class */ (function () {
       }
     */
     RouteReporter.prototype.apply = function () {
-        var current = RouteWatchReporter_1.getCurrentByActive(this.ActivatedRoute);
+        var current = getCurrentByActive(this.ActivatedRoute);
         this.route = current.config;
         this.current = current;
         this.state = current;
@@ -125,41 +124,41 @@ var RouteReporter = /** @class */ (function () {
         this.RouteWatchReporter.tryBack(name, params);
     };
     RouteReporter.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: "route-reporter",
                     exportAs: "RouteReporter"
                 },] }
     ];
     RouteReporter.ctorParameters = function () { return [
-        { type: router_1.Router },
-        { type: RouteWatchReporter_1.RouteWatchReporter },
-        { type: router_1.ActivatedRoute }
+        { type: Router },
+        { type: RouteWatchReporter },
+        { type: ActivatedRoute }
     ]; };
     RouteReporter.propDecorators = {
-        onLoad: [{ type: core_1.Input }],
-        stateChanger: [{ type: core_1.Output, args: ["onChange",] }],
-        beforeChanger: [{ type: core_1.Output, args: ["beforeChange",] }],
-        activated: [{ type: core_1.Input }],
-        activatedChange: [{ type: core_1.Output }],
-        params: [{ type: core_1.Input }],
-        paramsChange: [{ type: core_1.Output }],
-        data: [{ type: core_1.Input }],
-        dataChange: [{ type: core_1.Output }],
-        query: [{ type: core_1.Input }],
-        queryChange: [{ type: core_1.Output }],
-        route: [{ type: core_1.Input }],
-        routeChange: [{ type: core_1.Output }],
-        parentRoute: [{ type: core_1.Input }],
-        parentRouteChange: [{ type: core_1.Output }],
-        parent: [{ type: core_1.Input }],
-        parentChange: [{ type: core_1.Output }],
-        parentData: [{ type: core_1.Input }],
-        parentDataChange: [{ type: core_1.Output }],
-        current: [{ type: core_1.Input }],
-        state: [{ type: core_1.Input }],
-        stateChange: [{ type: core_1.Output }]
+        onLoad: [{ type: Input }],
+        stateChanger: [{ type: Output, args: ["onChange",] }],
+        beforeChanger: [{ type: Output, args: ["beforeChange",] }],
+        activated: [{ type: Input }],
+        activatedChange: [{ type: Output }],
+        params: [{ type: Input }],
+        paramsChange: [{ type: Output }],
+        data: [{ type: Input }],
+        dataChange: [{ type: Output }],
+        query: [{ type: Input }],
+        queryChange: [{ type: Output }],
+        route: [{ type: Input }],
+        routeChange: [{ type: Output }],
+        parentRoute: [{ type: Input }],
+        parentRouteChange: [{ type: Output }],
+        parent: [{ type: Input }],
+        parentChange: [{ type: Output }],
+        parentData: [{ type: Input }],
+        parentDataChange: [{ type: Output }],
+        current: [{ type: Input }],
+        state: [{ type: Input }],
+        stateChange: [{ type: Output }]
     };
     return RouteReporter;
 }());
-exports.RouteReporter = RouteReporter;
+export { RouteReporter };
 //# sourceMappingURL=RouteReporter.directive.js.map

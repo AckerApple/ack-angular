@@ -1,12 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.SelectOn = void 0;
-var core_1 = require("@angular/core");
+import { Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
 var SelectOn = /** @class */ (function () {
     function SelectOn(element) {
         this.element = element;
         this.selectOnDelay = 0;
-        this.selectThen = new core_1.EventEmitter();
+        this.selectThen = new EventEmitter();
     }
     SelectOn.prototype.ngOnChanges = function (changes) {
         var _this = this;
@@ -22,19 +19,19 @@ var SelectOn = /** @class */ (function () {
         this.selectThen.emit();
     };
     SelectOn.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: '[selectOn]'
                 },] }
     ];
     SelectOn.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     SelectOn.propDecorators = {
-        selectOn: [{ type: core_1.Input }],
-        selectOnDelay: [{ type: core_1.Input }],
-        selectThen: [{ type: core_1.Output }]
+        selectOn: [{ type: Input }],
+        selectOnDelay: [{ type: Input }],
+        selectThen: [{ type: Output }]
     };
     return SelectOn;
 }());
-exports.SelectOn = SelectOn;
+export { SelectOn };
 //# sourceMappingURL=SelectOn.directive.js.map

@@ -1,23 +1,20 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getParentByTagName = exports.AckOptions = void 0;
-var pipes_class_1 = require("../pipes.class");
-var core_1 = require("@angular/core");
-var TemplateReader_class_1 = require("../TemplateReader.class");
-var ack_options_pug_1 = require("./templates/ack-options.pug");
+import { array } from "../pipes.class";
+import { ElementRef, ContentChildren, TemplateRef, Component, Input, Output, EventEmitter } from "@angular/core";
+import { TemplateReader } from "../TemplateReader.class";
+import { string as ackOptions } from "./templates/ack-options.pug";
 var AckOptions = /** @class */ (function () {
     function AckOptions(ElementRef) {
         this.ElementRef = ElementRef;
         this.array = [];
         this.stylize = true;
-        this.TemplateReader = new TemplateReader_class_1.TemplateReader({
+        this.TemplateReader = new TemplateReader({
             lastTemplateName: "templateRef",
             types: {
                 option: "templateRef",
                 selected: "selected"
             }
         });
-        this.modelChange = new core_1.EventEmitter();
+        this.modelChange = new EventEmitter();
     }
     AckOptions.prototype.ngAfterViewInit = function () {
         var _this = this;
@@ -115,7 +112,7 @@ var AckOptions = /** @class */ (function () {
         return scope;
     };
     AckOptions.prototype.modelIndex = function (item) {
-        this.model = pipes_class_1.array(this.model);
+        this.model = array(this.model);
         for (var i = this.model.length - 1; i >= 0; --i) {
             var value = this.getArrayItemValue(item);
             var modelValue = this.getModelValueToArrayItem(this.model[i]);
@@ -142,34 +139,34 @@ var AckOptions = /** @class */ (function () {
         return string;
     };
     AckOptions.decorators = [
-        { type: core_1.Component, args: [{
+        { type: Component, args: [{
                     selector: "ack-options",
-                    template: ack_options_pug_1.string
+                    template: ackOptions
                     //,exportAs:"AckOptions"
                 },] }
     ];
     AckOptions.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     AckOptions.propDecorators = {
-        array: [{ type: core_1.Input }],
-        stylize: [{ type: core_1.Input }],
-        multiple: [{ type: core_1.Input }],
-        modelAsArray: [{ type: core_1.Input }],
-        max: [{ type: core_1.Input }],
-        toggleable: [{ type: core_1.Input }],
-        templateRefs: [{ type: core_1.ContentChildren, args: [core_1.TemplateRef,] }],
-        inputTemplateRefs: [{ type: core_1.Input }],
-        model: [{ type: core_1.Input }],
-        modelChange: [{ type: core_1.Output }],
-        arrayKey: [{ type: core_1.Input }],
-        modelKey: [{ type: core_1.Input }],
-        arrayToModelKey: [{ type: core_1.Input }]
+        array: [{ type: Input }],
+        stylize: [{ type: Input }],
+        multiple: [{ type: Input }],
+        modelAsArray: [{ type: Input }],
+        max: [{ type: Input }],
+        toggleable: [{ type: Input }],
+        templateRefs: [{ type: ContentChildren, args: [TemplateRef,] }],
+        inputTemplateRefs: [{ type: Input }],
+        model: [{ type: Input }],
+        modelChange: [{ type: Output }],
+        arrayKey: [{ type: Input }],
+        modelKey: [{ type: Input }],
+        arrayToModelKey: [{ type: Input }]
     };
     return AckOptions;
 }());
-exports.AckOptions = AckOptions;
-function getParentByTagName(node, tagname) {
+export { AckOptions };
+export function getParentByTagName(node, tagname) {
     var parent;
     if (node === null || tagname === '')
         return;
@@ -183,5 +180,4 @@ function getParentByTagName(node, tagname) {
     }
     return;
 }
-exports.getParentByTagName = getParentByTagName;
 //# sourceMappingURL=AckOptions.component.js.map

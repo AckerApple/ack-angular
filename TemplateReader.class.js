@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.TemplateReader = void 0;
 var TemplateReader = /** @class */ (function () {
     function TemplateReader(options) {
         this.types = {};
@@ -39,5 +36,5 @@ var TemplateReader = /** @class */ (function () {
     };
     return TemplateReader;
 }());
-exports.TemplateReader = TemplateReader;
+export { TemplateReader };
 //# sourceMappingURL=TemplateReader.class.js.map

@@ -1,9 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AckSections = void 0;
-var core_1 = require("@angular/core");
-var AckSections_provider_1 = require("../providers/AckSections.provider");
-var ack_sections_pug_1 = require("./templates/ack-sections.pug");
+import { ContentChild, Component, Input, ElementRef, TemplateRef } from "@angular/core";
+import { SectionProvider } from "../providers/AckSections.provider";
+import { string } from "./templates/ack-sections.pug";
 var AckSections = /** @class */ (function () {
     function AckSections(SectionProvider, ElementRef) {
         this.SectionProvider = SectionProvider;
@@ -16,27 +13,27 @@ var AckSections = /** @class */ (function () {
         elmStyle.display = "block";
     }
     AckSections.decorators = [
-        { type: core_1.Component, args: [{
+        { type: Component, args: [{
                     selector: 'ack-sections',
-                    template: ack_sections_pug_1.string,
-                    providers: [AckSections_provider_1.SectionProvider]
+                    template: string,
+                    providers: [SectionProvider]
                     //,exportAs:"AckSections"
                 },] }
     ];
     AckSections.ctorParameters = function () { return [
-        { type: AckSections_provider_1.SectionProvider },
-        { type: core_1.ElementRef }
+        { type: SectionProvider },
+        { type: ElementRef }
     ]; };
     AckSections.propDecorators = {
-        mode: [{ type: core_1.Input }],
-        zIndex: [{ type: core_1.Input }],
-        table: [{ type: core_1.ContentChild, args: ["table",] }],
-        headerWrap: [{ type: core_1.ContentChild, args: ["headerWrap",] }],
-        bodyCell: [{ type: core_1.ContentChild, args: ["bodyCell",] }],
-        leftBodyWrap: [{ type: core_1.ContentChild, args: ["leftBodyWrap",] }],
-        rightBodyWrap: [{ type: core_1.ContentChild, args: ["rightBodyWrap",] }]
+        mode: [{ type: Input }],
+        zIndex: [{ type: Input }],
+        table: [{ type: ContentChild, args: ["table",] }],
+        headerWrap: [{ type: ContentChild, args: ["headerWrap",] }],
+        bodyCell: [{ type: ContentChild, args: ["bodyCell",] }],
+        leftBodyWrap: [{ type: ContentChild, args: ["leftBodyWrap",] }],
+        rightBodyWrap: [{ type: ContentChild, args: ["rightBodyWrap",] }]
     };
     return AckSections;
 }());
-exports.AckSections = AckSections;
+export { AckSections };
 //# sourceMappingURL=AckSections.component.js.map

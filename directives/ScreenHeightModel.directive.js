@@ -1,13 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ScreenHeightModel = void 0;
-var core_1 = require("@angular/core");
-var HtmlSizeWatcher_1 = require("./HtmlSizeWatcher");
+import { Directive, Input, Output, EventEmitter } from "@angular/core";
+import { 
+//htmlSize,
+HtmlSizeService } from "./HtmlSizeWatcher";
 var ScreenHeightModel = /** @class */ (function () {
     function ScreenHeightModel(HtmlSizeService) {
         var _this = this;
         this.HtmlSizeService = HtmlSizeService;
-        this.modelChange = new core_1.EventEmitter();
+        this.modelChange = new EventEmitter();
         this.sub = this.HtmlSizeService.change.subscribe(function () { return _this.changed(); });
         this.HtmlSizeService.checkWatchers();
     }
@@ -37,7 +36,7 @@ var ScreenHeightModel = /** @class */ (function () {
         this.modelChange.emit(this.model);
     };
     ScreenHeightModel.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: '[screenHeightModel]',
                     exportAs: 'ScreenHeightModel'
                 },] }
@@ -45,13 +44,13 @@ var ScreenHeightModel = /** @class */ (function () {
     ScreenHeightModel.ctorParameters = function () { return [
         { type: 
             //htmlSize,
-            HtmlSizeWatcher_1.HtmlSizeService }
+            HtmlSizeService }
     ]; };
     ScreenHeightModel.propDecorators = {
-        model: [{ type: core_1.Input, args: ['screenHeightModel',] }],
-        modelChange: [{ type: core_1.Output, args: ['screenHeightModelChange',] }]
+        model: [{ type: Input, args: ['screenHeightModel',] }],
+        modelChange: [{ type: Output, args: ['screenHeightModelChange',] }]
     };
     return ScreenHeightModel;
 }());
-exports.ScreenHeightModel = ScreenHeightModel;
+export { ScreenHeightModel };
 //# sourceMappingURL=ScreenHeightModel.directive.js.map

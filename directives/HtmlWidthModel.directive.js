@@ -1,13 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.HtmlWidthModel = void 0;
-var core_1 = require("@angular/core");
-var HtmlSizeWatcher_1 = require("./HtmlSizeWatcher");
+import { Directive, Input, Output, EventEmitter } from "@angular/core";
+import { HtmlSizeService } from "./HtmlSizeWatcher";
 var HtmlWidthModel = /** @class */ (function () {
     function HtmlWidthModel(HtmlSizeService) {
         var _this = this;
         this.HtmlSizeService = HtmlSizeService;
-        this.htmlWidthModelChange = new core_1.EventEmitter();
+        this.htmlWidthModelChange = new EventEmitter();
         this.sub = this.HtmlSizeService.change.subscribe(function () { return _this.changed(); });
         this.HtmlSizeService.checkWatchers();
         /*if( this.HtmlSizeService.htmlSize ){
@@ -35,18 +32,18 @@ var HtmlWidthModel = /** @class */ (function () {
         this.htmlWidthModelChange.emit(this.htmlWidthModel);
     };
     HtmlWidthModel.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: '[htmlWidthModel]'
                 },] }
     ];
     HtmlWidthModel.ctorParameters = function () { return [
-        { type: HtmlSizeWatcher_1.HtmlSizeService }
+        { type: HtmlSizeService }
     ]; };
     HtmlWidthModel.propDecorators = {
-        htmlWidthModel: [{ type: core_1.Input }],
-        htmlWidthModelChange: [{ type: core_1.Output }]
+        htmlWidthModel: [{ type: Input }],
+        htmlWidthModelChange: [{ type: Output }]
     };
     return HtmlWidthModel;
 }());
-exports.HtmlWidthModel = HtmlWidthModel;
+export { HtmlWidthModel };
 //# sourceMappingURL=HtmlWidthModel.directive.js.map

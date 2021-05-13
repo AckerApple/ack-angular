@@ -1,11 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatusOnlineModel = void 0;
-var core_1 = require("@angular/core");
+import { Directive, Input, Output, EventEmitter } from "@angular/core";
 var StatusOnlineModel = /** @class */ (function () {
     function StatusOnlineModel() {
         var _this = this;
-        this.statusOnlineModelChange = new core_1.EventEmitter();
+        this.statusOnlineModelChange = new EventEmitter();
         this.onChange = function () {
             _this.statusOnlineModel = navigator.onLine;
             _this.statusOnlineModelChange.emit(_this.statusOnlineModel);
@@ -19,14 +16,14 @@ var StatusOnlineModel = /** @class */ (function () {
         window.removeEventListener("offline", this.onChange);
     };
     StatusOnlineModel.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[statusOnlineModel]' },] }
+        { type: Directive, args: [{ selector: '[statusOnlineModel]' },] }
     ];
     StatusOnlineModel.ctorParameters = function () { return []; };
     StatusOnlineModel.propDecorators = {
-        statusOnlineModel: [{ type: core_1.Input }],
-        statusOnlineModelChange: [{ type: core_1.Output }]
+        statusOnlineModel: [{ type: Input }],
+        statusOnlineModelChange: [{ type: Output }]
     };
     return StatusOnlineModel;
 }());
-exports.StatusOnlineModel = StatusOnlineModel;
+export { StatusOnlineModel };
 //# sourceMappingURL=StatusOnlineModel.directive.js.map

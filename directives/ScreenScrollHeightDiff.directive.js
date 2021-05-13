@@ -1,11 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ScreenScrollHeightDiff = void 0;
-var core_1 = require("@angular/core");
+import { Directive, Input, Output, EventEmitter } from "@angular/core";
 var ScreenScrollHeightDiff = /** @class */ (function () {
     function ScreenScrollHeightDiff() {
         var _this = this;
-        this.screenScrollHeightDiffChange = new core_1.EventEmitter();
+        this.screenScrollHeightDiffChange = new EventEmitter();
         this.on = function () {
             _this.apply();
         };
@@ -23,16 +20,16 @@ var ScreenScrollHeightDiff = /** @class */ (function () {
         window.removeEventListener("resize", this.on);
     };
     ScreenScrollHeightDiff.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: '[screenScrollHeightDiff]'
                 },] }
     ];
     ScreenScrollHeightDiff.ctorParameters = function () { return []; };
     ScreenScrollHeightDiff.propDecorators = {
-        screenScrollHeightDiff: [{ type: core_1.Input }],
-        screenScrollHeightDiffChange: [{ type: core_1.Output }]
+        screenScrollHeightDiff: [{ type: Input }],
+        screenScrollHeightDiffChange: [{ type: Output }]
     };
     return ScreenScrollHeightDiff;
 }());
-exports.ScreenScrollHeightDiff = ScreenScrollHeightDiff;
+export { ScreenScrollHeightDiff };
 //# sourceMappingURL=ScreenScrollHeightDiff.directive.js.map

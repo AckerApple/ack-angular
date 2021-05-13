@@ -1,4 +1,3 @@
-"use strict";
 //import { Subscription } from "rxjs/internal/Subscription"
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
@@ -13,17 +12,15 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.HtmlHeightModel = void 0;
-var core_1 = require("@angular/core");
-var HtmlSizeWatcher_1 = require("./HtmlSizeWatcher");
-var HtmlWidthModel_directive_1 = require("./HtmlWidthModel.directive");
+import { Directive, Input, Output, EventEmitter } from "@angular/core";
+import { HtmlSizeService } from "./HtmlSizeWatcher";
+import { HtmlWidthModel } from "./HtmlWidthModel.directive";
 var HtmlHeightModel = /** @class */ (function (_super) {
     __extends(HtmlHeightModel, _super);
     function HtmlHeightModel(HtmlSizeService) {
         var _this = _super.call(this, HtmlSizeService) || this;
         _this.HtmlSizeService = HtmlSizeService;
-        _this.htmlHeightModelChange = new core_1.EventEmitter();
+        _this.htmlHeightModelChange = new EventEmitter();
         return _this;
     }
     HtmlHeightModel.prototype.hasChanged = function () {
@@ -34,18 +31,18 @@ var HtmlHeightModel = /** @class */ (function (_super) {
         this.htmlHeightModelChange.emit(this.htmlHeightModel);
     };
     HtmlHeightModel.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: '[htmlHeightModel]'
                 },] }
     ];
     HtmlHeightModel.ctorParameters = function () { return [
-        { type: HtmlSizeWatcher_1.HtmlSizeService }
+        { type: HtmlSizeService }
     ]; };
     HtmlHeightModel.propDecorators = {
-        htmlHeightModel: [{ type: core_1.Input }],
-        htmlHeightModelChange: [{ type: core_1.Output }]
+        htmlHeightModel: [{ type: Input }],
+        htmlHeightModelChange: [{ type: Output }]
     };
     return HtmlHeightModel;
-}(HtmlWidthModel_directive_1.HtmlWidthModel));
-exports.HtmlHeightModel = HtmlHeightModel;
+}(HtmlWidthModel));
+export { HtmlHeightModel };
 //# sourceMappingURL=HtmlHeightModel.directive.js.map

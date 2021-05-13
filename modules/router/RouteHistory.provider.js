@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.RouteHistory = void 0;
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
+import { Injectable } from "@angular/core";
+import { Router, NavigationEnd } from "@angular/router";
 var RouteHistory = /** @class */ (function () {
     function RouteHistory(Router) {
         this.Router = Router;
@@ -15,7 +12,7 @@ var RouteHistory = /** @class */ (function () {
     RouteHistory.prototype.monitor = function () {
         var _this = this;
         this.subs.push(this.Router.events.subscribe(function (event) {
-            if (event.constructor === router_1.NavigationEnd) {
+            if (event.constructor === NavigationEnd) {
                 _this.addRouteToHistory();
             }
         }));
@@ -84,12 +81,12 @@ var RouteHistory = /** @class */ (function () {
         this.Router.navigate([rh]);
     };
     RouteHistory.decorators = [
-        { type: core_1.Injectable }
+        { type: Injectable }
     ];
     RouteHistory.ctorParameters = function () { return [
-        { type: router_1.Router }
+        { type: Router }
     ]; };
     return RouteHistory;
 }());
-exports.RouteHistory = RouteHistory;
+export { RouteHistory };
 //# sourceMappingURL=RouteHistory.provider.js.map

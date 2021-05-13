@@ -1,35 +1,32 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ReaderBody = exports.ReaderHeader = exports.ReaderHeaderBody = void 0;
-var core_1 = require("@angular/core");
-var reader_header_body_pug_1 = require("./templates/reader-header-body.pug");
+import { Component, Directive, ElementRef, TemplateRef, ContentChild } from "@angular/core";
+import { string as readerHeaderBody } from "./templates/reader-header-body.pug";
 //easy to use common full page templater
 var ReaderHeaderBody = /** @class */ (function () {
     function ReaderHeaderBody() {
     }
     ReaderHeaderBody.decorators = [
-        { type: core_1.Component, args: [{
+        { type: Component, args: [{
                     selector: 'reader-header-body',
-                    template: reader_header_body_pug_1.string
+                    template: readerHeaderBody
                 },] }
     ];
     ReaderHeaderBody.propDecorators = {
-        readerHeader: [{ type: core_1.ContentChild, args: ['reader-header',] }]
+        readerHeader: [{ type: ContentChild, args: ['reader-header',] }]
     };
     return ReaderHeaderBody;
 }());
-exports.ReaderHeaderBody = ReaderHeaderBody;
+export { ReaderHeaderBody };
 var ReaderHeader = /** @class */ (function () {
     function ReaderHeader() {
     }
     ReaderHeader.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: 'reader-header'
                 },] }
     ];
     return ReaderHeader;
 }());
-exports.ReaderHeader = ReaderHeader;
+export { ReaderHeader };
 var ReaderBody = /** @class */ (function () {
     function ReaderBody(element) {
         this.element = element;
@@ -37,17 +34,17 @@ var ReaderBody = /** @class */ (function () {
         element.nativeElement.style.display = 'block';
     }
     ReaderBody.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: "reader-body"
                 },] }
     ];
     ReaderBody.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     ReaderBody.propDecorators = {
-        readerHeader: [{ type: core_1.ContentChild, args: ['reader-header',] }]
+        readerHeader: [{ type: ContentChild, args: ['reader-header',] }]
     };
     return ReaderBody;
 }());
-exports.ReaderBody = ReaderBody;
+export { ReaderBody };
 //# sourceMappingURL=ReaderHeaderBody.component.js.map

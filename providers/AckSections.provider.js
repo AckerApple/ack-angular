@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.SectionProvider = void 0;
-var core_1 = require("@angular/core");
+import { Injectable } from "@angular/core";
 var SectionProvider = /** @class */ (function () {
     function SectionProvider() {
         //appTemplates:AckSectionTemplates[] = []
@@ -31,9 +28,9 @@ var SectionProvider = /** @class */ (function () {
         this.unregisterTemplateFrom(item, this.rightBodyTemplates);
     };
     SectionProvider.decorators = [
-        { type: core_1.Injectable }
+        { type: Injectable }
     ];
     return SectionProvider;
 }());
-exports.SectionProvider = SectionProvider;
+export { SectionProvider };
 //# sourceMappingURL=AckSections.provider.js.map

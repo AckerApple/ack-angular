@@ -1,4 +1,3 @@
-"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -12,13 +11,11 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ElementWidthModel = exports.ElementHeightModel = exports.ElementSizeModel = void 0;
-var core_1 = require("@angular/core");
+import { Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
 var ElementSizeModel = /** @class */ (function () {
     function ElementSizeModel(element) {
         this.element = element;
-        this.elementSizeModelChange = new core_1.EventEmitter();
+        this.elementSizeModelChange = new EventEmitter();
     }
     ElementSizeModel.prototype.ngAfterViewInit = function () {
         var _this = this;
@@ -63,27 +60,27 @@ var ElementSizeModel = /** @class */ (function () {
         window.removeEventListener('resize', this.onResize);
     };
     ElementSizeModel.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: '[elementSizeModel]'
                 },] }
     ];
     ElementSizeModel.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     ElementSizeModel.propDecorators = {
-        elementSizeModelWatch: [{ type: core_1.Input }],
-        elementSizeModel: [{ type: core_1.Input }],
-        elementSizeModelChange: [{ type: core_1.Output }]
+        elementSizeModelWatch: [{ type: Input }],
+        elementSizeModel: [{ type: Input }],
+        elementSizeModelChange: [{ type: Output }]
     };
     return ElementSizeModel;
 }());
-exports.ElementSizeModel = ElementSizeModel;
+export { ElementSizeModel };
 var ElementHeightModel = /** @class */ (function (_super) {
     __extends(ElementHeightModel, _super);
     function ElementHeightModel(element) {
         var _this = _super.call(this, element) || this;
         _this.element = element;
-        _this.elementHeightModelChange = new core_1.EventEmitter();
+        _this.elementHeightModelChange = new EventEmitter();
         return _this;
     }
     ElementHeightModel.prototype.setModel = function () {
@@ -91,26 +88,26 @@ var ElementHeightModel = /** @class */ (function (_super) {
         this.elementHeightModelChange.emit(this.elementHeightModel);
     };
     ElementHeightModel.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: '[elementHeightModel]'
                 },] }
     ];
     ElementHeightModel.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     ElementHeightModel.propDecorators = {
-        elementHeightModel: [{ type: core_1.Input }],
-        elementHeightModelChange: [{ type: core_1.Output }]
+        elementHeightModel: [{ type: Input }],
+        elementHeightModelChange: [{ type: Output }]
     };
     return ElementHeightModel;
 }(ElementSizeModel));
-exports.ElementHeightModel = ElementHeightModel;
+export { ElementHeightModel };
 var ElementWidthModel = /** @class */ (function (_super) {
     __extends(ElementWidthModel, _super);
     function ElementWidthModel(element) {
         var _this = _super.call(this, element) || this;
         _this.element = element;
-        _this.elementWidthModelChange = new core_1.EventEmitter();
+        _this.elementWidthModelChange = new EventEmitter();
         return _this;
     }
     ElementWidthModel.prototype.setModel = function () {
@@ -118,19 +115,19 @@ var ElementWidthModel = /** @class */ (function (_super) {
         this.elementWidthModelChange.emit(this.elementWidthModel);
     };
     ElementWidthModel.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: '[elementWidthModel]',
                     exportAs: 'ElementWidthModel'
                 },] }
     ];
     ElementWidthModel.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     ElementWidthModel.propDecorators = {
-        elementWidthModel: [{ type: core_1.Input }],
-        elementWidthModelChange: [{ type: core_1.Output }]
+        elementWidthModel: [{ type: Input }],
+        elementWidthModelChange: [{ type: Output }]
     };
     return ElementWidthModel;
 }(ElementSizeModel));
-exports.ElementWidthModel = ElementWidthModel;
+export { ElementWidthModel };
 //# sourceMappingURL=ElementSizeModel.directive.js.map

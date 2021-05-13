@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.UrlVars = void 0;
-var core_1 = require("@angular/core");
-var WindowService_1 = require("./WindowService");
+import { Injectable } from '@angular/core';
+import { WindowService } from "./WindowService";
 var UrlVars = /** @class */ (function () {
     function UrlVars(WindowService) {
         this.WindowService = WindowService;
@@ -30,12 +27,12 @@ var UrlVars = /** @class */ (function () {
         return param;
     };
     UrlVars.decorators = [
-        { type: core_1.Injectable }
+        { type: Injectable }
     ];
     UrlVars.ctorParameters = function () { return [
-        { type: WindowService_1.WindowService }
+        { type: WindowService }
     ]; };
     return UrlVars;
 }());
-exports.UrlVars = UrlVars;
+export { UrlVars };
 //# sourceMappingURL=UrlVars.js.map

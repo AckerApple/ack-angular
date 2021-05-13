@@ -1,15 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ErrorWell = void 0;
-var core_1 = require("@angular/core");
-var ack_angular_fx_1 = require("ack-angular-fx");
-var error_well_pug_1 = require("./templates/error-well.pug");
+import { EventEmitter, Output, Input, ContentChild, Component, TemplateRef } from "@angular/core";
+import { animations } from "ack-angular-fx";
+import { string as errorWell } from "./templates/error-well.pug";
 var ErrorWell = /** @class */ (function () {
     function ErrorWell() {
         this.message = 'Unexpected Error Occured';
         this.closable = true;
         this.allowDetails = true;
-        this.close = new core_1.EventEmitter();
+        this.close = new EventEmitter();
     }
     ErrorWell.prototype.ngOnInit = function () {
         this.cssClasses = this.cssClasses || 'bg-danger border border-danger text-danger';
@@ -22,23 +19,23 @@ var ErrorWell = /** @class */ (function () {
         return error.message || error["statusText"] || this.message;
     };
     ErrorWell.decorators = [
-        { type: core_1.Component, args: [{
+        { type: Component, args: [{
                     selector: 'error-well',
-                    template: error_well_pug_1.string,
-                    animations: ack_angular_fx_1.animations
+                    template: errorWell,
+                    animations: animations
                 },] }
     ];
     ErrorWell.propDecorators = {
-        moreDetails: [{ type: core_1.Input }],
-        message: [{ type: core_1.Input }],
-        error: [{ type: core_1.Input }],
-        cssClasses: [{ type: core_1.Input }],
-        closable: [{ type: core_1.Input }],
-        allowDetails: [{ type: core_1.Input }],
-        close: [{ type: core_1.Output }],
-        titleFooter: [{ type: core_1.ContentChild, args: ["titleFooter",] }]
+        moreDetails: [{ type: Input }],
+        message: [{ type: Input }],
+        error: [{ type: Input }],
+        cssClasses: [{ type: Input }],
+        closable: [{ type: Input }],
+        allowDetails: [{ type: Input }],
+        close: [{ type: Output }],
+        titleFooter: [{ type: ContentChild, args: ["titleFooter",] }]
     };
     return ErrorWell;
 }());
-exports.ErrorWell = ErrorWell;
+export { ErrorWell };
 //# sourceMappingURL=ErrorWell.component.js.map

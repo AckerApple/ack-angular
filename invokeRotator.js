@@ -1,13 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getInvokerBy = exports.objectInvoker = exports.invokeRotator = void 0;
 /** responsible for ack-angular pipe'in system into ackX */
-function invokeRotator(invoke //|(any[])=>any
+export function invokeRotator(invoke //|(any[])=>any
 ) {
     return getInvokerBy(invoke);
 }
-exports.invokeRotator = invokeRotator;
-function objectInvoker(object, plan) {
+export function objectInvoker(object, plan) {
     var rtn = object;
     var subargs;
     var item;
@@ -51,8 +47,7 @@ function objectInvoker(object, plan) {
     }
     return rtn;
 }
-exports.objectInvoker = objectInvoker;
-function getInvokerBy(invoke) {
+export function getInvokerBy(invoke) {
     var isF = typeof invoke == 'function';
     if (isF) {
         return function () {
@@ -93,5 +88,4 @@ function getInvokerBy(invoke) {
       }
     */
 }
-exports.getInvokerBy = getInvokerBy;
 //# sourceMappingURL=invokeRotator.js.map

@@ -1,11 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ScreenScrollModelY = void 0;
-var core_1 = require("@angular/core");
+import { Directive, Input, Output, EventEmitter } from "@angular/core";
 var ScreenScrollModelY = /** @class */ (function () {
     function ScreenScrollModelY() {
         var _this = this;
-        this.screenScrollModelYChange = new core_1.EventEmitter();
+        this.screenScrollModelYChange = new EventEmitter();
         this.onScroll = function () {
             _this.screenScrollModelY = window['pageYOffset'];
             _this.screenScrollModelYChange.emit(_this.screenScrollModelY);
@@ -21,17 +18,17 @@ var ScreenScrollModelY = /** @class */ (function () {
         window.removeEventListener("scroll", this.onScroll);
     };
     ScreenScrollModelY.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: '[screenScrollModelY]',
                     exportAs: 'ScreenScrollModelY'
                 },] }
     ];
     ScreenScrollModelY.ctorParameters = function () { return []; };
     ScreenScrollModelY.propDecorators = {
-        screenScrollModelY: [{ type: core_1.Input }],
-        screenScrollModelYChange: [{ type: core_1.Output }]
+        screenScrollModelY: [{ type: Input }],
+        screenScrollModelYChange: [{ type: Output }]
     };
     return ScreenScrollModelY;
 }());
-exports.ScreenScrollModelY = ScreenScrollModelY;
+export { ScreenScrollModelY };
 //# sourceMappingURL=ScreenScrollModelY.directive.js.map

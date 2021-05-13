@@ -1,12 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.InnerHtmlModel = void 0;
-var core_1 = require("@angular/core");
+import { Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
 var InnerHtmlModel = /** @class */ (function () {
     function InnerHtmlModel(element) {
         var _this = this;
         this.element = element;
-        this.innerHtmlModelChange = new core_1.EventEmitter();
+        this.innerHtmlModelChange = new EventEmitter();
         this.observer = new MutationObserver(function () { return _this.setModel(); });
         var config = {
             attributes: true,
@@ -30,18 +27,18 @@ var InnerHtmlModel = /** @class */ (function () {
         this.observer.disconnect();
     };
     InnerHtmlModel.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: '[innerHtmlModel]'
                 },] }
     ];
     InnerHtmlModel.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     InnerHtmlModel.propDecorators = {
-        innerHtmlModel: [{ type: core_1.Input }],
-        innerHtmlModelChange: [{ type: core_1.Output }]
+        innerHtmlModel: [{ type: Input }],
+        innerHtmlModelChange: [{ type: Output }]
     };
     return InnerHtmlModel;
 }());
-exports.InnerHtmlModel = InnerHtmlModel;
+export { InnerHtmlModel };
 //# sourceMappingURL=InnerHtmlModel.directive.js.map

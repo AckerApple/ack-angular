@@ -1,14 +1,13 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ShakeOn = void 0;
-var FxOn_directive_1 = require("./FxOn.directive");
-var core_1 = require("@angular/core");
+import { 
+//hasClass,
+addClass, removeClass } from "./FxOn.directive";
+import { Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
 /** runs shake instructions when condition returns a truthy value */
 var ShakeOn = /** @class */ (function () {
     function ShakeOn(element) {
         this.element = element;
         this.shakeConstant = false;
-        this.shakeThen = new core_1.EventEmitter();
+        this.shakeThen = new EventEmitter();
         //an array to be used in #ShakeOn refs for fx selectable options (see examples)
         this.shakeTypes = [
             'shake-slow', 'shake-hard', 'shake-little', 'shake-horizontal',
@@ -37,7 +36,7 @@ var ShakeOn = /** @class */ (function () {
             if (this.shakeOn) {
                 var pv = changes.shakeType.previousValue;
                 if (pv) {
-                    FxOn_directive_1.removeClass(this.element.nativeElement, pv);
+                    removeClass(this.element.nativeElement, pv);
                 }
                 this.applyType();
             }
@@ -47,7 +46,7 @@ var ShakeOn = /** @class */ (function () {
         }
     };
     ShakeOn.prototype.onFalse = function () {
-        FxOn_directive_1.removeClass(this.element.nativeElement, 'shake-constant');
+        removeClass(this.element.nativeElement, 'shake-constant');
         this.removeType();
         if (this.timeout) {
             clearTimeout(this.timeout);
@@ -55,14 +54,14 @@ var ShakeOn = /** @class */ (function () {
         }
     };
     ShakeOn.prototype.removeType = function () {
-        FxOn_directive_1.removeClass(this.element.nativeElement, this.shakeType || 'shake-slow');
+        removeClass(this.element.nativeElement, this.shakeType || 'shake-slow');
     };
     ShakeOn.prototype.applyType = function () {
-        FxOn_directive_1.addClass(this.element.nativeElement, this.shakeType || 'shake-slow');
+        addClass(this.element.nativeElement, this.shakeType || 'shake-slow');
     };
     ShakeOn.prototype.onTrue = function () {
         var _this = this;
-        FxOn_directive_1.addClass(this.element.nativeElement, 'shake-constant');
+        addClass(this.element.nativeElement, 'shake-constant');
         this.applyType();
         if (!this.shakeConstant) {
             this.timeout = setTimeout(function () {
@@ -73,22 +72,22 @@ var ShakeOn = /** @class */ (function () {
         }
     };
     ShakeOn.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: "[shakeOn]",
                     exportAs: "ShakeOn"
                 },] }
     ];
     ShakeOn.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     ShakeOn.propDecorators = {
-        shakeConstant: [{ type: core_1.Input }],
-        shakeOn: [{ type: core_1.Input }],
-        shakeForMs: [{ type: core_1.Input }],
-        shakeType: [{ type: core_1.Input }],
-        shakeThen: [{ type: core_1.Output }]
+        shakeConstant: [{ type: Input }],
+        shakeOn: [{ type: Input }],
+        shakeForMs: [{ type: Input }],
+        shakeType: [{ type: Input }],
+        shakeThen: [{ type: Output }]
     };
     return ShakeOn;
 }());
-exports.ShakeOn = ShakeOn;
+export { ShakeOn };
 //# sourceMappingURL=ShakeOn.directive.js.map

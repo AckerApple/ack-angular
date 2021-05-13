@@ -1,10 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ReplaceModel = void 0;
-var core_1 = require("@angular/core");
+import { Input, Output, EventEmitter, Directive } from "@angular/core";
 var ReplaceModel = /** @class */ (function () {
     function ReplaceModel() {
-        this.replaceModelChange = new core_1.EventEmitter();
+        this.replaceModelChange = new EventEmitter();
     }
     ReplaceModel.prototype.ngOnChanges = function (changes) {
         var _this = this;
@@ -25,16 +22,16 @@ var ReplaceModel = /** @class */ (function () {
         this.replaceModelChange.emit(this.replaceModel);
     };
     ReplaceModel.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: '[replaceModel]'
                 },] }
     ];
     ReplaceModel.propDecorators = {
-        replaceModel: [{ type: core_1.Input }],
-        replaceModelChange: [{ type: core_1.Output }],
-        replaceExpression: [{ type: core_1.Input }]
+        replaceModel: [{ type: Input }],
+        replaceModelChange: [{ type: Output }],
+        replaceExpression: [{ type: Input }]
     };
     return ReplaceModel;
 }());
-exports.ReplaceModel = ReplaceModel;
+export { ReplaceModel };
 //# sourceMappingURL=ReplaceModel.directive.js.map

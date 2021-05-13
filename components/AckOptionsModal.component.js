@@ -1,4 +1,3 @@
-"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -12,11 +11,9 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AckOptionsModal = void 0;
-var core_1 = require("@angular/core");
-var AckOptions_component_1 = require("./AckOptions.component");
-var ack_options_modal_pug_1 = require("./templates/ack-options-modal.pug");
+import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { AckOptions } from "./AckOptions.component";
+import { string as ackOptionsModal } from "./templates/ack-options-modal.pug";
 var AckOptionsModal = /** @class */ (function (_super) {
     __extends(AckOptionsModal, _super);
     function AckOptionsModal() {
@@ -24,10 +21,10 @@ var AckOptionsModal = /** @class */ (function (_super) {
         //one way binds
         _this.allowClose = true;
         //one way expressions
-        _this.close = new core_1.EventEmitter();
-        _this.backgroundColorChange = new core_1.EventEmitter();
+        _this.close = new EventEmitter();
+        _this.backgroundColorChange = new EventEmitter();
         _this.showModel = true;
-        _this.showModelChange = new core_1.EventEmitter();
+        _this.showModelChange = new EventEmitter();
         return _this;
     }
     AckOptionsModal.prototype.fireModelChange = function (model) {
@@ -36,22 +33,22 @@ var AckOptionsModal = /** @class */ (function (_super) {
         this.modelChange.emit(model);
     };
     AckOptionsModal.decorators = [
-        { type: core_1.Component, args: [{
+        { type: Component, args: [{
                     selector: 'ack-options-modal',
-                    template: ack_options_modal_pug_1.string
+                    template: ackOptionsModal
                 },] }
     ];
     AckOptionsModal.propDecorators = {
-        allowClose: [{ type: core_1.Input }],
-        wrapStyle: [{ type: core_1.Input }],
-        wrapCellStyle: [{ type: core_1.Input }],
-        close: [{ type: core_1.Output }],
-        backgroundColor: [{ type: core_1.Input }],
-        backgroundColorChange: [{ type: core_1.Output }],
-        showModel: [{ type: core_1.Input }],
-        showModelChange: [{ type: core_1.Output }]
+        allowClose: [{ type: Input }],
+        wrapStyle: [{ type: Input }],
+        wrapCellStyle: [{ type: Input }],
+        close: [{ type: Output }],
+        backgroundColor: [{ type: Input }],
+        backgroundColorChange: [{ type: Output }],
+        showModel: [{ type: Input }],
+        showModelChange: [{ type: Output }]
     };
     return AckOptionsModal;
-}(AckOptions_component_1.AckOptions));
-exports.AckOptionsModal = AckOptionsModal;
+}(AckOptions));
+export { AckOptionsModal };
 //# sourceMappingURL=AckOptionsModal.component.js.map

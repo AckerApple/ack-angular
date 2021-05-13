@@ -1,12 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.FocusOn = void 0;
-var core_1 = require("@angular/core");
+import { Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
 var FocusOn = /** @class */ (function () {
     function FocusOn(element) {
         this.element = element;
         this.focusOnDelay = 0;
-        this.focusThen = new core_1.EventEmitter();
+        this.focusThen = new EventEmitter();
     }
     FocusOn.prototype.ngOnChanges = function (changes) {
         var _this = this;
@@ -24,19 +21,19 @@ var FocusOn = /** @class */ (function () {
         this.focusThen.emit();
     };
     FocusOn.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: '[focusOn]'
                 },] }
     ];
     FocusOn.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     FocusOn.propDecorators = {
-        focusOn: [{ type: core_1.Input }],
-        focusOnDelay: [{ type: core_1.Input }],
-        focusThen: [{ type: core_1.Output }]
+        focusOn: [{ type: Input }],
+        focusOnDelay: [{ type: Input }],
+        focusThen: [{ type: Output }]
     };
     return FocusOn;
 }());
-exports.FocusOn = FocusOn;
+export { FocusOn };
 //# sourceMappingURL=FocusOn.directive.js.map

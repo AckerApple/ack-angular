@@ -1,12 +1,9 @@
-"use strict";
 //import { Subscription } from "rxjs/internal/Subscription"
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.HtmlSizeService = void 0;
-var core_1 = require("@angular/core");
+import { Injectable, Output, EventEmitter } from "@angular/core";
 var HtmlSizeService = /** @class */ (function () {
     function HtmlSizeService() {
         var _this = this;
-        this.change = new core_1.EventEmitter();
+        this.change = new EventEmitter();
         this.htmlSize = { width: null, height: null };
         this.onResize = function () {
             _this.htmlSize.width = window.document.documentElement.clientWidth;
@@ -27,13 +24,13 @@ var HtmlSizeService = /** @class */ (function () {
         }
     };
     HtmlSizeService.decorators = [
-        { type: core_1.Injectable }
+        { type: Injectable }
     ];
     HtmlSizeService.ctorParameters = function () { return []; };
     HtmlSizeService.propDecorators = {
-        change: [{ type: core_1.Output }]
+        change: [{ type: Output }]
     };
     return HtmlSizeService;
 }());
-exports.HtmlSizeService = HtmlSizeService;
+export { HtmlSizeService };
 //# sourceMappingURL=HtmlSizeWatcher.js.map

@@ -1,9 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.declarations = exports.ConsolePipe = exports.TypeofPipe = exports.Keys = exports.Ack = exports.ATime = exports.AString = exports.AMath = exports.ADate = exports.Numbers = exports.Bit = exports.BooleanPipe = exports.YesNo = exports.Yesno = exports.CapitalizeWords = exports.Capitalize = exports.MarkdownAnchor = exports.NumberSuffix = exports.toNumber = exports.NumberToPhone = exports.TextDownload = exports.ReplaceMaxLength = exports.Between = exports.SafeStyle = exports.SafeHtml = exports.EndNumberWord = exports.NumberWord = exports.SafeUrl = exports.ArrayOfObjects = exports.ForceArray = exports.Stringify = exports.IndexTrack = void 0;
-var core_1 = require("@angular/core");
-var pipes = require("./pipes.class");
-var platform_browser_1 = require("@angular/platform-browser");
+import { Pipe } from '@angular/core';
+import * as pipes from "./pipes.class";
+import { 
+//SafeHtml as SafeHtmler,//must be exported for AOT
+//SafeStyle as SafeStyler,//must be exported for AOT
+//SafeResourceUrl,
+DomSanitizer } from '@angular/platform-browser';
 /* ONLY THIS FILE */
 var IndexTrack = /** @class */ (function () {
     function IndexTrack() {
@@ -12,11 +13,11 @@ var IndexTrack = /** @class */ (function () {
         return function (index) { return index; };
     };
     IndexTrack.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'indexTrack' },] }
+        { type: Pipe, args: [{ name: 'indexTrack' },] }
     ];
     return IndexTrack;
 }());
-exports.IndexTrack = IndexTrack;
+export { IndexTrack };
 var Stringify = /** @class */ (function () {
     function Stringify() {
     }
@@ -24,11 +25,11 @@ var Stringify = /** @class */ (function () {
         return JSON.stringify(input, null, spaces);
     };
     Stringify.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'stringify' },] }
+        { type: Pipe, args: [{ name: 'stringify' },] }
     ];
     return Stringify;
 }());
-exports.Stringify = Stringify;
+export { Stringify };
 var ForceArray = /** @class */ (function () {
     function ForceArray() {
     }
@@ -36,11 +37,11 @@ var ForceArray = /** @class */ (function () {
         return pipes.array(input, repeat, repeatValue);
     };
     ForceArray.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'array' },] }
+        { type: Pipe, args: [{ name: 'array' },] }
     ];
     return ForceArray;
 }());
-exports.ForceArray = ForceArray;
+export { ForceArray };
 var ArrayOfObjects = /** @class */ (function () {
     function ArrayOfObjects() {
     }
@@ -48,11 +49,11 @@ var ArrayOfObjects = /** @class */ (function () {
         return pipes.arrayOfObjects(input, repeat, repeatValue);
     };
     ArrayOfObjects.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'arrayOfObjects' },] }
+        { type: Pipe, args: [{ name: 'arrayOfObjects' },] }
     ];
     return ArrayOfObjects;
 }());
-exports.ArrayOfObjects = ArrayOfObjects;
+export { ArrayOfObjects };
 var SafeUrl = /** @class */ (function () {
     function SafeUrl(domSanitizer) {
         this.domSanitizer = domSanitizer;
@@ -61,18 +62,18 @@ var SafeUrl = /** @class */ (function () {
         return this.domSanitizer.bypassSecurityTrustResourceUrl(input);
     };
     SafeUrl.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'safeUrl' },] }
+        { type: Pipe, args: [{ name: 'safeUrl' },] }
     ];
     SafeUrl.ctorParameters = function () { return [
         { type: 
             //SafeHtml as SafeHtmler,//must be exported for AOT
             //SafeStyle as SafeStyler,//must be exported for AOT
             //SafeResourceUrl,
-            platform_browser_1.DomSanitizer }
+            DomSanitizer }
     ]; };
     return SafeUrl;
 }());
-exports.SafeUrl = SafeUrl;
+export { SafeUrl };
 var NumberWord = /** @class */ (function () {
     function NumberWord() {
     }
@@ -80,12 +81,12 @@ var NumberWord = /** @class */ (function () {
         return input + (number && number == 1 ? '' : 's');
     };
     NumberWord.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'numberWord' },] }
+        { type: Pipe, args: [{ name: 'numberWord' },] }
     ];
     NumberWord.ctorParameters = function () { return []; };
     return NumberWord;
 }());
-exports.NumberWord = NumberWord;
+export { NumberWord };
 var EndNumberWord = /** @class */ (function () {
     function EndNumberWord() {
     }
@@ -93,12 +94,12 @@ var EndNumberWord = /** @class */ (function () {
         return input && input == 1 ? '' : 's';
     };
     EndNumberWord.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'endNumberWord' },] }
+        { type: Pipe, args: [{ name: 'endNumberWord' },] }
     ];
     EndNumberWord.ctorParameters = function () { return []; };
     return EndNumberWord;
 }());
-exports.EndNumberWord = EndNumberWord;
+export { EndNumberWord };
 var SafeHtml = /** @class */ (function () {
     function SafeHtml(domSanitizer) {
         this.domSanitizer = domSanitizer;
@@ -107,18 +108,18 @@ var SafeHtml = /** @class */ (function () {
         return this.domSanitizer.bypassSecurityTrustHtml(input);
     };
     SafeHtml.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'safeHtml' },] }
+        { type: Pipe, args: [{ name: 'safeHtml' },] }
     ];
     SafeHtml.ctorParameters = function () { return [
         { type: 
             //SafeHtml as SafeHtmler,//must be exported for AOT
             //SafeStyle as SafeStyler,//must be exported for AOT
             //SafeResourceUrl,
-            platform_browser_1.DomSanitizer }
+            DomSanitizer }
     ]; };
     return SafeHtml;
 }());
-exports.SafeHtml = SafeHtml;
+export { SafeHtml };
 var SafeStyle = /** @class */ (function () {
     function SafeStyle(domSanitizer) {
         this.domSanitizer = domSanitizer;
@@ -127,18 +128,18 @@ var SafeStyle = /** @class */ (function () {
         return this.domSanitizer.bypassSecurityTrustStyle(input);
     };
     SafeStyle.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'safeStyle' },] }
+        { type: Pipe, args: [{ name: 'safeStyle' },] }
     ];
     SafeStyle.ctorParameters = function () { return [
         { type: 
             //SafeHtml as SafeHtmler,//must be exported for AOT
             //SafeStyle as SafeStyler,//must be exported for AOT
             //SafeResourceUrl,
-            platform_browser_1.DomSanitizer }
+            DomSanitizer }
     ]; };
     return SafeStyle;
 }());
-exports.SafeStyle = SafeStyle;
+export { SafeStyle };
 /* end: only this file */
 /** (input>=a && input<=b) || (input>=b && input<=a) */
 var Between = /** @class */ (function () {
@@ -148,11 +149,11 @@ var Between = /** @class */ (function () {
         return pipes.between(input, a, b);
     };
     Between.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'between' },] }
+        { type: Pipe, args: [{ name: 'between' },] }
     ];
     return Between;
 }());
-exports.Between = Between;
+export { Between };
 var ReplaceMaxLength = /** @class */ (function () {
     function ReplaceMaxLength() {
     }
@@ -160,133 +161,133 @@ var ReplaceMaxLength = /** @class */ (function () {
         return pipes.replaceMaxLength(input, max, replacement);
     };
     ReplaceMaxLength.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'replaceMaxLength' },] }
+        { type: Pipe, args: [{ name: 'replaceMaxLength' },] }
     ];
     return ReplaceMaxLength;
 }());
-exports.ReplaceMaxLength = ReplaceMaxLength;
+export { ReplaceMaxLength };
 /** use with bypassSecurityTrustResourceUrl for href */
 var TextDownload = /** @class */ (function () {
     function TextDownload() {
     }
     TextDownload.prototype.transform = function (input) { return pipes.textDownload(input); };
     TextDownload.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'textDownload' },] }
+        { type: Pipe, args: [{ name: 'textDownload' },] }
     ];
     return TextDownload;
 }());
-exports.TextDownload = TextDownload;
+export { TextDownload };
 var NumberToPhone = /** @class */ (function () {
     function NumberToPhone() {
     }
     NumberToPhone.prototype.transform = function (input) { return pipes.numberToPhone(input); };
     NumberToPhone.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'numberToPhone' },] }
+        { type: Pipe, args: [{ name: 'numberToPhone' },] }
     ];
     return NumberToPhone;
 }());
-exports.NumberToPhone = NumberToPhone;
+export { NumberToPhone };
 var toNumber = /** @class */ (function () {
     function toNumber() {
     }
     toNumber.prototype.transform = function (input) { return pipes.toNumber(input); };
     toNumber.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'toNumber' },] }
+        { type: Pipe, args: [{ name: 'toNumber' },] }
     ];
     return toNumber;
 }());
-exports.toNumber = toNumber;
+export { toNumber };
 var NumberSuffix = /** @class */ (function () {
     function NumberSuffix() {
     }
     NumberSuffix.prototype.transform = function (input, rtnInput) { return pipes.numberSuffix(input, rtnInput); };
     NumberSuffix.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'numberSuffix' },] }
+        { type: Pipe, args: [{ name: 'numberSuffix' },] }
     ];
     return NumberSuffix;
 }());
-exports.NumberSuffix = NumberSuffix;
+export { NumberSuffix };
 var MarkdownAnchor = /** @class */ (function () {
     function MarkdownAnchor() {
     }
     MarkdownAnchor.prototype.transform = function (input) { return pipes.markdownAnchor(input); };
     MarkdownAnchor.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'markdownAnchor' },] }
+        { type: Pipe, args: [{ name: 'markdownAnchor' },] }
     ];
     return MarkdownAnchor;
 }());
-exports.MarkdownAnchor = MarkdownAnchor;
+export { MarkdownAnchor };
 var Capitalize = /** @class */ (function () {
     function Capitalize() {
     }
     Capitalize.prototype.transform = function (input) { return pipes.capitalize(input); };
     Capitalize.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'capitalize' },] }
+        { type: Pipe, args: [{ name: 'capitalize' },] }
     ];
     return Capitalize;
 }());
-exports.Capitalize = Capitalize;
+export { Capitalize };
 var CapitalizeWords = /** @class */ (function () {
     function CapitalizeWords() {
     }
     CapitalizeWords.prototype.transform = function (input) { return pipes.capitalizeWords(input); };
     CapitalizeWords.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'capitalizeWords' },] }
+        { type: Pipe, args: [{ name: 'capitalizeWords' },] }
     ];
     return CapitalizeWords;
 }());
-exports.CapitalizeWords = CapitalizeWords;
+export { CapitalizeWords };
 var Yesno = /** @class */ (function () {
     function Yesno() {
     }
     Yesno.prototype.transform = function (input) { return pipes.yesno(input); };
     Yesno.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'yesno' },] }
+        { type: Pipe, args: [{ name: 'yesno' },] }
     ];
     return Yesno;
 }());
-exports.Yesno = Yesno;
+export { Yesno };
 var YesNo = /** @class */ (function () {
     function YesNo() {
     }
     YesNo.prototype.transform = function (input) { return pipes.yesNo(input); };
     YesNo.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'YesNo' },] }
+        { type: Pipe, args: [{ name: 'YesNo' },] }
     ];
     return YesNo;
 }());
-exports.YesNo = YesNo;
+export { YesNo };
 var BooleanPipe = /** @class */ (function () {
     function BooleanPipe() {
     }
     BooleanPipe.prototype.transform = function (input) { return pipes.boolean(input); };
     BooleanPipe.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'boolean' },] }
+        { type: Pipe, args: [{ name: 'boolean' },] }
     ];
     return BooleanPipe;
 }());
-exports.BooleanPipe = BooleanPipe;
+export { BooleanPipe };
 var Bit = /** @class */ (function () {
     function Bit() {
     }
     Bit.prototype.transform = function (input) { return pipes.bit(input); };
     Bit.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'bit' },] }
+        { type: Pipe, args: [{ name: 'bit' },] }
     ];
     return Bit;
 }());
-exports.Bit = Bit;
+export { Bit };
 //get and return all numbers inside a string
 var Numbers = /** @class */ (function () {
     function Numbers() {
     }
     Numbers.prototype.transform = function (input) { return pipes.numbers(input); };
     Numbers.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'numbers' },] }
+        { type: Pipe, args: [{ name: 'numbers' },] }
     ];
     return Numbers;
 }());
-exports.Numbers = Numbers;
+export { Numbers };
 var ADate = /** @class */ (function () {
     function ADate() {
     }
@@ -298,11 +299,11 @@ var ADate = /** @class */ (function () {
         return pipes.aDate.apply(pipes.aDate, args);
     };
     ADate.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'aDate' },] }
+        { type: Pipe, args: [{ name: 'aDate' },] }
     ];
     return ADate;
 }());
-exports.ADate = ADate;
+export { ADate };
 var AMath = /** @class */ (function () {
     function AMath() {
     }
@@ -314,11 +315,11 @@ var AMath = /** @class */ (function () {
         return pipes.aMath.apply(pipes.aMath, args);
     };
     AMath.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'aMath' },] }
+        { type: Pipe, args: [{ name: 'aMath' },] }
     ];
     return AMath;
 }());
-exports.AMath = AMath;
+export { AMath };
 var AString = /** @class */ (function () {
     function AString() {
     }
@@ -330,11 +331,11 @@ var AString = /** @class */ (function () {
         return pipes.aString.apply(pipes.aString, args);
     };
     AString.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'aString' },] }
+        { type: Pipe, args: [{ name: 'aString' },] }
     ];
     return AString;
 }());
-exports.AString = AString;
+export { AString };
 var ATime = /** @class */ (function () {
     function ATime() {
     }
@@ -346,11 +347,11 @@ var ATime = /** @class */ (function () {
         return pipes.aTime.apply(pipes.aTime, args);
     };
     ATime.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'aTime' },] }
+        { type: Pipe, args: [{ name: 'aTime' },] }
     ];
     return ATime;
 }());
-exports.ATime = ATime;
+export { ATime };
 var Ack = /** @class */ (function () {
     function Ack() {
     }
@@ -362,11 +363,11 @@ var Ack = /** @class */ (function () {
         return pipes.ack.apply(pipes.ack, args);
     };
     Ack.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'ack' },] }
+        { type: Pipe, args: [{ name: 'ack' },] }
     ];
     return Ack;
 }());
-exports.Ack = Ack;
+export { Ack };
 var Keys = /** @class */ (function () {
     function Keys() {
     }
@@ -380,21 +381,21 @@ var Keys = /** @class */ (function () {
         return input ? Object.keys(input) : [];
     };
     Keys.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'keys' },] }
+        { type: Pipe, args: [{ name: 'keys' },] }
     ];
     return Keys;
 }());
-exports.Keys = Keys;
+export { Keys };
 var TypeofPipe = /** @class */ (function () {
     function TypeofPipe() {
     }
     TypeofPipe.prototype.transform = function (input) { return typeof (input); };
     TypeofPipe.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'typeof' },] }
+        { type: Pipe, args: [{ name: 'typeof' },] }
     ];
     return TypeofPipe;
 }());
-exports.TypeofPipe = TypeofPipe;
+export { TypeofPipe };
 var ConsolePipe = /** @class */ (function () {
     function ConsolePipe() {
     }
@@ -402,12 +403,12 @@ var ConsolePipe = /** @class */ (function () {
         return console.log.apply(console, arguments);
     };
     ConsolePipe.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'console' },] }
+        { type: Pipe, args: [{ name: 'console' },] }
     ];
     return ConsolePipe;
 }());
-exports.ConsolePipe = ConsolePipe;
-exports.declarations = [
+export { ConsolePipe };
+export var declarations = [
     IndexTrack,
     Stringify,
     ForceArray,

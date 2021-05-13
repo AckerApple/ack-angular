@@ -1,27 +1,24 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.declarations = exports.DebugArea = exports.DebugItem = void 0;
-var core_1 = require("@angular/core");
-var debug_area_template_1 = require("./debug-area.template");
+import { Output, EventEmitter, TemplateRef, Input, ContentChildren, ContentChild, Directive, Component, QueryList } from "@angular/core";
+import { string as template } from "./debug-area.template";
 var DebugItem = /** @class */ (function () {
     function DebugItem() {
-        this.save = new core_1.EventEmitter();
+        this.save = new EventEmitter();
     }
     DebugItem.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: "debug-item"
                 },] }
     ];
     DebugItem.propDecorators = {
-        name: [{ type: core_1.Input }],
-        value: [{ type: core_1.Input }],
-        type: [{ type: core_1.Input }],
-        rowTitle: [{ type: core_1.ContentChild, args: ["rowTitle",] }],
-        save: [{ type: core_1.Output }]
+        name: [{ type: Input }],
+        value: [{ type: Input }],
+        type: [{ type: Input }],
+        rowTitle: [{ type: ContentChild, args: ["rowTitle",] }],
+        save: [{ type: Output }]
     };
     return DebugItem;
 }());
-exports.DebugItem = DebugItem;
+export { DebugItem };
 var DebugArea = /** @class */ (function () {
     function DebugArea() {
         this.editsMap = {}; //map of debug edits
@@ -52,18 +49,18 @@ var DebugArea = /** @class */ (function () {
         debugItem.save.emit(item);
     };
     DebugArea.decorators = [
-        { type: core_1.Component, args: [{
+        { type: Component, args: [{
                     selector: "debug-area",
-                    template: debug_area_template_1.string
+                    template: template
                 },] }
     ];
     DebugArea.propDecorators = {
-        DebugItems: [{ type: core_1.ContentChildren, args: [DebugItem,] }]
+        DebugItems: [{ type: ContentChildren, args: [DebugItem,] }]
     };
     return DebugArea;
 }());
-exports.DebugArea = DebugArea;
-exports.declarations = [
+export { DebugArea };
+export var declarations = [
     DebugItem, DebugArea
 ];
 //# sourceMappingURL=DebugArea.component.js.map

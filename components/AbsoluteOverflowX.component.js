@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AbsoluteOverflowX = void 0;
-var core_1 = require("@angular/core");
-var absolute_overflow_x_pug_1 = require("./templates/absolute-overflow-x.pug");
+import { ElementRef, Component, Input } from "@angular/core";
+import { string } from "./templates/absolute-overflow-x.pug";
 var AbsoluteOverflowX = /** @class */ (function () {
     function AbsoluteOverflowX(ElementRef) {
         this.ElementRef = ElementRef;
@@ -24,21 +21,21 @@ var AbsoluteOverflowX = /** @class */ (function () {
         this.ElementRef.nativeElement.style.position = this.active ? 'relative' : 'static';
     };
     AbsoluteOverflowX.decorators = [
-        { type: core_1.Component, args: [{
+        { type: Component, args: [{
                     selector: 'absolute-overflow-x',
-                    template: absolute_overflow_x_pug_1.string
+                    template: string
                 },] }
     ];
     AbsoluteOverflowX.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     AbsoluteOverflowX.propDecorators = {
-        scrollBars: [{ type: core_1.Input }],
-        wrapClass: [{ type: core_1.Input }],
-        active: [{ type: core_1.Input }],
-        overflow: [{ type: core_1.Input }]
+        scrollBars: [{ type: Input }],
+        wrapClass: [{ type: Input }],
+        active: [{ type: Input }],
+        overflow: [{ type: Input }]
     };
     return AbsoluteOverflowX;
 }());
-exports.AbsoluteOverflowX = AbsoluteOverflowX;
+export { AbsoluteOverflowX };
 //# sourceMappingURL=AbsoluteOverflowX.component.js.map

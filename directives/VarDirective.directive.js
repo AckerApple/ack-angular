@@ -1,10 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.VarDirective = void 0;
-var core_1 = require("@angular/core");
+import { Directive, Input, EventEmitter, Output } from "@angular/core";
 var VarDirective = /** @class */ (function () {
     function VarDirective() {
-        this.changed = new core_1.EventEmitter();
+        this.changed = new EventEmitter();
     }
     VarDirective.prototype.ngOnChanges = function (changes) {
         var _this = this;
@@ -13,16 +10,16 @@ var VarDirective = /** @class */ (function () {
         }
     };
     VarDirective.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: "[var]",
                     exportAs: "var"
                 },] }
     ];
     VarDirective.propDecorators = {
-        var: [{ type: core_1.Input }],
-        changed: [{ type: core_1.Output }]
+        var: [{ type: Input }],
+        changed: [{ type: Output }]
     };
     return VarDirective;
 }());
-exports.VarDirective = VarDirective;
+export { VarDirective };
 //# sourceMappingURL=VarDirective.directive.js.map

@@ -1,1 +1,1 @@
-[{"__symbolic":"module","version":4,"metadata":{},"exports":[{"from":"ack-x/browser","export":["ack"]}]}]
+[{"__symbolic":"module","version":4,"metadata":{},"exports":[{"from":"ack-x/es/index-browser","export":["ack"]}]}]

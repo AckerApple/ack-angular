@@ -1,19 +1,18 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AckModal = void 0;
-var core_1 = require("@angular/core");
+import { ContentChild, 
+//Directive,
+Component, Input, Output, EventEmitter, ElementRef, TemplateRef, ViewChild, } from "@angular/core";
 //import { AckModalLayout } from "./AckModalLayout.component"
-var AckApp_provider_1 = require("../providers/AckApp.provider");
-var ack_modal_pug_1 = require("./templates/ack-modal.pug");
+import { AckApp } from "../providers/AckApp.provider";
+import { string } from "./templates/ack-modal.pug";
 var AckModal = /** @class */ (function () {
     function AckModal(element, AckApp) {
         this.element = element;
         this.AckApp = AckApp;
         this.allowClose = true;
         this.zIndex = 20;
-        this.showModelChange = new core_1.EventEmitter();
+        this.showModelChange = new EventEmitter();
         //one way expression binds
-        this.close = new core_1.EventEmitter();
+        this.close = new EventEmitter();
     }
     AckModal.prototype.ngOnInit = function () {
         this.determineStage();
@@ -33,32 +32,32 @@ var AckModal = /** @class */ (function () {
         this.AckApp.unregisterModal(this);
     };
     AckModal.decorators = [
-        { type: core_1.Component, args: [{
+        { type: Component, args: [{
                     selector: "ack-modal",
-                    template: ack_modal_pug_1.string
+                    template: string
                     //,exportAs:"AckModal"
                     //,animations:animations
                 },] }
     ];
     AckModal.ctorParameters = function () { return [
-        { type: core_1.ElementRef },
-        { type: AckApp_provider_1.AckApp }
+        { type: ElementRef },
+        { type: AckApp }
     ]; };
     AckModal.propDecorators = {
-        body: [{ type: core_1.ContentChild, args: ['body',] }],
-        layout: [{ type: core_1.ViewChild, args: ['placeholder',] }],
-        inline: [{ type: core_1.Input }],
-        isModelMode: [{ type: core_1.Input }],
-        allowClose: [{ type: core_1.Input }],
-        zIndex: [{ type: core_1.Input }],
-        wrapStyle: [{ type: core_1.Input }],
-        wrapCellStyle: [{ type: core_1.Input }],
-        backgroundColor: [{ type: core_1.Input }],
-        showModel: [{ type: core_1.Input }],
-        showModelChange: [{ type: core_1.Output }],
-        close: [{ type: core_1.Output }]
+        body: [{ type: ContentChild, args: ['body',] }],
+        layout: [{ type: ViewChild, args: ['placeholder',] }],
+        inline: [{ type: Input }],
+        isModelMode: [{ type: Input }],
+        allowClose: [{ type: Input }],
+        zIndex: [{ type: Input }],
+        wrapStyle: [{ type: Input }],
+        wrapCellStyle: [{ type: Input }],
+        backgroundColor: [{ type: Input }],
+        showModel: [{ type: Input }],
+        showModelChange: [{ type: Output }],
+        close: [{ type: Output }]
     };
     return AckModal;
 }());
-exports.AckModal = AckModal;
+export { AckModal };
 //# sourceMappingURL=AckModal.component.js.map

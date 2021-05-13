@@ -1,12 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.PxFromHtmlTop = void 0;
-var core_1 = require("@angular/core");
+import { Directive, ElementRef, Input, Output, EventEmitter } from "@angular/core";
 var PxFromHtmlTop = /** @class */ (function () {
     function PxFromHtmlTop(ElementRef) {
         var _this = this;
         this.ElementRef = ElementRef;
-        this.numberChange = new core_1.EventEmitter();
+        this.numberChange = new EventEmitter();
         this.onScroll = function () {
             _this.setter();
             _this.emit();
@@ -49,22 +46,22 @@ var PxFromHtmlTop = /** @class */ (function () {
         window.removeEventListener("resize", this.onScroll);
     };
     PxFromHtmlTop.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: "[pxFromHtmlTop]",
                     exportAs: "PxFromHtmlTop"
                 },] }
     ];
     PxFromHtmlTop.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     PxFromHtmlTop.propDecorators = {
-        number: [{ type: core_1.Input, args: ["pxFromHtmlTop",] }],
-        numberChange: [{ type: core_1.Output, args: ["pxFromHtmlTopChange",] }],
-        watch: [{ type: core_1.Input }]
+        number: [{ type: Input, args: ["pxFromHtmlTop",] }],
+        numberChange: [{ type: Output, args: ["pxFromHtmlTopChange",] }],
+        watch: [{ type: Input }]
     };
     return PxFromHtmlTop;
 }());
-exports.PxFromHtmlTop = PxFromHtmlTop;
+export { PxFromHtmlTop };
 /*
 export function getOffset( el ) {
     var _x = 0;

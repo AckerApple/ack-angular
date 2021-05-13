@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Prompts = void 0;
-var core_1 = require("@angular/core");
+import { Injectable, EventEmitter } from '@angular/core';
 var Prompts = /** @class */ (function () {
     function Prompts() {
         this.prompts = [];
@@ -22,22 +19,22 @@ var Prompts = /** @class */ (function () {
     };
     Prompts.prototype.alert = function (message, options) {
         if (options === void 0) { options = {}; }
-        options.emitter = new core_1.EventEmitter();
+        options.emitter = new EventEmitter();
         options.type = "alert";
         options.message = message;
         return this.issuePrompt(options);
     };
     Prompts.prototype.confirm = function (message, options) {
         if (options === void 0) { options = {}; }
-        options.emitter = new core_1.EventEmitter();
+        options.emitter = new EventEmitter();
         options.type = "confirm";
         options.message = message;
         return this.issuePrompt(options);
     };
     Prompts.decorators = [
-        { type: core_1.Injectable }
+        { type: Injectable }
     ];
     return Prompts;
 }());
-exports.Prompts = Prompts;
+export { Prompts };
 //# sourceMappingURL=Prompts.js.map

@@ -1,12 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.FormAlter = exports.FormChanged = exports.InputHint = exports.PreventEnterKey = exports.PreventBackKey = exports.EscapeKey = exports.EnterKey = void 0;
-var core_1 = require("@angular/core");
+import { Component, Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
 var EnterKey = /** @class */ (function () {
     function EnterKey(element) {
         var _this = this;
         this.element = element;
-        this.enterKey = new core_1.EventEmitter();
+        this.enterKey = new EventEmitter();
         element.nativeElement.addEventListener('keydown', function (event) {
             var yesNo = [13, 10].indexOf(event.which || event.keyCode) >= 0;
             if (yesNo) {
@@ -15,22 +12,22 @@ var EnterKey = /** @class */ (function () {
         });
     }
     EnterKey.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[enterKey]' },] }
+        { type: Directive, args: [{ selector: '[enterKey]' },] }
     ];
     EnterKey.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     EnterKey.propDecorators = {
-        enterKey: [{ type: core_1.Output }]
+        enterKey: [{ type: Output }]
     };
     return EnterKey;
 }());
-exports.EnterKey = EnterKey;
+export { EnterKey };
 var EscapeKey = /** @class */ (function () {
     function EscapeKey(element) {
         var _this = this;
         this.element = element;
-        this.escapeKey = new core_1.EventEmitter();
+        this.escapeKey = new EventEmitter();
         element.nativeElement.addEventListener('keydown', function (event) {
             var code = event.which || event.keyCode;
             if (code == 27) {
@@ -39,23 +36,23 @@ var EscapeKey = /** @class */ (function () {
         });
     }
     EscapeKey.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[escapeKey]' },] }
+        { type: Directive, args: [{ selector: '[escapeKey]' },] }
     ];
     EscapeKey.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     EscapeKey.propDecorators = {
-        escapeKey: [{ type: core_1.Output }]
+        escapeKey: [{ type: Output }]
     };
     return EscapeKey;
 }());
-exports.EscapeKey = EscapeKey;
+export { EscapeKey };
 /** Disallow keyboard access to the backspace key */
 var PreventBackKey = /** @class */ (function () {
     function PreventBackKey(element) {
         var _this = this;
         this.element = element;
-        this.preventBackKey = new core_1.EventEmitter();
+        this.preventBackKey = new EventEmitter();
         element.nativeElement.addEventListener('keydown', function (event) {
             var yesNo = [8].indexOf(event.which || event.keyCode) < 0;
             if (!yesNo) {
@@ -68,23 +65,23 @@ var PreventBackKey = /** @class */ (function () {
         });
     }
     PreventBackKey.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[preventBackKey]' },] }
+        { type: Directive, args: [{ selector: '[preventBackKey]' },] }
     ];
     PreventBackKey.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     PreventBackKey.propDecorators = {
-        preventBackKey: [{ type: core_1.Output }]
+        preventBackKey: [{ type: Output }]
     };
     return PreventBackKey;
 }());
-exports.PreventBackKey = PreventBackKey;
+export { PreventBackKey };
 /** Disallow keyboard access to the enter keys */
 var PreventEnterKey = /** @class */ (function () {
     function PreventEnterKey(element) {
         var _this = this;
         this.element = element;
-        this.preventEnterKey = new core_1.EventEmitter();
+        this.preventEnterKey = new EventEmitter();
         element.nativeElement.addEventListener('keydown', function (event) {
             var yesNo = [13, 10].indexOf(event.which || event.keyCode) < 0;
             if (!yesNo) {
@@ -97,39 +94,39 @@ var PreventEnterKey = /** @class */ (function () {
         });
     }
     PreventEnterKey.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[preventEnterKey]' },] }
+        { type: Directive, args: [{ selector: '[preventEnterKey]' },] }
     ];
     PreventEnterKey.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     PreventEnterKey.propDecorators = {
-        preventEnterKey: [{ type: core_1.Output }]
+        preventEnterKey: [{ type: Output }]
     };
     return PreventEnterKey;
 }());
-exports.PreventEnterKey = PreventEnterKey;
+export { PreventEnterKey };
 var InputHint = /** @class */ (function () {
     function InputHint() {
         this.hintStyle = { 'font-size': '75%', 'color': '#BBB' };
     }
     InputHint.decorators = [
-        { type: core_1.Component, args: [{
+        { type: Component, args: [{
                     selector: 'input-hint',
                     template: '<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
                 },] }
     ];
     InputHint.propDecorators = {
-        hintStyle: [{ type: core_1.Input }]
+        hintStyle: [{ type: Input }]
     };
     return InputHint;
 }());
-exports.InputHint = InputHint;
+export { InputHint };
 /** adds form element onchange listener via addEventListener('change') that calls formChanged scope argument */
 var FormChanged = /** @class */ (function () {
     function FormChanged(element) {
         var _this = this;
         this.element = element;
-        this.formChanged = new core_1.EventEmitter();
+        this.formChanged = new EventEmitter();
         this.onChange = function (event) {
             _this.formChanged.emit(event);
         };
@@ -139,25 +136,25 @@ var FormChanged = /** @class */ (function () {
         this.element.nativeElement.removeEventListener('change', this.onChange);
     };
     FormChanged.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: '[formChanged]' //Also try : (formAlter) directive that watches the form "input" event
                 },] }
     ];
     FormChanged.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     FormChanged.propDecorators = {
-        formChanged: [{ type: core_1.Output }]
+        formChanged: [{ type: Output }]
     };
     return FormChanged;
 }());
-exports.FormChanged = FormChanged;
+export { FormChanged };
 /** when ever change or input form event triggered, bindings are called */
 var FormAlter = /** @class */ (function () {
     function FormAlter(element) {
         var _this = this;
         this.element = element;
-        this.formAlter = new core_1.EventEmitter();
+        this.formAlter = new EventEmitter();
         this.onChange = function (event) {
             _this.formAlter.emit(event);
         };
@@ -169,17 +166,17 @@ var FormAlter = /** @class */ (function () {
         this.element.nativeElement.removeEventListener('input', this.onChange);
     };
     FormAlter.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: '[formAlter]'
                 },] }
     ];
     FormAlter.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     FormAlter.propDecorators = {
-        formAlter: [{ type: core_1.Output }]
+        formAlter: [{ type: Output }]
     };
     return FormAlter;
 }());
-exports.FormAlter = FormAlter;
+export { FormAlter };
 //# sourceMappingURL=declarations.short.js.map

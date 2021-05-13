@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AckSectionTemplates = void 0;
-var core_1 = require("@angular/core");
-var AckSections_provider_1 = require("../providers/AckSections.provider");
+import { Directive, TemplateRef, ContentChild } from "@angular/core";
+import { SectionProvider } from "../providers/AckSections.provider";
 var AckSectionTemplates = /** @class */ (function () {
     function AckSectionTemplates(SectionProvider) {
         this.SectionProvider = SectionProvider;
@@ -48,20 +45,20 @@ var AckSectionTemplates = /** @class */ (function () {
         this.SectionProvider.unregisterTemplate(this.rightBody);
     };
     AckSectionTemplates.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: "ack-section-templates"
                 },] }
     ];
     AckSectionTemplates.ctorParameters = function () { return [
-        { type: AckSections_provider_1.SectionProvider }
+        { type: SectionProvider }
     ]; };
     AckSectionTemplates.propDecorators = {
-        header: [{ type: core_1.ContentChild, args: ['sectionHeader',] }],
-        footer: [{ type: core_1.ContentChild, args: ['sectionFooter',] }],
-        leftBody: [{ type: core_1.ContentChild, args: ['sectionLeftBody',] }],
-        rightBody: [{ type: core_1.ContentChild, args: ['sectionRightBody',] }]
+        header: [{ type: ContentChild, args: ['sectionHeader',] }],
+        footer: [{ type: ContentChild, args: ['sectionFooter',] }],
+        leftBody: [{ type: ContentChild, args: ['sectionLeftBody',] }],
+        rightBody: [{ type: ContentChild, args: ['sectionRightBody',] }]
     };
     return AckSectionTemplates;
 }());
-exports.AckSectionTemplates = AckSectionTemplates;
+export { AckSectionTemplates };
 //# sourceMappingURL=AckSectionTemplates.component.js.map

@@ -1,15 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ContentModel = void 0;
-var core_1 = require("@angular/core");
+import { ElementRef, Output, EventEmitter, Input, HostListener, Directive } from '@angular/core';
 var ContentModel = /** @class */ (function () {
     function ContentModel(elm) {
         this.elm = elm;
-        this.changeDone = new core_1.EventEmitter();
-        this.inputChange = new core_1.EventEmitter();
+        this.changeDone = new EventEmitter();
+        this.inputChange = new EventEmitter();
         // Below, avoid using (contentModelChange) ... use (inputChange) instead
-        this.contentModelChange = new core_1.EventEmitter();
-        this.enter = new core_1.EventEmitter(); // fires when enter key used
+        this.contentModelChange = new EventEmitter();
+        this.enter = new EventEmitter(); // fires when enter key used
         this.recentInputs = 0; // check in/out user input to prevent updating content right after user input
         this.elm.nativeElement.setAttribute('contenteditable', true);
     }
@@ -103,30 +100,30 @@ var ContentModel = /** @class */ (function () {
         this.evalPlaceholder();
     };
     ContentModel.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: '[contentModel]'
                 },] }
     ];
     ContentModel.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     ContentModel.propDecorators = {
-        changeDone: [{ type: core_1.Output }],
-        contentModel: [{ type: core_1.Input }],
-        inputChange: [{ type: core_1.Output }],
-        contentModelChange: [{ type: core_1.Output }],
-        placeholder: [{ type: core_1.Input }],
-        maxLength: [{ type: core_1.Input }],
-        enterEnds: [{ type: core_1.Input }],
-        enter: [{ type: core_1.Output }],
-        onKeyDown: [{ type: core_1.HostListener, args: ['keydown', ['$event'],] }],
-        onInput: [{ type: core_1.HostListener, args: ['input',] }],
-        onFocus: [{ type: core_1.HostListener, args: ['focus',] }],
-        onBlur: [{ type: core_1.HostListener, args: ['blur',] }]
+        changeDone: [{ type: Output }],
+        contentModel: [{ type: Input }],
+        inputChange: [{ type: Output }],
+        contentModelChange: [{ type: Output }],
+        placeholder: [{ type: Input }],
+        maxLength: [{ type: Input }],
+        enterEnds: [{ type: Input }],
+        enter: [{ type: Output }],
+        onKeyDown: [{ type: HostListener, args: ['keydown', ['$event'],] }],
+        onInput: [{ type: HostListener, args: ['input',] }],
+        onFocus: [{ type: HostListener, args: ['focus',] }],
+        onBlur: [{ type: HostListener, args: ['blur',] }]
     };
     return ContentModel;
 }());
-exports.ContentModel = ContentModel;
+export { ContentModel };
 function cancelEvent(event) {
     event.preventDefault();
     event.stopPropagation();

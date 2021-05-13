@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AckFixedElement = void 0;
-var core_1 = require("@angular/core");
-var AckApp_provider_1 = require("../providers/AckApp.provider");
+import { TemplateRef, ViewChild, Component } from "@angular/core";
+import { AckApp } from "../providers/AckApp.provider";
 var AckFixedElement = /** @class */ (function () {
     function AckFixedElement(AckApp) {
         this.AckApp = AckApp;
@@ -18,18 +15,18 @@ var AckFixedElement = /** @class */ (function () {
         }
     };
     AckFixedElement.decorators = [
-        { type: core_1.Component, args: [{
+        { type: Component, args: [{
                     selector: 'ack-fixed-element',
                     template: '<ng-template #content><ng-content></ng-content></ng-template>'
                 },] }
     ];
     AckFixedElement.ctorParameters = function () { return [
-        { type: AckApp_provider_1.AckApp }
+        { type: AckApp }
     ]; };
     AckFixedElement.propDecorators = {
-        content: [{ type: core_1.ViewChild, args: ['content',] }]
+        content: [{ type: ViewChild, args: ['content',] }]
     };
     return AckFixedElement;
 }());
-exports.AckFixedElement = AckFixedElement;
+export { AckFixedElement };
 //# sourceMappingURL=AckFixedElement.component.js.map

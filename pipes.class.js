@@ -1,22 +1,17 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.pipes = exports.ack = exports.aString = exports.aMath = exports.aTime = exports.aDate = exports.capitalizeOne = exports.capitalizeAfterSentence = exports.capitalize = exports.capitalizeWords = exports.numbers = exports.bit = exports.boolean = exports.yesNo = exports.yesno = exports.textDownload = exports.markdownAnchor = exports.arrayOfObjects = exports.array = exports.numberSuffix = exports.toNumber = exports.numberToPhone = exports.replaceMaxLength = exports.between = void 0;
-var index_browser_1 = require("ack-x/js/index-browser");
-function between(input, a, b) {
+import { ack as ackX } from "ack-x/es/index-browser";
+export function between(input, a, b) {
     if (a == null || b == null)
         return false;
     return (input >= a && input <= b) || (input <= a && input >= b) ? true : false;
 }
-exports.between = between;
-function replaceMaxLength(input, max, replacement) {
+export function replaceMaxLength(input, max, replacement) {
     if (replacement === void 0) { replacement = '...'; }
     if ((input === null || input === void 0 ? void 0 : input.length) > max) {
         return input.slice(0, max) + replacement;
     }
     return input;
 }
-exports.replaceMaxLength = replaceMaxLength;
-function numberToPhone(val) {
+export function numberToPhone(val) {
     if (val == null || !val) {
         return val;
     }
@@ -25,12 +20,10 @@ function numberToPhone(val) {
         return val;
     return '(' + val.substring(0, 3) + ') ' + val.substring(3, 6) + '-' + val.substring(6, 10);
 }
-exports.numberToPhone = numberToPhone;
-function toNumber(val) {
+export function toNumber(val) {
     return Number(numbers(val, "."));
 }
-exports.toNumber = toNumber;
-function numberSuffix(val, rtnVal) {
+export function numberSuffix(val, rtnVal) {
     if (rtnVal === void 0) { rtnVal = false; }
     var rtn = rtnVal ? val : '';
     val = Number(val);
@@ -48,9 +41,8 @@ function numberSuffix(val, rtnVal) {
     }
     return rtn + "th";
 }
-exports.numberSuffix = numberSuffix;
 /** if input is array returned otherwise array created with  */
-function array(input, repeat, repeatValue) {
+export function array(input, repeat, repeatValue) {
     var isArray = input != null && input.constructor == Array;
     var rtn = isArray ? input : [];
     if (!repeat && !isArray && input != null) {
@@ -64,38 +56,32 @@ function array(input, repeat, repeatValue) {
     }
     return rtn;
 }
-exports.array = array;
-function arrayOfObjects(input, repeat, repeatValue) {
+export function arrayOfObjects(input, repeat, repeatValue) {
     return array(input, repeat, repeatValue).map(function (v, i) { return ({ value: v, index: i }); });
 }
-exports.arrayOfObjects = arrayOfObjects;
-function markdownAnchor(input) {
+export function markdownAnchor(input) {
     input = input.toString().replace(/&/gi, 'amp'); //possibly unneeded
     input = input.toString().replace(/ /gi, '-');
     input = input.replace(/[^a-z0-9_-]/gi, '');
     return input.toLowerCase();
 }
-exports.markdownAnchor = markdownAnchor;
 //use with bypassSecurityTrustResourceUrl for href
-function textDownload(input) {
+export function textDownload(input) {
     if (input == null)
         return input;
     return 'data:text/plain;charset=utf-8,' + encodeURIComponent(input);
 }
-exports.textDownload = textDownload;
-function yesno(input) {
+export function yesno(input) {
     if (input == null)
         return input;
     return input ? 'yes' : 'no';
 }
-exports.yesno = yesno;
-function yesNo(input) {
+export function yesNo(input) {
     if (input == null)
         return input;
     return input ? 'Yes' : 'No';
 }
-exports.yesNo = yesNo;
-function boolean(input) {
+export function boolean(input) {
     if (input == null)
         return false;
     var num = Number(input);
@@ -110,12 +96,10 @@ function boolean(input) {
     }
     return Boolean(input) ? true : false;
 }
-exports.boolean = boolean;
-function bit(input) {
+export function bit(input) {
     return boolean(input) ? 1 : 0;
 }
-exports.bit = bit;
-function numbers(input, safeChars //upto 4 acceptable characters
+export function numbers(input, safeChars //upto 4 acceptable characters
 ) {
     var xString = '[^0-9';
     if (safeChars) {
@@ -128,47 +112,42 @@ function numbers(input, safeChars //upto 4 acceptable characters
     var regX = new RegExp(xString, 'g');
     return input ? String(input).replace(regX, '') : input;
 }
-exports.numbers = numbers;
-function capitalizeWords(input) {
+export function capitalizeWords(input) {
     var reg = /[^\W_]+[^\s-]* */g;
     return (!!input) ? input.replace(reg, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); }) : '';
 }
-exports.capitalizeWords = capitalizeWords;
 /** each sentence word is capitalized */
-function capitalize(input) {
-    input = exports.pipes.capitalizeOne(input);
+export function capitalize(input) {
+    input = pipes.capitalizeOne(input);
     var reg = /[.?!][\s\r\t]+\w/g;
-    return (!!input) ? input.replace(reg, exports.pipes.capitalizeAfterSentence) : '';
+    return (!!input) ? input.replace(reg, pipes.capitalizeAfterSentence) : '';
 }
-exports.capitalize = capitalize;
-function capitalizeAfterSentence(input) {
+export function capitalizeAfterSentence(input) {
     var reg = /[\s\r\t]\w/g;
     return (!!input) ? input.replace(reg, function (txt) { return txt.charAt(0) + txt.charAt(1).toUpperCase() + txt.substr(2).toLowerCase(); }) : '';
 }
-exports.capitalizeAfterSentence = capitalizeAfterSentence;
-function capitalizeOne(input) {
+export function capitalizeOne(input) {
     var reg = /[^\W_]+[^\s-]*/;
     return (!!input) ? input.replace(reg, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); }) : '';
 }
-exports.capitalizeOne = capitalizeOne;
 function a(name) {
-    var av = new index_browser_1.ack();
-    return invokeRotator_1.invokeRotator(av[name]);
+    var av = new ackX();
+    return invokeRotator(av[name]);
 }
-var invokeRotator_1 = require("./invokeRotator");
-exports.aDate = a('date');
-exports.aTime = a('time');
-exports.aMath = invokeRotator_1.invokeRotator(Math);
-exports.aString = invokeRotator_1.invokeRotator(String);
-exports.ack = invokeRotator_1.invokeRotator(index_browser_1.ack);
+import { invokeRotator } from "./invokeRotator";
+export var aDate = a('date');
+export var aTime = a('time');
+export var aMath = invokeRotator(Math);
+export var aString = invokeRotator(String);
+export var ack = invokeRotator(ackX);
 // maybe deprecated . Remove in future releases. Just an array ref of all pipes
-exports.pipes = {
-    ack: exports.ack,
-    aDate: exports.aDate,
-    aMath: exports.aMath,
+export var pipes = {
+    ack: ack,
+    aDate: aDate,
+    aMath: aMath,
     array: array,
-    aString: exports.aString,
-    aTime: exports.aTime,
+    aString: aString,
+    aTime: aTime,
     between: between,
     capitalize: capitalize,
     capitalizeAfterSentence: capitalizeAfterSentence,

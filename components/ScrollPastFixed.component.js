@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getDistanceFromTop = exports.ScrollPastFixed = void 0;
-var core_1 = require("@angular/core");
-var scroll_past_fixed_pug_1 = require("./templates/scroll-past-fixed.pug");
+import { ViewChild, TemplateRef, ElementRef, Component } from "@angular/core";
+import { string } from "./templates/scroll-past-fixed.pug";
 var ScrollPastFixed = /** @class */ (function () {
     function ScrollPastFixed(ElementRef) {
         this.ElementRef = ElementRef;
@@ -40,21 +37,21 @@ var ScrollPastFixed = /** @class */ (function () {
         }
     };
     ScrollPastFixed.decorators = [
-        { type: core_1.Component, args: [{
+        { type: Component, args: [{
                     selector: 'scroll-past-fixed',
-                    template: scroll_past_fixed_pug_1.string
+                    template: string
                 },] }
     ];
     ScrollPastFixed.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     ScrollPastFixed.propDecorators = {
-        template: [{ type: core_1.ViewChild, args: ['template',] }]
+        template: [{ type: ViewChild, args: ['template',] }]
     };
     return ScrollPastFixed;
 }());
-exports.ScrollPastFixed = ScrollPastFixed;
-function getDistanceFromTop(element) {
+export { ScrollPastFixed };
+export function getDistanceFromTop(element) {
     var yPos = 0;
     while (element) {
         yPos += (element.offsetTop);
@@ -62,5 +59,4 @@ function getDistanceFromTop(element) {
     }
     return yPos;
 }
-exports.getDistanceFromTop = getDistanceFromTop;
 //# sourceMappingURL=ScrollPastFixed.component.js.map

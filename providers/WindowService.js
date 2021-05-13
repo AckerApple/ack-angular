@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.WindowService = void 0;
-var core_1 = require("@angular/core");
+import { Injectable } from '@angular/core';
 function getWindow() { return window; }
 var WindowService = /** @class */ (function () {
     function WindowService() {
@@ -18,9 +15,9 @@ var WindowService = /** @class */ (function () {
         configurable: true
     });
     WindowService.decorators = [
-        { type: core_1.Injectable }
+        { type: Injectable }
     ];
     return WindowService;
 }());
-exports.WindowService = WindowService;
+export { WindowService };
 //# sourceMappingURL=WindowService.js.map

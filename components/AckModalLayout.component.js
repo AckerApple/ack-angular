@@ -1,10 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AckModalLayout = void 0;
-var core_1 = require("@angular/core");
-var AckApp_provider_1 = require("../providers/AckApp.provider");
-var ack_angular_fx_1 = require("ack-angular-fx");
-var ack_modal_layout_pug_1 = require("./templates/ack-modal-layout.pug");
+import { 
+//  Directive,
+Component, Input, Output, EventEmitter, ElementRef } from "@angular/core";
+import { AckApp } from "../providers/AckApp.provider";
+import { animations } from "ack-angular-fx";
+import { string } from "./templates/ack-modal-layout.pug";
 var AckModalLayout = /** @class */ (function () {
     //@Input() template:ElementRef<any>
     function AckModalLayout(element, AckApp) {
@@ -12,11 +11,11 @@ var AckModalLayout = /** @class */ (function () {
         this.element = element;
         this.AckApp = AckApp;
         this.zIndex = 20;
-        this.close = new core_1.EventEmitter();
+        this.close = new EventEmitter();
         this.allowClose = true;
         this.isModelMode = false;
         this.showModel = true;
-        this.showModelChange = new core_1.EventEmitter();
+        this.showModelChange = new EventEmitter();
         //after possible double click, close on outside content click
         setTimeout(function () { return _this.clickListenForClose(); }, 400);
     }
@@ -46,28 +45,28 @@ var AckModalLayout = /** @class */ (function () {
         this.close.emit(this);
     };
     AckModalLayout.decorators = [
-        { type: core_1.Component, args: [{
+        { type: Component, args: [{
                     selector: 'ack-modal-layout',
-                    template: ack_modal_layout_pug_1.string,
-                    animations: ack_angular_fx_1.animations
+                    template: string,
+                    animations: animations
                 },] }
     ];
     AckModalLayout.ctorParameters = function () { return [
-        { type: core_1.ElementRef },
-        { type: AckApp_provider_1.AckApp }
+        { type: ElementRef },
+        { type: AckApp }
     ]; };
     AckModalLayout.propDecorators = {
-        zIndex: [{ type: core_1.Input }],
-        close: [{ type: core_1.Output }],
-        allowClose: [{ type: core_1.Input }],
-        wrapStyle: [{ type: core_1.Input }],
-        wrapCellStyle: [{ type: core_1.Input }],
-        backgroundColor: [{ type: core_1.Input }],
-        isModelMode: [{ type: core_1.Input }],
-        showModel: [{ type: core_1.Input }],
-        showModelChange: [{ type: core_1.Output }]
+        zIndex: [{ type: Input }],
+        close: [{ type: Output }],
+        allowClose: [{ type: Input }],
+        wrapStyle: [{ type: Input }],
+        wrapCellStyle: [{ type: Input }],
+        backgroundColor: [{ type: Input }],
+        isModelMode: [{ type: Input }],
+        showModel: [{ type: Input }],
+        showModelChange: [{ type: Output }]
     };
     return AckModalLayout;
 }());
-exports.AckModalLayout = AckModalLayout;
+export { AckModalLayout };
 //# sourceMappingURL=AckModalLayout.component.js.map

@@ -1,23 +1,20 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AckAggregate = void 0;
-var core_1 = require("@angular/core");
+import { EventEmitter, Output, Input, Directive } from "@angular/core";
 var AckAggregate = /** @class */ (function () {
     function AckAggregate() {
-        this.outputChange = new core_1.EventEmitter();
+        this.outputChange = new EventEmitter();
     }
     AckAggregate.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: 'ack-aggregate'
                 },] }
     ];
     AckAggregate.propDecorators = {
-        type: [{ type: core_1.Input }],
-        keys: [{ type: core_1.Input }],
-        output: [{ type: core_1.Input }],
-        outputChange: [{ type: core_1.Output }]
+        type: [{ type: Input }],
+        keys: [{ type: Input }],
+        output: [{ type: Input }],
+        outputChange: [{ type: Output }]
     };
     return AckAggregate;
 }());
-exports.AckAggregate = AckAggregate;
+export { AckAggregate };
 //# sourceMappingURL=AckAggregate.directive.js.map

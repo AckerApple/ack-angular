@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.DocumentService = void 0;
-var core_1 = require("@angular/core");
+import { Injectable } from '@angular/core';
 function getDocument() { return document; }
 var DocumentService = /** @class */ (function () {
     function DocumentService() {
@@ -12,9 +9,9 @@ var DocumentService = /** @class */ (function () {
         configurable: true
     });
     DocumentService.decorators = [
-        { type: core_1.Injectable }
+        { type: Injectable }
     ];
     return DocumentService;
 }());
-exports.DocumentService = DocumentService;
+export { DocumentService };
 //# sourceMappingURL=DocumentService.js.map

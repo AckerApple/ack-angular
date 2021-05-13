@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ErrorLog = void 0;
-var core_1 = require("@angular/core");
+import { Injectable } from '@angular/core';
 var ErrorLog = /** @class */ (function () {
     function ErrorLog() {
         this.log = [];
@@ -77,11 +74,11 @@ var ErrorLog = /** @class */ (function () {
         throw e;
     };
     ErrorLog.decorators = [
-        { type: core_1.Injectable }
+        { type: Injectable }
     ];
     return ErrorLog;
 }());
-exports.ErrorLog = ErrorLog;
+export { ErrorLog };
 function getErrorMessage(err) {
     return err.message || err.statusText || err.name || 'Unexpected Error Occured';
 }

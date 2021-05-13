@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.removeClass = exports.addClass = exports.hasClass = exports.FxOn = void 0;
-var core_1 = require("@angular/core");
+import { Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
 /**
   Applies css class when condition returns a truthy value. Allows timed removal
   Html inline elms cannot be animated. They will be upgraded to display inline-block
@@ -9,7 +6,7 @@ var core_1 = require("@angular/core");
 var FxOn = /** @class */ (function () {
     function FxOn(element) {
         this.element = element;
-        this.fxThen = new core_1.EventEmitter();
+        this.fxThen = new EventEmitter();
         //an array to be used in #FxOn refs for fx selectable options (see examples)
         this.fxTypes = [
             "bounce", "flash", "pulse", "rubberBand", "shake", "swing", "tada", "wobble", "jello",
@@ -76,24 +73,24 @@ var FxOn = /** @class */ (function () {
         }
     };
     FxOn.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: "[fxOn]",
                     exportAs: "FxOn"
                 },] }
     ];
     FxOn.ctorParameters = function () { return [
-        { type: core_1.ElementRef }
+        { type: ElementRef }
     ]; };
     FxOn.propDecorators = {
-        fxOn: [{ type: core_1.Input }],
-        fxClass: [{ type: core_1.Input }],
-        fxForMs: [{ type: core_1.Input }],
-        fxThen: [{ type: core_1.Output }]
+        fxOn: [{ type: Input }],
+        fxClass: [{ type: Input }],
+        fxForMs: [{ type: Input }],
+        fxThen: [{ type: Output }]
     };
     return FxOn;
 }());
-exports.FxOn = FxOn;
-function hasClass(el, className) {
+export { FxOn };
+export function hasClass(el, className) {
     var names = className.split(" ");
     for (var x = names.length - 1; x >= 0; --x) {
         if (el.classList) {
@@ -110,8 +107,7 @@ function hasClass(el, className) {
     }
     return true;
 }
-exports.hasClass = hasClass;
-function addClass(el, className) {
+export function addClass(el, className) {
     className.split(' ').forEach(function (className) {
         if (el.classList) {
             el.classList.add(className);
@@ -121,8 +117,7 @@ function addClass(el, className) {
         }
     });
 }
-exports.addClass = addClass;
-function removeClass(el, className) {
+export function removeClass(el, className) {
     className.split(' ').forEach(function (className) {
         if (el.classList) {
             el.classList.remove(className);
@@ -133,7 +128,6 @@ function removeClass(el, className) {
         }
     });
 }
-exports.removeClass = removeClass;
 function getElementDefaultDisplay(tag) {
     var cStyle, t = tag, gcs = "getComputedStyle" in window;
     cStyle = (gcs ? window.getComputedStyle(t, "") : t.currentStyle).display;

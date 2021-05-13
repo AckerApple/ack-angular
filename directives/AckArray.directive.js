@@ -1,9 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.mergeArrays = exports.dataKeysMatch = exports.AckArray = void 0;
-var BehaviorSubject_1 = require("rxjs/internal/BehaviorSubject");
-var core_1 = require("@angular/core");
-var AckAggregate_directive_1 = require("./AckAggregate.directive");
+import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
+import { EventEmitter, Output, Input, ContentChildren, Directive, IterableDiffers } from "@angular/core";
+import { AckAggregate } from "./AckAggregate.directive";
 var AckArray = /** @class */ (function () {
     function AckArray(_iterableDiffers) {
         this._iterableDiffers = _iterableDiffers;
@@ -11,16 +8,16 @@ var AckArray = /** @class */ (function () {
         this.inSort = false;
         this.sortArray = [];
         this.pageAt = 0; //when to page aka maxrows
-        this.pagesChange = new BehaviorSubject_1.BehaviorSubject(null);
+        this.pagesChange = new BehaviorSubject(null);
         //@Output() pagesChange:EventEmitter<any[][]> = new EventEmitter()
         //a chance to know when current viewed page should be zero
         this.page = 0;
-        this.pageChange = new core_1.EventEmitter();
-        this.keyMapChange = new core_1.EventEmitter();
-        this.loopStart = new core_1.EventEmitter();
-        this.loopEach = new core_1.EventEmitter();
-        this.loopEnd = new core_1.EventEmitter();
-        this.arrayChange = new core_1.EventEmitter();
+        this.pageChange = new EventEmitter();
+        this.keyMapChange = new EventEmitter();
+        this.loopStart = new EventEmitter();
+        this.loopEach = new EventEmitter();
+        this.loopEnd = new EventEmitter();
+        this.arrayChange = new EventEmitter();
         //super()
         //watch deep changes
         var f = this._iterableDiffers.find([]);
@@ -326,33 +323,33 @@ var AckArray = /** @class */ (function () {
         this.loop(true); //cause pages to be updated
     };
     AckArray.decorators = [
-        { type: core_1.Directive, args: [{
+        { type: Directive, args: [{
                     selector: "ack-array",
                     exportAs: "AckArray"
                 },] }
     ];
     AckArray.ctorParameters = function () { return [
-        { type: core_1.IterableDiffers }
+        { type: IterableDiffers }
     ]; };
     AckArray.propDecorators = {
-        pageAt: [{ type: core_1.Input }],
-        pages: [{ type: core_1.Input }],
-        pagesChange: [{ type: core_1.Output }],
-        page: [{ type: core_1.Input }],
-        pageChange: [{ type: core_1.Output }],
-        keyMap: [{ type: core_1.Input }],
-        keyMapChange: [{ type: core_1.Output }],
-        AckAggregates: [{ type: core_1.ContentChildren, args: [AckAggregate_directive_1.AckAggregate,] }],
-        idKeys: [{ type: core_1.Input }],
-        merge: [{ type: core_1.Input }],
-        array: [{ type: core_1.Input }],
-        arrayChange: [{ type: core_1.Output }],
-        array$: [{ type: core_1.Input }]
+        pageAt: [{ type: Input }],
+        pages: [{ type: Input }],
+        pagesChange: [{ type: Output }],
+        page: [{ type: Input }],
+        pageChange: [{ type: Output }],
+        keyMap: [{ type: Input }],
+        keyMapChange: [{ type: Output }],
+        AckAggregates: [{ type: ContentChildren, args: [AckAggregate,] }],
+        idKeys: [{ type: Input }],
+        merge: [{ type: Input }],
+        array: [{ type: Input }],
+        arrayChange: [{ type: Output }],
+        array$: [{ type: Input }]
     };
     return AckArray;
 }());
-exports.AckArray = AckArray;
-function dataKeysMatch(ao, an, idKeys) {
+export { AckArray };
+export function dataKeysMatch(ao, an, idKeys) {
     for (var x = idKeys.length - 1; x >= 0; --x) {
         var idKey = idKeys[x];
         if (ao[idKey] != null && ao[idKey] !== an[idKey]) {
@@ -361,8 +358,7 @@ function dataKeysMatch(ao, an, idKeys) {
     }
     return true;
 }
-exports.dataKeysMatch = dataKeysMatch;
-function mergeArrays(arrayOriginal, arrayNew, idKeys) {
+export function mergeArrays(arrayOriginal, arrayNew, idKeys) {
     //removals
     for (var x = arrayOriginal.length - 1; x >= 0; --x) {
         var ao = arrayOriginal[x];
@@ -409,7 +405,6 @@ function mergeArrays(arrayOriginal, arrayNew, idKeys) {
         arrayOriginal.splice(x, 0, an);
     }
 }
-exports.mergeArrays = mergeArrays;
 function mergeObjects(ao, an) {
     for (var x in ao) {
         delete ao[x];
