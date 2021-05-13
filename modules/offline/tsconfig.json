@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "strictPropertyInitialization": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "rootDir": ".",
+    "outDir": "../../dist/offline",
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noEmitHelpers": false,
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "lib": ["es2015", "dom"],
+    "declaration": true
+  },
+  "exclude": ["node_modules"],
+  "angularCompilerOptions": {
+    "skipMetadataEmit" : false,
+    "skipTemplateCodegen" : true
+  }
+}

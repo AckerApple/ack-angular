@@ -49,14 +49,16 @@ h3.margin-bottom-0(id="Import AckModule") Import AckModule
   pre.code-sample.
     import &#123;
       AckModule,
-      AckRouterModule//if using routing components
+      AckRouterModule // if using routing components
+      AckOfflineModule // if using local storage components
     &#125; from "ack-angular"
     import &#123; NgModule &#125; from "@angular/core"
 
     @NgModule(&#123;
       imports:[
         AckModule.forRoot(),
-        AckRouterModule.forRoot()
+        AckRouterModule.forRoot(), // if using routing components
+        AckOfflineModule.forRoot(), // if using local storage components
       ]
     &#125;)
 

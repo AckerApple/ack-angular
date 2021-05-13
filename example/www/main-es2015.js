@@ -124,7 +124,7 @@ ScreenScroll = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 /*!**********************!*\
   !*** ./src/index.ts ***!
   \**********************/
-/*! exports provided: AckModule, AckRouterModule, RouteWatchReporter, components, pipes, ack, AckApi, AckArray, HtmlSizeService, Log, AckApp, Prompts, ErrorLog, UrlVars, WindowService, DocumentService, providers */
+/*! exports provided: AckModule, AckRouterModule, RouteWatchReporter, components, pipes, ack, AckArray, HtmlSizeService, Log, AckApp, Prompts, ErrorLog, UrlVars, WindowService, DocumentService, providers */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -147,31 +147,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ack__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ack */ "L1dz");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ack", function() { return _ack__WEBPACK_IMPORTED_MODULE_5__["ack"]; });
 
-/* harmony import */ var _modules_offline_AckApi__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/offline/AckApi */ "eD3v");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckApi", function() { return _modules_offline_AckApi__WEBPACK_IMPORTED_MODULE_6__["AckApi"]; });
+/* harmony import */ var _directives_AckArray_directive__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./directives/AckArray.directive */ "4Ihc");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckArray", function() { return _directives_AckArray_directive__WEBPACK_IMPORTED_MODULE_6__["AckArray"]; });
 
-/* harmony import */ var _directives_AckArray_directive__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./directives/AckArray.directive */ "4Ihc");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckArray", function() { return _directives_AckArray_directive__WEBPACK_IMPORTED_MODULE_7__["AckArray"]; });
+/* harmony import */ var _providers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./providers */ "AkTa");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HtmlSizeService", function() { return _providers__WEBPACK_IMPORTED_MODULE_7__["HtmlSizeService"]; });
 
-/* harmony import */ var _providers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./providers */ "AkTa");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HtmlSizeService", function() { return _providers__WEBPACK_IMPORTED_MODULE_8__["HtmlSizeService"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Log", function() { return _providers__WEBPACK_IMPORTED_MODULE_7__["Log"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Log", function() { return _providers__WEBPACK_IMPORTED_MODULE_8__["Log"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckApp", function() { return _providers__WEBPACK_IMPORTED_MODULE_7__["AckApp"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckApp", function() { return _providers__WEBPACK_IMPORTED_MODULE_8__["AckApp"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Prompts", function() { return _providers__WEBPACK_IMPORTED_MODULE_7__["Prompts"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Prompts", function() { return _providers__WEBPACK_IMPORTED_MODULE_8__["Prompts"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ErrorLog", function() { return _providers__WEBPACK_IMPORTED_MODULE_7__["ErrorLog"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ErrorLog", function() { return _providers__WEBPACK_IMPORTED_MODULE_8__["ErrorLog"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UrlVars", function() { return _providers__WEBPACK_IMPORTED_MODULE_7__["UrlVars"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UrlVars", function() { return _providers__WEBPACK_IMPORTED_MODULE_8__["UrlVars"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WindowService", function() { return _providers__WEBPACK_IMPORTED_MODULE_7__["WindowService"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WindowService", function() { return _providers__WEBPACK_IMPORTED_MODULE_8__["WindowService"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DocumentService", function() { return _providers__WEBPACK_IMPORTED_MODULE_7__["DocumentService"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DocumentService", function() { return _providers__WEBPACK_IMPORTED_MODULE_8__["DocumentService"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "providers", function() { return _providers__WEBPACK_IMPORTED_MODULE_8__["providers"]; });
-
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "providers", function() { return _providers__WEBPACK_IMPORTED_MODULE_7__["providers"]; });
 
 
 
@@ -243,10 +239,10 @@ ErrorWell = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
-/***/ "/blU":
-/*!*******************************************!*\
-  !*** ./src/modules/offline/AckOffline.ts ***!
-  \*******************************************/
+/***/ "/ibX":
+/*!***************************************!*\
+  !*** ./modules/offline/AckOffline.ts ***!
+  \***************************************/
 /*! exports provided: AckOffline */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1248,34 +1244,6 @@ HtmlWidthModel = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
-/***/ "84gn":
-/*!******************************************!*\
-  !*** ./src/modules/offline/providers.ts ***!
-  \******************************************/
-/*! exports provided: providers */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "providers", function() { return providers; });
-/* harmony import */ var _AckOffline__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AckOffline */ "/blU");
-/* harmony import */ var _AckCache__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AckCache */ "QO+r");
-/* harmony import */ var _AckQue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AckQue */ "YQxQ");
-/* harmony import */ var _AckApi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AckApi */ "eD3v");
-
-
-
-
-const providers = [
-    _AckApi__WEBPACK_IMPORTED_MODULE_3__["AckApi"],
-    _AckOffline__WEBPACK_IMPORTED_MODULE_0__["AckOffline"],
-    _AckCache__WEBPACK_IMPORTED_MODULE_1__["AckCache"],
-    _AckQue__WEBPACK_IMPORTED_MODULE_2__["AckQue"],
-];
-
-
-/***/ }),
-
 /***/ "8SBA":
 /*!**********************************************!*\
   !*** ./src/components/AckModal.component.ts ***!
@@ -1581,6 +1549,154 @@ class TemplateReader {
 
 /***/ }),
 
+/***/ "Aqkq":
+/*!***********************************!*\
+  !*** ./modules/offline/AckQue.ts ***!
+  \***********************************/
+/*! exports provided: AckQue */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AckQue", function() { return AckQue; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+/* harmony import */ var _AckOffline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AckOffline */ "/ibX");
+
+
+
+let AckQue = class AckQue extends _AckOffline__WEBPACK_IMPORTED_MODULE_2__["AckOffline"] {
+    constructor() {
+        super(...arguments);
+        this.prefix = "offline-que";
+        this.handlers = [];
+    }
+    get(name) {
+        return super.get(name)
+            .then(data => data && data['que'] ? data['que'] : []);
+    }
+    getQue(name) {
+        return this.get(name);
+    }
+    setQue(name, que) {
+        return this.set(name, que);
+    }
+    que(name, queData) {
+        return super.get(name)
+            .then(data => {
+            data = data || {};
+            data['que'] = data['que'] || [];
+            if (queData.forEach) {
+                queData.forEach((x) => {
+                    data['que'].push(x);
+                });
+            }
+            else {
+                data['que'].push(queData);
+            }
+            return super.set(name, data);
+        });
+    }
+    set(name, queData) {
+        return this.que(name, queData);
+    }
+    dequeByIndex(name, index) {
+        return this.getQue(name)
+            .then(array => {
+            array.splice(index, 1);
+            return array;
+        })
+            .then(array => this.setQue(name, array));
+    }
+    processQuedByIndex(name, index) {
+        const handler = this.getQueHandlerByName(name);
+        const mem = { item: null, array: null, result: null };
+        return this.getQue(name)
+            .then(array => {
+            mem.item = array.splice(index, 1);
+            mem.array = array;
+        })
+            .then(() => this.handleQued(mem.item, handler))
+            .then(result => mem.result = result)
+            .then(() => this.setQue(name, mem.array))
+            .then(() => mem.result);
+    }
+    registerHandler(name, handler) {
+        this.handlers.push({ name, handler });
+        return this;
+    }
+    registerQueHandler(name, handler) {
+        return this.registerHandler(name, handler);
+    }
+    paramHandler(name, handler) {
+        for (let x = this.handlers.length - 1; x >= 0; --x) {
+            const handler = this.handlers[x];
+            if (handler.name == name) {
+                return this;
+            }
+        }
+        this.handlers.push({ name, handler });
+        return this;
+    }
+    getQueHandDefByName(name) {
+        for (let i = this.handlers.length - 1; i >= 0; --i) {
+            if (this.handlers[i].name == name)
+                return this.handlers[i];
+        }
+    }
+    getQueHandlerByName(name) {
+        const hand = this.getQueHandDefByName(name);
+        if (hand)
+            return hand.handler;
+    }
+    handleQued(qued, handler) {
+        return Promise.resolve(handler(qued));
+    }
+    processQuedHandler(hand) {
+        const results = [];
+        const mem = { que: [] };
+        const eachHandle = this.eachHandler(hand.handler);
+        return this.get(hand.name)
+            .then(que => mem.que = que)
+            .then(() => this.clear(hand.name))
+            .then(() => {
+            var promise = Promise.resolve();
+            mem.que.forEach(v => {
+                promise = promise
+                    .then(() => eachHandle(v))
+                    .catch(e => e)
+                    .then(r => results.push(r));
+            });
+            return promise;
+        })
+            .then(() => results);
+    }
+    eachHandler(handler) {
+        return (data) => this.handleQued(data, handler);
+    }
+    processQue(name) {
+        const handler = this.getQueHandDefByName(name);
+        return handler ? this.processQuedHandler(handler) : Promise.resolve();
+    }
+    processAllQues() {
+        const promises = [];
+        this.handlers.forEach(hand => promises.push(this.processQuedHandler(hand)));
+        return Promise.all(promises)
+            .then(proms => {
+            const results = [];
+            proms.forEach(subArray => results.push.apply(results, subArray));
+            return Promise.all(results);
+        });
+    }
+};
+AckQue = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+], AckQue);
+
+
+
+/***/ }),
+
 /***/ "B5gt":
 /*!***********************************************************!*\
   !*** ./src/components/templates/scroll-past-fixed.pug.ts ***!
@@ -1758,14 +1874,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "string", function() { return string; });
 const string = "<h2 class=\"margin-top-0\">Overview</h2><p class=\"pad-h\"><strong>ack-angular</strong>&nbsp;is extra special directives, components, providers and pipes to aide in tackling everyday Angular2 driven development.</p><h4>Table of Contents</h4><ul class=\"margin-top-0\"><li><a href=\"#Install ack-angular\" pageScroll=\"pageScroll\">Install ack-angular</a></li><li><a href=\"#Import AckModule\" pageScroll=\"pageScroll\">Import AckModule</a></li><li><a href=\"#Requirements\" pageScroll=\"pageScroll\">Requirements</a></li><li><a href=\"#This Demo Area\" pageScroll=\"pageScroll\">This Demo Area</a></li><li><a href=\"#Available Stylesheets\" pageScroll=\"pageScroll\">Available Stylesheets</a></li><li><a href=\"#Resources\" pageScroll=\"pageScroll\">Resources</a></li><li><a href=\"#My Personal TypeScript Opinion\" pageScroll=\"pageScroll\">My Personal TypeScript Opinion</a></li><li><a href=\"#ack-angularjs\" pageScroll=\"pageScroll\">ack-angularjs</a></li></ul><br/><h3 class=\"margin-bottom-0\" id=\"Install ack-angular\">Install ack-angular</h3><p>Install jsDependencies via <a href=\"https://www.npmjs.com/package/ack-webpack\">ack-webpack</a></p><div class=\"pad text-grey-2x text-sm\">NOTE : ack-webpack reads the jsDependencies in a package.json to then install packages. Also when ack-webpack is installed, it auto adds a script entry to your package.json file to make CLI commands easier.</div><strong>Step 1</strong><pre class=\"code-sample\">npm install ack-webpack --save-dev</pre><strong>Step 2</strong><pre class=\"code-sample\">npm run ack-webpack -- install ack-angular</pre><br/><h3 class=\"margin-bottom-0\" id=\"Import AckModule\">Import AckModule</h3><div class=\"pad\"><p>Most all functionality can be achieved by importing AckModule</p><p>Example</p><pre class=\"code-sample\">import &#123;" +
     "\n  AckModule," +
-    "\n  AckRouterModule//if using routing components" +
+    "\n  AckRouterModule // if using routing components" +
+    "\n  AckOfflineModule // if using local storage components" +
     "\n&#125; from \"ack-angular\"" +
     "\nimport &#123; NgModule &#125; from \"@angular/core\"" +
     "\n" +
     "\n@NgModule(&#123;" +
     "\n  imports:[" +
     "\n    AckModule.forRoot()," +
-    "\n    AckRouterModule.forRoot()" +
+    "\n    AckRouterModule.forRoot(), // if using routing components" +
+    "\n    AckOfflineModule.forRoot(), // if using local storage components" +
     "\n  ]" +
     "\n&#125;)" +
     "\n</pre><div class=\"pad-xxs\"><div class=\"pad bg-warning bg-warning text-warning\">NOTE : You need to have the <a href=\"https://www.typescriptlang.org/docs/handbook/compiler-options.html\">allowSyntheticDefaultImports compiler option</a> set to <strong>true</strong> in your <a href=\"https://www.typescriptlang.org/docs/handbook/tsconfig-json.html\">tsconfig.json</a>.</div></div></div><br/><h3 class=\"margin-bottom-0\" id=\"Requirements\">Requirements</h3><div class=\"pad\"><p>It is very important to understand what connects where</p></div><ul><li>core angular components are expected to have already been installed</li><ul><li>reflect-metadata</li><li>@angular/core</li><li>@angular/common/http</li></ul><li>jsDependencies</li><ul><li><a href=\"https://www.npmjs.com/package/ack-angular-fx\">ack-angular-fx</a></li><ul><li>only required for animation implementing</li><li>The following code would depend on ack-angular-fx installation<pre class=\"code-sample\">import * as fx from \"ack-angular/fx\"</pre></li></ul><li><a href=\"https://www.npmjs.com/package/@angular/router\">@angular/router</a></li><ul><li>only required for @angular/router based ack-angular component and services</li><li>The following code would depend on @angular/router installation<pre class=\"code-sample\">import &#123; RouteReporter &#125; from \"ack-angular/RouteReporter.directive\"" +
@@ -1833,48 +1951,6 @@ AckSections = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_providers_AckSections_provider__WEBPACK_IMPORTED_MODULE_2__["SectionProvider"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
 ], AckSections);
-
-
-
-/***/ }),
-
-/***/ "GEtt":
-/*!***************************************!*\
-  !*** ./src/modules/offline/module.ts ***!
-  \***************************************/
-/*! exports provided: AckOfflineModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AckOfflineModule", function() { return AckOfflineModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "IheW");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "SVse");
-/* harmony import */ var _providers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./providers */ "84gn");
-var AckOfflineModule_1;
-
-
-
-
-
-let AckOfflineModule = AckOfflineModule_1 = class AckOfflineModule {
-    static forRoot() {
-        return {
-            ngModule: AckOfflineModule_1,
-            providers: _providers__WEBPACK_IMPORTED_MODULE_4__["providers"]
-        };
-    }
-};
-AckOfflineModule = AckOfflineModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [
-            _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"]
-        ]
-    })
-], AckOfflineModule);
 
 
 
@@ -2060,6 +2136,34 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "JJlj":
+/*!**************************************!*\
+  !*** ./modules/offline/providers.ts ***!
+  \**************************************/
+/*! exports provided: providers */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "providers", function() { return providers; });
+/* harmony import */ var _AckOffline__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AckOffline */ "/ibX");
+/* harmony import */ var _AckCache__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AckCache */ "VfWh");
+/* harmony import */ var _AckQue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AckQue */ "Aqkq");
+/* harmony import */ var _AckApi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AckApi */ "T5m/");
+
+
+
+
+const providers = [
+    _AckApi__WEBPACK_IMPORTED_MODULE_3__["AckApi"],
+    _AckOffline__WEBPACK_IMPORTED_MODULE_0__["AckOffline"],
+    _AckCache__WEBPACK_IMPORTED_MODULE_1__["AckCache"],
+    _AckQue__WEBPACK_IMPORTED_MODULE_2__["AckQue"],
+];
+
+
+/***/ }),
+
 /***/ "L1dz":
 /*!********************!*\
   !*** ./src/ack.ts ***!
@@ -2211,6 +2315,41 @@ ShakeOn = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_2__["ElementRef"]])
 ], ShakeOn);
+
+
+
+/***/ }),
+
+/***/ "Lu4X":
+/*!***********************************!*\
+  !*** ./modules/offline/module.ts ***!
+  \***********************************/
+/*! exports provided: AckOfflineModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AckOfflineModule", function() { return AckOfflineModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+/* harmony import */ var _providers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./providers */ "JJlj");
+var AckOfflineModule_1;
+
+
+
+let AckOfflineModule = AckOfflineModule_1 = class AckOfflineModule {
+    static forRoot() {
+        return {
+            ngModule: AckOfflineModule_1,
+            providers: _providers__WEBPACK_IMPORTED_MODULE_2__["providers"]
+        };
+    }
+};
+AckOfflineModule = AckOfflineModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: []
+    })
+], AckOfflineModule);
 
 
 
@@ -2569,139 +2708,6 @@ const declarations = [
 
 /***/ }),
 
-/***/ "QO+r":
-/*!*****************************************!*\
-  !*** ./src/modules/offline/AckCache.ts ***!
-  \*****************************************/
-/*! exports provided: AckCache */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AckCache", function() { return AckCache; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
-/* harmony import */ var _AckOffline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AckOffline */ "/blU");
-
-
-
-let AckCache = class AckCache extends _AckOffline__WEBPACK_IMPORTED_MODULE_2__["AckOffline"] {
-    constructor() {
-        super(...arguments);
-        this.prefix = "offline-cache";
-    }
-    validate(data, config) {
-        const exists = data !== null && typeof data.cache !== "undefined";
-        return exists && !this.hasExpired(data._timestamp, data.expires || config.expires);
-    }
-    optionsKillCache(options) {
-        return options.maxAge == null && options.expires == null ? false : true;
-    }
-    hasMaxAged(stamp, maxAge) {
-        const diff = Date.now() - maxAge;
-        const expired = stamp <= diff;
-        return maxAge && expired ? true : false;
-    }
-    hasExpired(_stamp, expires) {
-        const expired = Date.now() >= new Date(expires).getTime();
-        return expires && expired ? true : false;
-    }
-    param(name, options = {}) {
-        options.param = options.param || [];
-        return this.getCache(name, options);
-    }
-    paramCache(name, options) {
-        return this.param(name, options);
-    }
-    paramSave(name, options) {
-        return this.paramCache(name, options)
-            .then(items => this.setCache(name, items));
-    }
-    paramSaveCache(name, options) {
-        return this.paramSave(name, options);
-    }
-    cacheToReturn(name, data, options) {
-        if (data.cache == null && data._timestamp == null) {
-            return Promise.resolve(data);
-        }
-        const expires = data.expires || options.expires;
-        const maxAge = data.maxAge || options.maxAge;
-        if (options.allowExpired || (!expires && !maxAge)) {
-            return Promise.resolve(data.cache);
-        }
-        const expired = expires && this.hasExpired(data._timestamp, expires);
-        const isMaxed = maxAge && this.hasMaxAged(data._timestamp, maxAge);
-        if (expired || isMaxed) {
-            return this.selfDestructData(name, data)
-                .then(() => {
-                if (options.param)
-                    return Promise.resolve(options.param);
-            });
-        }
-        return Promise.resolve(data['cache']);
-    }
-    selfDestructData(name, data) {
-        if (this.dataDestructReady(data))
-            return this.clear(name);
-        return Promise.resolve();
-    }
-    dataDestructReady(data) {
-        const isMemMaxed = data['maxAge'] && this.hasMaxAged(data['_timestamp'], data['maxAge']);
-        const isMemExpired = data['expires'] && this.hasExpired(data['_timestamp'], data['expires']);
-        return isMemMaxed || isMemExpired;
-    }
-    get(name, options = { expires: null }) {
-        return super.get(name)
-            .then(data => {
-            if (data) {
-                return this.cacheToReturn(name, data, options);
-            }
-            if (options.param)
-                return options.param;
-            return;
-        });
-    }
-    getCache(name, options) {
-        return this.get(name, options);
-    }
-    dataOptionsCache(allCache, options = {}, cache) {
-        const newOptions = {};
-        newOptions._timestamp = Date.now();
-        if (options.expires)
-            newOptions.expires = options.expires;
-        if (options.maxAge)
-            newOptions.maxAge = options.maxAge;
-        allCache = allCache && allCache.constructor != String ? allCache : {};
-        Object.assign(allCache, newOptions);
-        if (cache && cache.constructor == String) {
-            allCache.cache = cache;
-        }
-        else if (allCache.cache && allCache.cache.constructor != String) {
-            Object.assign(allCache.cache, cache);
-        }
-        else {
-            allCache.cache = cache;
-        }
-        return allCache;
-    }
-    set(name, cache, options = {}) {
-        options.name = options.name || name;
-        return super.get(name)
-            .then(allCache => this.dataOptionsCache(allCache, options, cache))
-            .then(data => super.set(name, data));
-    }
-    setCache(name, cache, options) {
-        return this.set(name, cache, options);
-    }
-};
-AckCache = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
-], AckCache);
-
-
-
-/***/ }),
-
 /***/ "QjCW":
 /*!********************************************************!*\
   !*** ./example/src/templates/provider-examples.pug.ts ***!
@@ -2954,8 +2960,7 @@ const declarations = [..._declarations__WEBPACK_IMPORTED_MODULE_4__["declaration
 let AckModule = AckModule_1 = class AckModule {
     static forRoot() {
         return {
-            ngModule: AckModule_1,
-            providers: _providers__WEBPACK_IMPORTED_MODULE_3__["providers"]
+            ngModule: AckModule_1, providers: _providers__WEBPACK_IMPORTED_MODULE_3__["providers"]
         };
     }
 };
@@ -3298,6 +3303,329 @@ function getDistanceFromTop(element) {
 
 /***/ }),
 
+/***/ "T5m/":
+/*!***********************************!*\
+  !*** ./modules/offline/AckApi.ts ***!
+  \***********************************/
+/*! exports provided: TimeOutError, AckApi */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimeOutError", function() { return TimeOutError; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AckApi", function() { return AckApi; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "IheW");
+/* harmony import */ var _AckCache__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AckCache */ "VfWh");
+/* harmony import */ var _AckQue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AckQue */ "Aqkq");
+
+
+
+
+
+class TimeOutError {
+    constructor(message) {
+        Error["captureStackTrace"](this, this.constructor);
+        this.name = this.constructor.name;
+        this.status = 504;
+        this.code = "gateway_timeout";
+        this.message = message || "Could not connect to server or server did not respond in a timely manner. Please check internet connection and then try again.";
+    }
+}
+let AckApi = class AckApi {
+    constructor(HttpClient) {
+        this.HttpClient = HttpClient;
+        this.response = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.Request = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.AuthError = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.ApiError = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.AckCache = new _AckCache__WEBPACK_IMPORTED_MODULE_3__["AckCache"]();
+        this.AckQue = new _AckQue__WEBPACK_IMPORTED_MODULE_4__["AckQue"]();
+        this.config = {
+            baseUrl: '',
+            $http: {
+                method: "GET",
+                headers: {},
+                timeout: 6500
+            }
+        };
+        this.paramConfig();
+    }
+    paramConfig() { }
+    registerHandler(name, handler, options) {
+        options = options || { maxTry: 50 };
+        handler = handler || (config => this.request(config));
+        this.AckQue.registerHandler(name, handler);
+        return this;
+    }
+    getQue(name) {
+        return this.AckQue.get(name);
+    }
+    getCache(name) {
+        return this.AckCache.get(name);
+    }
+    processQue(name) {
+        this.AckQue.paramHandler(name, config => this._fetch(config));
+        return this.AckQue.processQue(name);
+    }
+    clearQue(name) {
+        return this.AckQue.clear(name);
+    }
+    clearCache(name) {
+        return this.AckCache.clear(name);
+    }
+    request(config) {
+        const defaults = Object.assign({}, this.config.$http);
+        defaults.headers = Object.assign({}, this.config.$http.headers);
+        const request = Object.assign(defaults, (config || {}));
+        request.url = (this.config.baseUrl || '') + request.url;
+        if (request.offlineModel) {
+            return this.requestOfflineModel(request);
+        }
+        return this._fetch(request);
+    }
+    getCacheByNamedRequest(request) {
+        const offlineModel = request.offlineModel;
+        return this.AckCache.get(offlineModel.name, offlineModel)
+            .then(routes => {
+            routes = routes || {};
+            const cacheName = this.getStorageNameByRequest(request);
+            return routes[cacheName];
+        })
+            .then(cache => this.processCacheGet(cache, request));
+    }
+    getStorageNameByRequest(request) {
+        if (request.params) {
+            const paramKeys = Object.keys(request.params);
+            if (!paramKeys.length)
+                return request.url;
+            let url = request.url + (request.url.search(/\?/) >= 0 ? "&" : "?");
+            paramKeys.sort().forEach(name => url += name + "=" + request.params[name] + "&");
+            return url.substring(0, url.length - 1);
+        }
+        return request.url;
+    }
+    requestOfflineModel(request) {
+        let offlineModel = request.offlineModel;
+        if (offlineModel && offlineModel.constructor == String) {
+            request.offlineModel = offlineModel = { name: request.offlineModel };
+        }
+        if (request.method === "GET") {
+            return this.getCacheByNamedRequest(request);
+        }
+        this.AckQue.paramHandler(offlineModel.name, config => this._fetch(config));
+        return this._fetch(request)
+            .catch(e => this.postRequestFail(e, request));
+    }
+    processCacheGet(cache, cfg) {
+        if (cache == null)
+            return this._fetch(cfg);
+        const offlineModel = cfg.offlineModel;
+        return this.AckCache.cacheToReturn(offlineModel.name, cache, offlineModel)
+            .then((rtn) => {
+            const willExpire = this.AckCache.optionsKillCache(offlineModel);
+            if (rtn && !willExpire) {
+                console.log("AckApi fetched cache that will never expire. Set offlineModel.expires=0 or offlineModel.maxAge=0 to avoid this message", rtn);
+            }
+            if (rtn != null) {
+                return rtn;
+            }
+            return this._fetch(cfg);
+        });
+    }
+    postRequestFail(e, request) {
+        const saveWorthy = e.status == 0 || e.status == -1 || e.status == 503;
+        if (!saveWorthy)
+            return Promise.reject(e);
+        request.sendFailMeta = request.sendFailMeta || {};
+        request.sendFailMeta.offlineId = Date.now();
+        request.sendFailMeta.lastAttempt = new Date();
+        request.sendFailMeta.attempts = request.sendFailMeta.attempts == null ? 1 : ++request.sendFailMeta.attempts;
+        request.sendFailMeta.maxTry = request.sendFailMeta.maxTry || 50;
+        const tryAgainLater = request.sendFailMeta.maxTry && request.sendFailMeta.attempts <= request.sendFailMeta.maxTry;
+        e.sendFailMeta = request.sendFailMeta;
+        if (tryAgainLater) {
+            const requestSave = Object.assign({}, request);
+            delete requestSave.offlineModel;
+            const offlineModel = request.offlineModel;
+            return this.AckQue.set(offlineModel.name, requestSave)
+                .then(() => Promise.reject(e));
+        }
+        return Promise.reject(e);
+    }
+    _fetch(cfg) {
+        upgradeConfig(cfg);
+        const cfgPlus = Object.assign({}, cfg);
+        if (cfg.params) {
+            cfgPlus.params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({
+                fromObject: cfg.params
+            });
+        }
+        if (cfg.headers) {
+            cfgPlus.headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"](cfg.headers);
+        }
+        const request = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpRequest"](cfg.method, cfg.url, cfg.body, cfgPlus);
+        const promise = (resolve, reject) => {
+            let resolved = false;
+            this.Request.emit(request);
+            const req = this.HttpClient.request(request)
+                .subscribe(event => {
+                if (event.type === _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpEventType"].Response) {
+                    resolved = true;
+                    resolve(event);
+                }
+            }, err => {
+                resolved = true;
+                reject(err);
+            });
+            if (cfg.timeout) {
+                setTimeout(() => {
+                    if (resolved)
+                        return;
+                    req.unsubscribe();
+                    const timeoutError = new TimeOutError();
+                    Object.assign(timeoutError, request);
+                    timeoutError.timeout = cfg.timeout;
+                    reject(timeoutError);
+                }, cfg.timeout);
+            }
+        };
+        return new Promise(promise)
+            .then((response) => this.processFetchByConfig(response, cfg))
+            .catch(e => this.httpFailByConfig(e, cfg));
+    }
+    processFetchByConfig(response, request) {
+        this.response.emit(response);
+        const data = response.body || response["_body"];
+        const isJson = data && response.headers.get("Content-Type") == "application/json";
+        if (isJson && !response["data"]) {
+            try {
+                response["data"] = JSON.parse(data);
+            }
+            catch (e) { }
+        }
+        response["data"] = data;
+        const isDataMode = !request.promise || request.promise == "data";
+        const output = isDataMode ? data : response;
+        const isCacheReponse = request.method === "GET" && request.offlineModel;
+        if (isCacheReponse) {
+            return this.requestResponseToCache(request, output)
+                .then(() => output);
+        }
+        return Promise.resolve(output);
+    }
+    httpFailByConfig(e, cfg) {
+        const isReduceData = cfg.catch == null || cfg.catch == "data";
+        const data = e["data"];
+        const isCatchData = isReduceData && data && data.error;
+        if (isCatchData) {
+            const newError = new Error();
+            Object.assign(newError, e["data"].error);
+            e = newError;
+        }
+        e["method"] = e["method"] || cfg.method;
+        if (e["status"] == 401) {
+            this.AuthError.emit(e);
+        }
+        else {
+            this.ApiError.emit(e);
+        }
+        return Promise.reject(e);
+    }
+    requestResponseToCache(request, output) {
+        var _a;
+        const cachename = ((_a = request.offlineModel) === null || _a === void 0 ? void 0 : _a.name) || request.offlineModel;
+        return this.AckCache.get(cachename)
+            .then(routes => {
+            routes = routes || {};
+            const cacheName = this.getStorageNameByRequest(request);
+            routes[cacheName] = { cache: output };
+            this.AckCache.dataOptionsCache(routes[request.url], request.offlineModel, output);
+            return routes;
+        })
+            .then(routes => this.AckCache.set(cachename, routes));
+    }
+    get(path, config) {
+        const cfg = Object.assign({}, config);
+        cfg.method = "GET";
+        cfg.url = path;
+        return this.request(cfg);
+    }
+    post(path, data, config) {
+        const cfg = Object.assign({}, config);
+        cfg.method = "POST";
+        cfg.body = data;
+        cfg.url = path;
+        return this.request(cfg);
+    }
+    delete(path, config) {
+        const cfg = Object.assign({}, config);
+        cfg.method = "DELETE";
+        cfg.url = path;
+        return this.request(cfg);
+    }
+    put(path, data, config) {
+        const cfg = Object.assign({}, config);
+        cfg.method = "PUT";
+        cfg.body = data;
+        cfg.url = path;
+        return this.request(cfg);
+    }
+};
+AckApi.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+AckApi = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+], AckApi);
+
+function upgradeConfig(cfg) {
+    cfg.method = cfg.method || "GET";
+    cfg.reportProgress = cfg.reportProgress || false;
+    if (cfg.params) {
+        for (let key in cfg.params) {
+            if (cfg.params[key] == null) {
+                cfg.params[key] = "";
+            }
+        }
+    }
+    return cfg;
+}
+
+
+/***/ }),
+
+/***/ "TTIt":
+/*!**********************************!*\
+  !*** ./modules/offline/index.ts ***!
+  \**********************************/
+/*! exports provided: AckOffline, AckCache, AckQue, AckApi */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AckOffline__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AckOffline */ "/ibX");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckOffline", function() { return _AckOffline__WEBPACK_IMPORTED_MODULE_0__["AckOffline"]; });
+
+/* harmony import */ var _AckCache__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AckCache */ "VfWh");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckCache", function() { return _AckCache__WEBPACK_IMPORTED_MODULE_1__["AckCache"]; });
+
+/* harmony import */ var _AckQue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AckQue */ "Aqkq");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckQue", function() { return _AckQue__WEBPACK_IMPORTED_MODULE_2__["AckQue"]; });
+
+/* harmony import */ var _AckApi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AckApi */ "T5m/");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckApi", function() { return _AckApi__WEBPACK_IMPORTED_MODULE_3__["AckApi"]; });
+
+
+
+
+
+
+
+/***/ }),
+
 /***/ "UV2o":
 /*!******************************************!*\
   !*** ./src/directives/FxOn.directive.ts ***!
@@ -3446,6 +3774,139 @@ function getElementDefaultDisplay(tag) {
 
 /***/ }),
 
+/***/ "VfWh":
+/*!*************************************!*\
+  !*** ./modules/offline/AckCache.ts ***!
+  \*************************************/
+/*! exports provided: AckCache */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AckCache", function() { return AckCache; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+/* harmony import */ var _AckOffline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AckOffline */ "/ibX");
+
+
+
+let AckCache = class AckCache extends _AckOffline__WEBPACK_IMPORTED_MODULE_2__["AckOffline"] {
+    constructor() {
+        super(...arguments);
+        this.prefix = "offline-cache";
+    }
+    validate(data, config) {
+        const exists = data !== null && typeof data.cache !== "undefined";
+        return exists && !this.hasExpired(data._timestamp, data.expires || config.expires);
+    }
+    optionsKillCache(options) {
+        return options.maxAge == null && options.expires == null ? false : true;
+    }
+    hasMaxAged(stamp, maxAge) {
+        const diff = Date.now() - maxAge;
+        const expired = stamp <= diff;
+        return maxAge && expired ? true : false;
+    }
+    hasExpired(_stamp, expires) {
+        const expired = Date.now() >= new Date(expires).getTime();
+        return expires && expired ? true : false;
+    }
+    param(name, options = {}) {
+        options.param = options.param || [];
+        return this.getCache(name, options);
+    }
+    paramCache(name, options) {
+        return this.param(name, options);
+    }
+    paramSave(name, options) {
+        return this.paramCache(name, options)
+            .then(items => this.setCache(name, items));
+    }
+    paramSaveCache(name, options) {
+        return this.paramSave(name, options);
+    }
+    cacheToReturn(name, data, options) {
+        if (data.cache == null && data._timestamp == null) {
+            return Promise.resolve(data);
+        }
+        const expires = data.expires || options.expires;
+        const maxAge = data.maxAge || options.maxAge;
+        if (options.allowExpired || (!expires && !maxAge)) {
+            return Promise.resolve(data.cache);
+        }
+        const expired = expires && this.hasExpired(data._timestamp, expires);
+        const isMaxed = maxAge && this.hasMaxAged(data._timestamp, maxAge);
+        if (expired || isMaxed) {
+            return this.selfDestructData(name, data)
+                .then(() => {
+                if (options.param)
+                    return Promise.resolve(options.param);
+            });
+        }
+        return Promise.resolve(data['cache']);
+    }
+    selfDestructData(name, data) {
+        if (this.dataDestructReady(data))
+            return this.clear(name);
+        return Promise.resolve();
+    }
+    dataDestructReady(data) {
+        const isMemMaxed = data.maxAge && this.hasMaxAged(data['_timestamp'], data['maxAge']);
+        const isMemExpired = data.expires && this.hasExpired(data['_timestamp'], data['expires']);
+        return isMemMaxed || isMemExpired;
+    }
+    get(name, options = {}) {
+        return super.get(name)
+            .then(data => {
+            if (data) {
+                return this.cacheToReturn(name, data, options);
+            }
+            if (options.param)
+                return options.param;
+            return;
+        });
+    }
+    getCache(name, options) {
+        return this.get(name, options);
+    }
+    dataOptionsCache(allCache, options = {}, cache) {
+        const newOptions = {};
+        newOptions._timestamp = Date.now();
+        if (options.expires)
+            newOptions.expires = options.expires;
+        if (options.maxAge)
+            newOptions.maxAge = options.maxAge;
+        allCache = allCache && allCache.constructor != String ? allCache : {};
+        Object.assign(allCache, newOptions);
+        if (cache && cache.constructor == String) {
+            allCache.cache = cache;
+        }
+        else if (allCache.cache && allCache.cache.constructor != String) {
+            Object.assign(allCache.cache, cache);
+        }
+        else {
+            allCache.cache = cache;
+        }
+        return allCache;
+    }
+    set(name, cache, options = {}) {
+        options.name = options.name || name;
+        return super.get(name)
+            .then(allCache => this.dataOptionsCache(allCache, options, cache))
+            .then(data => super.set(name, data));
+    }
+    setCache(name, cache, options) {
+        return this.set(name, cache, options);
+    }
+};
+AckCache = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+], AckCache);
+
+
+
+/***/ }),
+
 /***/ "WH1a":
 /*!****************************************************!*\
   !*** ./src/components/templates/error-well.pug.ts ***!
@@ -3533,153 +3994,6 @@ ComponentsExamples = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [ngx_page_scroll_core__WEBPACK_IMPORTED_MODULE_2__["PageScrollService"]])
 ], ComponentsExamples);
-
-
-
-/***/ }),
-
-/***/ "YQxQ":
-/*!***************************************!*\
-  !*** ./src/modules/offline/AckQue.ts ***!
-  \***************************************/
-/*! exports provided: AckQue */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AckQue", function() { return AckQue; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
-/* harmony import */ var _AckOffline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AckOffline */ "/blU");
-
-
-
-let AckQue = class AckQue extends _AckOffline__WEBPACK_IMPORTED_MODULE_2__["AckOffline"] {
-    constructor() {
-        super(...arguments);
-        this.prefix = "offline-que";
-        this.handlers = [];
-    }
-    get(name) {
-        return super.get(name)
-            .then(data => data && data['que'] ? data['que'] : []);
-    }
-    getQue(name) {
-        return this.get(name);
-    }
-    setQue(name, que) {
-        return this.set(name, que);
-    }
-    que(name, queData) {
-        return super.get(name)
-            .then(data => {
-            data = data || {};
-            data['que'] = data['que'] || [];
-            if (queData.forEach) {
-                queData.forEach(x => {
-                    data['que'].push(x);
-                });
-            }
-            else {
-                data['que'].push(queData);
-            }
-            return super.set(name, data);
-        });
-    }
-    set(name, queData) {
-        return this.que(name, queData);
-    }
-    dequeByIndex(name, index) {
-        return this.getQue(name)
-            .then(array => {
-            array.splice(index, 1);
-            return array;
-        })
-            .then(array => this.setQue(name, array));
-    }
-    processQuedByIndex(name, index) {
-        const handler = this.getQueHandlerByName(name);
-        const mem = { item: null, array: null, result: null };
-        return this.getQue(name)
-            .then(array => {
-            mem.item = array.splice(index, 1);
-            mem.array = array;
-        })
-            .then(() => this.handleQued(mem.item, handler))
-            .then(result => mem.result = result)
-            .then(() => this.setQue(name, mem.array))
-            .then(() => mem.result);
-    }
-    registerHandler(name, handler) {
-        this.handlers.push({ name, handler });
-        return this;
-    }
-    registerQueHandler(name, handler) {
-        return this.registerHandler(name, handler);
-    }
-    paramHandler(name, handler) {
-        for (let x = this.handlers.length - 1; x >= 0; --x) {
-            if (this.handlers[x].name == name) {
-                return this;
-            }
-        }
-        this.handlers.push({ name, handler });
-        return this;
-    }
-    getQueHandDefByName(name) {
-        for (let i = this.handlers.length - 1; i >= 0; --i) {
-            if (this.handlers[i].name == name)
-                return this.handlers[i];
-        }
-    }
-    getQueHandlerByName(name) {
-        const hand = this.getQueHandDefByName(name);
-        if (hand)
-            return hand.handler;
-    }
-    handleQued(qued, handler) {
-        return Promise.resolve(handler(qued));
-    }
-    processQuedHandler(hand) {
-        const results = [];
-        const mem = { que: [] };
-        const eachHandle = this.eachHandler(hand.handler);
-        return this.get(hand.name)
-            .then(que => mem.que = que)
-            .then(() => this.clear(hand.name))
-            .then(() => {
-            var promise = Promise.resolve();
-            mem.que.forEach(v => {
-                promise = promise
-                    .then(() => eachHandle(v))
-                    .catch(e => e)
-                    .then(r => results.push(r));
-            });
-            return promise;
-        })
-            .then(() => results);
-    }
-    eachHandler(handler) {
-        return data => this.handleQued(data, handler);
-    }
-    processQue(name) {
-        const handler = this.getQueHandDefByName(name);
-        return handler ? this.processQuedHandler(handler) : Promise.resolve();
-    }
-    processAllQues() {
-        const promises = [];
-        this.handlers.forEach(hand => promises.push(this.processQuedHandler(hand)));
-        return Promise.all(promises)
-            .then(proms => {
-            const results = [];
-            proms.forEach(subArray => results.push.apply(results, subArray));
-            return Promise.all(results);
-        });
-    }
-};
-AckQue = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
-], AckQue);
 
 
 
@@ -3855,7 +4169,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
 /* harmony import */ var ngx_page_scroll_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-page-scroll-core */ "Mpij");
 /* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../src */ "/7QA");
-/* harmony import */ var _src_modules_offline__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../src/modules/offline */ "pz19");
+/* harmony import */ var _modules_offline__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/offline */ "TTIt");
 /* harmony import */ var ack_angular_fx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ack-angular-fx */ "cRtS");
 /* harmony import */ var _templates_provider_examples_pug__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./templates/provider-examples.pug */ "QjCW");
 
@@ -4083,10 +4397,10 @@ ProviderExamples.ctorParameters = () => [
     { type: _src__WEBPACK_IMPORTED_MODULE_3__["Log"] },
     { type: _src__WEBPACK_IMPORTED_MODULE_3__["ErrorLog"] },
     { type: ngx_page_scroll_core__WEBPACK_IMPORTED_MODULE_2__["PageScrollService"] },
-    { type: _src_modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckOffline"] },
-    { type: _src_modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckCache"] },
-    { type: _src_modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckQue"] },
-    { type: _src__WEBPACK_IMPORTED_MODULE_3__["AckApi"] },
+    { type: _modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckOffline"] },
+    { type: _modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckCache"] },
+    { type: _modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckQue"] },
+    { type: _modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckApi"] },
     { type: _src__WEBPACK_IMPORTED_MODULE_3__["Prompts"] }
 ];
 ProviderExamples = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -4098,10 +4412,10 @@ ProviderExamples = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_src__WEBPACK_IMPORTED_MODULE_3__["Log"],
         _src__WEBPACK_IMPORTED_MODULE_3__["ErrorLog"],
         ngx_page_scroll_core__WEBPACK_IMPORTED_MODULE_2__["PageScrollService"],
-        _src_modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckOffline"],
-        _src_modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckCache"],
-        _src_modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckQue"],
-        _src__WEBPACK_IMPORTED_MODULE_3__["AckApi"],
+        _modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckOffline"],
+        _modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckCache"],
+        _modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckQue"],
+        _modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckApi"],
         _src__WEBPACK_IMPORTED_MODULE_3__["Prompts"]])
 ], ProviderExamples);
 
@@ -4204,298 +4518,6 @@ InnerHtmlModel = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "string", function() { return string; });
 const string = "<ng-container [(htmlHeightModel)]=\"htmlHeightModel\"></ng-container><ng-container *ngIf=\"SectionProvider.headerTemplates.length\"><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;top:0;width:100%\" [style.z-index]=\"zIndex\" [(elementHeightModel)]=\"headerHeight\" [elementSizeModelWatch]=\"SectionProvider.headerTemplates.length\"><ng-template *ngTemplateOutlet=\"headerWrap || headerContent;context:{outlet:headerContent}\"></ng-template></div><ng-template #headerContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;width:100%\" [style.z-index]=\"zIndex\"><ng-template *ngTemplateOutlet=\"headerContent\"></ng-template></div></ng-container><ng-template *ngTemplateOutlet=\"table || defaultTableTag;context:{outlet:tableRows}\"></ng-template><ng-template #defaultTableTag=\"\"><table style=\"height:100%;width:100%;border-collapse: collapse;\" cellPadding=\"0\" cellSpacing=\"0\" border=\"0\"><ng-template *ngTemplateOutlet=\"tableRows\"></ng-template></table></ng-template><ng-template #tableRows=\"\"><tr *ngIf=\"SectionProvider.headerTemplates.length\"><td colspan=\"3\" [style.height.px]=\"headerHeight\" style=\"visibility:hidden\"><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-container></td></tr><tr><td *ngIf=\"SectionProvider.leftBodyTemplates.length\" [style.min-width.px]=\"leftBodyWidth\" valign=\"top\" align=\"right\"><ng-template #defaultLeftBodyWrap=\"\"><div style=\"overflow:auto;height:100%;\"><ng-template *ngTemplateOutlet=\"leftBodyContent\"></ng-template></div></ng-template><ng-template #leftBodyContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.leftBodyTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;\" [style.z-index]=\"zIndex - 1\" [style.height.px]=\"htmlHeightModel - (SectionProvider.headerTemplates.length ? headerHeight : 0) - (SectionProvider.footerTemplates.length ? footerHeight : 0)\" [(elementWidthModel)]=\"leftBodyWidth\" [elementSizeModelWatch]=\"SectionProvider.leftBodyTemplates.length\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;\" [style.z-index]=\"zIndex - 1\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></div><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></ng-container></td><ng-container *ngTemplateOutlet=\"bodyCell || defaultBodyCell;context:{outlet:body}\"></ng-container><ng-template #defaultBodyCell=\"\"><td style=\"height:100%\" valign=\"top\"><ng-template *ngTemplateOutlet=\"body\"></ng-template></td></ng-template><ng-template #body=\"\"><ng-content></ng-content></ng-template><td *ngIf=\"SectionProvider.rightBodyTemplates.length\" [style.min-width.px]=\"rightBodyWidth\" valign=\"top\" align=\"left\"><ng-template #defaultRightBodyWrap=\"\"><div style=\"overflow:auto;height:100%;\"><ng-template *ngTemplateOutlet=\"rightBodyContent\"></ng-template></div></ng-template><ng-template #rightBodyContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.rightBodyTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;\" [style.z-index]=\"zIndex - 1\" [style.height.px]=\"htmlHeightModel - (SectionProvider.headerTemplates.length ? headerHeight : 0) - (SectionProvider.footerTemplates.length ? footerHeight : 0)\" [(elementWidthModel)]=\"rightBodyWidth\" [elementSizeModelWatch]=\"SectionProvider.rightBodyTemplates.length\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;overflow:auto;\" [style.z-index]=\"zIndex - 1\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></div><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></ng-container></td></tr><tr *ngIf=\"SectionProvider.footerTemplates.length\"><td colspan=\"3\" [style.height.px]=\"footerHeight\"><div *ngIf=\"!mode || mode==='clone'\" style=\"visibility:hidden\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div></td></tr></ng-template><ng-container *ngIf=\"SectionProvider.footerTemplates.length\"><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;bottom:0;width:100%\" [style.z-index]=\"zIndex\" [(elementHeightModel)]=\"footerHeight\" [elementSizeModelWatch]=\"SectionProvider.footerTemplates.length\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;bottom:0;width:100%\" [style.z-index]=\"zIndex\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div></ng-container>";
-
-
-/***/ }),
-
-/***/ "eD3v":
-/*!***************************************!*\
-  !*** ./src/modules/offline/AckApi.ts ***!
-  \***************************************/
-/*! exports provided: TimeOutError, AckApi */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimeOutError", function() { return TimeOutError; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AckApi", function() { return AckApi; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "IheW");
-/* harmony import */ var _AckCache__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AckCache */ "QO+r");
-/* harmony import */ var _AckQue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AckQue */ "YQxQ");
-
-
-
-
-
-function TimeOutError(message) {
-    Error["captureStackTrace"](this, this.constructor);
-    this.name = this.constructor.name;
-    this.status = 504;
-    this.code = "gateway_timeout";
-    this.message = message || "Could not connect to server or server did not respond in a timely manner. Please check internet connection and then try again.";
-}
-TimeOutError.prototype = Object.create(Error.prototype);
-let AckApi = class AckApi {
-    constructor(HttpClient) {
-        this.HttpClient = HttpClient;
-        this.response = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.Request = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.AuthError = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.ApiError = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.AckCache = new _AckCache__WEBPACK_IMPORTED_MODULE_3__["AckCache"]();
-        this.AckQue = new _AckQue__WEBPACK_IMPORTED_MODULE_4__["AckQue"]();
-        this.config = {
-            baseUrl: "",
-            $http: {
-                method: "GET",
-                headers: {},
-                timeout: 6500
-            }
-        };
-        this.paramConfig();
-    }
-    paramConfig() { }
-    registerHandler(name, handler, options) {
-        options = options || { maxTry: 50 };
-        handler = handler || (config => this.request(config));
-        this.AckQue.registerHandler(name, handler);
-        return this;
-    }
-    getQue(name) {
-        return this.AckQue.get(name);
-    }
-    getCache(name) {
-        return this.AckCache.get(name);
-    }
-    processQue(name) {
-        this.AckQue.paramHandler(name, config => this._fetch(config));
-        return this.AckQue.processQue(name);
-    }
-    clearQue(name) {
-        return this.AckQue.clear(name);
-    }
-    clearCache(name) {
-        return this.AckCache.clear(name);
-    }
-    request(config) {
-        const defaults = Object.assign({}, this.config.$http);
-        defaults.headers = Object.assign({}, this.config.$http.headers);
-        const request = Object.assign(defaults, (config || {}));
-        request.url = this.config.baseUrl + request.url;
-        if (request.offlineModel) {
-            return this.requestOfflineModel(request);
-        }
-        return this._fetch(request);
-    }
-    getCacheByNamedRequest(request) {
-        const offlineModel = request.offlineModel;
-        return this.AckCache.get(offlineModel.name, offlineModel)
-            .then(routes => {
-            routes = routes || {};
-            const cacheName = this.getStorageNameByRequest(request);
-            return routes[cacheName];
-        })
-            .then(cache => this.processCacheGet(cache, request));
-    }
-    getStorageNameByRequest(request) {
-        if (request.params) {
-            const paramKeys = Object.keys(request.params);
-            if (!paramKeys.length)
-                return request.url;
-            let url = request.url + (request.url.search(/\?/) >= 0 ? "&" : "?");
-            paramKeys.sort().forEach(name => url += name + "=" + request.params[name] + "&");
-            return url.substring(0, url.length - 1);
-        }
-        return request.url;
-    }
-    requestOfflineModel(request) {
-        let offlineModel = request.offlineModel;
-        if (offlineModel && offlineModel.constructor == String) {
-            request.offlineModel = offlineModel = { name: request.offlineModel };
-        }
-        if (request.method === "GET") {
-            return this.getCacheByNamedRequest(request);
-        }
-        this.AckQue.paramHandler(offlineModel.name, config => this._fetch(config));
-        return this._fetch(request)
-            .catch(e => this.postRequestFail(e, request));
-    }
-    processCacheGet(cache, cfg) {
-        if (cache == null)
-            return this._fetch(cfg);
-        const offlineModel = cfg.offlineModel;
-        return this.AckCache.cacheToReturn(offlineModel.name, cache, offlineModel)
-            .then(rtn => {
-            const willExpire = this.AckCache.optionsKillCache(offlineModel);
-            if (rtn && !willExpire) {
-                console.log("AckApi fetched cache that will never expire. Set offlineModel.expires=0 or offlineModel.maxAge=0 to avoid this message", rtn);
-            }
-            if (rtn != null) {
-                return rtn;
-            }
-            return this._fetch(cfg);
-        });
-    }
-    postRequestFail(e, request) {
-        const saveWorthy = e.status == 0 || e.status == -1 || e.status == 503;
-        if (!saveWorthy)
-            return Promise.reject(e);
-        request.sendFailMeta = request.sendFailMeta || {};
-        request.sendFailMeta.offlineId = Date.now();
-        request.sendFailMeta.lastAttempt = new Date();
-        request.sendFailMeta.attempts = request.sendFailMeta.attempts == null ? 1 : ++request.sendFailMeta.attempts;
-        request.sendFailMeta.maxTry = request.sendFailMeta.maxTry || 50;
-        const tryAgainLater = request.sendFailMeta.maxTry && request.sendFailMeta.attempts <= request.sendFailMeta.maxTry;
-        e.sendFailMeta = request.sendFailMeta;
-        if (tryAgainLater) {
-            const requestSave = Object.assign({}, request);
-            delete requestSave.offlineModel;
-            const offlineModel = request.offlineModel;
-            return this.AckQue.set(offlineModel.name, requestSave)
-                .then(() => Promise.reject(e));
-        }
-        return Promise.reject(e);
-    }
-    _fetch(cfg) {
-        upgradeConfig(cfg);
-        const cfgPlus = Object.assign({}, cfg);
-        if (cfg.params) {
-            cfgPlus.params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({
-                fromObject: cfg.params
-            });
-        }
-        if (cfg.headers) {
-            cfgPlus.headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"](cfg.headers);
-        }
-        const request = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpRequest"](cfg.method, cfg.url, cfg.body, cfgPlus);
-        const promise = (resolve, reject) => {
-            let resolved = false;
-            this.Request.emit(request);
-            const req = this.HttpClient.request(request)
-                .subscribe(event => {
-                if (event.type === _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpEventType"].Response) {
-                    resolved = true;
-                    resolve(event);
-                }
-            }, err => {
-                resolved = true;
-                reject(err);
-            });
-            if (cfg.timeout) {
-                setTimeout(() => {
-                    if (resolved)
-                        return;
-                    req.unsubscribe();
-                    const timeoutError = new TimeOutError();
-                    Object.assign(timeoutError, request);
-                    timeoutError.timeout = cfg.timeout;
-                    reject(timeoutError);
-                }, cfg.timeout);
-            }
-        };
-        return new Promise(promise)
-            .then((response) => this.processFetchByConfig(response, cfg))
-            .catch(e => this.httpFailByConfig(e, cfg));
-    }
-    processFetchByConfig(response, request) {
-        this.response.emit(response);
-        const data = response.body || response["_body"];
-        const isJson = data && response.headers.get("Content-Type") == "application/json";
-        if (isJson && !response["data"]) {
-            try {
-                response["data"] = JSON.parse(data);
-            }
-            catch (e) { }
-        }
-        response["data"] = data;
-        const isDataMode = !request.promise || request.promise == "data";
-        const output = isDataMode ? data : response;
-        const isCacheReponse = request.method === "GET" && request.offlineModel;
-        if (isCacheReponse) {
-            return this.requestResponseToCache(request, output)
-                .then(() => output);
-        }
-        return Promise.resolve(output);
-    }
-    httpFailByConfig(e, cfg) {
-        const isReduceData = cfg.catch == null || cfg.catch == "data";
-        const data = e["data"];
-        const isCatchData = isReduceData && data && data.error;
-        if (isCatchData) {
-            const newError = new Error();
-            Object.assign(newError, e["data"].error);
-            e = newError;
-        }
-        e["method"] = e["method"] || cfg.method;
-        if (e["status"] == 401) {
-            this.AuthError.emit(e);
-        }
-        else {
-            this.ApiError.emit(e);
-        }
-        return Promise.reject(e);
-    }
-    requestResponseToCache(request, output) {
-        const cachename = request.offlineModel.name || request.offlineModel;
-        return this.AckCache.get(cachename)
-            .then(routes => {
-            routes = routes || {};
-            const cacheName = this.getStorageNameByRequest(request);
-            routes[cacheName] = { cache: output };
-            this.AckCache.dataOptionsCache(routes[request.url], request.offlineModel, output);
-            return routes;
-        })
-            .then(routes => this.AckCache.set(cachename, routes));
-    }
-    get(path, config) {
-        const cfg = Object.assign({}, config);
-        cfg.method = "GET";
-        cfg.url = path;
-        return this.request(cfg);
-    }
-    post(path, data, config) {
-        const cfg = Object.assign({}, config);
-        cfg.method = "POST";
-        cfg.body = data;
-        cfg.url = path;
-        return this.request(cfg);
-    }
-    delete(path, config) {
-        const cfg = Object.assign({}, config);
-        cfg.method = "DELETE";
-        cfg.url = path;
-        return this.request(cfg);
-    }
-    put(path, data, config) {
-        const cfg = Object.assign({}, config);
-        cfg.method = "PUT";
-        cfg.body = data;
-        cfg.url = path;
-        return this.request(cfg);
-    }
-};
-AckApi.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
-];
-AckApi = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
-], AckApi);
-
-function upgradeConfig(cfg) {
-    cfg.method = cfg.method || "GET";
-    cfg.reportProgress = cfg.reportProgress || false;
-    if (cfg.params) {
-        for (let key in cfg.params) {
-            if (cfg.params[key] == null) {
-                cfg.params[key] = "";
-            }
-        }
-    }
-    return cfg;
-}
 
 
 /***/ }),
@@ -5075,7 +5097,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, dependencies, devDependencies, ngPackage, private, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"ack-angular\",\"version\":\"1.18.2\",\"description\":\"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\",\"main\":\"dist/index.js\",\"typings\":\"dist/index.d.ts\",\"scripts\":{\"start\":\"ng serve example --port 4201 --open\",\"start:old\":\"ack-reload -d ./example/www\",\"build:index\":\"pug example/src/index.pug --out example/src\",\"stats\":\"webpack-bundle-analyzer example/www/stats.json\",\"install:example\":\"npm install --prefix example\",\"test\":\"ng test --browser PhantomJS --single-run\",\"test:watch\":\"ng test\",\"build:dist:old\":\"ngc --project src/tsconfig.json\",\"build:dist\":\"ng-packagr -p package.json\",\"watch:dist\":\"watch \\\"npm-run-all build:dist\\\" src/ --ignoreDirectoryPattern=/pugs/\",\"build:assets\":\"npm-run-all build:assets:src build:assets:example compile:templates\",\"build:assets:src\":\"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts\",\"build:assets:example\":\"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts\",\"watch:assets\":\"npm-run-all --parallel \\\"build:assets:src -- --watch\\\" \\\"build:assets:example -- --watch\\\" \\\"compile:templates -- --watch\\\"\",\"compile:templates\":\"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne\",\"watch\":\"npm-run-all --parallel build:index watch:dist watch:assets watch:js\",\"watch:js\":\"ng serve example --port 4201 --open\",\"build:js\":\"ng build example --stats-json\",\"build:universal\":\"npm-run-all build:index build:assets\",\"build\":\"npm-run-all build:universal build:dist compile:dist:package copy:scss build:js\",\"copy:scss\":\"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss\",\"compile:dist:package\":\"node scripts/update-dist-package.js\",\"save\":\"git add . && git commit -m \\\"update\\\" && git push\",\"deploy\":\"npm-run-all build deploy:gh-pages deploy:npm save\",\"deploy:npm\":\"cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \\\"update\\\" && git push && npm publish\",\"deploy:gh-pages\":\"cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \\\"update\\\" && git push\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/AckerApple/ack-angular.git\"},\"keywords\":[\"ng\",\"Angular\",\"directives\",\"components\",\"pipes\",\"providers\"],\"author\":\"Acker Dawn Apple\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/AckerApple/ack-angular/issues\"},\"homepage\":\"https://github.com/AckerApple/ack-angular#readme\",\"dependencies\":{\"ack-angular-fx\":\"^4.1.0\",\"ack-css-boot\":\"^2.0.2\",\"ack-x\":\"^1.7.1\",\"animate.css\":\"^4.1.1\",\"csshake\":\"^1.5.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1102.8\",\"@angular-devkit/build-ng-packagr\":\"^0.1002.0\",\"@angular/animations\":\"^11.2.9\",\"@angular/cli\":\"^11.2.8\",\"@angular/common\":\"^11.2.9\",\"@angular/compiler\":\"^11.2.9\",\"@angular/compiler-cli\":\"^11.2.9\",\"@angular/core\":\"^11.2.9\",\"@angular/forms\":\"^11.2.9\",\"@angular/platform-browser\":\"^11.2.9\",\"@angular/platform-browser-dynamic\":\"^11.2.9\",\"@angular/router\":\"^11.2.9\",\"@types/jasmine\":\"^3.6.9\",\"ack-path\":\"^1.8.0\",\"ack-pug-bundler\":\"^1.4.8\",\"classlist-polyfill\":\"^1.2.0\",\"jasmine\":\"^3.7.0\",\"karma\":\"^6.3.2\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-coverage-istanbul-reporter\":\"^3.0.3\",\"karma-jasmine\":\"^4.0.1\",\"karma-jasmine-html-reporter\":\"^1.5.4\",\"karma-phantomjs-launcher\":\"^1.0.4\",\"localforage\":\"^1.9.0\",\"ng-packagr\":\"^11.2.4\",\"ngx-page-scroll\":\"^7.0.4\",\"ngx-page-scroll-core\":\"^7.0.4\",\"npm-run-all\":\"^4.1.5\",\"phantomjs-prebuilt\":\"^2.1.16\",\"pug\":\"^3.0.2\",\"pug-attrs\":\"^3.0.0\",\"pug-cli\":\"^1.0.0-alpha6\",\"reflect-metadata\":\"^0.1.13\",\"rxjs\":\"^6.6.7\",\"ts-helpers\":\"^1.1.2\",\"ts-node\":\"^9.1.1\",\"typescript\":\"4.0.5\",\"webpack-bundle-analyzer\":\"^4.4.1\",\"zone.js\":\"~0.11.4\"},\"ngPackage\":{\"lib\":{\"entryFile\":\"src/index.ts\"},\"allowedNonPeerDependencies\":[\"ack-angular-fx\",\"ack-css-boot\",\"ack-x\",\"animate.css\",\"csshake\"]},\"private\":true}");
+module.exports = JSON.parse("{\"name\":\"ack-angular\",\"version\":\"2.0.0\",\"description\":\"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\",\"main\":\"dist/index.js\",\"typings\":\"dist/index.d.ts\",\"scripts\":{\"start\":\"ng serve example --port 4201 --open\",\"build:index\":\"pug example/src/index.pug --out example/src\",\"stats\":\"webpack-bundle-analyzer example/www/stats.json\",\"install:example\":\"npm install --prefix example\",\"test\":\"ng test --browser PhantomJS --single-run\",\"test:watch\":\"ng test\",\"build:offline\":\"ngc --project modules/offline/tsconfig.json\",\"build:dist\":\"ng-packagr -p package.json\",\"watch:dist\":\"watch \\\"npm-run-all build:dist\\\" src/ --ignoreDirectoryPattern=/pugs/\",\"build:assets\":\"npm-run-all build:assets:src build:assets:example compile:templates\",\"build:assets:src\":\"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts\",\"build:assets:example\":\"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts\",\"watch:assets\":\"npm-run-all --parallel \\\"build:assets:src -- --watch\\\" \\\"build:assets:example -- --watch\\\" \\\"compile:templates -- --watch\\\"\",\"compile:templates\":\"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne\",\"watch\":\"npm-run-all --parallel build:index watch:dist watch:assets watch:js\",\"watch:js\":\"ng serve example --port 4201 --open\",\"build:js\":\"ng build example --stats-json\",\"build:universal\":\"npm-run-all build:index build:assets\",\"build\":\"npm-run-all build:universal build:dist compile:dist:package copy:scss build:js\",\"copy:scss\":\"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss\",\"compile:dist:package\":\"node scripts/update-dist-package.js\",\"save\":\"git add . && git commit -m \\\"update\\\" && git push\",\"deploy\":\"npm-run-all build deploy:gh-pages deploy:npm save\",\"deploy:npm\":\"cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \\\"update\\\" && git push && npm publish\",\"deploy:gh-pages\":\"cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \\\"update\\\" && git push\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/AckerApple/ack-angular.git\"},\"keywords\":[\"ng\",\"Angular\",\"directives\",\"components\",\"pipes\",\"providers\"],\"author\":\"Acker Dawn Apple\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/AckerApple/ack-angular/issues\"},\"homepage\":\"https://github.com/AckerApple/ack-angular#readme\",\"dependencies\":{\"ack-angular-fx\":\"^4.1.0\",\"ack-css-boot\":\"^2.0.2\",\"ack-x\":\"^1.7.1\",\"animate.css\":\"^4.1.1\",\"csshake\":\"^1.5.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1102.8\",\"@angular-devkit/build-ng-packagr\":\"^0.1002.0\",\"@angular/animations\":\"^11.2.9\",\"@angular/cli\":\"^11.2.8\",\"@angular/common\":\"^11.2.9\",\"@angular/compiler\":\"^11.2.9\",\"@angular/compiler-cli\":\"^11.2.9\",\"@angular/core\":\"^11.2.9\",\"@angular/forms\":\"^11.2.9\",\"@angular/platform-browser\":\"^11.2.9\",\"@angular/platform-browser-dynamic\":\"^11.2.9\",\"@angular/router\":\"^11.2.9\",\"@types/jasmine\":\"^3.6.9\",\"ack-path\":\"^1.8.0\",\"ack-pug-bundler\":\"^1.4.8\",\"classlist-polyfill\":\"^1.2.0\",\"jasmine\":\"^3.7.0\",\"karma\":\"^6.3.2\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-coverage-istanbul-reporter\":\"^3.0.3\",\"karma-jasmine\":\"^4.0.1\",\"karma-jasmine-html-reporter\":\"^1.5.4\",\"karma-phantomjs-launcher\":\"^1.0.4\",\"localforage\":\"^1.9.0\",\"ng-packagr\":\"^11.2.4\",\"ngx-page-scroll\":\"^7.0.4\",\"ngx-page-scroll-core\":\"^7.0.4\",\"npm-run-all\":\"^4.1.5\",\"phantomjs-prebuilt\":\"^2.1.16\",\"pug\":\"^3.0.2\",\"pug-attrs\":\"^3.0.0\",\"pug-cli\":\"^1.0.0-alpha6\",\"reflect-metadata\":\"^0.1.13\",\"rxjs\":\"^6.6.7\",\"ts-helpers\":\"^1.1.2\",\"ts-node\":\"^9.1.1\",\"typescript\":\"4.0.5\",\"webpack-bundle-analyzer\":\"^4.4.1\",\"zone.js\":\"~0.11.4\"},\"ngPackage\":{\"lib\":{\"entryFile\":\"src/index.ts\"},\"allowedNonPeerDependencies\":[\"ack-angular-fx\",\"ack-css-boot\",\"ack-x\",\"animate.css\",\"csshake\"]},\"private\":true}");
 
 /***/ }),
 
@@ -5113,7 +5135,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ "cUpR");
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser/animations */ "omvX");
 /* harmony import */ var _src_modules_router_AckRouterModule__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../src/modules/router/AckRouterModule */ "3P8O");
-/* harmony import */ var _src_modules_offline_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../src/modules/offline/module */ "GEtt");
+/* harmony import */ var _modules_offline_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../modules/offline/module */ "Lu4X");
 /* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../src */ "/7QA");
 /* harmony import */ var ngx_page_scroll_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-page-scroll-core */ "Mpij");
 /* harmony import */ var ngx_page_scroll__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-page-scroll */ "IHjr");
@@ -5169,7 +5191,7 @@ const imports = [
     ngx_page_scroll__WEBPACK_IMPORTED_MODULE_10__["NgxPageScrollModule"],
     _src_modules_router_AckRouterModule__WEBPACK_IMPORTED_MODULE_6__["AckRouterModule"].forRoot(),
     _src__WEBPACK_IMPORTED_MODULE_8__["AckModule"].forRoot(),
-    _src_modules_offline_module__WEBPACK_IMPORTED_MODULE_7__["AckOfflineModule"].forRoot(),
+    _modules_offline_module__WEBPACK_IMPORTED_MODULE_7__["AckOfflineModule"].forRoot(),
     ack_angular_fx__WEBPACK_IMPORTED_MODULE_3__["AckFxModule"]
 ];
 console.log("declarations", declarations);
@@ -6044,35 +6066,6 @@ const string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"margin-xx
     "\n  [(query)]     = \"query\"" +
     "\n&gt;&lt;/route-reporter&gt;" +
     "\n</div><div><span ngNonBindable=\"ngNonBindable\">{{ routeState.current?.config.name }}</span><span>&nbsp;==&nbsp;</span><span>{{ routeState.current?.config.name }}</span></div><div><span ngNonBindable=\"ngNonBindable\">{{ query | json }}</span><span>&nbsp;==&nbsp;</span><span>{{ query | json }}</span></div></pre></absolute-overflow-x></div></div></div>";
-
-
-/***/ }),
-
-/***/ "pz19":
-/*!**************************************!*\
-  !*** ./src/modules/offline/index.ts ***!
-  \**************************************/
-/*! exports provided: AckOffline, AckCache, AckQue, AckApi */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _AckOffline__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AckOffline */ "/blU");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckOffline", function() { return _AckOffline__WEBPACK_IMPORTED_MODULE_0__["AckOffline"]; });
-
-/* harmony import */ var _AckCache__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AckCache */ "QO+r");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckCache", function() { return _AckCache__WEBPACK_IMPORTED_MODULE_1__["AckCache"]; });
-
-/* harmony import */ var _AckQue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AckQue */ "YQxQ");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckQue", function() { return _AckQue__WEBPACK_IMPORTED_MODULE_2__["AckQue"]; });
-
-/* harmony import */ var _AckApi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AckApi */ "eD3v");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckApi", function() { return _AckApi__WEBPACK_IMPORTED_MODULE_3__["AckApi"]; });
-
-
-
-
-
 
 
 /***/ }),

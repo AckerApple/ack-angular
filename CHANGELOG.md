@@ -1,5 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
+
+## [2.0.0] - 2021-05-12
+- AckOffline not apart of main build
+
 ## [1.18.0] - 2021-05-05
 - Updated ack-css-boot to 2.0.0 which just changes .border-v and .border-h
 
