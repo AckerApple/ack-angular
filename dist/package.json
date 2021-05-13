@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "1.18.2",
+  "version": "2.0.1",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "bundles/ack-angular.umd.js",
   "typings": "ack-angular.d.ts",

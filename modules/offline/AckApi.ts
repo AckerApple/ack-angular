@@ -15,7 +15,7 @@ import { AckQue } from "./AckQue"
 
 import {
   sendFailMeta, httpOptions
-} from "../../httpOptions"
+} from "./httpOptions"
 
 export interface apiConfig{
   //promise? : "all"|"data"//typically just the body data is promised
@@ -40,7 +40,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
   response:EventEmitter<HttpResponse<HttpEvent<Event>>> = new EventEmitter()
   //Angular4
   //response:EventEmitter<Response> = new EventEmitter()
-  
+
   Request:EventEmitter<HttpRequest<HttpEvent<Event>>> = new EventEmitter()
   AuthError:EventEmitter<Error> = new EventEmitter()
   ApiError:EventEmitter<Error> = new EventEmitter()
@@ -148,7 +148,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
       const paramKeys = Object.keys(request.params)
 
       if(!paramKeys.length)return request.url
-      
+
       let url = request.url + (request.url.search(/\?/)>=0 ? "&" : "?")
       paramKeys.sort().forEach(name=>url+=name+"="+request.params[name]+"&")
 
@@ -162,7 +162,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
     request:httpOptions
   ):Promise<HttpResponse<HttpEvent<Event>>>{
     let offlineModel = <cacheModel>request.offlineModel
-    
+
     if(offlineModel && offlineModel.constructor==String){
       request.offlineModel = offlineModel = <cacheModel>{ name:request.offlineModel }
     }
@@ -185,7 +185,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
     if(cache==null)return this._fetch(cfg)
 
     const offlineModel = <cacheModel>cfg.offlineModel
-    
+
     return this.AckCache.cacheToReturn(offlineModel.name, cache, offlineModel)
     .then(rtn=>{
       const willExpire = this.AckCache.optionsKillCache( offlineModel )
@@ -263,7 +263,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
     const promise = (resolve,reject)=>{
       let resolved = false
       this.Request.emit( request )
-      
+
       const req = this.HttpClient.request( request )
       .subscribe(event=>{
         if (event.type === HttpEventType.Response) {
@@ -300,7 +300,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
     request:httpOptions
   ):Promise<HttpResponse<HttpEvent<Event>>>{
     this.response.emit(response)//let subscribers of all responses know we got one
-    
+
     const data = response.body || response["_body"]//Angular5.body or Angular4._body
     const isJson = data && response.headers.get("Content-Type")=="application/json"
 
@@ -360,7 +360,7 @@ TimeOutError.prototype = Object.create(Error.prototype)
     })
     .then(routes=>this.AckCache.set(cachename, routes))
   }
-  
+
   get(
     path:string,
     config?:httpOptions
@@ -426,7 +426,7 @@ function upgradeConfig(
   /*const isFormData = cfg.body && FormData && cfg.body.constructor==FormData
   if(isFormData){
     const preventAutoContentType =  !cfg.headers || Object.keys(cfg.headers).filter(h=>h.search(/content-type/i)<0)
-    
+
     if(preventAutoContentType){
       cfg.headers["Content-Type"] = undefined//"multipart/form-data;"
     }

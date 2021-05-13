@@ -124,7 +124,7 @@ ScreenScroll = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 /*!**********************!*\
   !*** ./src/index.ts ***!
   \**********************/
-/*! exports provided: AckModule, AckRouterModule, RouteWatchReporter, components, pipes, ack, AckApi, AckArray, HtmlSizeService, Log, AckApp, Prompts, ErrorLog, UrlVars, WindowService, DocumentService, providers */
+/*! exports provided: AckModule, AckRouterModule, RouteWatchReporter, components, pipes, ack, AckArray, HtmlSizeService, Log, AckApp, Prompts, ErrorLog, UrlVars, WindowService, DocumentService, providers */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -147,31 +147,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ack__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ack */ "L1dz");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ack", function() { return _ack__WEBPACK_IMPORTED_MODULE_5__["ack"]; });
 
-/* harmony import */ var _modules_offline_AckApi__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/offline/AckApi */ "eD3v");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckApi", function() { return _modules_offline_AckApi__WEBPACK_IMPORTED_MODULE_6__["AckApi"]; });
+/* harmony import */ var _directives_AckArray_directive__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./directives/AckArray.directive */ "4Ihc");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckArray", function() { return _directives_AckArray_directive__WEBPACK_IMPORTED_MODULE_6__["AckArray"]; });
 
-/* harmony import */ var _directives_AckArray_directive__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./directives/AckArray.directive */ "4Ihc");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckArray", function() { return _directives_AckArray_directive__WEBPACK_IMPORTED_MODULE_7__["AckArray"]; });
+/* harmony import */ var _providers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./providers */ "AkTa");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HtmlSizeService", function() { return _providers__WEBPACK_IMPORTED_MODULE_7__["HtmlSizeService"]; });
 
-/* harmony import */ var _providers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./providers */ "AkTa");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HtmlSizeService", function() { return _providers__WEBPACK_IMPORTED_MODULE_8__["HtmlSizeService"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Log", function() { return _providers__WEBPACK_IMPORTED_MODULE_7__["Log"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Log", function() { return _providers__WEBPACK_IMPORTED_MODULE_8__["Log"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckApp", function() { return _providers__WEBPACK_IMPORTED_MODULE_7__["AckApp"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckApp", function() { return _providers__WEBPACK_IMPORTED_MODULE_8__["AckApp"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Prompts", function() { return _providers__WEBPACK_IMPORTED_MODULE_7__["Prompts"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Prompts", function() { return _providers__WEBPACK_IMPORTED_MODULE_8__["Prompts"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ErrorLog", function() { return _providers__WEBPACK_IMPORTED_MODULE_7__["ErrorLog"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ErrorLog", function() { return _providers__WEBPACK_IMPORTED_MODULE_8__["ErrorLog"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UrlVars", function() { return _providers__WEBPACK_IMPORTED_MODULE_7__["UrlVars"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UrlVars", function() { return _providers__WEBPACK_IMPORTED_MODULE_8__["UrlVars"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WindowService", function() { return _providers__WEBPACK_IMPORTED_MODULE_7__["WindowService"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WindowService", function() { return _providers__WEBPACK_IMPORTED_MODULE_8__["WindowService"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DocumentService", function() { return _providers__WEBPACK_IMPORTED_MODULE_7__["DocumentService"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DocumentService", function() { return _providers__WEBPACK_IMPORTED_MODULE_8__["DocumentService"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "providers", function() { return _providers__WEBPACK_IMPORTED_MODULE_8__["providers"]; });
-
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "providers", function() { return _providers__WEBPACK_IMPORTED_MODULE_7__["providers"]; });
 
 
 
@@ -243,10 +239,10 @@ ErrorWell = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
-/***/ "/blU":
-/*!*******************************************!*\
-  !*** ./src/modules/offline/AckOffline.ts ***!
-  \*******************************************/
+/***/ "/ibX":
+/*!***************************************!*\
+  !*** ./modules/offline/AckOffline.ts ***!
+  \***************************************/
 /*! exports provided: AckOffline */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1248,34 +1244,6 @@ HtmlWidthModel = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
-/***/ "84gn":
-/*!******************************************!*\
-  !*** ./src/modules/offline/providers.ts ***!
-  \******************************************/
-/*! exports provided: providers */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "providers", function() { return providers; });
-/* harmony import */ var _AckOffline__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AckOffline */ "/blU");
-/* harmony import */ var _AckCache__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AckCache */ "QO+r");
-/* harmony import */ var _AckQue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AckQue */ "YQxQ");
-/* harmony import */ var _AckApi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AckApi */ "eD3v");
-
-
-
-
-const providers = [
-    _AckApi__WEBPACK_IMPORTED_MODULE_3__["AckApi"],
-    _AckOffline__WEBPACK_IMPORTED_MODULE_0__["AckOffline"],
-    _AckCache__WEBPACK_IMPORTED_MODULE_1__["AckCache"],
-    _AckQue__WEBPACK_IMPORTED_MODULE_2__["AckQue"],
-];
-
-
-/***/ }),
-
 /***/ "8SBA":
 /*!**********************************************!*\
   !*** ./src/components/AckModal.component.ts ***!
@@ -1581,6 +1549,153 @@ class TemplateReader {
 
 /***/ }),
 
+/***/ "Aqkq":
+/*!***********************************!*\
+  !*** ./modules/offline/AckQue.ts ***!
+  \***********************************/
+/*! exports provided: AckQue */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AckQue", function() { return AckQue; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+/* harmony import */ var _AckOffline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AckOffline */ "/ibX");
+
+
+
+let AckQue = class AckQue extends _AckOffline__WEBPACK_IMPORTED_MODULE_2__["AckOffline"] {
+    constructor() {
+        super(...arguments);
+        this.prefix = "offline-que";
+        this.handlers = [];
+    }
+    get(name) {
+        return super.get(name)
+            .then(data => data && data['que'] ? data['que'] : []);
+    }
+    getQue(name) {
+        return this.get(name);
+    }
+    setQue(name, que) {
+        return this.set(name, que);
+    }
+    que(name, queData) {
+        return super.get(name)
+            .then(data => {
+            data = data || {};
+            data['que'] = data['que'] || [];
+            if (queData.forEach) {
+                queData.forEach(x => {
+                    data['que'].push(x);
+                });
+            }
+            else {
+                data['que'].push(queData);
+            }
+            return super.set(name, data);
+        });
+    }
+    set(name, queData) {
+        return this.que(name, queData);
+    }
+    dequeByIndex(name, index) {
+        return this.getQue(name)
+            .then(array => {
+            array.splice(index, 1);
+            return array;
+        })
+            .then(array => this.setQue(name, array));
+    }
+    processQuedByIndex(name, index) {
+        const handler = this.getQueHandlerByName(name);
+        const mem = { item: null, array: null, result: null };
+        return this.getQue(name)
+            .then(array => {
+            mem.item = array.splice(index, 1);
+            mem.array = array;
+        })
+            .then(() => this.handleQued(mem.item, handler))
+            .then(result => mem.result = result)
+            .then(() => this.setQue(name, mem.array))
+            .then(() => mem.result);
+    }
+    registerHandler(name, handler) {
+        this.handlers.push({ name, handler });
+        return this;
+    }
+    registerQueHandler(name, handler) {
+        return this.registerHandler(name, handler);
+    }
+    paramHandler(name, handler) {
+        for (let x = this.handlers.length - 1; x >= 0; --x) {
+            if (this.handlers[x].name == name) {
+                return this;
+            }
+        }
+        this.handlers.push({ name, handler });
+        return this;
+    }
+    getQueHandDefByName(name) {
+        for (let i = this.handlers.length - 1; i >= 0; --i) {
+            if (this.handlers[i].name == name)
+                return this.handlers[i];
+        }
+    }
+    getQueHandlerByName(name) {
+        const hand = this.getQueHandDefByName(name);
+        if (hand)
+            return hand.handler;
+    }
+    handleQued(qued, handler) {
+        return Promise.resolve(handler(qued));
+    }
+    processQuedHandler(hand) {
+        const results = [];
+        const mem = { que: [] };
+        const eachHandle = this.eachHandler(hand.handler);
+        return this.get(hand.name)
+            .then(que => mem.que = que)
+            .then(() => this.clear(hand.name))
+            .then(() => {
+            var promise = Promise.resolve();
+            mem.que.forEach(v => {
+                promise = promise
+                    .then(() => eachHandle(v))
+                    .catch(e => e)
+                    .then(r => results.push(r));
+            });
+            return promise;
+        })
+            .then(() => results);
+    }
+    eachHandler(handler) {
+        return data => this.handleQued(data, handler);
+    }
+    processQue(name) {
+        const handler = this.getQueHandDefByName(name);
+        return handler ? this.processQuedHandler(handler) : Promise.resolve();
+    }
+    processAllQues() {
+        const promises = [];
+        this.handlers.forEach(hand => promises.push(this.processQuedHandler(hand)));
+        return Promise.all(promises)
+            .then(proms => {
+            const results = [];
+            proms.forEach(subArray => results.push.apply(results, subArray));
+            return Promise.all(results);
+        });
+    }
+};
+AckQue = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+], AckQue);
+
+
+
+/***/ }),
+
 /***/ "B5gt":
 /*!***********************************************************!*\
   !*** ./src/components/templates/scroll-past-fixed.pug.ts ***!
@@ -1838,48 +1953,6 @@ AckSections = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
-/***/ "GEtt":
-/*!***************************************!*\
-  !*** ./src/modules/offline/module.ts ***!
-  \***************************************/
-/*! exports provided: AckOfflineModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AckOfflineModule", function() { return AckOfflineModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "IheW");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "SVse");
-/* harmony import */ var _providers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./providers */ "84gn");
-var AckOfflineModule_1;
-
-
-
-
-
-let AckOfflineModule = AckOfflineModule_1 = class AckOfflineModule {
-    static forRoot() {
-        return {
-            ngModule: AckOfflineModule_1,
-            providers: _providers__WEBPACK_IMPORTED_MODULE_4__["providers"]
-        };
-    }
-};
-AckOfflineModule = AckOfflineModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [
-            _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"]
-        ]
-    })
-], AckOfflineModule);
-
-
-
-/***/ }),
-
 /***/ "Gcs9":
 /*!*****************************************************!*\
   !*** ./src/components/templates/ack-options.pug.ts ***!
@@ -2060,6 +2133,34 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "JJlj":
+/*!**************************************!*\
+  !*** ./modules/offline/providers.ts ***!
+  \**************************************/
+/*! exports provided: providers */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "providers", function() { return providers; });
+/* harmony import */ var _AckOffline__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AckOffline */ "/ibX");
+/* harmony import */ var _AckCache__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AckCache */ "VfWh");
+/* harmony import */ var _AckQue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AckQue */ "Aqkq");
+/* harmony import */ var _AckApi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AckApi */ "T5m/");
+
+
+
+
+const providers = [
+    _AckApi__WEBPACK_IMPORTED_MODULE_3__["AckApi"],
+    _AckOffline__WEBPACK_IMPORTED_MODULE_0__["AckOffline"],
+    _AckCache__WEBPACK_IMPORTED_MODULE_1__["AckCache"],
+    _AckQue__WEBPACK_IMPORTED_MODULE_2__["AckQue"],
+];
+
+
+/***/ }),
+
 /***/ "L1dz":
 /*!********************!*\
   !*** ./src/ack.ts ***!
@@ -2211,6 +2312,48 @@ ShakeOn = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_2__["ElementRef"]])
 ], ShakeOn);
+
+
+
+/***/ }),
+
+/***/ "Lu4X":
+/*!***********************************!*\
+  !*** ./modules/offline/module.ts ***!
+  \***********************************/
+/*! exports provided: AckOfflineModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AckOfflineModule", function() { return AckOfflineModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "IheW");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "SVse");
+/* harmony import */ var _providers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./providers */ "JJlj");
+var AckOfflineModule_1;
+
+
+
+
+
+let AckOfflineModule = AckOfflineModule_1 = class AckOfflineModule {
+    static forRoot() {
+        return {
+            ngModule: AckOfflineModule_1,
+            providers: _providers__WEBPACK_IMPORTED_MODULE_4__["providers"]
+        };
+    }
+};
+AckOfflineModule = AckOfflineModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"]
+        ]
+    })
+], AckOfflineModule);
 
 
 
@@ -2565,139 +2708,6 @@ const declarations = [
     _components_AckFixedElement_component__WEBPACK_IMPORTED_MODULE_7__["AckFixedElement"],
     _components_AckFixedElementStage_component__WEBPACK_IMPORTED_MODULE_6__["AckFixedElementStage"]
 ];
-
-
-/***/ }),
-
-/***/ "QO+r":
-/*!*****************************************!*\
-  !*** ./src/modules/offline/AckCache.ts ***!
-  \*****************************************/
-/*! exports provided: AckCache */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AckCache", function() { return AckCache; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
-/* harmony import */ var _AckOffline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AckOffline */ "/blU");
-
-
-
-let AckCache = class AckCache extends _AckOffline__WEBPACK_IMPORTED_MODULE_2__["AckOffline"] {
-    constructor() {
-        super(...arguments);
-        this.prefix = "offline-cache";
-    }
-    validate(data, config) {
-        const exists = data !== null && typeof data.cache !== "undefined";
-        return exists && !this.hasExpired(data._timestamp, data.expires || config.expires);
-    }
-    optionsKillCache(options) {
-        return options.maxAge == null && options.expires == null ? false : true;
-    }
-    hasMaxAged(stamp, maxAge) {
-        const diff = Date.now() - maxAge;
-        const expired = stamp <= diff;
-        return maxAge && expired ? true : false;
-    }
-    hasExpired(_stamp, expires) {
-        const expired = Date.now() >= new Date(expires).getTime();
-        return expires && expired ? true : false;
-    }
-    param(name, options = {}) {
-        options.param = options.param || [];
-        return this.getCache(name, options);
-    }
-    paramCache(name, options) {
-        return this.param(name, options);
-    }
-    paramSave(name, options) {
-        return this.paramCache(name, options)
-            .then(items => this.setCache(name, items));
-    }
-    paramSaveCache(name, options) {
-        return this.paramSave(name, options);
-    }
-    cacheToReturn(name, data, options) {
-        if (data.cache == null && data._timestamp == null) {
-            return Promise.resolve(data);
-        }
-        const expires = data.expires || options.expires;
-        const maxAge = data.maxAge || options.maxAge;
-        if (options.allowExpired || (!expires && !maxAge)) {
-            return Promise.resolve(data.cache);
-        }
-        const expired = expires && this.hasExpired(data._timestamp, expires);
-        const isMaxed = maxAge && this.hasMaxAged(data._timestamp, maxAge);
-        if (expired || isMaxed) {
-            return this.selfDestructData(name, data)
-                .then(() => {
-                if (options.param)
-                    return Promise.resolve(options.param);
-            });
-        }
-        return Promise.resolve(data['cache']);
-    }
-    selfDestructData(name, data) {
-        if (this.dataDestructReady(data))
-            return this.clear(name);
-        return Promise.resolve();
-    }
-    dataDestructReady(data) {
-        const isMemMaxed = data['maxAge'] && this.hasMaxAged(data['_timestamp'], data['maxAge']);
-        const isMemExpired = data['expires'] && this.hasExpired(data['_timestamp'], data['expires']);
-        return isMemMaxed || isMemExpired;
-    }
-    get(name, options = { expires: null }) {
-        return super.get(name)
-            .then(data => {
-            if (data) {
-                return this.cacheToReturn(name, data, options);
-            }
-            if (options.param)
-                return options.param;
-            return;
-        });
-    }
-    getCache(name, options) {
-        return this.get(name, options);
-    }
-    dataOptionsCache(allCache, options = {}, cache) {
-        const newOptions = {};
-        newOptions._timestamp = Date.now();
-        if (options.expires)
-            newOptions.expires = options.expires;
-        if (options.maxAge)
-            newOptions.maxAge = options.maxAge;
-        allCache = allCache && allCache.constructor != String ? allCache : {};
-        Object.assign(allCache, newOptions);
-        if (cache && cache.constructor == String) {
-            allCache.cache = cache;
-        }
-        else if (allCache.cache && allCache.cache.constructor != String) {
-            Object.assign(allCache.cache, cache);
-        }
-        else {
-            allCache.cache = cache;
-        }
-        return allCache;
-    }
-    set(name, cache, options = {}) {
-        options.name = options.name || name;
-        return super.get(name)
-            .then(allCache => this.dataOptionsCache(allCache, options, cache))
-            .then(data => super.set(name, data));
-    }
-    setCache(name, cache, options) {
-        return this.set(name, cache, options);
-    }
-};
-AckCache = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
-], AckCache);
-
 
 
 /***/ }),
@@ -3298,920 +3308,10 @@ function getDistanceFromTop(element) {
 
 /***/ }),
 
-/***/ "UV2o":
-/*!******************************************!*\
-  !*** ./src/directives/FxOn.directive.ts ***!
-  \******************************************/
-/*! exports provided: FxOn, hasClass, addClass, removeClass */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FxOn", function() { return FxOn; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasClass", function() { return hasClass; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addClass", function() { return addClass; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeClass", function() { return removeClass; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
-
-
-let FxOn = class FxOn {
-    constructor(element) {
-        this.element = element;
-        this.fxThen = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.fxTypes = [
-            "bounce", "flash", "pulse", "rubberBand", "shake", "swing", "tada", "wobble", "jello",
-            "bounceIn", "bounceInDown", "bounceInLeft", "bounceInRight", "bounceInUp"
-        ];
-    }
-    ngOnInit() {
-        Promise.resolve().then(() => this.update());
-    }
-    update() {
-        if (this.fxOn) {
-            this.onTrue();
-        }
-        else {
-            this.onFalse();
-        }
-    }
-    ngOnChanges(changes) {
-        if (changes.fxOn && changes.fxOn.currentValue != null && changes.fxOn.currentValue != changes.fxOn.previousValue) {
-            this.update();
-        }
-        if (changes.fxClass && changes.fxClass.currentValue != changes.fxClass.previousValue) {
-            if (this.fxOn) {
-                removeClass(this.element.nativeElement, changes.fxClass.previousValue);
-                this.applyType();
-            }
-            else {
-                this.removeType();
-            }
-        }
-    }
-    onFalse() {
-        this.removeType();
-        if (this.timeout) {
-            clearTimeout(this.timeout);
-            delete this.timeout;
-        }
-    }
-    removeType() {
-        const elm = this.element.nativeElement;
-        removeClass(elm, this.fxClass);
-        if (this.inlineTreated) {
-            elm.style.display = 'inline';
-            this.inlineTreated = false;
-        }
-    }
-    applyType() {
-        const elm = this.element.nativeElement;
-        if (elm.style && elm.style.display === 'inline' || getElementDefaultDisplay(elm) === 'inline') {
-            this.inlineTreated = true;
-            elm.style.display = 'inline-block';
-        }
-        addClass(elm, this.fxClass);
-    }
-    onTrue() {
-        this.applyType();
-        if (this.fxForMs) {
-            this.timeout = setTimeout(() => {
-                this.onFalse();
-                this.fxThen.emit();
-            }, this.fxForMs);
-        }
-    }
-};
-FxOn.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
-];
-FxOn.propDecorators = {
-    fxOn: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    fxClass: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    fxForMs: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    fxThen: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
-};
-FxOn = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-        selector: "[fxOn]",
-        exportAs: "FxOn"
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
-], FxOn);
-
-function hasClass(el, className) {
-    const names = className.split(" ");
-    for (let x = names.length - 1; x >= 0; --x) {
-        if (el.classList) {
-            if (el.classList.contains(names[x])) {
-                continue;
-            }
-        }
-        else {
-            if (el.className.match(new RegExp('(\\s|^)' + names[x] + '(\\s|$)'))) {
-                continue;
-            }
-        }
-        return false;
-    }
-    return true;
-}
-function addClass(el, className) {
-    className.split(' ').forEach(className => {
-        if (el.classList) {
-            el.classList.add(className);
-        }
-        else if (!hasClass(el, className)) {
-            el.className += " " + className;
-        }
-    });
-}
-function removeClass(el, className) {
-    className.split(' ').forEach(className => {
-        if (el.classList) {
-            el.classList.remove(className);
-        }
-        else if (hasClass(el, className)) {
-            var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
-            el.className = el.className.replace(reg, ' ');
-        }
-    });
-}
-function getElementDefaultDisplay(tag) {
-    var cStyle, t = tag, gcs = "getComputedStyle" in window;
-    cStyle = (gcs ? window.getComputedStyle(t, "") : t.currentStyle).display;
-    return cStyle;
-}
-
-
-/***/ }),
-
-/***/ "WH1a":
-/*!****************************************************!*\
-  !*** ./src/components/templates/error-well.pug.ts ***!
-  \****************************************************/
-/*! exports provided: string */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "string", function() { return string; });
-const string = "<div *ngIf=\"error!=null &amp;&amp; errorClose!=error\" [@fadeInOutUp]=\"1\"><div *ngIf=\"error &amp;&amp; closable\" (click)=\"close.emit();errorClose=error\" style=\"position:relative\"><div style=\"position:absolute;bottom:-17px;right:-16px;border:1px solid #DDD;border-radius:50%;z-index:20\"><ack-close-icon></ack-close-icon></div></div><div class=\"pad-xxs\" *ngIf=\"error!=null &amp;&amp; errorClose!=error\" [@fadeInOutUp]=\"1\" [ngClass]=\"cssClasses\"><div class=\"flex-valign-center flex-wrap child-margin-xxs\"><div class=\"flex-1\"><div class=\"strong text-3x margin-0\" [class.cursor-pointer]=\"allowDetails\" (click)=\"!allowDetails || moreDetails=!moreDetails\">{{ getErrorMessage(error) }}</div></div><a class=\"text-blue underline text-xs\" *ngIf=\"allowDetails &amp;&amp; error &amp;&amp; (error|typeof)!='string'\" (click)=\"moreDetails=!moreDetails\">details</a></div><ng-container *ngTemplateOutlet=\"titleFooter\"></ng-container><div *ngIf=\"moreDetails\" [@fadeInOutUp]=\"1\"><absolute-overflow-x class=\"text-sm\"><pre class=\"margin-0 pad-xs\">{{ error|json }}</pre></absolute-overflow-x></div></div></div>";
-
-
-/***/ }),
-
-/***/ "WcXA":
-/*!*****************************************************!*\
-  !*** ./example/src/ComponentsExamples.component.ts ***!
-  \*****************************************************/
-/*! exports provided: ComponentsExamples */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComponentsExamples", function() { return ComponentsExamples; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./functions */ "cY6P");
-/* harmony import */ var ngx_page_scroll_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-page-scroll-core */ "Mpij");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "8Y7J");
-/* harmony import */ var ack_angular_fx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ack-angular-fx */ "cRtS");
-/* harmony import */ var _arrayOfObjects__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./arrayOfObjects */ "Hib5");
-/* harmony import */ var _templates_components_examples_pug__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./templates/components-examples.pug */ "oGl4");
-
-
-
-
-
-
-
-let ComponentsExamples = class ComponentsExamples {
-    constructor(PageScrollService) {
-        this.PageScrollService = PageScrollService;
-        this.fxClass = "bounce";
-        this.initArray = [{ value: 0 }, { value: 1 }, { value: 2 }];
-        this.views = {};
-        this.screenScrollCount = 0;
-        this.contentArray = [];
-        this.modalBackgroundColor = "rgba(255,255,255,0.95)";
-        this.ackOptionArray = [];
-        this.ackOptionArrayModal = [{ key: "b" }];
-        this.pageAt = 2;
-        this.arrayOfObjects = _arrayOfObjects__WEBPACK_IMPORTED_MODULE_5__["array"];
-        this.selectedArray = [
-            _arrayOfObjects__WEBPACK_IMPORTED_MODULE_5__["array"][2],
-            _arrayOfObjects__WEBPACK_IMPORTED_MODULE_5__["array"][4],
-            _arrayOfObjects__WEBPACK_IMPORTED_MODULE_5__["array"][6],
-            _arrayOfObjects__WEBPACK_IMPORTED_MODULE_5__["array"][8]
-        ];
-        this.absoluteOverflowXActive = true;
-        this.contentModel = 'This is some demo content being displayed';
-    }
-    causeError() {
-        this.error = new Error("An intended error was caused @ " + Object(_functions__WEBPACK_IMPORTED_MODULE_1__["getServerTime"])());
-    }
-    scrollToModuleImport() {
-        setTimeout(() => {
-            this.PageScrollService.scroll({ document: document, scrollTarget: "#Import AckModule" });
-        }, 600);
-    }
-    setModalWrapStyle(v) {
-        try {
-            this.modalWrapStyle = JSON.parse(v);
-        }
-        catch (e) { }
-    }
-};
-ComponentsExamples.ctorParameters = () => [
-    { type: ngx_page_scroll_core__WEBPACK_IMPORTED_MODULE_2__["PageScrollService"] }
-];
-ComponentsExamples = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
-        selector: "components-examples",
-        template: _templates_components_examples_pug__WEBPACK_IMPORTED_MODULE_6__["string"],
-        animations: ack_angular_fx__WEBPACK_IMPORTED_MODULE_4__["animations"]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [ngx_page_scroll_core__WEBPACK_IMPORTED_MODULE_2__["PageScrollService"]])
-], ComponentsExamples);
-
-
-
-/***/ }),
-
-/***/ "YQxQ":
-/*!***************************************!*\
-  !*** ./src/modules/offline/AckQue.ts ***!
-  \***************************************/
-/*! exports provided: AckQue */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AckQue", function() { return AckQue; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
-/* harmony import */ var _AckOffline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AckOffline */ "/blU");
-
-
-
-let AckQue = class AckQue extends _AckOffline__WEBPACK_IMPORTED_MODULE_2__["AckOffline"] {
-    constructor() {
-        super(...arguments);
-        this.prefix = "offline-que";
-        this.handlers = [];
-    }
-    get(name) {
-        return super.get(name)
-            .then(data => data && data['que'] ? data['que'] : []);
-    }
-    getQue(name) {
-        return this.get(name);
-    }
-    setQue(name, que) {
-        return this.set(name, que);
-    }
-    que(name, queData) {
-        return super.get(name)
-            .then(data => {
-            data = data || {};
-            data['que'] = data['que'] || [];
-            if (queData.forEach) {
-                queData.forEach(x => {
-                    data['que'].push(x);
-                });
-            }
-            else {
-                data['que'].push(queData);
-            }
-            return super.set(name, data);
-        });
-    }
-    set(name, queData) {
-        return this.que(name, queData);
-    }
-    dequeByIndex(name, index) {
-        return this.getQue(name)
-            .then(array => {
-            array.splice(index, 1);
-            return array;
-        })
-            .then(array => this.setQue(name, array));
-    }
-    processQuedByIndex(name, index) {
-        const handler = this.getQueHandlerByName(name);
-        const mem = { item: null, array: null, result: null };
-        return this.getQue(name)
-            .then(array => {
-            mem.item = array.splice(index, 1);
-            mem.array = array;
-        })
-            .then(() => this.handleQued(mem.item, handler))
-            .then(result => mem.result = result)
-            .then(() => this.setQue(name, mem.array))
-            .then(() => mem.result);
-    }
-    registerHandler(name, handler) {
-        this.handlers.push({ name, handler });
-        return this;
-    }
-    registerQueHandler(name, handler) {
-        return this.registerHandler(name, handler);
-    }
-    paramHandler(name, handler) {
-        for (let x = this.handlers.length - 1; x >= 0; --x) {
-            if (this.handlers[x].name == name) {
-                return this;
-            }
-        }
-        this.handlers.push({ name, handler });
-        return this;
-    }
-    getQueHandDefByName(name) {
-        for (let i = this.handlers.length - 1; i >= 0; --i) {
-            if (this.handlers[i].name == name)
-                return this.handlers[i];
-        }
-    }
-    getQueHandlerByName(name) {
-        const hand = this.getQueHandDefByName(name);
-        if (hand)
-            return hand.handler;
-    }
-    handleQued(qued, handler) {
-        return Promise.resolve(handler(qued));
-    }
-    processQuedHandler(hand) {
-        const results = [];
-        const mem = { que: [] };
-        const eachHandle = this.eachHandler(hand.handler);
-        return this.get(hand.name)
-            .then(que => mem.que = que)
-            .then(() => this.clear(hand.name))
-            .then(() => {
-            var promise = Promise.resolve();
-            mem.que.forEach(v => {
-                promise = promise
-                    .then(() => eachHandle(v))
-                    .catch(e => e)
-                    .then(r => results.push(r));
-            });
-            return promise;
-        })
-            .then(() => results);
-    }
-    eachHandler(handler) {
-        return data => this.handleQued(data, handler);
-    }
-    processQue(name) {
-        const handler = this.getQueHandDefByName(name);
-        return handler ? this.processQuedHandler(handler) : Promise.resolve();
-    }
-    processAllQues() {
-        const promises = [];
-        this.handlers.forEach(hand => promises.push(this.processQuedHandler(hand)));
-        return Promise.all(promises)
-            .then(proms => {
-            const results = [];
-            proms.forEach(subArray => results.push.apply(results, subArray));
-            return Promise.all(results);
-        });
-    }
-};
-AckQue = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
-], AckQue);
-
-
-
-/***/ }),
-
-/***/ "Ys4p":
-/*!*******************************************************!*\
-  !*** ./src/modules/router/RouteReporter.directive.ts ***!
-  \*******************************************************/
-/*! exports provided: RouteReporter */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouteReporter", function() { return RouteReporter; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "iInd");
-/* harmony import */ var _RouteWatchReporter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RouteWatchReporter */ "o6mJ");
-
-
-
-
-
-let RouteReporter = class RouteReporter {
-    constructor(Router, RouteWatchReporter, ActivatedRoute) {
-        this.Router = Router;
-        this.RouteWatchReporter = RouteWatchReporter;
-        this.ActivatedRoute = ActivatedRoute;
-        this.stateChanger = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.beforeChanger = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.activatedChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.paramsChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.dataChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.queryChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.routeChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.parentRouteChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.parentChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.parentDataChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.stateChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.$document = document;
-        this.apply();
-    }
-    ngOnInit() {
-        this.docCallbacks = this.RouteWatchReporter.getDocumentCallbacks();
-        this.RouteWatchReporter.router.events.subscribe(event => {
-            if (event.constructor === _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
-                this.beforeChanger.emit(this.RouteWatchReporter);
-                this.apply();
-                Promise.resolve().then(() => this.emit());
-            }
-        });
-        if (this.ActivatedRoute) {
-            this.ActivatedRoute.data.subscribe(data => this.dataChange.emit(this.data = data));
-        }
-        this.RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
-        this.apply();
-        Promise.resolve().then(() => {
-            this.emit();
-            this.querySub = this.RouteWatchReporter
-                .activatedRoute.queryParams
-                .subscribe(query => this.queryChange.emit(query));
-        });
-        if (this.onLoad) {
-            this.onLoad({
-                state: this.RouteWatchReporter.current,
-                params: this.RouteWatchReporter.current.params,
-                current: this.RouteWatchReporter.current
-            });
-        }
-    }
-    ngOnDestroy() {
-        this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks);
-        if (this.querySub) {
-            this.querySub.unsubscribe();
-        }
-    }
-    apply() {
-        const current = Object(_RouteWatchReporter__WEBPACK_IMPORTED_MODULE_3__["getCurrentByActive"])(this.ActivatedRoute);
-        this.route = current.config;
-        this.current = current;
-        this.state = current;
-        this.activated = current.ActivatedRoute;
-        this.params = current.params || {};
-        this.data = current.config.data || {};
-        const parent = current.parent;
-        if (parent) {
-            const config = parent.config;
-            const ar = parent.ActivatedRoute;
-            this.parentRoute = config;
-            this.parent = ar;
-            this.parentData = config.data;
-        }
-    }
-    emit() {
-        this.stateChanger.emit(this.RouteWatchReporter);
-        const current = this.RouteWatchReporter.getCurrent();
-        this.routeChange.emit(current.config);
-        this.stateChange.emit(current);
-        this.activatedChange.emit(current.ActivatedRoute);
-        this.paramsChange.emit(current.params);
-        this.dataChange.emit(current.config.data);
-        const parent = current.parent;
-        if (parent) {
-            const config = parent.config;
-            const ar = parent.ActivatedRoute;
-            this.parentRouteChange.emit(config);
-            this.parentChange.emit(ar);
-            this.parentDataChange.emit(config.data);
-        }
-    }
-    goBackTo(name, params) {
-        this.RouteWatchReporter.goBackTo(name, params);
-    }
-    tryBack(name, params) {
-        this.RouteWatchReporter.tryBack(name, params);
-    }
-};
-RouteReporter.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _RouteWatchReporter__WEBPACK_IMPORTED_MODULE_3__["RouteWatchReporter"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
-];
-RouteReporter.propDecorators = {
-    onLoad: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    stateChanger: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"], args: ["onChange",] }],
-    beforeChanger: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"], args: ["beforeChange",] }],
-    activated: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    activatedChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
-    params: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    paramsChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
-    data: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    dataChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
-    query: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    queryChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
-    route: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    routeChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
-    parentRoute: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    parentRouteChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
-    parent: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    parentChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
-    parentData: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    parentDataChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
-    current: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    state: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    stateChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
-};
-RouteReporter = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-        selector: "route-reporter",
-        exportAs: "RouteReporter"
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _RouteWatchReporter__WEBPACK_IMPORTED_MODULE_3__["RouteWatchReporter"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
-], RouteReporter);
-
-
-
-/***/ }),
-
-/***/ "bfac":
-/*!***************************************************!*\
-  !*** ./example/src/ProviderExamples.component.ts ***!
-  \***************************************************/
-/*! exports provided: ProviderExamples */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProviderExamples", function() { return ProviderExamples; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
-/* harmony import */ var ngx_page_scroll_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-page-scroll-core */ "Mpij");
-/* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../src */ "/7QA");
-/* harmony import */ var _src_modules_offline__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../src/modules/offline */ "pz19");
-/* harmony import */ var ack_angular_fx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ack-angular-fx */ "cRtS");
-/* harmony import */ var _templates_provider_examples_pug__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./templates/provider-examples.pug */ "QjCW");
-
-
-
-
-
-
-
-const pathing = window.location.pathname.split("/").slice(0, -1).join("/");
-const defaultUrl = window.location.origin + pathing + "/test.json";
-let ProviderExamples = class ProviderExamples {
-    constructor(Log, ErrorLog, PageScrollService, AckOffline, AckCache, AckQue, AckApi, Prompts) {
-        this.Log = Log;
-        this.ErrorLog = ErrorLog;
-        this.PageScrollService = PageScrollService;
-        this.AckOffline = AckOffline;
-        this.AckCache = AckCache;
-        this.AckQue = AckQue;
-        this.AckApi = AckApi;
-        this.Prompts = Prompts;
-        this.views = {};
-        this.queArray = [];
-        this.processQueResults = [];
-        this.httpQueArray = [];
-        this.httpCache = {};
-        this.cacheSeconds = 20;
-        this.httpHeaderConfigArray = [];
-        this.httpConfig = {
-            offlineModel: {
-                name: "ackHttpTests", maxAge: 15000
-            },
-            promise: "response",
-            method: "GET",
-            url: defaultUrl,
-            headers: {
-                "Content-Type": "text/plain"
-            }
-        };
-        this.ErrorLog.monitorWindow();
-        this.AckQue.registerHandler("ackNgQueTest", item => this.processQueItem(item));
-    }
-    ngOnInit() {
-        window.addEventListener("online", () => {
-            if (navigator.onLine) {
-                this.backOnlineAt = getServerTime();
-                this.processQue();
-                this.processHttpQue();
-            }
-        });
-        this.loadHttpHeaderConfigArray();
-        this.reloadData();
-    }
-    clearHttpQue() {
-        return this.AckApi.clearQue("ackHttpTests").then(() => this.readHttpQueArray(false));
-    }
-    clearHttpCache() {
-        return this.AckApi.clearCache("ackHttpTests").then(() => this.readHttpCache());
-    }
-    sendHttp() {
-        delete this.httpError;
-        delete this.httpResponse;
-        this.viewHttpSub = false;
-        let promise = Promise.resolve();
-        if (!navigator.onLine && this.httpConfig.method != "GET") {
-            this.httpError = new Error("Offline mode detected. Request qued");
-            promise = this.AckApi.AckQue.set("ackHttpTests", this.httpConfig);
-        }
-        else {
-            promise = this.AckApi.request(this.httpConfig)
-                .then(res => {
-                this.httpResponse = res;
-                delete this.httpError;
-            })
-                .catch(e => {
-                this.httpError = e;
-                delete this.httpResponse;
-            });
-        }
-        return promise
-            .then(() => this.readHttpQueArray(false))
-            .then(() => this.readHttpCache());
-    }
-    readHttpHeaderConfigArray() {
-        for (let x = 0; x < this.httpHeaderConfigArray.length; ++x) {
-            let headDef = this.httpHeaderConfigArray[x];
-            this.httpConfig.headers[headDef.name] = headDef.value;
-        }
-    }
-    readHttpQueArray(process) {
-        return this.AckApi.getQue("ackHttpTests")
-            .then(que => {
-            this.httpQueArray = que;
-            const doProcess = process || process == null && que.length && navigator.onLine;
-            if (doProcess) {
-                return this.processHttpQue();
-            }
-        });
-    }
-    readHttpCache() {
-        return this.AckApi.getCache("ackHttpTests")
-            .then(cache => this.httpCache = cache);
-    }
-    processHttpQue() {
-        return this.AckApi.processQue("ackHttpTests")
-            .then(() => this.readHttpQueArray(false));
-    }
-    loadHttpHeaderConfigArray() {
-        const rtn = [];
-        for (let name in this.httpConfig.headers) {
-            if (!name.length)
-                continue;
-            rtn.push({ name, value: this.httpConfig.headers[name] });
-        }
-        this.httpHeaderConfigArray.length = 0;
-        this.httpHeaderConfigArray.push.apply(this.httpHeaderConfigArray, rtn);
-    }
-    causeErrorLog() {
-        this.ErrorLog.add("Error " + this.ErrorLog.log.length + " of " + this.ErrorLog.maxLog + " fired @ " + getServerTime());
-    }
-    causeLog() {
-        this.Log.add("Log " + this.Log.log.length + " of " + this.Log.maxLog + " fired @ " + getServerTime());
-    }
-    scrollToModuleImport() {
-        setTimeout(() => {
-            this.PageScrollService.scroll({ document: document, scrollTarget: "#Import AckModule" });
-        }, 600);
-    }
-    reloadData() {
-        return Promise.all([
-            this.readOffline(),
-            this.readQue(),
-            this.readCache(),
-            this.readHttpQueArray(),
-            this.readHttpCache()
-        ]);
-    }
-    readOffline() {
-        this.AckOffline.get("ack-angular")
-            .then(data => this.offlineStorage = data);
-    }
-    readQue() {
-        return this.AckQue.getQue("ackNgQueTest")
-            .then(que => this.queArray = que);
-    }
-    readCache() {
-        return this.AckCache.get("ackNgCacheTest")
-            .then(cache => this.cacheStorage = cache)
-            .then(() => this.readCacheObject())
-            .catch(e => {
-            if (e.code && e.code == 401) {
-                return;
-            }
-            return Promise.reject(e);
-        });
-    }
-    readCacheObject() {
-        return this.AckOffline.get("ackNgCacheTest")
-            .then(v => {
-            this.cache = v;
-            if (v) {
-                this.cache.seconds = (v["expires"] - v["_timestamp"]) / 1000;
-            }
-        });
-    }
-    clearAllOffline() {
-        this.AckOffline.clearAll()
-            .then(() => this.reloadData());
-    }
-    setCache(value, seconds) {
-        const expires = new Date(Date.now() + (seconds * 1000)).getTime();
-        return this.AckCache.set("ackNgCacheTest", value, { expires: expires })
-            .then(() => this.readCache());
-    }
-    clearCache() {
-        this.AckCache.clear("ackNgCacheTest")
-            .then(() => this.readCache());
-    }
-    clearOffline() {
-        this.offlineStorage = "";
-        this.AckOffline.clear("ack-angular")
-            .then(() => this.readOffline());
-    }
-    setOffline(string) {
-        this.offlineStorage = string;
-        this.AckOffline.set("ack-angular", string);
-    }
-    clearQue() {
-        return this.AckQue.clear("ackNgQueTest")
-            .then(() => this.readQue());
-    }
-    que(itemData) {
-        this.queStorage = "";
-        return this.AckQue.que("ackNgQueTest", itemData)
-            .then(() => this.readQue());
-    }
-    dequeByIndex(index) {
-        return this.AckQue.dequeByIndex("ackNgQueTest", index)
-            .then(() => this.readQue());
-    }
-    processQueItem(itemData) {
-        return getServerTime() + " : ack-touched-data : " + itemData;
-    }
-    processQuedByIndex(index) {
-        return this.AckQue.processQuedByIndex("ackNgQueTest", index)
-            .then(result => this.processQueResults.push(result))
-            .then(() => this.readQue());
-    }
-    processQue() {
-        return this.AckQue.processQue("ackNgQueTest")
-            .then(results => this.processQueResults.push.apply(this.processQueResults, results))
-            .then(() => this.readQue())
-            .catch(e => this.error = e);
-    }
-    runConfirm() {
-        return this.Prompts.confirm("This is a confirm example")
-            .subscribe(result => console.log("result of confirm:" + result));
-    }
-    runAlert() {
-        return this.Prompts.alert("This is an alert example")
-            .subscribe(() => console.log("alert prompt closed"));
-    }
-};
-ProviderExamples.ctorParameters = () => [
-    { type: _src__WEBPACK_IMPORTED_MODULE_3__["Log"] },
-    { type: _src__WEBPACK_IMPORTED_MODULE_3__["ErrorLog"] },
-    { type: ngx_page_scroll_core__WEBPACK_IMPORTED_MODULE_2__["PageScrollService"] },
-    { type: _src_modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckOffline"] },
-    { type: _src_modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckCache"] },
-    { type: _src_modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckQue"] },
-    { type: _src__WEBPACK_IMPORTED_MODULE_3__["AckApi"] },
-    { type: _src__WEBPACK_IMPORTED_MODULE_3__["Prompts"] }
-];
-ProviderExamples = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: "provider-examples",
-        template: _templates_provider_examples_pug__WEBPACK_IMPORTED_MODULE_6__["string"],
-        animations: ack_angular_fx__WEBPACK_IMPORTED_MODULE_5__["animations"]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_src__WEBPACK_IMPORTED_MODULE_3__["Log"],
-        _src__WEBPACK_IMPORTED_MODULE_3__["ErrorLog"],
-        ngx_page_scroll_core__WEBPACK_IMPORTED_MODULE_2__["PageScrollService"],
-        _src_modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckOffline"],
-        _src_modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckCache"],
-        _src_modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckQue"],
-        _src__WEBPACK_IMPORTED_MODULE_3__["AckApi"],
-        _src__WEBPACK_IMPORTED_MODULE_3__["Prompts"]])
-], ProviderExamples);
-
-function getServerTime(d) {
-    d = d || new Date();
-    var h = d.getHours(), t = "AM", m = d.getMinutes();
-    m = m < 10 ? "0" + m : m;
-    h = h >= 12 ? (t = "PM", h - 12 || 12) : h == 0 ? 12 : h;
-    return ("0" + h).slice(-2) + ":" + m + ":" + ("0" + d.getSeconds()).slice(-2) + "." + d.getMilliseconds() + " " + t;
-}
-
-
-/***/ }),
-
-/***/ "cY6P":
-/*!**********************************!*\
-  !*** ./example/src/functions.ts ***!
-  \**********************************/
-/*! exports provided: getServerTime */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getServerTime", function() { return getServerTime; });
-function getServerTime(d) {
-    d = d || new Date();
-    var h = d.getHours(), t = 'AM', m = d.getMinutes();
-    m = m < 10 ? '0' + m : m;
-    h = h >= 12 ? (t = 'PM', h - 12 || 12) : h == 0 ? 12 : h;
-    return ('0' + h).slice(-2) + ':' + m + ':' + ('0' + d.getSeconds()).slice(-2) + '.' + d.getMilliseconds() + ' ' + t;
-}
-
-
-/***/ }),
-
-/***/ "dLpJ":
-/*!****************************************************!*\
-  !*** ./src/directives/InnerHtmlModel.directive.ts ***!
-  \****************************************************/
-/*! exports provided: InnerHtmlModel */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InnerHtmlModel", function() { return InnerHtmlModel; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
-
-
-let InnerHtmlModel = class InnerHtmlModel {
-    constructor(element) {
-        this.element = element;
-        this.innerHtmlModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.observer = new MutationObserver(() => this.setModel());
-        const config = {
-            attributes: true,
-            childList: true,
-            characterData: true,
-            subtree: true
-        };
-        this.observer.observe(this.element.nativeElement, config);
-    }
-    ngOnChanges() {
-        Promise.resolve().then(() => this.setModel());
-    }
-    setModel() {
-        this.innerHtmlModel = this.element.nativeElement.innerHTML;
-        this.innerHtmlModelChange.emit(this.innerHtmlModel);
-    }
-    ngOnDestroy() {
-        this.observer.disconnect();
-    }
-};
-InnerHtmlModel.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
-];
-InnerHtmlModel.propDecorators = {
-    innerHtmlModel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    innerHtmlModelChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
-};
-InnerHtmlModel = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-        selector: '[innerHtmlModel]'
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
-], InnerHtmlModel);
-
-
-
-/***/ }),
-
-/***/ "e7tw":
-/*!******************************************************!*\
-  !*** ./src/components/templates/ack-sections.pug.ts ***!
-  \******************************************************/
-/*! exports provided: string */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "string", function() { return string; });
-const string = "<ng-container [(htmlHeightModel)]=\"htmlHeightModel\"></ng-container><ng-container *ngIf=\"SectionProvider.headerTemplates.length\"><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;top:0;width:100%\" [style.z-index]=\"zIndex\" [(elementHeightModel)]=\"headerHeight\" [elementSizeModelWatch]=\"SectionProvider.headerTemplates.length\"><ng-template *ngTemplateOutlet=\"headerWrap || headerContent;context:{outlet:headerContent}\"></ng-template></div><ng-template #headerContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;width:100%\" [style.z-index]=\"zIndex\"><ng-template *ngTemplateOutlet=\"headerContent\"></ng-template></div></ng-container><ng-template *ngTemplateOutlet=\"table || defaultTableTag;context:{outlet:tableRows}\"></ng-template><ng-template #defaultTableTag=\"\"><table style=\"height:100%;width:100%;border-collapse: collapse;\" cellPadding=\"0\" cellSpacing=\"0\" border=\"0\"><ng-template *ngTemplateOutlet=\"tableRows\"></ng-template></table></ng-template><ng-template #tableRows=\"\"><tr *ngIf=\"SectionProvider.headerTemplates.length\"><td colspan=\"3\" [style.height.px]=\"headerHeight\" style=\"visibility:hidden\"><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-container></td></tr><tr><td *ngIf=\"SectionProvider.leftBodyTemplates.length\" [style.min-width.px]=\"leftBodyWidth\" valign=\"top\" align=\"right\"><ng-template #defaultLeftBodyWrap=\"\"><div style=\"overflow:auto;height:100%;\"><ng-template *ngTemplateOutlet=\"leftBodyContent\"></ng-template></div></ng-template><ng-template #leftBodyContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.leftBodyTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;\" [style.z-index]=\"zIndex - 1\" [style.height.px]=\"htmlHeightModel - (SectionProvider.headerTemplates.length ? headerHeight : 0) - (SectionProvider.footerTemplates.length ? footerHeight : 0)\" [(elementWidthModel)]=\"leftBodyWidth\" [elementSizeModelWatch]=\"SectionProvider.leftBodyTemplates.length\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;\" [style.z-index]=\"zIndex - 1\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></div><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></ng-container></td><ng-container *ngTemplateOutlet=\"bodyCell || defaultBodyCell;context:{outlet:body}\"></ng-container><ng-template #defaultBodyCell=\"\"><td style=\"height:100%\" valign=\"top\"><ng-template *ngTemplateOutlet=\"body\"></ng-template></td></ng-template><ng-template #body=\"\"><ng-content></ng-content></ng-template><td *ngIf=\"SectionProvider.rightBodyTemplates.length\" [style.min-width.px]=\"rightBodyWidth\" valign=\"top\" align=\"left\"><ng-template #defaultRightBodyWrap=\"\"><div style=\"overflow:auto;height:100%;\"><ng-template *ngTemplateOutlet=\"rightBodyContent\"></ng-template></div></ng-template><ng-template #rightBodyContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.rightBodyTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;\" [style.z-index]=\"zIndex - 1\" [style.height.px]=\"htmlHeightModel - (SectionProvider.headerTemplates.length ? headerHeight : 0) - (SectionProvider.footerTemplates.length ? footerHeight : 0)\" [(elementWidthModel)]=\"rightBodyWidth\" [elementSizeModelWatch]=\"SectionProvider.rightBodyTemplates.length\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;overflow:auto;\" [style.z-index]=\"zIndex - 1\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></div><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></ng-container></td></tr><tr *ngIf=\"SectionProvider.footerTemplates.length\"><td colspan=\"3\" [style.height.px]=\"footerHeight\"><div *ngIf=\"!mode || mode==='clone'\" style=\"visibility:hidden\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div></td></tr></ng-template><ng-container *ngIf=\"SectionProvider.footerTemplates.length\"><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;bottom:0;width:100%\" [style.z-index]=\"zIndex\" [(elementHeightModel)]=\"footerHeight\" [elementSizeModelWatch]=\"SectionProvider.footerTemplates.length\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;bottom:0;width:100%\" [style.z-index]=\"zIndex\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div></ng-container>";
-
-
-/***/ }),
-
-/***/ "eD3v":
-/*!***************************************!*\
-  !*** ./src/modules/offline/AckApi.ts ***!
-  \***************************************/
+/***/ "T5m/":
+/*!***********************************!*\
+  !*** ./modules/offline/AckApi.ts ***!
+  \***********************************/
 /*! exports provided: TimeOutError, AckApi */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4222,8 +3322,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "IheW");
-/* harmony import */ var _AckCache__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AckCache */ "QO+r");
-/* harmony import */ var _AckQue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AckQue */ "YQxQ");
+/* harmony import */ var _AckCache__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AckCache */ "VfWh");
+/* harmony import */ var _AckQue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AckQue */ "Aqkq");
 
 
 
@@ -4496,6 +3596,931 @@ function upgradeConfig(cfg) {
     }
     return cfg;
 }
+
+
+/***/ }),
+
+/***/ "TTIt":
+/*!**********************************!*\
+  !*** ./modules/offline/index.ts ***!
+  \**********************************/
+/*! exports provided: AckOffline, AckCache, AckQue, AckApi */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AckOffline__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AckOffline */ "/ibX");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckOffline", function() { return _AckOffline__WEBPACK_IMPORTED_MODULE_0__["AckOffline"]; });
+
+/* harmony import */ var _AckCache__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AckCache */ "VfWh");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckCache", function() { return _AckCache__WEBPACK_IMPORTED_MODULE_1__["AckCache"]; });
+
+/* harmony import */ var _AckQue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AckQue */ "Aqkq");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckQue", function() { return _AckQue__WEBPACK_IMPORTED_MODULE_2__["AckQue"]; });
+
+/* harmony import */ var _AckApi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AckApi */ "T5m/");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckApi", function() { return _AckApi__WEBPACK_IMPORTED_MODULE_3__["AckApi"]; });
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "UV2o":
+/*!******************************************!*\
+  !*** ./src/directives/FxOn.directive.ts ***!
+  \******************************************/
+/*! exports provided: FxOn, hasClass, addClass, removeClass */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FxOn", function() { return FxOn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasClass", function() { return hasClass; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addClass", function() { return addClass; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeClass", function() { return removeClass; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+
+
+let FxOn = class FxOn {
+    constructor(element) {
+        this.element = element;
+        this.fxThen = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.fxTypes = [
+            "bounce", "flash", "pulse", "rubberBand", "shake", "swing", "tada", "wobble", "jello",
+            "bounceIn", "bounceInDown", "bounceInLeft", "bounceInRight", "bounceInUp"
+        ];
+    }
+    ngOnInit() {
+        Promise.resolve().then(() => this.update());
+    }
+    update() {
+        if (this.fxOn) {
+            this.onTrue();
+        }
+        else {
+            this.onFalse();
+        }
+    }
+    ngOnChanges(changes) {
+        if (changes.fxOn && changes.fxOn.currentValue != null && changes.fxOn.currentValue != changes.fxOn.previousValue) {
+            this.update();
+        }
+        if (changes.fxClass && changes.fxClass.currentValue != changes.fxClass.previousValue) {
+            if (this.fxOn) {
+                removeClass(this.element.nativeElement, changes.fxClass.previousValue);
+                this.applyType();
+            }
+            else {
+                this.removeType();
+            }
+        }
+    }
+    onFalse() {
+        this.removeType();
+        if (this.timeout) {
+            clearTimeout(this.timeout);
+            delete this.timeout;
+        }
+    }
+    removeType() {
+        const elm = this.element.nativeElement;
+        removeClass(elm, this.fxClass);
+        if (this.inlineTreated) {
+            elm.style.display = 'inline';
+            this.inlineTreated = false;
+        }
+    }
+    applyType() {
+        const elm = this.element.nativeElement;
+        if (elm.style && elm.style.display === 'inline' || getElementDefaultDisplay(elm) === 'inline') {
+            this.inlineTreated = true;
+            elm.style.display = 'inline-block';
+        }
+        addClass(elm, this.fxClass);
+    }
+    onTrue() {
+        this.applyType();
+        if (this.fxForMs) {
+            this.timeout = setTimeout(() => {
+                this.onFalse();
+                this.fxThen.emit();
+            }, this.fxForMs);
+        }
+    }
+};
+FxOn.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
+];
+FxOn.propDecorators = {
+    fxOn: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fxClass: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fxForMs: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fxThen: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
+};
+FxOn = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: "[fxOn]",
+        exportAs: "FxOn"
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
+], FxOn);
+
+function hasClass(el, className) {
+    const names = className.split(" ");
+    for (let x = names.length - 1; x >= 0; --x) {
+        if (el.classList) {
+            if (el.classList.contains(names[x])) {
+                continue;
+            }
+        }
+        else {
+            if (el.className.match(new RegExp('(\\s|^)' + names[x] + '(\\s|$)'))) {
+                continue;
+            }
+        }
+        return false;
+    }
+    return true;
+}
+function addClass(el, className) {
+    className.split(' ').forEach(className => {
+        if (el.classList) {
+            el.classList.add(className);
+        }
+        else if (!hasClass(el, className)) {
+            el.className += " " + className;
+        }
+    });
+}
+function removeClass(el, className) {
+    className.split(' ').forEach(className => {
+        if (el.classList) {
+            el.classList.remove(className);
+        }
+        else if (hasClass(el, className)) {
+            var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
+            el.className = el.className.replace(reg, ' ');
+        }
+    });
+}
+function getElementDefaultDisplay(tag) {
+    var cStyle, t = tag, gcs = "getComputedStyle" in window;
+    cStyle = (gcs ? window.getComputedStyle(t, "") : t.currentStyle).display;
+    return cStyle;
+}
+
+
+/***/ }),
+
+/***/ "VfWh":
+/*!*************************************!*\
+  !*** ./modules/offline/AckCache.ts ***!
+  \*************************************/
+/*! exports provided: AckCache */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AckCache", function() { return AckCache; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+/* harmony import */ var _AckOffline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AckOffline */ "/ibX");
+
+
+
+let AckCache = class AckCache extends _AckOffline__WEBPACK_IMPORTED_MODULE_2__["AckOffline"] {
+    constructor() {
+        super(...arguments);
+        this.prefix = "offline-cache";
+    }
+    validate(data, config) {
+        const exists = data !== null && typeof data.cache !== "undefined";
+        return exists && !this.hasExpired(data._timestamp, data.expires || config.expires);
+    }
+    optionsKillCache(options) {
+        return options.maxAge == null && options.expires == null ? false : true;
+    }
+    hasMaxAged(stamp, maxAge) {
+        const diff = Date.now() - maxAge;
+        const expired = stamp <= diff;
+        return maxAge && expired ? true : false;
+    }
+    hasExpired(_stamp, expires) {
+        const expired = Date.now() >= new Date(expires).getTime();
+        return expires && expired ? true : false;
+    }
+    param(name, options = {}) {
+        options.param = options.param || [];
+        return this.getCache(name, options);
+    }
+    paramCache(name, options) {
+        return this.param(name, options);
+    }
+    paramSave(name, options) {
+        return this.paramCache(name, options)
+            .then(items => this.setCache(name, items));
+    }
+    paramSaveCache(name, options) {
+        return this.paramSave(name, options);
+    }
+    cacheToReturn(name, data, options) {
+        if (data.cache == null && data._timestamp == null) {
+            return Promise.resolve(data);
+        }
+        const expires = data.expires || options.expires;
+        const maxAge = data.maxAge || options.maxAge;
+        if (options.allowExpired || (!expires && !maxAge)) {
+            return Promise.resolve(data.cache);
+        }
+        const expired = expires && this.hasExpired(data._timestamp, expires);
+        const isMaxed = maxAge && this.hasMaxAged(data._timestamp, maxAge);
+        if (expired || isMaxed) {
+            return this.selfDestructData(name, data)
+                .then(() => {
+                if (options.param)
+                    return Promise.resolve(options.param);
+            });
+        }
+        return Promise.resolve(data['cache']);
+    }
+    selfDestructData(name, data) {
+        if (this.dataDestructReady(data))
+            return this.clear(name);
+        return Promise.resolve();
+    }
+    dataDestructReady(data) {
+        const isMemMaxed = data['maxAge'] && this.hasMaxAged(data['_timestamp'], data['maxAge']);
+        const isMemExpired = data['expires'] && this.hasExpired(data['_timestamp'], data['expires']);
+        return isMemMaxed || isMemExpired;
+    }
+    get(name, options = { expires: null }) {
+        return super.get(name)
+            .then(data => {
+            if (data) {
+                return this.cacheToReturn(name, data, options);
+            }
+            if (options.param)
+                return options.param;
+            return;
+        });
+    }
+    getCache(name, options) {
+        return this.get(name, options);
+    }
+    dataOptionsCache(allCache, options = {}, cache) {
+        const newOptions = {};
+        newOptions._timestamp = Date.now();
+        if (options.expires)
+            newOptions.expires = options.expires;
+        if (options.maxAge)
+            newOptions.maxAge = options.maxAge;
+        allCache = allCache && allCache.constructor != String ? allCache : {};
+        Object.assign(allCache, newOptions);
+        if (cache && cache.constructor == String) {
+            allCache.cache = cache;
+        }
+        else if (allCache.cache && allCache.cache.constructor != String) {
+            Object.assign(allCache.cache, cache);
+        }
+        else {
+            allCache.cache = cache;
+        }
+        return allCache;
+    }
+    set(name, cache, options = {}) {
+        options.name = options.name || name;
+        return super.get(name)
+            .then(allCache => this.dataOptionsCache(allCache, options, cache))
+            .then(data => super.set(name, data));
+    }
+    setCache(name, cache, options) {
+        return this.set(name, cache, options);
+    }
+};
+AckCache = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+], AckCache);
+
+
+
+/***/ }),
+
+/***/ "WH1a":
+/*!****************************************************!*\
+  !*** ./src/components/templates/error-well.pug.ts ***!
+  \****************************************************/
+/*! exports provided: string */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "string", function() { return string; });
+const string = "<div *ngIf=\"error!=null &amp;&amp; errorClose!=error\" [@fadeInOutUp]=\"1\"><div *ngIf=\"error &amp;&amp; closable\" (click)=\"close.emit();errorClose=error\" style=\"position:relative\"><div style=\"position:absolute;bottom:-17px;right:-16px;border:1px solid #DDD;border-radius:50%;z-index:20\"><ack-close-icon></ack-close-icon></div></div><div class=\"pad-xxs\" *ngIf=\"error!=null &amp;&amp; errorClose!=error\" [@fadeInOutUp]=\"1\" [ngClass]=\"cssClasses\"><div class=\"flex-valign-center flex-wrap child-margin-xxs\"><div class=\"flex-1\"><div class=\"strong text-3x margin-0\" [class.cursor-pointer]=\"allowDetails\" (click)=\"!allowDetails || moreDetails=!moreDetails\">{{ getErrorMessage(error) }}</div></div><a class=\"text-blue underline text-xs\" *ngIf=\"allowDetails &amp;&amp; error &amp;&amp; (error|typeof)!='string'\" (click)=\"moreDetails=!moreDetails\">details</a></div><ng-container *ngTemplateOutlet=\"titleFooter\"></ng-container><div *ngIf=\"moreDetails\" [@fadeInOutUp]=\"1\"><absolute-overflow-x class=\"text-sm\"><pre class=\"margin-0 pad-xs\">{{ error|json }}</pre></absolute-overflow-x></div></div></div>";
+
+
+/***/ }),
+
+/***/ "WcXA":
+/*!*****************************************************!*\
+  !*** ./example/src/ComponentsExamples.component.ts ***!
+  \*****************************************************/
+/*! exports provided: ComponentsExamples */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComponentsExamples", function() { return ComponentsExamples; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./functions */ "cY6P");
+/* harmony import */ var ngx_page_scroll_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-page-scroll-core */ "Mpij");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+/* harmony import */ var ack_angular_fx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ack-angular-fx */ "cRtS");
+/* harmony import */ var _arrayOfObjects__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./arrayOfObjects */ "Hib5");
+/* harmony import */ var _templates_components_examples_pug__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./templates/components-examples.pug */ "oGl4");
+
+
+
+
+
+
+
+let ComponentsExamples = class ComponentsExamples {
+    constructor(PageScrollService) {
+        this.PageScrollService = PageScrollService;
+        this.fxClass = "bounce";
+        this.initArray = [{ value: 0 }, { value: 1 }, { value: 2 }];
+        this.views = {};
+        this.screenScrollCount = 0;
+        this.contentArray = [];
+        this.modalBackgroundColor = "rgba(255,255,255,0.95)";
+        this.ackOptionArray = [];
+        this.ackOptionArrayModal = [{ key: "b" }];
+        this.pageAt = 2;
+        this.arrayOfObjects = _arrayOfObjects__WEBPACK_IMPORTED_MODULE_5__["array"];
+        this.selectedArray = [
+            _arrayOfObjects__WEBPACK_IMPORTED_MODULE_5__["array"][2],
+            _arrayOfObjects__WEBPACK_IMPORTED_MODULE_5__["array"][4],
+            _arrayOfObjects__WEBPACK_IMPORTED_MODULE_5__["array"][6],
+            _arrayOfObjects__WEBPACK_IMPORTED_MODULE_5__["array"][8]
+        ];
+        this.absoluteOverflowXActive = true;
+        this.contentModel = 'This is some demo content being displayed';
+    }
+    causeError() {
+        this.error = new Error("An intended error was caused @ " + Object(_functions__WEBPACK_IMPORTED_MODULE_1__["getServerTime"])());
+    }
+    scrollToModuleImport() {
+        setTimeout(() => {
+            this.PageScrollService.scroll({ document: document, scrollTarget: "#Import AckModule" });
+        }, 600);
+    }
+    setModalWrapStyle(v) {
+        try {
+            this.modalWrapStyle = JSON.parse(v);
+        }
+        catch (e) { }
+    }
+};
+ComponentsExamples.ctorParameters = () => [
+    { type: ngx_page_scroll_core__WEBPACK_IMPORTED_MODULE_2__["PageScrollService"] }
+];
+ComponentsExamples = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        selector: "components-examples",
+        template: _templates_components_examples_pug__WEBPACK_IMPORTED_MODULE_6__["string"],
+        animations: ack_angular_fx__WEBPACK_IMPORTED_MODULE_4__["animations"]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [ngx_page_scroll_core__WEBPACK_IMPORTED_MODULE_2__["PageScrollService"]])
+], ComponentsExamples);
+
+
+
+/***/ }),
+
+/***/ "Ys4p":
+/*!*******************************************************!*\
+  !*** ./src/modules/router/RouteReporter.directive.ts ***!
+  \*******************************************************/
+/*! exports provided: RouteReporter */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouteReporter", function() { return RouteReporter; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "iInd");
+/* harmony import */ var _RouteWatchReporter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RouteWatchReporter */ "o6mJ");
+
+
+
+
+
+let RouteReporter = class RouteReporter {
+    constructor(Router, RouteWatchReporter, ActivatedRoute) {
+        this.Router = Router;
+        this.RouteWatchReporter = RouteWatchReporter;
+        this.ActivatedRoute = ActivatedRoute;
+        this.stateChanger = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.beforeChanger = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.activatedChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.paramsChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.dataChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.queryChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.routeChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.parentRouteChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.parentChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.parentDataChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.stateChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.$document = document;
+        this.apply();
+    }
+    ngOnInit() {
+        this.docCallbacks = this.RouteWatchReporter.getDocumentCallbacks();
+        this.RouteWatchReporter.router.events.subscribe(event => {
+            if (event.constructor === _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
+                this.beforeChanger.emit(this.RouteWatchReporter);
+                this.apply();
+                Promise.resolve().then(() => this.emit());
+            }
+        });
+        if (this.ActivatedRoute) {
+            this.ActivatedRoute.data.subscribe(data => this.dataChange.emit(this.data = data));
+        }
+        this.RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
+        this.apply();
+        Promise.resolve().then(() => {
+            this.emit();
+            this.querySub = this.RouteWatchReporter
+                .activatedRoute.queryParams
+                .subscribe(query => this.queryChange.emit(query));
+        });
+        if (this.onLoad) {
+            this.onLoad({
+                state: this.RouteWatchReporter.current,
+                params: this.RouteWatchReporter.current.params,
+                current: this.RouteWatchReporter.current
+            });
+        }
+    }
+    ngOnDestroy() {
+        this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks);
+        if (this.querySub) {
+            this.querySub.unsubscribe();
+        }
+    }
+    apply() {
+        const current = Object(_RouteWatchReporter__WEBPACK_IMPORTED_MODULE_3__["getCurrentByActive"])(this.ActivatedRoute);
+        this.route = current.config;
+        this.current = current;
+        this.state = current;
+        this.activated = current.ActivatedRoute;
+        this.params = current.params || {};
+        this.data = current.config.data || {};
+        const parent = current.parent;
+        if (parent) {
+            const config = parent.config;
+            const ar = parent.ActivatedRoute;
+            this.parentRoute = config;
+            this.parent = ar;
+            this.parentData = config.data;
+        }
+    }
+    emit() {
+        this.stateChanger.emit(this.RouteWatchReporter);
+        const current = this.RouteWatchReporter.getCurrent();
+        this.routeChange.emit(current.config);
+        this.stateChange.emit(current);
+        this.activatedChange.emit(current.ActivatedRoute);
+        this.paramsChange.emit(current.params);
+        this.dataChange.emit(current.config.data);
+        const parent = current.parent;
+        if (parent) {
+            const config = parent.config;
+            const ar = parent.ActivatedRoute;
+            this.parentRouteChange.emit(config);
+            this.parentChange.emit(ar);
+            this.parentDataChange.emit(config.data);
+        }
+    }
+    goBackTo(name, params) {
+        this.RouteWatchReporter.goBackTo(name, params);
+    }
+    tryBack(name, params) {
+        this.RouteWatchReporter.tryBack(name, params);
+    }
+};
+RouteReporter.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _RouteWatchReporter__WEBPACK_IMPORTED_MODULE_3__["RouteWatchReporter"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
+];
+RouteReporter.propDecorators = {
+    onLoad: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    stateChanger: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"], args: ["onChange",] }],
+    beforeChanger: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"], args: ["beforeChange",] }],
+    activated: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    activatedChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
+    params: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    paramsChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
+    data: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    dataChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
+    query: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    queryChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
+    route: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    routeChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
+    parentRoute: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    parentRouteChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
+    parent: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    parentChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
+    parentData: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    parentDataChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
+    current: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    state: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    stateChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
+};
+RouteReporter = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: "route-reporter",
+        exportAs: "RouteReporter"
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _RouteWatchReporter__WEBPACK_IMPORTED_MODULE_3__["RouteWatchReporter"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+], RouteReporter);
+
+
+
+/***/ }),
+
+/***/ "bfac":
+/*!***************************************************!*\
+  !*** ./example/src/ProviderExamples.component.ts ***!
+  \***************************************************/
+/*! exports provided: ProviderExamples */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProviderExamples", function() { return ProviderExamples; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+/* harmony import */ var ngx_page_scroll_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-page-scroll-core */ "Mpij");
+/* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../src */ "/7QA");
+/* harmony import */ var _modules_offline__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/offline */ "TTIt");
+/* harmony import */ var ack_angular_fx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ack-angular-fx */ "cRtS");
+/* harmony import */ var _templates_provider_examples_pug__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./templates/provider-examples.pug */ "QjCW");
+
+
+
+
+
+
+
+const pathing = window.location.pathname.split("/").slice(0, -1).join("/");
+const defaultUrl = window.location.origin + pathing + "/test.json";
+let ProviderExamples = class ProviderExamples {
+    constructor(Log, ErrorLog, PageScrollService, AckOffline, AckCache, AckQue, AckApi, Prompts) {
+        this.Log = Log;
+        this.ErrorLog = ErrorLog;
+        this.PageScrollService = PageScrollService;
+        this.AckOffline = AckOffline;
+        this.AckCache = AckCache;
+        this.AckQue = AckQue;
+        this.AckApi = AckApi;
+        this.Prompts = Prompts;
+        this.views = {};
+        this.queArray = [];
+        this.processQueResults = [];
+        this.httpQueArray = [];
+        this.httpCache = {};
+        this.cacheSeconds = 20;
+        this.httpHeaderConfigArray = [];
+        this.httpConfig = {
+            offlineModel: {
+                name: "ackHttpTests", maxAge: 15000
+            },
+            promise: "response",
+            method: "GET",
+            url: defaultUrl,
+            headers: {
+                "Content-Type": "text/plain"
+            }
+        };
+        this.ErrorLog.monitorWindow();
+        this.AckQue.registerHandler("ackNgQueTest", item => this.processQueItem(item));
+    }
+    ngOnInit() {
+        window.addEventListener("online", () => {
+            if (navigator.onLine) {
+                this.backOnlineAt = getServerTime();
+                this.processQue();
+                this.processHttpQue();
+            }
+        });
+        this.loadHttpHeaderConfigArray();
+        this.reloadData();
+    }
+    clearHttpQue() {
+        return this.AckApi.clearQue("ackHttpTests").then(() => this.readHttpQueArray(false));
+    }
+    clearHttpCache() {
+        return this.AckApi.clearCache("ackHttpTests").then(() => this.readHttpCache());
+    }
+    sendHttp() {
+        delete this.httpError;
+        delete this.httpResponse;
+        this.viewHttpSub = false;
+        let promise = Promise.resolve();
+        if (!navigator.onLine && this.httpConfig.method != "GET") {
+            this.httpError = new Error("Offline mode detected. Request qued");
+            promise = this.AckApi.AckQue.set("ackHttpTests", this.httpConfig);
+        }
+        else {
+            promise = this.AckApi.request(this.httpConfig)
+                .then(res => {
+                this.httpResponse = res;
+                delete this.httpError;
+            })
+                .catch(e => {
+                this.httpError = e;
+                delete this.httpResponse;
+            });
+        }
+        return promise
+            .then(() => this.readHttpQueArray(false))
+            .then(() => this.readHttpCache());
+    }
+    readHttpHeaderConfigArray() {
+        for (let x = 0; x < this.httpHeaderConfigArray.length; ++x) {
+            let headDef = this.httpHeaderConfigArray[x];
+            this.httpConfig.headers[headDef.name] = headDef.value;
+        }
+    }
+    readHttpQueArray(process) {
+        return this.AckApi.getQue("ackHttpTests")
+            .then(que => {
+            this.httpQueArray = que;
+            const doProcess = process || process == null && que.length && navigator.onLine;
+            if (doProcess) {
+                return this.processHttpQue();
+            }
+        });
+    }
+    readHttpCache() {
+        return this.AckApi.getCache("ackHttpTests")
+            .then(cache => this.httpCache = cache);
+    }
+    processHttpQue() {
+        return this.AckApi.processQue("ackHttpTests")
+            .then(() => this.readHttpQueArray(false));
+    }
+    loadHttpHeaderConfigArray() {
+        const rtn = [];
+        for (let name in this.httpConfig.headers) {
+            if (!name.length)
+                continue;
+            rtn.push({ name, value: this.httpConfig.headers[name] });
+        }
+        this.httpHeaderConfigArray.length = 0;
+        this.httpHeaderConfigArray.push.apply(this.httpHeaderConfigArray, rtn);
+    }
+    causeErrorLog() {
+        this.ErrorLog.add("Error " + this.ErrorLog.log.length + " of " + this.ErrorLog.maxLog + " fired @ " + getServerTime());
+    }
+    causeLog() {
+        this.Log.add("Log " + this.Log.log.length + " of " + this.Log.maxLog + " fired @ " + getServerTime());
+    }
+    scrollToModuleImport() {
+        setTimeout(() => {
+            this.PageScrollService.scroll({ document: document, scrollTarget: "#Import AckModule" });
+        }, 600);
+    }
+    reloadData() {
+        return Promise.all([
+            this.readOffline(),
+            this.readQue(),
+            this.readCache(),
+            this.readHttpQueArray(),
+            this.readHttpCache()
+        ]);
+    }
+    readOffline() {
+        this.AckOffline.get("ack-angular")
+            .then(data => this.offlineStorage = data);
+    }
+    readQue() {
+        return this.AckQue.getQue("ackNgQueTest")
+            .then(que => this.queArray = que);
+    }
+    readCache() {
+        return this.AckCache.get("ackNgCacheTest")
+            .then(cache => this.cacheStorage = cache)
+            .then(() => this.readCacheObject())
+            .catch(e => {
+            if (e.code && e.code == 401) {
+                return;
+            }
+            return Promise.reject(e);
+        });
+    }
+    readCacheObject() {
+        return this.AckOffline.get("ackNgCacheTest")
+            .then(v => {
+            this.cache = v;
+            if (v) {
+                this.cache.seconds = (v["expires"] - v["_timestamp"]) / 1000;
+            }
+        });
+    }
+    clearAllOffline() {
+        this.AckOffline.clearAll()
+            .then(() => this.reloadData());
+    }
+    setCache(value, seconds) {
+        const expires = new Date(Date.now() + (seconds * 1000)).getTime();
+        return this.AckCache.set("ackNgCacheTest", value, { expires: expires })
+            .then(() => this.readCache());
+    }
+    clearCache() {
+        this.AckCache.clear("ackNgCacheTest")
+            .then(() => this.readCache());
+    }
+    clearOffline() {
+        this.offlineStorage = "";
+        this.AckOffline.clear("ack-angular")
+            .then(() => this.readOffline());
+    }
+    setOffline(string) {
+        this.offlineStorage = string;
+        this.AckOffline.set("ack-angular", string);
+    }
+    clearQue() {
+        return this.AckQue.clear("ackNgQueTest")
+            .then(() => this.readQue());
+    }
+    que(itemData) {
+        this.queStorage = "";
+        return this.AckQue.que("ackNgQueTest", itemData)
+            .then(() => this.readQue());
+    }
+    dequeByIndex(index) {
+        return this.AckQue.dequeByIndex("ackNgQueTest", index)
+            .then(() => this.readQue());
+    }
+    processQueItem(itemData) {
+        return getServerTime() + " : ack-touched-data : " + itemData;
+    }
+    processQuedByIndex(index) {
+        return this.AckQue.processQuedByIndex("ackNgQueTest", index)
+            .then(result => this.processQueResults.push(result))
+            .then(() => this.readQue());
+    }
+    processQue() {
+        return this.AckQue.processQue("ackNgQueTest")
+            .then(results => this.processQueResults.push.apply(this.processQueResults, results))
+            .then(() => this.readQue())
+            .catch(e => this.error = e);
+    }
+    runConfirm() {
+        return this.Prompts.confirm("This is a confirm example")
+            .subscribe(result => console.log("result of confirm:" + result));
+    }
+    runAlert() {
+        return this.Prompts.alert("This is an alert example")
+            .subscribe(() => console.log("alert prompt closed"));
+    }
+};
+ProviderExamples.ctorParameters = () => [
+    { type: _src__WEBPACK_IMPORTED_MODULE_3__["Log"] },
+    { type: _src__WEBPACK_IMPORTED_MODULE_3__["ErrorLog"] },
+    { type: ngx_page_scroll_core__WEBPACK_IMPORTED_MODULE_2__["PageScrollService"] },
+    { type: _modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckOffline"] },
+    { type: _modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckCache"] },
+    { type: _modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckQue"] },
+    { type: _modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckApi"] },
+    { type: _src__WEBPACK_IMPORTED_MODULE_3__["Prompts"] }
+];
+ProviderExamples = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: "provider-examples",
+        template: _templates_provider_examples_pug__WEBPACK_IMPORTED_MODULE_6__["string"],
+        animations: ack_angular_fx__WEBPACK_IMPORTED_MODULE_5__["animations"]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_src__WEBPACK_IMPORTED_MODULE_3__["Log"],
+        _src__WEBPACK_IMPORTED_MODULE_3__["ErrorLog"],
+        ngx_page_scroll_core__WEBPACK_IMPORTED_MODULE_2__["PageScrollService"],
+        _modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckOffline"],
+        _modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckCache"],
+        _modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckQue"],
+        _modules_offline__WEBPACK_IMPORTED_MODULE_4__["AckApi"],
+        _src__WEBPACK_IMPORTED_MODULE_3__["Prompts"]])
+], ProviderExamples);
+
+function getServerTime(d) {
+    d = d || new Date();
+    var h = d.getHours(), t = "AM", m = d.getMinutes();
+    m = m < 10 ? "0" + m : m;
+    h = h >= 12 ? (t = "PM", h - 12 || 12) : h == 0 ? 12 : h;
+    return ("0" + h).slice(-2) + ":" + m + ":" + ("0" + d.getSeconds()).slice(-2) + "." + d.getMilliseconds() + " " + t;
+}
+
+
+/***/ }),
+
+/***/ "cY6P":
+/*!**********************************!*\
+  !*** ./example/src/functions.ts ***!
+  \**********************************/
+/*! exports provided: getServerTime */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getServerTime", function() { return getServerTime; });
+function getServerTime(d) {
+    d = d || new Date();
+    var h = d.getHours(), t = 'AM', m = d.getMinutes();
+    m = m < 10 ? '0' + m : m;
+    h = h >= 12 ? (t = 'PM', h - 12 || 12) : h == 0 ? 12 : h;
+    return ('0' + h).slice(-2) + ':' + m + ':' + ('0' + d.getSeconds()).slice(-2) + '.' + d.getMilliseconds() + ' ' + t;
+}
+
+
+/***/ }),
+
+/***/ "dLpJ":
+/*!****************************************************!*\
+  !*** ./src/directives/InnerHtmlModel.directive.ts ***!
+  \****************************************************/
+/*! exports provided: InnerHtmlModel */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InnerHtmlModel", function() { return InnerHtmlModel; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+
+
+let InnerHtmlModel = class InnerHtmlModel {
+    constructor(element) {
+        this.element = element;
+        this.innerHtmlModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.observer = new MutationObserver(() => this.setModel());
+        const config = {
+            attributes: true,
+            childList: true,
+            characterData: true,
+            subtree: true
+        };
+        this.observer.observe(this.element.nativeElement, config);
+    }
+    ngOnChanges() {
+        Promise.resolve().then(() => this.setModel());
+    }
+    setModel() {
+        this.innerHtmlModel = this.element.nativeElement.innerHTML;
+        this.innerHtmlModelChange.emit(this.innerHtmlModel);
+    }
+    ngOnDestroy() {
+        this.observer.disconnect();
+    }
+};
+InnerHtmlModel.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
+];
+InnerHtmlModel.propDecorators = {
+    innerHtmlModel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    innerHtmlModelChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
+};
+InnerHtmlModel = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: '[innerHtmlModel]'
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
+], InnerHtmlModel);
+
+
+
+/***/ }),
+
+/***/ "e7tw":
+/*!******************************************************!*\
+  !*** ./src/components/templates/ack-sections.pug.ts ***!
+  \******************************************************/
+/*! exports provided: string */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "string", function() { return string; });
+const string = "<ng-container [(htmlHeightModel)]=\"htmlHeightModel\"></ng-container><ng-container *ngIf=\"SectionProvider.headerTemplates.length\"><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;top:0;width:100%\" [style.z-index]=\"zIndex\" [(elementHeightModel)]=\"headerHeight\" [elementSizeModelWatch]=\"SectionProvider.headerTemplates.length\"><ng-template *ngTemplateOutlet=\"headerWrap || headerContent;context:{outlet:headerContent}\"></ng-template></div><ng-template #headerContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;width:100%\" [style.z-index]=\"zIndex\"><ng-template *ngTemplateOutlet=\"headerContent\"></ng-template></div></ng-container><ng-template *ngTemplateOutlet=\"table || defaultTableTag;context:{outlet:tableRows}\"></ng-template><ng-template #defaultTableTag=\"\"><table style=\"height:100%;width:100%;border-collapse: collapse;\" cellPadding=\"0\" cellSpacing=\"0\" border=\"0\"><ng-template *ngTemplateOutlet=\"tableRows\"></ng-template></table></ng-template><ng-template #tableRows=\"\"><tr *ngIf=\"SectionProvider.headerTemplates.length\"><td colspan=\"3\" [style.height.px]=\"headerHeight\" style=\"visibility:hidden\"><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-container></td></tr><tr><td *ngIf=\"SectionProvider.leftBodyTemplates.length\" [style.min-width.px]=\"leftBodyWidth\" valign=\"top\" align=\"right\"><ng-template #defaultLeftBodyWrap=\"\"><div style=\"overflow:auto;height:100%;\"><ng-template *ngTemplateOutlet=\"leftBodyContent\"></ng-template></div></ng-template><ng-template #leftBodyContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.leftBodyTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;\" [style.z-index]=\"zIndex - 1\" [style.height.px]=\"htmlHeightModel - (SectionProvider.headerTemplates.length ? headerHeight : 0) - (SectionProvider.footerTemplates.length ? footerHeight : 0)\" [(elementWidthModel)]=\"leftBodyWidth\" [elementSizeModelWatch]=\"SectionProvider.leftBodyTemplates.length\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;\" [style.z-index]=\"zIndex - 1\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></div><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></ng-container></td><ng-container *ngTemplateOutlet=\"bodyCell || defaultBodyCell;context:{outlet:body}\"></ng-container><ng-template #defaultBodyCell=\"\"><td style=\"height:100%\" valign=\"top\"><ng-template *ngTemplateOutlet=\"body\"></ng-template></td></ng-template><ng-template #body=\"\"><ng-content></ng-content></ng-template><td *ngIf=\"SectionProvider.rightBodyTemplates.length\" [style.min-width.px]=\"rightBodyWidth\" valign=\"top\" align=\"left\"><ng-template #defaultRightBodyWrap=\"\"><div style=\"overflow:auto;height:100%;\"><ng-template *ngTemplateOutlet=\"rightBodyContent\"></ng-template></div></ng-template><ng-template #rightBodyContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.rightBodyTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;\" [style.z-index]=\"zIndex - 1\" [style.height.px]=\"htmlHeightModel - (SectionProvider.headerTemplates.length ? headerHeight : 0) - (SectionProvider.footerTemplates.length ? footerHeight : 0)\" [(elementWidthModel)]=\"rightBodyWidth\" [elementSizeModelWatch]=\"SectionProvider.rightBodyTemplates.length\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;overflow:auto;\" [style.z-index]=\"zIndex - 1\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></div><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></ng-container></td></tr><tr *ngIf=\"SectionProvider.footerTemplates.length\"><td colspan=\"3\" [style.height.px]=\"footerHeight\"><div *ngIf=\"!mode || mode==='clone'\" style=\"visibility:hidden\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div></td></tr></ng-template><ng-container *ngIf=\"SectionProvider.footerTemplates.length\"><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;bottom:0;width:100%\" [style.z-index]=\"zIndex\" [(elementHeightModel)]=\"footerHeight\" [elementSizeModelWatch]=\"SectionProvider.footerTemplates.length\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;bottom:0;width:100%\" [style.z-index]=\"zIndex\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div></ng-container>";
 
 
 /***/ }),
@@ -5075,7 +5100,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, dependencies, devDependencies, ngPackage, private, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"ack-angular\",\"version\":\"1.18.2\",\"description\":\"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\",\"main\":\"dist/index.js\",\"typings\":\"dist/index.d.ts\",\"scripts\":{\"start\":\"ng serve example --port 4201 --open\",\"start:old\":\"ack-reload -d ./example/www\",\"build:index\":\"pug example/src/index.pug --out example/src\",\"stats\":\"webpack-bundle-analyzer example/www/stats.json\",\"install:example\":\"npm install --prefix example\",\"test\":\"ng test --browser PhantomJS --single-run\",\"test:watch\":\"ng test\",\"build:dist:old\":\"ngc --project src/tsconfig.json\",\"build:dist\":\"ng-packagr -p package.json\",\"watch:dist\":\"watch \\\"npm-run-all build:dist\\\" src/ --ignoreDirectoryPattern=/pugs/\",\"build:assets\":\"npm-run-all build:assets:src build:assets:example compile:templates\",\"build:assets:src\":\"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts\",\"build:assets:example\":\"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts\",\"watch:assets\":\"npm-run-all --parallel \\\"build:assets:src -- --watch\\\" \\\"build:assets:example -- --watch\\\" \\\"compile:templates -- --watch\\\"\",\"compile:templates\":\"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne\",\"watch\":\"npm-run-all --parallel build:index watch:dist watch:assets watch:js\",\"watch:js\":\"ng serve example --port 4201 --open\",\"build:js\":\"ng build example --stats-json\",\"build:universal\":\"npm-run-all build:index build:assets\",\"build\":\"npm-run-all build:universal build:dist compile:dist:package copy:scss build:js\",\"copy:scss\":\"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss\",\"compile:dist:package\":\"node scripts/update-dist-package.js\",\"save\":\"git add . && git commit -m \\\"update\\\" && git push\",\"deploy\":\"npm-run-all build deploy:gh-pages deploy:npm save\",\"deploy:npm\":\"cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \\\"update\\\" && git push && npm publish\",\"deploy:gh-pages\":\"cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \\\"update\\\" && git push\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/AckerApple/ack-angular.git\"},\"keywords\":[\"ng\",\"Angular\",\"directives\",\"components\",\"pipes\",\"providers\"],\"author\":\"Acker Dawn Apple\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/AckerApple/ack-angular/issues\"},\"homepage\":\"https://github.com/AckerApple/ack-angular#readme\",\"dependencies\":{\"ack-angular-fx\":\"^4.1.0\",\"ack-css-boot\":\"^2.0.2\",\"ack-x\":\"^1.7.1\",\"animate.css\":\"^4.1.1\",\"csshake\":\"^1.5.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1102.8\",\"@angular-devkit/build-ng-packagr\":\"^0.1002.0\",\"@angular/animations\":\"^11.2.9\",\"@angular/cli\":\"^11.2.8\",\"@angular/common\":\"^11.2.9\",\"@angular/compiler\":\"^11.2.9\",\"@angular/compiler-cli\":\"^11.2.9\",\"@angular/core\":\"^11.2.9\",\"@angular/forms\":\"^11.2.9\",\"@angular/platform-browser\":\"^11.2.9\",\"@angular/platform-browser-dynamic\":\"^11.2.9\",\"@angular/router\":\"^11.2.9\",\"@types/jasmine\":\"^3.6.9\",\"ack-path\":\"^1.8.0\",\"ack-pug-bundler\":\"^1.4.8\",\"classlist-polyfill\":\"^1.2.0\",\"jasmine\":\"^3.7.0\",\"karma\":\"^6.3.2\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-coverage-istanbul-reporter\":\"^3.0.3\",\"karma-jasmine\":\"^4.0.1\",\"karma-jasmine-html-reporter\":\"^1.5.4\",\"karma-phantomjs-launcher\":\"^1.0.4\",\"localforage\":\"^1.9.0\",\"ng-packagr\":\"^11.2.4\",\"ngx-page-scroll\":\"^7.0.4\",\"ngx-page-scroll-core\":\"^7.0.4\",\"npm-run-all\":\"^4.1.5\",\"phantomjs-prebuilt\":\"^2.1.16\",\"pug\":\"^3.0.2\",\"pug-attrs\":\"^3.0.0\",\"pug-cli\":\"^1.0.0-alpha6\",\"reflect-metadata\":\"^0.1.13\",\"rxjs\":\"^6.6.7\",\"ts-helpers\":\"^1.1.2\",\"ts-node\":\"^9.1.1\",\"typescript\":\"4.0.5\",\"webpack-bundle-analyzer\":\"^4.4.1\",\"zone.js\":\"~0.11.4\"},\"ngPackage\":{\"lib\":{\"entryFile\":\"src/index.ts\"},\"allowedNonPeerDependencies\":[\"ack-angular-fx\",\"ack-css-boot\",\"ack-x\",\"animate.css\",\"csshake\"]},\"private\":true}");
+module.exports = JSON.parse("{\"name\":\"ack-angular\",\"version\":\"2.0.1\",\"description\":\"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\",\"main\":\"dist/index.js\",\"typings\":\"dist/index.d.ts\",\"scripts\":{\"start\":\"ng serve example --port 4201 --open\",\"start:old\":\"ack-reload -d ./example/www\",\"build:index\":\"pug example/src/index.pug --out example/src\",\"stats\":\"webpack-bundle-analyzer example/www/stats.json\",\"install:example\":\"npm install --prefix example\",\"test\":\"ng test --browser PhantomJS --single-run\",\"test:watch\":\"ng test\",\"build:dist:old\":\"ngc --project src/tsconfig.json\",\"build:dist\":\"ng-packagr -p package.json\",\"watch:dist\":\"watch \\\"npm-run-all build:dist\\\" src/ --ignoreDirectoryPattern=/pugs/\",\"build:assets\":\"npm-run-all build:assets:src build:assets:example compile:templates\",\"build:assets:src\":\"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts\",\"build:assets:example\":\"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts\",\"watch:assets\":\"npm-run-all --parallel \\\"build:assets:src -- --watch\\\" \\\"build:assets:example -- --watch\\\" \\\"compile:templates -- --watch\\\"\",\"compile:templates\":\"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne\",\"watch\":\"npm-run-all --parallel build:index watch:dist watch:assets watch:js\",\"watch:js\":\"ng serve example --port 4201 --open\",\"build:js\":\"ng build example --stats-json\",\"build:universal\":\"npm-run-all build:index build:assets\",\"build\":\"npm-run-all build:universal build:dist compile:dist:package copy:scss build:js\",\"copy:scss\":\"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss\",\"compile:dist:package\":\"node scripts/update-dist-package.js\",\"save\":\"git add . && git commit -m \\\"update\\\" && git push\",\"deploy\":\"npm-run-all build deploy:gh-pages deploy:npm save\",\"deploy:npm\":\"cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \\\"update\\\" && git push && npm publish\",\"deploy:gh-pages\":\"cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \\\"update\\\" && git push\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/AckerApple/ack-angular.git\"},\"keywords\":[\"ng\",\"Angular\",\"directives\",\"components\",\"pipes\",\"providers\"],\"author\":\"Acker Dawn Apple\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/AckerApple/ack-angular/issues\"},\"homepage\":\"https://github.com/AckerApple/ack-angular#readme\",\"dependencies\":{\"ack-angular-fx\":\"^4.1.0\",\"ack-css-boot\":\"^2.0.2\",\"ack-x\":\"^1.7.1\",\"animate.css\":\"^4.1.1\",\"csshake\":\"^1.5.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1102.8\",\"@angular-devkit/build-ng-packagr\":\"^0.1002.0\",\"@angular/animations\":\"^11.2.9\",\"@angular/cli\":\"^11.2.8\",\"@angular/common\":\"^11.2.9\",\"@angular/compiler\":\"^11.2.9\",\"@angular/compiler-cli\":\"^11.2.9\",\"@angular/core\":\"^11.2.9\",\"@angular/forms\":\"^11.2.9\",\"@angular/platform-browser\":\"^11.2.9\",\"@angular/platform-browser-dynamic\":\"^11.2.9\",\"@angular/router\":\"^11.2.9\",\"@types/jasmine\":\"^3.6.9\",\"ack-path\":\"^1.8.0\",\"ack-pug-bundler\":\"^1.4.8\",\"classlist-polyfill\":\"^1.2.0\",\"jasmine\":\"^3.7.0\",\"karma\":\"^6.3.2\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-coverage-istanbul-reporter\":\"^3.0.3\",\"karma-jasmine\":\"^4.0.1\",\"karma-jasmine-html-reporter\":\"^1.5.4\",\"karma-phantomjs-launcher\":\"^1.0.4\",\"localforage\":\"^1.9.0\",\"ng-packagr\":\"^11.2.4\",\"ngx-page-scroll\":\"^7.0.4\",\"ngx-page-scroll-core\":\"^7.0.4\",\"npm-run-all\":\"^4.1.5\",\"phantomjs-prebuilt\":\"^2.1.16\",\"pug\":\"^3.0.2\",\"pug-attrs\":\"^3.0.0\",\"pug-cli\":\"^1.0.0-alpha6\",\"reflect-metadata\":\"^0.1.13\",\"rxjs\":\"^6.6.7\",\"ts-helpers\":\"^1.1.2\",\"ts-node\":\"^9.1.1\",\"typescript\":\"4.0.5\",\"webpack-bundle-analyzer\":\"^4.4.1\",\"zone.js\":\"~0.11.4\"},\"ngPackage\":{\"lib\":{\"entryFile\":\"src/index.ts\"},\"allowedNonPeerDependencies\":[\"ack-angular-fx\",\"ack-css-boot\",\"ack-x\",\"animate.css\",\"csshake\"]},\"private\":true}");
 
 /***/ }),
 
@@ -5113,7 +5138,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ "cUpR");
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser/animations */ "omvX");
 /* harmony import */ var _src_modules_router_AckRouterModule__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../src/modules/router/AckRouterModule */ "3P8O");
-/* harmony import */ var _src_modules_offline_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../src/modules/offline/module */ "GEtt");
+/* harmony import */ var _modules_offline_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../modules/offline/module */ "Lu4X");
 /* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../src */ "/7QA");
 /* harmony import */ var ngx_page_scroll_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-page-scroll-core */ "Mpij");
 /* harmony import */ var ngx_page_scroll__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-page-scroll */ "IHjr");
@@ -5169,7 +5194,7 @@ const imports = [
     ngx_page_scroll__WEBPACK_IMPORTED_MODULE_10__["NgxPageScrollModule"],
     _src_modules_router_AckRouterModule__WEBPACK_IMPORTED_MODULE_6__["AckRouterModule"].forRoot(),
     _src__WEBPACK_IMPORTED_MODULE_8__["AckModule"].forRoot(),
-    _src_modules_offline_module__WEBPACK_IMPORTED_MODULE_7__["AckOfflineModule"].forRoot(),
+    _modules_offline_module__WEBPACK_IMPORTED_MODULE_7__["AckOfflineModule"].forRoot(),
     ack_angular_fx__WEBPACK_IMPORTED_MODULE_3__["AckFxModule"]
 ];
 console.log("declarations", declarations);
@@ -6044,35 +6069,6 @@ const string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"margin-xx
     "\n  [(query)]     = \"query\"" +
     "\n&gt;&lt;/route-reporter&gt;" +
     "\n</div><div><span ngNonBindable=\"ngNonBindable\">{{ routeState.current?.config.name }}</span><span>&nbsp;==&nbsp;</span><span>{{ routeState.current?.config.name }}</span></div><div><span ngNonBindable=\"ngNonBindable\">{{ query | json }}</span><span>&nbsp;==&nbsp;</span><span>{{ query | json }}</span></div></pre></absolute-overflow-x></div></div></div>";
-
-
-/***/ }),
-
-/***/ "pz19":
-/*!**************************************!*\
-  !*** ./src/modules/offline/index.ts ***!
-  \**************************************/
-/*! exports provided: AckOffline, AckCache, AckQue, AckApi */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _AckOffline__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AckOffline */ "/blU");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckOffline", function() { return _AckOffline__WEBPACK_IMPORTED_MODULE_0__["AckOffline"]; });
-
-/* harmony import */ var _AckCache__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AckCache */ "QO+r");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckCache", function() { return _AckCache__WEBPACK_IMPORTED_MODULE_1__["AckCache"]; });
-
-/* harmony import */ var _AckQue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AckQue */ "YQxQ");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckQue", function() { return _AckQue__WEBPACK_IMPORTED_MODULE_2__["AckQue"]; });
-
-/* harmony import */ var _AckApi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AckApi */ "eD3v");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AckApi", function() { return _AckApi__WEBPACK_IMPORTED_MODULE_3__["AckApi"]; });
-
-
-
-
-
 
 
 /***/ }),
@@ -7185,8 +7181,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aString", function() { return aString; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ack", function() { return ack; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pipes", function() { return pipes; });
-/* harmony import */ var ack_x_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ack-x/browser */ "FP9j");
-/* harmony import */ var ack_x_browser__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(ack_x_browser__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var ack_x_js_index_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ack-x/js/index-browser */ "NDoQ");
+/* harmony import */ var ack_x_js_index_browser__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(ack_x_js_index_browser__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _invokeRotator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./invokeRotator */ "Hkjg");
 
 function between(input, a, b) {
@@ -7315,7 +7311,7 @@ function capitalizeOne(input) {
     return (!!input) ? input.replace(reg, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); }) : '';
 }
 function a(name) {
-    const av = new ack_x_browser__WEBPACK_IMPORTED_MODULE_0__["ack"]();
+    const av = new ack_x_js_index_browser__WEBPACK_IMPORTED_MODULE_0__["ack"]();
     return Object(_invokeRotator__WEBPACK_IMPORTED_MODULE_1__["invokeRotator"])(av[name]);
 }
 
@@ -7323,7 +7319,7 @@ const aDate = a('date');
 const aTime = a('time');
 const aMath = Object(_invokeRotator__WEBPACK_IMPORTED_MODULE_1__["invokeRotator"])(Math);
 const aString = Object(_invokeRotator__WEBPACK_IMPORTED_MODULE_1__["invokeRotator"])(String);
-const ack = Object(_invokeRotator__WEBPACK_IMPORTED_MODULE_1__["invokeRotator"])(ack_x_browser__WEBPACK_IMPORTED_MODULE_0__["ack"]);
+const ack = Object(_invokeRotator__WEBPACK_IMPORTED_MODULE_1__["invokeRotator"])(ack_x_js_index_browser__WEBPACK_IMPORTED_MODULE_0__["ack"]);
 const pipes = {
     ack,
     aDate,

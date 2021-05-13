@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 
 import { AckRouterModule } from "../../src/modules/router/AckRouterModule"
-import { AckOfflineModule } from "../../src/modules/offline/module";
+import { AckOfflineModule } from "../../modules/offline/module";
 
 import { AckModule } from "../../src"
 

@@ -10,14 +10,13 @@ import {
 import {
   Log,
   ErrorLog,
-  AckApi,
   Prompts,
-  httpOptions
 } from "../../src"
 
+import { httpOptions } from "../../modules/offline/httpOptions"
 import {
-  AckOffline, AckCache, AckQue
-} from "../../src/modules/offline"
+  AckApi, AckOffline, AckCache, AckQue
+} from "../../modules/offline"
 
 import { animations } from "ack-angular-fx"
 import { string as providerExamples } from "./templates/provider-examples.pug"
@@ -117,7 +116,7 @@ const defaultUrl = window.location.origin+pathing+"/test.json"
         delete this.httpResponse
       })
     }
-    
+
     return promise
     .then( ()=>this.readHttpQueArray(false) )
     .then( ()=>this.readHttpCache() )
@@ -231,7 +230,7 @@ const defaultUrl = window.location.origin+pathing+"/test.json"
     return this.AckCache.set("ackNgCacheTest", value, {expires:expires})
     .then(()=>this.readCache())
   }
-  
+
   clearCache(){
     this.AckCache.clear("ackNgCacheTest")
     .then( ()=>this.readCache() )

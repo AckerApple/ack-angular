@@ -1,4 +1,4 @@
-import { cacheModel } from "./modules/offline/AckCache"
+import { cacheModel } from "./AckCache"
 
 //specific to failed POST/PUT
 export interface sendFailMeta{
