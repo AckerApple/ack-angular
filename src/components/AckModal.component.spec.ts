@@ -13,7 +13,7 @@ export class ContainerComponent {
 }
 
 @NgModule({
-  imports: [ BrowserAnimationsModule, AckModule ],
+  imports: [ BrowserAnimationsModule, AckModule.forRoot() ],
   declarations: [ ContainerComponent ]
 }) export class AppModule {}
 

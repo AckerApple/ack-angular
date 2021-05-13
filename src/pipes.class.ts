@@ -1,4 +1,4 @@
-import { ack as ackX } from "ack-x/js/index-browser"
+import { ack as ackX } from "ack-x/es/index-browser"
 
 export function between(
   input: number, a: number, b: number

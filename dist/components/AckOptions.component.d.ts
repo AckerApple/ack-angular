@@ -2,7 +2,7 @@ import { ElementRef, EventEmitter } from "@angular/core";
 import { TemplateReader } from "../TemplateReader.class";
 export declare class AckOptions {
     ElementRef: ElementRef;
-    array: any[];
+    array: never[];
     stylize: boolean;
     multiple: boolean;
     modelAsArray: boolean;

@@ -3688,18 +3688,14 @@
       /* harmony import */
 
 
-      var ack_x_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! ack-x/browser */
-      "TLbb");
-      /* harmony import */
-
-
-      var ack_x_browser__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(ack_x_browser__WEBPACK_IMPORTED_MODULE_0__);
+      var ack_x_es_index_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! ack-x/es/index-browser */
+      "qVHK");
       /* harmony reexport (safe) */
 
 
       __webpack_require__.d(__webpack_exports__, "ack", function () {
-        return ack_x_browser__WEBPACK_IMPORTED_MODULE_0__["ack"];
+        return ack_x_es_index_browser__WEBPACK_IMPORTED_MODULE_0__["ack"];
       });
       /***/
 
@@ -4033,55 +4029,13 @@
       !*** ./src/declarations.ts ***!
       \*****************************/
 
-    /*! exports provided: EnterKey, EscapeKey, PreventBackKey, PreventEnterKey, InputHint, FormChanged, FormAlter, screenDirectives, declarations, default */
+    /*! exports provided: screenDirectives, declarations */
 
     /***/
     function O5Bq(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "EnterKey", function () {
-        return EnterKey;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "EscapeKey", function () {
-        return EscapeKey;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "PreventBackKey", function () {
-        return PreventBackKey;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "PreventEnterKey", function () {
-        return PreventEnterKey;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "InputHint", function () {
-        return InputHint;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "FormChanged", function () {
-        return FormChanged;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "FormAlter", function () {
-        return FormAlter;
-      });
       /* harmony export (binding) */
 
 
@@ -4097,475 +4051,228 @@
       /* harmony import */
 
 
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "mrSG");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "8Y7J");
-      /* harmony import */
-
-
-      var _components_AckSections_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _components_AckSections_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! ./components/AckSections.component */
       "F4ZD");
       /* harmony import */
 
 
-      var _components_AckSectionTemplates_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _components_AckSectionTemplates_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! ./components/AckSectionTemplates.component */
       "fA6y");
       /* harmony import */
 
 
-      var _components_AckModal_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _components_AckModal_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./components/AckModal.component */
       "8SBA");
       /* harmony import */
 
 
-      var _components_AckModalLayout_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _components_AckModalLayout_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! ./components/AckModalLayout.component */
       "1KjV");
       /* harmony import */
 
 
-      var _components_AckFixedElementStage_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _components_AckFixedElementStage_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./components/AckFixedElementStage.component */
       "CsuE");
       /* harmony import */
 
 
-      var _components_AckFixedElement_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _components_AckFixedElement_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./components/AckFixedElement.component */
       "SfXv");
       /* harmony import */
 
 
-      var _components_AckCloseIcon_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _components_AckCloseIcon_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./components/AckCloseIcon.component */
       "S2n4");
       /* harmony import */
 
 
-      var _components_AckOptions_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _components_AckOptions_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./components/AckOptions.component */
       "nlrQ");
       /* harmony import */
 
 
-      var _components_AckOptionsModal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _components_AckOptionsModal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./components/AckOptionsModal.component */
       "iooJ");
       /* harmony import */
 
 
-      var _components_AbsoluteOverflowX_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _components_AbsoluteOverflowX_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/AbsoluteOverflowX.component */
       "sEoc");
       /* harmony import */
 
 
-      var _components_ErrorWell_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _components_ErrorWell_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/ErrorWell.component */
       "/D3w");
       /* harmony import */
 
 
-      var _components_ReaderHeaderBody_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _components_ReaderHeaderBody_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./components/ReaderHeaderBody.component */
       "8Wnv");
       /* harmony import */
 
 
-      var _components_debug_area_DebugArea_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var _components_debug_area_DebugArea_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./components/debug-area/DebugArea.component */
       "iEvh");
       /* harmony import */
 
 
-      var _directives_AckArray_directive__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      var _directives_AckArray_directive__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! ./directives/AckArray.directive */
       "4Ihc");
       /* harmony import */
 
 
-      var _directives_AckAggregate_directive__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      var _directives_AckAggregate_directive__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ./directives/AckAggregate.directive */
       "LfEq");
       /* harmony import */
 
 
-      var _components_ScrollPastFixed_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      var _components_ScrollPastFixed_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! ./components/ScrollPastFixed.component */
       "T/m2");
       /* harmony import */
 
 
-      var _directives_ShakeOn_directive__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+      var _directives_ShakeOn_directive__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! ./directives/ShakeOn.directive */
       "Ln0R");
       /* harmony import */
 
 
-      var _directives_FxOn_directive__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+      var _directives_FxOn_directive__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
       /*! ./directives/FxOn.directive */
       "UV2o");
       /* harmony import */
 
 
-      var _directives_FocusOn_directive__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+      var _directives_FocusOn_directive__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
       /*! ./directives/FocusOn.directive */
       "xM1n");
       /* harmony import */
 
 
-      var _directives_Init_directive__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+      var _directives_Init_directive__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
       /*! ./directives/Init.directive */
       "eNHZ");
       /* harmony import */
 
 
-      var _directives_ContentModel_directive__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
+      var _directives_ContentModel_directive__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
       /*! ./directives/ContentModel.directive */
       "nuEm");
       /* harmony import */
 
 
-      var _directives_SelectOn_directive__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
+      var _directives_SelectOn_directive__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
       /*! ./directives/SelectOn.directive */
       "6DBY");
       /* harmony import */
 
 
-      var _directives_InnerHtmlModel_directive__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
+      var _directives_InnerHtmlModel_directive__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
       /*! ./directives/InnerHtmlModel.directive */
       "dLpJ");
       /* harmony import */
 
 
-      var _directives_ReplaceModel_directive__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
+      var _directives_ReplaceModel_directive__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
       /*! ./directives/ReplaceModel.directive */
       "eTfi");
       /* harmony import */
 
 
-      var _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(
+      var _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
       /*! ./directives/ElementSizeModel.directive */
       "unt3");
       /* harmony import */
 
 
-      var _directives_ScreenScrollHeightDiff_directive__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(
+      var _directives_ScreenScrollHeightDiff_directive__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
       /*! ./directives/ScreenScrollHeightDiff.directive */
       "2Uos");
       /* harmony import */
 
 
-      var _directives_ScreenScroll_directive__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(
+      var _directives_ScreenScroll_directive__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(
       /*! ./directives/ScreenScroll.directive */
       "/2xC");
       /* harmony import */
 
 
-      var _directives_PxFromHtmlTop_directive__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(
+      var _directives_PxFromHtmlTop_directive__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(
       /*! ./directives/PxFromHtmlTop.directive */
       "v+h3");
       /* harmony import */
 
 
-      var _directives_ScreenScrollModelY_directive__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(
+      var _directives_ScreenScrollModelY_directive__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(
       /*! ./directives/ScreenScrollModelY.directive */
       "q90b");
       /* harmony import */
 
 
-      var _directives_ScreenWidthModel_directive__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(
+      var _directives_ScreenWidthModel_directive__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(
       /*! ./directives/ScreenWidthModel.directive */
       "stBn");
       /* harmony import */
 
 
-      var _directives_ScreenHeightModel_directive__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(
+      var _directives_ScreenHeightModel_directive__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(
       /*! ./directives/ScreenHeightModel.directive */
       "SJOV");
       /* harmony import */
 
 
-      var _directives_HtmlWidthModel_directive__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(
+      var _directives_HtmlWidthModel_directive__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(
       /*! ./directives/HtmlWidthModel.directive */
       "7RV/");
       /* harmony import */
 
 
-      var _directives_HtmlHeightModel_directive__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(
+      var _directives_HtmlHeightModel_directive__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(
       /*! ./directives/HtmlHeightModel.directive */
       "5sUW");
       /* harmony import */
 
 
-      var _directives_StatusOnlineModel_directive__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(
+      var _directives_StatusOnlineModel_directive__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(
       /*! ./directives/StatusOnlineModel.directive */
       "IyaO");
       /* harmony import */
 
 
-      var _directives_StatusOfflineModel_directive__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(
+      var _directives_StatusOfflineModel_directive__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(
       /*! ./directives/StatusOfflineModel.directive */
       "zFTS");
       /* harmony import */
 
 
-      var _directives_VarDirective_directive__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(
+      var _directives_VarDirective_directive__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(
       /*! ./directives/VarDirective.directive */
       "jaOU");
+      /* harmony import */
 
-      var EnterKey = function EnterKey(element) {
-        var _this32 = this;
 
-        _classCallCheck(this, EnterKey);
+      var _declarations_short__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(
+      /*! ./declarations.short */
+      "oN2l");
 
-        this.element = element;
-        this.enterKey = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        element.nativeElement.addEventListener('keydown', function (event) {
-          var yesNo = [13, 10].indexOf(event.which || event.keyCode) >= 0;
-
-          if (yesNo) {
-            _this32.enterKey.emit(event);
-          }
-        });
-      };
-
-      EnterKey.ctorParameters = function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
-        }];
-      };
-
-      EnterKey.propDecorators = {
-        enterKey: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-        }]
-      };
-      EnterKey = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-        selector: '[enterKey]'
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])], EnterKey);
-
-      var EscapeKey = function EscapeKey(element) {
-        var _this33 = this;
-
-        _classCallCheck(this, EscapeKey);
-
-        this.element = element;
-        this.escapeKey = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        element.nativeElement.addEventListener('keydown', function (event) {
-          var code = event.which || event.keyCode;
-
-          if (code == 27) {
-            _this33.escapeKey.emit(event);
-          }
-        });
-      };
-
-      EscapeKey.ctorParameters = function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
-        }];
-      };
-
-      EscapeKey.propDecorators = {
-        escapeKey: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-        }]
-      };
-      EscapeKey = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-        selector: '[escapeKey]'
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])], EscapeKey);
-
-      var PreventBackKey = function PreventBackKey(element) {
-        var _this34 = this;
-
-        _classCallCheck(this, PreventBackKey);
-
-        this.element = element;
-        this.preventBackKey = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        element.nativeElement.addEventListener('keydown', function (event) {
-          var yesNo = [8].indexOf(event.which || event.keyCode) < 0;
-
-          if (!yesNo) {
-            _this34.preventBackKey.emit(event);
-
-            if (event.preventDefault) {
-              event.preventDefault();
-            }
-          }
-
-          return yesNo;
-        });
-      };
-
-      PreventBackKey.ctorParameters = function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
-        }];
-      };
-
-      PreventBackKey.propDecorators = {
-        preventBackKey: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-        }]
-      };
-      PreventBackKey = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-        selector: '[preventBackKey]'
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])], PreventBackKey);
-
-      var PreventEnterKey = function PreventEnterKey(element) {
-        var _this35 = this;
-
-        _classCallCheck(this, PreventEnterKey);
-
-        this.element = element;
-        this.preventEnterKey = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        element.nativeElement.addEventListener('keydown', function (event) {
-          var yesNo = [13, 10].indexOf(event.which || event.keyCode) < 0;
-
-          if (!yesNo) {
-            _this35.preventEnterKey.emit(event);
-
-            if (event.preventDefault) {
-              event.preventDefault();
-            }
-          }
-
-          return yesNo;
-        });
-      };
-
-      PreventEnterKey.ctorParameters = function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
-        }];
-      };
-
-      PreventEnterKey.propDecorators = {
-        preventEnterKey: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-        }]
-      };
-      PreventEnterKey = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-        selector: '[preventEnterKey]'
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])], PreventEnterKey);
-
-      var InputHint = function InputHint() {
-        _classCallCheck(this, InputHint);
-
-        this.hintStyle = {
-          'font-size': '75%',
-          'color': '#BBB'
-        };
-      };
-
-      InputHint.propDecorators = {
-        hintStyle: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }]
-      };
-      InputHint = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'input-hint',
-        template: '<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
-      })], InputHint);
-
-      var FormChanged = /*#__PURE__*/function () {
-        function FormChanged(element) {
-          var _this36 = this;
-
-          _classCallCheck(this, FormChanged);
-
-          this.element = element;
-          this.formChanged = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-
-          this.onChange = function (event) {
-            _this36.formChanged.emit(event);
-          };
-
-          element.nativeElement.addEventListener('change', this.onChange);
-        }
-
-        _createClass(FormChanged, [{
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            this.element.nativeElement.removeEventListener('change', this.onChange);
-          }
-        }]);
-
-        return FormChanged;
-      }();
-
-      FormChanged.ctorParameters = function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
-        }];
-      };
-
-      FormChanged.propDecorators = {
-        formChanged: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-        }]
-      };
-      FormChanged = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-        selector: '[formChanged]'
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])], FormChanged);
-
-      var FormAlter = /*#__PURE__*/function () {
-        function FormAlter(element) {
-          var _this37 = this;
-
-          _classCallCheck(this, FormAlter);
-
-          this.element = element;
-          this.formAlter = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-
-          this.onChange = function (event) {
-            _this37.formAlter.emit(event);
-          };
-
-          element.nativeElement.addEventListener('input', this.onChange);
-          element.nativeElement.addEventListener('change', this.onChange);
-        }
-
-        _createClass(FormAlter, [{
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            this.element.nativeElement.removeEventListener('change', this.onChange);
-            this.element.nativeElement.removeEventListener('input', this.onChange);
-          }
-        }]);
-
-        return FormAlter;
-      }();
-
-      FormAlter.ctorParameters = function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
-        }];
-      };
-
-      FormAlter.propDecorators = {
-        formAlter: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-        }]
-      };
-      FormAlter = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-        selector: '[formAlter]'
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])], FormAlter);
-      var screenDirectives = [_directives_ScreenScrollModelY_directive__WEBPACK_IMPORTED_MODULE_30__["ScreenScrollModelY"], _directives_ScreenWidthModel_directive__WEBPACK_IMPORTED_MODULE_31__["ScreenWidthModel"], _directives_ScreenHeightModel_directive__WEBPACK_IMPORTED_MODULE_32__["ScreenHeightModel"], _directives_ScreenScroll_directive__WEBPACK_IMPORTED_MODULE_28__["ScreenScroll"], _components_ScrollPastFixed_component__WEBPACK_IMPORTED_MODULE_17__["ScrollPastFixed"], _directives_ScreenScrollHeightDiff_directive__WEBPACK_IMPORTED_MODULE_27__["ScreenScrollHeightDiff"], _directives_PxFromHtmlTop_directive__WEBPACK_IMPORTED_MODULE_29__["PxFromHtmlTop"]];
-      var declarations = [_directives_Init_directive__WEBPACK_IMPORTED_MODULE_21__["InitDirective"], _directives_SelectOn_directive__WEBPACK_IMPORTED_MODULE_23__["SelectOn"], _directives_FocusOn_directive__WEBPACK_IMPORTED_MODULE_20__["FocusOn"], _directives_VarDirective_directive__WEBPACK_IMPORTED_MODULE_37__["VarDirective"], _directives_ContentModel_directive__WEBPACK_IMPORTED_MODULE_22__["ContentModel"], _directives_InnerHtmlModel_directive__WEBPACK_IMPORTED_MODULE_24__["InnerHtmlModel"], _directives_ReplaceModel_directive__WEBPACK_IMPORTED_MODULE_25__["ReplaceModel"], FormAlter, FormChanged, EnterKey, EscapeKey, PreventBackKey, PreventEnterKey].concat(screenDirectives, [_directives_HtmlWidthModel_directive__WEBPACK_IMPORTED_MODULE_33__["HtmlWidthModel"], _directives_HtmlHeightModel_directive__WEBPACK_IMPORTED_MODULE_34__["HtmlHeightModel"], _directives_ShakeOn_directive__WEBPACK_IMPORTED_MODULE_18__["ShakeOn"], _directives_FxOn_directive__WEBPACK_IMPORTED_MODULE_19__["FxOn"], _directives_StatusOnlineModel_directive__WEBPACK_IMPORTED_MODULE_35__["StatusOnlineModel"], _directives_StatusOfflineModel_directive__WEBPACK_IMPORTED_MODULE_36__["StatusOfflineModel"], _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_26__["ElementSizeModel"], _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_26__["ElementWidthModel"], _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_26__["ElementHeightModel"], InputHint], _toConsumableArray(_components_debug_area_DebugArea_component__WEBPACK_IMPORTED_MODULE_14__["declarations"]), [_components_ErrorWell_component__WEBPACK_IMPORTED_MODULE_12__["ErrorWell"], _components_AbsoluteOverflowX_component__WEBPACK_IMPORTED_MODULE_11__["AbsoluteOverflowX"], _components_ReaderHeaderBody_component__WEBPACK_IMPORTED_MODULE_13__["ReaderHeaderBody"], _components_ReaderHeaderBody_component__WEBPACK_IMPORTED_MODULE_13__["ReaderHeader"], _components_ReaderHeaderBody_component__WEBPACK_IMPORTED_MODULE_13__["ReaderBody"], _components_AckCloseIcon_component__WEBPACK_IMPORTED_MODULE_8__["AckCloseIcon"], _components_AckSections_component__WEBPACK_IMPORTED_MODULE_2__["AckSections"], _components_AckSectionTemplates_component__WEBPACK_IMPORTED_MODULE_3__["AckSectionTemplates"], _components_AckOptions_component__WEBPACK_IMPORTED_MODULE_9__["AckOptions"], _components_AckOptionsModal_component__WEBPACK_IMPORTED_MODULE_10__["AckOptionsModal"], _components_AckModal_component__WEBPACK_IMPORTED_MODULE_4__["AckModal"], _components_AckModalLayout_component__WEBPACK_IMPORTED_MODULE_5__["AckModalLayout"], _directives_AckArray_directive__WEBPACK_IMPORTED_MODULE_15__["AckArray"], _directives_AckAggregate_directive__WEBPACK_IMPORTED_MODULE_16__["AckAggregate"], _components_AckFixedElement_component__WEBPACK_IMPORTED_MODULE_7__["AckFixedElement"], _components_AckFixedElementStage_component__WEBPACK_IMPORTED_MODULE_6__["AckFixedElementStage"]]);
-      /* harmony default export */
-
-      __webpack_exports__["default"] = declarations;
+      var screenDirectives = [_directives_ScreenScrollModelY_directive__WEBPACK_IMPORTED_MODULE_28__["ScreenScrollModelY"], _directives_ScreenWidthModel_directive__WEBPACK_IMPORTED_MODULE_29__["ScreenWidthModel"], _directives_ScreenHeightModel_directive__WEBPACK_IMPORTED_MODULE_30__["ScreenHeightModel"], _directives_ScreenScroll_directive__WEBPACK_IMPORTED_MODULE_26__["ScreenScroll"], _components_ScrollPastFixed_component__WEBPACK_IMPORTED_MODULE_15__["ScrollPastFixed"], _directives_ScreenScrollHeightDiff_directive__WEBPACK_IMPORTED_MODULE_25__["ScreenScrollHeightDiff"], _directives_PxFromHtmlTop_directive__WEBPACK_IMPORTED_MODULE_27__["PxFromHtmlTop"]];
+      var declarations = [_directives_Init_directive__WEBPACK_IMPORTED_MODULE_19__["InitDirective"], _directives_SelectOn_directive__WEBPACK_IMPORTED_MODULE_21__["SelectOn"], _directives_FocusOn_directive__WEBPACK_IMPORTED_MODULE_18__["FocusOn"], _directives_VarDirective_directive__WEBPACK_IMPORTED_MODULE_35__["VarDirective"], _directives_ContentModel_directive__WEBPACK_IMPORTED_MODULE_20__["ContentModel"], _directives_InnerHtmlModel_directive__WEBPACK_IMPORTED_MODULE_22__["InnerHtmlModel"], _directives_ReplaceModel_directive__WEBPACK_IMPORTED_MODULE_23__["ReplaceModel"], _declarations_short__WEBPACK_IMPORTED_MODULE_36__["FormAlter"], _declarations_short__WEBPACK_IMPORTED_MODULE_36__["FormChanged"], _declarations_short__WEBPACK_IMPORTED_MODULE_36__["EnterKey"], _declarations_short__WEBPACK_IMPORTED_MODULE_36__["EscapeKey"], _declarations_short__WEBPACK_IMPORTED_MODULE_36__["PreventBackKey"], _declarations_short__WEBPACK_IMPORTED_MODULE_36__["PreventEnterKey"]].concat(screenDirectives, [_directives_HtmlWidthModel_directive__WEBPACK_IMPORTED_MODULE_31__["HtmlWidthModel"], _directives_HtmlHeightModel_directive__WEBPACK_IMPORTED_MODULE_32__["HtmlHeightModel"], _directives_ShakeOn_directive__WEBPACK_IMPORTED_MODULE_16__["ShakeOn"], _directives_FxOn_directive__WEBPACK_IMPORTED_MODULE_17__["FxOn"], _directives_StatusOnlineModel_directive__WEBPACK_IMPORTED_MODULE_33__["StatusOnlineModel"], _directives_StatusOfflineModel_directive__WEBPACK_IMPORTED_MODULE_34__["StatusOfflineModel"], _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_24__["ElementSizeModel"], _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_24__["ElementWidthModel"], _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_24__["ElementHeightModel"], _declarations_short__WEBPACK_IMPORTED_MODULE_36__["InputHint"]], _toConsumableArray(_components_debug_area_DebugArea_component__WEBPACK_IMPORTED_MODULE_12__["declarations"]), [_components_ErrorWell_component__WEBPACK_IMPORTED_MODULE_10__["ErrorWell"], _components_AbsoluteOverflowX_component__WEBPACK_IMPORTED_MODULE_9__["AbsoluteOverflowX"], _components_ReaderHeaderBody_component__WEBPACK_IMPORTED_MODULE_11__["ReaderHeaderBody"], _components_ReaderHeaderBody_component__WEBPACK_IMPORTED_MODULE_11__["ReaderHeader"], _components_ReaderHeaderBody_component__WEBPACK_IMPORTED_MODULE_11__["ReaderBody"], _components_AckCloseIcon_component__WEBPACK_IMPORTED_MODULE_6__["AckCloseIcon"], _components_AckSections_component__WEBPACK_IMPORTED_MODULE_0__["AckSections"], _components_AckSectionTemplates_component__WEBPACK_IMPORTED_MODULE_1__["AckSectionTemplates"], _components_AckOptions_component__WEBPACK_IMPORTED_MODULE_7__["AckOptions"], _components_AckOptionsModal_component__WEBPACK_IMPORTED_MODULE_8__["AckOptionsModal"], _components_AckModal_component__WEBPACK_IMPORTED_MODULE_2__["AckModal"], _components_AckModalLayout_component__WEBPACK_IMPORTED_MODULE_3__["AckModalLayout"], _directives_AckArray_directive__WEBPACK_IMPORTED_MODULE_13__["AckArray"], _directives_AckAggregate_directive__WEBPACK_IMPORTED_MODULE_14__["AckAggregate"], _components_AckFixedElement_component__WEBPACK_IMPORTED_MODULE_5__["AckFixedElement"], _components_AckFixedElementStage_component__WEBPACK_IMPORTED_MODULE_4__["AckFixedElementStage"]]);
       /***/
     },
 
@@ -4599,7 +4306,7 @@
       !*** ./src/AckModule.ts ***!
       \**************************/
 
-    /*! exports provided: AckModule, default */
+    /*! exports provided: CommonModule, AckModule */
 
     /***/
     function RFfi(module, __webpack_exports__, __webpack_require__) {
@@ -4630,6 +4337,12 @@
       var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! @angular/common */
       "SVse");
+      /* harmony reexport (safe) */
+
+
+      __webpack_require__.d(__webpack_exports__, "CommonModule", function () {
+        return _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"];
+      });
       /* harmony import */
 
 
@@ -4676,9 +4389,6 @@
         providers: _providers__WEBPACK_IMPORTED_MODULE_3__["providers"],
         exports: declarations
       })], AckModule);
-      /* harmony default export */
-
-      __webpack_exports__["default"] = AckModule;
       /***/
     },
 
@@ -4767,14 +4477,14 @@
 
       var ScreenHeightModel = /*#__PURE__*/function () {
         function ScreenHeightModel(HtmlSizeService) {
-          var _this38 = this;
+          var _this32 = this;
 
           _classCallCheck(this, ScreenHeightModel);
 
           this.HtmlSizeService = HtmlSizeService;
           this.modelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           this.sub = this.HtmlSizeService.change.subscribe(function () {
-            return _this38.changed();
+            return _this32.changed();
           });
           this.HtmlSizeService.checkWatchers();
         }
@@ -4782,10 +4492,10 @@
         _createClass(ScreenHeightModel, [{
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
-            var _this39 = this;
+            var _this33 = this;
 
             Promise.resolve().then(function () {
-              return _this39.updateModel();
+              return _this33.updateModel();
             });
             this.delayCheck(250);
             this.delayCheck(1500);
@@ -4793,11 +4503,11 @@
         }, {
           key: "delayCheck",
           value: function delayCheck() {
-            var _this40 = this;
+            var _this34 = this;
 
             var num = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
             setTimeout(function () {
-              return _this40.updateModel();
+              return _this34.updateModel();
             }, num);
           }
         }, {
@@ -4898,11 +4608,11 @@
         _createClass(RouteHistory, [{
           key: "monitor",
           value: function monitor() {
-            var _this41 = this;
+            var _this35 = this;
 
             this.subs.push(this.Router.events.subscribe(function (event) {
               if (event.constructor === _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
-                _this41.addRouteToHistory();
+                _this35.addRouteToHistory();
               }
             }));
           }
@@ -5135,10 +4845,10 @@
         }, {
           key: "init",
           value: function init() {
-            var _this42 = this;
+            var _this36 = this;
 
             this.onScroll = function () {
-              return _this42.check();
+              return _this36.check();
             };
 
             window.addEventListener("scroll", this.onScroll);
@@ -5147,10 +4857,10 @@
         }, {
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
-            var _this43 = this;
+            var _this37 = this;
 
             Promise.resolve().then(function () {
-              return _this43.init();
+              return _this37.init();
             });
           }
         }, {
@@ -5305,14 +5015,14 @@
         }, {
           key: "registerHandler",
           value: function registerHandler(name, handler, options) {
-            var _this44 = this;
+            var _this38 = this;
 
             options = options || {
               maxTry: 50
             };
 
             handler = handler || function (config) {
-              return _this44.request(config);
+              return _this38.request(config);
             };
 
             this.AckQue.registerHandler(name, handler);
@@ -5331,10 +5041,10 @@
         }, {
           key: "processQue",
           value: function processQue(name) {
-            var _this45 = this;
+            var _this39 = this;
 
             this.AckQue.paramHandler(name, function (config) {
-              return _this45._fetch(config);
+              return _this39._fetch(config);
             });
             return this.AckQue.processQue(name);
           }
@@ -5365,17 +5075,17 @@
         }, {
           key: "getCacheByNamedRequest",
           value: function getCacheByNamedRequest(request) {
-            var _this46 = this;
+            var _this40 = this;
 
             var offlineModel = request.offlineModel;
             return this.AckCache.get(offlineModel.name, offlineModel).then(function (routes) {
               routes = routes || {};
 
-              var cacheName = _this46.getStorageNameByRequest(request);
+              var cacheName = _this40.getStorageNameByRequest(request);
 
               return routes[cacheName];
             }).then(function (cache) {
-              return _this46.processCacheGet(cache, request);
+              return _this40.processCacheGet(cache, request);
             });
           }
         }, {
@@ -5396,7 +5106,7 @@
         }, {
           key: "requestOfflineModel",
           value: function requestOfflineModel(request) {
-            var _this47 = this;
+            var _this41 = this;
 
             var offlineModel = request.offlineModel;
 
@@ -5411,21 +5121,21 @@
             }
 
             this.AckQue.paramHandler(offlineModel.name, function (config) {
-              return _this47._fetch(config);
+              return _this41._fetch(config);
             });
             return this._fetch(request)["catch"](function (e) {
-              return _this47.postRequestFail(e, request);
+              return _this41.postRequestFail(e, request);
             });
           }
         }, {
           key: "processCacheGet",
           value: function processCacheGet(cache, cfg) {
-            var _this48 = this;
+            var _this42 = this;
 
             if (cache == null) return this._fetch(cfg);
             var offlineModel = cfg.offlineModel;
             return this.AckCache.cacheToReturn(offlineModel.name, cache, offlineModel).then(function (rtn) {
-              var willExpire = _this48.AckCache.optionsKillCache(offlineModel);
+              var willExpire = _this42.AckCache.optionsKillCache(offlineModel);
 
               if (rtn && !willExpire) {
                 console.log("AckApi fetched cache that will never expire. Set offlineModel.expires=0 or offlineModel.maxAge=0 to avoid this message", rtn);
@@ -5435,7 +5145,7 @@
                 return rtn;
               }
 
-              return _this48._fetch(cfg);
+              return _this42._fetch(cfg);
             });
           }
         }, {
@@ -5465,7 +5175,7 @@
         }, {
           key: "_fetch",
           value: function _fetch(cfg) {
-            var _this49 = this;
+            var _this43 = this;
 
             upgradeConfig(cfg);
             var cfgPlus = Object.assign({}, cfg);
@@ -5485,9 +5195,9 @@
             var promise = function promise(resolve, reject) {
               var resolved = false;
 
-              _this49.Request.emit(request);
+              _this43.Request.emit(request);
 
-              var req = _this49.HttpClient.request(request).subscribe(function (event) {
+              var req = _this43.HttpClient.request(request).subscribe(function (event) {
                 if (event.type === _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpEventType"].Response) {
                   resolved = true;
                   resolve(event);
@@ -5510,9 +5220,9 @@
             };
 
             return new Promise(promise).then(function (response) {
-              return _this49.processFetchByConfig(response, cfg);
+              return _this43.processFetchByConfig(response, cfg);
             })["catch"](function (e) {
-              return _this49.httpFailByConfig(e, cfg);
+              return _this43.httpFailByConfig(e, cfg);
             });
           }
         }, {
@@ -5567,7 +5277,7 @@
         }, {
           key: "requestResponseToCache",
           value: function requestResponseToCache(request, output) {
-            var _this50 = this;
+            var _this44 = this;
 
             var _a;
 
@@ -5575,17 +5285,17 @@
             return this.AckCache.get(cachename).then(function (routes) {
               routes = routes || {};
 
-              var cacheName = _this50.getStorageNameByRequest(request);
+              var cacheName = _this44.getStorageNameByRequest(request);
 
               routes[cacheName] = {
                 cache: output
               };
 
-              _this50.AckCache.dataOptionsCache(routes[request.url], request.offlineModel, output);
+              _this44.AckCache.dataOptionsCache(routes[request.url], request.offlineModel, output);
 
               return routes;
             }).then(function (routes) {
-              return _this50.AckCache.set(cachename, routes);
+              return _this44.AckCache.set(cachename, routes);
             });
           }
         }, {
@@ -5780,10 +5490,10 @@
         _createClass(FxOn, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this51 = this;
+            var _this45 = this;
 
             Promise.resolve().then(function () {
-              return _this51.update();
+              return _this45.update();
             });
           }
         }, {
@@ -5847,15 +5557,15 @@
         }, {
           key: "onTrue",
           value: function onTrue() {
-            var _this52 = this;
+            var _this46 = this;
 
             this.applyType();
 
             if (this.fxForMs) {
               this.timeout = setTimeout(function () {
-                _this52.onFalse();
+                _this46.onFalse();
 
-                _this52.fxThen.emit();
+                _this46.fxThen.emit();
               }, this.fxForMs);
             }
           }
@@ -5985,13 +5695,13 @@
         var _super3 = _createSuper(AckCache);
 
         function AckCache() {
-          var _this53;
+          var _this47;
 
           _classCallCheck(this, AckCache);
 
-          _this53 = _super3.apply(this, arguments);
-          _this53.prefix = "offline-cache";
-          return _this53;
+          _this47 = _super3.apply(this, arguments);
+          _this47.prefix = "offline-cache";
+          return _this47;
         }
 
         _createClass(AckCache, [{
@@ -6033,10 +5743,10 @@
         }, {
           key: "paramSave",
           value: function paramSave(name, options) {
-            var _this54 = this;
+            var _this48 = this;
 
             return this.paramCache(name, options).then(function (items) {
-              return _this54.setCache(name, items);
+              return _this48.setCache(name, items);
             });
           }
         }, {
@@ -6085,12 +5795,12 @@
         }, {
           key: "get",
           value: function get(name) {
-            var _this55 = this;
+            var _this49 = this;
 
             var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
             return _get(_getPrototypeOf(AckCache.prototype), "get", this).call(this, name).then(function (data) {
               if (data) {
-                return _this55.cacheToReturn(name, data, options);
+                return _this49.cacheToReturn(name, data, options);
               }
 
               if (options.param) return options.param;
@@ -6127,14 +5837,14 @@
         }, {
           key: "set",
           value: function set(name, cache) {
-            var _this56 = this;
+            var _this50 = this;
 
             var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
             options.name = options.name || name;
             return _get(_getPrototypeOf(AckCache.prototype), "get", this).call(this, name).then(function (allCache) {
-              return _this56.dataOptionsCache(allCache, options, cache);
+              return _this50.dataOptionsCache(allCache, options, cache);
             }).then(function (data) {
-              return _get(_getPrototypeOf(AckCache.prototype), "set", _this56).call(_this56, name, data);
+              return _get(_getPrototypeOf(AckCache.prototype), "set", _this50).call(_this50, name, data);
             });
           }
         }, {
@@ -6273,10 +5983,10 @@
         }, {
           key: "scrollToModuleImport",
           value: function scrollToModuleImport() {
-            var _this57 = this;
+            var _this51 = this;
 
             setTimeout(function () {
-              _this57.PageScrollService.scroll({
+              _this51.PageScrollService.scroll({
                 document: document,
                 scrollTarget: "#Import AckModule"
               });
@@ -6377,34 +6087,34 @@
         _createClass(RouteReporter, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this58 = this;
+            var _this52 = this;
 
             this.docCallbacks = this.RouteWatchReporter.getDocumentCallbacks();
             this.RouteWatchReporter.router.events.subscribe(function (event) {
               if (event.constructor === _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
-                _this58.beforeChanger.emit(_this58.RouteWatchReporter);
+                _this52.beforeChanger.emit(_this52.RouteWatchReporter);
 
-                _this58.apply();
+                _this52.apply();
 
                 Promise.resolve().then(function () {
-                  return _this58.emit();
+                  return _this52.emit();
                 });
               }
             });
 
             if (this.ActivatedRoute) {
               this.ActivatedRoute.data.subscribe(function (data) {
-                return _this58.dataChange.emit(_this58.data = data);
+                return _this52.dataChange.emit(_this52.data = data);
               });
             }
 
             this.RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
             this.apply();
             Promise.resolve().then(function () {
-              _this58.emit();
+              _this52.emit();
 
-              _this58.querySub = _this58.RouteWatchReporter.activatedRoute.queryParams.subscribe(function (query) {
-                return _this58.queryChange.emit(query);
+              _this52.querySub = _this52.RouteWatchReporter.activatedRoute.queryParams.subscribe(function (query) {
+                return _this52.queryChange.emit(query);
               });
             });
 
@@ -6634,7 +6344,7 @@
 
       var ProviderExamples = /*#__PURE__*/function () {
         function ProviderExamples(Log, ErrorLog, PageScrollService, AckOffline, AckCache, AckQue, AckApi, Prompts) {
-          var _this59 = this;
+          var _this53 = this;
 
           _classCallCheck(this, ProviderExamples);
 
@@ -6667,22 +6377,22 @@
           };
           this.ErrorLog.monitorWindow();
           this.AckQue.registerHandler("ackNgQueTest", function (item) {
-            return _this59.processQueItem(item);
+            return _this53.processQueItem(item);
           });
         }
 
         _createClass(ProviderExamples, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this60 = this;
+            var _this54 = this;
 
             window.addEventListener("online", function () {
               if (navigator.onLine) {
-                _this60.backOnlineAt = getServerTime();
+                _this54.backOnlineAt = getServerTime();
 
-                _this60.processQue();
+                _this54.processQue();
 
-                _this60.processHttpQue();
+                _this54.processHttpQue();
               }
             });
             this.loadHttpHeaderConfigArray();
@@ -6691,25 +6401,25 @@
         }, {
           key: "clearHttpQue",
           value: function clearHttpQue() {
-            var _this61 = this;
+            var _this55 = this;
 
             return this.AckApi.clearQue("ackHttpTests").then(function () {
-              return _this61.readHttpQueArray(false);
+              return _this55.readHttpQueArray(false);
             });
           }
         }, {
           key: "clearHttpCache",
           value: function clearHttpCache() {
-            var _this62 = this;
+            var _this56 = this;
 
             return this.AckApi.clearCache("ackHttpTests").then(function () {
-              return _this62.readHttpCache();
+              return _this56.readHttpCache();
             });
           }
         }, {
           key: "sendHttp",
           value: function sendHttp() {
-            var _this63 = this;
+            var _this57 = this;
 
             delete this.httpError;
             delete this.httpResponse;
@@ -6721,18 +6431,18 @@
               promise = this.AckApi.AckQue.set("ackHttpTests", this.httpConfig);
             } else {
               promise = this.AckApi.request(this.httpConfig).then(function (res) {
-                _this63.httpResponse = res;
-                delete _this63.httpError;
+                _this57.httpResponse = res;
+                delete _this57.httpError;
               })["catch"](function (e) {
-                _this63.httpError = e;
-                delete _this63.httpResponse;
+                _this57.httpError = e;
+                delete _this57.httpResponse;
               });
             }
 
             return promise.then(function () {
-              return _this63.readHttpQueArray(false);
+              return _this57.readHttpQueArray(false);
             }).then(function () {
-              return _this63.readHttpCache();
+              return _this57.readHttpCache();
             });
           }
         }, {
@@ -6746,33 +6456,33 @@
         }, {
           key: "readHttpQueArray",
           value: function readHttpQueArray(process) {
-            var _this64 = this;
+            var _this58 = this;
 
             return this.AckApi.getQue("ackHttpTests").then(function (que) {
-              _this64.httpQueArray = que;
+              _this58.httpQueArray = que;
               var doProcess = process || process == null && que.length && navigator.onLine;
 
               if (doProcess) {
-                return _this64.processHttpQue();
+                return _this58.processHttpQue();
               }
             });
           }
         }, {
           key: "readHttpCache",
           value: function readHttpCache() {
-            var _this65 = this;
+            var _this59 = this;
 
             return this.AckApi.getCache("ackHttpTests").then(function (cache) {
-              return _this65.httpCache = cache;
+              return _this59.httpCache = cache;
             });
           }
         }, {
           key: "processHttpQue",
           value: function processHttpQue() {
-            var _this66 = this;
+            var _this60 = this;
 
             return this.AckApi.processQue("ackHttpTests").then(function () {
-              return _this66.readHttpQueArray(false);
+              return _this60.readHttpQueArray(false);
             });
           }
         }, {
@@ -6804,10 +6514,10 @@
         }, {
           key: "scrollToModuleImport",
           value: function scrollToModuleImport() {
-            var _this67 = this;
+            var _this61 = this;
 
             setTimeout(function () {
-              _this67.PageScrollService.scroll({
+              _this61.PageScrollService.scroll({
                 document: document,
                 scrollTarget: "#Import AckModule"
               });
@@ -6821,30 +6531,30 @@
         }, {
           key: "readOffline",
           value: function readOffline() {
-            var _this68 = this;
+            var _this62 = this;
 
             this.AckOffline.get("ack-angular").then(function (data) {
-              return _this68.offlineStorage = data;
+              return _this62.offlineStorage = data;
             });
           }
         }, {
           key: "readQue",
           value: function readQue() {
-            var _this69 = this;
+            var _this63 = this;
 
             return this.AckQue.getQue("ackNgQueTest").then(function (que) {
-              return _this69.queArray = que;
+              return _this63.queArray = que;
             });
           }
         }, {
           key: "readCache",
           value: function readCache() {
-            var _this70 = this;
+            var _this64 = this;
 
             return this.AckCache.get("ackNgCacheTest").then(function (cache) {
-              return _this70.cacheStorage = cache;
+              return _this64.cacheStorage = cache;
             }).then(function () {
-              return _this70.readCacheObject();
+              return _this64.readCacheObject();
             })["catch"](function (e) {
               if (e.code && e.code == 401) {
                 return;
@@ -6856,54 +6566,54 @@
         }, {
           key: "readCacheObject",
           value: function readCacheObject() {
-            var _this71 = this;
+            var _this65 = this;
 
             return this.AckOffline.get("ackNgCacheTest").then(function (v) {
-              _this71.cache = v;
+              _this65.cache = v;
 
               if (v) {
-                _this71.cache.seconds = (v["expires"] - v["_timestamp"]) / 1000;
+                _this65.cache.seconds = (v["expires"] - v["_timestamp"]) / 1000;
               }
             });
           }
         }, {
           key: "clearAllOffline",
           value: function clearAllOffline() {
-            var _this72 = this;
+            var _this66 = this;
 
             this.AckOffline.clearAll().then(function () {
-              return _this72.reloadData();
+              return _this66.reloadData();
             });
           }
         }, {
           key: "setCache",
           value: function setCache(value, seconds) {
-            var _this73 = this;
+            var _this67 = this;
 
             var expires = new Date(Date.now() + seconds * 1000).getTime();
             return this.AckCache.set("ackNgCacheTest", value, {
               expires: expires
             }).then(function () {
-              return _this73.readCache();
+              return _this67.readCache();
             });
           }
         }, {
           key: "clearCache",
           value: function clearCache() {
-            var _this74 = this;
+            var _this68 = this;
 
             this.AckCache.clear("ackNgCacheTest").then(function () {
-              return _this74.readCache();
+              return _this68.readCache();
             });
           }
         }, {
           key: "clearOffline",
           value: function clearOffline() {
-            var _this75 = this;
+            var _this69 = this;
 
             this.offlineStorage = "";
             this.AckOffline.clear("ack-angular").then(function () {
-              return _this75.readOffline();
+              return _this69.readOffline();
             });
           }
         }, {
@@ -6915,29 +6625,29 @@
         }, {
           key: "clearQue",
           value: function clearQue() {
-            var _this76 = this;
+            var _this70 = this;
 
             return this.AckQue.clear("ackNgQueTest").then(function () {
-              return _this76.readQue();
+              return _this70.readQue();
             });
           }
         }, {
           key: "que",
           value: function que(itemData) {
-            var _this77 = this;
+            var _this71 = this;
 
             this.queStorage = "";
             return this.AckQue.que("ackNgQueTest", itemData).then(function () {
-              return _this77.readQue();
+              return _this71.readQue();
             });
           }
         }, {
           key: "dequeByIndex",
           value: function dequeByIndex(index) {
-            var _this78 = this;
+            var _this72 = this;
 
             return this.AckQue.dequeByIndex("ackNgQueTest", index).then(function () {
-              return _this78.readQue();
+              return _this72.readQue();
             });
           }
         }, {
@@ -6948,25 +6658,25 @@
         }, {
           key: "processQuedByIndex",
           value: function processQuedByIndex(index) {
-            var _this79 = this;
+            var _this73 = this;
 
             return this.AckQue.processQuedByIndex("ackNgQueTest", index).then(function (result) {
-              return _this79.processQueResults.push(result);
+              return _this73.processQueResults.push(result);
             }).then(function () {
-              return _this79.readQue();
+              return _this73.readQue();
             });
           }
         }, {
           key: "processQue",
           value: function processQue() {
-            var _this80 = this;
+            var _this74 = this;
 
             return this.AckQue.processQue("ackNgQueTest").then(function (results) {
-              return _this80.processQueResults.push.apply(_this80.processQueResults, results);
+              return _this74.processQueResults.push.apply(_this74.processQueResults, results);
             }).then(function () {
-              return _this80.readQue();
+              return _this74.readQue();
             })["catch"](function (e) {
-              return _this80.error = e;
+              return _this74.error = e;
             });
           }
         }, {
@@ -7094,14 +6804,14 @@
 
       var InnerHtmlModel = /*#__PURE__*/function () {
         function InnerHtmlModel(element) {
-          var _this81 = this;
+          var _this75 = this;
 
           _classCallCheck(this, InnerHtmlModel);
 
           this.element = element;
           this.innerHtmlModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           this.observer = new MutationObserver(function () {
-            return _this81.setModel();
+            return _this75.setModel();
           });
           var config = {
             attributes: true,
@@ -7115,10 +6825,10 @@
         _createClass(InnerHtmlModel, [{
           key: "ngOnChanges",
           value: function ngOnChanges() {
-            var _this82 = this;
+            var _this76 = this;
 
             Promise.resolve().then(function () {
-              return _this82.setModel();
+              return _this76.setModel();
             });
           }
         }, {
@@ -7283,13 +6993,13 @@
         _createClass(ReplaceModel, [{
           key: "ngOnChanges",
           value: function ngOnChanges(changes) {
-            var _this83 = this;
+            var _this77 = this;
 
             var isString = changes.replaceModel && this.replaceModel && this.replaceModel.constructor === String;
 
             if (isString) {
               Promise.resolve().then(function () {
-                return _this83.run();
+                return _this77.run();
               });
             }
           }
@@ -7377,12 +7087,12 @@
         _createClass(AckSectionTemplates, [{
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
-            var _this84 = this;
+            var _this78 = this;
 
             Promise.resolve().then(function () {
-              _this84.check();
+              _this78.check();
 
-              _this84.inited = true;
+              _this78.inited = true;
             });
           }
         }, {
@@ -7418,10 +7128,10 @@
         }, {
           key: "ngOnDestroy",
           value: function ngOnDestroy() {
-            var _this85 = this;
+            var _this79 = this;
 
             Promise.resolve().then(function () {
-              return _this85.unregister();
+              return _this79.unregister();
             });
           }
         }, {
@@ -7556,11 +7266,11 @@
         _createClass(DebugArea, [{
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
-            var _this86 = this;
+            var _this80 = this;
 
             if (this.DebugItems.length === 1) {
               Promise.resolve().then(function () {
-                return _this86.debugItem = _this86.DebugItems.first;
+                return _this80.debugItem = _this80.DebugItems.first;
               });
             }
           }
@@ -7680,17 +7390,17 @@
         var _super4 = _createSuper(AckOptionsModal);
 
         function AckOptionsModal() {
-          var _this87;
+          var _this81;
 
           _classCallCheck(this, AckOptionsModal);
 
-          _this87 = _super4.apply(this, arguments);
-          _this87.allowClose = true;
-          _this87.close = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          _this87.backgroundColorChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          _this87.showModel = true;
-          _this87.showModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          return _this87;
+          _this81 = _super4.apply(this, arguments);
+          _this81.allowClose = true;
+          _this81.close = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          _this81.backgroundColorChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          _this81.showModel = true;
+          _this81.showModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          return _this81;
         }
 
         _createClass(AckOptionsModal, [{
@@ -7789,11 +7499,11 @@
         }, {
           key: "issuePrompt",
           value: function issuePrompt(prompt) {
-            var _this88 = this;
+            var _this82 = this;
 
             this.prompts.push(prompt);
             prompt.emitter.subscribe(function () {
-              return _this88.remove(prompt);
+              return _this82.remove(prompt);
             });
             return prompt.emitter;
           }
@@ -7866,11 +7576,11 @@
         _createClass(VarDirective, [{
           key: "ngOnChanges",
           value: function ngOnChanges(changes) {
-            var _this89 = this;
+            var _this83 = this;
 
             if (changes["var"]) {
               Promise.resolve().then(function () {
-                return _this89.changed.emit(_this89["var"]);
+                return _this83.changed.emit(_this83["var"]);
               });
             }
           }
@@ -7937,12 +7647,12 @@
         _createClass(ErrorLog, [{
           key: "monitorWindow",
           value: function monitorWindow(win) {
-            var _this90 = this;
+            var _this84 = this;
 
             win = win || window;
 
             var callback = function callback(evt) {
-              return _this90.add(evt, false);
+              return _this84.add(evt, false);
             };
 
             win.addEventListener('error', callback);
@@ -7956,10 +7666,10 @@
         }, {
           key: "rejector",
           value: function rejector() {
-            var _this91 = this;
+            var _this85 = this;
 
             return function (err) {
-              return _this91.reject(err);
+              return _this85.reject(err);
             };
           }
         }, {
@@ -8188,7 +7898,7 @@
 
     /***/
     function kiQV(module) {
-      module.exports = JSON.parse("{\"name\":\"ack-angular\",\"version\":\"2.0.2\",\"description\":\"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\",\"main\":\"dist/index.js\",\"typings\":\"dist/index.d.ts\",\"scripts\":{\"start\":\"ng serve example --port 4201 --open\",\"build:index\":\"pug example/src/index.pug --out example/src\",\"stats\":\"webpack-bundle-analyzer example/www/stats.json\",\"install:example\":\"npm install --prefix example\",\"test\":\"ng test --browser PhantomJS --single-run\",\"test:watch\":\"ng test\",\"build:offline\":\"ngc --project modules/offline/tsconfig.json\",\"build:dist:old\":\"ngc --project src/tsconfig.json\",\"build:dist\":\"ng-packagr -p package.json\",\"watch:dist\":\"watch \\\"npm-run-all build:dist\\\" src/ --ignoreDirectoryPattern=/pugs/\",\"build:assets\":\"npm-run-all build:assets:src build:assets:example compile:templates\",\"build:assets:src\":\"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts\",\"build:assets:example\":\"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts\",\"watch:assets\":\"npm-run-all --parallel \\\"build:assets:src -- --watch\\\" \\\"build:assets:example -- --watch\\\" \\\"compile:templates -- --watch\\\"\",\"compile:templates\":\"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne\",\"watch\":\"npm-run-all --parallel build:index watch:dist watch:assets watch:js\",\"watch:js\":\"ng serve example --port 4201 --open\",\"build:js\":\"ng build example --stats-json\",\"build:universal\":\"npm-run-all build:index build:assets\",\"build\":\"npm-run-all build:universal build:dist compile:dist:package copy:scss build:js\",\"copy:scss\":\"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss\",\"compile:dist:package\":\"node scripts/update-dist-package.js\",\"save\":\"git add . && git commit -m \\\"update\\\" && git push\",\"deploy\":\"npm-run-all build deploy:gh-pages deploy:npm save\",\"deploy:npm\":\"cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \\\"update\\\" && git push && npm publish\",\"deploy:gh-pages\":\"cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \\\"update\\\" && git push\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/AckerApple/ack-angular.git\"},\"keywords\":[\"ng\",\"Angular\",\"directives\",\"components\",\"pipes\",\"providers\"],\"author\":\"Acker Dawn Apple\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/AckerApple/ack-angular/issues\"},\"homepage\":\"https://github.com/AckerApple/ack-angular#readme\",\"dependencies\":{\"ack-angular-fx\":\"^4.1.0\",\"ack-css-boot\":\"^2.0.4\",\"ack-x\":\"^2.0.1\",\"animate.css\":\"^4.1.1\",\"csshake\":\"^1.5.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1102.8\",\"@angular-devkit/build-ng-packagr\":\"^0.1002.0\",\"@angular/animations\":\"^11.2.9\",\"@angular/cli\":\"^11.2.8\",\"@angular/common\":\"^11.2.9\",\"@angular/compiler\":\"^11.2.9\",\"@angular/compiler-cli\":\"^11.2.9\",\"@angular/core\":\"^11.2.9\",\"@angular/forms\":\"^11.2.9\",\"@angular/platform-browser\":\"^11.2.9\",\"@angular/platform-browser-dynamic\":\"^11.2.9\",\"@angular/router\":\"^11.2.9\",\"@types/jasmine\":\"^3.6.9\",\"ack-path\":\"^1.8.0\",\"ack-pug-bundler\":\"^1.4.8\",\"classlist-polyfill\":\"^1.2.0\",\"jasmine\":\"^3.7.0\",\"karma\":\"^6.3.2\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-coverage-istanbul-reporter\":\"^3.0.3\",\"karma-jasmine\":\"^4.0.1\",\"karma-jasmine-html-reporter\":\"^1.5.4\",\"karma-phantomjs-launcher\":\"^1.0.4\",\"localforage\":\"^1.9.0\",\"ng-packagr\":\"^11.2.4\",\"ngx-page-scroll\":\"^7.0.4\",\"ngx-page-scroll-core\":\"^7.0.4\",\"npm-run-all\":\"^4.1.5\",\"phantomjs-prebuilt\":\"^2.1.16\",\"pug\":\"^3.0.2\",\"pug-attrs\":\"^3.0.0\",\"pug-cli\":\"^1.0.0-alpha6\",\"reflect-metadata\":\"^0.1.13\",\"rxjs\":\"^6.6.7\",\"ts-helpers\":\"^1.1.2\",\"ts-node\":\"^9.1.1\",\"typescript\":\"4.0.5\",\"webpack-bundle-analyzer\":\"^4.4.1\",\"zone.js\":\"~0.11.4\"},\"ngPackage\":{\"lib\":{\"entryFile\":\"src/index.ts\"},\"allowedNonPeerDependencies\":[\"ack-angular-fx\",\"ack-css-boot\",\"ack-x\",\"animate.css\",\"csshake\"]},\"private\":true}");
+      module.exports = JSON.parse("{\"name\":\"ack-angular\",\"version\":\"2.0.3\",\"description\":\"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\",\"main\":\"dist/index.js\",\"typings\":\"dist/index.d.ts\",\"scripts\":{\"start\":\"ng serve example --port 4201 --open\",\"build:index\":\"pug example/src/index.pug --out example/src\",\"stats\":\"webpack-bundle-analyzer example/www/stats.json\",\"install:example\":\"npm install --prefix example\",\"test\":\"ng test --browser PhantomJS --single-run\",\"test:watch\":\"ng test\",\"build:offline\":\"ngc --project modules/offline/tsconfig.json\",\"build:dist\":\"ngc --project src/tsconfig.json\",\"build:dist:broke\":\"ng-packagr -p package.json\",\"watch:dist\":\"watch \\\"npm-run-all build:dist\\\" src/ --ignoreDirectoryPattern=/pugs/\",\"build:assets\":\"npm-run-all build:assets:src build:assets:example compile:templates\",\"build:assets:src\":\"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts\",\"build:assets:example\":\"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts\",\"watch:assets\":\"npm-run-all --parallel \\\"build:assets:src -- --watch\\\" \\\"build:assets:example -- --watch\\\" \\\"compile:templates -- --watch\\\"\",\"compile:templates\":\"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne\",\"watch\":\"npm-run-all --parallel build:index watch:dist watch:assets watch:js\",\"watch:js\":\"ng serve example --port 4201 --open\",\"build:js\":\"ng build example --stats-json\",\"build:universal\":\"npm-run-all build:index build:assets\",\"build\":\"npm-run-all build:universal build:dist compile:dist:package copy:scss build:js\",\"copy:scss\":\"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss\",\"compile:dist:package\":\"node scripts/update-dist-package.js\",\"save\":\"git add . && git commit -m \\\"update\\\" && git push\",\"deploy\":\"npm-run-all build deploy:gh-pages deploy:npm save\",\"deploy:npm\":\"cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \\\"update\\\" && git push && npm publish\",\"deploy:gh-pages\":\"cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \\\"update\\\" && git push\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/AckerApple/ack-angular.git\"},\"keywords\":[\"ng\",\"Angular\",\"directives\",\"components\",\"pipes\",\"providers\"],\"author\":\"Acker Dawn Apple\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/AckerApple/ack-angular/issues\"},\"homepage\":\"https://github.com/AckerApple/ack-angular#readme\",\"dependencies\":{\"ack-angular-fx\":\"^4.1.0\",\"ack-css-boot\":\"^2.0.4\",\"ack-x\":\"^2.1.1\",\"animate.css\":\"^4.1.1\",\"csshake\":\"^1.5.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1102.8\",\"@angular-devkit/build-ng-packagr\":\"^0.1002.0\",\"@angular/animations\":\"^11.2.9\",\"@angular/cli\":\"^12.0.0\",\"@angular/common\":\"^11.2.9\",\"@angular/compiler\":\"^11.2.9\",\"@angular/compiler-cli\":\"^11.2.9\",\"@angular/core\":\"^12.0.0\",\"@angular/forms\":\"^11.2.9\",\"@angular/platform-browser\":\"^11.2.9\",\"@angular/platform-browser-dynamic\":\"^11.2.9\",\"@angular/router\":\"^11.2.9\",\"@types/jasmine\":\"^3.6.9\",\"ack-path\":\"^1.8.0\",\"ack-pug-bundler\":\"^1.4.8\",\"classlist-polyfill\":\"^1.2.0\",\"jasmine\":\"^3.7.0\",\"karma\":\"^6.3.2\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-coverage-istanbul-reporter\":\"^3.0.3\",\"karma-jasmine\":\"^4.0.1\",\"karma-jasmine-html-reporter\":\"^1.5.4\",\"karma-phantomjs-launcher\":\"^1.0.4\",\"localforage\":\"^1.9.0\",\"ng-packagr\":\"^11.2.4\",\"ngx-page-scroll\":\"^7.0.4\",\"ngx-page-scroll-core\":\"^7.0.4\",\"npm-run-all\":\"^4.1.5\",\"phantomjs-prebuilt\":\"^2.1.16\",\"pug\":\"^3.0.2\",\"pug-attrs\":\"^3.0.0\",\"pug-cli\":\"^1.0.0-alpha6\",\"reflect-metadata\":\"^0.1.13\",\"rxjs\":\"^6.6.7\",\"ts-helpers\":\"^1.1.2\",\"ts-node\":\"^9.1.1\",\"typescript\":\"4.0.5\",\"webpack-bundle-analyzer\":\"^4.4.1\",\"zone.js\":\"~0.11.4\"},\"ngPackage\":{\"lib\":{\"entryFile\":\"src/index.ts\"},\"allowedNonPeerDependencies\":[\"ack-angular-fx\",\"ack-css-boot\",\"ack-x\",\"animate.css\",\"csshake\"]},\"private\":true}");
       /***/
     },
 
@@ -8588,15 +8298,15 @@
         _createClass(AckOptions, [{
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
-            var _this92 = this;
+            var _this86 = this;
 
             Promise.resolve().then(function () {
-              if (_this92.inputTemplateRefs) {
-                _this92.TemplateReader.readTemplates(_this92.inputTemplateRefs);
+              if (_this86.inputTemplateRefs) {
+                _this86.TemplateReader.readTemplates(_this86.inputTemplateRefs);
               }
 
-              if (_this92.templateRefs) {
-                _this92.TemplateReader.readTemplates(_this92.templateRefs);
+              if (_this86.templateRefs) {
+                _this86.TemplateReader.readTemplates(_this86.templateRefs);
               }
             });
           }
@@ -9084,7 +8794,7 @@
 
       var RouteWatchReporter = /*#__PURE__*/function () {
         function RouteWatchReporter(router, activatedRoute) {
-          var _this93 = this;
+          var _this87 = this;
 
           _classCallCheck(this, RouteWatchReporter);
 
@@ -9100,9 +8810,9 @@
           this.activatedRoute = activatedRoute;
           router.events.subscribe(function (event) {
             if (event.constructor == _angular_router__WEBPACK_IMPORTED_MODULE_1__["NavigationEnd"]) {
-              var current = _this93.getCurrent();
+              var current = _this87.getCurrent();
 
-              _this93.recordStateChange(current.config, current.params);
+              _this87.recordStateChange(current.config, current.params);
             }
           });
           this.current = this.getCurrent();
@@ -9245,14 +8955,14 @@
         }, {
           key: "getDocumentCallbacks",
           value: function getDocumentCallbacks() {
-            var _this94 = this;
+            var _this88 = this;
 
             var isBackButton = function isBackButton() {
-              _this94.isOsAction = true;
+              _this88.isOsAction = true;
             };
 
             var isNotBackButton = function isNotBackButton() {
-              _this94.isOsAction = false;
+              _this88.isOsAction = false;
             };
 
             return {
@@ -9335,6 +9045,315 @@
       });
 
       var string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"margin-xxs\"><p class=\"margin-bottom-0\">Import Example</p><div class=\"text-warning text-xs\">The following import code, is NOT needed if you used the AckModule import <a class=\"text-calm\" href=\"#/overview\" (click)=\"scrollToModuleImport()\">seen here</a></div><pre class=\"code-sample\" ngNonBindable=\"ngNonBindable\">import &#123; declarations as ackDecs &#125; from \"ack-angular/components\"" + "\nimport &#123; NgModule &#125; from '@angular/core';" + "\n" + "\n@NgModule(&#123;" + "\n  declarations:ackDecs" + "\n&#125;)" + "\n</pre></div><br/><h4 class=\"margin-bottom-0\">Table of Contents</h4><ul><li><a href=\"#Tags\" pageScroll=\"pageScroll\">Tags</a></li><li><a href=\"#ExpressionBinds\" pageScroll=\"pageScroll\">Expression Binds</a></li><li><a href=\"#OneWayBinds\" pageScroll=\"pageScroll\">One Way Binds</a></li><li><a href=\"#TwoWayBinds\" pageScroll=\"pageScroll\">Two Way Binds</a></li><li><a href=\"#LayoutComponents\" pageScroll=\"pageScroll\">Layout Components</a></li><li><a href=\"#ComplexComponents\" pageScroll=\"pageScroll\">Complex Components" + "\n</a></li></ul><br/><h2 class=\"margin-bottom-0\" id=\"Tags\">Tags</h2><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1\" [class.width-full]=\"views.ackFixedElmStage\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>ack-fixed-element-stage</h3><div class=\"text-grey-2x max-width-400\">Required to use such components as &lt;ack-model&gt;, &lt;ack-options-modal&gt;, and the Confirm provider</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackFixedElmStage=!views.ackFixedElmStage\" [ngClass]=\"views.ackFixedElmStage?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackFixedElmStage\" [@fadeInOutUp]=\"1\"><div class=\"pad\">Use ONLY ONE time. This is a display control component for other components. It has no natural display until position fixed elements, such as modals, need to be rendered to screen.</div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;!DOCTYPE html&gt;" + "\n&lt;html lang=\"en\"&gt;" + "\n  &lt;head&gt;&lt;/head&gt;" + "\n  &lt;body&gt;" + "\n    &lt;ack-fixed-element-stage&gt;&lt;/ack-fixed-element-stage&gt;" + "\n  &lt;/body&gt;" + "\n&lt;/html&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>debug-area</h3><div class=\"text-grey-2x max-width-400\">A super convenient way to debug and edit variables<ack-close-icon></ack-close-icon></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.debugArea=!views.debugArea\" [ngClass]=\"views.debugArea?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.debugArea\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;debug-area&gt;" + "\n  &lt;debug-item name=\"someArray\" [value]=\"someArray\" type=\"array\"&gt;&lt;/debug-item&gt;" + "\n&lt;/debug-area&gt;</pre></absolute-overflow-x><h4 class=\"pad-sm margin-0\">Example Results<debug-area><debug-item name=\"arrayOfObjects\" [value]=\"arrayOfObjects\" type=\"array\"></debug-item><debug-item name=\"selectedArray\" [value]=\"selectedArray\" type=\"array\"></debug-item></debug-area></h4></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>ack-close-icon</h3><div class=\"text-grey-2x max-width-400\">A super convenient html based close icon. No img refs. No style sheet refs<ack-close-icon></ack-close-icon></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackCloseIcon=!views.ackCloseIcon\" [ngClass]=\"views.ackCloseIcon?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackCloseIcon\" [@fadeInOutUp]=\"1\"><div class=\"pad\"><ack-close-icon (click)=\"views.ackCloseIcon=false\"></ack-close-icon></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-close-icon (click)=\"views.ackCloseIcon=false\"&gt;&lt;/ack-close-icon&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>ack-array</h3><div class=\"text-grey-2x\">Common array functionality available at a template level</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackArray=!views.ackArray\" [ngClass]=\"views.ackArray?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackArray\" [@fadeInOutUp]=\"1\"><ack-array #Array=\"AckArray\" [(array)]=\"selectedArray\" idKey=\"letter\" [(pageAt)]=\"pageAt\" [(pages)]=\"arrayPages\" [(keyMap)]=\"arrayMap\"><ack-aggregate type=\"sum\" [keys]=\"['number']\" [(output)]=\"sumNumber\"></ack-aggregate></ack-array><h4 class=\"pad-sm margin-0\">Bind Documentation</h4><ul><li>[(array)] - main array to stem functionality from</li><li>[idKey] - pointer to each array node id field</li><li>[pageAt] - what number to break array into page buckets</li><li>([pages]) - buckets of arrays based on pageAt</li></ul><h4 class=\"pad-sm margin-0\">API Documentation</h4><ul><li>toggle(item) - adds or removes item based on existence</li><li>push(item) - param and append item to array</li><li>unshift(item) - param and prepend item to array</li><li>splice(item) - remove item by index from array</li><li>param() - ensure array exists</li><li>only(item) - reduce array down to only item argument</li></ul><div class=\"pad-sm\"><h4 class=\"margin-0\">Usage Example: Toggle Items</h4><div class=\"text-grey-2x\">Take an arbitrary array (arrayOfObjects in demo) and allow a system of toggling selections</div></div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-array #Array=\"AckArray\" [(array)]=\"selectedArray\" idKey=\"letter\"&gt;&lt;/ack-array&gt;" + "\n&lt;ng-container *ngIf=\"Array&gt;" + "\n  &lt;div *ngFor=\"let item of arrayOfObjects\"&gt;" + "\n    &lt;input type=\"checkbox\" [checked]=\"Array.selected(item)\" (click)=\"Array.toggle(item)\" /&gt;" + "\n    &nbsp;&nbsp;{{ item | json }}" + "\n  &lt;/div&gt;" + "\n&lt;/ng-container&gt;" + "\n</pre></absolute-overflow-x><h5 class=\"pad-sm margin-0\">Example Array Adjusters</h5><div class=\"pad-left text-grey-2x\">Use the checkboxes below to alter the original array</div><div class=\"flex-wrap child-margin-xs\"><div *ngFor=\"let item of arrayOfObjects;let i=index\"><input type=\"checkbox\" [checked]=\"Array?.selected(item)\" (click)=\"Array.toggle(item)\" name=\"ackArray\" id=\"ackArray{{i}}\"/>&nbsp;{{ item | json }}</div></div><div class=\"pad\"><a (click)=\"Array.toggleSort('letter')\">toggle sort</a></div><h5 class=\"pad-sm margin-0\">Example Selected Array</h5><absolute-overflow-x><pre class=\"code-sample margin-0\">{{ selectedArray | json }}" + "\n</pre></absolute-overflow-x><div class=\"pad-sm\"><h4 class=\"margin-0\">Usage Example: Map Items</h4><div class=\"text-grey-2x\">Take an arbitrary array and create an object map</div></div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-array" + "\n  [(array)]  = \"selectedArray\"" + "\n  idKey      = \"letter\"" + "\n  [(keyMap)] = \"objectOfArrays\"&gt;" + "\n&lt;/ack-array&gt;" + "\n&lt;pre&gt;" + "\n  {{ objectOfArrays | json}}" + "\n&lt;/pre&gt;" + "\n</pre></absolute-overflow-x><h5 class=\"pad-sm margin-0\">Example Selected Map</h5><absolute-overflow-x><pre class=\"code-sample margin-0\">{{ arrayMap | json }}" + "\n</pre></absolute-overflow-x><div class=\"pad-sm\"><h4 class=\"margin-0\">Usage Example: Pages of Array</h4><div class=\"text-grey-2x\">Break array into buckets of results</div></div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-array [(array)]=\"largeArray\" [(pages)]=\"pages\" pageAt=\"20\"&gt;&lt;/ack-array&gt;" + "\nTotal Pages : {{ pages?.length }}" + "\n&lt;div *ngFor=\"let page of pages;let page=index\"&gt;" + "\n  Page {{ page }} = {{ item | json }}" + "\n&lt;/div&gt;" + "\n</pre></absolute-overflow-x><div class=\"text-center bg-grey-4x pad-xxs margin-xxs\"><strong>pageAt:</strong><select [(ngModel)]=\"pageAt\"><option *ngFor=\"let page of [0,1,2,4,6,8]\" [value]=\"page\">{{page}}</option></select></div><div class=\"flex-wrap child-margin-xxs\"><absolute-overflow-x class=\"flex-1\" *ngFor=\"let page of arrayPages;let x=index\"><h5 class=\"margin-0\">Example pages[{{ x+1 }}]</h5><pre class=\"code-sample margin-0\">{{ page | json }}" + "\n</pre></absolute-overflow-x></div><div class=\"pad-sm\"><h4 class=\"margin-0\">Usage Example: Aggregates</h4><div class=\"text-grey-2x\">Sum an array</div></div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-array [(array)]=\"[&#123;parentOb:&#123;childOb:&#123;value:33&#125;&#125;&#125;]\"&gt;" + "\n  &lt;ack-aggregate type=\"sum\" [(output)]=\"sumAmount\" keys=\"['parentOb','childOb','value']\"&gt;&lt;/ack-aggregate&gt;" + "\n&lt;/ack-array&gt;" + "\n" + "\nYour sum of &#123;&#123; sumAmount &#125;&#125; should be equal to 33</pre></absolute-overflow-x><div class=\"pad-xxs\">Your sum is {{ sumNumber }}" + "\n</div></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>ack-options</h3><div class=\"text-grey-2x max-width-400\">Array of choosable options tied to a model</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackOptions=!views.ackOptions\" [ngClass]=\"views.ackOptions?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackOptions\" [@fadeInOutUp]=\"1\"><div class=\"pad-sm\"><h4 class=\"margin-0\">Demo</h4><p class=\"text-grey-3x text-sm\">Each item in list the below is selectable</p><div *ngIf=\"ackOptionString\" [@fadeInOutUp]=\"1\"><strong>Selected Option:</strong>&nbsp;{{ ackOptionString }}</div><ack-options [array]=\"['x','y','z']\" [(model)]=\"ackOptionString\" toggleable=\"1\"></ack-options><hr/><strong>Multiple Example</strong><div *ngIf=\"ackOptionArray?.length\" [@fadeInOutUp]=\"1\"><div><strong>Selected Options:</strong></div><absolute-overflow-x><pre class=\"code-sample\">{{ ackOptionArray | json }}</pre></absolute-overflow-x></div><ack-options [array]=\"[{name:'x'},{name:'y'},{name:'z'}]\" [(model)]=\"ackOptionArray\" multiple=\"1\"><ng-template #option=\"\" let-item=\"item\"><div>&bull; name:{{ item.name }}</div></ng-template><ng-template #selected=\"\" let-item=\"item\"><div class=\"bold\">&bull; name:{{ item.name }}</div></ng-template></ack-options></div><h4 class=\"pad-sm margin-0\">Properties</h4><ul><li>[array]</li><li>[stylize]:boolean = true</li><li>[multiple]:boolean</li><li>[modelAsArray]:boolean</li><li>[max]:number</li><li>[toggleable]:boolean</li></ul><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div *ngIf=\"ackOptionString\"&gt;" + "\n  &lt;strong&gt; Selected Option: &lt;/strong&gt;" + "\n  &#123;&#123; ackOptionString &#125;&#125;" + "\n&lt;/div&gt;" + "\n&lt;ack-options [array]=\"['x','y','z']\" [(model)]=\"ackOptionString\" toggleable&gt;&lt;/ack-options&gt;" + "\n" + "\n&lt;hr /&gt;" + "\n" + "\n&lt;div *ngIf=\"ackOptionArray?.length\"&gt;" + "\n  &lt;strong&gt; Selected Options: &lt;/strong&gt;" + "\n  &lt;pre&gt; &#123;&#123; ackOptionArray | json &#125;&#125; &lt;/pre&gt;" + "\n&lt;/div&gt;" + "\n&lt;ack-options [array]=\"[&#123;name:'x'&#125;,&#123;name:'y'&#125;,&#123;name:'z'&#125;]\" [(model)]=\"ackOptionArray\" multiple&gt;" + "\n  &lt;ng-template #option let-item=\"item\"&gt;" + "\n    &lt;div&gt; &amp;bull; name:&#123;&#123; item.name &#125;&#125; &lt;/div&gt;" + "\n  &lt;/ng-template&gt;" + "\n  &lt;ng-template #selected let-item=\"item\"&gt;" + "\n    &lt;div style=\"font-weight:bold\"&gt; &amp;bull; name:&#123;&#123; item.name &#125;&#125; &lt;/div&gt;" + "\n  &lt;/ng-template&gt;" + "\n&lt;/ack-options&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>ack-modal</h3><div class=\"text-grey-2x max-width-400\">Open simple dialog modal</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackModal=!views.ackModal\" [ngClass]=\"views.ackModal?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackModal\" [@fadeInOutUp]=\"1\"><div class=\"bg-info pad text-info\">This component requires the element &lt;ack-fixed-element-stage&gt; to be present somewhere in your app</div><ack-modal *ngIf=\"showAckModal\" (close)=\"showAckModal=false\" [(backgroundColor)]=\"modalBackgroundColor\" [(wrapStyle)]=\"modalWrapStyle\"><div class=\"bg-white border border-grey-4x pad-4x radius-5\">Sample Modal Dialog Window<div class=\"text-xs text-grey-2x pad-h\">*ngIf driven modal with animation provided by ack-angular-fx [@fadeInOutUp]=\"1\"</div></div></ack-modal><ack-modal [(showModel)]=\"showAckModalModel\" [(backgroundColor)]=\"modalBackgroundColor\" [(wrapStyle)]=\"modalWrapStyle\"><div class=\"bg-white border border-grey-4x pad-4x radius-5\">Sample Modal Dialog Window<div class=\"text-xs text-grey-2x pad-h\">model driven modal with animation provided by ack-angular-fx [@fadeInOutUp]=\"1\"</div></div></ack-modal><div class=\"pad text-center flex-wrap child-margin-xxs\"><button class=\"text-lg\" (click)=\"showAckModal=1\">*ngIf show modal</button><button class=\"text-lg\" (click)=\"showAckModalModel=1\">modal by [(showModel)]</button><div class=\"flex-1 flex-valign-center\"><div class=\"height-30 pad-h-sm bg-grey-5x border border-grey-4x border-right-0\">bg</div><input class=\"height-30 flex-1\" [(ngModel)]=\"modalBackgroundColor\"/></div><div class=\"flex-1 flex-valign-center\"><div class=\"height-30 pad-h-sm bg-grey-5x border border-grey-4x border-right-0\">width</div><input class=\"height-30 flex-1\" (change)=\"setModalWrapStyle($event.target.value)\" placeholder=\"default width is content\"/></div></div><div class=\"pad-sm\"><h4>Properties</h4><ul><li>(close)</li><li>[wrapStyle]</li><li>[wrapCellStyle]</li><li>[allowClose]:boolean = true</li><li>[backgroundColor]</li><li>[(showModel)]:boolean</li></ul></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-modal *ngIf=\"showAckModal\" (close)=\"showAckModal=false\" backgroundColor=\"rgba(255,255,255,0.95)\"&gt;" + "\n  &lt;div style=\"background-color:white;padding:1em;\"&gt;" + "\n    Sample Modal Dialog Window" + "\n  &lt;/div&gt;" + "\n&lt;/ack-model&gt;" + "\n&lt;button (click)=\"showAckModal=1\"&gt; show modal &lt;/button&gt;" + "\n</pre></absolute-overflow-x><h4 class=\"pad-sm margin-0\">Model Usage Example</h4><div class=\"text-grey-3x text-smx\">Control modal display by a variable model</div><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;ack-modal [(showModel)]=\"showAckModal\" backgroundColor=\"rgba(255,255,255,0.95)\"&gt;" + "\n  &lt;div style=\"background-color:white;padding:1em;\"&gt;" + "\n    Sample Modal Dialog Window" + "\n  &lt;/div&gt;" + "\n&lt;/ack-model&gt;" + "\n&lt;button (click)=\"showAckModal=1\"&gt; show modal &lt;/button&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>ack-options-modal</h3><div class=\"text-grey-2x max-width-400\">Array of choosable options, in a modal, tied to a model</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.ackOptionsModal=!views.ackOptionsModal\" [ngClass]=\"views.ackOptionsModal?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.ackOptionsModal\" [@fadeInOutUp]=\"1\"><div class=\"bg-info pad text-info\">This component requires the element &lt;ack-fixed-element-stage&gt; to be present somewhere in your app</div><div class=\"pad\">The ack-options-modal component extends ack-options and implements ack-modal. All options in ack-modal are available in ack-options-modal.</div><div class=\"pad-sm\"><h4 class=\"margin-0\">Demo</h4><p class=\"text-grey-3x text-sm\">Each item in list the below is selectable</p><div *ngIf=\"ackOptionStringModal\" [@fadeInOutUp]=\"1\"><strong>Selected Option:</strong>&nbsp;{{ ackOptionStringModal }}</div><ack-options-modal [(showModel)]=\"showAckOptionsStringModal\" [allowClose]=\"0\" [array]=\"['option 0','option 1','option 2']\" [(model)]=\"ackOptionStringModal\" (modelChange)=\"showAckOptionsStringModal=0\" toggleable=\"1\"><div class=\"pad-right-3x\">Select Something Below</div></ack-options-modal><button (click)=\"showAckOptionsStringModal=!showAckOptionsStringModal\">select option</button><hr/><strong>Multiple Example</strong><div *ngIf=\"ackOptionArrayModal?.length\" [@fadeInOutUp]=\"1\"><div><strong>Selected Options:</strong></div><absolute-overflow-x><pre class=\"code-sample\">{{ ackOptionArrayModal | json }}</pre></absolute-overflow-x></div><ack-options-modal [(showModel)]=\"showAckOptionsObjectModal\" [array]=\"[{name:'red',key:'r'},{name:'blue',key:'b'},{name:'green',key:'g'}]\" [(model)]=\"ackOptionArrayModal\" multiple=\"1\" arrayKey=\"key\" arrayToModelKey=\"\" modelKey=\"key\"><div class=\"pad-right-3x text-grey\">Select Multiple Things Below</div><ng-template #selected=\"\" let-item=\"item\"><div class=\"bold\">&bull; name:{{ item.name }}</div></ng-template><ng-template #option=\"\" let-item=\"item\"><div>&bull; name:{{ item.name }}</div></ng-template></ack-options-modal><button (click)=\"showAckOptionsObjectModal=!showAckOptionsObjectModal\">select options</button></div><h4 class=\"pad-sm margin-0\">Properties</h4><ul><li>[array]</li><li>[stylize]:boolean = true</li><li>[multiple]:boolean</li><li>[modelAsArray]:boolean</li><li>[max]:number</li><li>[toggleable]:boolean</li><li>(close)</li><li>[wrapStyle]</li><li>[wrapCellStyle]</li><li>[allowClose]:boolean = true</li><li>[backgroundColor]</li><li>[(showModel)]:boolean</li></ul><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div *ngIf=\"ackOptionStringModal\"&gt;" + "\n  &lt;strong&gt; Selected Option: &lt;/strong&gt;" + "\n  &#123;&#123; ackOptionStringModal &#125;&#125;" + "\n&lt;/div&gt;" + "\n" + "\n&lt;ack-options-modal" + "\n  [(showModel)]= \"showAckOptionsStringModal\"" + "\n  [allowClose] = \"0\"" + "\n  [array]      = \"['x','y','z']\"" + "\n  [(model)]    = \"ackOptionStringModal\"" + "\n  (modelChange)= \"showAckOptionsStringModal=0\"" + "\n  toggleable" + "\n&gt;" + "\n  &lt;div style=\"padding-right:30px;\"&gt;Select Something Below&lt;/div&gt;" + "\n&lt;/ack-options-modal&gt;" + "\n&lt;button (click)=\"showAckOptionsStringModal=!showAckOptionsStringModal\")&gt;" + "\n  select option" + "\n&lt;/button&gt;" + "\n" + "\n&lt;hr /&gt;" + "\n" + "\n&lt;div *ngIf=\"ackOptionArrayModal?.length\"&gt;" + "\n  &lt;strong&gt; Selected Options: &lt;/strong&gt;" + "\n  &lt;pre&gt; &#123;&#123; ackOptionArrayModal | json &#125;&#125; &lt;/pre&gt;" + "\n&lt;/div&gt;" + "\n" + "\n&lt;ack-options-modal" + "\n  [(showModel)]   = \"showAckOptionsObjectModal\"" + "\n  [array]         = \"[&#123;name:'red'&#125;,&#123;name:'blue'&#125;,&#123;name:'green'&#125;]\"" + "\n  [(model)]       = \"ackOptionArrayModal\"" + "\n  arrayKey        = \"name\"" + "\n  arrayToModelKey = \"key\"" + "\n  multiple" + "\n&gt;" + "\n  &lt;div style=\"padding-right:30px;\"&gt;" + "\n    Select Multiple Things Below" + "\n  &lt;/div&gt;" + "\n  &lt;ng-template let-item=\"item\"&gt;" + "\n    &lt;div&gt; &amp;bull; name:&#123;&#123; item.name &#125;&#125; &lt;/div&gt;" + "\n  &lt;/ng-template&gt;" + "\n  &lt;ng-template #selected let-item=\"item\"&gt;" + "\n    &lt;div style=\"font-weight:bold\"&gt; &amp;bull; name:&#123;&#123; item.name &#125;&#125; &lt;/div&gt;" + "\n  &lt;/ng-template&gt;" + "\n&lt;/ack-options-modal&gt;" + "\n&lt;button (click)=\"showAckOptionsObjectModal=!showAckOptionsObjectModal\")&gt;" + "\n  select options" + "\n&lt;/button&gt;" + "\n</pre></absolute-overflow-x></div></div></div><br/><h2 class=\"margin-bottom-0\" id=\"ExpressionBinds\">Expression Binds</h2><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1\" [class.width-full]=\"views.init\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>(init)</h3><div class=\"text-grey-2x max-width-400\">execute expression at render</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.init=!views.init\" [ngClass]=\"views.init?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.init\" [@fadeInOutUp]=\"1\"><div *ngFor=\"let item of initArray;let i=index\" (init)=\"item.name=item.name || 'no-name-'+(item.value+1)\">init val {{i}} {{ item.name }}</div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">@Component(&#123;" + "\n  selector: 'example'" + "\n  ,template: `" + "\n    &lt;div" + "\n      *ngFor=\"let item of initArray;let i=index\"" + "\n      (init)=\"item.name=item.name || 'no-name-'+(item.value+1)\"" + "\n    &gt;" + "\n      init val &#123;&#123;i&#125;&#125; &#123;&#123; item.name &#125;&#125;" + "\n    &lt;/div&gt;" + "\n  `" + "\n&#125;) export class Example &#123;" + "\n  initArray = [&#123;value:0&#125;,&#123;value:1&#125;,&#123;value:2&#125;]" + "\n&#125;" + "\n" + "\n" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.screenScroll\"><div class=\"border border-grey-4x border border-bottom-0\"><div (screenScroll)=\"screenScrollCount=screenScrollCount+1\"></div><div class=\"pad-h\"><h3>(screenScroll)</h3><div class=\"text-grey-2x\">Run expression on screen scroll. Scroll Event Count :<div class=\"inline-block width-50\">&nbsp;{{ screenScrollCount }}</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.screenScroll=!views.screenScroll\" [ngClass]=\"views.screenScroll?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.screenScroll\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div (screenScroll)=\"screenScrollCount=screenScrollCount?1:++screenScrollCount\" &gt;" + "\n&nbsp;&nbsp;screenScroll count : {{ screenScrollCount }}" + "\n&lt;/div&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.formChanged\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>(formChanged)</h3><div class=\"text-grey-2x max-width-400\">Capture a form tag onchange event</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.formChanged=!views.formChanged\" [ngClass]=\"views.formChanged?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.formChanged\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Example</h4><form class=\"pad\" (formChanged)=\"formChanges=formChanges==null?1:formChanges+1\"><span>Change Count : {{formChanges || 0}} :</span>&nbsp;<input type=\"radio\" name=\"fcTest\"/>&nbsp;<input type=\"radio\" name=\"fcTest\"/>&nbsp;<input type=\"radio\" name=\"fcTest\"/></form><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;form (formChanged)=\"formChanges=formChanges==null?1:formChanges+1\" &gt;" + "\n  &lt;span&gt; Change Count : {{formChanges || 0}} &lt;/span&gt;" + "\n  &lt;input type=\"radio\" name=\"fcTest\" /&gt;" + "\n  &lt;input type=\"radio\" name=\"fcTest\" /&gt;" + "\n  &lt;input type=\"radio\" name=\"fcTest\" /&gt;" + "\n&lt;/form&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.formAlter\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>(formAlter)</h3><div class=\"text-grey-2x max-width-400\">Capture a form tag oninput event</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.formAlter=!views.formAlter\" [ngClass]=\"views.formAlter?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.formAlter\" [@fadeInOutUp]=\"1\"><div class=\"pad text-info\">Fires for every form input alteration and NOT just after a change occurred</div><h4 class=\"pad-sm margin-0\">Example</h4><form class=\"pad\" (formAlter)=\"formAlters=formAlters==null?1:formAlters+1\"><span>Alter Count : {{formAlters || 0}} :</span><input type=\"text\"/></form><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;form (formAlter)=\"formAlters=formAlters==null?1:formAlters+1\" &gt;" + "\n  &lt;span&gt; Alter Count : {{formAlters || 0}} &lt;/span&gt;" + "\n  &lt;input type=\"text\" /&gt;" + "\n&lt;/form&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.enterKey\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>(enterKey)</h3><div class=\"text-grey-2x max-width-400\">Capture keyUp events when enter key used</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.enterKey=!views.enterKey\" [ngClass]=\"views.enterKey?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.enterKey\" [@fadeInOutUp]=\"1\"><div class=\"pad text-info\">Fires for every onKeyUp event where enter key was pressed</div><h4 class=\"pad-sm margin-0\">Example</h4><div class=\"flex child-margin-xs pad-xs\"><span>Enter Count : {{enterCountKey || 0}}</span><input class=\"flex-1\" type=\"text\" (enterKey)=\"enterCountKey=enterCountKey==null?1:enterCountKey+1\" placeholder=\"type here and use enter key\"/></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;span&gt; Enter Count : {{enterCountKey || 0}} &lt;/span&gt;" + "\n&lt;input type=\"text\" (enterKey)=\"enterCountKey=enterCountKey==null?1:enterCountKey+1\" placeholder=\"type here and use enter key\" /&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.escapeKey\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>(escapeKey)</h3><div class=\"text-grey-2x max-width-400\">Capture keyUp events when escape key used</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.escapeKey=!views.escapeKey\" [ngClass]=\"views.escapeKey?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.escapeKey\" [@fadeInOutUp]=\"1\"><div class=\"pad text-info\">Fires for every onKeyUp event where enter key was pressed</div><h4 class=\"pad-sm margin-0\">Example</h4><div class=\"flex child-margin-xs pad-xs\"><span>Escape Count : {{escapeCountKey || 0}}</span><input class=\"flex-1\" type=\"text\" (escapeKey)=\"escapeCountKey=escapeCountKey==null?1:escapeCountKey+1\" placeholder=\"type here and use escape key\"/></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;span&gt; Escape Count : {{escapeCountKey || 0}} &lt;/span&gt;" + "\n&lt;input type=\"text\" (escapeKey)=\"escapeCountKey=escapeCountKey==null?1:escapeCountKey+1\" placeholder=\"type here and use escape key\" /&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.preventBackKey\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>(preventBackKey)</h3><div class=\"text-grey-2x max-width-400\">Prevent the use of the backspace key</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.preventBackKey=!views.preventBackKey\" [ngClass]=\"views.preventBackKey?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.preventBackKey\" [@fadeInOutUp]=\"1\"><div class=\"pad text-info\">Prevents and fires every onKeyUp event where backspace key was pressed</div><h4 class=\"pad-sm margin-0\">Example</h4><div class=\"flex child-margin-xs pad-xs\"><span>Backspace Count : {{backspaceCount || 0}}</span><input class=\"flex-1\" type=\"text\" (preventBackKey)=\"backspaceCount=backspaceCount==null?1:backspaceCount+1\" placeholder=\"type here and use enter key\"/></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;span&gt; Backspace Count : {{backspaceCount || 0}} &lt;/span&gt;" + "\n&lt;input type=\"text\" (preventBackKey)=\"backspaceCount=backspaceCount==null?1:backspaceCount+1\" placeholder=\"type here and then use backspace key\" /&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.preventEnterKey\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>(preventEnterKey)</h3><div class=\"text-grey-2x max-width-400\">Prevent the use of the enter keys</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.preventEnterKey=!views.preventEnterKey\" [ngClass]=\"views.preventEnterKey?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.preventEnterKey\" [@fadeInOutUp]=\"1\"><div class=\"pad text-info\">Prevents and fires every onKeyUp event where enter key was pressed</div><h4 class=\"pad-sm margin-0\">Example</h4><div class=\"flex child-margin-xs pad-xs\"><span>Enter Count : {{preventEnterCount || 0}}</span><input class=\"flex-1\" type=\"text\" (preventEnterKey)=\"preventEnterCount=preventEnterCount==null?1:preventEnterCount+1\" placeholder=\"type here and use enter key\"/></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;span&gt; Enter Count : {{preventEnterCount || 0}} &lt;/span&gt;" + "\n&lt;input type=\"text\" (preventEnterKey)=\"preventEnterCount=preventEnterCount==null?1:preventEnterCount+1\" placeholder=\"type here and use enter key\" /&gt;" + "\n</pre></absolute-overflow-x></div></div></div><br/><h2 class=\"margin-bottom-0\" id=\"OneWayBinds\">One Way Binds</h2><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1\" [class.width-full]=\"views.Var\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[var]</h3><div class=\"text-grey-2x max-width-400\">Create local template variables</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.Var=!views.Var\" [ngClass]=\"views.Var?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.Var\" [@fadeInOutUp]=\"1\"><div class=\"pad-sm\"><h4 class=\"margin-0\">Demo</h4><p class=\"text-grey-3x text-sm\">Each item in list below, has a localized variable</p><div class=\"flex-wrap child-margin-xxs\" #myVar=\"var\" [var]=\"0\"><button (click)=\"myVar.var=myVar.var+1\">outsize memory {{ myVar.var }}</button><button *ngFor=\"let i of [0,1,2,3]\" #myVar=\"var\" [var]=\"i\" (click)=\"myVar.var=myVar.var+1\">click count + index {{ myVar.var }}</button></div></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div #myVar=\"var\" [var]=\"0\"&gt;" + "\n  &lt;button (click)=\"myVar.var=myVar.var+1\"&gt;" + "\n    outsize memory &#123;&#123;&#123; myVar.var &#125;&#125;" + "\n  &lt;/button&gt;" + "\n  &lt;button *ngFor=\"let i of [0,1,2,3]\" #myVar=\"var\" [var]=\"i\" (click)=\"myVar.var=myVar.var+1\"&gt;" + "\n    click count + index &#123;&#123; myVar.var &#125;&#125;" + "\n  &lt;/button&gt;" + "\n&lt;/div&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.focusOn\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[focusOn]</h3><div class=\"text-grey-2x max-width-400\">element focus on demand</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.focusOn=!views.focusOn\" [ngClass]=\"views.focusOn?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.focusOn\" [@fadeInOutUp]=\"1\"><div class=\"pad text-center flex-wrap child-margin-xxs\"><div><button class=\"text-lg\" (click)=\"focusOn=1\">focus input</button></div><div class=\"flex-1\"><input class=\"width-full text-lg\" [focusOn]=\"focusOn\" (focusThen)=\"focusOn=0\" [focusOnDelay]=\"focusOnDelay\" placeholder=\"focus target\"/></div><div><input class=\"text-lg width-100\" type=\"number\" [(ngModel)]=\"focusOnDelay\" placeholder=\"delay\"/>ms</div></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;button (click)=\"focusOn=1\"&gt; focus input &lt;/button&gt;" + "\n&lt;input [focusOn]=\"focusOn\" (focusThen)=\"focusOn=0\" [focusOnDelay]=\"focusOnDelay\" placeholder=\"focus target\" /&gt;" + "\n&lt;input type=\"number\" [(ngModel)]=\"focusOnDelay\" placeholder=\"delay\" /&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.selectOn\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[selectOn]</h3><div class=\"text-grey-2x max-width-400\">element select on demand</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.selectOn=!views.selectOn\" [ngClass]=\"views.selectOn?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.selectOn\" [@fadeInOutUp]=\"1\"><div class=\"pad text-center flex-wrap child-margin-xxs\"><div><button class=\"text-lg\" (click)=\"selectOn=1\">select input</button></div><div class=\"flex-1\"><input class=\"width-full text-lg\" [selectOn]=\"selectOn\" (selectThen)=\"selectOn=0\" [selectOnDelay]=\"selectOnDelay\" placeholder=\"select target\" value=\"test to select\"/></div><div><input class=\"text-lg width-100\" type=\"number\" [(ngModel)]=\"selectOnDelay\" placeholder=\"delay\"/>ms</div></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;button (click)=\"selectOn=1\"&gt; select input &lt;/button&gt;" + "\n&lt;input [selectOn]=\"selectOn\" (selectThen)=\"selectOn=0\" [selectOnDelay]=\"selectOnDelay\" placeholder=\"select target\" value=\"test to select\" /&gt;" + "\n&lt;input type=\"number\" [(ngModel)]=\"selectOnDelay\" placeholder=\"delay\" /&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.fxOn\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[fxOn]</h3><div class=\"text-grey-2x max-width-400\">Control css classes for periods of time</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.fxOn=!views.fxOn\" [ngClass]=\"views.fxOn ? 'border-energized bg-energized' : 'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.fxOn\" [@fadeInOutUp]=\"1\"><div class=\"pad\"><div class=\"pad-xs bg-warning border-warning text-warning border\">You will need to &lt;link&gt; one of two style sheets:<ul><li>ack-angular/ack-angular.css</li><li>- or -</li><li><a href=\"https://github.com/daneden/animate.css\">animate.css</a></li></ul></div></div><h4 class=\"pad-h-sm margin-0\">Example</h4><div class=\"flex-wrap child-pad-h-xs pad-h\"><div><label class=\"block\">&nbsp;</label><label #fxRef=\"FxOn\" [fxOn]=\"fxOn\" (fxThen)=\"fxOn=false\" [fxForMs]=\"fxForMs\" [fxClass]=\"'animated ' + fxClass\">animate this text</label></div><div class=\"width-100\"><label>&nbsp;</label><button class=\"width-full\" (click)=\"fxOn=!fxOn\">fx:{{ fxOn || false }}</button></div><div><label>&nbsp;</label><a class=\"pad-h border border-positive text-positive block text-center hover-bg-positive hover-text-white\" (mouseover)=\"fxOn=true\" (mouseout)=\"fxOn=false\">hover me</a></div><div><label>fxType</label><select class=\"width-full\" [(ngModel)]=\"fxClass\" (change)=\"fxOn=true\"><option *ngFor=\"let item of (fxRef?fxRef.fxTypes:[])\" value=\"{{item}}\">{{item}}</option></select></div><div><label>&nbsp;</label><div><input type=\"checkbox\" id=\"fxConstant\" [(ngModel)]=\"fxConstant\" (change)=\"fxOn=$event.target.checked\"/>&nbsp;<label for=\"fxConstant\">fxConstant</label></div></div><div><label>fxForMs</label><div><input class=\"width-100\" [(ngModel)]=\"fxForMs\" (change)=\"fxOn=true\"/></div></div></div><strong>fxClass = \"animated {{fxClass}}\"</strong><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;label [fxOn]=\"fxOn\" (fxThen)=\"fxOn=false\" #fxRef=\"FxOn\" [(fxForMs)]=\"fxForMs\" [(fxType)]=\"fxClass\"&gt;" + "\n  animate this text :: {{ fxOn || false }}" + "\n&lt;/label&gt;" + "\n&lt;button (click)=\"fxOn=true\"&gt; fx:{{fxOn||false}} &lt;/button&gt;" + "\n&lt;a (mouseover)=\"fxOn=true\" (mouseout)=\"fxOn=false\"&gt;" + "\n  hover me" + "\n&lt;/a&gt;" + "\n&lt;select [(ngModel)]=\"fxClass\" (change)=\"fxOn=true\"&gt;" + "\n  &lt;option *ngFor=\"let item of (fxRef?fxRef.fxTypes:[])\" value=\"{{item}}\"&gt;{{item}}&lt;/option&gt;" + "\n&lt;/select&gt;" + "\n&lt;input type=\"checkbox\" id=\"fxConstant\" [(ngModel)]=\"fxConstant\" (change)=\"fxOn=$event.target.checked\" /&gt;" + "\n&lt;input [(ngModel)]=\"fxForMs\" (change)=\"fxOn=true\" /&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.shakeOn\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[shakeOn]</h3><div class=\"text-grey-2x max-width-400\">Control an animated shaking effect on demand</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.shakeOn=!views.shakeOn\" [ngClass]=\"views.shakeOn?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.shakeOn\" [@fadeInOutUp]=\"1\"><div class=\"pad\"><div class=\"pad-xs bg-warning border-warning text-warning border\">You will need to &lt;link&gt; one of two style sheets:<ul><li>ack-angular/ack-angular.css</li><li>- or -</li><li>ack-angular/csshake.css</li></ul></div></div><h4 class=\"pad-h-sm margin-0\">Example</h4><div class=\"flex-wrap child-pad-h-xs pad-h\"><div><label class=\"block\">&nbsp;</label><label #shakeRef=\"ShakeOn\" [shakeOn]=\"shakeOn\" (shakeThen)=\"shakeOn=false\" [shakeForMs]=\"shakeForMs\" [shakeType]=\"shakeOnType\" [shakeConstant]=\"shakeConstant\">shake this text</label></div><div class=\"width-100\"><label>&nbsp;</label><button class=\"width-full\" (click)=\"shakeOn=!shakeOn\">shake:{{shakeOn||false}}</button></div><div><label>&nbsp;</label><a class=\"pad-h border border-positive text-positive block text-center hover-bg-positive hover-text-white\" (mouseover)=\"shakeOn=true\" (mouseout)=\"shakeOn=false\">hover me</a></div><div><label>shakeType</label><select class=\"width-full\" [(ngModel)]=\"shakeOnType\" (change)=\"shakeOn=true\"><option *ngFor=\"let item of (shakeRef?shakeRef.shakeTypes:[])\" value=\"{{item}}\">{{item}}</option></select></div><div><label>&nbsp;</label><div><input type=\"checkbox\" id=\"shakeConstant\" [(ngModel)]=\"shakeConstant\" (change)=\"shakeOn=$event.target.checked\"/>&nbsp;<label for=\"shakeConstant\">shakeConstant</label></div></div><div><label>shakeForMs</label><div><input class=\"width-100\" [(ngModel)]=\"shakeForMs\" (change)=\"shakeOn=true\"/></div></div></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;label [shakeOn]=\"shakeOn\" (shakeThen)=\"shakeOn=false\" #shakeRef=\"ShakeOn\" [(shakeForMs)]=\"shakeForMs\" [(shakeType)]=\"shakeOnType\"&gt;" + "\n  shake this text :: {{ shakeOn||false }}" + "\n&lt;/label&gt;" + "\n&lt;button (click)=\"shakeOn=true\"&gt; shake:{{shakeOn||false}} &lt;/button&gt;" + "\n&lt;a (mouseover)=\"shakeOn=true\" (mouseout)=\"shakeOn=false\"&gt;" + "\n  hover me" + "\n&lt;/a&gt;" + "\n&lt;select [(ngModel)]=\"shakeOnType\" (change)=\"shakeOn=true\"&gt;" + "\n  &lt;option *ngFor=\"let item of (shakeRef?shakeRef.shakeTypes:[])\" value=\"{{item}}\"&gt;{{item}}&lt;/option&gt;" + "\n&lt;/select&gt;" + "\n&lt;input type=\"checkbox\" id=\"shakeConstant\" [(ngModel)]=\"shakeConstant\" (change)=\"shakeOn=$event.target.checked\" /&gt;" + "\n&lt;input [(ngModel)]=\"shakeForMs\" (change)=\"shakeOn=true\" /&gt;" + "\n</pre></absolute-overflow-x></div></div></div><br/><h2 class=\"margin-bottom-0\" id=\"TwoWayBinds\">Two Way Binds</h2><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1\" [class.width-full]=\"views.statusOnlineModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(statusOnlineModel)]=\"statusOnlineModel\"></div><div class=\"pad-h\"><h3>[(statusOnlineModel)]</h3><div class=\"text-grey-2x max-width-400\">Get browser internet status. <strong>IS ONLINE</strong> :<div class=\"inline-block width-50\">&nbsp;{{ statusOnlineModel }}</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.statusOnlineModel=!views.statusOnlineModel\" [ngClass]=\"views.statusOnlineModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.statusOnlineModel\" [@fadeInOutUp]=\"1\"><div class=\"pad\"><div class=\"pad bg-warning border-warning border text-warning\">Completely turn off your internet and the online status will change.<br/>A delay is expected during transition from offline to online</div></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div(\"[(statusOnlineModel)]\"=\"statusOnlineModel\")&gt;" + "\n  |statusOnlineModel : {{ statusOnlineModel ? 'online' : 'offline'}}" + "\n&lt;/div&gt;" + "\n</pre></absolute-overflow-x></div></div><!-- statusOfflineModel--><div class=\"flex-1\" [class.width-full]=\"views.statusOfflineModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(statusOfflineModel)]=\"statusOfflineModel\"></div><div class=\"pad-h\"><h3>[(statusOfflineModel)]</h3><div class=\"text-grey-2x max-width-400\">Get browser internet status. <strong>IS OFFLINE</strong> :<div class=\"inline-block width-50\">&nbsp;{{ statusOfflineModel }}</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.statusOfflineModel=!views.statusOfflineModel\" [ngClass]=\"views.statusOfflineModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.statusOfflineModel\" [@fadeInOutUp]=\"1\"><div class=\"pad\"><div class=\"pad bg-warning border-warning border text-warning\"></div>Completely turn off your internet and the offline status will change<br/>A delay is expected during transition from offline to online</div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div(\"[(statusOfflineModel)]\"=\"statusOfflineModel\")&gt;" + "\n  |statusOfflineModel : {{ statusOfflineModel ? 'offline' : 'online'}}" + "\n&lt;/div&gt;" + "\n</pre></absolute-overflow-x></div></div><!-- pxFromHtmlTop--><div class=\"flex-1\" [class.width-full]=\"views.pxFromHtmlTop\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[pxFromHtmlTop]</h3><div class=\"text-grey-2x\">Get element position from top of screen.<div class=\"inline-block width-50\" [(pxFromHtmlTop)]=\"pxFromHtmlTop\">Currently:&nbsp;{{pxFromHtmlTop}}</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.pxFromHtmlTop=!views.pxFromHtmlTop\" [ngClass]=\"views.pxFromHtmlTop ? 'border-energized bg-energized' : 'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.pxFromHtmlTop\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(pxFromHtmlTop)]=\"pxFromHtmlTop\" &gt;" + "\n&nbsp;&nbsp;pxFromHtmlTop: {{ pxFromHtmlTop }}" + "\n&lt;/div&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.screenScrollHeightDiff\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(screenScrollHeightDiff)]=\"screenScrollHeightDiff\"></div><div class=\"pad-h\"><h3>[(screenScrollHeightDiff)]</h3><div class=\"text-grey-2x\">Model of how many pixels overflow past the screen height (screenHeight - scrollHeight).<div>Currently :<div class=\"inline-block width-50\">&nbsp;{{ screenScrollHeightDiff }}</div></div><div class=\"pad text-grey-3x text-smx\">resize window height to see change</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.screenScrollHeightDiff=!views.screenScrollHeightDiff\" [ngClass]=\"views.screenScrollHeightDiff?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.screenScrollHeightDiff\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(screenScrollHeightDiff)]=\"screenScrollHeightDiff\" &gt;" + "\n&nbsp;&nbsp;screenScrollHeightDiff : {{ screenScrollHeightDiff }}" + "\n&lt;/div&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.screenScrollModelY\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(screenScrollModelY)]=\"screenScrollModelY\"></div><div class=\"pad-h\"><h3>[(screenScrollModelY)]</h3><div class=\"text-grey-2x max-width-400\">Get browser height scrolled. Currently :<div class=\"inline-block width-50\">&nbsp;{{screenScrollModelY}}px</div></div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.screenScrollModelY=!views.screenScrollModelY\" [ngClass]=\"views.screenScrollModelY?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.screenScrollModelY\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(screenScrollModelY)]=\"screenScrollModelY\" &gt;" + "\n&nbsp;&nbsp;screenScrollModelY : {{ screenScrollModelY }}px" + "\n&lt;/div&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.htmlWidthModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(htmlWidthModel)]=\"htmlWidthModel\"></div><div class=\"pad-h\"><h3>[(htmlWidthModel)]</h3><div class=\"text-grey-2x\">Get the browser document inner width. Currently : {{htmlWidthModel}}px</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.htmlWidthModel=!views.htmlWidthModel\" [ngClass]=\"views.htmlWidthModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.htmlWidthModel\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(htmlWidthModel)]=\"htmlWidthModel\"&gt;" + "\n&nbsp;&nbsp;htmlWidthModel : {{ htmlWidthModel }}px" + "\n&lt;/div&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.htmlHeightModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(htmlHeightModel)]=\"htmlHeightModel\"></div><div class=\"pad-h\"><h3>[(htmlHeightModel)]</h3><div class=\"text-grey-2x\">Get the browser document inner height. Currently : {{ htmlHeightModel }}px</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.htmlHeightModel=!views.htmlHeightModel\" [ngClass]=\"views.htmlHeightModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.htmlHeightModel\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(htmlHeightModel)]=\"htmlHeightModel\"&gt;" + "\n&nbsp;&nbsp;htmlHeightModel : {{ htmlHeightModel }}px" + "\n&lt;/div&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.screenWidthModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(screenWidthModel)]=\"screenWidthModel\"></div><div class=\"pad-h\"><h3>[(screenWidthModel)]</h3><div class=\"text-grey-2x max-width-400\">Get the browser window inner width. Currently : {{ screenWidthModel }}px</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"viewScreenWidthModel=!viewScreenWidthModel\" [ngClass]=\"viewScreenWidthModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"viewScreenWidthModel\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(screenWidthModel)]=\"screenWidthModel\"&gt;" + "\n&nbsp;&nbsp;screenWidthModel : {{ screenWidthModel }}px" + "\n&lt;/div&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.screenHeightModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div [(screenHeightModel)]=\"screenHeightModel\"></div><div class=\"pad-h\"><h3>[(screenHeightModel)]</h3><div class=\"text-grey-2x max-width-400\">Get the browser window inner height. Currently : {{screenHeightModel}}px</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"viewScreenHeightModel=!viewScreenHeightModel\" [ngClass]=\"viewScreenHeightModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"viewScreenHeightModel\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(screenHeightModel)]=\"screenHeightModel\"&gt;" + "\n&nbsp;&nbsp;screenHeightModel : {{ screenHeightModel }}px" + "\n&lt;/div&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.innerHtmlModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[(innerHtmlModel)]</h3><div class=\"text-grey-2x max-width-400\">Capture an elements innerHTML into a model</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.innerHtmlModel=!views.innerHtmlModel\" [ngClass]=\"views.innerHtmlModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.innerHtmlModel\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Example</h4><div [(innerHtmlModel)]=\"innerHtmlModel\"><button (click)=\"contentArray.push('')\">add content</button><span *ngFor=\"let item of contentArray\">&#10;<button (click)=\"contentArray.push('')\">add content</button></span></div><absolute-overflow-x><pre class=\"code-sample margin-0\">{{ innerHtmlModel }}</pre></absolute-overflow-x><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;span&gt; Enter Count : {{preventEnterCount || 0}} &lt;/span&gt;" + "\n&lt;input type=\"text\" (enterKey)=\"preventEnterCount=preventEnterCount==null?1:preventEnterCount+1\" placeholder=\"type here and use enter key\" /&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.contentModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[(contentModel)]</h3><div class=\"text-grey-2x max-width-400\">Capture an elements innerHTML into a model</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.contentModel=!views.contentModel\" [ngClass]=\"views.contentModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.contentModel\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Example</h4><div>Tap to edit:&nbsp;<span [(contentModel)]=\"contentModel\" placeholder=\"tap to create text\"></span></div><absolute-overflow-x><pre class=\"code-sample margin-0\">{{ contentModel }}</pre></absolute-overflow-x><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(contentModel)]=\"contentModel\" placeholder=\"tap to create text\"&gt;{{ contentModel }}&lt;/div&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.absoluteOverflowX\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>absolute-overflow-x</h3><div class=\"text-grey-2x max-width-400\">Control pre and nowrap elements x-axis overflow</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.absoluteOverflowX=!views.absoluteOverflowX\" [ngClass]=\"views.absoluteOverflowX?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.absoluteOverflowX\" [@fadeInOutUp]=\"1\"><div class=\"pad\"><div class=\"pad bg-info text-info text-info\">Often, pre elements and nowrap styles, make it hard to contronl x-axis overflow.<p>The following component, uses a relative and a absolute position elements along with height monitoring to manage x-axis overflow.</p><p>A no-sroll-bar option is defaulted to remove overflow scroll bars.</p></div></div><h4 class=\"pad-sm margin-0\">Bindings</h4><li>[scrollBars]</li><li>[wrapClass]</li><li>[active] = true</li><li>[overflow]:'auto'|'none'|'hidden'|'scroll' = 'auto'</li><h4 class=\"pad-sm margin-0\">Example</h4><div class=\"pad\"><absolute-overflow-x [active]=\"absoluteOverflowXActive\"><div class=\"nowrap\">&nbsp;&nbsp;This content all runs on one line flat out for as long as I can stand to stand typing at a Veridesk in Delray Beach, FL. Not that long it turns out...</div></absolute-overflow-x><label for=\"absoluteOverflowXActive\"><input type=\"checkbox\" [(ngModel)]=\"absoluteOverflowXActive\" id=\"absoluteOverflowXActive\"/>&nbsp;&nbsp;Overflow On/Off \"active\" Toggle</label><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;absolute-overflow-x&gt;" + "\n&nbsp;&nbsp;&lt;div style=\"white-space:nowrap;\"&gt;" + "\n&nbsp;&nbsp;&nbsp;&nbsp;This content all runs on one line flat out for as long as I can stand to stand typing at a Veridesk in Delray Beach, FL. Not that long it turns out..." + "\n&nbsp;&nbsp;&lt;/div&gt;" + "\n&lt;/absolute-overflow-x&gt;" + "\n</pre></absolute-overflow-x></div></div></div><div class=\"flex-1\" [class.width-full]=\"views.elementSizeModel\" [(elementSizeModel)]=\"elementSizeModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[(elementSizeModel)]</h3><div class=\"text-grey-2x max-width-400\">Get an elements size. Currently : {{ elementSizeModel?.width }}x{{elementSizeModel?.height }}</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.elementSizeModel=!views.elementSizeModel\" [ngClass]=\"views.elementSizeModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.elementSizeModel\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(elementSizeModel)]=\"elementSizeModel\"&gt;" + "\n&nbsp;&nbsp;elementSizeModel : {{ elementSizeModel?.width }}x{{ elementSizeModel?.height }}" + "\n&lt;/div&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.elementHeightModel\" [(elementHeightModel)]=\"elementHeightModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[(elementHeightModel)]</h3><div class=\"text-grey-2x max-width-400\">Get an elements height. Currently : {{elementHeightModel}}px</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.elementHeightModel=!views.elementHeightModel\" [ngClass]=\"views.elementHeightModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.elementHeightModel\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(elementHeightModel)]=\"elementHeightModel\"&gt;" + "\n&nbsp;&nbsp;elementHeightModel : {{ elementHeightModel }}px" + "\n&lt;/div&gt;" + "\n</pre></absolute-overflow-x></div></div><div class=\"flex-1\" [class.width-full]=\"views.elementWidthModel\" [(elementWidthModel)]=\"elementWidthModel\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>[(elementWidthModel)]</h3><div class=\"text-grey-2x max-width-400\">Get an elements width. Currently : {{elementWidthModel}}px</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.elementWidthModel=!views.elementWidthModel\" [ngClass]=\"views.elementWidthModel?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.elementWidthModel\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;div [(elementWidthModel)]=\"elementWidthModel\"&gt;" + "\n&nbsp;&nbsp;elementWidthModel : {{ elementWidthModel }}px" + "\n&lt;/div&gt;" + "\n</pre></absolute-overflow-x></div></div></div><br/><h2 class=\"margin-bottom-0\" id=\"LayoutComponents\">Layout Components</h2><div class=\"pad\"><div class=\"pad bg-warning border-warning text-warning border\">You will need to &lt;link&gt; one of two style sheets:<ul><li>ack-angular/ack-angular.css</li><li>- or -</li><li>ack-angular/ack-css-boot.css</li></ul></div></div><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1\" [class.width-full]=\"views.errorWell\"><div class=\"border border-grey-4x border border-bottom-0\"><div class=\"pad-h\"><h3>error-well</h3><div class=\"text-grey-2x max-width-400\">a smart and simple place to display errors</div><br/></div></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.errorWell=!views.errorWell\" [ngClass]=\"views.errorWell?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.errorWell\" [@fadeInOutUp]=\"1\"><h4 class=\"pad-sm margin-0\">Example</h4><div class=\"pad\"><select name=\"cssClasses\" [(ngModel)]=\"cssClasses\"><option value=\"bg-info border-info text-info\">bg-info border-info text-info</option><option value=\"bg-warning border-warning text-warning\">bg-warning border-warning text-warning</option><option value=\"bg-danger border-danger text-danger\">bg-danger border-danger text-danger</option><option value=\"bg-energized border-energized text-energized\">bg-energized border-energized text-energized</option><option value=\"bg-calm border-calm text-calm\">bg-calm border-calm text-calm</option><option value=\"bg-assertive border-assertive text-assertive\">bg-assertive border-assertive text-assertive</option><option value=\"bg-success border-success text-success\">bg-success border-success text-success</option><option value=\"bg-positive border-positive text-positive\">bg-positive border-positive text-positive</option><option value=\"bg-balanced border-balanced text-balanced\">bg-balanced border-balanced text-balanced</option><option value=\"bg-stable border-stable text-stable\">bg-stable border-stable text-stable</option><option value=\"bg-dark border-dark text-dark\">bg-dark border-dark text-dark</option><option value=\"bg-royal border-royal text-royal\">bg-royal border-royal text-royal</option></select><error-well class=\"margin\" [error]=\"error\" [cssClasses]=\"cssClasses\"></error-well><button (click)=\"causeError()\">cause error</button></div><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;error-well [error]=\"error\"&gt;&lt;/error-well&gt;</pre></absolute-overflow-x><h4 class=\"pad-sm margin-0\">Advanced Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\" ngNonBindable=\"ngNonBindable\">&lt;error-well [error]=\"error\" [closable]=\"1\" [allowDetails]=\"1\"&gt;&lt;/error-well&gt;" + "\n</pre></absolute-overflow-x></div></div></div><br/><h3 id=\"ComplexComponents\">Complex Components</h3><div class=\"pad-h\"><p class=\"margin-bottom-0\">Components that have additional dependencies or restrictions</p></div><div class=\"flex-wrap child-margin-xxs\"><div class=\"flex-1 border border-grey-4x border\" [class.width-full]=\"views.routeReporter\"><div class=\"pad-h\"><h3>route-reporter</h3><div class=\"text-grey-2x max-width-400\">Get in tune with router states when using @angular/router</div><br/></div><div class=\"text-center\"><a class=\"block border pad-xxs hover-bg-warning\" (click)=\"views.routeReporter=!views.routeReporter\" [ngClass]=\"views.routeReporter?'border-energized bg-energized':'border-info bg-info'\">view details</a></div><div class=\"border border-top-0 border-grey-4x bg-stable\" *ngIf=\"views.routeReporter\" [@fadeInOutUp]=\"1\"><div class=\"pad\">Bindings<table cellPadding=\"2\" cellSpacing=\"0\" border=\"0\"><tr><td>[(state)]</td><td>Creates a reference to the current route</td></tr><tr><td>[(params)]</td><td>Creates a reference to the current route's params</td></tr><tr><td>[(query)]</td><td>Creates a reference to the current route's query params</td></tr><tr><td>(beforeChange)</td><td>Expression bind called before route changes</td></tr><tr><td>(onChange)</td><td>Expression bind called when route changes</td></tr></table></div><route-reporter #routeState=\"RouteReporter\" [(query)]=\"query\"></route-reporter><h4 class=\"pad-sm margin-0\">Usage Example</h4><absolute-overflow-x><pre class=\"code-sample margin-0\"><div ngNonBindable=\"ngNonBindable\">&lt;route-reporter" + "\n  #routeState = \"RouteReporter\"" + "\n  [(query)]     = \"query\"" + "\n&gt;&lt;/route-reporter&gt;" + "\n</div><div><span ngNonBindable=\"ngNonBindable\">{{ routeState.current?.config.name }}</span><span>&nbsp;==&nbsp;</span><span>{{ routeState.current?.config.name }}</span></div><div><span ngNonBindable=\"ngNonBindable\">{{ query | json }}</span><span>&nbsp;==&nbsp;</span><span>{{ query | json }}</span></div></pre></absolute-overflow-x></div></div></div>";
+      /***/
+    },
+
+    /***/
+    "oN2l":
+    /*!***********************************!*\
+      !*** ./src/declarations.short.ts ***!
+      \***********************************/
+
+    /*! exports provided: EnterKey, EscapeKey, PreventBackKey, PreventEnterKey, InputHint, FormChanged, FormAlter */
+
+    /***/
+    function oN2l(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "EnterKey", function () {
+        return EnterKey;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "EscapeKey", function () {
+        return EscapeKey;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "PreventBackKey", function () {
+        return PreventBackKey;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "PreventEnterKey", function () {
+        return PreventEnterKey;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "InputHint", function () {
+        return InputHint;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "FormChanged", function () {
+        return FormChanged;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "FormAlter", function () {
+        return FormAlter;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "mrSG");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "8Y7J");
+
+      var EnterKey = function EnterKey(element) {
+        var _this89 = this;
+
+        _classCallCheck(this, EnterKey);
+
+        this.element = element;
+        this.enterKey = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        element.nativeElement.addEventListener('keydown', function (event) {
+          var yesNo = [13, 10].indexOf(event.which || event.keyCode) >= 0;
+
+          if (yesNo) {
+            _this89.enterKey.emit(event);
+          }
+        });
+      };
+
+      EnterKey.ctorParameters = function () {
+        return [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
+        }];
+      };
+
+      EnterKey.propDecorators = {
+        enterKey: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
+        }]
+      };
+      EnterKey = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: '[enterKey]'
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])], EnterKey);
+
+      var EscapeKey = function EscapeKey(element) {
+        var _this90 = this;
+
+        _classCallCheck(this, EscapeKey);
+
+        this.element = element;
+        this.escapeKey = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        element.nativeElement.addEventListener('keydown', function (event) {
+          var code = event.which || event.keyCode;
+
+          if (code == 27) {
+            _this90.escapeKey.emit(event);
+          }
+        });
+      };
+
+      EscapeKey.ctorParameters = function () {
+        return [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
+        }];
+      };
+
+      EscapeKey.propDecorators = {
+        escapeKey: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
+        }]
+      };
+      EscapeKey = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: '[escapeKey]'
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])], EscapeKey);
+
+      var PreventBackKey = function PreventBackKey(element) {
+        var _this91 = this;
+
+        _classCallCheck(this, PreventBackKey);
+
+        this.element = element;
+        this.preventBackKey = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        element.nativeElement.addEventListener('keydown', function (event) {
+          var yesNo = [8].indexOf(event.which || event.keyCode) < 0;
+
+          if (!yesNo) {
+            _this91.preventBackKey.emit(event);
+
+            if (event.preventDefault) {
+              event.preventDefault();
+            }
+          }
+
+          return yesNo;
+        });
+      };
+
+      PreventBackKey.ctorParameters = function () {
+        return [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
+        }];
+      };
+
+      PreventBackKey.propDecorators = {
+        preventBackKey: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
+        }]
+      };
+      PreventBackKey = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: '[preventBackKey]'
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])], PreventBackKey);
+
+      var PreventEnterKey = function PreventEnterKey(element) {
+        var _this92 = this;
+
+        _classCallCheck(this, PreventEnterKey);
+
+        this.element = element;
+        this.preventEnterKey = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        element.nativeElement.addEventListener('keydown', function (event) {
+          var yesNo = [13, 10].indexOf(event.which || event.keyCode) < 0;
+
+          if (!yesNo) {
+            _this92.preventEnterKey.emit(event);
+
+            if (event.preventDefault) {
+              event.preventDefault();
+            }
+          }
+
+          return yesNo;
+        });
+      };
+
+      PreventEnterKey.ctorParameters = function () {
+        return [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
+        }];
+      };
+
+      PreventEnterKey.propDecorators = {
+        preventEnterKey: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
+        }]
+      };
+      PreventEnterKey = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: '[preventEnterKey]'
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])], PreventEnterKey);
+
+      var InputHint = function InputHint() {
+        _classCallCheck(this, InputHint);
+
+        this.hintStyle = {
+          'font-size': '75%',
+          'color': '#BBB'
+        };
+      };
+
+      InputHint.propDecorators = {
+        hintStyle: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }]
+      };
+      InputHint = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'input-hint',
+        template: '<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
+      })], InputHint);
+
+      var FormChanged = /*#__PURE__*/function () {
+        function FormChanged(element) {
+          var _this93 = this;
+
+          _classCallCheck(this, FormChanged);
+
+          this.element = element;
+          this.formChanged = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+
+          this.onChange = function (event) {
+            _this93.formChanged.emit(event);
+          };
+
+          element.nativeElement.addEventListener('change', this.onChange);
+        }
+
+        _createClass(FormChanged, [{
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.element.nativeElement.removeEventListener('change', this.onChange);
+          }
+        }]);
+
+        return FormChanged;
+      }();
+
+      FormChanged.ctorParameters = function () {
+        return [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
+        }];
+      };
+
+      FormChanged.propDecorators = {
+        formChanged: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
+        }]
+      };
+      FormChanged = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: '[formChanged]'
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])], FormChanged);
+
+      var FormAlter = /*#__PURE__*/function () {
+        function FormAlter(element) {
+          var _this94 = this;
+
+          _classCallCheck(this, FormAlter);
+
+          this.element = element;
+          this.formAlter = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+
+          this.onChange = function (event) {
+            _this94.formAlter.emit(event);
+          };
+
+          element.nativeElement.addEventListener('input', this.onChange);
+          element.nativeElement.addEventListener('change', this.onChange);
+        }
+
+        _createClass(FormAlter, [{
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.element.nativeElement.removeEventListener('change', this.onChange);
+            this.element.nativeElement.removeEventListener('input', this.onChange);
+          }
+        }]);
+
+        return FormAlter;
+      }();
+
+      FormAlter.ctorParameters = function () {
+        return [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
+        }];
+      };
+
+      FormAlter.propDecorators = {
+        formAlter: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
+        }]
+      };
+      FormAlter = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: '[formAlter]'
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])], FormAlter);
       /***/
     },
 
@@ -11631,13 +11650,9 @@
       /* harmony import */
 
 
-      var ack_x_js_index_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! ack-x/js/index-browser */
-      "NDoQ");
-      /* harmony import */
-
-
-      var ack_x_js_index_browser__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(ack_x_js_index_browser__WEBPACK_IMPORTED_MODULE_0__);
+      var ack_x_es_index_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! ack-x/es/index-browser */
+      "qVHK");
       /* harmony import */
 
 
@@ -11811,7 +11826,7 @@
       }
 
       function a(name) {
-        var av = new ack_x_js_index_browser__WEBPACK_IMPORTED_MODULE_0__["ack"]();
+        var av = new ack_x_es_index_browser__WEBPACK_IMPORTED_MODULE_0__["ack"]();
         return Object(_invokeRotator__WEBPACK_IMPORTED_MODULE_1__["invokeRotator"])(av[name]);
       }
 
@@ -11819,7 +11834,7 @@
       var aTime = a('time');
       var aMath = Object(_invokeRotator__WEBPACK_IMPORTED_MODULE_1__["invokeRotator"])(Math);
       var aString = Object(_invokeRotator__WEBPACK_IMPORTED_MODULE_1__["invokeRotator"])(String);
-      var ack = Object(_invokeRotator__WEBPACK_IMPORTED_MODULE_1__["invokeRotator"])(ack_x_js_index_browser__WEBPACK_IMPORTED_MODULE_0__["ack"]);
+      var ack = Object(_invokeRotator__WEBPACK_IMPORTED_MODULE_1__["invokeRotator"])(ack_x_es_index_browser__WEBPACK_IMPORTED_MODULE_0__["ack"]);
       var pipes = {
         ack: ack,
         aDate: aDate,

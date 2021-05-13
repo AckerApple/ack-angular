@@ -13,7 +13,7 @@ import { AckArray } from './AckArray.directive';
 
 @NgModule({
   imports: [
-    AckModule // .forRoot()
+    AckModule.forRoot()
   ],
   declarations: [ ContainerComponent ]
 }) export class AppModule {}

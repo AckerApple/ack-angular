@@ -1,1 +1,1 @@
-export { ack } from "ack-x/browser"
+export { ack } from "ack-x/es/index-browser"
