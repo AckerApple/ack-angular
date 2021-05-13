@@ -35,7 +35,7 @@ export { FocusOn as ɵbq } from './directives/FocusOn.directive';
 export { FxOn as ɵcg } from './directives/FxOn.directive';
 export { HtmlHeightModel as ɵce } from './directives/HtmlHeightModel.directive';
 export { HtmlWidthModel as ɵcd } from './directives/HtmlWidthModel.directive';
-export { Init as ɵbo } from './directives/Init.directive';
+export { InitDirective as ɵbo } from './directives/Init.directive';
 export { InnerHtmlModel as ɵbt } from './directives/InnerHtmlModel.directive';
 export { PxFromHtmlTop as ɵcc } from './directives/PxFromHtmlTop.directive';
 export { ReplaceModel as ɵbu } from './directives/ReplaceModel.directive';

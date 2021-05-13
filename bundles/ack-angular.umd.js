@@ -2382,21 +2382,21 @@
         focusThen: [{ type: core.Output }]
     };
 
-    var Init = /** @class */ (function () {
-        function Init() {
+    var InitDirective = /** @class */ (function () {
+        function InitDirective() {
             this.init = new core.EventEmitter();
         }
-        Init.prototype.ngOnInit = function () {
+        InitDirective.prototype.ngOnInit = function () {
             this.init.emit();
         };
-        return Init;
+        return InitDirective;
     }());
-    Init.decorators = [
+    InitDirective.decorators = [
         { type: core.Directive, args: [{
                     selector: '[init]'
                 },] }
     ];
-    Init.propDecorators = {
+    InitDirective.propDecorators = {
         init: [{ type: core.Output }]
     };
 
@@ -3349,7 +3349,7 @@
         PxFromHtmlTop
     ];
     var declarations$1 = __spread([
-        Init,
+        InitDirective,
         SelectOn,
         FocusOn,
         VarDirective,
@@ -4313,7 +4313,7 @@
     exports.ɵbl = Keys;
     exports.ɵbm = TypeofPipe;
     exports.ɵbn = ConsolePipe;
-    exports.ɵbo = Init;
+    exports.ɵbo = InitDirective;
     exports.ɵbp = SelectOn;
     exports.ɵbq = FocusOn;
     exports.ɵbr = VarDirective;
