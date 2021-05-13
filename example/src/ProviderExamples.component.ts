@@ -13,9 +13,9 @@ import {
   Prompts,
 } from "../../src"
 
+import { httpOptions } from "../../modules/offline/httpOptions"
 import {
-  AckApi, httpOptions,
-  AckOffline, AckCache, AckQue
+  AckApi, AckOffline, AckCache, AckQue
 } from "../../modules/offline"
 
 import { animations } from "ack-angular-fx"
