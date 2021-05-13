@@ -6,8 +6,8 @@ import {
 
 @Directive({
   selector:'[init]'
-}) export class Init{
-  @Output() init = new EventEmitter()
+}) export class InitDirective {
+  @Output() init: EventEmitter<void> = new EventEmitter()
 
   ngOnInit(){
     this.init.emit()
