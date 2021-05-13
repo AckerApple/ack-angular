@@ -2021,7 +2021,8 @@ function invokeRotator(invoke) {
 }
 function objectInvoker(object, plan) {
     var rtn = object;
-    var subargs, item;
+    var subargs;
+    var item;
     let newkey;
     let key;
     let typo;
@@ -2173,7 +2174,7 @@ const providers = [
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var ack_x_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ack-x/browser */ "FP9j");
+/* harmony import */ var ack_x_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ack-x/browser */ "TLbb");
 /* harmony import */ var ack_x_browser__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(ack_x_browser__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ack", function() { return ack_x_browser__WEBPACK_IMPORTED_MODULE_0__["ack"]; });
 
@@ -2393,7 +2394,7 @@ webpackContext.id = "Lw2E";
 /*!*****************************!*\
   !*** ./src/declarations.ts ***!
   \*****************************/
-/*! exports provided: EnterKey, EscapeKey, PreventBackKey, PreventEnterKey, InputHint, FormChanged, FormAlter, screenDirectives, declarations */
+/*! exports provided: EnterKey, EscapeKey, PreventBackKey, PreventEnterKey, InputHint, FormChanged, FormAlter, screenDirectives, declarations, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2704,6 +2705,7 @@ const declarations = [
     _components_AckFixedElement_component__WEBPACK_IMPORTED_MODULE_7__["AckFixedElement"],
     _components_AckFixedElementStage_component__WEBPACK_IMPORTED_MODULE_6__["AckFixedElementStage"]
 ];
+/* harmony default export */ __webpack_exports__["default"] = (declarations);
 
 
 /***/ }),
@@ -2937,7 +2939,7 @@ const string = "<h2 class=\"margin-top-0\">Providers</h2><ng-container [(statusO
 /*!**************************!*\
   !*** ./src/AckModule.ts ***!
   \**************************/
-/*! exports provided: AckModule */
+/*! exports provided: AckModule, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2960,7 +2962,7 @@ const declarations = [..._declarations__WEBPACK_IMPORTED_MODULE_4__["declaration
 let AckModule = AckModule_1 = class AckModule {
     static forRoot() {
         return {
-            ngModule: AckModule_1, providers: _providers__WEBPACK_IMPORTED_MODULE_3__["providers"]
+            ngModule: AckModule_1, providers: _providers__WEBPACK_IMPORTED_MODULE_3__["providers"],
         };
     }
 };
@@ -2970,12 +2972,11 @@ AckModule = AckModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]
         ],
         declarations, providers: _providers__WEBPACK_IMPORTED_MODULE_3__["providers"],
-        exports: [
-            ...declarations,
-        ]
+        exports: declarations
     })
 ], AckModule);
 
+/* harmony default export */ __webpack_exports__["default"] = (AckModule);
 
 
 /***/ }),
@@ -4955,7 +4956,7 @@ let ErrorLog = class ErrorLog {
         return Promise.reject(e);
     }
     rejector() {
-        return err => this.reject(err);
+        return (err) => this.reject(err);
     }
     add(e, toConsole) {
         const ob = this.paramAudit(e, toConsole);
@@ -5097,7 +5098,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, dependencies, devDependencies, ngPackage, private, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"ack-angular\",\"version\":\"2.0.0\",\"description\":\"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\",\"main\":\"dist/index.js\",\"typings\":\"dist/index.d.ts\",\"scripts\":{\"start\":\"ng serve example --port 4201 --open\",\"build:index\":\"pug example/src/index.pug --out example/src\",\"stats\":\"webpack-bundle-analyzer example/www/stats.json\",\"install:example\":\"npm install --prefix example\",\"test\":\"ng test --browser PhantomJS --single-run\",\"test:watch\":\"ng test\",\"build:offline\":\"ngc --project modules/offline/tsconfig.json\",\"build:dist\":\"ng-packagr -p package.json\",\"watch:dist\":\"watch \\\"npm-run-all build:dist\\\" src/ --ignoreDirectoryPattern=/pugs/\",\"build:assets\":\"npm-run-all build:assets:src build:assets:example compile:templates\",\"build:assets:src\":\"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts\",\"build:assets:example\":\"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts\",\"watch:assets\":\"npm-run-all --parallel \\\"build:assets:src -- --watch\\\" \\\"build:assets:example -- --watch\\\" \\\"compile:templates -- --watch\\\"\",\"compile:templates\":\"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne\",\"watch\":\"npm-run-all --parallel build:index watch:dist watch:assets watch:js\",\"watch:js\":\"ng serve example --port 4201 --open\",\"build:js\":\"ng build example --stats-json\",\"build:universal\":\"npm-run-all build:index build:assets\",\"build\":\"npm-run-all build:universal build:dist compile:dist:package copy:scss build:js\",\"copy:scss\":\"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss\",\"compile:dist:package\":\"node scripts/update-dist-package.js\",\"save\":\"git add . && git commit -m \\\"update\\\" && git push\",\"deploy\":\"npm-run-all build deploy:gh-pages deploy:npm save\",\"deploy:npm\":\"cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \\\"update\\\" && git push && npm publish\",\"deploy:gh-pages\":\"cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \\\"update\\\" && git push\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/AckerApple/ack-angular.git\"},\"keywords\":[\"ng\",\"Angular\",\"directives\",\"components\",\"pipes\",\"providers\"],\"author\":\"Acker Dawn Apple\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/AckerApple/ack-angular/issues\"},\"homepage\":\"https://github.com/AckerApple/ack-angular#readme\",\"dependencies\":{\"ack-angular-fx\":\"^4.1.0\",\"ack-css-boot\":\"^2.0.2\",\"ack-x\":\"^1.7.1\",\"animate.css\":\"^4.1.1\",\"csshake\":\"^1.5.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1102.8\",\"@angular-devkit/build-ng-packagr\":\"^0.1002.0\",\"@angular/animations\":\"^11.2.9\",\"@angular/cli\":\"^11.2.8\",\"@angular/common\":\"^11.2.9\",\"@angular/compiler\":\"^11.2.9\",\"@angular/compiler-cli\":\"^11.2.9\",\"@angular/core\":\"^11.2.9\",\"@angular/forms\":\"^11.2.9\",\"@angular/platform-browser\":\"^11.2.9\",\"@angular/platform-browser-dynamic\":\"^11.2.9\",\"@angular/router\":\"^11.2.9\",\"@types/jasmine\":\"^3.6.9\",\"ack-path\":\"^1.8.0\",\"ack-pug-bundler\":\"^1.4.8\",\"classlist-polyfill\":\"^1.2.0\",\"jasmine\":\"^3.7.0\",\"karma\":\"^6.3.2\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-coverage-istanbul-reporter\":\"^3.0.3\",\"karma-jasmine\":\"^4.0.1\",\"karma-jasmine-html-reporter\":\"^1.5.4\",\"karma-phantomjs-launcher\":\"^1.0.4\",\"localforage\":\"^1.9.0\",\"ng-packagr\":\"^11.2.4\",\"ngx-page-scroll\":\"^7.0.4\",\"ngx-page-scroll-core\":\"^7.0.4\",\"npm-run-all\":\"^4.1.5\",\"phantomjs-prebuilt\":\"^2.1.16\",\"pug\":\"^3.0.2\",\"pug-attrs\":\"^3.0.0\",\"pug-cli\":\"^1.0.0-alpha6\",\"reflect-metadata\":\"^0.1.13\",\"rxjs\":\"^6.6.7\",\"ts-helpers\":\"^1.1.2\",\"ts-node\":\"^9.1.1\",\"typescript\":\"4.0.5\",\"webpack-bundle-analyzer\":\"^4.4.1\",\"zone.js\":\"~0.11.4\"},\"ngPackage\":{\"lib\":{\"entryFile\":\"src/index.ts\"},\"allowedNonPeerDependencies\":[\"ack-angular-fx\",\"ack-css-boot\",\"ack-x\",\"animate.css\",\"csshake\"]},\"private\":true}");
+module.exports = JSON.parse("{\"name\":\"ack-angular\",\"version\":\"2.0.1\",\"description\":\"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\",\"main\":\"dist/index.js\",\"typings\":\"dist/index.d.ts\",\"scripts\":{\"start\":\"ng serve example --port 4201 --open\",\"build:index\":\"pug example/src/index.pug --out example/src\",\"stats\":\"webpack-bundle-analyzer example/www/stats.json\",\"install:example\":\"npm install --prefix example\",\"test\":\"ng test --browser PhantomJS --single-run\",\"test:watch\":\"ng test\",\"build:offline\":\"ngc --project modules/offline/tsconfig.json\",\"build:dist:old\":\"ngc --project src/tsconfig.json\",\"build:dist\":\"ng-packagr -p package.json\",\"watch:dist\":\"watch \\\"npm-run-all build:dist\\\" src/ --ignoreDirectoryPattern=/pugs/\",\"build:assets\":\"npm-run-all build:assets:src build:assets:example compile:templates\",\"build:assets:src\":\"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts\",\"build:assets:example\":\"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts\",\"watch:assets\":\"npm-run-all --parallel \\\"build:assets:src -- --watch\\\" \\\"build:assets:example -- --watch\\\" \\\"compile:templates -- --watch\\\"\",\"compile:templates\":\"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne\",\"watch\":\"npm-run-all --parallel build:index watch:dist watch:assets watch:js\",\"watch:js\":\"ng serve example --port 4201 --open\",\"build:js\":\"ng build example --stats-json\",\"build:universal\":\"npm-run-all build:index build:assets\",\"build\":\"npm-run-all build:universal build:dist compile:dist:package copy:scss build:js\",\"copy:scss\":\"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss\",\"compile:dist:package\":\"node scripts/update-dist-package.js\",\"save\":\"git add . && git commit -m \\\"update\\\" && git push\",\"deploy\":\"npm-run-all build deploy:gh-pages deploy:npm save\",\"deploy:npm\":\"cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \\\"update\\\" && git push && npm publish\",\"deploy:gh-pages\":\"cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \\\"update\\\" && git push\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/AckerApple/ack-angular.git\"},\"keywords\":[\"ng\",\"Angular\",\"directives\",\"components\",\"pipes\",\"providers\"],\"author\":\"Acker Dawn Apple\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/AckerApple/ack-angular/issues\"},\"homepage\":\"https://github.com/AckerApple/ack-angular#readme\",\"dependencies\":{\"ack-angular-fx\":\"^4.1.0\",\"ack-css-boot\":\"^2.0.4\",\"ack-x\":\"^2.0.1\",\"animate.css\":\"^4.1.1\",\"csshake\":\"^1.5.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1102.8\",\"@angular-devkit/build-ng-packagr\":\"^0.1002.0\",\"@angular/animations\":\"^11.2.9\",\"@angular/cli\":\"^11.2.8\",\"@angular/common\":\"^11.2.9\",\"@angular/compiler\":\"^11.2.9\",\"@angular/compiler-cli\":\"^11.2.9\",\"@angular/core\":\"^11.2.9\",\"@angular/forms\":\"^11.2.9\",\"@angular/platform-browser\":\"^11.2.9\",\"@angular/platform-browser-dynamic\":\"^11.2.9\",\"@angular/router\":\"^11.2.9\",\"@types/jasmine\":\"^3.6.9\",\"ack-path\":\"^1.8.0\",\"ack-pug-bundler\":\"^1.4.8\",\"classlist-polyfill\":\"^1.2.0\",\"jasmine\":\"^3.7.0\",\"karma\":\"^6.3.2\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-coverage-istanbul-reporter\":\"^3.0.3\",\"karma-jasmine\":\"^4.0.1\",\"karma-jasmine-html-reporter\":\"^1.5.4\",\"karma-phantomjs-launcher\":\"^1.0.4\",\"localforage\":\"^1.9.0\",\"ng-packagr\":\"^11.2.4\",\"ngx-page-scroll\":\"^7.0.4\",\"ngx-page-scroll-core\":\"^7.0.4\",\"npm-run-all\":\"^4.1.5\",\"phantomjs-prebuilt\":\"^2.1.16\",\"pug\":\"^3.0.2\",\"pug-attrs\":\"^3.0.0\",\"pug-cli\":\"^1.0.0-alpha6\",\"reflect-metadata\":\"^0.1.13\",\"rxjs\":\"^6.6.7\",\"ts-helpers\":\"^1.1.2\",\"ts-node\":\"^9.1.1\",\"typescript\":\"4.0.5\",\"webpack-bundle-analyzer\":\"^4.4.1\",\"zone.js\":\"~0.11.4\"},\"ngPackage\":{\"lib\":{\"entryFile\":\"src/index.ts\"},\"allowedNonPeerDependencies\":[\"ack-angular-fx\",\"ack-css-boot\",\"ack-x\",\"animate.css\",\"csshake\"]},\"private\":true}");
 
 /***/ }),
 
@@ -6901,7 +6902,9 @@ SafeStyle = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 ], SafeStyle);
 
 let Between = class Between {
-    transform(input, a, b) { return _pipes_class__WEBPACK_IMPORTED_MODULE_2__["between"](input, a, b); }
+    transform(input, a, b) {
+        return _pipes_class__WEBPACK_IMPORTED_MODULE_2__["between"](input, a, b);
+    }
 };
 Between = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({ name: 'between' })
@@ -7058,7 +7061,9 @@ TypeofPipe = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 ], TypeofPipe);
 
 let ConsolePipe = class ConsolePipe {
-    transform() { return console.log.apply(console, arguments); }
+    transform() {
+        return console.log.apply(console, arguments);
+    }
 };
 ConsolePipe = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({ name: 'console' })
@@ -7178,8 +7183,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aString", function() { return aString; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ack", function() { return ack; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pipes", function() { return pipes; });
-/* harmony import */ var ack_x_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ack-x/browser */ "FP9j");
-/* harmony import */ var ack_x_browser__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(ack_x_browser__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var ack_x_js_index_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ack-x/js/index-browser */ "NDoQ");
+/* harmony import */ var ack_x_js_index_browser__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(ack_x_js_index_browser__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _invokeRotator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./invokeRotator */ "Hkjg");
 
 function between(input, a, b) {
@@ -7308,7 +7313,7 @@ function capitalizeOne(input) {
     return (!!input) ? input.replace(reg, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); }) : '';
 }
 function a(name) {
-    const av = new ack_x_browser__WEBPACK_IMPORTED_MODULE_0__["ack"]();
+    const av = new ack_x_js_index_browser__WEBPACK_IMPORTED_MODULE_0__["ack"]();
     return Object(_invokeRotator__WEBPACK_IMPORTED_MODULE_1__["invokeRotator"])(av[name]);
 }
 
@@ -7316,7 +7321,7 @@ const aDate = a('date');
 const aTime = a('time');
 const aMath = Object(_invokeRotator__WEBPACK_IMPORTED_MODULE_1__["invokeRotator"])(Math);
 const aString = Object(_invokeRotator__WEBPACK_IMPORTED_MODULE_1__["invokeRotator"])(String);
-const ack = Object(_invokeRotator__WEBPACK_IMPORTED_MODULE_1__["invokeRotator"])(ack_x_browser__WEBPACK_IMPORTED_MODULE_0__["ack"]);
+const ack = Object(_invokeRotator__WEBPACK_IMPORTED_MODULE_1__["invokeRotator"])(ack_x_js_index_browser__WEBPACK_IMPORTED_MODULE_0__["ack"]);
 const pipes = {
     ack,
     aDate,
