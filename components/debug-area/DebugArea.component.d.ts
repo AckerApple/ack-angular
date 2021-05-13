@@ -9,7 +9,7 @@ export declare class DebugItem {
 export declare class DebugArea {
     edit: boolean;
     dataString: string;
-    editsMap: any;
+    editsMap?: any;
     debugItem: DebugItem;
     DebugItems: QueryList<DebugItem>;
     ngAfterViewInit(): void;

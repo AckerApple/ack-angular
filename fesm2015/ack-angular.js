@@ -1,11 +1,11 @@
 import { EventEmitter, Injectable, Output, Component, ElementRef, Input, ContentChild, Directive, ViewChild, ContentChildren, TemplateRef, IterableDiffers, HostListener, Pipe, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { animations } from 'ack-angular-fx';
-import { ack as ack$1 } from 'ack-x/browser';
-export { ack } from 'ack-x/browser';
+import { ack as ack$1 } from 'ack-x/js/index-browser';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NavigationEnd, Router, ActivatedRoute, RouterModule } from '@angular/router';
+export { ack } from 'ack-x/browser';
 
 //import { Subscription } from "rxjs/internal/Subscription"
 class HtmlSizeService {
@@ -154,7 +154,7 @@ class ErrorLog {
         return Promise.reject(e);
     }
     rejector() {
-        return err => this.reject(err);
+        return (err) => this.reject(err);
     }
     add(e, toConsole) {
         const ob = this.paramAudit(e, toConsole);
@@ -610,7 +610,8 @@ function invokeRotator(invoke //|(any[])=>any
 }
 function objectInvoker(object, plan) {
     var rtn = object;
-    var subargs, item;
+    var subargs;
+    var item;
     let newkey;
     let key;
     let typo;
@@ -629,7 +630,7 @@ function objectInvoker(object, plan) {
         if (asFunc) {
             key = [];
             key.push.apply(key, plan[x]); //clone array memory, do not touch original array
-            newkey = key.shift(); //first arg is name of key, remove it from array
+            newkey = key.shift(); // first arg is name of key, remove it from array
             subargs = key; //what is left in array is the arguments
             key = newkey; //key to string
         }
@@ -3057,7 +3058,9 @@ SafeStyle.ctorParameters = () => [
 /* end: only this file */
 /** (input>=a && input<=b) || (input>=b && input<=a) */
 class Between {
-    transform(input, a, b) { return between(input, a, b); }
+    transform(input, a, b) {
+        return between(input, a, b);
+    }
 }
 Between.decorators = [
     { type: Pipe, args: [{ name: 'between' },] }
@@ -3195,7 +3198,9 @@ TypeofPipe.decorators = [
     { type: Pipe, args: [{ name: 'typeof' },] }
 ];
 class ConsolePipe {
-    transform() { return console.log.apply(console, arguments); }
+    transform() {
+        return console.log.apply(console, arguments);
+    }
 }
 ConsolePipe.decorators = [
     { type: Pipe, args: [{ name: 'console' },] }
@@ -3238,7 +3243,7 @@ const declarations$3 = [...declarations$1, ...declarations$2];
 class AckModule {
     static forRoot() {
         return {
-            ngModule: AckModule, providers
+            ngModule: AckModule, providers,
         };
     }
 }
@@ -3248,9 +3253,7 @@ AckModule.decorators = [
                     CommonModule
                 ],
                 declarations: declarations$3, providers,
-                exports: [
-                    ...declarations$3,
-                ]
+                exports: declarations$3
             },] }
 ];
 

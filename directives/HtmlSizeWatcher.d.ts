@@ -1,7 +1,7 @@
 import { EventEmitter } from "@angular/core";
 export interface htmlSize {
-    width: number;
-    height: number;
+    width: number | null;
+    height: number | null;
 }
 export declare class HtmlSizeService {
     private onResize;

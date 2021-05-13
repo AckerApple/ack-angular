@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('ack-angular-fx'), require('ack-x/browser'), require('rxjs/internal/BehaviorSubject'), require('@angular/platform-browser'), require('@angular/router')) :
-    typeof define === 'function' && define.amd ? define('ack-angular', ['exports', '@angular/core', '@angular/common', 'ack-angular-fx', 'ack-x/browser', 'rxjs/internal/BehaviorSubject', '@angular/platform-browser', '@angular/router'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['ack-angular'] = {}, global.ng.core, global.ng.common, global.ackAngularFx, global.browser, global.rxjs['internal/BehaviorSubject'], global.ng.platformBrowser, global.ng.router));
-}(this, (function (exports, core, common, ackAngularFx, browser, BehaviorSubject, platformBrowser, router) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('ack-angular-fx'), require('ack-x/js/index-browser'), require('rxjs/internal/BehaviorSubject'), require('@angular/platform-browser'), require('@angular/router'), require('ack-x/browser')) :
+    typeof define === 'function' && define.amd ? define('ack-angular', ['exports', '@angular/core', '@angular/common', 'ack-angular-fx', 'ack-x/js/index-browser', 'rxjs/internal/BehaviorSubject', '@angular/platform-browser', '@angular/router', 'ack-x/browser'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['ack-angular'] = {}, global.ng.core, global.ng.common, global.ackAngularFx, global.indexBrowser, global.rxjs['internal/BehaviorSubject'], global.ng.platformBrowser, global.ng.router, global.browser));
+}(this, (function (exports, core, common, ackAngularFx, indexBrowser, BehaviorSubject, platformBrowser, router, browser) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -944,7 +944,8 @@
     }
     function objectInvoker(object, plan) {
         var rtn = object;
-        var subargs, item;
+        var subargs;
+        var item;
         var newkey;
         var key;
         var typo;
@@ -963,7 +964,7 @@
             if (asFunc) {
                 key = [];
                 key.push.apply(key, plan[x]); //clone array memory, do not touch original array
-                newkey = key.shift(); //first arg is name of key, remove it from array
+                newkey = key.shift(); // first arg is name of key, remove it from array
                 subargs = key; //what is left in array is the arguments
                 key = newkey; //key to string
             }
@@ -1159,14 +1160,14 @@
         return (!!input) ? input.replace(reg, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); }) : '';
     }
     function a(name) {
-        var av = new browser.ack();
+        var av = new indexBrowser.ack();
         return invokeRotator(av[name]);
     }
     var aDate = a('date');
     var aTime = a('time');
     var aMath = invokeRotator(Math);
     var aString = invokeRotator(String);
-    var ack = invokeRotator(browser.ack);
+    var ack = invokeRotator(indexBrowser.ack);
     // maybe deprecated . Remove in future releases. Just an array ref of all pipes
     var pipes = {
         ack: ack,
@@ -3524,7 +3525,9 @@
     var Between = /** @class */ (function () {
         function Between() {
         }
-        Between.prototype.transform = function (input, a, b) { return between(input, a, b); };
+        Between.prototype.transform = function (input, a, b) {
+            return between(input, a, b);
+        };
         return Between;
     }());
     Between.decorators = [
@@ -3755,7 +3758,9 @@
     var ConsolePipe = /** @class */ (function () {
         function ConsolePipe() {
         }
-        ConsolePipe.prototype.transform = function () { return console.log.apply(console, arguments); };
+        ConsolePipe.prototype.transform = function () {
+            return console.log.apply(console, arguments);
+        };
         return ConsolePipe;
     }());
     ConsolePipe.decorators = [
@@ -3802,7 +3807,7 @@
         AckModule.forRoot = function () {
             return {
                 ngModule: AckModule,
-                providers: providers
+                providers: providers,
             };
         };
         return AckModule;
@@ -3813,7 +3818,7 @@
                         common.CommonModule
                     ],
                     declarations: declarations$3, providers: providers,
-                    exports: __spread(declarations$3)
+                    exports: declarations$3
                 },] }
     ];
 

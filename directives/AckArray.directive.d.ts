@@ -12,15 +12,15 @@ export interface loop {
 }
 export declare class AckArray {
     private _iterableDiffers;
-    array$sub: Subscription;
+    array$sub?: Subscription;
     iterableDiffer: IterableDiffer<any[]>;
-    inited: boolean;
+    inited?: boolean;
     pushed: any;
     inSort: boolean;
     sortArray: sortDef[];
     pageAt: number;
-    pages: any[][];
-    pagesChange: BehaviorSubject<any[][]>;
+    pages: any;
+    pagesChange: BehaviorSubject<any>;
     page: number;
     pageChange: EventEmitter<number>;
     keyMap: any;
@@ -28,12 +28,12 @@ export declare class AckArray {
     loopStart: EventEmitter<boolean>;
     loopEach: EventEmitter<loop>;
     loopEnd: EventEmitter<void>;
-    AckAggregates: AckAggregate[];
+    AckAggregates?: AckAggregate[];
     idKeys: string[];
-    merge: boolean;
+    merge?: boolean;
     array: any[];
     arrayChange: EventEmitter<any>;
-    array$: EventEmitter<any[]>;
+    array$?: EventEmitter<any[]>;
     constructor(_iterableDiffers: IterableDiffers);
     ngOnDestroy(): void;
     ngOnInit(): void;
