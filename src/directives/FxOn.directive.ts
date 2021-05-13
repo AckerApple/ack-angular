@@ -14,19 +14,19 @@ import {
   selector:"[fxOn]"
   ,exportAs:"FxOn"
 }) export class FxOn {
-  @Input() fxOn:boolean
-  @Input() fxClass:string
-  @Input() fxForMs
-  @Output() fxThen:EventEmitter<void> = new EventEmitter()
+  @Input() fxOn!: boolean
+  @Input() fxClass!: string
+  @Input() fxForMs!: number
+  @Output() fxThen: EventEmitter<void> = new EventEmitter()
 
-  inlineTreated:boolean
-  timeout:number
+  inlineTreated!: boolean
+  timeout?: number
   //an array to be used in #FxOn refs for fx selectable options (see examples)
   fxTypes:string[] = [
     "bounce","flash","pulse","rubberBand","shake","swing","tada","wobble","jello",
     "bounceIn","bounceInDown","bounceInLeft","bounceInRight","bounceInUp"
   ]
-  
+
   constructor(public element:ElementRef){}
 
   ngOnInit(){
@@ -41,7 +41,7 @@ import {
     }
   }
 
-  ngOnChanges(changes){
+  ngOnChanges(changes: any){
     if (changes.fxOn && changes.fxOn.currentValue!=null && changes.fxOn.currentValue!=changes.fxOn.previousValue) {
       this.update()
     }
@@ -51,7 +51,7 @@ import {
         removeClass(this.element.nativeElement, changes.fxClass.previousValue)
         this.applyType()
       }else{
-        this.removeType()        
+        this.removeType()
       }
     }
   }
@@ -66,7 +66,7 @@ import {
 
   removeType(){
     const elm = this.element.nativeElement
-    
+
     removeClass(elm, this.fxClass)
 
     if( this.inlineTreated ){
@@ -77,7 +77,7 @@ import {
 
   applyType(){
     const elm = this.element.nativeElement
-    
+
     if( elm.style && elm.style.display==='inline' || getElementDefaultDisplay(elm)==='inline' ){
       this.inlineTreated = true
       elm.style.display = 'inline-block'
@@ -98,7 +98,7 @@ import {
   }
 }
 
-export function hasClass(el, className:string) {
+export function hasClass(el: any, className:string) {
   const names = className.split(" ")
 
   for(let x=names.length-1; x >= 0; --x){
@@ -118,7 +118,7 @@ export function hasClass(el, className:string) {
   return true
 }
 
-export function addClass(el, className:string) {
+export function addClass(el: any, className:string) {
   className.split(' ').forEach(className=>{
     if (el.classList){
       el.classList.add(className)
@@ -128,7 +128,7 @@ export function addClass(el, className:string) {
   })
 }
 
-export function removeClass(el, className:string) {
+export function removeClass(el: any, className:string) {
   className.split(' ').forEach(className=>{
     if (el.classList){
       el.classList.remove(className)
@@ -139,12 +139,12 @@ export function removeClass(el, className:string) {
   })
 }
 
-function getElementDefaultDisplay(tag) {
+function getElementDefaultDisplay(tag: any) {
   var cStyle,
       t = tag,
       gcs = "getComputedStyle" in window;
 
-  cStyle = (gcs ? window.getComputedStyle(t, "") : t.currentStyle).display; 
+  cStyle = (gcs ? window.getComputedStyle(t, "") : t.currentStyle).display;
 
   return cStyle;
 }

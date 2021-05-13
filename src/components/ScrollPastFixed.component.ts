@@ -8,12 +8,12 @@ import { string } from "./templates/scroll-past-fixed.pug"
   selector:'scroll-past-fixed',
   template:string
 }) export class ScrollPastFixed{
-  currentPosition:"fixed"
-  fillHeight:number
-  placeholder:number
-  onScroll:()=>any
+  currentPosition?: "fixed"
+  fillHeight?: number
+  placeholder?: number
+  onScroll!: ()=>any
 
-  @ViewChild('template') template:TemplateRef<any>
+  @ViewChild('template') template!: TemplateRef<any>
 
   constructor(public ElementRef:ElementRef){}
 
@@ -54,7 +54,7 @@ import { string } from "./templates/scroll-past-fixed.pug"
   }
 }
 
-export function getDistanceFromTop(element):number{
+export function getDistanceFromTop(element: any): number{
   let yPos = 0
 
   while(element) {

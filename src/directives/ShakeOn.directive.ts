@@ -18,13 +18,13 @@ import {
   ,exportAs:"ShakeOn"
 }) export class ShakeOn {
   @Input() shakeConstant = false
-  @Input() shakeOn
-  @Input() shakeForMs
-  @Input() shakeType
+  @Input() shakeOn: any
+  @Input() shakeForMs: any
+  @Input() shakeType: any
   @Output() shakeThen = new EventEmitter()
-  
-  timeout:number
-  
+
+  timeout?: number
+
   //an array to be used in #ShakeOn refs for fx selectable options (see examples)
   shakeTypes:string[] = [
     'shake-slow','shake-hard','shake-little','shake-horizontal',
@@ -43,7 +43,7 @@ import {
     this.shakeType = this.shakeType || 'shake-slow'
   }
 
-  ngOnChanges(changes){
+  ngOnChanges(changes: any){
     if (changes.shakeOn && changes.shakeOn.currentValue!=null && changes.shakeOn.currentValue!=changes.shakeOn.previousValue) {
       if(changes.shakeOn.currentValue){
         this.onTrue();
@@ -61,7 +61,7 @@ import {
 
         this.applyType()
       }else{
-        this.removeType()        
+        this.removeType()
       }
     }
   }

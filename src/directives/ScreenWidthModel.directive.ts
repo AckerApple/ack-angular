@@ -15,16 +15,16 @@ import {
 @Directive({
   selector: '[screenWidthModel]'
 }) export class ScreenWidthModel{
-  sub:Subscription
+  sub: Subscription
 
-  @Input() screenWidthModel:number
+  @Input() screenWidthModel!: number
   @Output() screenWidthModelChange:EventEmitter<number> = new EventEmitter()
 
   constructor(
     public HtmlSizeService:HtmlSizeService
   ){
     this.sub = this.HtmlSizeService.change.subscribe(()=>this.changed())
-    
+
     this.HtmlSizeService.checkWatchers()
 
     if( this.HtmlSizeService.htmlSize ){
@@ -36,7 +36,7 @@ import {
     if( !this.HtmlSizeService.htmlSize
     || !this.hasChanged()
     )return
-    
+
     this.updateModel()
   }
 

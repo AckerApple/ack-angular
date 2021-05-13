@@ -64,10 +64,11 @@ export declare class FormChanged {
 /** when ever change or input form event triggered, bindings are called */
 export declare class FormAlter {
     element: ElementRef;
-    onChange: (Event: any) => void;
+    onChange: (Event: Event) => void;
     formAlter: EventEmitter<Event>;
     constructor(element: ElementRef);
     ngOnDestroy(): void;
 }
 export declare const screenDirectives: (typeof ScrollPastFixed | typeof ScreenScrollHeightDiff | typeof ScreenScroll | typeof PxFromHtmlTop | typeof ScreenScrollModelY | typeof ScreenWidthModel | typeof ScreenHeightModel)[];
 export declare const declarations: (typeof SelectOn | typeof FocusOn | typeof ContentModel | typeof InnerHtmlModel | typeof AckSections | typeof AckSectionTemplates | typeof AckFixedElement | typeof AckModal | typeof AckModalLayout | typeof AckFixedElementStage | typeof AckCloseIcon | typeof AckOptions | typeof AbsoluteOverflowX | typeof ReaderBody | typeof AckArray | typeof ScrollPastFixed | typeof FxOn | typeof ShakeOn | typeof ElementSizeModel | typeof PxFromHtmlTop | typeof ScreenWidthModel | typeof ScreenHeightModel | typeof HtmlWidthModel | typeof EnterKey | typeof EscapeKey | typeof PreventBackKey | typeof PreventEnterKey | typeof FormChanged | typeof FormAlter)[];
+export default declarations;

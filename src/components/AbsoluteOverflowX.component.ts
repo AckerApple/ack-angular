@@ -7,11 +7,11 @@ import { string } from "./templates/absolute-overflow-x.pug"
   selector:'absolute-overflow-x',
   template:string
 }) export class AbsoluteOverflowX{
-  elementHeightModel:number
-  @Input() scrollBars:boolean|any
-  @Input() wrapClass
-  @Input() active:boolean|any = true
-  @Input() overflow:'auto'|'none'|'hidden'|'scroll' = 'auto'
+  elementHeightModel!: number
+  @Input() scrollBars: boolean|any
+  @Input() wrapClass: any
+  @Input() active: boolean|any = true
+  @Input() overflow: 'auto'|'none'|'hidden'|'scroll' = 'auto'
 
   constructor(public ElementRef:ElementRef){}
 
@@ -19,7 +19,7 @@ import { string } from "./templates/absolute-overflow-x.pug"
     this.checkDisplay()
   }
 
-  ngOnChanges( changes ){
+  ngOnChanges( changes: any ){
     if( changes.active ){
       this.checkDisplay()
     }
@@ -28,7 +28,7 @@ import { string } from "./templates/absolute-overflow-x.pug"
   ngAfterViewInit(){
     this.ElementRef.nativeElement.style.display = 'block'
   }
-  
+
   checkDisplay(){
     this.ElementRef.nativeElement.style.position = this.active ? 'relative' : 'static'
   }

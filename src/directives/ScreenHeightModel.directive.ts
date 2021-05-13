@@ -18,14 +18,14 @@ import {
 }) export class ScreenHeightModel{
   sub:Subscription
 
-  @Input('screenHeightModel') model:number
+  @Input('screenHeightModel') model!: number
   @Output('screenHeightModelChange') modelChange:EventEmitter<number> = new EventEmitter()
 
   constructor(
     public HtmlSizeService:HtmlSizeService
   ){
     this.sub = this.HtmlSizeService.change.subscribe(()=>this.changed())
-    
+
     this.HtmlSizeService.checkWatchers()
   }
 

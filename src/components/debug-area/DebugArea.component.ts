@@ -8,10 +8,10 @@ import { string as template } from "./debug-area.template"
 @Directive({
   selector:"debug-item"
 }) export class DebugItem{
-  @Input() name:string
-  @Input() value:any
-  @Input() type:"array"|string
-  @ContentChild("rowTitle") rowTitle:TemplateRef<ElementRef>
+  @Input() name!: string
+  @Input() value: any
+  @Input() type!: "array"|string
+  @ContentChild("rowTitle") rowTitle!: TemplateRef<ElementRef>
   @Output() save:EventEmitter<any> = new EventEmitter()
 }
 
@@ -19,12 +19,12 @@ import { string as template } from "./debug-area.template"
   selector:"debug-area",
   template:template
 }) export class DebugArea{
-  edit:boolean
-  dataString: string
-  editsMap:any = {}//map of debug edits
-  debugItem:DebugItem
-  
-  @ContentChildren(DebugItem) DebugItems:QueryList<DebugItem>
+  edit!:boolean
+  dataString!: string
+  editsMap?: any = {}//map of debug edits
+  debugItem!:DebugItem
+
+  @ContentChildren(DebugItem) DebugItems!: QueryList<DebugItem>
 
   ngAfterViewInit(){
     if(this.DebugItems.length===1){

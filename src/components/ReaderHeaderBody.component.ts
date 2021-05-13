@@ -10,7 +10,7 @@ import { string as readerHeaderBody } from "./templates/reader-header-body.pug"
   selector:'reader-header-body',
   template:readerHeaderBody
 }) export class ReaderHeaderBody {
-	@ContentChild('reader-header') readerHeader:TemplateRef<any>
+	@ContentChild('reader-header') readerHeader!: TemplateRef<any>
 }
 
 @Directive({
@@ -20,7 +20,7 @@ import { string as readerHeaderBody } from "./templates/reader-header-body.pug"
 @Directive({
   selector:"reader-body"
 }) export class ReaderBody {
-  @ContentChild('reader-header') readerHeader:TemplateRef<any>
+  @ContentChild('reader-header') readerHeader!:TemplateRef<any>
 
   constructor(public element: ElementRef){
     element.nativeElement.style.height = '100%';

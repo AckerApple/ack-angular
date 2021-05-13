@@ -8,8 +8,8 @@ import {
 @Directive({
   selector: '[screenScrollHeightDiff]'
 }) export class ScreenScrollHeightDiff{
-  on
-  @Input() screenScrollHeightDiff
+  on: any
+  @Input() screenScrollHeightDiff: any
   @Output() screenScrollHeightDiffChange = new EventEmitter()
 
   constructor(){
@@ -20,7 +20,7 @@ import {
     window.addEventListener("scroll", this.on)
     window.addEventListener("resize", this.on)
   }
-  
+
   apply(){
     this.screenScrollHeightDiff = document.body.scrollHeight - window.innerHeight
     if(this.screenScrollHeightDiff<0)this.screenScrollHeightDiff=0
@@ -30,5 +30,5 @@ import {
   ngOnDestroy() {
     window.removeEventListener("scroll", this.on)
     window.removeEventListener("resize", this.on)
-  }  
+  }
 }

@@ -7,8 +7,8 @@ import {
 
 @Directive({selector:'[statusOnlineModel]'})
 export class StatusOnlineModel{
-  onChange
-  @Input() statusOnlineModel
+  onChange: any
+  @Input() statusOnlineModel: any
   @Output() statusOnlineModelChange = new EventEmitter()
 
   constructor(){
@@ -19,7 +19,7 @@ export class StatusOnlineModel{
 
     window.addEventListener("online", this.onChange)
     window.addEventListener("offline", this.onChange)
-    
+
     Promise.resolve().then(()=>this.onChange())
   }
 

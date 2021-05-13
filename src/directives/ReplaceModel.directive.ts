@@ -6,9 +6,9 @@ import {
 @Directive({
   selector: '[replaceModel]'
 }) export class ReplaceModel{
-  @Input() replaceModel:string
+  @Input() replaceModel!: string
   @Output() replaceModelChange:EventEmitter<string> = new EventEmitter()
-  @Input() replaceExpression:string//regular expression
+  @Input() replaceExpression!: string//regular expression
 
   ngOnChanges( changes:any ){
     const isString = changes.replaceModel && this.replaceModel && this.replaceModel.constructor === String

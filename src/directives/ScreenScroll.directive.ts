@@ -8,10 +8,10 @@ import {
   selector: '[screenScroll]'
 }) export class ScreenScroll{
   //public window
-  onScroll
+  onScroll: any
 
   @Output() screenScroll = new EventEmitter()
-  
+
   constructor(){
     this.onScroll = ()=>
       this.screenScroll.emit({x:window['pageXOffset'], y:window['pageYOffset']})

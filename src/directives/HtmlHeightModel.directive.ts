@@ -16,8 +16,8 @@ import { HtmlWidthModel } from "./HtmlWidthModel.directive"
 @Directive({
   selector: '[htmlHeightModel]'
 }) export class HtmlHeightModel extends HtmlWidthModel{
-  @Input() htmlHeightModel:number
-  @Output() htmlHeightModelChange:EventEmitter<number> = new EventEmitter()
+  @Input() htmlHeightModel!: number | null
+  @Output() htmlHeightModelChange:EventEmitter<number |null> = new EventEmitter()
 
   constructor(
     public HtmlSizeService:HtmlSizeService

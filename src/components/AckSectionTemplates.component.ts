@@ -4,14 +4,14 @@ import { SectionProvider } from "../providers/AckSections.provider"
 @Directive({
   selector:"ack-section-templates"
 }) export class AckSectionTemplates{
-  inited:boolean
-  pushed:boolean
-  
-  @ContentChild('sectionHeader') header:TemplateRef<any>
-  @ContentChild('sectionFooter') footer:TemplateRef<any>
-  @ContentChild('sectionLeftBody') leftBody:TemplateRef<any>
-  @ContentChild('sectionRightBody') rightBody:TemplateRef<any>
-  
+  inited!: boolean
+  pushed!: boolean
+
+  @ContentChild('sectionHeader') header!: TemplateRef<any>
+  @ContentChild('sectionFooter') footer!: TemplateRef<any>
+  @ContentChild('sectionLeftBody') leftBody!: TemplateRef<any>
+  @ContentChild('sectionRightBody') rightBody!: TemplateRef<any>
+
   constructor(
     public SectionProvider:SectionProvider
   ){}
@@ -31,23 +31,23 @@ import { SectionProvider } from "../providers/AckSections.provider"
 
   check(){
     if( this.pushed )return
-    
+
     if( this.header ){
       this.SectionProvider.headerTemplates.unshift( this.header )
     }
-    
+
     if( this.footer ){
       this.SectionProvider.footerTemplates.unshift( this.footer )
     }
-    
+
     if( this.leftBody ){
       this.SectionProvider.leftBodyTemplates.unshift( this.leftBody )
     }
-    
+
     if( this.rightBody ){
       this.SectionProvider.rightBodyTemplates.unshift( this.rightBody )
     }
-    
+
     this.pushed = true
   }
 

@@ -18,10 +18,10 @@ import { string as ackOptions } from "./templates/ack-options.pug"
 }) export class AckOptions{
   @Input() array = []
   @Input() stylize:boolean = true
-  @Input() multiple:boolean
-  @Input() modelAsArray:boolean
-  @Input() max:number
-  @Input() toggleable:boolean
+  @Input() multiple!: boolean
+  @Input() modelAsArray!: boolean
+  @Input() max!: number
+  @Input() toggleable!: boolean
 
   TemplateReader:TemplateReader = new TemplateReader({
     lastTemplateName:"templateRef",
@@ -36,10 +36,10 @@ import { string as ackOptions } from "./templates/ack-options.pug"
 
   @Input() model:any
   @Output() modelChange:EventEmitter<any> = new EventEmitter()
-  
-  @Input() arrayKey:string
-  @Input() modelKey:string
-  @Input() arrayToModelKey:string
+
+  @Input() arrayKey!: string
+  @Input() modelKey!: string
+  @Input() arrayToModelKey!: string
 
   constructor(public ElementRef:ElementRef){}
 
@@ -54,7 +54,7 @@ import { string as ackOptions } from "./templates/ack-options.pug"
     })
   }
 
-  selectItem(item){
+  selectItem(item: any) {
     const value = this.getArrayItemValue(item)
     const isArrayMode = this.multiple || this.modelAsArray
 
@@ -89,7 +89,7 @@ import { string as ackOptions } from "./templates/ack-options.pug"
     if(form)this.fireFormEvents(form)
   }
 
-  fireFormEvents(form){
+  fireFormEvents(form: any) {
     let event = document.createEvent("HTMLEvents");
     event.initEvent("input", true, true);
     form.dispatchEvent(event)
@@ -99,12 +99,12 @@ import { string as ackOptions } from "./templates/ack-options.pug"
     form.dispatchEvent(event)
   }
 
-  getArrayItemModel(item){
+  getArrayItemModel(item: any) {
     if(this.arrayToModelKey!=null){
       if(this.arrayToModelKey==''){
         return item
       }
-      
+
       const split = this.arrayToModelKey.split('.')
       var scope = item
       while(split.length){
@@ -117,7 +117,7 @@ import { string as ackOptions } from "./templates/ack-options.pug"
     return this.getArrayItemValue( item )
   }
 
-  getArrayItemValue(item){
+  getArrayItemValue(item: any){
     if(!this.arrayKey)return item
 
     let items = this.arrayKey.split('.')
@@ -145,7 +145,7 @@ import { string as ackOptions } from "./templates/ack-options.pug"
     return scope
   }
 
-  modelIndex(item){
+  modelIndex(item: any) {
     this.model = array(this.model)
     for(let i=this.model.length-1; i >= 0; --i){
       let value = this.getArrayItemValue( item )
@@ -155,14 +155,14 @@ import { string as ackOptions } from "./templates/ack-options.pug"
     return -1
   }
 
-  isItemSelected(item){
+  isItemSelected(item: any) {
     return this.modelIndex(item)>=0
   }
 
-  getItemClass(item):string{
+  getItemClass(item: any): string{
     const selected = this.isItemSelected(item)
     let string = ''
-    
+
     if(this.stylize){
       string += 'cursor-pointer pad-h pad-v-sm border-grey-6x border-bottom '
     }
@@ -180,7 +180,7 @@ import { string as ackOptions } from "./templates/ack-options.pug"
   }
 }
 
-export function getParentByTagName(node, tagname) {
+export function getParentByTagName(node: any, tagname: any) {
   let parent;
   if (node === null || tagname === '') return;
   parent  = node.parentNode;

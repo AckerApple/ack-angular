@@ -1,26 +1,27 @@
 import { Component, NgModule } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AckModule } from './AckModule';
+import { AckModule } from '../AckModule';
 import { AckArray } from './AckArray.directive';
 
 @Component({
   selector: 'container',
   //template:'none'
   template: '<ack-array #AckArray="AckArray"></ack-array>'
-})
-export class ContainerComponent {
-  AckArray:AckArray
+}) export class ContainerComponent {
+  AckArray!: AckArray
 }
 
 @NgModule({
-  imports: [ AckModule.forRoot() ],
+  imports: [
+    AckModule // .forRoot()
+  ],
   declarations: [ ContainerComponent ]
 }) export class AppModule {}
 
 describe('ack-array', () => {
   let fixture: ComponentFixture<ContainerComponent>;
   let component:any
-  
+
   beforeEach((done) => {
     TestBed.configureTestingModule({imports: [AppModule]})
 
@@ -30,7 +31,7 @@ describe('ack-array', () => {
       fixture.detectChanges()
       component = fixture.componentInstance
     })
-    .then( ()=>new Promise((res,rej)=>setTimeout(()=>res(), 0)) )//tick for #AckArray to process
+    .then( ()=>new Promise((res, rej)=>setTimeout(()=>res(null), 0)) ) // tick for #AckArray to process
     .then(done).catch(done.fail)
   })
 

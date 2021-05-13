@@ -24,8 +24,8 @@
   "homepage": "https://github.com/AckerApple/ack-angular#readme",
   "dependencies": {
     "ack-angular-fx": "^4.1.0",
-    "ack-css-boot": "^2.0.2",
-    "ack-x": "^1.7.1",
+    "ack-css-boot": "^2.0.4",
+    "ack-x": "^2.0.1",
     "animate.css": "^4.1.1",
     "csshake": "^1.5.3"
   },

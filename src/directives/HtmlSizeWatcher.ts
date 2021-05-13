@@ -5,8 +5,8 @@ import {
 } from "@angular/core"
 
 export interface htmlSize{
-  width: number
-  height: number
+  width: number | null
+  height: number | null
 }
 
 @Injectable() export class HtmlSizeService {

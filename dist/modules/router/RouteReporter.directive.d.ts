@@ -37,6 +37,6 @@ export declare class RouteReporter {
     ngOnDestroy(): void;
     apply(): void;
     emit(): void;
-    goBackTo(name: any, params: any): void;
-    tryBack(name: any, params: any): void;
+    goBackTo(name: string, params: any): void;
+    tryBack(name: string, params: any): void;
 }

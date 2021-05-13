@@ -7,7 +7,7 @@ export declare class ShakeOn {
     shakeForMs: any;
     shakeType: any;
     shakeThen: EventEmitter<any>;
-    timeout: number;
+    timeout?: number;
     shakeTypes: string[];
     constructor(element: ElementRef);
     ngOnInit(): void;

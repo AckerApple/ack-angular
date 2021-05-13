@@ -79,19 +79,19 @@ export declare class Numbers {
     transform(input: any): any;
 }
 export declare class ADate {
-    transform(...args: any[]): any;
+    transform(...args: any): any;
 }
 export declare class AMath {
-    transform(...args: any[]): any;
+    transform(...args: any): any;
 }
 export declare class AString {
-    transform(...args: any[]): any;
+    transform(...args: any): any;
 }
 export declare class ATime {
-    transform(...args: any[]): any;
+    transform(...args: any): any;
 }
 export declare class Ack {
-    transform(...args: any[]): any;
+    transform(...args: any): any;
 }
 export declare class Keys {
     transform(input: any): any;

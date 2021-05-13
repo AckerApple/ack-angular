@@ -9,16 +9,16 @@ import {
 @Directive({
   selector: '[innerHtmlModel]'
 }) export class InnerHtmlModel{
-  public onChange
+  public onChange: any
   public observer
-  public timeout
+  public timeout: any
 
-  @Input() innerHtmlModel
+  @Input() innerHtmlModel: any
   @Output() innerHtmlModelChange = new EventEmitter()
 
   constructor(public element:ElementRef){
     this.observer = new MutationObserver( ()=>this.setModel() )
-    
+
     const config = {
       attributes: true,
       childList: true,

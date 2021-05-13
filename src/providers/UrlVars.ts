@@ -21,7 +21,7 @@ import { WindowService } from "./WindowService"
   }
 
   /** case in-sensative variable fetch */
-  get(name, param?){
+  get(name: any, param?: any){
     if(!name)return
 
     if(this.vars && this.vars[name]!=null)//try exact match first

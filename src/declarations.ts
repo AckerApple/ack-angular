@@ -29,7 +29,7 @@ import { ScrollPastFixed } from "./components/ScrollPastFixed.component"
 import { ShakeOn } from "./directives/ShakeOn.directive"
 import { FxOn } from "./directives/FxOn.directive"
 import { FocusOn } from "./directives/FocusOn.directive"
-import { Init } from "./directives/Init.directive"
+import { Init as InitDirective } from "./directives/Init.directive"
 import { ContentModel } from "./directives/ContentModel.directive"
 import { SelectOn } from "./directives/SelectOn.directive"
 import { InnerHtmlModel } from "./directives/InnerHtmlModel.directive"
@@ -51,7 +51,7 @@ import { VarDirective } from "./directives/VarDirective.directive"
 export class EnterKey{
   @Output() enterKey:EventEmitter<Event> = new EventEmitter()
   constructor(public element:ElementRef){
-    element.nativeElement.addEventListener('keydown', (event)=>{
+    element.nativeElement.addEventListener('keydown', (event: any)=>{
       var yesNo = [13,10].indexOf(event.which||event.keyCode)>=0
       if(yesNo){
         this.enterKey.emit(event)
@@ -65,7 +65,7 @@ export class EscapeKey{
   @Output() escapeKey:EventEmitter<Event> = new EventEmitter()
 
   constructor(public element:ElementRef){
-    element.nativeElement.addEventListener('keydown', (event)=>{
+    element.nativeElement.addEventListener('keydown', (event: any)=>{
       const code = event.which||event.keyCode
       if(code==27){
         this.escapeKey.emit(event)
@@ -79,7 +79,7 @@ export class EscapeKey{
 export class PreventBackKey {
   @Output() preventBackKey = new EventEmitter()
   constructor(public element:ElementRef){
-    element.nativeElement.addEventListener('keydown', (event)=>{
+    element.nativeElement.addEventListener('keydown', (event: any)=>{
       var yesNo = [8].indexOf(event.which||event.keyCode)<0
       if(!yesNo){
         this.preventBackKey.emit(event)
@@ -97,7 +97,7 @@ export class PreventBackKey {
 export class PreventEnterKey{
   @Output() preventEnterKey = new EventEmitter()
   constructor(public element:ElementRef){
-    element.nativeElement.addEventListener('keydown', (event)=>{
+    element.nativeElement.addEventListener('keydown', (event: any)=>{
       var yesNo = [13,10].indexOf(event.which||event.keyCode)<0
       if(!yesNo){
         this.preventEnterKey.emit(event)
@@ -123,12 +123,12 @@ export class PreventEnterKey{
   selector:'[formChanged]'//Also try : (formAlter) directive that watches the form "input" event
 }) export class FormChanged{
   //static parameters = [[ElementRef]]
-  onChange
+  onChange: any
 
   @Output() formChanged = new EventEmitter()
 
   constructor(public element:ElementRef){
-    this.onChange = (event)=>{
+    this.onChange = (event: Event)=>{
       this.formChanged.emit(event)
     }
 
@@ -145,7 +145,7 @@ export class PreventEnterKey{
   selector:'[formAlter]'
 }) export class FormAlter{
   //-static parameters = [[ElementRef]]
-  onChange:(Event)=>void
+  onChange: (Event: Event)=>void
   @Output() formAlter:EventEmitter<Event> = new EventEmitter()
 
   constructor(public element:ElementRef){
@@ -174,7 +174,7 @@ export const screenDirectives = [
 ]
 
 export const declarations = [
-  Init,
+  InitDirective,
   SelectOn,
   FocusOn,
   VarDirective,
@@ -224,3 +224,5 @@ export const declarations = [
   AckFixedElement,
   AckFixedElementStage
 ]
+
+export default declarations

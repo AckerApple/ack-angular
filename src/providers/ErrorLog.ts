@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
 
 @Injectable() export class ErrorLog{
-  public log = []
+  public log: any[] = []
   public maxLog = 30
 
-  monitorWindow(win?){
+  monitorWindow(win?: any){
     win = win || window
-    const callback = (evt)=>this.add(evt,false)
+    const callback = (evt: any) => this.add(evt,false)
     win.addEventListener('error', callback);
   }
 
-  reject(err){
+  reject(err: any){
     const e = this.add(err)
     return Promise.reject(e)
   }
 
   rejector(){
-    return err => this.reject(err)
+    return (err: any) => this.reject(err)
   }
 
-  add(e, toConsole?){
+  add(e: any, toConsole?: any){
     const ob = this.paramAudit(e,toConsole)
     this.log.unshift( ob );
     if(this.maxLog){
@@ -31,7 +31,7 @@ import { Injectable } from '@angular/core';
   }
 
   //api error to js Error object
-  paramAudit(e: any, toConsole?){
+  paramAudit(e: any, toConsole?: any){
     if(e.constructor === String){
       e = new Error(e as string);
     }
@@ -50,7 +50,7 @@ import { Injectable } from '@angular/core';
   }
 
   /** Convert Error object to a regular object */
-  objectifyError(err){
+  objectifyError(err: any){
     const keys = Object.getOwnPropertyNames(err)
     keys.push.apply(keys, Object.keys(err))
 
@@ -80,24 +80,24 @@ import { Injectable } from '@angular/core';
   }
 
   /** same as reject but uses native throw instead of native Promise.reject */
-  rethrow(err){
+  rethrow(err: any){
     const e = this.add(err)
     throw e
   }
 }
 
-function getErrorMessage(err){
+function getErrorMessage(err: any){
   return err.message || err.statusText || err.name || 'Unexpected Error Occured'
 }
 
-function getResponseMessage(res){
+function getResponseMessage(res: any){
   if(res.data && res.data.error && res.data.error.message){
     return res.data.error.message
   }
     return getErrorMessage(res)
 }
 
-function logObToErrorObject(log){
+function logObToErrorObject(log: any){
   const e = new Error( getResponseMessage(log) )
   Object.keys(log).forEach( v=>e[v]=log[v] )
   return e

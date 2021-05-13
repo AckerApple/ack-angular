@@ -3,7 +3,7 @@ import { BehaviorSubject } from "rxjs/internal/BehaviorSubject"
 import {
   EventEmitter, Output, Input,
   ContentChildren, Directive,
-  IterableDiffers, 
+  IterableDiffers,
   IterableDiffer
 } from "@angular/core"
 import { AckAggregate } from "./AckAggregate.directive"
@@ -23,20 +23,20 @@ export interface loop{
   selector:"ack-array",
   exportAs:"AckArray"
 }) export class AckArray{
-  array$sub:Subscription
+  array$sub?: Subscription
   iterableDiffer: IterableDiffer<any[]>//change detection
-  inited:boolean
+  inited?: boolean
   pushed:any = {}
 
   inSort:boolean = false
   sortArray:sortDef[] = []
-   
+
 
   @Input() pageAt:number = 0//when to page aka maxrows
-  @Input() pages:any[][]//(any[])[]
-  @Output() pagesChange:BehaviorSubject<any[][]> = new BehaviorSubject(null)
+  @Input() pages!: any
+  @Output() pagesChange: BehaviorSubject<any> = new BehaviorSubject(null)
   //@Output() pagesChange:EventEmitter<any[][]> = new EventEmitter()
-  
+
   //a chance to know when current viewed page should be zero
   @Input() page:number = 0
   @Output() pageChange:EventEmitter<number> = new EventEmitter()
@@ -49,16 +49,16 @@ export interface loop{
   loopEach:EventEmitter<loop> = new EventEmitter()
   loopEnd:EventEmitter<void> = new EventEmitter()
 
-  @ContentChildren(AckAggregate) AckAggregates:AckAggregate[]
+  @ContentChildren(AckAggregate) AckAggregates?: AckAggregate[]
   //@ContentChildren(AckArrayJoin) AckArrayJoins:AckArrayJoin[]
 
-  @Input() idKeys:string[]
-  @Input() merge:boolean//new arrays will merge with original
+  @Input() idKeys!: string[]
+  @Input() merge?: boolean//new arrays will merge with original
 
-  @Input() array:any[]//-deprecated use array$
+  @Input() array!: any[]//-deprecated use array$
   @Output() arrayChange = new EventEmitter()
 
-  @Input() array$:EventEmitter<any[]>
+  @Input() array$?: EventEmitter<any[]>
 
   constructor(
     private _iterableDiffers: IterableDiffers
@@ -88,7 +88,7 @@ export interface loop{
     }
   }
 
-  ngAfterViewInit(){   
+  ngAfterViewInit(){
     if( this.AckAggregates ){
       this.pushAggregates( this.AckAggregates )
     }
@@ -101,8 +101,8 @@ export interface loop{
 
   //watch array deep changes
   ngDoCheck() {
-    if( !this.inited )return 
-    
+    if( !this.inited )return
+
     let changes = this.iterableDiffer.diff( this.array );
     if (changes) {
       Promise.resolve().then(()=>
@@ -111,7 +111,7 @@ export interface loop{
     }
   }
 
-  ngOnChanges(changes){
+  ngOnChanges(changes: any){
     if( changes.array$ ){
       if( this.array$sub ){
         this.array$sub.unsubscribe()
@@ -121,8 +121,8 @@ export interface loop{
       if( this.array$ ){
         this.array$sub = this.array$.subscribe(array=>{
           if( this.merge ){
-            mergeArrays(this.array,array,this.idKeys)
-          }else{          
+            mergeArrays(this.array as any, array, this.idKeys as any)
+          }else{
             const reset = this.array != array
             this.array = array
             this.loop( reset )
@@ -137,7 +137,7 @@ export interface loop{
       this.pushCreatePages()
       loop = true
     }
-    
+
     if( this.inited && loop ){
       Promise.resolve().then(()=>
         this.loop( true )
@@ -153,7 +153,8 @@ export interface loop{
 */
   pushAggregates( aggs:AckAggregate[] ){
     aggs.forEach(agg=>{
-      let memory
+      let memory: any
+
       switch( agg.type ){
         //default is to sum
         default:{
@@ -175,7 +176,7 @@ export interface loop{
     })
   }
 
-  getItemValueByKeys(item, keys:string[]){
+  getItemValueByKeys(item: any, keys:string[]){
     for(let  x=0;  x < keys.length; ++ x){
       let keyName = keys[x]
       item = item[keyName]
@@ -199,7 +200,7 @@ export interface loop{
     }
 
     //this.performJoins()
-    
+
     this.loopEnd.emit()
   }
 
@@ -208,12 +209,12 @@ export interface loop{
 
     this.pushed.createMap = true
     this.loopStart.subscribe(()=>this.keyMap={})
-    
+
     this.loopEach.subscribe(ob=>{
       let key = this.getItemId( ob.item )
       this.keyMap[ key ] = ob.item
     })
-    
+
     this.loopEnd.subscribe(()=>this.keyMapChange.emit(this.keyMap))
   }
 
@@ -225,7 +226,7 @@ export interface loop{
 
     let pos = 0
     let last = 0
-    
+
     this.loopStart.subscribe(reset=>{
       pos = 0
       last = this.array.length
@@ -238,7 +239,7 @@ export interface loop{
       this.pages.length = 0//dont break binding if pages remembered
       this.pages.push([])
     })
-    
+
     this.loopEach.subscribe(ob=>{
       this.pages[pos].push( ob.item )
 
@@ -259,7 +260,7 @@ export interface loop{
   }
 
   //reduce array down to one item
-  only(item){
+  only(item: any){
     this.array.length = 0
     this.array.push(item)
     this.arrayChange.emit(this.array)
@@ -267,7 +268,7 @@ export interface loop{
   }
 
   //looks up id or the item itself is an ID
-  getItemId(item):any{
+  getItemId(item: any):any{
     return this.idKeys && this.idKeys[0] && item[ this.idKeys[0] ]
   }
 
@@ -284,9 +285,9 @@ export interface loop{
     return this.itemIndex(item) >= 0 ? true : false
   }
 */
-  itemIndex( item ):number{
+  itemIndex(item: any):number{
     const array = this.getCompareArray()
-    
+
     for(let x=array.length-1; x >= 0; --x){
       if( dataKeysMatch(array[x], item, this.idKeys) ){
         return x
@@ -296,23 +297,23 @@ export interface loop{
     return -1
   }
 
-  toggle(item){
+  toggle(item: any){
     const index = this.itemIndex(item)
 
     if(index>=0){
       return this.splice(index)
     }
-    
+
     return this.push( item )
   }
 
-  push(item){
+  push(item: any){
     this.param().push(item)
     this.loop( false )
     return this
   }
 
-  unshift(item){
+  unshift(item: any){
     this.param().unshift(item)
     return this
   }
@@ -333,10 +334,10 @@ export interface loop{
     sortType:"date"|"time"|"datetime"|"int"|"number"|string|number
   ){
     if(this.inSort)return false
-    
+
     this.inSort = true
     let asc = false//most lists come pre sorted asc, our default should be desc
-    
+
     if(this.sortArray.length && this.sortArray[0].arrayKey){
       asc = !this.sortArray[0].asc
       this.sortArray[0] = {
@@ -350,7 +351,7 @@ export interface loop{
      })
     }
 
-    const toKey = function(a:any, index:number=0){
+    const toKey: any = function(a:any, index:number=0){
       const value = a[ arrayKey[index] ]
       if( value==null || index == arrayKey.length-1 ){
         return value
@@ -410,7 +411,7 @@ export interface loop{
 }
 
 
-export function dataKeysMatch(ao,an,idKeys:string[]):boolean{
+export function dataKeysMatch(ao: any, an: any, idKeys: string[]):boolean{
   for(let x=idKeys.length-1; x >= 0; --x){
     let idKey = idKeys[x]
     if(ao[idKey]!=null && ao[idKey] !== an[idKey] ){
@@ -430,7 +431,7 @@ export function mergeArrays(
   for(let x=arrayOriginal.length-1; x >= 0; --x){
     let ao = arrayOriginal[x]
     let an = arrayNew[x]
-    
+
     //quick match
     if(an && dataKeysMatch(ao,an,idKeys) ){
       continue
@@ -444,7 +445,7 @@ export function mergeArrays(
       }
     }
 
-    if(found)continue        
+    if(found)continue
 
     arrayOriginal.splice(x,1)
   }

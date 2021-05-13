@@ -4,8 +4,8 @@ import { htmlSize, HtmlSizeService } from "./HtmlSizeWatcher";
 export declare class HtmlWidthModel {
     HtmlSizeService: HtmlSizeService;
     sub: Subscription;
-    htmlWidthModel: number;
-    htmlWidthModelChange: EventEmitter<number>;
+    htmlWidthModel?: number | null;
+    htmlWidthModelChange: EventEmitter<number | null>;
     constructor(HtmlSizeService: HtmlSizeService);
     ngAfterViewInit(): void;
     ngOnDestroy(): void;

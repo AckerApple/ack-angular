@@ -8,18 +8,18 @@ import {
   ,exportAs:"PxFromHtmlTop"
 }) export class PxFromHtmlTop{
   //public window
-  onScroll
-  
-  @Input("pxFromHtmlTop") number:number
+  onScroll?: any
+
+  @Input("pxFromHtmlTop") number?: number
   @Output("pxFromHtmlTopChange") numberChange:EventEmitter<number> = new EventEmitter()
   @Input() watch:any//anytime it change we update
-  
+
   constructor(public ElementRef:ElementRef){
     this.onScroll = ()=>{
       this.setter()
       this.emit()
     }
-    
+
     window.addEventListener("resize", this.onScroll)
     window.addEventListener("scroll", this.onScroll)
   }
@@ -33,7 +33,7 @@ import {
       this.setter()
       this.emit()
     })
-    
+
     this.delayFire(250)
     this.delayFire(750)
     this.delayFire(1500)

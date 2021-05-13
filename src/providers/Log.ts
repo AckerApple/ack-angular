@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 
 @Injectable() export class Log{
-  public log = []
+  public log: any[] = []
   public maxLog = 80
 
-  add(e, toConsole?){
+  add(e: any, toConsole?: any){
     const ob = this.paramAudit(e,toConsole)
     this.log.unshift( ob );
     if(this.maxLog){
@@ -15,7 +15,7 @@ import { Injectable } from '@angular/core';
     return e
   }
 
-  paramAudit(e, toConsole?){
+  paramAudit(e: any, toConsole?: any){
     switch(e.constructor){
       case String:
       case Boolean:

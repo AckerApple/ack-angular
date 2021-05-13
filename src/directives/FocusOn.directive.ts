@@ -9,13 +9,13 @@ import {
 @Directive({
   selector:'[focusOn]'
 }) export class FocusOn{
-  @Input() focusOn
+  @Input() focusOn: any
   @Input() focusOnDelay=0
   @Output() focusThen = new EventEmitter()
 
   constructor(public element:ElementRef){}
 
-  ngOnChanges(changes){
+  ngOnChanges(changes: any){
     if(changes.focusOn && changes.focusOn.currentValue){
       if( this.focusOnDelay===0 ){
         Promise.resolve().then(()=>this.update())
@@ -27,6 +27,6 @@ import {
 
   update(){
     this.element.nativeElement.focus();
-    this.focusThen.emit();    
+    this.focusThen.emit();
   }
 }

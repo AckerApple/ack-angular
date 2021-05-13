@@ -15,14 +15,14 @@ export interface currentRoute{
 /** A stateful connection to ui-router history
  - .stateChange() with arguments MUST be called at every state change
  - Has 99% accuracy of knowing if OS back or forward button has been used
-   - Their is no web event for knowing if OS button is used. 
+   - Their is no web event for knowing if OS button is used.
 */
 @Injectable() export class RouteWatchReporter{
   current  : any = {}
   $history : any = []
   $state   : any
   //$window  : any
-  
+
   historyPos : number = 0
   isBackMode : boolean = false
   isOsAction : boolean = false
@@ -69,26 +69,26 @@ export interface currentRoute{
     return target.snapshot.params
   }
 
-  isTrapHistory(toState, toParams):boolean{
+  isTrapHistory(toState: any, toParams: any): boolean{
     return this.isBackHistory(toState, toParams) && this.isForwardHistory(toState, toParams)
   }
 
-  isBackHistory(toState, toParams):boolean{
+  isBackHistory(toState: any, toParams: any): boolean{
     const $history = this.$history
     const isEven = $history.length > this.historyPos+1
     const isNameMatch = isEven && toState && toState.name==$history[this.historyPos+1].name
     return isNameMatch && this.isParamsMatch(toParams, $history[this.historyPos+1].params)
   }
 
-  isForwardHistory(toState, toParams):boolean{
+  isForwardHistory(toState: any, toParams: any): boolean{
     const $history = this.$history
     const isEven = !this.isNextBackMode && this.historyPos && $history.length>this.historyPos
     const isNameMatch = isEven && toState && toState.name==$history[this.historyPos-1].name
     return isNameMatch && this.isParamsMatch(toParams, $history[this.historyPos-1].params)
   }
 
-  isParamsMatch(toParams, otherParams):boolean{
-    if( !toParams || !otherParams ){    
+  isParamsMatch(toParams: any, otherParams: any):boolean{
+    if( !toParams || !otherParams ){
       return false
     }
 
@@ -101,7 +101,7 @@ export interface currentRoute{
     return true
   }
 
-  recordStateChange(toState, toParams){
+  recordStateChange(toState: any, toParams: any){
     this.current = { params:toParams, config:toState }
     let isForward = this.isForwardHistory(toState, toParams)
     let isBackHistory = this.isNextBackHistory || this.isBackHistory(toState, toParams)
@@ -139,13 +139,13 @@ export interface currentRoute{
     this.isNextBackHistory = false
   }
 
-  goBackTo(name, params){
+  goBackTo(name: any, params: any){
     this.isNextBackMode = true
     this.isNextBackHistory = true
     this.$state().go(name, params)
   }
 
-  tryBack(name, params){
+  tryBack(name: any, params: any){
     if(this.$history.length){
       this.isNextBackMode = true
       this.isNextBackHistory = true
@@ -155,7 +155,7 @@ export interface currentRoute{
     }
   }
 
-  watchDocument($document){
+  watchDocument($document: any){
     this.watchDocByCallbacks($document, this.getDocumentCallbacks())
   }
 
@@ -163,7 +163,7 @@ export interface currentRoute{
     const isBackButton = ()=>{
       this.isOsAction = true
     }
-    
+
     const isNotBackButton = ()=>{
       this.isOsAction = false
     }
@@ -174,16 +174,16 @@ export interface currentRoute{
     }
   }
 
-  watchDocByCallbacks($document, callbacks){
+  watchDocByCallbacks($document: any, callbacks: any){
     $document.addEventListener('mouseout', callbacks.isBackButton)
     //$document.addEventListener('mouseover', callbacks.mouseover)
     $document.addEventListener('mousedown', callbacks.isNotBackButton)
   }
 
-  unwatchDocByCallbacks($document, callbacks){
+  unwatchDocByCallbacks($document: any, callbacks: any){
     $document.removeEventListener('mouseout', callbacks.isBackButton)
     $document.removeEventListener('mouseover', callbacks.isNotBackButton)
-    $document.removeEventListener('mousedown', callbacks.isNotBackButton)    
+    $document.removeEventListener('mousedown', callbacks.isNotBackButton)
   }
 }
 

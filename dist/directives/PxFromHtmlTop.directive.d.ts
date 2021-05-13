@@ -1,8 +1,8 @@
 import { ElementRef, EventEmitter } from "@angular/core";
 export declare class PxFromHtmlTop {
     ElementRef: ElementRef;
-    onScroll: any;
-    number: number;
+    onScroll?: any;
+    number?: number;
     numberChange: EventEmitter<number>;
     watch: any;
     constructor(ElementRef: ElementRef);

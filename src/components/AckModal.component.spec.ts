@@ -9,7 +9,7 @@ import { AckModal } from './AckModal.component'
   template: '<ack-modal></ack-modal>'
 })
 export class ContainerComponent {
-  AckModal:AckModal
+  AckModal!: AckModal
 }
 
 @NgModule({
@@ -20,7 +20,7 @@ export class ContainerComponent {
 describe('ack-modal', ()=>{
   let fixture: ComponentFixture<ContainerComponent>;
   let component:any
-  
+
   beforeEach(done=>{
     TestBed.configureTestingModule({imports: [AppModule]})
 
@@ -30,7 +30,9 @@ describe('ack-modal', ()=>{
       fixture.detectChanges()
       component = fixture.componentInstance
     })
-    .then( ()=>new Promise((res,rej)=>setTimeout(()=>res(), 0)) )//tick for process
+    .then( ()=>new Promise((res,rej)=>
+      setTimeout(() => res(1), 0))
+    )//tick for process
     .then(done).catch(done.fail)
   })
 

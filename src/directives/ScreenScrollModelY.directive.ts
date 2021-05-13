@@ -9,11 +9,11 @@ import {
   selector: '[screenScrollModelY]',
   exportAs: 'ScreenScrollModelY'
 }) export class ScreenScrollModelY{
-  onScroll
+  onScroll: any
 
-  @Input() screenScrollModelY
+  @Input() screenScrollModelY: any
   @Output() screenScrollModelYChange = new EventEmitter()
-  
+
   constructor(){
     this.onScroll = ()=>{
       this.screenScrollModelY = window['pageYOffset']

@@ -1,5 +1,6 @@
 import {
-  ModuleWithProviders, NgModule
+  ModuleWithProviders,
+  NgModule
 } from "@angular/core"
 
 import { CommonModule } from "@angular/common"
@@ -9,6 +10,7 @@ import { providers } from "./providers"
 import { declarations as components } from "./declarations"
 import { declarations as pipes } from "./pipes"
 
+
 const declarations = [...components, ...pipes]
 
 @NgModule({
@@ -16,13 +18,13 @@ const declarations = [...components, ...pipes]
     CommonModule
   ],
   declarations, providers,
-  exports:[
-    ...declarations,
-   ]
+  exports: declarations
 }) export class AckModule {
-  static forRoot(): ModuleWithProviders<any> {
+  static forRoot(): ModuleWithProviders<AckModule> {
     return {
-      ngModule: AckModule, providers
+      ngModule: AckModule, providers,
     }
   }
 }
+
+export default AckModule

@@ -16,12 +16,12 @@ import {
   exportAs:"RouteReporter"
 }) export class RouteReporter{
   //deprecated
-  @Input() onLoad
+  @Input() onLoad: any
 
   @Output("onChange") stateChanger: EventEmitter<RouteWatchReporter> = new EventEmitter()
   @Output("beforeChange") beforeChanger = new EventEmitter()
 
-  @Input() public activated:ActivatedRoute//ignored in
+  @Input() activated!: ActivatedRoute//ignored in
   @Output() activatedChange:EventEmitter<ActivatedRoute> = new EventEmitter()
 
   @Input() params:any//ignored in
@@ -33,14 +33,14 @@ import {
   @Input() query:any//ignored in
   @Output() queryChange:EventEmitter<any> = new EventEmitter()
 
-  @Input() route:Route//ignored in
+  @Input() route!: Route//ignored in
   @Output() routeChange:EventEmitter<Route> = new EventEmitter()
 
   /* parent bindings */
-    @Input() parentRoute:Route//ignored in
+    @Input() parentRoute!: Route//ignored in
     @Output() parentRouteChange:EventEmitter<Route> = new EventEmitter()
 
-    @Input() parent:ActivatedRoute//ignored in
+    @Input() parent!: ActivatedRoute//ignored in
     @Output() parentChange:EventEmitter<ActivatedRoute> = new EventEmitter()
 
     @Input() parentData:any//ignored in
@@ -49,19 +49,19 @@ import {
 
 
   //deprecated
-  @Input() current:currentRoute
-  @Input() state:currentRoute//ignored in
+  @Input() current!: currentRoute
+  @Input() state!: currentRoute//ignored in
   @Output() stateChange:EventEmitter<currentRoute> = new EventEmitter()
 
   $document
-  $scope
+  $scope: any
 
   /*static parameters = [[
     RouteWatchReporter
   ]]*/
-  docCallbacks
-  querySub:Subscription
-  
+  docCallbacks: any
+  querySub!: Subscription
+
   constructor(
     public Router:Router,
     public RouteWatchReporter:RouteWatchReporter,
@@ -114,7 +114,7 @@ import {
 
   ngOnDestroy(){
     this.RouteWatchReporter.unwatchDocByCallbacks(this.$document, this.docCallbacks)
-    
+
     if( this.querySub ){
       this.querySub.unsubscribe()
     }
@@ -141,7 +141,7 @@ import {
 */
   apply(){
     const current = getCurrentByActive( this.ActivatedRoute )
-    
+
     this.route = current.config
     this.current = current
     this.state = current
@@ -156,7 +156,7 @@ import {
       const ar = parent.ActivatedRoute
 
       this.parentRoute = config
-      this.parent = ar        
+      this.parent = ar
       this.parentData = config.data
     }
   }
@@ -168,7 +168,7 @@ import {
     this.routeChange.emit( current.config )
     this.stateChange.emit( current )
     this.activatedChange.emit( current.ActivatedRoute )
-    
+
     this.paramsChange.emit( current.params )
     this.dataChange.emit( current.config.data )
 
@@ -178,17 +178,17 @@ import {
       const config = parent.config
       const ar = parent.ActivatedRoute
 
-      this.parentRouteChange.emit( config )        
+      this.parentRouteChange.emit( config )
       this.parentChange.emit( ar )
       this.parentDataChange.emit( config.data )
     }
   }
 
-  goBackTo(name, params){
+  goBackTo(name: string, params: any){
     this.RouteWatchReporter.goBackTo(name, params)
   }
 
-  tryBack(name, params){
+  tryBack(name: string, params: any){
     this.RouteWatchReporter.tryBack(name, params)
   }
 }

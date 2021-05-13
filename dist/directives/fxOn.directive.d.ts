@@ -7,10 +7,10 @@ export declare class FxOn {
     element: ElementRef;
     fxOn: boolean;
     fxClass: string;
-    fxForMs: any;
+    fxForMs: number;
     fxThen: EventEmitter<void>;
     inlineTreated: boolean;
-    timeout: number;
+    timeout?: number;
     fxTypes: string[];
     constructor(element: ElementRef);
     ngOnInit(): void;

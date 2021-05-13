@@ -6,12 +6,12 @@ import {
 } from "@angular/router";
 
 @Injectable() export class RouteHistory{
-  routeHistory:string[] = []
-  maxHistory:number = 10
-  historyIndex:number = 0
-  subs:Subscription[] = []
-  forward:string//url
-  back:string//url
+  routeHistory: string[] = []
+  maxHistory: number = 10
+  historyIndex: number = 0
+  subs: Subscription[] = []
+  forward?: string//url
+  back?: string//url
 
   constructor(
     public Router:Router
@@ -39,11 +39,11 @@ import {
     const matchesBack = this.routeHistory.length>=priorPage && this.Router.url === this.routeHistory[ priorPage ]
     const matchesNext = this.routeHistory.length>=nextPage && this.Router.url === this.routeHistory[ nextPage ]
     const matchesCurrent = this.Router.url === this.routeHistory[ this.historyIndex ]
-    
+
     if( matchesNext ){
       --this.historyIndex
     }
-    
+
     if( matchesBack ){
       ++this.historyIndex
     }

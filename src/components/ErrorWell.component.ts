@@ -10,16 +10,16 @@ import { string as errorWell } from "./templates/error-well.pug"
   template:errorWell,
   animations:animations
 }) export class ErrorWell{
-  errorClose
+  errorClose!: any
 
-  @Input() moreDetails:boolean//show more details
-  @Input() message:string = 'Unexpected Error Occured'
-  @Input() error:Error
-  @Input() cssClasses:string
-  @Input() closable:boolean = true
-  @Input() allowDetails:boolean = true
-  @Output() close:EventEmitter<void> = new EventEmitter()
-  @ContentChild("titleFooter") titleFooter:TemplateRef<ElementRef>
+  @Input() moreDetails!: boolean//show more details
+  @Input() message: string = 'Unexpected Error Occured'
+  @Input() error!: Error
+  @Input() cssClasses!: string
+  @Input() closable: boolean = true
+  @Input() allowDetails: boolean = true
+  @Output() close: EventEmitter<void> = new EventEmitter()
+  @ContentChild("titleFooter") titleFooter!: TemplateRef<ElementRef>
 
   ngOnInit(){
     this.cssClasses = this.cssClasses || 'bg-danger border border-danger text-danger'
@@ -27,7 +27,7 @@ import { string as errorWell } from "./templates/error-well.pug"
 
   getErrorMessage( error:Error ){
     if(!error)return this.message
-    
+
     if(typeof error=='string')return error
 
     return error.message || error["statusText"] || this.message

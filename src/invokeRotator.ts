@@ -10,7 +10,8 @@ export function objectInvoker(
   plan:(string|any)[]
 ){
   var rtn=object
-  var subargs, item
+  var subargs: any
+  var item: any
   let newkey:string
   let key:string|string[]
   let typo:string
@@ -33,8 +34,8 @@ export function objectInvoker(
     if( asFunc ){
       key = []
       key.push.apply(key, plan[x])//clone array memory, do not touch original array
-      
-      newkey = key.shift()//first arg is name of key, remove it from array
+
+      newkey = key.shift() as any// first arg is name of key, remove it from array
       subargs = key//what is left in array is the arguments
       key = newkey//key to string
     }
@@ -52,7 +53,7 @@ export function objectInvoker(
     }
 
     if( isFunc ){
-      rtn = item.apply(rtn,subargs)
+      rtn = item.apply(rtn, subargs)
     }else{
       rtn = item
     }
@@ -67,14 +68,14 @@ export function getInvokerBy(
   const isF = typeof invoke=='function'
 
   if( isF ){
-    return function(...args):any{
+    return function(...args: any):any{
       var x = invoke(args[0]);
       args.shift()
       return objectInvoker(x, args)
     }
   }
 
-  return function(...plan){
+  return function(...plan: any){
     const a = plan[0]
     plan[0] = plan[1]
     plan[1] = a
@@ -88,7 +89,7 @@ export function getInvokerBy(
 
     for(let x=0; x<args.length; ++x){
       if( x<1 ){
-        delete args[x]        
+        delete args[x]
       }else{
         args[ x-1 ] = args[x]
       }

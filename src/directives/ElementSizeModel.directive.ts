@@ -9,14 +9,14 @@ import {
 @Directive({
   selector: '[elementSizeModel]'
 }) export class ElementSizeModel{
-  onResize
-  observer
-  timeout:any
-  inChange:boolean
+  onResize: any
+  observer: any
+  timeout: any
+  inChange!: boolean
 
   @Input() elementSizeModelWatch:any//causes ngOnChanges to fire
 
-  @Input() elementSizeModel
+  @Input() elementSizeModel: any
   @Output() elementSizeModelChange = new EventEmitter()
 
   constructor(public element:ElementRef){}
@@ -32,7 +32,7 @@ import {
     this.observer = new MutationObserver(()=>{
       this.setModel()
     })
-    
+
     const config = {
       attributes: true,
       childList: true,
@@ -59,7 +59,7 @@ import {
     this.elementSizeModel.width = this.element.nativeElement.offsetWidth
     this.elementSizeModel.height = this.element.nativeElement.offsetHeight
     this.elementSizeModelChange.emit(this.elementSizeModel)
-    
+
     Promise.resolve().then(()=>{
       this.inChange=false
     })
@@ -74,7 +74,7 @@ import {
 @Directive({
   selector: '[elementHeightModel]'
 }) export class ElementHeightModel extends ElementSizeModel{
-  @Input() elementHeightModel
+  @Input() elementHeightModel: any
   @Output() elementHeightModelChange = new EventEmitter()
 
   constructor(public element:ElementRef){
@@ -91,7 +91,7 @@ import {
   selector: '[elementWidthModel]',
   exportAs: 'ElementWidthModel'
 }) export class ElementWidthModel extends ElementSizeModel{
-  @Input() elementWidthModel
+  @Input() elementWidthModel: any
   @Output() elementWidthModelChange = new EventEmitter()
 
   constructor(public element:ElementRef){

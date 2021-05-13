@@ -15,15 +15,15 @@ import {
   selector: '[htmlWidthModel]'
 }) export class HtmlWidthModel{
   sub:Subscription
-  
-  @Input() htmlWidthModel:number
-  @Output() htmlWidthModelChange:EventEmitter<number> = new EventEmitter()
+
+  @Input() htmlWidthModel?: number | null
+  @Output() htmlWidthModelChange:EventEmitter<number | null> = new EventEmitter()
 
   constructor(
     public HtmlSizeService:HtmlSizeService
   ){
     this.sub = this.HtmlSizeService.change.subscribe(()=>this.changed())
-    
+
     this.HtmlSizeService.checkWatchers()
 
     /*if( this.HtmlSizeService.htmlSize ){
@@ -49,7 +49,7 @@ import {
     return this.htmlWidthModel !== window.document.documentElement.clientWidth
   }
 
-  setModel( htmlSize:htmlSize ){
+  setModel( htmlSize: htmlSize ){
     this.htmlWidthModel = htmlSize.width
     this.htmlWidthModelChange.emit( this.htmlWidthModel )
   }

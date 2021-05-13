@@ -12,59 +12,59 @@ import {
 /* ONLY THIS FILE */
   @Pipe({name: 'indexTrack'}) export class IndexTrack {
     transform() {
-      return function(index){return index}
+      return function(index: any){return index}
     }
   }
 
   @Pipe({name: 'stringify'}) export class Stringify {
-    transform(input, spaces) {
+    transform(input: any, spaces: any) {
       return JSON.stringify(input, null, spaces)
     }
   }
 
   @Pipe({name: 'array'}) export class ForceArray {
-    transform(input, repeat?, repeatValue?) {
+    transform(input: any, repeat?: any, repeatValue?: any) {
       return pipes.array(input, repeat, repeatValue)
     }
   }
 
   @Pipe({name: 'arrayOfObjects'}) export class ArrayOfObjects {
-    transform(input, repeat, repeatValue) {
+    transform(input: any, repeat: any, repeatValue: any) {
       return pipes.arrayOfObjects(input, repeat, repeatValue)
     }
   }
 
   @Pipe({name: 'safeUrl'}) export class SafeUrl {
     constructor(private domSanitizer: DomSanitizer) {}
-    transform(input) {
+    transform(input: any) {
       return this.domSanitizer.bypassSecurityTrustResourceUrl(input)
     }
   }
 
   @Pipe({name: 'numberWord'}) export class NumberWord {
     constructor() {}
-    transform(input, number) {
+    transform(input: any, number: any) {
       return input + (number && number==1 ? '' : 's')
     }
   }
 
   @Pipe({name: 'endNumberWord'}) export class EndNumberWord {
     constructor() {}
-    transform(input) {
+    transform(input: any) {
       return input && input==1 ? '' : 's'
     }
   }
 
   @Pipe({name: 'safeHtml'}) export class SafeHtml {
     constructor(private domSanitizer: DomSanitizer) {}
-    transform(input) {
+    transform(input: any) {
       return this.domSanitizer.bypassSecurityTrustHtml(input)
     }
   }
 
   @Pipe({name: 'safeStyle'}) export class SafeStyle {
     constructor(private domSanitizer: DomSanitizer) {}
-    transform(input) {
+    transform(input: any) {
       return this.domSanitizer.bypassSecurityTrustStyle(input)
     }
   }
@@ -73,7 +73,9 @@ import {
 
 /** (input>=a && input<=b) || (input>=b && input<=a) */
 @Pipe({name: 'between'}) export class Between {
-  transform(input, a, b) {return pipes.between(input, a, b)}
+  transform(input: any, a: any, b: any) {
+    return pipes.between(input, a, b)
+  }
 }
 
 @Pipe({name: 'replaceMaxLength'}) export class ReplaceMaxLength {
@@ -98,7 +100,7 @@ import {
 }
 
 @Pipe({name: 'numberSuffix'}) export class NumberSuffix {
-  transform(input:string, rtnInput?){return pipes.numberSuffix(input, rtnInput)}
+  transform(input:string, rtnInput?: any){return pipes.numberSuffix(input, rtnInput)}
 }
 
 @Pipe({name: 'markdownAnchor'}) export class MarkdownAnchor {
@@ -135,23 +137,23 @@ import {
 }
 
 @Pipe({name: 'aDate'}) export class ADate {
-  transform(...args){return pipes.aDate.apply(pipes.aDate, args)}
+  transform(...args: any){return pipes.aDate.apply(pipes.aDate, args)}
 }
 
 @Pipe({name: 'aMath'}) export class AMath {
-  transform(...args){return pipes.aMath.apply(pipes.aMath, args)}
+  transform(...args: any){return pipes.aMath.apply(pipes.aMath, args)}
 }
 
 @Pipe({name: 'aString'}) export class AString {
-  transform(...args){return pipes.aString.apply(pipes.aString, args)}
+  transform(...args: any){return pipes.aString.apply(pipes.aString, args)}
 }
 
 @Pipe({name: 'aTime'}) export class ATime {
-  transform(...args){return pipes.aTime.apply(pipes.aTime, args)}
+  transform(...args: any){return pipes.aTime.apply(pipes.aTime, args)}
 }
 
 @Pipe({name: 'ack'}) export class Ack {
-  transform(...args){return pipes.ack.apply(pipes.ack, args)}
+  transform(...args: any){return pipes.ack.apply(pipes.ack, args)}
 }
 
 @Pipe({name: 'keys'}) export class Keys {
@@ -161,7 +163,7 @@ import {
     const isArray = isOb && input.constructor == Array
 
     if(isArray){
-      return input.map((_value,index)=>index)
+      return input.map((_value: any, index: any)=>index)
     }
 
     return input ? Object.keys(input) : []
@@ -173,7 +175,9 @@ import {
 }
 
 @Pipe({name: 'console'}) export class ConsolePipe {
-  transform(){return console.log.apply(console,arguments)}
+  transform(){
+    return console.log.apply(console, arguments as any)
+  }
 }
 
 export const declarations = [

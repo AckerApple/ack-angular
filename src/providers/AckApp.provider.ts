@@ -14,9 +14,9 @@ import {
 } from "./Prompts"
 
 @Injectable() export class AckApp{
-  warnedFixElements:boolean = true
-  fixedElementStage:ElementRef
-  
+  warnedFixElements: boolean = true
+  fixedElementStage!: ElementRef
+
   fixedElms:AckFixedElement[] = []
   modals:AckModal[] = []
 

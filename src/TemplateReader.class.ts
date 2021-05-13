@@ -18,9 +18,9 @@ export interface options{
 }
 
 export class TemplateReader{
-  types:types = {}
-  templates:templates = {}
-  lastTemplateName:string
+  types: types = {}
+  templates: templates = {}
+  lastTemplateName!: string
 
   constructor(options?:options){
     Object.assign(this,options)
@@ -44,7 +44,7 @@ export class TemplateReader{
     const lastTemplate = templateRefs['_results'][ index ]
 
     if( !lastTemplate || !this.lastTemplateName )return;
-    
+
     const matched = this.applyReferences(lastTemplate._def.references, lastTemplate)
     if( !matched ){
       this.templates[this.lastTemplateName] = lastTemplate

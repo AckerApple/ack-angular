@@ -7,8 +7,8 @@ import {
 
 @Directive({selector:'[statusOfflineModel]'})
 export class StatusOfflineModel{
-  onChange
-  @Input() statusOfflineModel
+  onChange: any
+  @Input() statusOfflineModel: any
   @Output() statusOfflineModelChange = new EventEmitter()
 
   constructor(){
