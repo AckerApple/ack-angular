@@ -15,7 +15,7 @@ export declare class ContentModel implements OnChanges, OnDestroy {
     ngOnDestroy(): void;
     ngOnChanges(): void;
     evalPlaceholder(placeholder?: string): boolean;
-    shouldCancelEvent(event: Event): boolean;
+    shouldCancelEvent(event: Event): boolean | undefined;
     onKeyDown(event: Event): void;
     onInput(): void;
     updateValue(): void;

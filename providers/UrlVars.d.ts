@@ -1,7 +1,7 @@
 import { WindowService } from "./WindowService";
 export declare class UrlVars {
     WindowService: WindowService;
-    vars: any;
+    vars: {};
     constructor(WindowService: WindowService);
     parse(): {};
     /** case in-sensative variable fetch */

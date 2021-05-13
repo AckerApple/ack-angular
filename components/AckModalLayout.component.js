@@ -1,0 +1,73 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AckModalLayout = void 0;
+var core_1 = require("@angular/core");
+var AckApp_provider_1 = require("../providers/AckApp.provider");
+var ack_angular_fx_1 = require("ack-angular-fx");
+var ack_modal_layout_pug_1 = require("./templates/ack-modal-layout.pug");
+var AckModalLayout = /** @class */ (function () {
+    //@Input() template:ElementRef<any>
+    function AckModalLayout(element, AckApp) {
+        var _this = this;
+        this.element = element;
+        this.AckApp = AckApp;
+        this.zIndex = 20;
+        this.close = new core_1.EventEmitter();
+        this.allowClose = true;
+        this.isModelMode = false;
+        this.showModel = true;
+        this.showModelChange = new core_1.EventEmitter();
+        //after possible double click, close on outside content click
+        setTimeout(function () { return _this.clickListenForClose(); }, 400);
+    }
+    AckModalLayout.prototype.clickListenForClose = function () {
+        var _this = this;
+        this.element.nativeElement.addEventListener('click', function (event) {
+            if (!_this.allowClose)
+                return false;
+            var eTar = event.srcElement || event.toElement || event.target;
+            var isDirectChild = eTar == _this.element.nativeElement.children[0] || eTar == _this.element.nativeElement.children[0].children[0];
+            if (isDirectChild) {
+                _this.fireClose();
+            }
+            return true;
+        });
+    };
+    AckModalLayout.prototype.ngOnInit = function () {
+        var _this = this;
+        return Promise.resolve().then(function () {
+            if (_this.isModelMode || (_this.isModelMode == null && _this.showModelChange.observers.length)) {
+                _this.isModelMode = true;
+            }
+        });
+    };
+    AckModalLayout.prototype.fireClose = function () {
+        this.showModelChange.emit(this.showModel = false);
+        this.close.emit(this);
+    };
+    AckModalLayout.decorators = [
+        { type: core_1.Component, args: [{
+                    selector: 'ack-modal-layout',
+                    template: ack_modal_layout_pug_1.string,
+                    animations: ack_angular_fx_1.animations
+                },] }
+    ];
+    AckModalLayout.ctorParameters = function () { return [
+        { type: core_1.ElementRef },
+        { type: AckApp_provider_1.AckApp }
+    ]; };
+    AckModalLayout.propDecorators = {
+        zIndex: [{ type: core_1.Input }],
+        close: [{ type: core_1.Output }],
+        allowClose: [{ type: core_1.Input }],
+        wrapStyle: [{ type: core_1.Input }],
+        wrapCellStyle: [{ type: core_1.Input }],
+        backgroundColor: [{ type: core_1.Input }],
+        isModelMode: [{ type: core_1.Input }],
+        showModel: [{ type: core_1.Input }],
+        showModelChange: [{ type: core_1.Output }]
+    };
+    return AckModalLayout;
+}());
+exports.AckModalLayout = AckModalLayout;
+//# sourceMappingURL=AckModalLayout.component.js.map
