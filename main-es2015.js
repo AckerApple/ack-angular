@@ -418,6 +418,40 @@ DocumentService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
+/***/ "2PWV":
+/*!***********************************************************************!*\
+  !*** /Users/ackerapple/node_modules/moment-mini/locale sync ^\.\/.*$ ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./locale": "6Nso",
+	"./locale.js": "6Nso"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "2PWV";
+
+/***/ }),
+
 /***/ "2Uos":
 /*!************************************************************!*\
   !*** ./src/directives/ScreenScrollHeightDiff.directive.ts ***!
@@ -2356,96 +2390,54 @@ AckOfflineModule = AckOfflineModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0_
 
 /***/ }),
 
-/***/ "Lw2E":
-/*!*******************************************************!*\
-  !*** ./node_modules/moment-mini/locale sync ^\.\/.*$ ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./locale": "wCDk",
-	"./locale.js": "wCDk"
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
-}
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = "Lw2E";
-
-/***/ }),
-
 /***/ "O5Bq":
 /*!*****************************!*\
   !*** ./src/declarations.ts ***!
   \*****************************/
-/*! exports provided: EnterKey, EscapeKey, PreventBackKey, PreventEnterKey, InputHint, FormChanged, FormAlter, screenDirectives, declarations, default */
+/*! exports provided: screenDirectives, declarations */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EnterKey", function() { return EnterKey; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EscapeKey", function() { return EscapeKey; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PreventBackKey", function() { return PreventBackKey; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PreventEnterKey", function() { return PreventEnterKey; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InputHint", function() { return InputHint; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormChanged", function() { return FormChanged; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormAlter", function() { return FormAlter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "screenDirectives", function() { return screenDirectives; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "declarations", function() { return declarations; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
-/* harmony import */ var _components_AckSections_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/AckSections.component */ "F4ZD");
-/* harmony import */ var _components_AckSectionTemplates_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/AckSectionTemplates.component */ "fA6y");
-/* harmony import */ var _components_AckModal_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/AckModal.component */ "8SBA");
-/* harmony import */ var _components_AckModalLayout_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/AckModalLayout.component */ "1KjV");
-/* harmony import */ var _components_AckFixedElementStage_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/AckFixedElementStage.component */ "CsuE");
-/* harmony import */ var _components_AckFixedElement_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/AckFixedElement.component */ "SfXv");
-/* harmony import */ var _components_AckCloseIcon_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/AckCloseIcon.component */ "S2n4");
-/* harmony import */ var _components_AckOptions_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/AckOptions.component */ "nlrQ");
-/* harmony import */ var _components_AckOptionsModal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/AckOptionsModal.component */ "iooJ");
-/* harmony import */ var _components_AbsoluteOverflowX_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/AbsoluteOverflowX.component */ "sEoc");
-/* harmony import */ var _components_ErrorWell_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/ErrorWell.component */ "/D3w");
-/* harmony import */ var _components_ReaderHeaderBody_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/ReaderHeaderBody.component */ "8Wnv");
-/* harmony import */ var _components_debug_area_DebugArea_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/debug-area/DebugArea.component */ "iEvh");
-/* harmony import */ var _directives_AckArray_directive__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./directives/AckArray.directive */ "4Ihc");
-/* harmony import */ var _directives_AckAggregate_directive__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./directives/AckAggregate.directive */ "LfEq");
-/* harmony import */ var _components_ScrollPastFixed_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/ScrollPastFixed.component */ "T/m2");
-/* harmony import */ var _directives_ShakeOn_directive__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./directives/ShakeOn.directive */ "Ln0R");
-/* harmony import */ var _directives_FxOn_directive__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./directives/FxOn.directive */ "UV2o");
-/* harmony import */ var _directives_FocusOn_directive__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./directives/FocusOn.directive */ "xM1n");
-/* harmony import */ var _directives_Init_directive__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./directives/Init.directive */ "eNHZ");
-/* harmony import */ var _directives_ContentModel_directive__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./directives/ContentModel.directive */ "nuEm");
-/* harmony import */ var _directives_SelectOn_directive__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./directives/SelectOn.directive */ "6DBY");
-/* harmony import */ var _directives_InnerHtmlModel_directive__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./directives/InnerHtmlModel.directive */ "dLpJ");
-/* harmony import */ var _directives_ReplaceModel_directive__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./directives/ReplaceModel.directive */ "eTfi");
-/* harmony import */ var _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./directives/ElementSizeModel.directive */ "unt3");
-/* harmony import */ var _directives_ScreenScrollHeightDiff_directive__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./directives/ScreenScrollHeightDiff.directive */ "2Uos");
-/* harmony import */ var _directives_ScreenScroll_directive__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./directives/ScreenScroll.directive */ "/2xC");
-/* harmony import */ var _directives_PxFromHtmlTop_directive__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./directives/PxFromHtmlTop.directive */ "v+h3");
-/* harmony import */ var _directives_ScreenScrollModelY_directive__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./directives/ScreenScrollModelY.directive */ "q90b");
-/* harmony import */ var _directives_ScreenWidthModel_directive__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./directives/ScreenWidthModel.directive */ "stBn");
-/* harmony import */ var _directives_ScreenHeightModel_directive__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./directives/ScreenHeightModel.directive */ "SJOV");
-/* harmony import */ var _directives_HtmlWidthModel_directive__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./directives/HtmlWidthModel.directive */ "7RV/");
-/* harmony import */ var _directives_HtmlHeightModel_directive__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./directives/HtmlHeightModel.directive */ "5sUW");
-/* harmony import */ var _directives_StatusOnlineModel_directive__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./directives/StatusOnlineModel.directive */ "IyaO");
-/* harmony import */ var _directives_StatusOfflineModel_directive__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./directives/StatusOfflineModel.directive */ "zFTS");
-/* harmony import */ var _directives_VarDirective_directive__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./directives/VarDirective.directive */ "jaOU");
+/* harmony import */ var _components_AckSections_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/AckSections.component */ "F4ZD");
+/* harmony import */ var _components_AckSectionTemplates_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/AckSectionTemplates.component */ "fA6y");
+/* harmony import */ var _components_AckModal_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/AckModal.component */ "8SBA");
+/* harmony import */ var _components_AckModalLayout_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/AckModalLayout.component */ "1KjV");
+/* harmony import */ var _components_AckFixedElementStage_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/AckFixedElementStage.component */ "CsuE");
+/* harmony import */ var _components_AckFixedElement_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/AckFixedElement.component */ "SfXv");
+/* harmony import */ var _components_AckCloseIcon_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/AckCloseIcon.component */ "S2n4");
+/* harmony import */ var _components_AckOptions_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/AckOptions.component */ "nlrQ");
+/* harmony import */ var _components_AckOptionsModal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/AckOptionsModal.component */ "iooJ");
+/* harmony import */ var _components_AbsoluteOverflowX_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/AbsoluteOverflowX.component */ "sEoc");
+/* harmony import */ var _components_ErrorWell_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/ErrorWell.component */ "/D3w");
+/* harmony import */ var _components_ReaderHeaderBody_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/ReaderHeaderBody.component */ "8Wnv");
+/* harmony import */ var _components_debug_area_DebugArea_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/debug-area/DebugArea.component */ "iEvh");
+/* harmony import */ var _directives_AckArray_directive__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./directives/AckArray.directive */ "4Ihc");
+/* harmony import */ var _directives_AckAggregate_directive__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./directives/AckAggregate.directive */ "LfEq");
+/* harmony import */ var _components_ScrollPastFixed_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/ScrollPastFixed.component */ "T/m2");
+/* harmony import */ var _directives_ShakeOn_directive__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./directives/ShakeOn.directive */ "Ln0R");
+/* harmony import */ var _directives_FxOn_directive__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./directives/FxOn.directive */ "UV2o");
+/* harmony import */ var _directives_FocusOn_directive__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./directives/FocusOn.directive */ "xM1n");
+/* harmony import */ var _directives_Init_directive__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./directives/Init.directive */ "eNHZ");
+/* harmony import */ var _directives_ContentModel_directive__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./directives/ContentModel.directive */ "nuEm");
+/* harmony import */ var _directives_SelectOn_directive__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./directives/SelectOn.directive */ "6DBY");
+/* harmony import */ var _directives_InnerHtmlModel_directive__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./directives/InnerHtmlModel.directive */ "dLpJ");
+/* harmony import */ var _directives_ReplaceModel_directive__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./directives/ReplaceModel.directive */ "eTfi");
+/* harmony import */ var _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./directives/ElementSizeModel.directive */ "unt3");
+/* harmony import */ var _directives_ScreenScrollHeightDiff_directive__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./directives/ScreenScrollHeightDiff.directive */ "2Uos");
+/* harmony import */ var _directives_ScreenScroll_directive__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./directives/ScreenScroll.directive */ "/2xC");
+/* harmony import */ var _directives_PxFromHtmlTop_directive__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./directives/PxFromHtmlTop.directive */ "v+h3");
+/* harmony import */ var _directives_ScreenScrollModelY_directive__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./directives/ScreenScrollModelY.directive */ "q90b");
+/* harmony import */ var _directives_ScreenWidthModel_directive__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./directives/ScreenWidthModel.directive */ "stBn");
+/* harmony import */ var _directives_ScreenHeightModel_directive__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./directives/ScreenHeightModel.directive */ "SJOV");
+/* harmony import */ var _directives_HtmlWidthModel_directive__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./directives/HtmlWidthModel.directive */ "7RV/");
+/* harmony import */ var _directives_HtmlHeightModel_directive__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./directives/HtmlHeightModel.directive */ "5sUW");
+/* harmony import */ var _directives_StatusOnlineModel_directive__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./directives/StatusOnlineModel.directive */ "IyaO");
+/* harmony import */ var _directives_StatusOfflineModel_directive__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./directives/StatusOfflineModel.directive */ "zFTS");
+/* harmony import */ var _directives_VarDirective_directive__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./directives/VarDirective.directive */ "jaOU");
+/* harmony import */ var _declarations_short__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./declarations.short */ "oN2l");
 
 
 
@@ -2482,230 +2474,59 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-let EnterKey = class EnterKey {
-    constructor(element) {
-        this.element = element;
-        this.enterKey = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        element.nativeElement.addEventListener('keydown', (event) => {
-            var yesNo = [13, 10].indexOf(event.which || event.keyCode) >= 0;
-            if (yesNo) {
-                this.enterKey.emit(event);
-            }
-        });
-    }
-};
-EnterKey.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
-];
-EnterKey.propDecorators = {
-    enterKey: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
-};
-EnterKey = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({ selector: '[enterKey]' }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
-], EnterKey);
-
-let EscapeKey = class EscapeKey {
-    constructor(element) {
-        this.element = element;
-        this.escapeKey = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        element.nativeElement.addEventListener('keydown', (event) => {
-            const code = event.which || event.keyCode;
-            if (code == 27) {
-                this.escapeKey.emit(event);
-            }
-        });
-    }
-};
-EscapeKey.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
-];
-EscapeKey.propDecorators = {
-    escapeKey: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
-};
-EscapeKey = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({ selector: '[escapeKey]' }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
-], EscapeKey);
-
-let PreventBackKey = class PreventBackKey {
-    constructor(element) {
-        this.element = element;
-        this.preventBackKey = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        element.nativeElement.addEventListener('keydown', (event) => {
-            var yesNo = [8].indexOf(event.which || event.keyCode) < 0;
-            if (!yesNo) {
-                this.preventBackKey.emit(event);
-                if (event.preventDefault) {
-                    event.preventDefault();
-                }
-            }
-            return yesNo;
-        });
-    }
-};
-PreventBackKey.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
-];
-PreventBackKey.propDecorators = {
-    preventBackKey: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
-};
-PreventBackKey = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({ selector: '[preventBackKey]' }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
-], PreventBackKey);
-
-let PreventEnterKey = class PreventEnterKey {
-    constructor(element) {
-        this.element = element;
-        this.preventEnterKey = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        element.nativeElement.addEventListener('keydown', (event) => {
-            var yesNo = [13, 10].indexOf(event.which || event.keyCode) < 0;
-            if (!yesNo) {
-                this.preventEnterKey.emit(event);
-                if (event.preventDefault) {
-                    event.preventDefault();
-                }
-            }
-            return yesNo;
-        });
-    }
-};
-PreventEnterKey.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
-];
-PreventEnterKey.propDecorators = {
-    preventEnterKey: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
-};
-PreventEnterKey = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({ selector: '[preventEnterKey]' }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
-], PreventEnterKey);
-
-let InputHint = class InputHint {
-    constructor() {
-        this.hintStyle = { 'font-size': '75%', 'color': '#BBB' };
-    }
-};
-InputHint.propDecorators = {
-    hintStyle: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }]
-};
-InputHint = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'input-hint',
-        template: '<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
-    })
-], InputHint);
-
-let FormChanged = class FormChanged {
-    constructor(element) {
-        this.element = element;
-        this.formChanged = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.onChange = (event) => {
-            this.formChanged.emit(event);
-        };
-        element.nativeElement.addEventListener('change', this.onChange);
-    }
-    ngOnDestroy() {
-        this.element.nativeElement.removeEventListener('change', this.onChange);
-    }
-};
-FormChanged.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
-];
-FormChanged.propDecorators = {
-    formChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
-};
-FormChanged = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-        selector: '[formChanged]'
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
-], FormChanged);
-
-let FormAlter = class FormAlter {
-    constructor(element) {
-        this.element = element;
-        this.formAlter = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.onChange = (event) => {
-            this.formAlter.emit(event);
-        };
-        element.nativeElement.addEventListener('input', this.onChange);
-        element.nativeElement.addEventListener('change', this.onChange);
-    }
-    ngOnDestroy() {
-        this.element.nativeElement.removeEventListener('change', this.onChange);
-        this.element.nativeElement.removeEventListener('input', this.onChange);
-    }
-};
-FormAlter.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
-];
-FormAlter.propDecorators = {
-    formAlter: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
-};
-FormAlter = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-        selector: '[formAlter]'
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
-], FormAlter);
 
 const screenDirectives = [
-    _directives_ScreenScrollModelY_directive__WEBPACK_IMPORTED_MODULE_30__["ScreenScrollModelY"],
-    _directives_ScreenWidthModel_directive__WEBPACK_IMPORTED_MODULE_31__["ScreenWidthModel"],
-    _directives_ScreenHeightModel_directive__WEBPACK_IMPORTED_MODULE_32__["ScreenHeightModel"],
-    _directives_ScreenScroll_directive__WEBPACK_IMPORTED_MODULE_28__["ScreenScroll"],
-    _components_ScrollPastFixed_component__WEBPACK_IMPORTED_MODULE_17__["ScrollPastFixed"],
-    _directives_ScreenScrollHeightDiff_directive__WEBPACK_IMPORTED_MODULE_27__["ScreenScrollHeightDiff"],
-    _directives_PxFromHtmlTop_directive__WEBPACK_IMPORTED_MODULE_29__["PxFromHtmlTop"]
+    _directives_ScreenScrollModelY_directive__WEBPACK_IMPORTED_MODULE_28__["ScreenScrollModelY"],
+    _directives_ScreenWidthModel_directive__WEBPACK_IMPORTED_MODULE_29__["ScreenWidthModel"],
+    _directives_ScreenHeightModel_directive__WEBPACK_IMPORTED_MODULE_30__["ScreenHeightModel"],
+    _directives_ScreenScroll_directive__WEBPACK_IMPORTED_MODULE_26__["ScreenScroll"],
+    _components_ScrollPastFixed_component__WEBPACK_IMPORTED_MODULE_15__["ScrollPastFixed"],
+    _directives_ScreenScrollHeightDiff_directive__WEBPACK_IMPORTED_MODULE_25__["ScreenScrollHeightDiff"],
+    _directives_PxFromHtmlTop_directive__WEBPACK_IMPORTED_MODULE_27__["PxFromHtmlTop"]
 ];
 const declarations = [
-    _directives_Init_directive__WEBPACK_IMPORTED_MODULE_21__["InitDirective"],
-    _directives_SelectOn_directive__WEBPACK_IMPORTED_MODULE_23__["SelectOn"],
-    _directives_FocusOn_directive__WEBPACK_IMPORTED_MODULE_20__["FocusOn"],
-    _directives_VarDirective_directive__WEBPACK_IMPORTED_MODULE_37__["VarDirective"],
-    _directives_ContentModel_directive__WEBPACK_IMPORTED_MODULE_22__["ContentModel"],
-    _directives_InnerHtmlModel_directive__WEBPACK_IMPORTED_MODULE_24__["InnerHtmlModel"],
-    _directives_ReplaceModel_directive__WEBPACK_IMPORTED_MODULE_25__["ReplaceModel"],
-    FormAlter,
-    FormChanged,
-    EnterKey,
-    EscapeKey,
-    PreventBackKey,
-    PreventEnterKey,
+    _directives_Init_directive__WEBPACK_IMPORTED_MODULE_19__["InitDirective"],
+    _directives_SelectOn_directive__WEBPACK_IMPORTED_MODULE_21__["SelectOn"],
+    _directives_FocusOn_directive__WEBPACK_IMPORTED_MODULE_18__["FocusOn"],
+    _directives_VarDirective_directive__WEBPACK_IMPORTED_MODULE_35__["VarDirective"],
+    _directives_ContentModel_directive__WEBPACK_IMPORTED_MODULE_20__["ContentModel"],
+    _directives_InnerHtmlModel_directive__WEBPACK_IMPORTED_MODULE_22__["InnerHtmlModel"],
+    _directives_ReplaceModel_directive__WEBPACK_IMPORTED_MODULE_23__["ReplaceModel"],
+    _declarations_short__WEBPACK_IMPORTED_MODULE_36__["FormAlter"],
+    _declarations_short__WEBPACK_IMPORTED_MODULE_36__["FormChanged"],
+    _declarations_short__WEBPACK_IMPORTED_MODULE_36__["EnterKey"],
+    _declarations_short__WEBPACK_IMPORTED_MODULE_36__["EscapeKey"],
+    _declarations_short__WEBPACK_IMPORTED_MODULE_36__["PreventBackKey"],
+    _declarations_short__WEBPACK_IMPORTED_MODULE_36__["PreventEnterKey"],
     ...screenDirectives,
-    _directives_HtmlWidthModel_directive__WEBPACK_IMPORTED_MODULE_33__["HtmlWidthModel"],
-    _directives_HtmlHeightModel_directive__WEBPACK_IMPORTED_MODULE_34__["HtmlHeightModel"],
-    _directives_ShakeOn_directive__WEBPACK_IMPORTED_MODULE_18__["ShakeOn"],
-    _directives_FxOn_directive__WEBPACK_IMPORTED_MODULE_19__["FxOn"],
-    _directives_StatusOnlineModel_directive__WEBPACK_IMPORTED_MODULE_35__["StatusOnlineModel"],
-    _directives_StatusOfflineModel_directive__WEBPACK_IMPORTED_MODULE_36__["StatusOfflineModel"],
-    _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_26__["ElementSizeModel"],
-    _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_26__["ElementWidthModel"],
-    _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_26__["ElementHeightModel"],
-    InputHint,
-    ..._components_debug_area_DebugArea_component__WEBPACK_IMPORTED_MODULE_14__["declarations"],
-    _components_ErrorWell_component__WEBPACK_IMPORTED_MODULE_12__["ErrorWell"],
-    _components_AbsoluteOverflowX_component__WEBPACK_IMPORTED_MODULE_11__["AbsoluteOverflowX"],
-    _components_ReaderHeaderBody_component__WEBPACK_IMPORTED_MODULE_13__["ReaderHeaderBody"],
-    _components_ReaderHeaderBody_component__WEBPACK_IMPORTED_MODULE_13__["ReaderHeader"],
-    _components_ReaderHeaderBody_component__WEBPACK_IMPORTED_MODULE_13__["ReaderBody"],
-    _components_AckCloseIcon_component__WEBPACK_IMPORTED_MODULE_8__["AckCloseIcon"],
-    _components_AckSections_component__WEBPACK_IMPORTED_MODULE_2__["AckSections"],
-    _components_AckSectionTemplates_component__WEBPACK_IMPORTED_MODULE_3__["AckSectionTemplates"],
-    _components_AckOptions_component__WEBPACK_IMPORTED_MODULE_9__["AckOptions"],
-    _components_AckOptionsModal_component__WEBPACK_IMPORTED_MODULE_10__["AckOptionsModal"],
-    _components_AckModal_component__WEBPACK_IMPORTED_MODULE_4__["AckModal"],
-    _components_AckModalLayout_component__WEBPACK_IMPORTED_MODULE_5__["AckModalLayout"],
-    _directives_AckArray_directive__WEBPACK_IMPORTED_MODULE_15__["AckArray"],
-    _directives_AckAggregate_directive__WEBPACK_IMPORTED_MODULE_16__["AckAggregate"],
-    _components_AckFixedElement_component__WEBPACK_IMPORTED_MODULE_7__["AckFixedElement"],
-    _components_AckFixedElementStage_component__WEBPACK_IMPORTED_MODULE_6__["AckFixedElementStage"]
+    _directives_HtmlWidthModel_directive__WEBPACK_IMPORTED_MODULE_31__["HtmlWidthModel"],
+    _directives_HtmlHeightModel_directive__WEBPACK_IMPORTED_MODULE_32__["HtmlHeightModel"],
+    _directives_ShakeOn_directive__WEBPACK_IMPORTED_MODULE_16__["ShakeOn"],
+    _directives_FxOn_directive__WEBPACK_IMPORTED_MODULE_17__["FxOn"],
+    _directives_StatusOnlineModel_directive__WEBPACK_IMPORTED_MODULE_33__["StatusOnlineModel"],
+    _directives_StatusOfflineModel_directive__WEBPACK_IMPORTED_MODULE_34__["StatusOfflineModel"],
+    _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_24__["ElementSizeModel"],
+    _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_24__["ElementWidthModel"],
+    _directives_ElementSizeModel_directive__WEBPACK_IMPORTED_MODULE_24__["ElementHeightModel"],
+    _declarations_short__WEBPACK_IMPORTED_MODULE_36__["InputHint"],
+    ..._components_debug_area_DebugArea_component__WEBPACK_IMPORTED_MODULE_12__["declarations"],
+    _components_ErrorWell_component__WEBPACK_IMPORTED_MODULE_10__["ErrorWell"],
+    _components_AbsoluteOverflowX_component__WEBPACK_IMPORTED_MODULE_9__["AbsoluteOverflowX"],
+    _components_ReaderHeaderBody_component__WEBPACK_IMPORTED_MODULE_11__["ReaderHeaderBody"],
+    _components_ReaderHeaderBody_component__WEBPACK_IMPORTED_MODULE_11__["ReaderHeader"],
+    _components_ReaderHeaderBody_component__WEBPACK_IMPORTED_MODULE_11__["ReaderBody"],
+    _components_AckCloseIcon_component__WEBPACK_IMPORTED_MODULE_6__["AckCloseIcon"],
+    _components_AckSections_component__WEBPACK_IMPORTED_MODULE_0__["AckSections"],
+    _components_AckSectionTemplates_component__WEBPACK_IMPORTED_MODULE_1__["AckSectionTemplates"],
+    _components_AckOptions_component__WEBPACK_IMPORTED_MODULE_7__["AckOptions"],
+    _components_AckOptionsModal_component__WEBPACK_IMPORTED_MODULE_8__["AckOptionsModal"],
+    _components_AckModal_component__WEBPACK_IMPORTED_MODULE_2__["AckModal"],
+    _components_AckModalLayout_component__WEBPACK_IMPORTED_MODULE_3__["AckModalLayout"],
+    _directives_AckArray_directive__WEBPACK_IMPORTED_MODULE_13__["AckArray"],
+    _directives_AckAggregate_directive__WEBPACK_IMPORTED_MODULE_14__["AckAggregate"],
+    _components_AckFixedElement_component__WEBPACK_IMPORTED_MODULE_5__["AckFixedElement"],
+    _components_AckFixedElementStage_component__WEBPACK_IMPORTED_MODULE_4__["AckFixedElementStage"]
 ];
-/* harmony default export */ __webpack_exports__["default"] = (declarations);
 
 
 /***/ }),
@@ -2939,7 +2760,7 @@ const string = "<h2 class=\"margin-top-0\">Providers</h2><ng-container [(statusO
 /*!**************************!*\
   !*** ./src/AckModule.ts ***!
   \**************************/
-/*! exports provided: AckModule, default */
+/*! exports provided: CommonModule, AckModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2948,10 +2769,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "SVse");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CommonModule", function() { return _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]; });
+
 /* harmony import */ var _providers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./providers */ "AkTa");
 /* harmony import */ var _declarations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./declarations */ "O5Bq");
 /* harmony import */ var _pipes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pipes */ "yco1");
 var AckModule_1;
+
 
 
 
@@ -2976,7 +2800,6 @@ AckModule = AckModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
     })
 ], AckModule);
 
-/* harmony default export */ __webpack_exports__["default"] = (AckModule);
 
 
 /***/ }),
@@ -5098,7 +4921,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, dependencies, devDependencies, ngPackage, private, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"ack-angular\",\"version\":\"2.0.2\",\"description\":\"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\",\"main\":\"dist/index.js\",\"typings\":\"dist/index.d.ts\",\"scripts\":{\"start\":\"ng serve example --port 4201 --open\",\"build:index\":\"pug example/src/index.pug --out example/src\",\"stats\":\"webpack-bundle-analyzer example/www/stats.json\",\"install:example\":\"npm install --prefix example\",\"test\":\"ng test --browser PhantomJS --single-run\",\"test:watch\":\"ng test\",\"build:offline\":\"ngc --project modules/offline/tsconfig.json\",\"build:dist:old\":\"ngc --project src/tsconfig.json\",\"build:dist\":\"ng-packagr -p package.json\",\"watch:dist\":\"watch \\\"npm-run-all build:dist\\\" src/ --ignoreDirectoryPattern=/pugs/\",\"build:assets\":\"npm-run-all build:assets:src build:assets:example compile:templates\",\"build:assets:src\":\"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts\",\"build:assets:example\":\"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts\",\"watch:assets\":\"npm-run-all --parallel \\\"build:assets:src -- --watch\\\" \\\"build:assets:example -- --watch\\\" \\\"compile:templates -- --watch\\\"\",\"compile:templates\":\"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne\",\"watch\":\"npm-run-all --parallel build:index watch:dist watch:assets watch:js\",\"watch:js\":\"ng serve example --port 4201 --open\",\"build:js\":\"ng build example --stats-json\",\"build:universal\":\"npm-run-all build:index build:assets\",\"build\":\"npm-run-all build:universal build:dist compile:dist:package copy:scss build:js\",\"copy:scss\":\"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss\",\"compile:dist:package\":\"node scripts/update-dist-package.js\",\"save\":\"git add . && git commit -m \\\"update\\\" && git push\",\"deploy\":\"npm-run-all build deploy:gh-pages deploy:npm save\",\"deploy:npm\":\"cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \\\"update\\\" && git push && npm publish\",\"deploy:gh-pages\":\"cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \\\"update\\\" && git push\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/AckerApple/ack-angular.git\"},\"keywords\":[\"ng\",\"Angular\",\"directives\",\"components\",\"pipes\",\"providers\"],\"author\":\"Acker Dawn Apple\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/AckerApple/ack-angular/issues\"},\"homepage\":\"https://github.com/AckerApple/ack-angular#readme\",\"dependencies\":{\"ack-angular-fx\":\"^4.1.0\",\"ack-css-boot\":\"^2.0.4\",\"ack-x\":\"^2.0.1\",\"animate.css\":\"^4.1.1\",\"csshake\":\"^1.5.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1102.8\",\"@angular-devkit/build-ng-packagr\":\"^0.1002.0\",\"@angular/animations\":\"^11.2.9\",\"@angular/cli\":\"^11.2.8\",\"@angular/common\":\"^11.2.9\",\"@angular/compiler\":\"^11.2.9\",\"@angular/compiler-cli\":\"^11.2.9\",\"@angular/core\":\"^11.2.9\",\"@angular/forms\":\"^11.2.9\",\"@angular/platform-browser\":\"^11.2.9\",\"@angular/platform-browser-dynamic\":\"^11.2.9\",\"@angular/router\":\"^11.2.9\",\"@types/jasmine\":\"^3.6.9\",\"ack-path\":\"^1.8.0\",\"ack-pug-bundler\":\"^1.4.8\",\"classlist-polyfill\":\"^1.2.0\",\"jasmine\":\"^3.7.0\",\"karma\":\"^6.3.2\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-coverage-istanbul-reporter\":\"^3.0.3\",\"karma-jasmine\":\"^4.0.1\",\"karma-jasmine-html-reporter\":\"^1.5.4\",\"karma-phantomjs-launcher\":\"^1.0.4\",\"localforage\":\"^1.9.0\",\"ng-packagr\":\"^11.2.4\",\"ngx-page-scroll\":\"^7.0.4\",\"ngx-page-scroll-core\":\"^7.0.4\",\"npm-run-all\":\"^4.1.5\",\"phantomjs-prebuilt\":\"^2.1.16\",\"pug\":\"^3.0.2\",\"pug-attrs\":\"^3.0.0\",\"pug-cli\":\"^1.0.0-alpha6\",\"reflect-metadata\":\"^0.1.13\",\"rxjs\":\"^6.6.7\",\"ts-helpers\":\"^1.1.2\",\"ts-node\":\"^9.1.1\",\"typescript\":\"4.0.5\",\"webpack-bundle-analyzer\":\"^4.4.1\",\"zone.js\":\"~0.11.4\"},\"ngPackage\":{\"lib\":{\"entryFile\":\"src/index.ts\"},\"allowedNonPeerDependencies\":[\"ack-angular-fx\",\"ack-css-boot\",\"ack-x\",\"animate.css\",\"csshake\"]},\"private\":true}");
+module.exports = JSON.parse("{\"name\":\"ack-angular\",\"version\":\"2.0.2\",\"description\":\"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\",\"main\":\"dist/index.js\",\"typings\":\"dist/index.d.ts\",\"scripts\":{\"start\":\"ng serve example --port 4201 --open\",\"build:index\":\"pug example/src/index.pug --out example/src\",\"stats\":\"webpack-bundle-analyzer example/www/stats.json\",\"install:example\":\"npm install --prefix example\",\"test\":\"ng test --browser PhantomJS --single-run\",\"test:watch\":\"ng test\",\"build:offline\":\"ngc --project modules/offline/tsconfig.json\",\"build:dist\":\"ngc --project src/tsconfig.json\",\"build:dist:broke\":\"ng-packagr -p package.json\",\"watch:dist\":\"watch \\\"npm-run-all build:dist\\\" src/ --ignoreDirectoryPattern=/pugs/\",\"build:assets\":\"npm-run-all build:assets:src build:assets:example compile:templates\",\"build:assets:src\":\"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts\",\"build:assets:example\":\"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts\",\"watch:assets\":\"npm-run-all --parallel \\\"build:assets:src -- --watch\\\" \\\"build:assets:example -- --watch\\\" \\\"compile:templates -- --watch\\\"\",\"compile:templates\":\"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne\",\"watch\":\"npm-run-all --parallel build:index watch:dist watch:assets watch:js\",\"watch:js\":\"ng serve example --port 4201 --open\",\"build:js\":\"ng build example --stats-json\",\"build:universal\":\"npm-run-all build:index build:assets\",\"build\":\"npm-run-all build:universal build:dist compile:dist:package copy:scss build:js\",\"copy:scss\":\"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss\",\"compile:dist:package\":\"node scripts/update-dist-package.js\",\"save\":\"git add . && git commit -m \\\"update\\\" && git push\",\"deploy\":\"npm-run-all build deploy:gh-pages deploy:npm save\",\"deploy:npm\":\"cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \\\"update\\\" && git push && npm publish\",\"deploy:gh-pages\":\"cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \\\"update\\\" && git push\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/AckerApple/ack-angular.git\"},\"keywords\":[\"ng\",\"Angular\",\"directives\",\"components\",\"pipes\",\"providers\"],\"author\":\"Acker Dawn Apple\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/AckerApple/ack-angular/issues\"},\"homepage\":\"https://github.com/AckerApple/ack-angular#readme\",\"dependencies\":{\"ack-angular-fx\":\"^4.1.0\",\"ack-css-boot\":\"^2.0.4\",\"ack-x\":\"^2.0.1\",\"animate.css\":\"^4.1.1\",\"csshake\":\"^1.5.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1102.8\",\"@angular-devkit/build-ng-packagr\":\"^0.1002.0\",\"@angular/animations\":\"^11.2.9\",\"@angular/cli\":\"^12.0.0\",\"@angular/common\":\"^11.2.9\",\"@angular/compiler\":\"^11.2.9\",\"@angular/compiler-cli\":\"^11.2.9\",\"@angular/core\":\"^12.0.0\",\"@angular/forms\":\"^11.2.9\",\"@angular/platform-browser\":\"^11.2.9\",\"@angular/platform-browser-dynamic\":\"^11.2.9\",\"@angular/router\":\"^11.2.9\",\"@types/jasmine\":\"^3.6.9\",\"ack-path\":\"^1.8.0\",\"ack-pug-bundler\":\"^1.4.8\",\"classlist-polyfill\":\"^1.2.0\",\"jasmine\":\"^3.7.0\",\"karma\":\"^6.3.2\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-coverage-istanbul-reporter\":\"^3.0.3\",\"karma-jasmine\":\"^4.0.1\",\"karma-jasmine-html-reporter\":\"^1.5.4\",\"karma-phantomjs-launcher\":\"^1.0.4\",\"localforage\":\"^1.9.0\",\"ng-packagr\":\"^11.2.4\",\"ngx-page-scroll\":\"^7.0.4\",\"ngx-page-scroll-core\":\"^7.0.4\",\"npm-run-all\":\"^4.1.5\",\"phantomjs-prebuilt\":\"^2.1.16\",\"pug\":\"^3.0.2\",\"pug-attrs\":\"^3.0.0\",\"pug-cli\":\"^1.0.0-alpha6\",\"reflect-metadata\":\"^0.1.13\",\"rxjs\":\"^6.6.7\",\"ts-helpers\":\"^1.1.2\",\"ts-node\":\"^9.1.1\",\"typescript\":\"4.0.5\",\"webpack-bundle-analyzer\":\"^4.4.1\",\"zone.js\":\"~0.11.4\"},\"ngPackage\":{\"lib\":{\"entryFile\":\"src/index.ts\"},\"allowedNonPeerDependencies\":[\"ack-angular-fx\",\"ack-css-boot\",\"ack-x\",\"animate.css\",\"csshake\"]},\"private\":true}");
 
 /***/ }),
 
@@ -6067,6 +5890,199 @@ const string = "<h2 class=\"margin-top-0\">Components</h2><div class=\"margin-xx
     "\n  [(query)]     = \"query\"" +
     "\n&gt;&lt;/route-reporter&gt;" +
     "\n</div><div><span ngNonBindable=\"ngNonBindable\">{{ routeState.current?.config.name }}</span><span>&nbsp;==&nbsp;</span><span>{{ routeState.current?.config.name }}</span></div><div><span ngNonBindable=\"ngNonBindable\">{{ query | json }}</span><span>&nbsp;==&nbsp;</span><span>{{ query | json }}</span></div></pre></absolute-overflow-x></div></div></div>";
+
+
+/***/ }),
+
+/***/ "oN2l":
+/*!***********************************!*\
+  !*** ./src/declarations.short.ts ***!
+  \***********************************/
+/*! exports provided: EnterKey, EscapeKey, PreventBackKey, PreventEnterKey, InputHint, FormChanged, FormAlter */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EnterKey", function() { return EnterKey; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EscapeKey", function() { return EscapeKey; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PreventBackKey", function() { return PreventBackKey; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PreventEnterKey", function() { return PreventEnterKey; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InputHint", function() { return InputHint; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormChanged", function() { return FormChanged; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormAlter", function() { return FormAlter; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+
+
+let EnterKey = class EnterKey {
+    constructor(element) {
+        this.element = element;
+        this.enterKey = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        element.nativeElement.addEventListener('keydown', (event) => {
+            var yesNo = [13, 10].indexOf(event.which || event.keyCode) >= 0;
+            if (yesNo) {
+                this.enterKey.emit(event);
+            }
+        });
+    }
+};
+EnterKey.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
+];
+EnterKey.propDecorators = {
+    enterKey: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
+};
+EnterKey = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({ selector: '[enterKey]' }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
+], EnterKey);
+
+let EscapeKey = class EscapeKey {
+    constructor(element) {
+        this.element = element;
+        this.escapeKey = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        element.nativeElement.addEventListener('keydown', (event) => {
+            const code = event.which || event.keyCode;
+            if (code == 27) {
+                this.escapeKey.emit(event);
+            }
+        });
+    }
+};
+EscapeKey.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
+];
+EscapeKey.propDecorators = {
+    escapeKey: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
+};
+EscapeKey = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({ selector: '[escapeKey]' }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
+], EscapeKey);
+
+let PreventBackKey = class PreventBackKey {
+    constructor(element) {
+        this.element = element;
+        this.preventBackKey = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        element.nativeElement.addEventListener('keydown', (event) => {
+            var yesNo = [8].indexOf(event.which || event.keyCode) < 0;
+            if (!yesNo) {
+                this.preventBackKey.emit(event);
+                if (event.preventDefault) {
+                    event.preventDefault();
+                }
+            }
+            return yesNo;
+        });
+    }
+};
+PreventBackKey.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
+];
+PreventBackKey.propDecorators = {
+    preventBackKey: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
+};
+PreventBackKey = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({ selector: '[preventBackKey]' }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
+], PreventBackKey);
+
+let PreventEnterKey = class PreventEnterKey {
+    constructor(element) {
+        this.element = element;
+        this.preventEnterKey = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        element.nativeElement.addEventListener('keydown', (event) => {
+            var yesNo = [13, 10].indexOf(event.which || event.keyCode) < 0;
+            if (!yesNo) {
+                this.preventEnterKey.emit(event);
+                if (event.preventDefault) {
+                    event.preventDefault();
+                }
+            }
+            return yesNo;
+        });
+    }
+};
+PreventEnterKey.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
+];
+PreventEnterKey.propDecorators = {
+    preventEnterKey: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
+};
+PreventEnterKey = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({ selector: '[preventEnterKey]' }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
+], PreventEnterKey);
+
+let InputHint = class InputHint {
+    constructor() {
+        this.hintStyle = { 'font-size': '75%', 'color': '#BBB' };
+    }
+};
+InputHint.propDecorators = {
+    hintStyle: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }]
+};
+InputHint = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'input-hint',
+        template: '<div style="position:relative;" [ngStyle]="hintStyle"><div style="position:absolute;top:0;width:100%"><ng-content></ng-content></div></div>'
+    })
+], InputHint);
+
+let FormChanged = class FormChanged {
+    constructor(element) {
+        this.element = element;
+        this.formChanged = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.onChange = (event) => {
+            this.formChanged.emit(event);
+        };
+        element.nativeElement.addEventListener('change', this.onChange);
+    }
+    ngOnDestroy() {
+        this.element.nativeElement.removeEventListener('change', this.onChange);
+    }
+};
+FormChanged.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
+];
+FormChanged.propDecorators = {
+    formChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
+};
+FormChanged = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: '[formChanged]'
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
+], FormChanged);
+
+let FormAlter = class FormAlter {
+    constructor(element) {
+        this.element = element;
+        this.formAlter = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.onChange = (event) => {
+            this.formAlter.emit(event);
+        };
+        element.nativeElement.addEventListener('input', this.onChange);
+        element.nativeElement.addEventListener('change', this.onChange);
+    }
+    ngOnDestroy() {
+        this.element.nativeElement.removeEventListener('change', this.onChange);
+        this.element.nativeElement.removeEventListener('input', this.onChange);
+    }
+};
+FormAlter.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
+];
+FormAlter.propDecorators = {
+    formAlter: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
+};
+FormAlter = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: '[formAlter]'
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
+], FormAlter);
+
 
 
 /***/ }),
