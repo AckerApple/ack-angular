@@ -54,7 +54,7 @@ import { string } from "./templates/ack-modal-layout.pug"
 
   ngOnInit(){
     return Promise.resolve().then(()=>{
-      if( this.showModel!=undefined && this.showModelChange.observers.length ){
+      if( this.showModel!==undefined && this.showModelChange.observers.length ){
         this.isModelMode = true
       }
     })
