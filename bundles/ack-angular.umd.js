@@ -840,7 +840,7 @@
         AckModalLayout.prototype.ngOnInit = function () {
             var _this = this;
             return Promise.resolve().then(function () {
-                if (_this.showModel != undefined && _this.showModelChange.observers.length) {
+                if (_this.showModel !== undefined && _this.showModelChange.observers.length) {
                     _this.isModelMode = true;
                 }
             });
