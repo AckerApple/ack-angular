@@ -55,7 +55,7 @@ export declare class AckArray {
     unshift(item: any): this;
     splice(x: number, y?: number): this;
     param(): any[];
-    toggleSort(arrayKey: string | string[], sortType: "date" | "time" | "datetime" | "int" | "number" | string | number): false | undefined;
+    toggleSort(arrayKey: string | string[], sortType: "date" | "time" | "datetime" | "int" | "number" | string | number): boolean;
 }
 export declare function dataKeysMatch(ao: any, an: any, idKeys: string[]): boolean;
 export declare function mergeArrays(arrayOriginal: any[], arrayNew: any[], idKeys: string[]): void;

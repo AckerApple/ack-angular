@@ -28,7 +28,7 @@ export declare class RouteReporter {
     current: currentRoute;
     state: currentRoute;
     stateChange: EventEmitter<currentRoute>;
-    $document: Document;
+    $document: any;
     $scope: any;
     docCallbacks: any;
     querySub: Subscription;
