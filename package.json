@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -12,8 +12,8 @@
     "test": "ng test --browser PhantomJS --single-run",
     "test:watch": "ng test",
     "build:offline": "ngc --project modules/offline/tsconfig.json",
-    "build:dist": "ngc --project src/tsconfig.json",
-    "build:dist:broke": "ng-packagr -p package.json",
+    "build:dist:ng": "ngc --project src/tsconfig.json",
+    "build:dist": "ng-packagr -p package.json",
     "watch:dist": "watch \"npm-run-all build:dist\" src/ --ignoreDirectoryPattern=/pugs/",
     "build:assets": "npm-run-all build:assets:src build:assets:example compile:templates",
     "build:assets:src": "ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts",

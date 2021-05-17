@@ -25,7 +25,7 @@ import { string } from "./templates/ack-modal-layout.pug"
   @Input() backgroundColor: any
 
   @Input() isModelMode: boolean = false
-  @Input() showModel: boolean = true
+  @Input() showModel: boolean = true // when using, do not allow to be undefined
   @Output() showModelChange: EventEmitter<boolean> = new EventEmitter()
   //@Input() template:ElementRef<any>
 
@@ -54,7 +54,7 @@ import { string } from "./templates/ack-modal-layout.pug"
 
   ngOnInit(){
     return Promise.resolve().then(()=>{
-      if( this.isModelMode || (this.isModelMode==null && this.showModelChange.observers.length) ){
+      if( this.showModel!=undefined && this.showModelChange.observers.length ){
         this.isModelMode = true
       }
     })

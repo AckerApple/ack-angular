@@ -11,7 +11,6 @@ import {
   ViewChild,
 } from "@angular/core"
 
-//import { AckModalLayout } from "./AckModalLayout.component"
 import { AckApp } from "../providers/AckApp.provider"
 import { string } from "./templates/ack-modal.pug"
 
@@ -44,11 +43,13 @@ import { string } from "./templates/ack-modal.pug"
   constructor(
     public element:ElementRef,
     public AckApp:AckApp
-  ){}
-
-  ngOnInit(){
-    this.determineStage()
+  ){
+    Promise.resolve().then(() => this.determineStage())
   }
+
+  /*ngOnInit(){
+    return this.determineStage() // causes race error ExpressionChangedAfterItHasBeenCheckedError
+  }*/
 
   determineStage():void{
     if(this.inline)return

@@ -740,7 +740,7 @@
             var _this7 = this;
 
             return Promise.resolve().then(function () {
-              if (_this7.isModelMode || _this7.isModelMode == null && _this7.showModelChange.observers.length) {
+              if (_this7.isModelMode == null && _this7.showModelChange.observers.length) {
                 _this7.isModelMode = true;
               }
             });
@@ -1195,7 +1195,7 @@
         return string;
       });
 
-      var string = "<ng-template #placeholder=\"\"><ack-modal-layout [zIndex]=\"zIndex\" (close)=\"close.emit($event)\" [isModelMode]=\"isModelMode==null ? showModelChange.observers.length : isModelMode\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit(showModel=$event)\" [backgroundColor]=\"backgroundColor\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [allowClose]=\"allowClose\"><ng-template [ngTemplateOutlet]=\"body\"></ng-template><ng-content *ngIf=\"!body\"></ng-content></ack-modal-layout></ng-template><ng-template *ngIf=\"!AckApp.fixedElementStage || inline\" [ngTemplateOutlet]=\"layout\"></ng-template>";
+      var string = "<ng-template #placeholder=\"\"><ack-modal-layout [zIndex]=\"zIndex\" (close)=\"close.emit($event)\" [isModelMode]=\"isModelMode==null ? showModelChange.observers.length : isModelMode\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit(showModel=$event)\" [backgroundColor]=\"backgroundColor\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [allowClose]=\"allowClose\"><ng-template [ngTemplateOutlet]=\"body\"></ng-template><ng-content *ngIf=\"!body\"></ng-content></ack-modal-layout></ng-template><ng-template *ngIf=\"layout\"></ng-template>";
       /***/
     },
 
@@ -2259,6 +2259,8 @@
 
       var AckModal = /*#__PURE__*/function () {
         function AckModal(element, AckApp) {
+          var _this21 = this;
+
           _classCallCheck(this, AckModal);
 
           this.element = element;
@@ -2267,14 +2269,12 @@
           this.zIndex = 20;
           this.showModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           this.close = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          Promise.resolve().then(function () {
+            return _this21.determineStage();
+          });
         }
 
         _createClass(AckModal, [{
-          key: "ngOnInit",
-          value: function ngOnInit() {
-            this.determineStage();
-          }
-        }, {
           key: "determineStage",
           value: function determineStage() {
             if (this.inline) return;
@@ -2777,14 +2777,14 @@
         var _super2 = _createSuper(AckQue);
 
         function AckQue() {
-          var _this21;
+          var _this22;
 
           _classCallCheck(this, AckQue);
 
-          _this21 = _super2.apply(this, arguments);
-          _this21.prefix = "offline-que";
-          _this21.handlers = [];
-          return _this21;
+          _this22 = _super2.apply(this, arguments);
+          _this22.prefix = "offline-que";
+          _this22.handlers = [];
+          return _this22;
         }
 
         _createClass(AckQue, [{
@@ -2807,7 +2807,7 @@
         }, {
           key: "que",
           value: function que(name, queData) {
-            var _this22 = this;
+            var _this23 = this;
 
             return _get(_getPrototypeOf(AckQue.prototype), "get", this).call(this, name).then(function (data) {
               data = data || {};
@@ -2821,7 +2821,7 @@
                 data['que'].push(queData);
               }
 
-              return _get(_getPrototypeOf(AckQue.prototype), "set", _this22).call(_this22, name, data);
+              return _get(_getPrototypeOf(AckQue.prototype), "set", _this23).call(_this23, name, data);
             });
           }
         }, {
@@ -2832,19 +2832,19 @@
         }, {
           key: "dequeByIndex",
           value: function dequeByIndex(name, index) {
-            var _this23 = this;
+            var _this24 = this;
 
             return this.getQue(name).then(function (array) {
               array.splice(index, 1);
               return array;
             }).then(function (array) {
-              return _this23.setQue(name, array);
+              return _this24.setQue(name, array);
             });
           }
         }, {
           key: "processQuedByIndex",
           value: function processQuedByIndex(name, index) {
-            var _this24 = this;
+            var _this25 = this;
 
             var handler = this.getQueHandlerByName(name);
             var mem = {
@@ -2856,11 +2856,11 @@
               mem.item = array.splice(index, 1);
               mem.array = array;
             }).then(function () {
-              return _this24.handleQued(mem.item, handler);
+              return _this25.handleQued(mem.item, handler);
             }).then(function (result) {
               return mem.result = result;
             }).then(function () {
-              return _this24.setQue(name, mem.array);
+              return _this25.setQue(name, mem.array);
             }).then(function () {
               return mem.result;
             });
@@ -2917,7 +2917,7 @@
         }, {
           key: "processQuedHandler",
           value: function processQuedHandler(hand) {
-            var _this25 = this;
+            var _this26 = this;
 
             var results = [];
             var mem = {
@@ -2927,7 +2927,7 @@
             return this.get(hand.name).then(function (que) {
               return mem.que = que;
             }).then(function () {
-              return _this25.clear(hand.name);
+              return _this26.clear(hand.name);
             }).then(function () {
               var promise = Promise.resolve();
               mem.que.forEach(function (v) {
@@ -2947,10 +2947,10 @@
         }, {
           key: "eachHandler",
           value: function eachHandler(handler) {
-            var _this26 = this;
+            var _this27 = this;
 
             return function (data) {
-              return _this26.handleQued(data, handler);
+              return _this27.handleQued(data, handler);
             };
           }
         }, {
@@ -2962,11 +2962,11 @@
         }, {
           key: "processAllQues",
           value: function processAllQues() {
-            var _this27 = this;
+            var _this28 = this;
 
             var promises = [];
             this.handlers.forEach(function (hand) {
-              return promises.push(_this27.processQuedHandler(hand));
+              return promises.push(_this28.processQuedHandler(hand));
             });
             return Promise.all(promises).then(function (proms) {
               var results = [];
@@ -3043,7 +3043,7 @@
 
       var HtmlSizeService = /*#__PURE__*/function () {
         function HtmlSizeService() {
-          var _this28 = this;
+          var _this29 = this;
 
           _classCallCheck(this, HtmlSizeService);
 
@@ -3054,10 +3054,10 @@
           };
 
           this.onResize = function () {
-            _this28.htmlSize.width = window.document.documentElement.clientWidth;
-            _this28.htmlSize.height = window.document.documentElement.clientHeight;
+            _this29.htmlSize.width = window.document.documentElement.clientWidth;
+            _this29.htmlSize.height = window.document.documentElement.clientHeight;
 
-            _this28.change.emit();
+            _this29.change.emit();
           };
 
           this.checkWatchers();
@@ -3556,22 +3556,22 @@
 
       var StatusOnlineModel = /*#__PURE__*/function () {
         function StatusOnlineModel() {
-          var _this29 = this;
+          var _this30 = this;
 
           _classCallCheck(this, StatusOnlineModel);
 
           this.statusOnlineModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
 
           this.onChange = function () {
-            _this29.statusOnlineModel = navigator.onLine;
+            _this30.statusOnlineModel = navigator.onLine;
 
-            _this29.statusOnlineModelChange.emit(_this29.statusOnlineModel);
+            _this30.statusOnlineModelChange.emit(_this30.statusOnlineModel);
           };
 
           window.addEventListener("online", this.onChange);
           window.addEventListener("offline", this.onChange);
           Promise.resolve().then(function () {
-            return _this29.onChange();
+            return _this30.onChange();
           });
         }
 
@@ -3810,10 +3810,10 @@
         _createClass(ShakeOn, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this30 = this;
+            var _this31 = this;
 
             Promise.resolve().then(function () {
-              return _this30.update();
+              return _this31.update();
             });
           }
         }, {
@@ -3871,16 +3871,16 @@
         }, {
           key: "onTrue",
           value: function onTrue() {
-            var _this31 = this;
+            var _this32 = this;
 
             Object(_FxOn_directive__WEBPACK_IMPORTED_MODULE_1__["addClass"])(this.element.nativeElement, 'shake-constant');
             this.applyType();
 
             if (!this.shakeConstant) {
               this.timeout = setTimeout(function () {
-                _this31.onFalse();
+                _this32.onFalse();
 
-                _this31.shakeThen.emit(_this31);
+                _this32.shakeThen.emit(_this32);
               }, this.shakeForMs);
             }
           }
@@ -4477,14 +4477,14 @@
 
       var ScreenHeightModel = /*#__PURE__*/function () {
         function ScreenHeightModel(HtmlSizeService) {
-          var _this32 = this;
+          var _this33 = this;
 
           _classCallCheck(this, ScreenHeightModel);
 
           this.HtmlSizeService = HtmlSizeService;
           this.modelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           this.sub = this.HtmlSizeService.change.subscribe(function () {
-            return _this32.changed();
+            return _this33.changed();
           });
           this.HtmlSizeService.checkWatchers();
         }
@@ -4492,10 +4492,10 @@
         _createClass(ScreenHeightModel, [{
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
-            var _this33 = this;
+            var _this34 = this;
 
             Promise.resolve().then(function () {
-              return _this33.updateModel();
+              return _this34.updateModel();
             });
             this.delayCheck(250);
             this.delayCheck(1500);
@@ -4503,11 +4503,11 @@
         }, {
           key: "delayCheck",
           value: function delayCheck() {
-            var _this34 = this;
+            var _this35 = this;
 
             var num = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
             setTimeout(function () {
-              return _this34.updateModel();
+              return _this35.updateModel();
             }, num);
           }
         }, {
@@ -4608,11 +4608,11 @@
         _createClass(RouteHistory, [{
           key: "monitor",
           value: function monitor() {
-            var _this35 = this;
+            var _this36 = this;
 
             this.subs.push(this.Router.events.subscribe(function (event) {
               if (event.constructor === _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
-                _this35.addRouteToHistory();
+                _this36.addRouteToHistory();
               }
             }));
           }
@@ -4845,10 +4845,10 @@
         }, {
           key: "init",
           value: function init() {
-            var _this36 = this;
+            var _this37 = this;
 
             this.onScroll = function () {
-              return _this36.check();
+              return _this37.check();
             };
 
             window.addEventListener("scroll", this.onScroll);
@@ -4857,10 +4857,10 @@
         }, {
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
-            var _this37 = this;
+            var _this38 = this;
 
             Promise.resolve().then(function () {
-              return _this37.init();
+              return _this38.init();
             });
           }
         }, {
@@ -5015,14 +5015,14 @@
         }, {
           key: "registerHandler",
           value: function registerHandler(name, handler, options) {
-            var _this38 = this;
+            var _this39 = this;
 
             options = options || {
               maxTry: 50
             };
 
             handler = handler || function (config) {
-              return _this38.request(config);
+              return _this39.request(config);
             };
 
             this.AckQue.registerHandler(name, handler);
@@ -5041,10 +5041,10 @@
         }, {
           key: "processQue",
           value: function processQue(name) {
-            var _this39 = this;
+            var _this40 = this;
 
             this.AckQue.paramHandler(name, function (config) {
-              return _this39._fetch(config);
+              return _this40._fetch(config);
             });
             return this.AckQue.processQue(name);
           }
@@ -5075,17 +5075,17 @@
         }, {
           key: "getCacheByNamedRequest",
           value: function getCacheByNamedRequest(request) {
-            var _this40 = this;
+            var _this41 = this;
 
             var offlineModel = request.offlineModel;
             return this.AckCache.get(offlineModel.name, offlineModel).then(function (routes) {
               routes = routes || {};
 
-              var cacheName = _this40.getStorageNameByRequest(request);
+              var cacheName = _this41.getStorageNameByRequest(request);
 
               return routes[cacheName];
             }).then(function (cache) {
-              return _this40.processCacheGet(cache, request);
+              return _this41.processCacheGet(cache, request);
             });
           }
         }, {
@@ -5106,7 +5106,7 @@
         }, {
           key: "requestOfflineModel",
           value: function requestOfflineModel(request) {
-            var _this41 = this;
+            var _this42 = this;
 
             var offlineModel = request.offlineModel;
 
@@ -5121,21 +5121,21 @@
             }
 
             this.AckQue.paramHandler(offlineModel.name, function (config) {
-              return _this41._fetch(config);
+              return _this42._fetch(config);
             });
             return this._fetch(request)["catch"](function (e) {
-              return _this41.postRequestFail(e, request);
+              return _this42.postRequestFail(e, request);
             });
           }
         }, {
           key: "processCacheGet",
           value: function processCacheGet(cache, cfg) {
-            var _this42 = this;
+            var _this43 = this;
 
             if (cache == null) return this._fetch(cfg);
             var offlineModel = cfg.offlineModel;
             return this.AckCache.cacheToReturn(offlineModel.name, cache, offlineModel).then(function (rtn) {
-              var willExpire = _this42.AckCache.optionsKillCache(offlineModel);
+              var willExpire = _this43.AckCache.optionsKillCache(offlineModel);
 
               if (rtn && !willExpire) {
                 console.log("AckApi fetched cache that will never expire. Set offlineModel.expires=0 or offlineModel.maxAge=0 to avoid this message", rtn);
@@ -5145,7 +5145,7 @@
                 return rtn;
               }
 
-              return _this42._fetch(cfg);
+              return _this43._fetch(cfg);
             });
           }
         }, {
@@ -5175,7 +5175,7 @@
         }, {
           key: "_fetch",
           value: function _fetch(cfg) {
-            var _this43 = this;
+            var _this44 = this;
 
             upgradeConfig(cfg);
             var cfgPlus = Object.assign({}, cfg);
@@ -5195,9 +5195,9 @@
             var promise = function promise(resolve, reject) {
               var resolved = false;
 
-              _this43.Request.emit(request);
+              _this44.Request.emit(request);
 
-              var req = _this43.HttpClient.request(request).subscribe(function (event) {
+              var req = _this44.HttpClient.request(request).subscribe(function (event) {
                 if (event.type === _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpEventType"].Response) {
                   resolved = true;
                   resolve(event);
@@ -5220,9 +5220,9 @@
             };
 
             return new Promise(promise).then(function (response) {
-              return _this43.processFetchByConfig(response, cfg);
+              return _this44.processFetchByConfig(response, cfg);
             })["catch"](function (e) {
-              return _this43.httpFailByConfig(e, cfg);
+              return _this44.httpFailByConfig(e, cfg);
             });
           }
         }, {
@@ -5277,7 +5277,7 @@
         }, {
           key: "requestResponseToCache",
           value: function requestResponseToCache(request, output) {
-            var _this44 = this;
+            var _this45 = this;
 
             var _a;
 
@@ -5285,17 +5285,17 @@
             return this.AckCache.get(cachename).then(function (routes) {
               routes = routes || {};
 
-              var cacheName = _this44.getStorageNameByRequest(request);
+              var cacheName = _this45.getStorageNameByRequest(request);
 
               routes[cacheName] = {
                 cache: output
               };
 
-              _this44.AckCache.dataOptionsCache(routes[request.url], request.offlineModel, output);
+              _this45.AckCache.dataOptionsCache(routes[request.url], request.offlineModel, output);
 
               return routes;
             }).then(function (routes) {
-              return _this44.AckCache.set(cachename, routes);
+              return _this45.AckCache.set(cachename, routes);
             });
           }
         }, {
@@ -5490,10 +5490,10 @@
         _createClass(FxOn, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this45 = this;
+            var _this46 = this;
 
             Promise.resolve().then(function () {
-              return _this45.update();
+              return _this46.update();
             });
           }
         }, {
@@ -5557,15 +5557,15 @@
         }, {
           key: "onTrue",
           value: function onTrue() {
-            var _this46 = this;
+            var _this47 = this;
 
             this.applyType();
 
             if (this.fxForMs) {
               this.timeout = setTimeout(function () {
-                _this46.onFalse();
+                _this47.onFalse();
 
-                _this46.fxThen.emit();
+                _this47.fxThen.emit();
               }, this.fxForMs);
             }
           }
@@ -5695,13 +5695,13 @@
         var _super3 = _createSuper(AckCache);
 
         function AckCache() {
-          var _this47;
+          var _this48;
 
           _classCallCheck(this, AckCache);
 
-          _this47 = _super3.apply(this, arguments);
-          _this47.prefix = "offline-cache";
-          return _this47;
+          _this48 = _super3.apply(this, arguments);
+          _this48.prefix = "offline-cache";
+          return _this48;
         }
 
         _createClass(AckCache, [{
@@ -5743,10 +5743,10 @@
         }, {
           key: "paramSave",
           value: function paramSave(name, options) {
-            var _this48 = this;
+            var _this49 = this;
 
             return this.paramCache(name, options).then(function (items) {
-              return _this48.setCache(name, items);
+              return _this49.setCache(name, items);
             });
           }
         }, {
@@ -5795,12 +5795,12 @@
         }, {
           key: "get",
           value: function get(name) {
-            var _this49 = this;
+            var _this50 = this;
 
             var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
             return _get(_getPrototypeOf(AckCache.prototype), "get", this).call(this, name).then(function (data) {
               if (data) {
-                return _this49.cacheToReturn(name, data, options);
+                return _this50.cacheToReturn(name, data, options);
               }
 
               if (options.param) return options.param;
@@ -5837,14 +5837,14 @@
         }, {
           key: "set",
           value: function set(name, cache) {
-            var _this50 = this;
+            var _this51 = this;
 
             var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
             options.name = options.name || name;
             return _get(_getPrototypeOf(AckCache.prototype), "get", this).call(this, name).then(function (allCache) {
-              return _this50.dataOptionsCache(allCache, options, cache);
+              return _this51.dataOptionsCache(allCache, options, cache);
             }).then(function (data) {
-              return _get(_getPrototypeOf(AckCache.prototype), "set", _this50).call(_this50, name, data);
+              return _get(_getPrototypeOf(AckCache.prototype), "set", _this51).call(_this51, name, data);
             });
           }
         }, {
@@ -5983,10 +5983,10 @@
         }, {
           key: "scrollToModuleImport",
           value: function scrollToModuleImport() {
-            var _this51 = this;
+            var _this52 = this;
 
             setTimeout(function () {
-              _this51.PageScrollService.scroll({
+              _this52.PageScrollService.scroll({
                 document: document,
                 scrollTarget: "#Import AckModule"
               });
@@ -6087,34 +6087,34 @@
         _createClass(RouteReporter, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this52 = this;
+            var _this53 = this;
 
             this.docCallbacks = this.RouteWatchReporter.getDocumentCallbacks();
             this.RouteWatchReporter.router.events.subscribe(function (event) {
               if (event.constructor === _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
-                _this52.beforeChanger.emit(_this52.RouteWatchReporter);
+                _this53.beforeChanger.emit(_this53.RouteWatchReporter);
 
-                _this52.apply();
+                _this53.apply();
 
                 Promise.resolve().then(function () {
-                  return _this52.emit();
+                  return _this53.emit();
                 });
               }
             });
 
             if (this.ActivatedRoute) {
               this.ActivatedRoute.data.subscribe(function (data) {
-                return _this52.dataChange.emit(_this52.data = data);
+                return _this53.dataChange.emit(_this53.data = data);
               });
             }
 
             this.RouteWatchReporter.watchDocByCallbacks(this.$document, this.docCallbacks);
             this.apply();
             Promise.resolve().then(function () {
-              _this52.emit();
+              _this53.emit();
 
-              _this52.querySub = _this52.RouteWatchReporter.activatedRoute.queryParams.subscribe(function (query) {
-                return _this52.queryChange.emit(query);
+              _this53.querySub = _this53.RouteWatchReporter.activatedRoute.queryParams.subscribe(function (query) {
+                return _this53.queryChange.emit(query);
               });
             });
 
@@ -6344,7 +6344,7 @@
 
       var ProviderExamples = /*#__PURE__*/function () {
         function ProviderExamples(Log, ErrorLog, PageScrollService, AckOffline, AckCache, AckQue, AckApi, Prompts) {
-          var _this53 = this;
+          var _this54 = this;
 
           _classCallCheck(this, ProviderExamples);
 
@@ -6377,22 +6377,22 @@
           };
           this.ErrorLog.monitorWindow();
           this.AckQue.registerHandler("ackNgQueTest", function (item) {
-            return _this53.processQueItem(item);
+            return _this54.processQueItem(item);
           });
         }
 
         _createClass(ProviderExamples, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this54 = this;
+            var _this55 = this;
 
             window.addEventListener("online", function () {
               if (navigator.onLine) {
-                _this54.backOnlineAt = getServerTime();
+                _this55.backOnlineAt = getServerTime();
 
-                _this54.processQue();
+                _this55.processQue();
 
-                _this54.processHttpQue();
+                _this55.processHttpQue();
               }
             });
             this.loadHttpHeaderConfigArray();
@@ -6401,25 +6401,25 @@
         }, {
           key: "clearHttpQue",
           value: function clearHttpQue() {
-            var _this55 = this;
+            var _this56 = this;
 
             return this.AckApi.clearQue("ackHttpTests").then(function () {
-              return _this55.readHttpQueArray(false);
+              return _this56.readHttpQueArray(false);
             });
           }
         }, {
           key: "clearHttpCache",
           value: function clearHttpCache() {
-            var _this56 = this;
+            var _this57 = this;
 
             return this.AckApi.clearCache("ackHttpTests").then(function () {
-              return _this56.readHttpCache();
+              return _this57.readHttpCache();
             });
           }
         }, {
           key: "sendHttp",
           value: function sendHttp() {
-            var _this57 = this;
+            var _this58 = this;
 
             delete this.httpError;
             delete this.httpResponse;
@@ -6431,18 +6431,18 @@
               promise = this.AckApi.AckQue.set("ackHttpTests", this.httpConfig);
             } else {
               promise = this.AckApi.request(this.httpConfig).then(function (res) {
-                _this57.httpResponse = res;
-                delete _this57.httpError;
+                _this58.httpResponse = res;
+                delete _this58.httpError;
               })["catch"](function (e) {
-                _this57.httpError = e;
-                delete _this57.httpResponse;
+                _this58.httpError = e;
+                delete _this58.httpResponse;
               });
             }
 
             return promise.then(function () {
-              return _this57.readHttpQueArray(false);
+              return _this58.readHttpQueArray(false);
             }).then(function () {
-              return _this57.readHttpCache();
+              return _this58.readHttpCache();
             });
           }
         }, {
@@ -6456,33 +6456,33 @@
         }, {
           key: "readHttpQueArray",
           value: function readHttpQueArray(process) {
-            var _this58 = this;
+            var _this59 = this;
 
             return this.AckApi.getQue("ackHttpTests").then(function (que) {
-              _this58.httpQueArray = que;
+              _this59.httpQueArray = que;
               var doProcess = process || process == null && que.length && navigator.onLine;
 
               if (doProcess) {
-                return _this58.processHttpQue();
+                return _this59.processHttpQue();
               }
             });
           }
         }, {
           key: "readHttpCache",
           value: function readHttpCache() {
-            var _this59 = this;
+            var _this60 = this;
 
             return this.AckApi.getCache("ackHttpTests").then(function (cache) {
-              return _this59.httpCache = cache;
+              return _this60.httpCache = cache;
             });
           }
         }, {
           key: "processHttpQue",
           value: function processHttpQue() {
-            var _this60 = this;
+            var _this61 = this;
 
             return this.AckApi.processQue("ackHttpTests").then(function () {
-              return _this60.readHttpQueArray(false);
+              return _this61.readHttpQueArray(false);
             });
           }
         }, {
@@ -6514,10 +6514,10 @@
         }, {
           key: "scrollToModuleImport",
           value: function scrollToModuleImport() {
-            var _this61 = this;
+            var _this62 = this;
 
             setTimeout(function () {
-              _this61.PageScrollService.scroll({
+              _this62.PageScrollService.scroll({
                 document: document,
                 scrollTarget: "#Import AckModule"
               });
@@ -6531,30 +6531,30 @@
         }, {
           key: "readOffline",
           value: function readOffline() {
-            var _this62 = this;
+            var _this63 = this;
 
             this.AckOffline.get("ack-angular").then(function (data) {
-              return _this62.offlineStorage = data;
+              return _this63.offlineStorage = data;
             });
           }
         }, {
           key: "readQue",
           value: function readQue() {
-            var _this63 = this;
+            var _this64 = this;
 
             return this.AckQue.getQue("ackNgQueTest").then(function (que) {
-              return _this63.queArray = que;
+              return _this64.queArray = que;
             });
           }
         }, {
           key: "readCache",
           value: function readCache() {
-            var _this64 = this;
+            var _this65 = this;
 
             return this.AckCache.get("ackNgCacheTest").then(function (cache) {
-              return _this64.cacheStorage = cache;
+              return _this65.cacheStorage = cache;
             }).then(function () {
-              return _this64.readCacheObject();
+              return _this65.readCacheObject();
             })["catch"](function (e) {
               if (e.code && e.code == 401) {
                 return;
@@ -6566,54 +6566,54 @@
         }, {
           key: "readCacheObject",
           value: function readCacheObject() {
-            var _this65 = this;
+            var _this66 = this;
 
             return this.AckOffline.get("ackNgCacheTest").then(function (v) {
-              _this65.cache = v;
+              _this66.cache = v;
 
               if (v) {
-                _this65.cache.seconds = (v["expires"] - v["_timestamp"]) / 1000;
+                _this66.cache.seconds = (v["expires"] - v["_timestamp"]) / 1000;
               }
             });
           }
         }, {
           key: "clearAllOffline",
           value: function clearAllOffline() {
-            var _this66 = this;
+            var _this67 = this;
 
             this.AckOffline.clearAll().then(function () {
-              return _this66.reloadData();
+              return _this67.reloadData();
             });
           }
         }, {
           key: "setCache",
           value: function setCache(value, seconds) {
-            var _this67 = this;
+            var _this68 = this;
 
             var expires = new Date(Date.now() + seconds * 1000).getTime();
             return this.AckCache.set("ackNgCacheTest", value, {
               expires: expires
             }).then(function () {
-              return _this67.readCache();
+              return _this68.readCache();
             });
           }
         }, {
           key: "clearCache",
           value: function clearCache() {
-            var _this68 = this;
+            var _this69 = this;
 
             this.AckCache.clear("ackNgCacheTest").then(function () {
-              return _this68.readCache();
+              return _this69.readCache();
             });
           }
         }, {
           key: "clearOffline",
           value: function clearOffline() {
-            var _this69 = this;
+            var _this70 = this;
 
             this.offlineStorage = "";
             this.AckOffline.clear("ack-angular").then(function () {
-              return _this69.readOffline();
+              return _this70.readOffline();
             });
           }
         }, {
@@ -6625,29 +6625,29 @@
         }, {
           key: "clearQue",
           value: function clearQue() {
-            var _this70 = this;
+            var _this71 = this;
 
             return this.AckQue.clear("ackNgQueTest").then(function () {
-              return _this70.readQue();
+              return _this71.readQue();
             });
           }
         }, {
           key: "que",
           value: function que(itemData) {
-            var _this71 = this;
+            var _this72 = this;
 
             this.queStorage = "";
             return this.AckQue.que("ackNgQueTest", itemData).then(function () {
-              return _this71.readQue();
+              return _this72.readQue();
             });
           }
         }, {
           key: "dequeByIndex",
           value: function dequeByIndex(index) {
-            var _this72 = this;
+            var _this73 = this;
 
             return this.AckQue.dequeByIndex("ackNgQueTest", index).then(function () {
-              return _this72.readQue();
+              return _this73.readQue();
             });
           }
         }, {
@@ -6658,25 +6658,25 @@
         }, {
           key: "processQuedByIndex",
           value: function processQuedByIndex(index) {
-            var _this73 = this;
+            var _this74 = this;
 
             return this.AckQue.processQuedByIndex("ackNgQueTest", index).then(function (result) {
-              return _this73.processQueResults.push(result);
+              return _this74.processQueResults.push(result);
             }).then(function () {
-              return _this73.readQue();
+              return _this74.readQue();
             });
           }
         }, {
           key: "processQue",
           value: function processQue() {
-            var _this74 = this;
+            var _this75 = this;
 
             return this.AckQue.processQue("ackNgQueTest").then(function (results) {
-              return _this74.processQueResults.push.apply(_this74.processQueResults, results);
+              return _this75.processQueResults.push.apply(_this75.processQueResults, results);
             }).then(function () {
-              return _this74.readQue();
+              return _this75.readQue();
             })["catch"](function (e) {
-              return _this74.error = e;
+              return _this75.error = e;
             });
           }
         }, {
@@ -6804,14 +6804,14 @@
 
       var InnerHtmlModel = /*#__PURE__*/function () {
         function InnerHtmlModel(element) {
-          var _this75 = this;
+          var _this76 = this;
 
           _classCallCheck(this, InnerHtmlModel);
 
           this.element = element;
           this.innerHtmlModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           this.observer = new MutationObserver(function () {
-            return _this75.setModel();
+            return _this76.setModel();
           });
           var config = {
             attributes: true,
@@ -6825,10 +6825,10 @@
         _createClass(InnerHtmlModel, [{
           key: "ngOnChanges",
           value: function ngOnChanges() {
-            var _this76 = this;
+            var _this77 = this;
 
             Promise.resolve().then(function () {
-              return _this76.setModel();
+              return _this77.setModel();
             });
           }
         }, {
@@ -6993,13 +6993,13 @@
         _createClass(ReplaceModel, [{
           key: "ngOnChanges",
           value: function ngOnChanges(changes) {
-            var _this77 = this;
+            var _this78 = this;
 
             var isString = changes.replaceModel && this.replaceModel && this.replaceModel.constructor === String;
 
             if (isString) {
               Promise.resolve().then(function () {
-                return _this77.run();
+                return _this78.run();
               });
             }
           }
@@ -7087,12 +7087,12 @@
         _createClass(AckSectionTemplates, [{
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
-            var _this78 = this;
+            var _this79 = this;
 
             Promise.resolve().then(function () {
-              _this78.check();
+              _this79.check();
 
-              _this78.inited = true;
+              _this79.inited = true;
             });
           }
         }, {
@@ -7128,10 +7128,10 @@
         }, {
           key: "ngOnDestroy",
           value: function ngOnDestroy() {
-            var _this79 = this;
+            var _this80 = this;
 
             Promise.resolve().then(function () {
-              return _this79.unregister();
+              return _this80.unregister();
             });
           }
         }, {
@@ -7266,11 +7266,11 @@
         _createClass(DebugArea, [{
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
-            var _this80 = this;
+            var _this81 = this;
 
             if (this.DebugItems.length === 1) {
               Promise.resolve().then(function () {
-                return _this80.debugItem = _this80.DebugItems.first;
+                return _this81.debugItem = _this81.DebugItems.first;
               });
             }
           }
@@ -7390,17 +7390,17 @@
         var _super4 = _createSuper(AckOptionsModal);
 
         function AckOptionsModal() {
-          var _this81;
+          var _this82;
 
           _classCallCheck(this, AckOptionsModal);
 
-          _this81 = _super4.apply(this, arguments);
-          _this81.allowClose = true;
-          _this81.close = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          _this81.backgroundColorChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          _this81.showModel = true;
-          _this81.showModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          return _this81;
+          _this82 = _super4.apply(this, arguments);
+          _this82.allowClose = true;
+          _this82.close = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          _this82.backgroundColorChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          _this82.showModel = true;
+          _this82.showModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          return _this82;
         }
 
         _createClass(AckOptionsModal, [{
@@ -7499,11 +7499,11 @@
         }, {
           key: "issuePrompt",
           value: function issuePrompt(prompt) {
-            var _this82 = this;
+            var _this83 = this;
 
             this.prompts.push(prompt);
             prompt.emitter.subscribe(function () {
-              return _this82.remove(prompt);
+              return _this83.remove(prompt);
             });
             return prompt.emitter;
           }
@@ -7576,11 +7576,11 @@
         _createClass(VarDirective, [{
           key: "ngOnChanges",
           value: function ngOnChanges(changes) {
-            var _this83 = this;
+            var _this84 = this;
 
             if (changes["var"]) {
               Promise.resolve().then(function () {
-                return _this83.changed.emit(_this83["var"]);
+                return _this84.changed.emit(_this84["var"]);
               });
             }
           }
@@ -7647,12 +7647,12 @@
         _createClass(ErrorLog, [{
           key: "monitorWindow",
           value: function monitorWindow(win) {
-            var _this84 = this;
+            var _this85 = this;
 
             win = win || window;
 
             var callback = function callback(evt) {
-              return _this84.add(evt, false);
+              return _this85.add(evt, false);
             };
 
             win.addEventListener('error', callback);
@@ -7666,10 +7666,10 @@
         }, {
           key: "rejector",
           value: function rejector() {
-            var _this85 = this;
+            var _this86 = this;
 
             return function (err) {
-              return _this85.reject(err);
+              return _this86.reject(err);
             };
           }
         }, {
@@ -7898,7 +7898,7 @@
 
     /***/
     function kiQV(module) {
-      module.exports = JSON.parse("{\"name\":\"ack-angular\",\"version\":\"2.0.4\",\"description\":\"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\",\"main\":\"dist/index.js\",\"typings\":\"dist/index.d.ts\",\"scripts\":{\"start\":\"ng serve example --port 4201 --open\",\"build:index\":\"pug example/src/index.pug --out example/src\",\"stats\":\"webpack-bundle-analyzer example/www/stats.json\",\"install:example\":\"npm install --prefix example\",\"test\":\"ng test --browser PhantomJS --single-run\",\"test:watch\":\"ng test\",\"build:offline\":\"ngc --project modules/offline/tsconfig.json\",\"build:dist\":\"ngc --project src/tsconfig.json\",\"build:dist:broke\":\"ng-packagr -p package.json\",\"watch:dist\":\"watch \\\"npm-run-all build:dist\\\" src/ --ignoreDirectoryPattern=/pugs/\",\"build:assets\":\"npm-run-all build:assets:src build:assets:example compile:templates\",\"build:assets:src\":\"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts\",\"build:assets:example\":\"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts\",\"watch:assets\":\"npm-run-all --parallel \\\"build:assets:src -- --watch\\\" \\\"build:assets:example -- --watch\\\" \\\"compile:templates -- --watch\\\"\",\"compile:templates\":\"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne\",\"watch\":\"npm-run-all --parallel build:index watch:dist watch:assets watch:js\",\"watch:js\":\"ng serve example --port 4201 --open\",\"build:js\":\"ng build example --stats-json\",\"build:universal\":\"npm-run-all build:index build:assets\",\"build\":\"npm-run-all build:universal build:dist compile:dist:package copy:scss build:js\",\"copy:scss\":\"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss\",\"compile:dist:package\":\"node scripts/update-dist-package.js\",\"save\":\"git add . && git commit -m \\\"update\\\" && git push\",\"deploy\":\"npm-run-all build deploy:gh-pages deploy:npm save\",\"deploy:npm\":\"cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \\\"update\\\" && git push && npm publish\",\"deploy:gh-pages\":\"cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \\\"update\\\" && git push\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/AckerApple/ack-angular.git\"},\"keywords\":[\"ng\",\"Angular\",\"directives\",\"components\",\"pipes\",\"providers\"],\"author\":\"Acker Dawn Apple\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/AckerApple/ack-angular/issues\"},\"homepage\":\"https://github.com/AckerApple/ack-angular#readme\",\"dependencies\":{\"ack-angular-fx\":\"^4.1.0\",\"ack-css-boot\":\"^2.0.4\",\"ack-x\":\"^2.1.1\",\"animate.css\":\"^4.1.1\",\"csshake\":\"^1.5.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1102.8\",\"@angular-devkit/build-ng-packagr\":\"^0.1002.0\",\"@angular/animations\":\"^11.2.9\",\"@angular/cli\":\"^12.0.0\",\"@angular/common\":\"^11.2.9\",\"@angular/compiler\":\"^11.2.9\",\"@angular/compiler-cli\":\"^11.2.9\",\"@angular/core\":\"^12.0.0\",\"@angular/forms\":\"^11.2.9\",\"@angular/platform-browser\":\"^11.2.9\",\"@angular/platform-browser-dynamic\":\"^11.2.9\",\"@angular/router\":\"^11.2.9\",\"@types/jasmine\":\"^3.6.9\",\"ack-path\":\"^1.8.0\",\"ack-pug-bundler\":\"^1.4.8\",\"classlist-polyfill\":\"^1.2.0\",\"jasmine\":\"^3.7.0\",\"karma\":\"^6.3.2\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-coverage-istanbul-reporter\":\"^3.0.3\",\"karma-jasmine\":\"^4.0.1\",\"karma-jasmine-html-reporter\":\"^1.5.4\",\"karma-phantomjs-launcher\":\"^1.0.4\",\"localforage\":\"^1.9.0\",\"ng-packagr\":\"^11.2.4\",\"ngx-page-scroll\":\"^7.0.4\",\"ngx-page-scroll-core\":\"^7.0.4\",\"npm-run-all\":\"^4.1.5\",\"phantomjs-prebuilt\":\"^2.1.16\",\"pug\":\"^3.0.2\",\"pug-attrs\":\"^3.0.0\",\"pug-cli\":\"^1.0.0-alpha6\",\"reflect-metadata\":\"^0.1.13\",\"rxjs\":\"^6.6.7\",\"ts-helpers\":\"^1.1.2\",\"ts-node\":\"^9.1.1\",\"typescript\":\"4.0.5\",\"webpack-bundle-analyzer\":\"^4.4.1\",\"zone.js\":\"~0.11.4\"},\"ngPackage\":{\"lib\":{\"entryFile\":\"src/index.ts\"},\"allowedNonPeerDependencies\":[\"ack-angular-fx\",\"ack-css-boot\",\"ack-x\",\"animate.css\",\"csshake\"]},\"private\":true}");
+      module.exports = JSON.parse("{\"name\":\"ack-angular\",\"version\":\"2.0.5\",\"description\":\"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\",\"main\":\"dist/index.js\",\"typings\":\"dist/index.d.ts\",\"scripts\":{\"start\":\"ng serve example --port 4201 --open\",\"build:index\":\"pug example/src/index.pug --out example/src\",\"stats\":\"webpack-bundle-analyzer example/www/stats.json\",\"install:example\":\"npm install --prefix example\",\"test\":\"ng test --browser PhantomJS --single-run\",\"test:watch\":\"ng test\",\"build:offline\":\"ngc --project modules/offline/tsconfig.json\",\"build:dist\":\"ngc --project src/tsconfig.json\",\"build:dist:broke\":\"ng-packagr -p package.json\",\"watch:dist\":\"watch \\\"npm-run-all build:dist\\\" src/ --ignoreDirectoryPattern=/pugs/\",\"build:assets\":\"npm-run-all build:assets:src build:assets:example compile:templates\",\"build:assets:src\":\"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts\",\"build:assets:example\":\"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts\",\"watch:assets\":\"npm-run-all --parallel \\\"build:assets:src -- --watch\\\" \\\"build:assets:example -- --watch\\\" \\\"compile:templates -- --watch\\\"\",\"compile:templates\":\"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne\",\"watch\":\"npm-run-all --parallel build:index watch:dist watch:assets watch:js\",\"watch:js\":\"ng serve example --port 4201 --open\",\"build:js\":\"ng build example --stats-json\",\"build:universal\":\"npm-run-all build:index build:assets\",\"build\":\"npm-run-all build:universal build:dist compile:dist:package copy:scss build:js\",\"copy:scss\":\"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss\",\"compile:dist:package\":\"node scripts/update-dist-package.js\",\"save\":\"git add . && git commit -m \\\"update\\\" && git push\",\"deploy\":\"npm-run-all build deploy:gh-pages deploy:npm save\",\"deploy:npm\":\"cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \\\"update\\\" && git push && npm publish\",\"deploy:gh-pages\":\"cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \\\"update\\\" && git push\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/AckerApple/ack-angular.git\"},\"keywords\":[\"ng\",\"Angular\",\"directives\",\"components\",\"pipes\",\"providers\"],\"author\":\"Acker Dawn Apple\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/AckerApple/ack-angular/issues\"},\"homepage\":\"https://github.com/AckerApple/ack-angular#readme\",\"dependencies\":{\"ack-angular-fx\":\"^4.1.0\",\"ack-css-boot\":\"^2.0.4\",\"ack-x\":\"^2.1.1\",\"animate.css\":\"^4.1.1\",\"csshake\":\"^1.5.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1102.8\",\"@angular-devkit/build-ng-packagr\":\"^0.1002.0\",\"@angular/animations\":\"^11.2.9\",\"@angular/cli\":\"^12.0.0\",\"@angular/common\":\"^11.2.9\",\"@angular/compiler\":\"^11.2.9\",\"@angular/compiler-cli\":\"^11.2.9\",\"@angular/core\":\"^12.0.0\",\"@angular/forms\":\"^11.2.9\",\"@angular/platform-browser\":\"^11.2.9\",\"@angular/platform-browser-dynamic\":\"^11.2.9\",\"@angular/router\":\"^11.2.9\",\"@types/jasmine\":\"^3.6.9\",\"ack-path\":\"^1.8.0\",\"ack-pug-bundler\":\"^1.4.8\",\"classlist-polyfill\":\"^1.2.0\",\"jasmine\":\"^3.7.0\",\"karma\":\"^6.3.2\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-coverage-istanbul-reporter\":\"^3.0.3\",\"karma-jasmine\":\"^4.0.1\",\"karma-jasmine-html-reporter\":\"^1.5.4\",\"karma-phantomjs-launcher\":\"^1.0.4\",\"localforage\":\"^1.9.0\",\"ng-packagr\":\"^11.2.4\",\"ngx-page-scroll\":\"^7.0.4\",\"ngx-page-scroll-core\":\"^7.0.4\",\"npm-run-all\":\"^4.1.5\",\"phantomjs-prebuilt\":\"^2.1.16\",\"pug\":\"^3.0.2\",\"pug-attrs\":\"^3.0.0\",\"pug-cli\":\"^1.0.0-alpha6\",\"reflect-metadata\":\"^0.1.13\",\"rxjs\":\"^6.6.7\",\"ts-helpers\":\"^1.1.2\",\"ts-node\":\"^9.1.1\",\"typescript\":\"4.0.5\",\"webpack-bundle-analyzer\":\"^4.4.1\",\"zone.js\":\"~0.11.4\"},\"ngPackage\":{\"lib\":{\"entryFile\":\"src/index.ts\"},\"allowedNonPeerDependencies\":[\"ack-angular-fx\",\"ack-css-boot\",\"ack-x\",\"animate.css\",\"csshake\"]},\"private\":true}");
       /***/
     },
 
@@ -8298,15 +8298,15 @@
         _createClass(AckOptions, [{
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
-            var _this86 = this;
+            var _this87 = this;
 
             Promise.resolve().then(function () {
-              if (_this86.inputTemplateRefs) {
-                _this86.TemplateReader.readTemplates(_this86.inputTemplateRefs);
+              if (_this87.inputTemplateRefs) {
+                _this87.TemplateReader.readTemplates(_this87.inputTemplateRefs);
               }
 
-              if (_this86.templateRefs) {
-                _this86.TemplateReader.readTemplates(_this86.templateRefs);
+              if (_this87.templateRefs) {
+                _this87.TemplateReader.readTemplates(_this87.templateRefs);
               }
             });
           }
@@ -8794,7 +8794,7 @@
 
       var RouteWatchReporter = /*#__PURE__*/function () {
         function RouteWatchReporter(router, activatedRoute) {
-          var _this87 = this;
+          var _this88 = this;
 
           _classCallCheck(this, RouteWatchReporter);
 
@@ -8810,9 +8810,9 @@
           this.activatedRoute = activatedRoute;
           router.events.subscribe(function (event) {
             if (event.constructor == _angular_router__WEBPACK_IMPORTED_MODULE_1__["NavigationEnd"]) {
-              var current = _this87.getCurrent();
+              var current = _this88.getCurrent();
 
-              _this87.recordStateChange(current.config, current.params);
+              _this88.recordStateChange(current.config, current.params);
             }
           });
           this.current = this.getCurrent();
@@ -8955,14 +8955,14 @@
         }, {
           key: "getDocumentCallbacks",
           value: function getDocumentCallbacks() {
-            var _this88 = this;
+            var _this89 = this;
 
             var isBackButton = function isBackButton() {
-              _this88.isOsAction = true;
+              _this89.isOsAction = true;
             };
 
             var isNotBackButton = function isNotBackButton() {
-              _this88.isOsAction = false;
+              _this89.isOsAction = false;
             };
 
             return {
@@ -9117,7 +9117,7 @@
       "8Y7J");
 
       var EnterKey = function EnterKey(element) {
-        var _this89 = this;
+        var _this90 = this;
 
         _classCallCheck(this, EnterKey);
 
@@ -9127,7 +9127,7 @@
           var yesNo = [13, 10].indexOf(event.which || event.keyCode) >= 0;
 
           if (yesNo) {
-            _this89.enterKey.emit(event);
+            _this90.enterKey.emit(event);
           }
         });
       };
@@ -9148,7 +9148,7 @@
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])], EnterKey);
 
       var EscapeKey = function EscapeKey(element) {
-        var _this90 = this;
+        var _this91 = this;
 
         _classCallCheck(this, EscapeKey);
 
@@ -9158,7 +9158,7 @@
           var code = event.which || event.keyCode;
 
           if (code == 27) {
-            _this90.escapeKey.emit(event);
+            _this91.escapeKey.emit(event);
           }
         });
       };
@@ -9179,7 +9179,7 @@
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])], EscapeKey);
 
       var PreventBackKey = function PreventBackKey(element) {
-        var _this91 = this;
+        var _this92 = this;
 
         _classCallCheck(this, PreventBackKey);
 
@@ -9189,7 +9189,7 @@
           var yesNo = [8].indexOf(event.which || event.keyCode) < 0;
 
           if (!yesNo) {
-            _this91.preventBackKey.emit(event);
+            _this92.preventBackKey.emit(event);
 
             if (event.preventDefault) {
               event.preventDefault();
@@ -9216,7 +9216,7 @@
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])], PreventBackKey);
 
       var PreventEnterKey = function PreventEnterKey(element) {
-        var _this92 = this;
+        var _this93 = this;
 
         _classCallCheck(this, PreventEnterKey);
 
@@ -9226,7 +9226,7 @@
           var yesNo = [13, 10].indexOf(event.which || event.keyCode) < 0;
 
           if (!yesNo) {
-            _this92.preventEnterKey.emit(event);
+            _this93.preventEnterKey.emit(event);
 
             if (event.preventDefault) {
               event.preventDefault();
@@ -9273,7 +9273,7 @@
 
       var FormChanged = /*#__PURE__*/function () {
         function FormChanged(element) {
-          var _this93 = this;
+          var _this94 = this;
 
           _classCallCheck(this, FormChanged);
 
@@ -9281,7 +9281,7 @@
           this.formChanged = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
 
           this.onChange = function (event) {
-            _this93.formChanged.emit(event);
+            _this94.formChanged.emit(event);
           };
 
           element.nativeElement.addEventListener('change', this.onChange);
@@ -9314,7 +9314,7 @@
 
       var FormAlter = /*#__PURE__*/function () {
         function FormAlter(element) {
-          var _this94 = this;
+          var _this95 = this;
 
           _classCallCheck(this, FormAlter);
 
@@ -9322,7 +9322,7 @@
           this.formAlter = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
 
           this.onChange = function (event) {
-            _this94.formAlter.emit(event);
+            _this95.formAlter.emit(event);
           };
 
           element.nativeElement.addEventListener('input', this.onChange);
@@ -9391,16 +9391,16 @@
 
       var ScreenScrollModelY = /*#__PURE__*/function () {
         function ScreenScrollModelY() {
-          var _this95 = this;
+          var _this96 = this;
 
           _classCallCheck(this, ScreenScrollModelY);
 
           this.screenScrollModelYChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
 
           this.onScroll = function () {
-            _this95.screenScrollModelY = window['pageYOffset'];
+            _this96.screenScrollModelY = window['pageYOffset'];
 
-            _this95.screenScrollModelYChange.emit(_this95.screenScrollModelY);
+            _this96.screenScrollModelYChange.emit(_this96.screenScrollModelY);
           };
 
           this.onScroll();
@@ -9410,10 +9410,10 @@
         _createClass(ScreenScrollModelY, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this96 = this;
+            var _this97 = this;
 
             Promise.resolve().then(function () {
-              return _this96.onScroll();
+              return _this97.onScroll();
             });
           }
         }, {
@@ -9770,14 +9770,14 @@
 
       var ScreenWidthModel = /*#__PURE__*/function () {
         function ScreenWidthModel(HtmlSizeService) {
-          var _this97 = this;
+          var _this98 = this;
 
           _classCallCheck(this, ScreenWidthModel);
 
           this.HtmlSizeService = HtmlSizeService;
           this.screenWidthModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           this.sub = this.HtmlSizeService.change.subscribe(function () {
-            return _this97.changed();
+            return _this98.changed();
           });
           this.HtmlSizeService.checkWatchers();
 
@@ -10125,18 +10125,18 @@
         _createClass(ElementSizeModel, [{
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
-            var _this98 = this;
+            var _this99 = this;
 
             this.onResize = function () {
-              _this98.setModel();
+              _this99.setModel();
             };
 
             window.addEventListener('resize', this.onResize);
             Promise.resolve().then(function () {
-              return _this98.setModel();
+              return _this99.setModel();
             });
             this.observer = new MutationObserver(function () {
-              _this98.setModel();
+              _this99.setModel();
             });
             var config = {
               attributes: true,
@@ -10146,24 +10146,24 @@
             };
             this.observer.observe(this.element.nativeElement, config);
             setTimeout(function () {
-              return _this98.setModel();
+              return _this99.setModel();
             }, 800);
           }
         }, {
           key: "ngOnChanges",
           value: function ngOnChanges() {
-            var _this99 = this;
+            var _this100 = this;
 
             Promise.resolve().then(function () {
-              if (!_this99.inChange) {
-                _this99.setModel();
+              if (!_this100.inChange) {
+                _this100.setModel();
               }
             });
           }
         }, {
           key: "setModel",
           value: function setModel() {
-            var _this100 = this;
+            var _this101 = this;
 
             this.elementSizeModel = this.elementSizeModel || {};
             this.inChange = true;
@@ -10171,7 +10171,7 @@
             this.elementSizeModel.height = this.element.nativeElement.offsetHeight;
             this.elementSizeModelChange.emit(this.elementSizeModel);
             Promise.resolve().then(function () {
-              _this100.inChange = false;
+              _this101.inChange = false;
             });
           }
         }, {
@@ -10212,14 +10212,14 @@
         var _super5 = _createSuper(ElementHeightModel);
 
         function ElementHeightModel(element) {
-          var _this101;
+          var _this102;
 
           _classCallCheck(this, ElementHeightModel);
 
-          _this101 = _super5.call(this, element);
-          _this101.element = element;
-          _this101.elementHeightModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          return _this101;
+          _this102 = _super5.call(this, element);
+          _this102.element = element;
+          _this102.elementHeightModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          return _this102;
         }
 
         _createClass(ElementHeightModel, [{
@@ -10257,14 +10257,14 @@
         var _super6 = _createSuper(ElementWidthModel);
 
         function ElementWidthModel(element) {
-          var _this102;
+          var _this103;
 
           _classCallCheck(this, ElementWidthModel);
 
-          _this102 = _super6.call(this, element);
-          _this102.element = element;
-          _this102.elementWidthModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          return _this102;
+          _this103 = _super6.call(this, element);
+          _this103.element = element;
+          _this103.elementWidthModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          return _this103;
         }
 
         _createClass(ElementWidthModel, [{
@@ -10333,7 +10333,7 @@
 
       var PxFromHtmlTop = /*#__PURE__*/function () {
         function PxFromHtmlTop(ElementRef) {
-          var _this103 = this;
+          var _this104 = this;
 
           _classCallCheck(this, PxFromHtmlTop);
 
@@ -10341,9 +10341,9 @@
           this.numberChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
 
           this.onScroll = function () {
-            _this103.setter();
+            _this104.setter();
 
-            _this103.emit();
+            _this104.emit();
           };
 
           window.addEventListener("resize", this.onScroll);
@@ -10358,12 +10358,12 @@
         }, {
           key: "ngOnChanges",
           value: function ngOnChanges() {
-            var _this104 = this;
+            var _this105 = this;
 
             Promise.resolve().then(function () {
-              _this104.setter();
+              _this105.setter();
 
-              _this104.emit();
+              _this105.emit();
             });
             this.delayFire(250);
             this.delayFire(750);
@@ -10384,13 +10384,13 @@
         }, {
           key: "delayFire",
           value: function delayFire() {
-            var _this105 = this;
+            var _this106 = this;
 
             var num = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
             setTimeout(function () {
-              _this105.setter();
+              _this106.setter();
 
-              _this105.emit();
+              _this106.emit();
             }, num);
           }
         }, {
@@ -10474,16 +10474,16 @@
         _createClass(FocusOn, [{
           key: "ngOnChanges",
           value: function ngOnChanges(changes) {
-            var _this106 = this;
+            var _this107 = this;
 
             if (changes.focusOn && changes.focusOn.currentValue) {
               if (this.focusOnDelay === 0) {
                 Promise.resolve().then(function () {
-                  return _this106.update();
+                  return _this107.update();
                 });
               } else {
                 setTimeout(function () {
-                  return _this106.update();
+                  return _this107.update();
                 }, this.focusOnDelay);
               }
             }
@@ -11442,22 +11442,22 @@
 
       var StatusOfflineModel = /*#__PURE__*/function () {
         function StatusOfflineModel() {
-          var _this107 = this;
+          var _this108 = this;
 
           _classCallCheck(this, StatusOfflineModel);
 
           this.statusOfflineModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
 
           this.onChange = function () {
-            _this107.statusOfflineModel = !navigator.onLine;
+            _this108.statusOfflineModel = !navigator.onLine;
 
-            _this107.statusOfflineModelChange.emit(_this107.statusOfflineModel);
+            _this108.statusOfflineModelChange.emit(_this108.statusOfflineModel);
           };
 
           window.addEventListener("offline", this.onChange);
           window.addEventListener("online", this.onChange);
           Promise.resolve().then(function () {
-            return _this107.onChange();
+            return _this108.onChange();
           });
         }
 

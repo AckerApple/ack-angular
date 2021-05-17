@@ -16,7 +16,6 @@ export declare class AckModal {
     showModelChange: EventEmitter<boolean>;
     close: EventEmitter<any>;
     constructor(element: ElementRef, AckApp: AckApp);
-    ngOnInit(): void;
     determineStage(): void;
     ngOnDestroy(): void;
 }
