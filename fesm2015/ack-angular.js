@@ -423,7 +423,7 @@ AckSectionTemplates.propDecorators = {
     rightBody: [{ type: ContentChild, args: ['sectionRightBody',] }]
 };
 
-const string$1 = "<ng-template #placeholder=\"\"><ack-modal-layout [zIndex]=\"zIndex\" (close)=\"close.emit($event)\" [isModelMode]=\"isModelMode==null ? showModelChange.observers.length : isModelMode\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit(showModel=$event)\" [backgroundColor]=\"backgroundColor\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [allowClose]=\"allowClose\"><ng-template [ngTemplateOutlet]=\"body\"></ng-template><ng-content *ngIf=\"!body\"></ng-content></ack-modal-layout></ng-template><ng-template *ngIf=\"!AckApp.fixedElementStage || inline\" [ngTemplateOutlet]=\"layout\"></ng-template>";
+const string$1 = "<ng-template #placeholder=\"\"><ack-modal-layout [zIndex]=\"zIndex\" (close)=\"close.emit($event)\" [isModelMode]=\"isModelMode==null ? showModelChange.observers.length : isModelMode\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit(showModel=$event)\" [backgroundColor]=\"backgroundColor\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [allowClose]=\"allowClose\"><ng-template [ngTemplateOutlet]=\"body\"></ng-template><ng-content *ngIf=\"!body\"></ng-content></ack-modal-layout></ng-template><ng-template *ngIf=\"layout\"></ng-template>";
 
 class AckModal {
     constructor(element, AckApp) {
@@ -434,10 +434,11 @@ class AckModal {
         this.showModelChange = new EventEmitter();
         //one way expression binds
         this.close = new EventEmitter();
+        Promise.resolve().then(() => this.determineStage());
     }
-    ngOnInit() {
-        this.determineStage();
-    }
+    /*ngOnInit(){
+      return this.determineStage() // causes race error ExpressionChangedAfterItHasBeenCheckedError
+    }*/
     determineStage() {
         if (this.inline)
             return;
@@ -491,7 +492,7 @@ class AckModalLayout {
         this.close = new EventEmitter();
         this.allowClose = true;
         this.isModelMode = false;
-        this.showModel = true;
+        this.showModel = true; // when using, do not allow to be undefined
         this.showModelChange = new EventEmitter();
         //after possible double click, close on outside content click
         setTimeout(() => this.clickListenForClose(), 400);
@@ -510,7 +511,7 @@ class AckModalLayout {
     }
     ngOnInit() {
         return Promise.resolve().then(() => {
-            if (this.isModelMode || (this.isModelMode == null && this.showModelChange.observers.length)) {
+            if (this.showModel != undefined && this.showModelChange.observers.length) {
                 this.isModelMode = true;
             }
         });

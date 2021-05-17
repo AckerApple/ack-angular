@@ -747,10 +747,11 @@
         rightBody: [{ type: core.ContentChild, args: ['sectionRightBody',] }]
     };
 
-    var string$1 = "<ng-template #placeholder=\"\"><ack-modal-layout [zIndex]=\"zIndex\" (close)=\"close.emit($event)\" [isModelMode]=\"isModelMode==null ? showModelChange.observers.length : isModelMode\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit(showModel=$event)\" [backgroundColor]=\"backgroundColor\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [allowClose]=\"allowClose\"><ng-template [ngTemplateOutlet]=\"body\"></ng-template><ng-content *ngIf=\"!body\"></ng-content></ack-modal-layout></ng-template><ng-template *ngIf=\"!AckApp.fixedElementStage || inline\" [ngTemplateOutlet]=\"layout\"></ng-template>";
+    var string$1 = "<ng-template #placeholder=\"\"><ack-modal-layout [zIndex]=\"zIndex\" (close)=\"close.emit($event)\" [isModelMode]=\"isModelMode==null ? showModelChange.observers.length : isModelMode\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit(showModel=$event)\" [backgroundColor]=\"backgroundColor\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [allowClose]=\"allowClose\"><ng-template [ngTemplateOutlet]=\"body\"></ng-template><ng-content *ngIf=\"!body\"></ng-content></ack-modal-layout></ng-template><ng-template *ngIf=\"layout\"></ng-template>";
 
     var AckModal = /** @class */ (function () {
         function AckModal(element, AckApp) {
+            var _this = this;
             this.element = element;
             this.AckApp = AckApp;
             this.allowClose = true;
@@ -758,10 +759,11 @@
             this.showModelChange = new core.EventEmitter();
             //one way expression binds
             this.close = new core.EventEmitter();
+            Promise.resolve().then(function () { return _this.determineStage(); });
         }
-        AckModal.prototype.ngOnInit = function () {
-            this.determineStage();
-        };
+        /*ngOnInit(){
+          return this.determineStage() // causes race error ExpressionChangedAfterItHasBeenCheckedError
+        }*/
         AckModal.prototype.determineStage = function () {
             if (this.inline)
                 return;
@@ -817,7 +819,7 @@
             this.close = new core.EventEmitter();
             this.allowClose = true;
             this.isModelMode = false;
-            this.showModel = true;
+            this.showModel = true; // when using, do not allow to be undefined
             this.showModelChange = new core.EventEmitter();
             //after possible double click, close on outside content click
             setTimeout(function () { return _this.clickListenForClose(); }, 400);
@@ -838,7 +840,7 @@
         AckModalLayout.prototype.ngOnInit = function () {
             var _this = this;
             return Promise.resolve().then(function () {
-                if (_this.isModelMode || (_this.isModelMode == null && _this.showModelChange.observers.length)) {
+                if (_this.showModel != undefined && _this.showModelChange.observers.length) {
                     _this.isModelMode = true;
                 }
             });

@@ -73,7 +73,7 @@ export declare class BooleanPipe {
     transform(input: any): boolean;
 }
 export declare class Bit {
-    transform(input: any): 1 | 0;
+    transform(input: any): 0 | 1;
 }
 export declare class Numbers {
     transform(input: any): any;
@@ -100,6 +100,6 @@ export declare class TypeofPipe {
     transform(input: any): "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function";
 }
 export declare class ConsolePipe {
-    transform(): void;
+    transform(): any;
 }
 export declare const declarations: (typeof SafeUrl | typeof SafeHtml | typeof SafeStyle | typeof ADate)[];
