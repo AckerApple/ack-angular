@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('ack-angular-fx'), require('ack-x/js/index-browser'), require('rxjs/internal/BehaviorSubject'), require('@angular/platform-browser'), require('@angular/router'), require('ack-x/browser')) :
-    typeof define === 'function' && define.amd ? define('ack-angular', ['exports', '@angular/core', '@angular/common', 'ack-angular-fx', 'ack-x/js/index-browser', 'rxjs/internal/BehaviorSubject', '@angular/platform-browser', '@angular/router', 'ack-x/browser'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['ack-angular'] = {}, global.ng.core, global.ng.common, global.ackAngularFx, global.indexBrowser, global.rxjs['internal/BehaviorSubject'], global.ng.platformBrowser, global.ng.router, global.browser));
-}(this, (function (exports, core, common, ackAngularFx, indexBrowser, BehaviorSubject, platformBrowser, router, browser) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('ack-angular-fx'), require('ack-x/es/index-browser'), require('rxjs/internal/BehaviorSubject'), require('@angular/platform-browser'), require('@angular/router')) :
+    typeof define === 'function' && define.amd ? define('ack-angular', ['exports', '@angular/core', '@angular/common', 'ack-angular-fx', 'ack-x/es/index-browser', 'rxjs/internal/BehaviorSubject', '@angular/platform-browser', '@angular/router'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['ack-angular'] = {}, global.ng.core, global.ng.common, global.ackAngularFx, global.indexBrowser, global.rxjs['internal/BehaviorSubject'], global.ng.platformBrowser, global.ng.router));
+}(this, (function (exports, core, common, ackAngularFx, indexBrowser, BehaviorSubject, platformBrowser, router) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -3339,6 +3339,7 @@
     FormAlter.propDecorators = {
         formAlter: [{ type: core.Output }]
     };
+
     var screenDirectives = [
         ScreenScrollModelY,
         ScreenWidthModel,
@@ -3393,6 +3394,7 @@
         AckFixedElement,
         AckFixedElementStage
     ]);
+    // export default declarations
 
     /* ONLY THIS FILE */
     var IndexTrack = /** @class */ (function () {
@@ -3821,6 +3823,7 @@
                     exports: declarations$3
                 },] }
     ];
+    // export default AckModule
 
     //import { StateService,TransitionService,Transition } from "ui-router-ng2";
     /** A stateful connection to ui-router history
@@ -4279,7 +4282,7 @@
     Object.defineProperty(exports, 'ack', {
         enumerable: true,
         get: function () {
-            return browser.ack;
+            return indexBrowser.ack;
         }
     });
     exports.AckApp = AckApp;
@@ -4298,34 +4301,34 @@
     exports.pipes = declarations$2;
     exports.providers = providers;
     exports.ɵa = providers$1;
-    exports.ɵb = EnterKey;
-    exports.ɵba = CapitalizeWords;
-    exports.ɵbb = Yesno;
-    exports.ɵbc = YesNo;
-    exports.ɵbd = BooleanPipe;
-    exports.ɵbe = Bit;
-    exports.ɵbf = Numbers;
-    exports.ɵbg = ADate;
-    exports.ɵbh = AMath;
-    exports.ɵbi = AString;
-    exports.ɵbj = ATime;
-    exports.ɵbk = Ack;
-    exports.ɵbl = Keys;
-    exports.ɵbm = TypeofPipe;
-    exports.ɵbn = ConsolePipe;
-    exports.ɵbo = InitDirective;
-    exports.ɵbp = SelectOn;
-    exports.ɵbq = FocusOn;
-    exports.ɵbr = VarDirective;
-    exports.ɵbs = ContentModel;
-    exports.ɵbt = InnerHtmlModel;
-    exports.ɵbu = ReplaceModel;
+    exports.ɵb = screenDirectives;
+    exports.ɵba = AMath;
+    exports.ɵbb = AString;
+    exports.ɵbc = ATime;
+    exports.ɵbd = Ack;
+    exports.ɵbe = Keys;
+    exports.ɵbf = TypeofPipe;
+    exports.ɵbg = ConsolePipe;
+    exports.ɵbh = InitDirective;
+    exports.ɵbi = SelectOn;
+    exports.ɵbj = FocusOn;
+    exports.ɵbk = VarDirective;
+    exports.ɵbl = ContentModel;
+    exports.ɵbm = InnerHtmlModel;
+    exports.ɵbn = ReplaceModel;
+    exports.ɵbo = EnterKey;
+    exports.ɵbp = EscapeKey;
+    exports.ɵbq = PreventBackKey;
+    exports.ɵbr = PreventEnterKey;
+    exports.ɵbs = InputHint;
+    exports.ɵbt = FormChanged;
+    exports.ɵbu = FormAlter;
     exports.ɵbv = ScreenScrollModelY;
     exports.ɵbw = ScreenWidthModel;
     exports.ɵbx = ScreenHeightModel;
     exports.ɵby = ScreenScroll;
     exports.ɵbz = ScrollPastFixed;
-    exports.ɵc = EscapeKey;
+    exports.ɵc = IndexTrack;
     exports.ɵca = string$a;
     exports.ɵcb = ScreenScrollHeightDiff;
     exports.ɵcc = PxFromHtmlTop;
@@ -4352,7 +4355,7 @@
     exports.ɵcx = string$8;
     exports.ɵcy = AckCloseIcon;
     exports.ɵcz = AckSections;
-    exports.ɵd = PreventBackKey;
+    exports.ɵd = Stringify;
     exports.ɵda = string;
     exports.ɵdb = SectionProvider;
     exports.ɵdc = AckSectionTemplates;
@@ -4370,28 +4373,28 @@
     exports.ɵdo = string$3;
     exports.ɵdp = RouteReporter;
     exports.ɵdq = RouteHistory;
-    exports.ɵe = PreventEnterKey;
-    exports.ɵf = InputHint;
-    exports.ɵg = FormChanged;
-    exports.ɵh = FormAlter;
-    exports.ɵi = screenDirectives;
-    exports.ɵj = IndexTrack;
-    exports.ɵk = Stringify;
-    exports.ɵl = ForceArray;
-    exports.ɵm = ArrayOfObjects;
-    exports.ɵn = SafeUrl;
-    exports.ɵo = NumberWord;
-    exports.ɵp = EndNumberWord;
-    exports.ɵq = SafeHtml;
-    exports.ɵr = SafeStyle;
-    exports.ɵs = Between;
-    exports.ɵt = ReplaceMaxLength;
-    exports.ɵu = TextDownload;
-    exports.ɵv = NumberToPhone;
-    exports.ɵw = toNumber$1;
-    exports.ɵx = NumberSuffix;
-    exports.ɵy = MarkdownAnchor;
-    exports.ɵz = Capitalize;
+    exports.ɵe = ForceArray;
+    exports.ɵf = ArrayOfObjects;
+    exports.ɵg = SafeUrl;
+    exports.ɵh = NumberWord;
+    exports.ɵi = EndNumberWord;
+    exports.ɵj = SafeHtml;
+    exports.ɵk = SafeStyle;
+    exports.ɵl = Between;
+    exports.ɵm = ReplaceMaxLength;
+    exports.ɵn = TextDownload;
+    exports.ɵo = NumberToPhone;
+    exports.ɵp = toNumber$1;
+    exports.ɵq = NumberSuffix;
+    exports.ɵr = MarkdownAnchor;
+    exports.ɵs = Capitalize;
+    exports.ɵt = CapitalizeWords;
+    exports.ɵu = Yesno;
+    exports.ɵv = YesNo;
+    exports.ɵw = BooleanPipe;
+    exports.ɵx = Bit;
+    exports.ɵy = Numbers;
+    exports.ɵz = ADate;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

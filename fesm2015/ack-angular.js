@@ -1,11 +1,11 @@
 import { EventEmitter, Injectable, Output, Component, ElementRef, Input, ContentChild, Directive, ViewChild, ContentChildren, TemplateRef, IterableDiffers, HostListener, Pipe, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { animations } from 'ack-angular-fx';
-import { ack as ack$1 } from 'ack-x/js/index-browser';
+import { ack as ack$1 } from 'ack-x/es/index-browser';
+export { ack } from 'ack-x/es/index-browser';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NavigationEnd, Router, ActivatedRoute, RouterModule } from '@angular/router';
-export { ack } from 'ack-x/browser';
 
 //import { Subscription } from "rxjs/internal/Subscription"
 class HtmlSizeService {
@@ -2892,6 +2892,8 @@ FormAlter.ctorParameters = () => [
 FormAlter.propDecorators = {
     formAlter: [{ type: Output }]
 };
+
+//COMPONENTS
 const screenDirectives = [
     ScreenScrollModelY,
     ScreenWidthModel,
@@ -2947,6 +2949,7 @@ const declarations$1 = [
     AckFixedElement,
     AckFixedElementStage
 ];
+// export default declarations
 
 /* ONLY THIS FILE */
 class IndexTrack {
@@ -3256,6 +3259,7 @@ AckModule.decorators = [
                 exports: declarations$3
             },] }
 ];
+// export default AckModule
 
 //import { StateService,TransitionService,Transition } from "ui-router-ng2";
 /** A stateful connection to ui-router history
@@ -3701,5 +3705,5 @@ AckRouterModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { AckApp, AckArray, AckModule, AckRouterModule, DocumentService, ErrorLog, HtmlSizeService, Log, Prompts, RouteWatchReporter, UrlVars, WindowService, declarations$1 as components, declarations$2 as pipes, providers, providers$1 as ɵa, EnterKey as ɵb, CapitalizeWords as ɵba, Yesno as ɵbb, YesNo as ɵbc, BooleanPipe as ɵbd, Bit as ɵbe, Numbers as ɵbf, ADate as ɵbg, AMath as ɵbh, AString as ɵbi, ATime as ɵbj, Ack as ɵbk, Keys as ɵbl, TypeofPipe as ɵbm, ConsolePipe as ɵbn, InitDirective as ɵbo, SelectOn as ɵbp, FocusOn as ɵbq, VarDirective as ɵbr, ContentModel as ɵbs, InnerHtmlModel as ɵbt, ReplaceModel as ɵbu, ScreenScrollModelY as ɵbv, ScreenWidthModel as ɵbw, ScreenHeightModel as ɵbx, ScreenScroll as ɵby, ScrollPastFixed as ɵbz, EscapeKey as ɵc, string$a as ɵca, ScreenScrollHeightDiff as ɵcb, PxFromHtmlTop as ɵcc, HtmlWidthModel as ɵcd, HtmlHeightModel as ɵce, ShakeOn as ɵcf, FxOn as ɵcg, StatusOnlineModel as ɵch, StatusOfflineModel as ɵci, ElementSizeModel as ɵcj, ElementHeightModel as ɵck, ElementWidthModel as ɵcl, DebugItem as ɵcm, DebugArea as ɵcn, declarations as ɵco, string$9 as ɵcp, ErrorWell as ɵcq, string$7 as ɵcr, AbsoluteOverflowX as ɵcs, string$6 as ɵct, ReaderHeaderBody as ɵcu, ReaderHeader as ɵcv, ReaderBody as ɵcw, string$8 as ɵcx, AckCloseIcon as ɵcy, AckSections as ɵcz, PreventBackKey as ɵd, string as ɵda, SectionProvider as ɵdb, AckSectionTemplates as ɵdc, AckOptions as ɵdd, string$4 as ɵde, AckOptionsModal as ɵdf, string$5 as ɵdg, AckModal as ɵdh, string$1 as ɵdi, AckModalLayout as ɵdj, string$2 as ɵdk, AckAggregate as ɵdl, AckFixedElement as ɵdm, AckFixedElementStage as ɵdn, string$3 as ɵdo, RouteReporter as ɵdp, RouteHistory as ɵdq, PreventEnterKey as ɵe, InputHint as ɵf, FormChanged as ɵg, FormAlter as ɵh, screenDirectives as ɵi, IndexTrack as ɵj, Stringify as ɵk, ForceArray as ɵl, ArrayOfObjects as ɵm, SafeUrl as ɵn, NumberWord as ɵo, EndNumberWord as ɵp, SafeHtml as ɵq, SafeStyle as ɵr, Between as ɵs, ReplaceMaxLength as ɵt, TextDownload as ɵu, NumberToPhone as ɵv, toNumber$1 as ɵw, NumberSuffix as ɵx, MarkdownAnchor as ɵy, Capitalize as ɵz };
+export { AckApp, AckArray, AckModule, AckRouterModule, DocumentService, ErrorLog, HtmlSizeService, Log, Prompts, RouteWatchReporter, UrlVars, WindowService, declarations$1 as components, declarations$2 as pipes, providers, providers$1 as ɵa, screenDirectives as ɵb, AMath as ɵba, AString as ɵbb, ATime as ɵbc, Ack as ɵbd, Keys as ɵbe, TypeofPipe as ɵbf, ConsolePipe as ɵbg, InitDirective as ɵbh, SelectOn as ɵbi, FocusOn as ɵbj, VarDirective as ɵbk, ContentModel as ɵbl, InnerHtmlModel as ɵbm, ReplaceModel as ɵbn, EnterKey as ɵbo, EscapeKey as ɵbp, PreventBackKey as ɵbq, PreventEnterKey as ɵbr, InputHint as ɵbs, FormChanged as ɵbt, FormAlter as ɵbu, ScreenScrollModelY as ɵbv, ScreenWidthModel as ɵbw, ScreenHeightModel as ɵbx, ScreenScroll as ɵby, ScrollPastFixed as ɵbz, IndexTrack as ɵc, string$a as ɵca, ScreenScrollHeightDiff as ɵcb, PxFromHtmlTop as ɵcc, HtmlWidthModel as ɵcd, HtmlHeightModel as ɵce, ShakeOn as ɵcf, FxOn as ɵcg, StatusOnlineModel as ɵch, StatusOfflineModel as ɵci, ElementSizeModel as ɵcj, ElementHeightModel as ɵck, ElementWidthModel as ɵcl, DebugItem as ɵcm, DebugArea as ɵcn, declarations as ɵco, string$9 as ɵcp, ErrorWell as ɵcq, string$7 as ɵcr, AbsoluteOverflowX as ɵcs, string$6 as ɵct, ReaderHeaderBody as ɵcu, ReaderHeader as ɵcv, ReaderBody as ɵcw, string$8 as ɵcx, AckCloseIcon as ɵcy, AckSections as ɵcz, Stringify as ɵd, string as ɵda, SectionProvider as ɵdb, AckSectionTemplates as ɵdc, AckOptions as ɵdd, string$4 as ɵde, AckOptionsModal as ɵdf, string$5 as ɵdg, AckModal as ɵdh, string$1 as ɵdi, AckModalLayout as ɵdj, string$2 as ɵdk, AckAggregate as ɵdl, AckFixedElement as ɵdm, AckFixedElementStage as ɵdn, string$3 as ɵdo, RouteReporter as ɵdp, RouteHistory as ɵdq, ForceArray as ɵe, ArrayOfObjects as ɵf, SafeUrl as ɵg, NumberWord as ɵh, EndNumberWord as ɵi, SafeHtml as ɵj, SafeStyle as ɵk, Between as ɵl, ReplaceMaxLength as ɵm, TextDownload as ɵn, NumberToPhone as ɵo, toNumber$1 as ɵp, NumberSuffix as ɵq, MarkdownAnchor as ɵr, Capitalize as ɵs, CapitalizeWords as ɵt, Yesno as ɵu, YesNo as ɵv, BooleanPipe as ɵw, Bit as ɵx, Numbers as ɵy, ADate as ɵz };
 //# sourceMappingURL=ack-angular.js.map
