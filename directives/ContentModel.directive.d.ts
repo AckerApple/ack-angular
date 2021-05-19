@@ -8,7 +8,7 @@ export declare class ContentModel implements OnChanges, OnDestroy {
     placeholder?: string;
     maxLength?: number;
     enterEnds?: boolean;
-    enter: EventEmitter<void>;
+    enter: EventEmitter<string>;
     recentInputs: number;
     lastValue?: string;
     constructor(elm: ElementRef);

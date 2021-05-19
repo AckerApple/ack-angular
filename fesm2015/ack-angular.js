@@ -2062,7 +2062,7 @@ class ContentModel {
         if (cancel) {
             this.onBlur();
             cancelEvent(event);
-            this.enter.emit();
+            this.enter.emit(this.contentModel);
             return;
         }
         if (this.maxLength) {
