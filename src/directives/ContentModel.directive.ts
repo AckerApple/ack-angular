@@ -17,7 +17,7 @@ import {
   @Input() maxLength?: number;
 
   @Input() enterEnds?: boolean
-  @Output() enter: EventEmitter<void> = new EventEmitter(); // fires when enter key used
+  @Output() enter: EventEmitter<string> = new EventEmitter(); // fires when enter key used
 
   recentInputs = 0; // check in/out user input to prevent updating content right after user input
   lastValue?: string;
@@ -71,7 +71,7 @@ import {
     if (cancel) {
       this.onBlur()
       cancelEvent(event)
-      this.enter.emit()
+      this.enter.emit(this.contentModel)
       return;
     }
 
