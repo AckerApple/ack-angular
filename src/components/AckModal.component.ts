@@ -12,11 +12,12 @@ import {
 } from "@angular/core"
 
 import { AckApp } from "../providers/AckApp.provider"
-import { string } from "./templates/ack-modal.pug"
+// import { string } from "./templates/ack-modal.pug"
 
 @Component({
   selector:"ack-modal",
-  template:string
+  templateUrl: './ack-modal.component.html',
+  // template:string
   //,exportAs:"AckModal"
   //,animations:animations
 }) export class AckModal{
