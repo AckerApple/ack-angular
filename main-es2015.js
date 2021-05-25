@@ -599,21 +599,6 @@ AckRouterModule = AckRouterModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__[
 
 /***/ }),
 
-/***/ "3xAj":
-/*!***************************************************!*\
-  !*** ./src/components/templates/ack-modal.pug.ts ***!
-  \***************************************************/
-/*! exports provided: string */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "string", function() { return string; });
-const string = "<ng-template #placeholder=\"\"><ack-modal-layout [zIndex]=\"zIndex\" (close)=\"close.emit($event)\" [isModelMode]=\"isModelMode==null ? showModelChange.observers.length : isModelMode\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit(showModel=$event)\" [backgroundColor]=\"backgroundColor\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [allowClose]=\"allowClose\"><ng-template [ngTemplateOutlet]=\"body\"></ng-template><ng-content *ngIf=\"!body\"></ng-content></ack-modal-layout></ng-template><ng-template *ngIf=\"!AckApp.fixedElementStage || inline\" [ngTemplateOutlet]=\"layout\"></ng-template>";
-
-
-/***/ }),
-
 /***/ "4Ihc":
 /*!**********************************************!*\
   !*** ./src/directives/AckArray.directive.ts ***!
@@ -1255,9 +1240,9 @@ HtmlWidthModel = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AckModal", function() { return AckModal; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
-/* harmony import */ var _providers_AckApp_provider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../providers/AckApp.provider */ "6x/B");
-/* harmony import */ var _templates_ack_modal_pug__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./templates/ack-modal.pug */ "3xAj");
+/* harmony import */ var _raw_loader_ack_modal_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./ack-modal.component.html */ "lfps");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+/* harmony import */ var _providers_AckApp_provider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../providers/AckApp.provider */ "6x/B");
 
 
 
@@ -1268,8 +1253,8 @@ let AckModal = class AckModal {
         this.AckApp = AckApp;
         this.allowClose = true;
         this.zIndex = 20;
-        this.showModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.close = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.showModelChange = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
+        this.close = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
         Promise.resolve().then(() => this.determineStage());
     }
     determineStage() {
@@ -1288,30 +1273,30 @@ let AckModal = class AckModal {
     }
 };
 AckModal.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },
-    { type: _providers_AckApp_provider__WEBPACK_IMPORTED_MODULE_2__["AckApp"] }
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["ElementRef"] },
+    { type: _providers_AckApp_provider__WEBPACK_IMPORTED_MODULE_3__["AckApp"] }
 ];
 AckModal.propDecorators = {
-    body: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChild"], args: ['body',] }],
-    layout: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['placeholder',] }],
-    inline: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    isModelMode: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    allowClose: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    zIndex: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    wrapStyle: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    wrapCellStyle: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    backgroundColor: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    showModel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    showModelChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
-    close: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
+    body: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["ContentChild"], args: ['body',] }],
+    layout: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"], args: ['placeholder',] }],
+    inline: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }],
+    isModelMode: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }],
+    allowClose: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }],
+    zIndex: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }],
+    wrapStyle: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }],
+    wrapCellStyle: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }],
+    backgroundColor: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }],
+    showModel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }],
+    showModelChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Output"] }],
+    close: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Output"] }]
 };
 AckModal = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         selector: "ack-modal",
-        template: _templates_ack_modal_pug__WEBPACK_IMPORTED_MODULE_3__["string"]
+        template: _raw_loader_ack_modal_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"],
-        _providers_AckApp_provider__WEBPACK_IMPORTED_MODULE_2__["AckApp"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_2__["ElementRef"],
+        _providers_AckApp_provider__WEBPACK_IMPORTED_MODULE_3__["AckApp"]])
 ], AckModal);
 
 
@@ -4918,7 +4903,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! exports provided: name, version, description, main, typings, scripts, repository, keywords, author, license, bugs, homepage, dependencies, devDependencies, ngPackage, private, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"ack-angular\",\"version\":\"2.0.8\",\"description\":\"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\",\"main\":\"dist/index.js\",\"typings\":\"dist/index.d.ts\",\"scripts\":{\"start\":\"ng serve example --port 4201 --open\",\"build:index\":\"pug example/src/index.pug --out example/src\",\"stats\":\"webpack-bundle-analyzer example/www/stats.json\",\"install:example\":\"npm install --prefix example\",\"test\":\"ng test --browser PhantomJS --single-run\",\"test:watch\":\"ng test\",\"build:offline\":\"ngc --project modules/offline/tsconfig.json\",\"build:dist:ng\":\"ngc --project src/tsconfig.json\",\"build:dist\":\"ng-packagr -p package.json\",\"watch:dist\":\"watch \\\"npm-run-all build:dist\\\" src/ --ignoreDirectoryPattern=/pugs/\",\"build:assets\":\"npm-run-all build:assets:src build:assets:example compile:templates\",\"build:assets:src\":\"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts\",\"build:assets:example\":\"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts\",\"watch:assets\":\"npm-run-all --parallel \\\"build:assets:src -- --watch\\\" \\\"build:assets:example -- --watch\\\" \\\"compile:templates -- --watch\\\"\",\"compile:templates\":\"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne\",\"watch\":\"npm-run-all --parallel build:index watch:dist watch:assets watch:js\",\"watch:js\":\"ng serve example --port 4201 --open\",\"build:js\":\"ng build example --stats-json\",\"build:universal\":\"npm-run-all build:index build:assets\",\"build\":\"npm-run-all build:universal build:dist compile:dist:package copy:scss build:js\",\"copy:scss\":\"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss\",\"compile:dist:package\":\"node scripts/update-dist-package.js\",\"save\":\"git add . && git commit -m \\\"update\\\" && git push\",\"deploy\":\"npm-run-all build deploy:gh-pages deploy:npm save\",\"deploy:npm\":\"cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \\\"update\\\" && git push && npm publish\",\"deploy:gh-pages\":\"cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \\\"update\\\" && git push\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/AckerApple/ack-angular.git\"},\"keywords\":[\"ng\",\"Angular\",\"directives\",\"components\",\"pipes\",\"providers\"],\"author\":\"Acker Dawn Apple\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/AckerApple/ack-angular/issues\"},\"homepage\":\"https://github.com/AckerApple/ack-angular#readme\",\"dependencies\":{\"ack-angular-fx\":\"^4.1.0\",\"ack-css-boot\":\"^2.0.4\",\"ack-x\":\"^2.1.1\",\"animate.css\":\"^4.1.1\",\"csshake\":\"^1.5.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1102.8\",\"@angular-devkit/build-ng-packagr\":\"^0.1002.0\",\"@angular/animations\":\"^11.2.9\",\"@angular/cli\":\"^12.0.0\",\"@angular/common\":\"^11.2.9\",\"@angular/compiler\":\"^11.2.9\",\"@angular/compiler-cli\":\"^11.2.9\",\"@angular/core\":\"^12.0.0\",\"@angular/forms\":\"^11.2.9\",\"@angular/platform-browser\":\"^11.2.9\",\"@angular/platform-browser-dynamic\":\"^11.2.9\",\"@angular/router\":\"^11.2.9\",\"@types/jasmine\":\"^3.6.9\",\"ack-path\":\"^1.8.0\",\"ack-pug-bundler\":\"^1.4.8\",\"classlist-polyfill\":\"^1.2.0\",\"jasmine\":\"^3.7.0\",\"karma\":\"^6.3.2\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-coverage-istanbul-reporter\":\"^3.0.3\",\"karma-jasmine\":\"^4.0.1\",\"karma-jasmine-html-reporter\":\"^1.5.4\",\"karma-phantomjs-launcher\":\"^1.0.4\",\"localforage\":\"^1.9.0\",\"ng-packagr\":\"^11.2.4\",\"ngx-page-scroll\":\"^7.0.4\",\"ngx-page-scroll-core\":\"^7.0.4\",\"npm-run-all\":\"^4.1.5\",\"phantomjs-prebuilt\":\"^2.1.16\",\"pug\":\"^3.0.2\",\"pug-attrs\":\"^3.0.0\",\"pug-cli\":\"^1.0.0-alpha6\",\"reflect-metadata\":\"^0.1.13\",\"rxjs\":\"^6.6.7\",\"ts-helpers\":\"^1.1.2\",\"ts-node\":\"^9.1.1\",\"typescript\":\"4.0.5\",\"webpack-bundle-analyzer\":\"^4.4.1\",\"zone.js\":\"~0.11.4\"},\"ngPackage\":{\"lib\":{\"entryFile\":\"src/index.ts\"},\"allowedNonPeerDependencies\":[\"ack-angular-fx\",\"ack-css-boot\",\"ack-x\",\"animate.css\",\"csshake\"]},\"private\":true}");
+module.exports = JSON.parse("{\"name\":\"ack-angular\",\"version\":\"2.0.9\",\"description\":\"Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2\",\"main\":\"dist/index.js\",\"typings\":\"dist/index.d.ts\",\"scripts\":{\"start\":\"ng serve example --port 4201 --open\",\"build:index\":\"pug example/src/index.pug --out example/src\",\"stats\":\"webpack-bundle-analyzer example/www/stats.json\",\"install:example\":\"npm install --prefix example\",\"test\":\"ng test --browser PhantomJS --single-run\",\"test:watch\":\"ng test\",\"build:offline\":\"ngc --project modules/offline/tsconfig.json\",\"build:dist:ng\":\"ngc --project src/tsconfig.json\",\"build:dist\":\"ng-packagr -p package.json\",\"watch:dist\":\"watch \\\"npm-run-all build:dist\\\" src/ --ignoreDirectoryPattern=/pugs/\",\"build:assets\":\"npm-run-all build:assets:src build:assets:example compile:templates\",\"build:assets:src\":\"ack-pug-bundler src/components/pugs/ src/components/templates/ --oneToOne --outType ts\",\"build:assets:example\":\"ack-pug-bundler example/src/pugs/ example/src/templates/ --oneToOne --outType ts\",\"watch:assets\":\"npm-run-all --parallel \\\"build:assets:src -- --watch\\\" \\\"build:assets:example -- --watch\\\" \\\"compile:templates -- --watch\\\"\",\"compile:templates\":\"ack-pug-bundler ./src/ ./src/ --outFileExt template.ts --outType ts --oneToOne\",\"watch\":\"npm-run-all --parallel build:index watch:dist watch:assets watch:js\",\"watch:js\":\"ng serve example --port 4201 --open\",\"build:js\":\"ng build example --stats-json\",\"build:universal\":\"npm-run-all build:index build:assets\",\"build\":\"npm-run-all build:universal build:dist compile:dist:package copy:scss build:js\",\"copy:scss\":\"ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss\",\"compile:dist:package\":\"node scripts/update-dist-package.js\",\"save\":\"git add . && git commit -m \\\"update\\\" && git push\",\"deploy\":\"npm-run-all build deploy:gh-pages deploy:npm save\",\"deploy:npm\":\"cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \\\"update\\\" && git push && npm publish\",\"deploy:gh-pages\":\"cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \\\"update\\\" && git push\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/AckerApple/ack-angular.git\"},\"keywords\":[\"ng\",\"Angular\",\"directives\",\"components\",\"pipes\",\"providers\"],\"author\":\"Acker Dawn Apple\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/AckerApple/ack-angular/issues\"},\"homepage\":\"https://github.com/AckerApple/ack-angular#readme\",\"dependencies\":{\"ack-angular-fx\":\"^4.1.0\",\"ack-css-boot\":\"^2.0.4\",\"ack-x\":\"^2.1.1\",\"animate.css\":\"^4.1.1\",\"csshake\":\"^1.5.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1102.8\",\"@angular-devkit/build-ng-packagr\":\"^0.1002.0\",\"@angular/animations\":\"^11.2.9\",\"@angular/cli\":\"^12.0.0\",\"@angular/common\":\"^11.2.9\",\"@angular/compiler\":\"^11.2.9\",\"@angular/compiler-cli\":\"^11.2.9\",\"@angular/core\":\"^12.0.0\",\"@angular/forms\":\"^11.2.9\",\"@angular/platform-browser\":\"^11.2.9\",\"@angular/platform-browser-dynamic\":\"^11.2.9\",\"@angular/router\":\"^11.2.9\",\"@types/jasmine\":\"^3.6.9\",\"ack-path\":\"^1.8.0\",\"ack-pug-bundler\":\"^1.4.8\",\"classlist-polyfill\":\"^1.2.0\",\"jasmine\":\"^3.7.0\",\"karma\":\"^6.3.2\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-coverage-istanbul-reporter\":\"^3.0.3\",\"karma-jasmine\":\"^4.0.1\",\"karma-jasmine-html-reporter\":\"^1.5.4\",\"karma-phantomjs-launcher\":\"^1.0.4\",\"localforage\":\"^1.9.0\",\"ng-packagr\":\"^11.2.4\",\"ngx-page-scroll\":\"^7.0.4\",\"ngx-page-scroll-core\":\"^7.0.4\",\"npm-run-all\":\"^4.1.5\",\"phantomjs-prebuilt\":\"^2.1.16\",\"pug\":\"^3.0.2\",\"pug-attrs\":\"^3.0.0\",\"pug-cli\":\"^1.0.0-alpha6\",\"reflect-metadata\":\"^0.1.13\",\"rxjs\":\"^6.6.7\",\"ts-helpers\":\"^1.1.2\",\"ts-node\":\"^9.1.1\",\"typescript\":\"4.0.5\",\"webpack-bundle-analyzer\":\"^4.4.1\",\"zone.js\":\"~0.11.4\"},\"ngPackage\":{\"lib\":{\"entryFile\":\"src/index.ts\"},\"allowedNonPeerDependencies\":[\"ack-angular-fx\",\"ack-css-boot\",\"ack-x\",\"animate.css\",\"csshake\"]},\"private\":true}");
 
 /***/ }),
 
@@ -4934,6 +4919,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "string", function() { return string; });
 const string = "<div style=\"text-align:center;height:100%\"><div style=\"display:inline-block;width:100%;height:100%;max-width:1000px\"><div style=\"width:100%;height:100%;\"><table cellpadding=\"0\" cellspacing=\"0\" style=\"width:100%;height:100%;\"><tr *ngIf=\"readerHeader\"><td><ng-template *ngTemplateOutlet=\"readerHeader\"></ng-template></td></tr><tr><td style=\"height:100%\"><ng-content></ng-content></td></tr></table></div></div></div>";
 
+
+/***/ }),
+
+/***/ "lfps":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/components/ack-modal.component.html ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- create a display hook for ack-fixed-element-stage to hook onto (must be first ng-template) -->\n<ng-template #placeholder=\"\">\n  <ack-modal-layout\n    [zIndex]           = \"zIndex\"\n    (close)           = \"close.emit($event)\"\n    [isModelMode]     = \"isModelMode==null ? showModelChange.observers.length : isModelMode\"\n    [showModel]       = \"showModel\"\n    (showModelChange) = \"showModelChange.emit(showModel=$event)\"\n    [backgroundColor] = \"backgroundColor\"\n    [wrapStyle]       = \"wrapStyle\"\n    [wrapCellStyle]   = \"wrapCellStyle\"\n    [allowClose]      = \"allowClose\"\n  >\n    <ng-template [ngTemplateOutlet]=\"body\"></ng-template>\n    <ng-content *ngIf=\"!body\"></ng-content>\n  </ack-modal-layout>\n</ng-template>\n\n<!-- if no ack-fixed-element-stage tag present, then render in-place -->\n<ng-template *ngIf = \"!AckApp.fixedElementStage || inline\" [ngTemplateOutlet]=\"layout\"></ng-template>\n");
 
 /***/ }),
 
