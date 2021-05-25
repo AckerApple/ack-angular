@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [2.0.8] - 2021-05-25
+- fix modal layout
+
 ## [2.0.0] - 2021-05-12
 - AckOffline not apart of main build
 
