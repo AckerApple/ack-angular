@@ -19,6 +19,11 @@ import {
   @Input() enterEnds?: boolean
   @Output() enter: EventEmitter<string> = new EventEmitter(); // fires when enter key used
 
+  @Input() hasFocus?: boolean
+  @Output() hasFocusChange: EventEmitter<boolean> = new EventEmitter(); // fires when enter key used
+
+
+
   recentInputs = 0; // check in/out user input to prevent updating content right after user input
   lastValue?: string;
 
@@ -115,6 +120,7 @@ import {
   }
 
   @HostListener('focus') onFocus() {
+    this.hasFocusChange.emit(this.hasFocus = true)
     this.lastValue = this.contentModel;
     this.evalPlaceholder('');
     /* 10-12: moved into keydown check
@@ -136,6 +142,7 @@ import {
     }
 
     this.evalPlaceholder();
+    this.hasFocusChange.emit(this.hasFocus = false)
   }
 }
 

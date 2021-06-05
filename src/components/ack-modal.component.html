@@ -1,7 +1,6 @@
-<!-- create a display hook for ack-fixed-element-stage to hook onto (must be first ng-template) -->
-<ng-template #placeholder="">
+<ng-template #placeholder>
   <ack-modal-layout
-    [zIndex]           = "zIndex"
+    [zIndex]          = "zIndex"
     (close)           = "close.emit($event)"
     [isModelMode]     = "isModelMode==null ? showModelChange.observers.length : isModelMode"
     [showModel]       = "showModel"
@@ -16,5 +15,7 @@
   </ack-modal-layout>
 </ng-template>
 
-<!-- if no ack-fixed-element-stage tag present, then render in-place -->
-<ng-template *ngIf = "!AckApp.fixedElementStage || inline" [ngTemplateOutlet]="layout"></ng-template>
+<ng-template
+  *ngIf="!AckApp.fixedElementStage || inline"
+  [ngTemplateOutlet]="layout"
+></ng-template>

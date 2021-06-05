@@ -1,5 +1,4 @@
 import {
-//  Directive,
   Component,
   Input,
   Output,
@@ -9,12 +8,13 @@ import {
 
 import { AckApp } from "../providers/AckApp.provider"
 import { animations } from "ack-angular-fx"
-import { string } from "./templates/ack-modal-layout.pug"
+// import { string } from "./templates/ack-modal-layout.pug"
 
 @Component({
   selector:'ack-modal-layout',
-  template:string,
-  animations:animations
+  // template:string,
+  templateUrl: './ack-modal-layout.component.html',
+  animations
 }) export class AckModalLayout{
   @Input() zIndex: number = 20
   @Output() close: EventEmitter<AckModalLayout> = new EventEmitter()
