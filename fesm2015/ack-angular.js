@@ -456,7 +456,7 @@ class AckModal {
 AckModal.decorators = [
     { type: Component, args: [{
                 selector: "ack-modal",
-                template: "<!-- create a display hook for ack-fixed-element-stage to hook onto (must be first ng-template) -->\n<ng-template #placeholder=\"\">\n  <ack-modal-layout\n    [zIndex]           = \"zIndex\"\n    (close)           = \"close.emit($event)\"\n    [isModelMode]     = \"isModelMode==null ? showModelChange.observers.length : isModelMode\"\n    [showModel]       = \"showModel\"\n    (showModelChange) = \"showModelChange.emit(showModel=$event)\"\n    [backgroundColor] = \"backgroundColor\"\n    [wrapStyle]       = \"wrapStyle\"\n    [wrapCellStyle]   = \"wrapCellStyle\"\n    [allowClose]      = \"allowClose\"\n  >\n    <ng-template [ngTemplateOutlet]=\"body\"></ng-template>\n    <ng-content *ngIf=\"!body\"></ng-content>\n  </ack-modal-layout>\n</ng-template>\n\n<!-- if no ack-fixed-element-stage tag present, then render in-place -->\n<ng-template *ngIf = \"!AckApp.fixedElementStage || inline\" [ngTemplateOutlet]=\"layout\"></ng-template>\n"
+                template: "<ng-template #placeholder>\n  <ack-modal-layout\n    [zIndex]          = \"zIndex\"\n    (close)           = \"close.emit($event)\"\n    [isModelMode]     = \"isModelMode==null ? showModelChange.observers.length : isModelMode\"\n    [showModel]       = \"showModel\"\n    (showModelChange) = \"showModelChange.emit(showModel=$event)\"\n    [backgroundColor] = \"backgroundColor\"\n    [wrapStyle]       = \"wrapStyle\"\n    [wrapCellStyle]   = \"wrapCellStyle\"\n    [allowClose]      = \"allowClose\"\n  >\n    <ng-template [ngTemplateOutlet]=\"body\"></ng-template>\n    <ng-content *ngIf=\"!body\"></ng-content>\n  </ack-modal-layout>\n</ng-template>\n\n<ng-template\n  *ngIf=\"!AckApp.fixedElementStage || inline\"\n  [ngTemplateOutlet]=\"layout\"\n></ng-template>\n"
             },] }
 ];
 AckModal.ctorParameters = () => [
@@ -478,8 +478,7 @@ AckModal.propDecorators = {
     close: [{ type: Output }]
 };
 
-const string$1 = "<div *ngIf=\"showModel || !isModelMode\" [@fadeInOutUp]=\"1\" style=\"position:fixed;top:0;left:0;height:100%;width:100%;overflow:auto;\" [style.z-index]=\"zIndex || 20\"><div style=\"height:100%;width:100%;padding:20px;display:inline-table;\" [ngStyle]=\"{'background-color':backgroundColor || 'rgba(0,0,0,.7)'}\"><table style=\"height:100%;margin:auto\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" [ngStyle]=\"wrapStyle\"><tr><td (click)=\"allowClose ? fireClose() : 0\"></td></tr><tr><td valign=\"top\" [ngStyle]=\"wrapCellStyle\"><div *ngIf=\"allowClose\" style=\"position:relative\"><div style=\"position:absolute;bottom:-17px;right:-16px;border:1px solid #DDD;border-radius:50%;z-index:20\"><ack-close-icon (click)=\"fireClose()\"></ack-close-icon></div></div><ng-content></ng-content></td></tr><tr><td (click)=\"allowClose ? fireClose() : 0\"></td></tr></table></div></div>";
-
+// import { string } from "./templates/ack-modal-layout.pug"
 class AckModalLayout {
     //@Input() template:ElementRef<any>
     constructor(element, AckApp) {
@@ -521,8 +520,9 @@ class AckModalLayout {
 AckModalLayout.decorators = [
     { type: Component, args: [{
                 selector: 'ack-modal-layout',
-                template: string$1,
-                animations: animations
+                // template:string,
+                template: "<div *ngIf=\"showModel || !isModelMode\"\n  [@fadeInOutUp]=\"1\"\n  style=\"\n    position: fixed;\n    top: 0;\n    left: 0;\n    height: 100%;\n    width: 100%;\n    overflow: auto;\n  \"\n  [style.z-index]=\"zIndex || 20\"\n>\n  <div\n    style=\"height: 100%; width: 100%; padding: 20px; display: inline-table\"\n    [ngStyle]=\"{ 'background-color': backgroundColor || 'rgba(0,0,0,.7)' }\"\n  >\n    <table\n      style=\"height: 100%; margin: auto\"\n      border=\"0\"\n      align=\"center\"\n      cellpadding=\"0\"\n      cellspacing=\"0\"\n      [ngStyle]=\"wrapStyle\"\n    >\n      <tr>\n        <td (click)=\"allowClose ? fireClose() : 0\"></td>\n      </tr>\n      <tr>\n        <td valign=\"top\" [ngStyle]=\"wrapCellStyle\">\n          <div *ngIf=\"allowClose\" style=\"position: relative\">\n            <div\n              style=\"\n                position: absolute;\n                bottom: -17px;\n                right: -16px;\n                border: 1px solid #ddd;\n                border-radius: 50%;\n                z-index: 20;\n              \"\n            >\n              <ack-close-icon (click)=\"fireClose()\"></ack-close-icon>\n            </div>\n          </div>\n          <ng-content></ng-content>\n        </td>\n      </tr>\n      <tr>\n        <td (click)=\"allowClose ? fireClose() : 0\"></td>\n      </tr>\n    </table>\n  </div>\n</div>\n",
+                animations
             },] }
 ];
 AckModalLayout.ctorParameters = () => [
@@ -541,7 +541,7 @@ AckModalLayout.propDecorators = {
     showModelChange: [{ type: Output }]
 };
 
-const string$2 = "<ng-container *ngFor=\"let fixedElm of AckApp.fixedElms\"><ng-container *ngTemplateOutlet=\"fixedElm.content\"></ng-container></ng-container><ng-container *ngFor=\"let prompt of AckApp.prompts.prompts;let i=index\"><ack-modal-layout zIndex=\"99\" [allowClose]=\"0\"><div style=\"text-align:left;max-width:900px;border:1px solid #DDD;border-radius:5px;margin:1em;padding:1em;background-color:white;\"><h3 *ngIf=\"prompt.title\" style=\"margin-top:0;\">{{ prompt.title }}</h3><div style=\"padding-right:1em;\">{{ prompt.message }}</div><br/><br/><div style=\"text-align:right;\"><a *ngIf=\"prompt.type=='confirm'\" (click)=\"prompt.emitter.emit(false)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;margin-right:.5em;\">Cancel</a><a (click)=\"prompt.emitter.emit(true)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;\" [ngStyle]=\"{'font-weight':prompt.type=='confirm' ? 'bold' : null}\">OK</a></div></div></ack-modal-layout></ng-container><ng-container *ngFor=\"let item of AckApp.modals\"><ng-container *ngIf=\"!item.isModelMode || item.showModel\"><ng-template [ngTemplateOutlet]=\"item.layout\"></ng-template></ng-container></ng-container>";
+const string$1 = "<ng-container *ngFor=\"let fixedElm of AckApp.fixedElms\"><ng-container *ngTemplateOutlet=\"fixedElm.content\"></ng-container></ng-container><ng-container *ngFor=\"let prompt of AckApp.prompts.prompts;let i=index\"><ack-modal-layout zIndex=\"99\" [allowClose]=\"0\"><div style=\"text-align:left;max-width:900px;border:1px solid #DDD;border-radius:5px;margin:1em;padding:1em;background-color:white;\"><h3 *ngIf=\"prompt.title\" style=\"margin-top:0;\">{{ prompt.title }}</h3><div style=\"padding-right:1em;\">{{ prompt.message }}</div><br/><br/><div style=\"text-align:right;\"><a *ngIf=\"prompt.type=='confirm'\" (click)=\"prompt.emitter.emit(false)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;margin-right:.5em;\">Cancel</a><a (click)=\"prompt.emitter.emit(true)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;\" [ngStyle]=\"{'font-weight':prompt.type=='confirm' ? 'bold' : null}\">OK</a></div></div></ack-modal-layout></ng-container><ng-container *ngFor=\"let item of AckApp.modals\"><ng-container *ngIf=\"!item.isModelMode || item.showModel\"><ng-template [ngTemplateOutlet]=\"item.layout\"></ng-template></ng-container></ng-container>";
 
 class AckFixedElementStage {
     constructor(AckApp, ElementRef) {
@@ -553,7 +553,7 @@ class AckFixedElementStage {
 AckFixedElementStage.decorators = [
     { type: Component, args: [{
                 selector: 'ack-fixed-element-stage',
-                template: string$2
+                template: string$1
             },] }
 ];
 AckFixedElementStage.ctorParameters = () => [
@@ -884,7 +884,7 @@ class TemplateReader {
     }
 }
 
-const string$3 = "<div [ngClass]=\"{'border-grey-6x border-top':stylize}\"></div><div *ngFor=\"let item of array|array\" (click)=\"selectItem(item)\" [ngClass]=\"getItemClass(item)\"><ng-template *ngIf=\"TemplateReader.templates.selected &amp;&amp; isItemSelected(item)\" [ngTemplateOutlet]=\"TemplateReader.templates.selected\" [ngTemplateOutletContext]=\"{item:item}\"></ng-template><ng-template *ngIf=\"TemplateReader.templates.templateRef &amp;&amp; (!TemplateReader.templates.selected || !isItemSelected(item))\" [ngTemplateOutlet]=\"TemplateReader.templates.templateRef\" [ngTemplateOutletContext]=\"{item:item, selected:isItemSelected(item)}\"></ng-template><span *ngIf=\"!TemplateReader.templates.templateRef\">{{ item }}</span></div>";
+const string$2 = "<div [ngClass]=\"{'border-grey-6x border-top':stylize}\"></div><div *ngFor=\"let item of array|array\" (click)=\"selectItem(item)\" [ngClass]=\"getItemClass(item)\"><ng-template *ngIf=\"TemplateReader.templates.selected &amp;&amp; isItemSelected(item)\" [ngTemplateOutlet]=\"TemplateReader.templates.selected\" [ngTemplateOutletContext]=\"{item:item}\"></ng-template><ng-template *ngIf=\"TemplateReader.templates.templateRef &amp;&amp; (!TemplateReader.templates.selected || !isItemSelected(item))\" [ngTemplateOutlet]=\"TemplateReader.templates.templateRef\" [ngTemplateOutletContext]=\"{item:item, selected:isItemSelected(item)}\"></ng-template><span *ngIf=\"!TemplateReader.templates.templateRef\">{{ item }}</span></div>";
 
 class AckOptions {
     constructor(ElementRef) {
@@ -1025,7 +1025,7 @@ class AckOptions {
 AckOptions.decorators = [
     { type: Component, args: [{
                 selector: "ack-options",
-                template: string$3
+                template: string$2
                 //,exportAs:"AckOptions"
             },] }
 ];
@@ -1062,7 +1062,7 @@ function getParentByTagName(node, tagname) {
     return;
 }
 
-const string$4 = "<ack-modal (close)=\"close.emit($event)\" [allowClose]=\"allowClose\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit($event)\" [isModelMode]=\"showModelChange.observers.length\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [backgroundColor]=\"backgroundColor\" (backgroundColorChange)=\"backgroundColorChange.emit($event)\"><ng-content></ng-content><div class=\"border-grey-6x border bg-white\"><ack-options #ackOptions=\"\" [array]=\"array\" [max]=\"max\" [modelAsArray]=\"modelAsArray\" [model]=\"model\" (modelChange)=\"fireModelChange($event)\" [multiple]=\"multiple\" [toggleable]=\"toggleable\" [stylize]=\"stylize\" [inputTemplateRefs]=\"templateRefs\" [arrayKey]=\"arrayKey\" [arrayToModelKey]=\"arrayToModelKey\" [modelKey]=\"modelKey\"></ack-options></div></ack-modal>";
+const string$3 = "<ack-modal (close)=\"close.emit($event)\" [allowClose]=\"allowClose\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit($event)\" [isModelMode]=\"showModelChange.observers.length\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [backgroundColor]=\"backgroundColor\" (backgroundColorChange)=\"backgroundColorChange.emit($event)\"><ng-content></ng-content><div class=\"border-grey-6x border bg-white\"><ack-options #ackOptions=\"\" [array]=\"array\" [max]=\"max\" [modelAsArray]=\"modelAsArray\" [model]=\"model\" (modelChange)=\"fireModelChange($event)\" [multiple]=\"multiple\" [toggleable]=\"toggleable\" [stylize]=\"stylize\" [inputTemplateRefs]=\"templateRefs\" [arrayKey]=\"arrayKey\" [arrayToModelKey]=\"arrayToModelKey\" [modelKey]=\"modelKey\"></ack-options></div></ack-modal>";
 
 class AckOptionsModal extends AckOptions {
     constructor() {
@@ -1084,7 +1084,7 @@ class AckOptionsModal extends AckOptions {
 AckOptionsModal.decorators = [
     { type: Component, args: [{
                 selector: 'ack-options-modal',
-                template: string$4
+                template: string$3
             },] }
 ];
 AckOptionsModal.propDecorators = {
@@ -1098,7 +1098,7 @@ AckOptionsModal.propDecorators = {
     showModelChange: [{ type: Output }]
 };
 
-const string$5 = "<div [(elementHeightModel)]=\"elementHeightModel\" [ngClass]=\"wrapClass\" [class.no-scroll-bars]=\"active &amp;&amp; !scrollBars &amp;&amp; scrollBars!=null\" [ngStyle]=\"active ? {overflow:overflow,position:'absolute',width:'100%'} : {}\"><ng-content></ng-content></div><div *ngIf=\"elementHeightModel &amp;&amp; active\" style=\"visibility:hidden;overflow:hidden;width:100%\" [style.height.px]=\"elementHeightModel\">&nbsp;</div>";
+const string$4 = "<div [(elementHeightModel)]=\"elementHeightModel\" [ngClass]=\"wrapClass\" [class.no-scroll-bars]=\"active &amp;&amp; !scrollBars &amp;&amp; scrollBars!=null\" [ngStyle]=\"active ? {overflow:overflow,position:'absolute',width:'100%'} : {}\"><ng-content></ng-content></div><div *ngIf=\"elementHeightModel &amp;&amp; active\" style=\"visibility:hidden;overflow:hidden;width:100%\" [style.height.px]=\"elementHeightModel\">&nbsp;</div>";
 
 class AbsoluteOverflowX {
     constructor(ElementRef) {
@@ -1124,7 +1124,7 @@ class AbsoluteOverflowX {
 AbsoluteOverflowX.decorators = [
     { type: Component, args: [{
                 selector: 'absolute-overflow-x',
-                template: string$5
+                template: string$4
             },] }
 ];
 AbsoluteOverflowX.ctorParameters = () => [
@@ -1137,7 +1137,7 @@ AbsoluteOverflowX.propDecorators = {
     overflow: [{ type: Input }]
 };
 
-const string$6 = "<div *ngIf=\"error!=null &amp;&amp; errorClose!=error\" [@fadeInOutUp]=\"1\"><div *ngIf=\"error &amp;&amp; closable\" (click)=\"close.emit();errorClose=error\" style=\"position:relative\"><div style=\"position:absolute;bottom:-17px;right:-16px;border:1px solid #DDD;border-radius:50%;z-index:20\"><ack-close-icon></ack-close-icon></div></div><div class=\"pad-xxs\" *ngIf=\"error!=null &amp;&amp; errorClose!=error\" [@fadeInOutUp]=\"1\" [ngClass]=\"cssClasses\"><div class=\"flex-valign-center flex-wrap child-margin-xxs\"><div class=\"flex-1\"><div class=\"strong text-3x margin-0\" [class.cursor-pointer]=\"allowDetails\" (click)=\"!allowDetails || moreDetails=!moreDetails\">{{ getErrorMessage(error) }}</div></div><a class=\"text-blue underline text-xs\" *ngIf=\"allowDetails &amp;&amp; error &amp;&amp; (error|typeof)!='string'\" (click)=\"moreDetails=!moreDetails\">details</a></div><ng-container *ngTemplateOutlet=\"titleFooter\"></ng-container><div *ngIf=\"moreDetails\" [@fadeInOutUp]=\"1\"><absolute-overflow-x class=\"text-sm\"><pre class=\"margin-0 pad-xs\">{{ error|json }}</pre></absolute-overflow-x></div></div></div>";
+const string$5 = "<div *ngIf=\"error!=null &amp;&amp; errorClose!=error\" [@fadeInOutUp]=\"1\"><div *ngIf=\"error &amp;&amp; closable\" (click)=\"close.emit();errorClose=error\" style=\"position:relative\"><div style=\"position:absolute;bottom:-17px;right:-16px;border:1px solid #DDD;border-radius:50%;z-index:20\"><ack-close-icon></ack-close-icon></div></div><div class=\"pad-xxs\" *ngIf=\"error!=null &amp;&amp; errorClose!=error\" [@fadeInOutUp]=\"1\" [ngClass]=\"cssClasses\"><div class=\"flex-valign-center flex-wrap child-margin-xxs\"><div class=\"flex-1\"><div class=\"strong text-3x margin-0\" [class.cursor-pointer]=\"allowDetails\" (click)=\"!allowDetails || moreDetails=!moreDetails\">{{ getErrorMessage(error) }}</div></div><a class=\"text-blue underline text-xs\" *ngIf=\"allowDetails &amp;&amp; error &amp;&amp; (error|typeof)!='string'\" (click)=\"moreDetails=!moreDetails\">details</a></div><ng-container *ngTemplateOutlet=\"titleFooter\"></ng-container><div *ngIf=\"moreDetails\" [@fadeInOutUp]=\"1\"><absolute-overflow-x class=\"text-sm\"><pre class=\"margin-0 pad-xs\">{{ error|json }}</pre></absolute-overflow-x></div></div></div>";
 
 class ErrorWell {
     constructor() {
@@ -1160,7 +1160,7 @@ class ErrorWell {
 ErrorWell.decorators = [
     { type: Component, args: [{
                 selector: 'error-well',
-                template: string$6,
+                template: string$5,
                 animations: animations
             },] }
 ];
@@ -1175,7 +1175,7 @@ ErrorWell.propDecorators = {
     titleFooter: [{ type: ContentChild, args: ["titleFooter",] }]
 };
 
-const string$7 = "<div style=\"text-align:center;height:100%\"><div style=\"display:inline-block;width:100%;height:100%;max-width:1000px\"><div style=\"width:100%;height:100%;\"><table cellpadding=\"0\" cellspacing=\"0\" style=\"width:100%;height:100%;\"><tr *ngIf=\"readerHeader\"><td><ng-template *ngTemplateOutlet=\"readerHeader\"></ng-template></td></tr><tr><td style=\"height:100%\"><ng-content></ng-content></td></tr></table></div></div></div>";
+const string$6 = "<div style=\"text-align:center;height:100%\"><div style=\"display:inline-block;width:100%;height:100%;max-width:1000px\"><div style=\"width:100%;height:100%;\"><table cellpadding=\"0\" cellspacing=\"0\" style=\"width:100%;height:100%;\"><tr *ngIf=\"readerHeader\"><td><ng-template *ngTemplateOutlet=\"readerHeader\"></ng-template></td></tr><tr><td style=\"height:100%\"><ng-content></ng-content></td></tr></table></div></div></div>";
 
 //easy to use common full page templater
 class ReaderHeaderBody {
@@ -1183,7 +1183,7 @@ class ReaderHeaderBody {
 ReaderHeaderBody.decorators = [
     { type: Component, args: [{
                 selector: 'reader-header-body',
-                template: string$7
+                template: string$6
             },] }
 ];
 ReaderHeaderBody.propDecorators = {
@@ -1215,7 +1215,7 @@ ReaderBody.propDecorators = {
     readerHeader: [{ type: ContentChild, args: ['reader-header',] }]
 };
 
-const string$8 = "<div class=\"child-pad-h-xs flex-wrap text-center\" *ngIf=\"DebugItems.length&gt;1\"><a class=\"cursor-pointer border border-grey-3x radius-5 flex-1\" *ngFor=\"let item of DebugItems\" [ngClass]=\"item===debugItem ? 'bg-positive text-white' : ''\" (click)=\"debugItem = debugItem===item ? null : item\">{{item.name}}<ng-container *ngIf=\"item.type==='array'\">&nbsp;( {{ item.value?.length || 0 }} )</ng-container></a></div><ng-container *ngIf=\"debugItem\"><h3 class=\"margin-bottom-0\">{{ debugItem.name }}</h3><ng-container *ngIf=\"debugItem.type==='array';else regdebug\"><ng-container #loop=\"var\" [var]=\"{view:0}\"></ng-container><pre class=\"bg-grey-3x margin-0 sample-code\" *ngFor=\"let data of debugItem.value;let ii=index\"><ng-container *ngIf=\"loop.var.view==ii\"><div class=\"flex-valign-center child-pad-xs\" style=\"padding:.4em;float:right\"><a class=\"fas fa-caret-square-left hover-bg-energized\" (click)=\"loop.var.view=ii===0 ? debugItem.value.length-1 : ii-1\">&lt;</a><a style=\"color:blue;\" (click)=\"editsMap[ii]=!editsMap[ii]\">edit</a><a style=\"color:blue;\" (click)=\"debugItem.type=null\">all</a><a class=\"fas fa-caret-square-right hover-bg-energized\" (click)=\"loop.var.view=ii===debugItem.value.length-1 ? 0 : ii+1\">&gt;</a></div><p><ng-container *ngIf=\"debugItem.rowTitle;else defaultRowLabel\"><ng-template *ngTemplateOutlet=\"debugItem.rowTitle;context:{index:ii}\"></ng-template></ng-container><ng-template #defaultRowLabel=\"\"><strong>Result {{ii}} of {{debugItem.value.length}} </strong></ng-template></p><absolute-overflow-x *ngIf=\"!editsMap[ii]\" style=\"font-size:0.8em;\"><pre>{{ data | json }}</pre></absolute-overflow-x><ng-container *ngIf=\"editsMap[ii]\"><textarea [name]=\"'editsMap' + ii\" style=\"width:100%;height:300px\" (change)=\"dataString = $event.target.value\">{{ data | json }}</textarea><div style=\"text-align:center\"><a style=\"color:blue;padding-top:.4em;\" (click)=\"updateDataByJsonString(data, dataString, debugItem);editsMap[ii]=false\">save</a></div></ng-container></ng-container></pre></ng-container><ng-template #regdebug=\"\"><div class=\"pos-rel\"><div class=\"pos-abs right-0 z-index-10\"><div class=\"pad-xxs\"><i class=\"fas fa-pencil-alt hover-text-energized\" (click)=\"edit=!edit\" [class.text-calm]=\"edit\">edit</i></div></div></div><ng-container *ngIf=\"edit;else readMode\"><textarea class=\"width-full\" rows=\"30\" (change)=\"apply(debugItem.value,$event.target.value, debugItem)\" wrap=\"off\">{{ debugItem.value | json }}</textarea></ng-container><ng-template #readMode=\"\"><absolute-overflow-x><pre class=\"code-sample\">{{ debugItem.value | json }}</pre></absolute-overflow-x></ng-template></ng-template></ng-container>";
+const string$7 = "<div class=\"child-pad-h-xs flex-wrap text-center\" *ngIf=\"DebugItems.length&gt;1\"><a class=\"cursor-pointer border border-grey-3x radius-5 flex-1\" *ngFor=\"let item of DebugItems\" [ngClass]=\"item===debugItem ? 'bg-positive text-white' : ''\" (click)=\"debugItem = debugItem===item ? null : item\">{{item.name}}<ng-container *ngIf=\"item.type==='array'\">&nbsp;( {{ item.value?.length || 0 }} )</ng-container></a></div><ng-container *ngIf=\"debugItem\"><h3 class=\"margin-bottom-0\">{{ debugItem.name }}</h3><ng-container *ngIf=\"debugItem.type==='array';else regdebug\"><ng-container #loop=\"var\" [var]=\"{view:0}\"></ng-container><pre class=\"bg-grey-3x margin-0 sample-code\" *ngFor=\"let data of debugItem.value;let ii=index\"><ng-container *ngIf=\"loop.var.view==ii\"><div class=\"flex-valign-center child-pad-xs\" style=\"padding:.4em;float:right\"><a class=\"fas fa-caret-square-left hover-bg-energized\" (click)=\"loop.var.view=ii===0 ? debugItem.value.length-1 : ii-1\">&lt;</a><a style=\"color:blue;\" (click)=\"editsMap[ii]=!editsMap[ii]\">edit</a><a style=\"color:blue;\" (click)=\"debugItem.type=null\">all</a><a class=\"fas fa-caret-square-right hover-bg-energized\" (click)=\"loop.var.view=ii===debugItem.value.length-1 ? 0 : ii+1\">&gt;</a></div><p><ng-container *ngIf=\"debugItem.rowTitle;else defaultRowLabel\"><ng-template *ngTemplateOutlet=\"debugItem.rowTitle;context:{index:ii}\"></ng-template></ng-container><ng-template #defaultRowLabel=\"\"><strong>Result {{ii}} of {{debugItem.value.length}} </strong></ng-template></p><absolute-overflow-x *ngIf=\"!editsMap[ii]\" style=\"font-size:0.8em;\"><pre>{{ data | json }}</pre></absolute-overflow-x><ng-container *ngIf=\"editsMap[ii]\"><textarea [name]=\"'editsMap' + ii\" style=\"width:100%;height:300px\" (change)=\"dataString = $event.target.value\">{{ data | json }}</textarea><div style=\"text-align:center\"><a style=\"color:blue;padding-top:.4em;\" (click)=\"updateDataByJsonString(data, dataString, debugItem);editsMap[ii]=false\">save</a></div></ng-container></ng-container></pre></ng-container><ng-template #regdebug=\"\"><div class=\"pos-rel\"><div class=\"pos-abs right-0 z-index-10\"><div class=\"pad-xxs\"><i class=\"fas fa-pencil-alt hover-text-energized\" (click)=\"edit=!edit\" [class.text-calm]=\"edit\">edit</i></div></div></div><ng-container *ngIf=\"edit;else readMode\"><textarea class=\"width-full\" rows=\"30\" (change)=\"apply(debugItem.value,$event.target.value, debugItem)\" wrap=\"off\">{{ debugItem.value | json }}</textarea></ng-container><ng-template #readMode=\"\"><absolute-overflow-x><pre class=\"code-sample\">{{ debugItem.value | json }}</pre></absolute-overflow-x></ng-template></ng-template></ng-container>";
 
 class DebugItem {
     constructor() {
@@ -1266,7 +1266,7 @@ class DebugArea {
 DebugArea.decorators = [
     { type: Component, args: [{
                 selector: "debug-area",
-                template: string$8
+                template: string$7
             },] }
 ];
 DebugArea.propDecorators = {
@@ -1687,7 +1687,7 @@ function mergeObjects(ao, an) {
     Object.assign(ao, an);
 }
 
-const string$9 = "<div style=\"width:100%;top:0;z-index:1\" [style.position]=\"currentPosition\"><ng-content></ng-content></div><div [style.height.px]=\"fillHeight\"></div>";
+const string$8 = "<div style=\"width:100%;top:0;z-index:1\" [style.position]=\"currentPosition\"><ng-content></ng-content></div><div [style.height.px]=\"fillHeight\"></div>";
 
 class ScrollPastFixed {
     constructor(ElementRef) {
@@ -1727,7 +1727,7 @@ class ScrollPastFixed {
 ScrollPastFixed.decorators = [
     { type: Component, args: [{
                 selector: 'scroll-past-fixed',
-                template: string$9
+                template: string$8
             },] }
 ];
 ScrollPastFixed.ctorParameters = () => [
@@ -2021,6 +2021,7 @@ class ContentModel {
         // Below, avoid using (contentModelChange) ... use (inputChange) instead
         this.contentModelChange = new EventEmitter();
         this.enter = new EventEmitter(); // fires when enter key used
+        this.hasFocusChange = new EventEmitter(); // fires when enter key used
         this.recentInputs = 0; // check in/out user input to prevent updating content right after user input
         this.elm.nativeElement.setAttribute('contenteditable', true);
     }
@@ -2094,6 +2095,7 @@ class ContentModel {
         // this.lastValue = this.contentModel
     }
     onFocus() {
+        this.hasFocusChange.emit(this.hasFocus = true);
         this.lastValue = this.contentModel;
         this.evalPlaceholder('');
         /* 10-12: moved into keydown check
@@ -2112,6 +2114,7 @@ class ContentModel {
             this.changeDone.emit(this.contentModel);
         }
         this.evalPlaceholder();
+        this.hasFocusChange.emit(this.hasFocus = false);
     }
 }
 ContentModel.decorators = [
@@ -2131,6 +2134,8 @@ ContentModel.propDecorators = {
     maxLength: [{ type: Input }],
     enterEnds: [{ type: Input }],
     enter: [{ type: Output }],
+    hasFocus: [{ type: Input }],
+    hasFocusChange: [{ type: Output }],
     onKeyDown: [{ type: HostListener, args: ['keydown', ['$event'],] }],
     onInput: [{ type: HostListener, args: ['input',] }],
     onFocus: [{ type: HostListener, args: ['focus',] }],
@@ -3703,5 +3708,5 @@ AckRouterModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { AckApp, AckArray, AckModule, AckRouterModule, DocumentService, ErrorLog, HtmlSizeService, Log, Prompts, RouteWatchReporter, UrlVars, WindowService, declarations$1 as components, declarations$2 as pipes, providers, providers$1 as ɵa, screenDirectives as ɵb, AMath as ɵba, AString as ɵbb, ATime as ɵbc, Ack as ɵbd, Keys as ɵbe, TypeofPipe as ɵbf, ConsolePipe as ɵbg, InitDirective as ɵbh, SelectOn as ɵbi, FocusOn as ɵbj, VarDirective as ɵbk, ContentModel as ɵbl, InnerHtmlModel as ɵbm, ReplaceModel as ɵbn, EnterKey as ɵbo, EscapeKey as ɵbp, PreventBackKey as ɵbq, PreventEnterKey as ɵbr, InputHint as ɵbs, FormChanged as ɵbt, FormAlter as ɵbu, ScreenScrollModelY as ɵbv, ScreenWidthModel as ɵbw, ScreenHeightModel as ɵbx, ScreenScroll as ɵby, ScrollPastFixed as ɵbz, IndexTrack as ɵc, string$9 as ɵca, ScreenScrollHeightDiff as ɵcb, PxFromHtmlTop as ɵcc, HtmlWidthModel as ɵcd, HtmlHeightModel as ɵce, ShakeOn as ɵcf, FxOn as ɵcg, StatusOnlineModel as ɵch, StatusOfflineModel as ɵci, ElementSizeModel as ɵcj, ElementHeightModel as ɵck, ElementWidthModel as ɵcl, DebugItem as ɵcm, DebugArea as ɵcn, declarations as ɵco, string$8 as ɵcp, ErrorWell as ɵcq, string$6 as ɵcr, AbsoluteOverflowX as ɵcs, string$5 as ɵct, ReaderHeaderBody as ɵcu, ReaderHeader as ɵcv, ReaderBody as ɵcw, string$7 as ɵcx, AckCloseIcon as ɵcy, AckSections as ɵcz, Stringify as ɵd, string as ɵda, SectionProvider as ɵdb, AckSectionTemplates as ɵdc, AckOptions as ɵdd, string$3 as ɵde, AckOptionsModal as ɵdf, string$4 as ɵdg, AckModal as ɵdh, AckModalLayout as ɵdi, string$1 as ɵdj, AckAggregate as ɵdk, AckFixedElement as ɵdl, AckFixedElementStage as ɵdm, string$2 as ɵdn, RouteReporter as ɵdo, RouteHistory as ɵdp, ForceArray as ɵe, ArrayOfObjects as ɵf, SafeUrl as ɵg, NumberWord as ɵh, EndNumberWord as ɵi, SafeHtml as ɵj, SafeStyle as ɵk, Between as ɵl, ReplaceMaxLength as ɵm, TextDownload as ɵn, NumberToPhone as ɵo, toNumber$1 as ɵp, NumberSuffix as ɵq, MarkdownAnchor as ɵr, Capitalize as ɵs, CapitalizeWords as ɵt, Yesno as ɵu, YesNo as ɵv, BooleanPipe as ɵw, Bit as ɵx, Numbers as ɵy, ADate as ɵz };
+export { AckApp, AckArray, AckModule, AckRouterModule, DocumentService, ErrorLog, HtmlSizeService, Log, Prompts, RouteWatchReporter, UrlVars, WindowService, declarations$1 as components, declarations$2 as pipes, providers, providers$1 as ɵa, screenDirectives as ɵb, AMath as ɵba, AString as ɵbb, ATime as ɵbc, Ack as ɵbd, Keys as ɵbe, TypeofPipe as ɵbf, ConsolePipe as ɵbg, InitDirective as ɵbh, SelectOn as ɵbi, FocusOn as ɵbj, VarDirective as ɵbk, ContentModel as ɵbl, InnerHtmlModel as ɵbm, ReplaceModel as ɵbn, EnterKey as ɵbo, EscapeKey as ɵbp, PreventBackKey as ɵbq, PreventEnterKey as ɵbr, InputHint as ɵbs, FormChanged as ɵbt, FormAlter as ɵbu, ScreenScrollModelY as ɵbv, ScreenWidthModel as ɵbw, ScreenHeightModel as ɵbx, ScreenScroll as ɵby, ScrollPastFixed as ɵbz, IndexTrack as ɵc, string$8 as ɵca, ScreenScrollHeightDiff as ɵcb, PxFromHtmlTop as ɵcc, HtmlWidthModel as ɵcd, HtmlHeightModel as ɵce, ShakeOn as ɵcf, FxOn as ɵcg, StatusOnlineModel as ɵch, StatusOfflineModel as ɵci, ElementSizeModel as ɵcj, ElementHeightModel as ɵck, ElementWidthModel as ɵcl, DebugItem as ɵcm, DebugArea as ɵcn, declarations as ɵco, string$7 as ɵcp, ErrorWell as ɵcq, string$5 as ɵcr, AbsoluteOverflowX as ɵcs, string$4 as ɵct, ReaderHeaderBody as ɵcu, ReaderHeader as ɵcv, ReaderBody as ɵcw, string$6 as ɵcx, AckCloseIcon as ɵcy, AckSections as ɵcz, Stringify as ɵd, string as ɵda, SectionProvider as ɵdb, AckSectionTemplates as ɵdc, AckOptions as ɵdd, string$2 as ɵde, AckOptionsModal as ɵdf, string$3 as ɵdg, AckModal as ɵdh, AckModalLayout as ɵdi, AckAggregate as ɵdj, AckFixedElement as ɵdk, AckFixedElementStage as ɵdl, string$1 as ɵdm, RouteReporter as ɵdn, RouteHistory as ɵdo, ForceArray as ɵe, ArrayOfObjects as ɵf, SafeUrl as ɵg, NumberWord as ɵh, EndNumberWord as ɵi, SafeHtml as ɵj, SafeStyle as ɵk, Between as ɵl, ReplaceMaxLength as ɵm, TextDownload as ɵn, NumberToPhone as ɵo, toNumber$1 as ɵp, NumberSuffix as ɵq, MarkdownAnchor as ɵr, Capitalize as ɵs, CapitalizeWords as ɵt, Yesno as ɵu, YesNo as ɵv, BooleanPipe as ɵw, Bit as ɵx, Numbers as ɵy, ADate as ɵz };
 //# sourceMappingURL=ack-angular.js.map
