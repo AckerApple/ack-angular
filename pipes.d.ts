@@ -1,15 +1,15 @@
 import { DomSanitizer } from '@angular/platform-browser';
 export declare class IndexTrack {
-    transform(): (index: any) => any;
+    transform(_x: any): (index: any) => any;
 }
 export declare class Stringify {
-    transform(input: any, spaces: any): string;
+    transform(input: any, spaces?: number): string;
 }
 export declare class ForceArray {
     transform(input: any, repeat?: any, repeatValue?: any): any[];
 }
 export declare class ArrayOfObjects {
-    transform(input: any, repeat: any, repeatValue: any): any[];
+    transform(input: any, repeat?: number | undefined, repeatValue?: unknown): any[];
 }
 export declare class SafeUrl {
     private domSanitizer;
@@ -39,20 +39,20 @@ export declare class Between {
     transform(input: any, a: any, b: any): boolean;
 }
 export declare class ReplaceMaxLength {
-    transform(input: string, max: number, replacement: string): string;
+    transform(input: string, max: number, replacement?: string): string;
 }
 /** use with bypassSecurityTrustResourceUrl for href */
 export declare class TextDownload {
     transform(input: string): any;
 }
 export declare class NumberToPhone {
-    transform(input: string): unknown;
+    transform(input: string | number): unknown;
 }
 export declare class toNumber {
     transform(input: string): number;
 }
 export declare class NumberSuffix {
-    transform(input: string, rtnInput?: any): string;
+    transform(input: number | string, rtnInput?: any): string;
 }
 export declare class MarkdownAnchor {
     transform(input: string): string;

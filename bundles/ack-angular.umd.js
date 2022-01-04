@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('ack-angular-fx'), require('ack-x/es/index-browser'), require('rxjs/internal/BehaviorSubject'), require('@angular/platform-browser'), require('@angular/router')) :
-    typeof define === 'function' && define.amd ? define('ack-angular', ['exports', '@angular/core', '@angular/common', 'ack-angular-fx', 'ack-x/es/index-browser', 'rxjs/internal/BehaviorSubject', '@angular/platform-browser', '@angular/router'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['ack-angular'] = {}, global.ng.core, global.ng.common, global.ackAngularFx, global.indexBrowser, global.rxjs['internal/BehaviorSubject'], global.ng.platformBrowser, global.ng.router));
-}(this, (function (exports, core, common, ackAngularFx, indexBrowser, BehaviorSubject, platformBrowser, router) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('ack-angular-fx'), require('ack-x/es/index-browser'), require('rxjs'), require('@angular/platform-browser'), require('@angular/router')) :
+    typeof define === 'function' && define.amd ? define('ack-angular', ['exports', '@angular/core', '@angular/common', 'ack-angular-fx', 'ack-x/es/index-browser', 'rxjs', '@angular/platform-browser', '@angular/router'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global["ack-angular"] = {}, global.ng.core, global.ng.common, global.ackAngularFx, global.indexBrowser, global.rxjs, global.ng.platformBrowser, global.ng.router));
+})(this, (function (exports, core, common, ackAngularFx, indexBrowser, rxjs, platformBrowser, router) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -23,11 +23,13 @@
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
             function (d, b) { for (var p in b)
-                if (b.hasOwnProperty(p))
+                if (Object.prototype.hasOwnProperty.call(b, p))
                     d[p] = b[p]; };
         return extendStatics(d, b);
     };
     function __extends(d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -161,15 +163,19 @@
             return { value: op[0] ? op[1] : void 0, done: true };
         }
     }
-    function __createBinding(o, m, k, k2) {
+    var __createBinding = Object.create ? (function (o, m, k, k2) {
+        if (k2 === undefined)
+            k2 = k;
+        Object.defineProperty(o, k2, { enumerable: true, get: function () { return m[k]; } });
+    }) : (function (o, m, k, k2) {
         if (k2 === undefined)
             k2 = k;
         o[k2] = m[k];
-    }
-    function __exportStar(m, exports) {
+    });
+    function __exportStar(m, o) {
         for (var p in m)
-            if (p !== "default" && !exports.hasOwnProperty(p))
-                exports[p] = m[p];
+            if (p !== "default" && !Object.prototype.hasOwnProperty.call(o, p))
+                __createBinding(o, m, p);
     }
     function __values(o) {
         var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
@@ -209,11 +215,13 @@
         }
         return ar;
     }
+    /** @deprecated */
     function __spread() {
         for (var ar = [], i = 0; i < arguments.length; i++)
             ar = ar.concat(__read(arguments[i]));
         return ar;
     }
+    /** @deprecated */
     function __spreadArrays() {
         for (var s = 0, i = 0, il = arguments.length; i < il; i++)
             s += arguments[i].length;
@@ -222,7 +230,17 @@
                 r[k] = a[j];
         return r;
     }
-    ;
+    function __spreadArray(to, from, pack) {
+        if (pack || arguments.length === 2)
+            for (var i = 0, l = from.length, ar; i < l; i++) {
+                if (ar || !(i in from)) {
+                    if (!ar)
+                        ar = Array.prototype.slice.call(from, 0, i);
+                    ar[i] = from[i];
+                }
+            }
+        return to.concat(ar || Array.prototype.slice.call(from));
+    }
     function __await(v) {
         return this instanceof __await ? (this.v = v, this) : new __await(v);
     }
@@ -268,32 +286,40 @@
         return cooked;
     }
     ;
+    var __setModuleDefault = Object.create ? (function (o, v) {
+        Object.defineProperty(o, "default", { enumerable: true, value: v });
+    }) : function (o, v) {
+        o["default"] = v;
+    };
     function __importStar(mod) {
         if (mod && mod.__esModule)
             return mod;
         var result = {};
         if (mod != null)
             for (var k in mod)
-                if (Object.hasOwnProperty.call(mod, k))
-                    result[k] = mod[k];
-        result.default = mod;
+                if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k))
+                    __createBinding(result, mod, k);
+        __setModuleDefault(result, mod);
         return result;
     }
     function __importDefault(mod) {
         return (mod && mod.__esModule) ? mod : { default: mod };
     }
-    function __classPrivateFieldGet(receiver, privateMap) {
-        if (!privateMap.has(receiver)) {
-            throw new TypeError("attempted to get private field on non-instance");
-        }
-        return privateMap.get(receiver);
+    function __classPrivateFieldGet(receiver, state, kind, f) {
+        if (kind === "a" && !f)
+            throw new TypeError("Private accessor was defined without a getter");
+        if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver))
+            throw new TypeError("Cannot read private member from an object whose class did not declare it");
+        return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
     }
-    function __classPrivateFieldSet(receiver, privateMap, value) {
-        if (!privateMap.has(receiver)) {
-            throw new TypeError("attempted to set private field on non-instance");
-        }
-        privateMap.set(receiver, value);
-        return value;
+    function __classPrivateFieldSet(receiver, state, value, kind, f) {
+        if (kind === "m")
+            throw new TypeError("Private method is not writable");
+        if (kind === "a" && !f)
+            throw new TypeError("Private accessor was defined without a setter");
+        if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver))
+            throw new TypeError("Cannot write private member to an object whose class did not declare it");
+        return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
     }
 
     //import { Subscription } from "rxjs/internal/Subscription"
@@ -355,7 +381,7 @@
             }
             if (toConsole == null || toConsole)
                 console.log(e);
-            e['datetime'] = e['datetime'] || getDateTimeString();
+            e['datetime'] = e['datetime'] || getDateTimeString$1();
             return e;
         };
         return Log;
@@ -363,7 +389,7 @@
     Log.decorators = [
         { type: core.Injectable }
     ];
-    function getDateTimeString() {
+    function getDateTimeString$1() {
         return (function (d) { return (('0' + (d.getMonth() + 1)).slice(-2) + '/' + ('0' + d.getDate()).slice(-2) + '/' + d.getFullYear()); })(new Date()) + ' ' + (function (d) { var h = d.getHours(), t = 'AM', m = d.getMinutes(); var mn = m < 10 ? '0' + m : m; h = h >= 12 ? (t = 'PM', h - 12 || 12) : h == 0 ? 12 : h; return ('0' + h).slice(-2) + ':' + ('0' + mn).slice(-2) + ' ' + t; })(new Date());
     }
 
@@ -473,7 +499,7 @@
             if (toConsole == null || toConsole)
                 console.error(e);
             var err = this.objectifyError(e);
-            err['datetime'] = err['datetime'] || getDateTimeString$1();
+            err['datetime'] = err['datetime'] || getDateTimeString();
             if (!e.message && e.status == -1) {
                 e.message = "Cannot connect to server";
                 e.details = e.details || "Connection to internet maybe down. Also possible CORS needs be to enabled at remote server.";
@@ -529,7 +555,7 @@
         Object.keys(log).forEach(function (v) { return e[v] = log[v]; });
         return e;
     }
-    function getDateTimeString$1() {
+    function getDateTimeString() {
         return (function (d) { return (('0' + (d.getMonth() + 1)).slice(-2) + '/' + ('0' + d.getDate()).slice(-2) + '/' + d.getFullYear()); })(new Date()) + ' ' + (function (d) { var h = d.getHours(), t = 'AM', m = d.getMinutes(); var mn = m < 10 ? '0' + m : m; h = h >= 12 ? (t = 'PM', h - 12 || 12) : h == 0 ? 12 : h; return ('0' + h).slice(-2) + ':' + ('0' + mn).slice(-2) + ' ' + t; })(new Date());
     }
 
@@ -604,7 +630,7 @@
         { type: core.Injectable }
     ];
 
-    var providers = [
+    var providers$1 = [
         Log,
         ErrorLog,
         AckApp,
@@ -649,7 +675,7 @@
         { type: core.Injectable }
     ];
 
-    var string = "<ng-container [(htmlHeightModel)]=\"htmlHeightModel\"></ng-container><ng-container *ngIf=\"SectionProvider.headerTemplates.length\"><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;top:0;width:100%\" [style.z-index]=\"zIndex\" [(elementHeightModel)]=\"headerHeight\" [elementSizeModelWatch]=\"SectionProvider.headerTemplates.length\"><ng-template *ngTemplateOutlet=\"headerWrap || headerContent;context:{outlet:headerContent}\"></ng-template></div><ng-template #headerContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;width:100%\" [style.z-index]=\"zIndex\"><ng-template *ngTemplateOutlet=\"headerContent\"></ng-template></div></ng-container><ng-template *ngTemplateOutlet=\"table || defaultTableTag;context:{outlet:tableRows}\"></ng-template><ng-template #defaultTableTag=\"\"><table style=\"height:100%;width:100%;border-collapse: collapse;\" cellPadding=\"0\" cellSpacing=\"0\" border=\"0\"><ng-template *ngTemplateOutlet=\"tableRows\"></ng-template></table></ng-template><ng-template #tableRows=\"\"><tr *ngIf=\"SectionProvider.headerTemplates.length\"><td colspan=\"3\" [style.height.px]=\"headerHeight\" style=\"visibility:hidden\"><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-container></td></tr><tr><td *ngIf=\"SectionProvider.leftBodyTemplates.length\" [style.min-width.px]=\"leftBodyWidth\" valign=\"top\" align=\"right\"><ng-template #defaultLeftBodyWrap=\"\"><div style=\"overflow:auto;height:100%;\"><ng-template *ngTemplateOutlet=\"leftBodyContent\"></ng-template></div></ng-template><ng-template #leftBodyContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.leftBodyTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;\" [style.z-index]=\"zIndex - 1\" [style.height.px]=\"htmlHeightModel - (SectionProvider.headerTemplates.length ? headerHeight : 0) - (SectionProvider.footerTemplates.length ? footerHeight : 0)\" [(elementWidthModel)]=\"leftBodyWidth\" [elementSizeModelWatch]=\"SectionProvider.leftBodyTemplates.length\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;\" [style.z-index]=\"zIndex - 1\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></div><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></ng-container></td><ng-container *ngTemplateOutlet=\"bodyCell || defaultBodyCell;context:{outlet:body}\"></ng-container><ng-template #defaultBodyCell=\"\"><td style=\"height:100%\" valign=\"top\"><ng-template *ngTemplateOutlet=\"body\"></ng-template></td></ng-template><ng-template #body=\"\"><ng-content></ng-content></ng-template><td *ngIf=\"SectionProvider.rightBodyTemplates.length\" [style.min-width.px]=\"rightBodyWidth\" valign=\"top\" align=\"left\"><ng-template #defaultRightBodyWrap=\"\"><div style=\"overflow:auto;height:100%;\"><ng-template *ngTemplateOutlet=\"rightBodyContent\"></ng-template></div></ng-template><ng-template #rightBodyContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.rightBodyTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;\" [style.z-index]=\"zIndex - 1\" [style.height.px]=\"htmlHeightModel - (SectionProvider.headerTemplates.length ? headerHeight : 0) - (SectionProvider.footerTemplates.length ? footerHeight : 0)\" [(elementWidthModel)]=\"rightBodyWidth\" [elementSizeModelWatch]=\"SectionProvider.rightBodyTemplates.length\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;overflow:auto;\" [style.z-index]=\"zIndex - 1\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></div><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></ng-container></td></tr><tr *ngIf=\"SectionProvider.footerTemplates.length\"><td colspan=\"3\" [style.height.px]=\"footerHeight\"><div *ngIf=\"!mode || mode==='clone'\" style=\"visibility:hidden\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div></td></tr></ng-template><ng-container *ngIf=\"SectionProvider.footerTemplates.length\"><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;bottom:0;width:100%\" [style.z-index]=\"zIndex\" [(elementHeightModel)]=\"footerHeight\" [elementSizeModelWatch]=\"SectionProvider.footerTemplates.length\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;bottom:0;width:100%\" [style.z-index]=\"zIndex\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div></ng-container>";
+    var string$8 = "<ng-container [(htmlHeightModel)]=\"htmlHeightModel\"></ng-container><ng-container *ngIf=\"SectionProvider.headerTemplates.length\"><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;top:0;width:100%\" [style.z-index]=\"zIndex\" [(elementHeightModel)]=\"headerHeight\" [elementSizeModelWatch]=\"SectionProvider.headerTemplates.length\"><ng-template *ngTemplateOutlet=\"headerWrap || headerContent;context:{outlet:headerContent}\"></ng-template></div><ng-template #headerContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;width:100%\" [style.z-index]=\"zIndex\"><ng-template *ngTemplateOutlet=\"headerContent\"></ng-template></div></ng-container><ng-template *ngTemplateOutlet=\"table || defaultTableTag;context:{outlet:tableRows}\"></ng-template><ng-template #defaultTableTag=\"\"><table style=\"height:100%;width:100%;border-collapse: collapse;\" cellPadding=\"0\" cellSpacing=\"0\" border=\"0\"><ng-template *ngTemplateOutlet=\"tableRows\"></ng-template></table></ng-template><ng-template #tableRows=\"\"><tr *ngIf=\"SectionProvider.headerTemplates.length\"><td colspan=\"3\" [style.height.px]=\"headerHeight\" style=\"visibility:hidden\"><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-container></td></tr><tr><td *ngIf=\"SectionProvider.leftBodyTemplates.length\" [style.min-width.px]=\"leftBodyWidth\" valign=\"top\" align=\"right\"><ng-template #defaultLeftBodyWrap=\"\"><div style=\"overflow:auto;height:100%;\"><ng-template *ngTemplateOutlet=\"leftBodyContent\"></ng-template></div></ng-template><ng-template #leftBodyContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.leftBodyTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;\" [style.z-index]=\"zIndex - 1\" [style.height.px]=\"htmlHeightModel - (SectionProvider.headerTemplates.length ? headerHeight : 0) - (SectionProvider.footerTemplates.length ? footerHeight : 0)\" [(elementWidthModel)]=\"leftBodyWidth\" [elementSizeModelWatch]=\"SectionProvider.leftBodyTemplates.length\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;\" [style.z-index]=\"zIndex - 1\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></div><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></ng-container></td><ng-container *ngTemplateOutlet=\"bodyCell || defaultBodyCell;context:{outlet:body}\"></ng-container><ng-template #defaultBodyCell=\"\"><td style=\"height:100%\" valign=\"top\"><ng-template *ngTemplateOutlet=\"body\"></ng-template></td></ng-template><ng-template #body=\"\"><ng-content></ng-content></ng-template><td *ngIf=\"SectionProvider.rightBodyTemplates.length\" [style.min-width.px]=\"rightBodyWidth\" valign=\"top\" align=\"left\"><ng-template #defaultRightBodyWrap=\"\"><div style=\"overflow:auto;height:100%;\"><ng-template *ngTemplateOutlet=\"rightBodyContent\"></ng-template></div></ng-template><ng-template #rightBodyContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.rightBodyTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;\" [style.z-index]=\"zIndex - 1\" [style.height.px]=\"htmlHeightModel - (SectionProvider.headerTemplates.length ? headerHeight : 0) - (SectionProvider.footerTemplates.length ? footerHeight : 0)\" [(elementWidthModel)]=\"rightBodyWidth\" [elementSizeModelWatch]=\"SectionProvider.rightBodyTemplates.length\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;overflow:auto;\" [style.z-index]=\"zIndex - 1\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></div><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></ng-container></td></tr><tr *ngIf=\"SectionProvider.footerTemplates.length\"><td colspan=\"3\" [style.height.px]=\"footerHeight\"><div *ngIf=\"!mode || mode==='clone'\" style=\"visibility:hidden\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div></td></tr></ng-template><ng-container *ngIf=\"SectionProvider.footerTemplates.length\"><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;bottom:0;width:100%\" [style.z-index]=\"zIndex\" [(elementHeightModel)]=\"footerHeight\" [elementSizeModelWatch]=\"SectionProvider.footerTemplates.length\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;bottom:0;width:100%\" [style.z-index]=\"zIndex\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div></ng-container>";
 
     var AckSections = /** @class */ (function () {
         function AckSections(SectionProvider, ElementRef) {
@@ -667,7 +693,7 @@
     AckSections.decorators = [
         { type: core.Component, args: [{
                     selector: 'ack-sections',
-                    template: string,
+                    template: string$8,
                     providers: [SectionProvider]
                     //,exportAs:"AckSections"
                 },] }
@@ -875,7 +901,7 @@
         showModelChange: [{ type: core.Output }]
     };
 
-    var string$1 = "<ng-container *ngFor=\"let fixedElm of AckApp.fixedElms\"><ng-container *ngTemplateOutlet=\"fixedElm.content\"></ng-container></ng-container><ng-container *ngFor=\"let prompt of AckApp.prompts.prompts;let i=index\"><ack-modal-layout zIndex=\"99\" [allowClose]=\"0\"><div style=\"text-align:left;max-width:900px;border:1px solid #DDD;border-radius:5px;margin:1em;padding:1em;background-color:white;\"><h3 *ngIf=\"prompt.title\" style=\"margin-top:0;\">{{ prompt.title }}</h3><div style=\"padding-right:1em;\">{{ prompt.message }}</div><br/><br/><div style=\"text-align:right;\"><a *ngIf=\"prompt.type=='confirm'\" (click)=\"prompt.emitter.emit(false)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;margin-right:.5em;\">Cancel</a><a (click)=\"prompt.emitter.emit(true)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;\" [ngStyle]=\"{'font-weight':prompt.type=='confirm' ? 'bold' : null}\">OK</a></div></div></ack-modal-layout></ng-container><ng-container *ngFor=\"let item of AckApp.modals\"><ng-container *ngIf=\"!item.isModelMode || item.showModel\"><ng-template [ngTemplateOutlet]=\"item.layout\"></ng-template></ng-container></ng-container>";
+    var string$7 = "<ng-container *ngFor=\"let fixedElm of AckApp.fixedElms\"><ng-container *ngTemplateOutlet=\"fixedElm.content\"></ng-container></ng-container><ng-container *ngFor=\"let prompt of AckApp.prompts.prompts;let i=index\"><ack-modal-layout zIndex=\"99\" [allowClose]=\"0\"><div style=\"text-align:left;max-width:900px;border:1px solid #DDD;border-radius:5px;margin:1em;padding:1em;background-color:white;\"><h3 *ngIf=\"prompt.title\" style=\"margin-top:0;\">{{ prompt.title }}</h3><div style=\"padding-right:1em;\">{{ prompt.message }}</div><br/><br/><div style=\"text-align:right;\"><a *ngIf=\"prompt.type=='confirm'\" (click)=\"prompt.emitter.emit(false)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;margin-right:.5em;\">Cancel</a><a (click)=\"prompt.emitter.emit(true)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;\" [ngStyle]=\"{'font-weight':prompt.type=='confirm' ? 'bold' : null}\">OK</a></div></div></ack-modal-layout></ng-container><ng-container *ngFor=\"let item of AckApp.modals\"><ng-container *ngIf=\"!item.isModelMode || item.showModel\"><ng-template [ngTemplateOutlet]=\"item.layout\"></ng-template></ng-container></ng-container>";
 
     var AckFixedElementStage = /** @class */ (function () {
         function AckFixedElementStage(AckApp, ElementRef) {
@@ -888,7 +914,7 @@
     AckFixedElementStage.decorators = [
         { type: core.Component, args: [{
                     selector: 'ack-fixed-element-stage',
-                    template: string$1
+                    template: string$7
                 },] }
     ];
     AckFixedElementStage.ctorParameters = function () { return [
@@ -1052,7 +1078,7 @@
             return val;
         return '(' + val.substring(0, 3) + ') ' + val.substring(3, 6) + '-' + val.substring(6, 10);
     }
-    function toNumber(val) {
+    function toNumber$1(val) {
         return Number(numbers(val, "."));
     }
     function numberSuffix(val, rtnVal) {
@@ -1190,7 +1216,7 @@
         markdownAnchor: markdownAnchor,
         replaceMaxLength: replaceMaxLength,
         textDownload: textDownload,
-        toNumber: toNumber,
+        toNumber: toNumber$1,
         yesno: yesno,
         yesNo: yesNo,
     };
@@ -1234,7 +1260,7 @@
         return TemplateReader;
     }());
 
-    var string$2 = "<div [ngClass]=\"{'border-grey-6x border-top':stylize}\"></div><div *ngFor=\"let item of array|array\" (click)=\"selectItem(item)\" [ngClass]=\"getItemClass(item)\"><ng-template *ngIf=\"TemplateReader.templates.selected &amp;&amp; isItemSelected(item)\" [ngTemplateOutlet]=\"TemplateReader.templates.selected\" [ngTemplateOutletContext]=\"{item:item}\"></ng-template><ng-template *ngIf=\"TemplateReader.templates.templateRef &amp;&amp; (!TemplateReader.templates.selected || !isItemSelected(item))\" [ngTemplateOutlet]=\"TemplateReader.templates.templateRef\" [ngTemplateOutletContext]=\"{item:item, selected:isItemSelected(item)}\"></ng-template><span *ngIf=\"!TemplateReader.templates.templateRef\">{{ item }}</span></div>";
+    var string$6 = "<div [ngClass]=\"{'border-grey-6x border-top':stylize}\"></div><div *ngFor=\"let item of array|array\" (click)=\"selectItem(item)\" [ngClass]=\"getItemClass(item)\"><ng-template *ngIf=\"TemplateReader.templates.selected &amp;&amp; isItemSelected(item)\" [ngTemplateOutlet]=\"TemplateReader.templates.selected\" [ngTemplateOutletContext]=\"{item:item}\"></ng-template><ng-template *ngIf=\"TemplateReader.templates.templateRef &amp;&amp; (!TemplateReader.templates.selected || !isItemSelected(item))\" [ngTemplateOutlet]=\"TemplateReader.templates.templateRef\" [ngTemplateOutletContext]=\"{item:item, selected:isItemSelected(item)}\"></ng-template><span *ngIf=\"!TemplateReader.templates.templateRef\">{{ item }}</span></div>";
 
     var AckOptions = /** @class */ (function () {
         function AckOptions(ElementRef) {
@@ -1377,7 +1403,7 @@
     AckOptions.decorators = [
         { type: core.Component, args: [{
                     selector: "ack-options",
-                    template: string$2
+                    template: string$6
                     //,exportAs:"AckOptions"
                 },] }
     ];
@@ -1414,12 +1440,12 @@
         return;
     }
 
-    var string$3 = "<ack-modal (close)=\"close.emit($event)\" [allowClose]=\"allowClose\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit($event)\" [isModelMode]=\"showModelChange.observers.length\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [backgroundColor]=\"backgroundColor\" (backgroundColorChange)=\"backgroundColorChange.emit($event)\"><ng-content></ng-content><div class=\"border-grey-6x border bg-white\"><ack-options #ackOptions=\"\" [array]=\"array\" [max]=\"max\" [modelAsArray]=\"modelAsArray\" [model]=\"model\" (modelChange)=\"fireModelChange($event)\" [multiple]=\"multiple\" [toggleable]=\"toggleable\" [stylize]=\"stylize\" [inputTemplateRefs]=\"templateRefs\" [arrayKey]=\"arrayKey\" [arrayToModelKey]=\"arrayToModelKey\" [modelKey]=\"modelKey\"></ack-options></div></ack-modal>";
+    var string$5 = "<ack-modal (close)=\"close.emit($event)\" [allowClose]=\"allowClose\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit($event)\" [isModelMode]=\"showModelChange.observers.length\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [backgroundColor]=\"backgroundColor\" (backgroundColorChange)=\"backgroundColorChange.emit($event)\"><ng-content></ng-content><div class=\"border-grey-6x border bg-white\"><ack-options #ackOptions=\"\" [array]=\"array\" [max]=\"max\" [modelAsArray]=\"modelAsArray\" [model]=\"model\" (modelChange)=\"fireModelChange($event)\" [multiple]=\"multiple\" [toggleable]=\"toggleable\" [stylize]=\"stylize\" [inputTemplateRefs]=\"templateRefs\" [arrayKey]=\"arrayKey\" [arrayToModelKey]=\"arrayToModelKey\" [modelKey]=\"modelKey\"></ack-options></div></ack-modal>";
 
     var AckOptionsModal = /** @class */ (function (_super) {
         __extends(AckOptionsModal, _super);
         function AckOptionsModal() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
             //one way binds
             _this.allowClose = true;
             //one way expressions
@@ -1439,7 +1465,7 @@
     AckOptionsModal.decorators = [
         { type: core.Component, args: [{
                     selector: 'ack-options-modal',
-                    template: string$3
+                    template: string$5
                 },] }
     ];
     AckOptionsModal.propDecorators = {
@@ -1493,7 +1519,7 @@
         overflow: [{ type: core.Input }]
     };
 
-    var string$5 = "<div *ngIf=\"error!=null &amp;&amp; errorClose!=error\" [@fadeInOutUp]=\"1\"><div *ngIf=\"error &amp;&amp; closable\" (click)=\"close.emit();errorClose=error\" style=\"position:relative\"><div style=\"position:absolute;bottom:-17px;right:-16px;border:1px solid #DDD;border-radius:50%;z-index:20\"><ack-close-icon></ack-close-icon></div></div><div class=\"pad-xxs\" *ngIf=\"error!=null &amp;&amp; errorClose!=error\" [@fadeInOutUp]=\"1\" [ngClass]=\"cssClasses\"><div class=\"flex-valign-center flex-wrap child-margin-xxs\"><div class=\"flex-1\"><div class=\"strong text-3x margin-0\" [class.cursor-pointer]=\"allowDetails\" (click)=\"!allowDetails || moreDetails=!moreDetails\">{{ getErrorMessage(error) }}</div></div><a class=\"text-blue underline text-xs\" *ngIf=\"allowDetails &amp;&amp; error &amp;&amp; (error|typeof)!='string'\" (click)=\"moreDetails=!moreDetails\">details</a></div><ng-container *ngTemplateOutlet=\"titleFooter\"></ng-container><div *ngIf=\"moreDetails\" [@fadeInOutUp]=\"1\"><absolute-overflow-x class=\"text-sm\"><pre class=\"margin-0 pad-xs\">{{ error|json }}</pre></absolute-overflow-x></div></div></div>";
+    var string$3 = "<div *ngIf=\"error!=null &amp;&amp; errorClose!=error\" [@fadeInOutUp]=\"1\"><div *ngIf=\"error &amp;&amp; closable\" (click)=\"close.emit();errorClose=error\" style=\"position:relative\"><div style=\"position:absolute;bottom:-17px;right:-16px;border:1px solid #DDD;border-radius:50%;z-index:20\"><ack-close-icon></ack-close-icon></div></div><div class=\"pad-xxs\" *ngIf=\"error!=null &amp;&amp; errorClose!=error\" [@fadeInOutUp]=\"1\" [ngClass]=\"cssClasses\"><div class=\"flex-valign-center flex-wrap child-margin-xxs\"><div class=\"flex-1\"><div class=\"strong text-3x margin-0\" [class.cursor-pointer]=\"allowDetails\" (click)=\"!allowDetails || moreDetails=!moreDetails\">{{ getErrorMessage(error) }}</div></div><a class=\"text-blue underline text-xs\" *ngIf=\"allowDetails &amp;&amp; error &amp;&amp; (error|typeof)!='string'\" (click)=\"moreDetails=!moreDetails\">details</a></div><ng-container *ngTemplateOutlet=\"titleFooter\"></ng-container><div *ngIf=\"moreDetails\" [@fadeInOutUp]=\"1\"><absolute-overflow-x class=\"text-sm\"><pre class=\"margin-0 pad-xs\">{{ error|json }}</pre></absolute-overflow-x></div></div></div>";
 
     var ErrorWell = /** @class */ (function () {
         function ErrorWell() {
@@ -1517,7 +1543,7 @@
     ErrorWell.decorators = [
         { type: core.Component, args: [{
                     selector: 'error-well',
-                    template: string$5,
+                    template: string$3,
                     animations: ackAngularFx.animations
                 },] }
     ];
@@ -1532,7 +1558,7 @@
         titleFooter: [{ type: core.ContentChild, args: ["titleFooter",] }]
     };
 
-    var string$6 = "<div style=\"text-align:center;height:100%\"><div style=\"display:inline-block;width:100%;height:100%;max-width:1000px\"><div style=\"width:100%;height:100%;\"><table cellpadding=\"0\" cellspacing=\"0\" style=\"width:100%;height:100%;\"><tr *ngIf=\"readerHeader\"><td><ng-template *ngTemplateOutlet=\"readerHeader\"></ng-template></td></tr><tr><td style=\"height:100%\"><ng-content></ng-content></td></tr></table></div></div></div>";
+    var string$2 = "<div style=\"text-align:center;height:100%\"><div style=\"display:inline-block;width:100%;height:100%;max-width:1000px\"><div style=\"width:100%;height:100%;\"><table cellpadding=\"0\" cellspacing=\"0\" style=\"width:100%;height:100%;\"><tr *ngIf=\"readerHeader\"><td><ng-template *ngTemplateOutlet=\"readerHeader\"></ng-template></td></tr><tr><td style=\"height:100%\"><ng-content></ng-content></td></tr></table></div></div></div>";
 
     //easy to use common full page templater
     var ReaderHeaderBody = /** @class */ (function () {
@@ -1543,7 +1569,7 @@
     ReaderHeaderBody.decorators = [
         { type: core.Component, args: [{
                     selector: 'reader-header-body',
-                    template: string$6
+                    template: string$2
                 },] }
     ];
     ReaderHeaderBody.propDecorators = {
@@ -1579,7 +1605,7 @@
         readerHeader: [{ type: core.ContentChild, args: ['reader-header',] }]
     };
 
-    var string$7 = "<div class=\"child-pad-h-xs flex-wrap text-center\" *ngIf=\"DebugItems.length&gt;1\"><a class=\"cursor-pointer border border-grey-3x radius-5 flex-1\" *ngFor=\"let item of DebugItems\" [ngClass]=\"item===debugItem ? 'bg-positive text-white' : ''\" (click)=\"debugItem = debugItem===item ? null : item\">{{item.name}}<ng-container *ngIf=\"item.type==='array'\">&nbsp;( {{ item.value?.length || 0 }} )</ng-container></a></div><ng-container *ngIf=\"debugItem\"><h3 class=\"margin-bottom-0\">{{ debugItem.name }}</h3><ng-container *ngIf=\"debugItem.type==='array';else regdebug\"><ng-container #loop=\"var\" [var]=\"{view:0}\"></ng-container><pre class=\"bg-grey-3x margin-0 sample-code\" *ngFor=\"let data of debugItem.value;let ii=index\"><ng-container *ngIf=\"loop.var.view==ii\"><div class=\"flex-valign-center child-pad-xs\" style=\"padding:.4em;float:right\"><a class=\"fas fa-caret-square-left hover-bg-energized\" (click)=\"loop.var.view=ii===0 ? debugItem.value.length-1 : ii-1\">&lt;</a><a style=\"color:blue;\" (click)=\"editsMap[ii]=!editsMap[ii]\">edit</a><a style=\"color:blue;\" (click)=\"debugItem.type=null\">all</a><a class=\"fas fa-caret-square-right hover-bg-energized\" (click)=\"loop.var.view=ii===debugItem.value.length-1 ? 0 : ii+1\">&gt;</a></div><p><ng-container *ngIf=\"debugItem.rowTitle;else defaultRowLabel\"><ng-template *ngTemplateOutlet=\"debugItem.rowTitle;context:{index:ii}\"></ng-template></ng-container><ng-template #defaultRowLabel=\"\"><strong>Result {{ii}} of {{debugItem.value.length}} </strong></ng-template></p><absolute-overflow-x *ngIf=\"!editsMap[ii]\" style=\"font-size:0.8em;\"><pre>{{ data | json }}</pre></absolute-overflow-x><ng-container *ngIf=\"editsMap[ii]\"><textarea [name]=\"'editsMap' + ii\" style=\"width:100%;height:300px\" (change)=\"dataString = $event.target.value\">{{ data | json }}</textarea><div style=\"text-align:center\"><a style=\"color:blue;padding-top:.4em;\" (click)=\"updateDataByJsonString(data, dataString, debugItem);editsMap[ii]=false\">save</a></div></ng-container></ng-container></pre></ng-container><ng-template #regdebug=\"\"><div class=\"pos-rel\"><div class=\"pos-abs right-0 z-index-10\"><div class=\"pad-xxs\"><i class=\"fas fa-pencil-alt hover-text-energized\" (click)=\"edit=!edit\" [class.text-calm]=\"edit\">edit</i></div></div></div><ng-container *ngIf=\"edit;else readMode\"><textarea class=\"width-full\" rows=\"30\" (change)=\"apply(debugItem.value,$event.target.value, debugItem)\" wrap=\"off\">{{ debugItem.value | json }}</textarea></ng-container><ng-template #readMode=\"\"><absolute-overflow-x><pre class=\"code-sample\">{{ debugItem.value | json }}</pre></absolute-overflow-x></ng-template></ng-template></ng-container>";
+    var string$1 = "<div class=\"child-pad-h-xs flex-wrap text-center\" *ngIf=\"DebugItems.length&gt;1\"><a class=\"cursor-pointer border border-grey-3x radius-5 flex-1\" *ngFor=\"let item of DebugItems\" [ngClass]=\"item===debugItem ? 'bg-positive text-white' : ''\" (click)=\"debugItem = debugItem===item ? null : item\">{{item.name}}<ng-container *ngIf=\"item.type==='array'\">&nbsp;( {{ item.value?.length || 0 }} )</ng-container></a></div><ng-container *ngIf=\"debugItem\"><h3 class=\"margin-bottom-0\">{{ debugItem.name }}</h3><ng-container *ngIf=\"debugItem.type==='array';else regdebug\"><ng-container #loop=\"var\" [var]=\"{view:0}\"></ng-container><pre class=\"bg-grey-3x margin-0 sample-code\" *ngFor=\"let data of debugItem.value;let ii=index\"><ng-container *ngIf=\"loop.var.view==ii\"><div class=\"flex-valign-center child-pad-xs\" style=\"padding:.4em;float:right\"><a class=\"fas fa-caret-square-left hover-bg-energized\" (click)=\"loop.var.view=ii===0 ? debugItem.value.length-1 : ii-1\">&lt;</a><a style=\"color:blue;\" (click)=\"editsMap[ii]=!editsMap[ii]\">edit</a><a style=\"color:blue;\" (click)=\"debugItem.type=null\">all</a><a class=\"fas fa-caret-square-right hover-bg-energized\" (click)=\"loop.var.view=ii===debugItem.value.length-1 ? 0 : ii+1\">&gt;</a></div><p><ng-container *ngIf=\"debugItem.rowTitle;else defaultRowLabel\"><ng-template *ngTemplateOutlet=\"debugItem.rowTitle;context:{index:ii}\"></ng-template></ng-container><ng-template #defaultRowLabel=\"\"><strong>Result {{ii}} of {{debugItem.value.length}} </strong></ng-template></p><absolute-overflow-x *ngIf=\"!editsMap[ii]\" style=\"font-size:0.8em;\"><pre>{{ data | json }}</pre></absolute-overflow-x><ng-container *ngIf=\"editsMap[ii]\"><textarea [name]=\"'editsMap' + ii\" style=\"width:100%;height:300px\" (change)=\"dataString = $event.target.value\">{{ data | json }}</textarea><div style=\"text-align:center\"><a style=\"color:blue;padding-top:.4em;\" (click)=\"updateDataByJsonString(data, dataString, debugItem);editsMap[ii]=false\">save</a></div></ng-container></ng-container></pre></ng-container><ng-template #regdebug=\"\"><div class=\"pos-rel\"><div class=\"pos-abs right-0 z-index-10\"><div class=\"pad-xxs\"><i class=\"fas fa-pencil-alt hover-text-energized\" (click)=\"edit=!edit\" [class.text-calm]=\"edit\">edit</i></div></div></div><ng-container *ngIf=\"edit;else readMode\"><textarea class=\"width-full\" rows=\"30\" (change)=\"apply(debugItem.value,$event.target.value, debugItem)\" wrap=\"off\">{{ debugItem.value | json }}</textarea></ng-container><ng-template #readMode=\"\"><absolute-overflow-x><pre class=\"code-sample\">{{ debugItem.value | json }}</pre></absolute-overflow-x></ng-template></ng-template></ng-container>";
 
     var DebugItem = /** @class */ (function () {
         function DebugItem() {
@@ -1633,13 +1659,13 @@
     DebugArea.decorators = [
         { type: core.Component, args: [{
                     selector: "debug-area",
-                    template: string$7
+                    template: string$1
                 },] }
     ];
     DebugArea.propDecorators = {
         DebugItems: [{ type: core.ContentChildren, args: [DebugItem,] }]
     };
-    var declarations = [
+    var declarations$3 = [
         DebugItem, DebugArea
     ];
 
@@ -1668,7 +1694,7 @@
             this.inSort = false;
             this.sortArray = [];
             this.pageAt = 0; //when to page aka maxrows
-            this.pagesChange = new BehaviorSubject.BehaviorSubject(null);
+            this.pagesChange = new rxjs.BehaviorSubject(null);
             //@Output() pagesChange:EventEmitter<any[][]> = new EventEmitter()
             //a chance to know when current viewed page should be zero
             this.page = 0;
@@ -1747,13 +1773,6 @@
                 Promise.resolve().then(function () { return _this.loop(true); });
             }
         };
-        /*
-          performJoins(){
-            this.AckArrayJoins.forEach(join=>
-              join.joinTo( this.array )
-            )
-          }
-        */
         AckArray.prototype.pushAggregates = function (aggs) {
             var _this = this;
             aggs.forEach(function (agg) {
@@ -1861,11 +1880,9 @@
             }
             return this.array || [];
         };
-        /*
-          selected(item){
-            return this.itemIndex(item) >= 0 ? true : false
-          }
-        */
+        AckArray.prototype.selected = function (item) {
+            return this.itemIndex(item) >= 0 ? true : false;
+        };
         AckArray.prototype.itemIndex = function (item) {
             var array = this.getCompareArray();
             for (var x = array.length - 1; x >= 0; --x) {
@@ -2065,7 +2082,7 @@
         Object.assign(ao, an);
     }
 
-    var string$8 = "<div style=\"width:100%;top:0;z-index:1\" [style.position]=\"currentPosition\"><ng-content></ng-content></div><div [style.height.px]=\"fillHeight\"></div>";
+    var string = "<div style=\"width:100%;top:0;z-index:1\" [style.position]=\"currentPosition\"><ng-content></ng-content></div><div [style.height.px]=\"fillHeight\"></div>";
 
     var ScrollPastFixed = /** @class */ (function () {
         function ScrollPastFixed(ElementRef) {
@@ -2108,7 +2125,7 @@
     ScrollPastFixed.decorators = [
         { type: core.Component, args: [{
                     selector: 'scroll-past-fixed',
-                    template: string$8
+                    template: string
                 },] }
     ];
     ScrollPastFixed.ctorParameters = function () { return [
@@ -3357,7 +3374,7 @@
         ScreenScrollHeightDiff,
         PxFromHtmlTop
     ];
-    var declarations$1 = __spread([
+    var declarations$2 = __spreadArray(__spreadArray(__spreadArray(__spreadArray([
         InitDirective,
         SelectOn,
         FocusOn,
@@ -3371,7 +3388,7 @@
         EscapeKey,
         PreventBackKey,
         PreventEnterKey
-    ], screenDirectives, [
+    ], __read(screenDirectives)), [
         HtmlWidthModel,
         HtmlHeightModel,
         ShakeOn,
@@ -3382,7 +3399,7 @@
         ElementWidthModel,
         ElementHeightModel,
         InputHint
-    ], declarations, [
+    ]), __read(declarations$3)), [
         ErrorWell,
         AbsoluteOverflowX,
         //sorta ack-angular-templates
@@ -3408,7 +3425,7 @@
     var IndexTrack = /** @class */ (function () {
         function IndexTrack() {
         }
-        IndexTrack.prototype.transform = function () {
+        IndexTrack.prototype.transform = function (_x) {
             return function (index) { return index; };
         };
         return IndexTrack;
@@ -3420,6 +3437,7 @@
         function Stringify() {
         }
         Stringify.prototype.transform = function (input, spaces) {
+            if (spaces === void 0) { spaces = 0; }
             return JSON.stringify(input, null, spaces);
         };
         return Stringify;
@@ -3567,25 +3585,29 @@
     var NumberToPhone = /** @class */ (function () {
         function NumberToPhone() {
         }
-        NumberToPhone.prototype.transform = function (input) { return numberToPhone(input); };
+        NumberToPhone.prototype.transform = function (input) {
+            return numberToPhone(input);
+        };
         return NumberToPhone;
     }());
     NumberToPhone.decorators = [
         { type: core.Pipe, args: [{ name: 'numberToPhone' },] }
     ];
-    var toNumber$1 = /** @class */ (function () {
-        function toNumber$1() {
+    var toNumber = /** @class */ (function () {
+        function toNumber() {
         }
-        toNumber$1.prototype.transform = function (input) { return toNumber(input); };
-        return toNumber$1;
+        toNumber.prototype.transform = function (input) { return toNumber$1(input); };
+        return toNumber;
     }());
-    toNumber$1.decorators = [
+    toNumber.decorators = [
         { type: core.Pipe, args: [{ name: 'toNumber' },] }
     ];
     var NumberSuffix = /** @class */ (function () {
         function NumberSuffix() {
         }
-        NumberSuffix.prototype.transform = function (input, rtnInput) { return numberSuffix(input, rtnInput); };
+        NumberSuffix.prototype.transform = function (input, rtnInput) {
+            return numberSuffix(input, rtnInput);
+        };
         return NumberSuffix;
     }());
     NumberSuffix.decorators = [
@@ -3776,7 +3798,7 @@
     ConsolePipe.decorators = [
         { type: core.Pipe, args: [{ name: 'console' },] }
     ];
-    var declarations$2 = [
+    var declarations$1 = [
         IndexTrack,
         Stringify,
         ForceArray,
@@ -3799,7 +3821,7 @@
         ATime,
         Ack,
         Numbers,
-        toNumber$1,
+        toNumber,
         NumberToPhone,
         NumberSuffix,
         Bit,
@@ -3810,14 +3832,14 @@
         ReplaceMaxLength,
     ];
 
-    var declarations$3 = __spread(declarations$1, declarations$2);
+    var declarations = __spreadArray(__spreadArray([], __read(declarations$2)), __read(declarations$1));
     var AckModule = /** @class */ (function () {
         function AckModule() {
         }
         AckModule.forRoot = function () {
             return {
                 ngModule: AckModule,
-                providers: providers,
+                providers: providers$1,
             };
         };
         return AckModule;
@@ -3827,8 +3849,8 @@
                     imports: [
                         common.CommonModule
                     ],
-                    declarations: declarations$3, providers: providers,
-                    exports: declarations$3
+                    declarations: declarations, providers: providers$1,
+                    exports: declarations
                 },] }
     ];
     // export default AckModule
@@ -4256,14 +4278,14 @@
         stateChange: [{ type: core.Output }]
     };
 
-    var providers$1 = [RouteWatchReporter, RouteHistory];
+    var providers = [RouteWatchReporter, RouteHistory];
     var AckRouterModule = /** @class */ (function () {
         function AckRouterModule() {
         }
         AckRouterModule.forRoot = function () {
             return {
                 ngModule: AckRouterModule,
-                providers: providers$1
+                providers: providers
             };
         };
         return AckRouterModule;
@@ -4289,9 +4311,7 @@
 
     Object.defineProperty(exports, 'ack', {
         enumerable: true,
-        get: function () {
-            return indexBrowser.ack;
-        }
+        get: function () { return indexBrowser.ack; }
     });
     exports.AckApp = AckApp;
     exports.AckArray = AckArray;
@@ -4305,104 +4325,104 @@
     exports.RouteWatchReporter = RouteWatchReporter;
     exports.UrlVars = UrlVars;
     exports.WindowService = WindowService;
-    exports.components = declarations$1;
-    exports.pipes = declarations$2;
-    exports.providers = providers;
-    exports.ɵa = providers$1;
-    exports.ɵb = screenDirectives;
-    exports.ɵba = AMath;
-    exports.ɵbb = AString;
-    exports.ɵbc = ATime;
-    exports.ɵbd = Ack;
-    exports.ɵbe = Keys;
-    exports.ɵbf = TypeofPipe;
-    exports.ɵbg = ConsolePipe;
-    exports.ɵbh = InitDirective;
-    exports.ɵbi = SelectOn;
-    exports.ɵbj = FocusOn;
-    exports.ɵbk = VarDirective;
-    exports.ɵbl = ContentModel;
-    exports.ɵbm = InnerHtmlModel;
-    exports.ɵbn = ReplaceModel;
-    exports.ɵbo = EnterKey;
-    exports.ɵbp = EscapeKey;
-    exports.ɵbq = PreventBackKey;
-    exports.ɵbr = PreventEnterKey;
-    exports.ɵbs = InputHint;
-    exports.ɵbt = FormChanged;
-    exports.ɵbu = FormAlter;
-    exports.ɵbv = ScreenScrollModelY;
-    exports.ɵbw = ScreenWidthModel;
-    exports.ɵbx = ScreenHeightModel;
-    exports.ɵby = ScreenScroll;
-    exports.ɵbz = ScrollPastFixed;
-    exports.ɵc = IndexTrack;
-    exports.ɵca = string$8;
-    exports.ɵcb = ScreenScrollHeightDiff;
-    exports.ɵcc = PxFromHtmlTop;
-    exports.ɵcd = HtmlWidthModel;
-    exports.ɵce = HtmlHeightModel;
-    exports.ɵcf = ShakeOn;
-    exports.ɵcg = FxOn;
-    exports.ɵch = StatusOnlineModel;
-    exports.ɵci = StatusOfflineModel;
-    exports.ɵcj = ElementSizeModel;
-    exports.ɵck = ElementHeightModel;
-    exports.ɵcl = ElementWidthModel;
-    exports.ɵcm = DebugItem;
-    exports.ɵcn = DebugArea;
-    exports.ɵco = declarations;
-    exports.ɵcp = string$7;
-    exports.ɵcq = ErrorWell;
-    exports.ɵcr = string$5;
-    exports.ɵcs = AbsoluteOverflowX;
-    exports.ɵct = string$4;
-    exports.ɵcu = ReaderHeaderBody;
-    exports.ɵcv = ReaderHeader;
-    exports.ɵcw = ReaderBody;
-    exports.ɵcx = string$6;
-    exports.ɵcy = AckCloseIcon;
-    exports.ɵcz = AckSections;
-    exports.ɵd = Stringify;
-    exports.ɵda = string;
-    exports.ɵdb = SectionProvider;
-    exports.ɵdc = AckSectionTemplates;
-    exports.ɵdd = AckOptions;
-    exports.ɵde = string$2;
-    exports.ɵdf = AckOptionsModal;
-    exports.ɵdg = string$3;
-    exports.ɵdh = AckModal;
-    exports.ɵdi = AckModalLayout;
-    exports.ɵdj = AckAggregate;
-    exports.ɵdk = AckFixedElement;
-    exports.ɵdl = AckFixedElementStage;
-    exports.ɵdm = string$1;
-    exports.ɵdn = RouteReporter;
-    exports.ɵdo = RouteHistory;
-    exports.ɵe = ForceArray;
-    exports.ɵf = ArrayOfObjects;
-    exports.ɵg = SafeUrl;
-    exports.ɵh = NumberWord;
-    exports.ɵi = EndNumberWord;
-    exports.ɵj = SafeHtml;
-    exports.ɵk = SafeStyle;
-    exports.ɵl = Between;
-    exports.ɵm = ReplaceMaxLength;
-    exports.ɵn = TextDownload;
-    exports.ɵo = NumberToPhone;
-    exports.ɵp = toNumber$1;
-    exports.ɵq = NumberSuffix;
-    exports.ɵr = MarkdownAnchor;
-    exports.ɵs = Capitalize;
-    exports.ɵt = CapitalizeWords;
-    exports.ɵu = Yesno;
-    exports.ɵv = YesNo;
-    exports.ɵw = BooleanPipe;
-    exports.ɵx = Bit;
-    exports.ɵy = Numbers;
-    exports.ɵz = ADate;
+    exports.components = declarations$2;
+    exports.pipes = declarations$1;
+    exports.providers = providers$1;
+    exports["ɵa"] = providers;
+    exports["ɵb"] = screenDirectives;
+    exports["ɵba"] = AMath;
+    exports["ɵbb"] = AString;
+    exports["ɵbc"] = ATime;
+    exports["ɵbd"] = Ack;
+    exports["ɵbe"] = Keys;
+    exports["ɵbf"] = TypeofPipe;
+    exports["ɵbg"] = ConsolePipe;
+    exports["ɵbh"] = InitDirective;
+    exports["ɵbi"] = SelectOn;
+    exports["ɵbj"] = FocusOn;
+    exports["ɵbk"] = VarDirective;
+    exports["ɵbl"] = ContentModel;
+    exports["ɵbm"] = InnerHtmlModel;
+    exports["ɵbn"] = ReplaceModel;
+    exports["ɵbo"] = EnterKey;
+    exports["ɵbp"] = EscapeKey;
+    exports["ɵbq"] = PreventBackKey;
+    exports["ɵbr"] = PreventEnterKey;
+    exports["ɵbs"] = InputHint;
+    exports["ɵbt"] = FormChanged;
+    exports["ɵbu"] = FormAlter;
+    exports["ɵbv"] = ScreenScrollModelY;
+    exports["ɵbw"] = ScreenWidthModel;
+    exports["ɵbx"] = ScreenHeightModel;
+    exports["ɵby"] = ScreenScroll;
+    exports["ɵbz"] = ScrollPastFixed;
+    exports["ɵc"] = IndexTrack;
+    exports["ɵca"] = string;
+    exports["ɵcb"] = ScreenScrollHeightDiff;
+    exports["ɵcc"] = PxFromHtmlTop;
+    exports["ɵcd"] = HtmlWidthModel;
+    exports["ɵce"] = HtmlHeightModel;
+    exports["ɵcf"] = ShakeOn;
+    exports["ɵcg"] = FxOn;
+    exports["ɵch"] = StatusOnlineModel;
+    exports["ɵci"] = StatusOfflineModel;
+    exports["ɵcj"] = ElementSizeModel;
+    exports["ɵck"] = ElementHeightModel;
+    exports["ɵcl"] = ElementWidthModel;
+    exports["ɵcm"] = DebugItem;
+    exports["ɵcn"] = DebugArea;
+    exports["ɵco"] = declarations$3;
+    exports["ɵcp"] = string$1;
+    exports["ɵcq"] = ErrorWell;
+    exports["ɵcr"] = string$3;
+    exports["ɵcs"] = AbsoluteOverflowX;
+    exports["ɵct"] = string$4;
+    exports["ɵcu"] = ReaderHeaderBody;
+    exports["ɵcv"] = ReaderHeader;
+    exports["ɵcw"] = ReaderBody;
+    exports["ɵcx"] = string$2;
+    exports["ɵcy"] = AckCloseIcon;
+    exports["ɵcz"] = AckSections;
+    exports["ɵd"] = Stringify;
+    exports["ɵda"] = string$8;
+    exports["ɵdb"] = SectionProvider;
+    exports["ɵdc"] = AckSectionTemplates;
+    exports["ɵdd"] = AckOptions;
+    exports["ɵde"] = string$6;
+    exports["ɵdf"] = AckOptionsModal;
+    exports["ɵdg"] = string$5;
+    exports["ɵdh"] = AckModal;
+    exports["ɵdi"] = AckModalLayout;
+    exports["ɵdj"] = AckAggregate;
+    exports["ɵdk"] = AckFixedElement;
+    exports["ɵdl"] = AckFixedElementStage;
+    exports["ɵdm"] = string$7;
+    exports["ɵdn"] = RouteReporter;
+    exports["ɵdo"] = RouteHistory;
+    exports["ɵe"] = ForceArray;
+    exports["ɵf"] = ArrayOfObjects;
+    exports["ɵg"] = SafeUrl;
+    exports["ɵh"] = NumberWord;
+    exports["ɵi"] = EndNumberWord;
+    exports["ɵj"] = SafeHtml;
+    exports["ɵk"] = SafeStyle;
+    exports["ɵl"] = Between;
+    exports["ɵm"] = ReplaceMaxLength;
+    exports["ɵn"] = TextDownload;
+    exports["ɵo"] = NumberToPhone;
+    exports["ɵp"] = toNumber;
+    exports["ɵq"] = NumberSuffix;
+    exports["ɵr"] = MarkdownAnchor;
+    exports["ɵs"] = Capitalize;
+    exports["ɵt"] = CapitalizeWords;
+    exports["ɵu"] = Yesno;
+    exports["ɵv"] = YesNo;
+    exports["ɵw"] = BooleanPipe;
+    exports["ɵx"] = Bit;
+    exports["ɵy"] = Numbers;
+    exports["ɵz"] = ADate;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
 //# sourceMappingURL=ack-angular.umd.js.map

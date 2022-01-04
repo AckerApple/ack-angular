@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { animations } from 'ack-angular-fx';
 import { ack as ack$1 } from 'ack-x/es/index-browser';
 export { ack } from 'ack-x/es/index-browser';
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NavigationEnd, Router, ActivatedRoute, RouterModule } from '@angular/router';
 
@@ -64,14 +64,14 @@ class Log {
         }
         if (toConsole == null || toConsole)
             console.log(e);
-        e['datetime'] = e['datetime'] || getDateTimeString();
+        e['datetime'] = e['datetime'] || getDateTimeString$1();
         return e;
     }
 }
 Log.decorators = [
     { type: Injectable }
 ];
-function getDateTimeString() {
+function getDateTimeString$1() {
     return (function (d) { return (('0' + (d.getMonth() + 1)).slice(-2) + '/' + ('0' + d.getDate()).slice(-2) + '/' + d.getFullYear()); })(new Date()) + ' ' + (function (d) { var h = d.getHours(), t = 'AM', m = d.getMinutes(); var mn = m < 10 ? '0' + m : m; h = h >= 12 ? (t = 'PM', h - 12 || 12) : h == 0 ? 12 : h; return ('0' + h).slice(-2) + ':' + ('0' + mn).slice(-2) + ' ' + t; })(new Date());
 }
 
@@ -174,7 +174,7 @@ class ErrorLog {
         if (toConsole == null || toConsole)
             console.error(e);
         const err = this.objectifyError(e);
-        err['datetime'] = err['datetime'] || getDateTimeString$1();
+        err['datetime'] = err['datetime'] || getDateTimeString();
         if (!e.message && e.status == -1) {
             e.message = "Cannot connect to server";
             e.details = e.details || "Connection to internet maybe down. Also possible CORS needs be to enabled at remote server.";
@@ -229,7 +229,7 @@ function logObToErrorObject(log) {
     Object.keys(log).forEach(v => e[v] = log[v]);
     return e;
 }
-function getDateTimeString$1() {
+function getDateTimeString() {
     return (function (d) { return (('0' + (d.getMonth() + 1)).slice(-2) + '/' + ('0' + d.getDate()).slice(-2) + '/' + d.getFullYear()); })(new Date()) + ' ' + (function (d) { var h = d.getHours(), t = 'AM', m = d.getMinutes(); var mn = m < 10 ? '0' + m : m; h = h >= 12 ? (t = 'PM', h - 12 || 12) : h == 0 ? 12 : h; return ('0' + h).slice(-2) + ':' + ('0' + mn).slice(-2) + ' ' + t; })(new Date());
 }
 
@@ -285,7 +285,7 @@ DocumentService.decorators = [
     { type: Injectable }
 ];
 
-const providers = [
+const providers$1 = [
     Log,
     ErrorLog,
     AckApp,
@@ -329,7 +329,7 @@ SectionProvider.decorators = [
     { type: Injectable }
 ];
 
-const string = "<ng-container [(htmlHeightModel)]=\"htmlHeightModel\"></ng-container><ng-container *ngIf=\"SectionProvider.headerTemplates.length\"><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;top:0;width:100%\" [style.z-index]=\"zIndex\" [(elementHeightModel)]=\"headerHeight\" [elementSizeModelWatch]=\"SectionProvider.headerTemplates.length\"><ng-template *ngTemplateOutlet=\"headerWrap || headerContent;context:{outlet:headerContent}\"></ng-template></div><ng-template #headerContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;width:100%\" [style.z-index]=\"zIndex\"><ng-template *ngTemplateOutlet=\"headerContent\"></ng-template></div></ng-container><ng-template *ngTemplateOutlet=\"table || defaultTableTag;context:{outlet:tableRows}\"></ng-template><ng-template #defaultTableTag=\"\"><table style=\"height:100%;width:100%;border-collapse: collapse;\" cellPadding=\"0\" cellSpacing=\"0\" border=\"0\"><ng-template *ngTemplateOutlet=\"tableRows\"></ng-template></table></ng-template><ng-template #tableRows=\"\"><tr *ngIf=\"SectionProvider.headerTemplates.length\"><td colspan=\"3\" [style.height.px]=\"headerHeight\" style=\"visibility:hidden\"><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-container></td></tr><tr><td *ngIf=\"SectionProvider.leftBodyTemplates.length\" [style.min-width.px]=\"leftBodyWidth\" valign=\"top\" align=\"right\"><ng-template #defaultLeftBodyWrap=\"\"><div style=\"overflow:auto;height:100%;\"><ng-template *ngTemplateOutlet=\"leftBodyContent\"></ng-template></div></ng-template><ng-template #leftBodyContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.leftBodyTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;\" [style.z-index]=\"zIndex - 1\" [style.height.px]=\"htmlHeightModel - (SectionProvider.headerTemplates.length ? headerHeight : 0) - (SectionProvider.footerTemplates.length ? footerHeight : 0)\" [(elementWidthModel)]=\"leftBodyWidth\" [elementSizeModelWatch]=\"SectionProvider.leftBodyTemplates.length\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;\" [style.z-index]=\"zIndex - 1\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></div><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></ng-container></td><ng-container *ngTemplateOutlet=\"bodyCell || defaultBodyCell;context:{outlet:body}\"></ng-container><ng-template #defaultBodyCell=\"\"><td style=\"height:100%\" valign=\"top\"><ng-template *ngTemplateOutlet=\"body\"></ng-template></td></ng-template><ng-template #body=\"\"><ng-content></ng-content></ng-template><td *ngIf=\"SectionProvider.rightBodyTemplates.length\" [style.min-width.px]=\"rightBodyWidth\" valign=\"top\" align=\"left\"><ng-template #defaultRightBodyWrap=\"\"><div style=\"overflow:auto;height:100%;\"><ng-template *ngTemplateOutlet=\"rightBodyContent\"></ng-template></div></ng-template><ng-template #rightBodyContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.rightBodyTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;\" [style.z-index]=\"zIndex - 1\" [style.height.px]=\"htmlHeightModel - (SectionProvider.headerTemplates.length ? headerHeight : 0) - (SectionProvider.footerTemplates.length ? footerHeight : 0)\" [(elementWidthModel)]=\"rightBodyWidth\" [elementSizeModelWatch]=\"SectionProvider.rightBodyTemplates.length\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;overflow:auto;\" [style.z-index]=\"zIndex - 1\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></div><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></ng-container></td></tr><tr *ngIf=\"SectionProvider.footerTemplates.length\"><td colspan=\"3\" [style.height.px]=\"footerHeight\"><div *ngIf=\"!mode || mode==='clone'\" style=\"visibility:hidden\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div></td></tr></ng-template><ng-container *ngIf=\"SectionProvider.footerTemplates.length\"><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;bottom:0;width:100%\" [style.z-index]=\"zIndex\" [(elementHeightModel)]=\"footerHeight\" [elementSizeModelWatch]=\"SectionProvider.footerTemplates.length\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;bottom:0;width:100%\" [style.z-index]=\"zIndex\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div></ng-container>";
+const string$8 = "<ng-container [(htmlHeightModel)]=\"htmlHeightModel\"></ng-container><ng-container *ngIf=\"SectionProvider.headerTemplates.length\"><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;top:0;width:100%\" [style.z-index]=\"zIndex\" [(elementHeightModel)]=\"headerHeight\" [elementSizeModelWatch]=\"SectionProvider.headerTemplates.length\"><ng-template *ngTemplateOutlet=\"headerWrap || headerContent;context:{outlet:headerContent}\"></ng-template></div><ng-template #headerContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;width:100%\" [style.z-index]=\"zIndex\"><ng-template *ngTemplateOutlet=\"headerContent\"></ng-template></div></ng-container><ng-template *ngTemplateOutlet=\"table || defaultTableTag;context:{outlet:tableRows}\"></ng-template><ng-template #defaultTableTag=\"\"><table style=\"height:100%;width:100%;border-collapse: collapse;\" cellPadding=\"0\" cellSpacing=\"0\" border=\"0\"><ng-template *ngTemplateOutlet=\"tableRows\"></ng-template></table></ng-template><ng-template #tableRows=\"\"><tr *ngIf=\"SectionProvider.headerTemplates.length\"><td colspan=\"3\" [style.height.px]=\"headerHeight\" style=\"visibility:hidden\"><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-container *ngFor=\"let item of SectionProvider.headerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-container></td></tr><tr><td *ngIf=\"SectionProvider.leftBodyTemplates.length\" [style.min-width.px]=\"leftBodyWidth\" valign=\"top\" align=\"right\"><ng-template #defaultLeftBodyWrap=\"\"><div style=\"overflow:auto;height:100%;\"><ng-template *ngTemplateOutlet=\"leftBodyContent\"></ng-template></div></ng-template><ng-template #leftBodyContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.leftBodyTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;\" [style.z-index]=\"zIndex - 1\" [style.height.px]=\"htmlHeightModel - (SectionProvider.headerTemplates.length ? headerHeight : 0) - (SectionProvider.footerTemplates.length ? footerHeight : 0)\" [(elementWidthModel)]=\"leftBodyWidth\" [elementSizeModelWatch]=\"SectionProvider.leftBodyTemplates.length\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;\" [style.z-index]=\"zIndex - 1\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></div><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-template *ngTemplateOutlet=\"leftBodyWrap || defaultLeftBodyWrap;context:{outlet:leftBodyContent}\"></ng-template></ng-container></td><ng-container *ngTemplateOutlet=\"bodyCell || defaultBodyCell;context:{outlet:body}\"></ng-container><ng-template #defaultBodyCell=\"\"><td style=\"height:100%\" valign=\"top\"><ng-template *ngTemplateOutlet=\"body\"></ng-template></td></ng-template><ng-template #body=\"\"><ng-content></ng-content></ng-template><td *ngIf=\"SectionProvider.rightBodyTemplates.length\" [style.min-width.px]=\"rightBodyWidth\" valign=\"top\" align=\"left\"><ng-template #defaultRightBodyWrap=\"\"><div style=\"overflow:auto;height:100%;\"><ng-template *ngTemplateOutlet=\"rightBodyContent\"></ng-template></div></ng-template><ng-template #rightBodyContent=\"\"><ng-container *ngFor=\"let item of SectionProvider.rightBodyTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></ng-template><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;\" [style.z-index]=\"zIndex - 1\" [style.height.px]=\"htmlHeightModel - (SectionProvider.headerTemplates.length ? headerHeight : 0) - (SectionProvider.footerTemplates.length ? footerHeight : 0)\" [(elementWidthModel)]=\"rightBodyWidth\" [elementSizeModelWatch]=\"SectionProvider.rightBodyTemplates.length\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;top:0;overflow:auto;\" [style.z-index]=\"zIndex - 1\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></div><ng-container *ngIf=\"!mode || mode==='clone'\"><ng-template *ngTemplateOutlet=\"rightBodyWrap || defaultRightBodyWrap;context:{outlet:rightBodyContent}\"></ng-template></ng-container></td></tr><tr *ngIf=\"SectionProvider.footerTemplates.length\"><td colspan=\"3\" [style.height.px]=\"footerHeight\"><div *ngIf=\"!mode || mode==='clone'\" style=\"visibility:hidden\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div></td></tr></ng-template><ng-container *ngIf=\"SectionProvider.footerTemplates.length\"><div *ngIf=\"mode==='calculate'\" style=\"position:fixed;bottom:0;width:100%\" [style.z-index]=\"zIndex\" [(elementHeightModel)]=\"footerHeight\" [elementSizeModelWatch]=\"SectionProvider.footerTemplates.length\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div><div *ngIf=\"!mode || mode==='clone'\" style=\"position:fixed;bottom:0;width:100%\" [style.z-index]=\"zIndex\"><ng-container *ngFor=\"let item of SectionProvider.footerTemplates\"><ng-template *ngTemplateOutlet=\"item\"></ng-template></ng-container></div></ng-container>";
 
 class AckSections {
     constructor(SectionProvider, ElementRef) {
@@ -346,7 +346,7 @@ class AckSections {
 AckSections.decorators = [
     { type: Component, args: [{
                 selector: 'ack-sections',
-                template: string,
+                template: string$8,
                 providers: [SectionProvider]
                 //,exportAs:"AckSections"
             },] }
@@ -545,7 +545,7 @@ AckModalLayout.propDecorators = {
     showModelChange: [{ type: Output }]
 };
 
-const string$1 = "<ng-container *ngFor=\"let fixedElm of AckApp.fixedElms\"><ng-container *ngTemplateOutlet=\"fixedElm.content\"></ng-container></ng-container><ng-container *ngFor=\"let prompt of AckApp.prompts.prompts;let i=index\"><ack-modal-layout zIndex=\"99\" [allowClose]=\"0\"><div style=\"text-align:left;max-width:900px;border:1px solid #DDD;border-radius:5px;margin:1em;padding:1em;background-color:white;\"><h3 *ngIf=\"prompt.title\" style=\"margin-top:0;\">{{ prompt.title }}</h3><div style=\"padding-right:1em;\">{{ prompt.message }}</div><br/><br/><div style=\"text-align:right;\"><a *ngIf=\"prompt.type=='confirm'\" (click)=\"prompt.emitter.emit(false)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;margin-right:.5em;\">Cancel</a><a (click)=\"prompt.emitter.emit(true)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;\" [ngStyle]=\"{'font-weight':prompt.type=='confirm' ? 'bold' : null}\">OK</a></div></div></ack-modal-layout></ng-container><ng-container *ngFor=\"let item of AckApp.modals\"><ng-container *ngIf=\"!item.isModelMode || item.showModel\"><ng-template [ngTemplateOutlet]=\"item.layout\"></ng-template></ng-container></ng-container>";
+const string$7 = "<ng-container *ngFor=\"let fixedElm of AckApp.fixedElms\"><ng-container *ngTemplateOutlet=\"fixedElm.content\"></ng-container></ng-container><ng-container *ngFor=\"let prompt of AckApp.prompts.prompts;let i=index\"><ack-modal-layout zIndex=\"99\" [allowClose]=\"0\"><div style=\"text-align:left;max-width:900px;border:1px solid #DDD;border-radius:5px;margin:1em;padding:1em;background-color:white;\"><h3 *ngIf=\"prompt.title\" style=\"margin-top:0;\">{{ prompt.title }}</h3><div style=\"padding-right:1em;\">{{ prompt.message }}</div><br/><br/><div style=\"text-align:right;\"><a *ngIf=\"prompt.type=='confirm'\" (click)=\"prompt.emitter.emit(false)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;margin-right:.5em;\">Cancel</a><a (click)=\"prompt.emitter.emit(true)\" style=\"text-align:center;display:inline-block;min-width:75px;border-radius:3px;border:1px solid #AAA;padding:0 .5em;\" [ngStyle]=\"{'font-weight':prompt.type=='confirm' ? 'bold' : null}\">OK</a></div></div></ack-modal-layout></ng-container><ng-container *ngFor=\"let item of AckApp.modals\"><ng-container *ngIf=\"!item.isModelMode || item.showModel\"><ng-template [ngTemplateOutlet]=\"item.layout\"></ng-template></ng-container></ng-container>";
 
 class AckFixedElementStage {
     constructor(AckApp, ElementRef) {
@@ -557,7 +557,7 @@ class AckFixedElementStage {
 AckFixedElementStage.decorators = [
     { type: Component, args: [{
                 selector: 'ack-fixed-element-stage',
-                template: string$1
+                template: string$7
             },] }
 ];
 AckFixedElementStage.ctorParameters = () => [
@@ -708,7 +708,7 @@ function numberToPhone(val) {
         return val;
     return '(' + val.substring(0, 3) + ') ' + val.substring(3, 6) + '-' + val.substring(6, 10);
 }
-function toNumber(val) {
+function toNumber$1(val) {
     return Number(numbers(val, "."));
 }
 function numberSuffix(val, rtnVal = false) {
@@ -845,7 +845,7 @@ const pipes = {
     markdownAnchor,
     replaceMaxLength,
     textDownload,
-    toNumber,
+    toNumber: toNumber$1,
     yesno,
     yesNo,
 };
@@ -888,7 +888,7 @@ class TemplateReader {
     }
 }
 
-const string$2 = "<div [ngClass]=\"{'border-grey-6x border-top':stylize}\"></div><div *ngFor=\"let item of array|array\" (click)=\"selectItem(item)\" [ngClass]=\"getItemClass(item)\"><ng-template *ngIf=\"TemplateReader.templates.selected &amp;&amp; isItemSelected(item)\" [ngTemplateOutlet]=\"TemplateReader.templates.selected\" [ngTemplateOutletContext]=\"{item:item}\"></ng-template><ng-template *ngIf=\"TemplateReader.templates.templateRef &amp;&amp; (!TemplateReader.templates.selected || !isItemSelected(item))\" [ngTemplateOutlet]=\"TemplateReader.templates.templateRef\" [ngTemplateOutletContext]=\"{item:item, selected:isItemSelected(item)}\"></ng-template><span *ngIf=\"!TemplateReader.templates.templateRef\">{{ item }}</span></div>";
+const string$6 = "<div [ngClass]=\"{'border-grey-6x border-top':stylize}\"></div><div *ngFor=\"let item of array|array\" (click)=\"selectItem(item)\" [ngClass]=\"getItemClass(item)\"><ng-template *ngIf=\"TemplateReader.templates.selected &amp;&amp; isItemSelected(item)\" [ngTemplateOutlet]=\"TemplateReader.templates.selected\" [ngTemplateOutletContext]=\"{item:item}\"></ng-template><ng-template *ngIf=\"TemplateReader.templates.templateRef &amp;&amp; (!TemplateReader.templates.selected || !isItemSelected(item))\" [ngTemplateOutlet]=\"TemplateReader.templates.templateRef\" [ngTemplateOutletContext]=\"{item:item, selected:isItemSelected(item)}\"></ng-template><span *ngIf=\"!TemplateReader.templates.templateRef\">{{ item }}</span></div>";
 
 class AckOptions {
     constructor(ElementRef) {
@@ -1029,7 +1029,7 @@ class AckOptions {
 AckOptions.decorators = [
     { type: Component, args: [{
                 selector: "ack-options",
-                template: string$2
+                template: string$6
                 //,exportAs:"AckOptions"
             },] }
 ];
@@ -1066,7 +1066,7 @@ function getParentByTagName(node, tagname) {
     return;
 }
 
-const string$3 = "<ack-modal (close)=\"close.emit($event)\" [allowClose]=\"allowClose\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit($event)\" [isModelMode]=\"showModelChange.observers.length\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [backgroundColor]=\"backgroundColor\" (backgroundColorChange)=\"backgroundColorChange.emit($event)\"><ng-content></ng-content><div class=\"border-grey-6x border bg-white\"><ack-options #ackOptions=\"\" [array]=\"array\" [max]=\"max\" [modelAsArray]=\"modelAsArray\" [model]=\"model\" (modelChange)=\"fireModelChange($event)\" [multiple]=\"multiple\" [toggleable]=\"toggleable\" [stylize]=\"stylize\" [inputTemplateRefs]=\"templateRefs\" [arrayKey]=\"arrayKey\" [arrayToModelKey]=\"arrayToModelKey\" [modelKey]=\"modelKey\"></ack-options></div></ack-modal>";
+const string$5 = "<ack-modal (close)=\"close.emit($event)\" [allowClose]=\"allowClose\" [showModel]=\"showModel\" (showModelChange)=\"showModelChange.emit($event)\" [isModelMode]=\"showModelChange.observers.length\" [wrapStyle]=\"wrapStyle\" [wrapCellStyle]=\"wrapCellStyle\" [backgroundColor]=\"backgroundColor\" (backgroundColorChange)=\"backgroundColorChange.emit($event)\"><ng-content></ng-content><div class=\"border-grey-6x border bg-white\"><ack-options #ackOptions=\"\" [array]=\"array\" [max]=\"max\" [modelAsArray]=\"modelAsArray\" [model]=\"model\" (modelChange)=\"fireModelChange($event)\" [multiple]=\"multiple\" [toggleable]=\"toggleable\" [stylize]=\"stylize\" [inputTemplateRefs]=\"templateRefs\" [arrayKey]=\"arrayKey\" [arrayToModelKey]=\"arrayToModelKey\" [modelKey]=\"modelKey\"></ack-options></div></ack-modal>";
 
 class AckOptionsModal extends AckOptions {
     constructor() {
@@ -1088,7 +1088,7 @@ class AckOptionsModal extends AckOptions {
 AckOptionsModal.decorators = [
     { type: Component, args: [{
                 selector: 'ack-options-modal',
-                template: string$3
+                template: string$5
             },] }
 ];
 AckOptionsModal.propDecorators = {
@@ -1141,7 +1141,7 @@ AbsoluteOverflowX.propDecorators = {
     overflow: [{ type: Input }]
 };
 
-const string$5 = "<div *ngIf=\"error!=null &amp;&amp; errorClose!=error\" [@fadeInOutUp]=\"1\"><div *ngIf=\"error &amp;&amp; closable\" (click)=\"close.emit();errorClose=error\" style=\"position:relative\"><div style=\"position:absolute;bottom:-17px;right:-16px;border:1px solid #DDD;border-radius:50%;z-index:20\"><ack-close-icon></ack-close-icon></div></div><div class=\"pad-xxs\" *ngIf=\"error!=null &amp;&amp; errorClose!=error\" [@fadeInOutUp]=\"1\" [ngClass]=\"cssClasses\"><div class=\"flex-valign-center flex-wrap child-margin-xxs\"><div class=\"flex-1\"><div class=\"strong text-3x margin-0\" [class.cursor-pointer]=\"allowDetails\" (click)=\"!allowDetails || moreDetails=!moreDetails\">{{ getErrorMessage(error) }}</div></div><a class=\"text-blue underline text-xs\" *ngIf=\"allowDetails &amp;&amp; error &amp;&amp; (error|typeof)!='string'\" (click)=\"moreDetails=!moreDetails\">details</a></div><ng-container *ngTemplateOutlet=\"titleFooter\"></ng-container><div *ngIf=\"moreDetails\" [@fadeInOutUp]=\"1\"><absolute-overflow-x class=\"text-sm\"><pre class=\"margin-0 pad-xs\">{{ error|json }}</pre></absolute-overflow-x></div></div></div>";
+const string$3 = "<div *ngIf=\"error!=null &amp;&amp; errorClose!=error\" [@fadeInOutUp]=\"1\"><div *ngIf=\"error &amp;&amp; closable\" (click)=\"close.emit();errorClose=error\" style=\"position:relative\"><div style=\"position:absolute;bottom:-17px;right:-16px;border:1px solid #DDD;border-radius:50%;z-index:20\"><ack-close-icon></ack-close-icon></div></div><div class=\"pad-xxs\" *ngIf=\"error!=null &amp;&amp; errorClose!=error\" [@fadeInOutUp]=\"1\" [ngClass]=\"cssClasses\"><div class=\"flex-valign-center flex-wrap child-margin-xxs\"><div class=\"flex-1\"><div class=\"strong text-3x margin-0\" [class.cursor-pointer]=\"allowDetails\" (click)=\"!allowDetails || moreDetails=!moreDetails\">{{ getErrorMessage(error) }}</div></div><a class=\"text-blue underline text-xs\" *ngIf=\"allowDetails &amp;&amp; error &amp;&amp; (error|typeof)!='string'\" (click)=\"moreDetails=!moreDetails\">details</a></div><ng-container *ngTemplateOutlet=\"titleFooter\"></ng-container><div *ngIf=\"moreDetails\" [@fadeInOutUp]=\"1\"><absolute-overflow-x class=\"text-sm\"><pre class=\"margin-0 pad-xs\">{{ error|json }}</pre></absolute-overflow-x></div></div></div>";
 
 class ErrorWell {
     constructor() {
@@ -1164,7 +1164,7 @@ class ErrorWell {
 ErrorWell.decorators = [
     { type: Component, args: [{
                 selector: 'error-well',
-                template: string$5,
+                template: string$3,
                 animations: animations
             },] }
 ];
@@ -1179,7 +1179,7 @@ ErrorWell.propDecorators = {
     titleFooter: [{ type: ContentChild, args: ["titleFooter",] }]
 };
 
-const string$6 = "<div style=\"text-align:center;height:100%\"><div style=\"display:inline-block;width:100%;height:100%;max-width:1000px\"><div style=\"width:100%;height:100%;\"><table cellpadding=\"0\" cellspacing=\"0\" style=\"width:100%;height:100%;\"><tr *ngIf=\"readerHeader\"><td><ng-template *ngTemplateOutlet=\"readerHeader\"></ng-template></td></tr><tr><td style=\"height:100%\"><ng-content></ng-content></td></tr></table></div></div></div>";
+const string$2 = "<div style=\"text-align:center;height:100%\"><div style=\"display:inline-block;width:100%;height:100%;max-width:1000px\"><div style=\"width:100%;height:100%;\"><table cellpadding=\"0\" cellspacing=\"0\" style=\"width:100%;height:100%;\"><tr *ngIf=\"readerHeader\"><td><ng-template *ngTemplateOutlet=\"readerHeader\"></ng-template></td></tr><tr><td style=\"height:100%\"><ng-content></ng-content></td></tr></table></div></div></div>";
 
 //easy to use common full page templater
 class ReaderHeaderBody {
@@ -1187,7 +1187,7 @@ class ReaderHeaderBody {
 ReaderHeaderBody.decorators = [
     { type: Component, args: [{
                 selector: 'reader-header-body',
-                template: string$6
+                template: string$2
             },] }
 ];
 ReaderHeaderBody.propDecorators = {
@@ -1219,7 +1219,7 @@ ReaderBody.propDecorators = {
     readerHeader: [{ type: ContentChild, args: ['reader-header',] }]
 };
 
-const string$7 = "<div class=\"child-pad-h-xs flex-wrap text-center\" *ngIf=\"DebugItems.length&gt;1\"><a class=\"cursor-pointer border border-grey-3x radius-5 flex-1\" *ngFor=\"let item of DebugItems\" [ngClass]=\"item===debugItem ? 'bg-positive text-white' : ''\" (click)=\"debugItem = debugItem===item ? null : item\">{{item.name}}<ng-container *ngIf=\"item.type==='array'\">&nbsp;( {{ item.value?.length || 0 }} )</ng-container></a></div><ng-container *ngIf=\"debugItem\"><h3 class=\"margin-bottom-0\">{{ debugItem.name }}</h3><ng-container *ngIf=\"debugItem.type==='array';else regdebug\"><ng-container #loop=\"var\" [var]=\"{view:0}\"></ng-container><pre class=\"bg-grey-3x margin-0 sample-code\" *ngFor=\"let data of debugItem.value;let ii=index\"><ng-container *ngIf=\"loop.var.view==ii\"><div class=\"flex-valign-center child-pad-xs\" style=\"padding:.4em;float:right\"><a class=\"fas fa-caret-square-left hover-bg-energized\" (click)=\"loop.var.view=ii===0 ? debugItem.value.length-1 : ii-1\">&lt;</a><a style=\"color:blue;\" (click)=\"editsMap[ii]=!editsMap[ii]\">edit</a><a style=\"color:blue;\" (click)=\"debugItem.type=null\">all</a><a class=\"fas fa-caret-square-right hover-bg-energized\" (click)=\"loop.var.view=ii===debugItem.value.length-1 ? 0 : ii+1\">&gt;</a></div><p><ng-container *ngIf=\"debugItem.rowTitle;else defaultRowLabel\"><ng-template *ngTemplateOutlet=\"debugItem.rowTitle;context:{index:ii}\"></ng-template></ng-container><ng-template #defaultRowLabel=\"\"><strong>Result {{ii}} of {{debugItem.value.length}} </strong></ng-template></p><absolute-overflow-x *ngIf=\"!editsMap[ii]\" style=\"font-size:0.8em;\"><pre>{{ data | json }}</pre></absolute-overflow-x><ng-container *ngIf=\"editsMap[ii]\"><textarea [name]=\"'editsMap' + ii\" style=\"width:100%;height:300px\" (change)=\"dataString = $event.target.value\">{{ data | json }}</textarea><div style=\"text-align:center\"><a style=\"color:blue;padding-top:.4em;\" (click)=\"updateDataByJsonString(data, dataString, debugItem);editsMap[ii]=false\">save</a></div></ng-container></ng-container></pre></ng-container><ng-template #regdebug=\"\"><div class=\"pos-rel\"><div class=\"pos-abs right-0 z-index-10\"><div class=\"pad-xxs\"><i class=\"fas fa-pencil-alt hover-text-energized\" (click)=\"edit=!edit\" [class.text-calm]=\"edit\">edit</i></div></div></div><ng-container *ngIf=\"edit;else readMode\"><textarea class=\"width-full\" rows=\"30\" (change)=\"apply(debugItem.value,$event.target.value, debugItem)\" wrap=\"off\">{{ debugItem.value | json }}</textarea></ng-container><ng-template #readMode=\"\"><absolute-overflow-x><pre class=\"code-sample\">{{ debugItem.value | json }}</pre></absolute-overflow-x></ng-template></ng-template></ng-container>";
+const string$1 = "<div class=\"child-pad-h-xs flex-wrap text-center\" *ngIf=\"DebugItems.length&gt;1\"><a class=\"cursor-pointer border border-grey-3x radius-5 flex-1\" *ngFor=\"let item of DebugItems\" [ngClass]=\"item===debugItem ? 'bg-positive text-white' : ''\" (click)=\"debugItem = debugItem===item ? null : item\">{{item.name}}<ng-container *ngIf=\"item.type==='array'\">&nbsp;( {{ item.value?.length || 0 }} )</ng-container></a></div><ng-container *ngIf=\"debugItem\"><h3 class=\"margin-bottom-0\">{{ debugItem.name }}</h3><ng-container *ngIf=\"debugItem.type==='array';else regdebug\"><ng-container #loop=\"var\" [var]=\"{view:0}\"></ng-container><pre class=\"bg-grey-3x margin-0 sample-code\" *ngFor=\"let data of debugItem.value;let ii=index\"><ng-container *ngIf=\"loop.var.view==ii\"><div class=\"flex-valign-center child-pad-xs\" style=\"padding:.4em;float:right\"><a class=\"fas fa-caret-square-left hover-bg-energized\" (click)=\"loop.var.view=ii===0 ? debugItem.value.length-1 : ii-1\">&lt;</a><a style=\"color:blue;\" (click)=\"editsMap[ii]=!editsMap[ii]\">edit</a><a style=\"color:blue;\" (click)=\"debugItem.type=null\">all</a><a class=\"fas fa-caret-square-right hover-bg-energized\" (click)=\"loop.var.view=ii===debugItem.value.length-1 ? 0 : ii+1\">&gt;</a></div><p><ng-container *ngIf=\"debugItem.rowTitle;else defaultRowLabel\"><ng-template *ngTemplateOutlet=\"debugItem.rowTitle;context:{index:ii}\"></ng-template></ng-container><ng-template #defaultRowLabel=\"\"><strong>Result {{ii}} of {{debugItem.value.length}} </strong></ng-template></p><absolute-overflow-x *ngIf=\"!editsMap[ii]\" style=\"font-size:0.8em;\"><pre>{{ data | json }}</pre></absolute-overflow-x><ng-container *ngIf=\"editsMap[ii]\"><textarea [name]=\"'editsMap' + ii\" style=\"width:100%;height:300px\" (change)=\"dataString = $event.target.value\">{{ data | json }}</textarea><div style=\"text-align:center\"><a style=\"color:blue;padding-top:.4em;\" (click)=\"updateDataByJsonString(data, dataString, debugItem);editsMap[ii]=false\">save</a></div></ng-container></ng-container></pre></ng-container><ng-template #regdebug=\"\"><div class=\"pos-rel\"><div class=\"pos-abs right-0 z-index-10\"><div class=\"pad-xxs\"><i class=\"fas fa-pencil-alt hover-text-energized\" (click)=\"edit=!edit\" [class.text-calm]=\"edit\">edit</i></div></div></div><ng-container *ngIf=\"edit;else readMode\"><textarea class=\"width-full\" rows=\"30\" (change)=\"apply(debugItem.value,$event.target.value, debugItem)\" wrap=\"off\">{{ debugItem.value | json }}</textarea></ng-container><ng-template #readMode=\"\"><absolute-overflow-x><pre class=\"code-sample\">{{ debugItem.value | json }}</pre></absolute-overflow-x></ng-template></ng-template></ng-container>";
 
 class DebugItem {
     constructor() {
@@ -1270,13 +1270,13 @@ class DebugArea {
 DebugArea.decorators = [
     { type: Component, args: [{
                 selector: "debug-area",
-                template: string$7
+                template: string$1
             },] }
 ];
 DebugArea.propDecorators = {
     DebugItems: [{ type: ContentChildren, args: [DebugItem,] }]
 };
-const declarations = [
+const declarations$3 = [
     DebugItem, DebugArea
 ];
 
@@ -1379,13 +1379,6 @@ class AckArray {
             Promise.resolve().then(() => this.loop(true));
         }
     }
-    /*
-      performJoins(){
-        this.AckArrayJoins.forEach(join=>
-          join.joinTo( this.array )
-        )
-      }
-    */
     pushAggregates(aggs) {
         aggs.forEach(agg => {
             let memory;
@@ -1490,11 +1483,9 @@ class AckArray {
         }
         return this.array || [];
     }
-    /*
-      selected(item){
-        return this.itemIndex(item) >= 0 ? true : false
-      }
-    */
+    selected(item) {
+        return this.itemIndex(item) >= 0 ? true : false;
+    }
     itemIndex(item) {
         const array = this.getCompareArray();
         for (let x = array.length - 1; x >= 0; --x) {
@@ -1691,7 +1682,7 @@ function mergeObjects(ao, an) {
     Object.assign(ao, an);
 }
 
-const string$8 = "<div style=\"width:100%;top:0;z-index:1\" [style.position]=\"currentPosition\"><ng-content></ng-content></div><div [style.height.px]=\"fillHeight\"></div>";
+const string = "<div style=\"width:100%;top:0;z-index:1\" [style.position]=\"currentPosition\"><ng-content></ng-content></div><div [style.height.px]=\"fillHeight\"></div>";
 
 class ScrollPastFixed {
     constructor(ElementRef) {
@@ -1731,7 +1722,7 @@ class ScrollPastFixed {
 ScrollPastFixed.decorators = [
     { type: Component, args: [{
                 selector: 'scroll-past-fixed',
-                template: string$8
+                template: string
             },] }
 ];
 ScrollPastFixed.ctorParameters = () => [
@@ -2910,7 +2901,7 @@ const screenDirectives = [
     ScreenScrollHeightDiff,
     PxFromHtmlTop
 ];
-const declarations$1 = [
+const declarations$2 = [
     InitDirective,
     SelectOn,
     FocusOn,
@@ -2936,7 +2927,7 @@ const declarations$1 = [
     ElementHeightModel,
     InputHint,
     //components
-    ...declarations,
+    ...declarations$3,
     ErrorWell,
     AbsoluteOverflowX,
     //sorta ack-angular-templates
@@ -2960,7 +2951,7 @@ const declarations$1 = [
 
 /* ONLY THIS FILE */
 class IndexTrack {
-    transform() {
+    transform(_x) {
         return function (index) { return index; };
     }
 }
@@ -2968,7 +2959,7 @@ IndexTrack.decorators = [
     { type: Pipe, args: [{ name: 'indexTrack' },] }
 ];
 class Stringify {
-    transform(input, spaces) {
+    transform(input, spaces = 0) {
         return JSON.stringify(input, null, spaces);
     }
 }
@@ -3091,19 +3082,23 @@ TextDownload.decorators = [
     { type: Pipe, args: [{ name: 'textDownload' },] }
 ];
 class NumberToPhone {
-    transform(input) { return numberToPhone(input); }
+    transform(input) {
+        return numberToPhone(input);
+    }
 }
 NumberToPhone.decorators = [
     { type: Pipe, args: [{ name: 'numberToPhone' },] }
 ];
-class toNumber$1 {
-    transform(input) { return toNumber(input); }
+class toNumber {
+    transform(input) { return toNumber$1(input); }
 }
-toNumber$1.decorators = [
+toNumber.decorators = [
     { type: Pipe, args: [{ name: 'toNumber' },] }
 ];
 class NumberSuffix {
-    transform(input, rtnInput) { return numberSuffix(input, rtnInput); }
+    transform(input, rtnInput) {
+        return numberSuffix(input, rtnInput);
+    }
 }
 NumberSuffix.decorators = [
     { type: Pipe, args: [{ name: 'numberSuffix' },] }
@@ -3215,7 +3210,7 @@ class ConsolePipe {
 ConsolePipe.decorators = [
     { type: Pipe, args: [{ name: 'console' },] }
 ];
-const declarations$2 = [
+const declarations$1 = [
     IndexTrack,
     Stringify,
     ForceArray,
@@ -3238,7 +3233,7 @@ const declarations$2 = [
     ATime,
     Ack,
     Numbers,
-    toNumber$1,
+    toNumber,
     NumberToPhone,
     NumberSuffix,
     Bit,
@@ -3249,11 +3244,11 @@ const declarations$2 = [
     ReplaceMaxLength,
 ];
 
-const declarations$3 = [...declarations$1, ...declarations$2];
+const declarations = [...declarations$2, ...declarations$1];
 class AckModule {
     static forRoot() {
         return {
-            ngModule: AckModule, providers,
+            ngModule: AckModule, providers: providers$1,
         };
     }
 }
@@ -3262,8 +3257,8 @@ AckModule.decorators = [
                 imports: [
                     CommonModule
                 ],
-                declarations: declarations$3, providers,
-                exports: declarations$3
+                declarations, providers: providers$1,
+                exports: declarations
             },] }
 ];
 // export default AckModule
@@ -3684,12 +3679,12 @@ RouteReporter.propDecorators = {
     stateChange: [{ type: Output }]
 };
 
-const providers$1 = [RouteWatchReporter, RouteHistory];
+const providers = [RouteWatchReporter, RouteHistory];
 class AckRouterModule {
     static forRoot() {
         return {
             ngModule: AckRouterModule,
-            providers: providers$1
+            providers: providers
         };
     }
 }
@@ -3712,5 +3707,5 @@ AckRouterModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { AckApp, AckArray, AckModule, AckRouterModule, DocumentService, ErrorLog, HtmlSizeService, Log, Prompts, RouteWatchReporter, UrlVars, WindowService, declarations$1 as components, declarations$2 as pipes, providers, providers$1 as ɵa, screenDirectives as ɵb, AMath as ɵba, AString as ɵbb, ATime as ɵbc, Ack as ɵbd, Keys as ɵbe, TypeofPipe as ɵbf, ConsolePipe as ɵbg, InitDirective as ɵbh, SelectOn as ɵbi, FocusOn as ɵbj, VarDirective as ɵbk, ContentModel as ɵbl, InnerHtmlModel as ɵbm, ReplaceModel as ɵbn, EnterKey as ɵbo, EscapeKey as ɵbp, PreventBackKey as ɵbq, PreventEnterKey as ɵbr, InputHint as ɵbs, FormChanged as ɵbt, FormAlter as ɵbu, ScreenScrollModelY as ɵbv, ScreenWidthModel as ɵbw, ScreenHeightModel as ɵbx, ScreenScroll as ɵby, ScrollPastFixed as ɵbz, IndexTrack as ɵc, string$8 as ɵca, ScreenScrollHeightDiff as ɵcb, PxFromHtmlTop as ɵcc, HtmlWidthModel as ɵcd, HtmlHeightModel as ɵce, ShakeOn as ɵcf, FxOn as ɵcg, StatusOnlineModel as ɵch, StatusOfflineModel as ɵci, ElementSizeModel as ɵcj, ElementHeightModel as ɵck, ElementWidthModel as ɵcl, DebugItem as ɵcm, DebugArea as ɵcn, declarations as ɵco, string$7 as ɵcp, ErrorWell as ɵcq, string$5 as ɵcr, AbsoluteOverflowX as ɵcs, string$4 as ɵct, ReaderHeaderBody as ɵcu, ReaderHeader as ɵcv, ReaderBody as ɵcw, string$6 as ɵcx, AckCloseIcon as ɵcy, AckSections as ɵcz, Stringify as ɵd, string as ɵda, SectionProvider as ɵdb, AckSectionTemplates as ɵdc, AckOptions as ɵdd, string$2 as ɵde, AckOptionsModal as ɵdf, string$3 as ɵdg, AckModal as ɵdh, AckModalLayout as ɵdi, AckAggregate as ɵdj, AckFixedElement as ɵdk, AckFixedElementStage as ɵdl, string$1 as ɵdm, RouteReporter as ɵdn, RouteHistory as ɵdo, ForceArray as ɵe, ArrayOfObjects as ɵf, SafeUrl as ɵg, NumberWord as ɵh, EndNumberWord as ɵi, SafeHtml as ɵj, SafeStyle as ɵk, Between as ɵl, ReplaceMaxLength as ɵm, TextDownload as ɵn, NumberToPhone as ɵo, toNumber$1 as ɵp, NumberSuffix as ɵq, MarkdownAnchor as ɵr, Capitalize as ɵs, CapitalizeWords as ɵt, Yesno as ɵu, YesNo as ɵv, BooleanPipe as ɵw, Bit as ɵx, Numbers as ɵy, ADate as ɵz };
+export { AckApp, AckArray, AckModule, AckRouterModule, DocumentService, ErrorLog, HtmlSizeService, Log, Prompts, RouteWatchReporter, UrlVars, WindowService, declarations$2 as components, declarations$1 as pipes, providers$1 as providers, providers as ɵa, screenDirectives as ɵb, AMath as ɵba, AString as ɵbb, ATime as ɵbc, Ack as ɵbd, Keys as ɵbe, TypeofPipe as ɵbf, ConsolePipe as ɵbg, InitDirective as ɵbh, SelectOn as ɵbi, FocusOn as ɵbj, VarDirective as ɵbk, ContentModel as ɵbl, InnerHtmlModel as ɵbm, ReplaceModel as ɵbn, EnterKey as ɵbo, EscapeKey as ɵbp, PreventBackKey as ɵbq, PreventEnterKey as ɵbr, InputHint as ɵbs, FormChanged as ɵbt, FormAlter as ɵbu, ScreenScrollModelY as ɵbv, ScreenWidthModel as ɵbw, ScreenHeightModel as ɵbx, ScreenScroll as ɵby, ScrollPastFixed as ɵbz, IndexTrack as ɵc, string as ɵca, ScreenScrollHeightDiff as ɵcb, PxFromHtmlTop as ɵcc, HtmlWidthModel as ɵcd, HtmlHeightModel as ɵce, ShakeOn as ɵcf, FxOn as ɵcg, StatusOnlineModel as ɵch, StatusOfflineModel as ɵci, ElementSizeModel as ɵcj, ElementHeightModel as ɵck, ElementWidthModel as ɵcl, DebugItem as ɵcm, DebugArea as ɵcn, declarations$3 as ɵco, string$1 as ɵcp, ErrorWell as ɵcq, string$3 as ɵcr, AbsoluteOverflowX as ɵcs, string$4 as ɵct, ReaderHeaderBody as ɵcu, ReaderHeader as ɵcv, ReaderBody as ɵcw, string$2 as ɵcx, AckCloseIcon as ɵcy, AckSections as ɵcz, Stringify as ɵd, string$8 as ɵda, SectionProvider as ɵdb, AckSectionTemplates as ɵdc, AckOptions as ɵdd, string$6 as ɵde, AckOptionsModal as ɵdf, string$5 as ɵdg, AckModal as ɵdh, AckModalLayout as ɵdi, AckAggregate as ɵdj, AckFixedElement as ɵdk, AckFixedElementStage as ɵdl, string$7 as ɵdm, RouteReporter as ɵdn, RouteHistory as ɵdo, ForceArray as ɵe, ArrayOfObjects as ɵf, SafeUrl as ɵg, NumberWord as ɵh, EndNumberWord as ɵi, SafeHtml as ɵj, SafeStyle as ɵk, Between as ɵl, ReplaceMaxLength as ɵm, TextDownload as ɵn, NumberToPhone as ɵo, toNumber as ɵp, NumberSuffix as ɵq, MarkdownAnchor as ɵr, Capitalize as ɵs, CapitalizeWords as ɵt, Yesno as ɵu, YesNo as ɵv, BooleanPipe as ɵw, Bit as ɵx, Numbers as ɵy, ADate as ɵz };
 //# sourceMappingURL=ack-angular.js.map
