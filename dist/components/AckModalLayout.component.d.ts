@@ -9,6 +9,7 @@ export declare class AckModalLayout {
     wrapStyle: any;
     wrapCellStyle: any;
     backgroundColor: any;
+    valign: 'top' | 'center' | 'bottom';
     isModelMode: boolean;
     showModel: boolean;
     showModelChange: EventEmitter<boolean>;

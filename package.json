@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "2.0.12",
+  "version": "2.0.13",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -27,9 +27,12 @@
     "build": "npm-run-all build:universal build:dist compile:dist:package copy:scss build:js",
     "copy:scss": "ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss",
     "compile:dist:package": "node scripts/update-dist-package.js",
-    "save": "git add . && git commit -m \"update\" && git push",
-    "deploy": "npm-run-all build deploy:gh-pages deploy:npm save",
-    "deploy:npm": "cp -R ./dist/. ../master && cd ../master && git add . && git commit -m \"update\" && git push && npm publish",
+    "save": "npm run build && npm run patch:version && git add . && git commit -m \"update\" && git push",
+    "patch:version": "npm --no-git-tag-version version patch",
+    "deploy": "npm-run-all save deploy:gh-pages deploy:npm",
+    "deploy:npm": "npm-run-all paste:master save:master",
+    "paste:master": "cp -R ./dist/. ../master",
+    "save:master": "cd ../master && git add . && git commit -m \"update\" && git push && npm publish",
     "deploy:gh-pages": "cp -R ./example/www/. ../gh-pages && cd ../gh-pages && git add . && git commit -m \"update\" && git push"
   },
   "repository": {
@@ -50,14 +53,19 @@
     "url": "https://github.com/AckerApple/ack-angular/issues"
   },
   "homepage": "https://github.com/AckerApple/ack-angular#readme",
-  "dependencies": {
+  "peerDependencies": {
+    "ack-angular-fx": ">=4.1.0",
+    "ack-css-boot": ">=2.0.4",
+    "ack-x": ">=2.1.1",
+    "animate.css": ">=4.1.1",
+    "csshake": ">=1.5.3"
+  },
+  "devDependencies": {
     "ack-angular-fx": "^4.1.0",
     "ack-css-boot": "^2.0.4",
     "ack-x": "^2.1.1",
     "animate.css": "^4.1.1",
-    "csshake": "^1.5.3"
-  },
-  "devDependencies": {
+    "csshake": "^1.5.3",
     "@angular-devkit/build-angular": "~0.1102.8",
     "@angular-devkit/build-ng-packagr": "^0.1002.0",
     "@angular/animations": "^11.2.9",

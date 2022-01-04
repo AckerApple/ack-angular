@@ -26,7 +26,7 @@
         <td (click)="allowClose ? fireClose() : 0"></td>
       </tr>
       <tr>
-        <td valign="top" [ngStyle]="wrapCellStyle">
+        <td [attr.valign]="valign" [ngStyle]="wrapCellStyle">
           <div *ngIf="allowClose" style="position: relative">
             <div
               style="

@@ -1,6 +1,7 @@
 <ng-template #placeholder>
   <ack-modal-layout
     [zIndex]          = "zIndex"
+    [valign]          = "valign"
     (close)           = "close.emit($event)"
     [isModelMode]     = "isModelMode==null ? showModelChange.observers.length : isModelMode"
     [showModel]       = "showModel"

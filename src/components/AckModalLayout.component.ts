@@ -23,7 +23,8 @@ import { animations } from "ack-angular-fx"
   @Input() wrapStyle: any
   @Input() wrapCellStyle: any
   @Input() backgroundColor: any
-
+  @Input() valign: 'top' | 'center' | 'bottom' = 'top'
+  
   @Input() isModelMode: boolean = false
   @Input() showModel: boolean = true // when using, do not allow to be undefined
   @Output() showModelChange: EventEmitter<boolean> = new EventEmitter()

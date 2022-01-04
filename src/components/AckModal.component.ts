@@ -27,12 +27,14 @@ import { AckApp } from "../providers/AckApp.provider"
   //one way binds
   @Input() inline?:boolean
   @Input() isModelMode?:boolean
-  @Input() allowClose:boolean = true
   @Input() zIndex:number = 20
-
+  
+  @Input() valign: 'top' | 'center' | 'bottom' = 'top'
   @Input() wrapStyle: any
   @Input() wrapCellStyle: any
   @Input() backgroundColor?: string
+  
+  @Input() allowClose:boolean = true
 
   //two way binds
   @Input() showModel?: boolean
