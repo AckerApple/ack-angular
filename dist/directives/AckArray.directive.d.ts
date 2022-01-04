@@ -1,5 +1,4 @@
-import { Subscription } from "rxjs/internal/Subscription";
-import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
+import { BehaviorSubject, Subscription } from "rxjs";
 import { EventEmitter, IterableDiffers, IterableDiffer } from "@angular/core";
 import { AckAggregate } from "./AckAggregate.directive";
 export interface sortDef {
@@ -49,13 +48,14 @@ export declare class AckArray {
     only(item: any): void;
     getItemId(item: any): any;
     getCompareArray(): (string | number)[];
+    selected(item: any): boolean;
     itemIndex(item: any): number;
     toggle(item: any): this;
     push(item: any): this;
     unshift(item: any): this;
     splice(x: number, y?: number): this;
     param(): any[];
-    toggleSort(arrayKey: string | string[], sortType: "date" | "time" | "datetime" | "int" | "number" | string | number): boolean;
+    toggleSort(arrayKey: string | string[], sortType?: "date" | "time" | "datetime" | "int" | "number" | string | number): boolean;
 }
 export declare function dataKeysMatch(ao: any, an: any, idKeys: string[]): boolean;
 export declare function mergeArrays(arrayOriginal: any[], arrayNew: any[], idKeys: string[]): void;

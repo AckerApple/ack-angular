@@ -11,13 +11,13 @@ import {
 
 /* ONLY THIS FILE */
   @Pipe({name: 'indexTrack'}) export class IndexTrack {
-    transform() {
+    transform(_x: any) {
       return function(index: any){return index}
     }
   }
 
   @Pipe({name: 'stringify'}) export class Stringify {
-    transform(input: any, spaces: any) {
+    transform(input: any, spaces=0) {
       return JSON.stringify(input, null, spaces)
     }
   }
@@ -29,7 +29,7 @@ import {
   }
 
   @Pipe({name: 'arrayOfObjects'}) export class ArrayOfObjects {
-    transform(input: any, repeat: any, repeatValue: any) {
+    transform(input: any, repeat?: number | undefined, repeatValue?: unknown) {
       return pipes.arrayOfObjects(input, repeat, repeatValue)
     }
   }
@@ -80,7 +80,7 @@ import {
 
 @Pipe({name: 'replaceMaxLength'}) export class ReplaceMaxLength {
   transform(
-   input:string, max: number, replacement: string
+   input:string, max: number, replacement?: string
   ) {
     return pipes.replaceMaxLength(input, max, replacement)
   }
@@ -92,7 +92,9 @@ import {
 }
 
 @Pipe({name: 'numberToPhone'}) export class NumberToPhone {
-  transform(input:string){return pipes.numberToPhone(input)}
+  transform(input:string | number){
+    return pipes.numberToPhone(input)
+  }
 }
 
 @Pipe({name: 'toNumber'}) export class toNumber {
@@ -100,7 +102,9 @@ import {
 }
 
 @Pipe({name: 'numberSuffix'}) export class NumberSuffix {
-  transform(input:string, rtnInput?: any){return pipes.numberSuffix(input, rtnInput)}
+  transform(input: number | string, rtnInput?: any){
+    return pipes.numberSuffix(input, rtnInput)
+  }
 }
 
 @Pipe({name: 'markdownAnchor'}) export class MarkdownAnchor {

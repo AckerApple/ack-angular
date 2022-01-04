@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "2.0.13",
+  "version": "2.1.0",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "bundles/ack-angular.umd.js",
   "typings": "ack-angular.d.ts",
@@ -24,7 +24,7 @@
   "homepage": "https://github.com/AckerApple/ack-angular#readme",
   "peerDependencies": {
     "ack-angular-fx": ">=4.1.0",
-    "ack-css-boot": ">=2.0.4",
+    "ack-css-boot": ">=3.0.9",
     "ack-x": ">=2.1.1",
     "animate.css": ">=4.1.1",
     "csshake": ">=1.5.3"

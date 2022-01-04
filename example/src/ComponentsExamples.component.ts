@@ -6,9 +6,6 @@ import {
 import { Component } from "@angular/core";
 import { animations } from "ack-angular-fx"
 import { array as arrayOfObjects } from "./arrayOfObjects"
-import {
-  string as componentsExamples
-} from "./templates/components-examples.pug"
 
 export interface selected{
   letter:string
@@ -16,10 +13,10 @@ export interface selected{
 }
 
 @Component({
-  selector: "components-examples"
-  ,template: componentsExamples
-  ,animations:animations
-}) export class ComponentsExamples {
+  selector: "components-examples",
+  templateUrl: './components-examples.html',
+  animations
+}) export class ComponentsExamples { 
   fxClass:string = "bounce"
   fxForMs:number
   initArray = [{value:0},{value:1},{value:2}]
@@ -35,9 +32,36 @@ export interface selected{
   screenScrollHeightDiff:number
   screenWidthModel:number
   screenHeightModel:number
-  elementSizeModel:number
-  viewScreenHeightModel:number
-  viewScreenWidthModel:number
+  innerHtmlModel:any
+  
+  shakeOn:boolean
+  shakeForMs: number
+  shakeConstant: any
+  shakeOnType: any
+  fxOn: any
+  fxConstant: any
+  selectOnDelay: any
+  selectOn: any
+  focusOn: any
+  focusOnDelay: any
+  preventEnterCount: any
+  backspaceCount: any
+  enterCountKey: any
+  formAlters: any
+  formChanges: any
+  showAckOptionsObjectModal: any
+  showAckOptionsStringModal: any
+  ackOptionStringModal: any
+  showAckModal: any
+  showAckModalModel: any
+  ackOptionString: any
+  sumNumber: any
+  arrayPages: any
+  arrayMap: any
+
+  elementSizeModel: {height:number, width:number}
+  viewScreenHeightModel: number | boolean
+  viewScreenWidthModel: number | boolean
   screenScrollCount:number = 0
 
   viewShakeOn:boolean
@@ -62,6 +86,8 @@ export interface selected{
   ]
   absoluteOverflowXActive = true//control the absolute-overflow-x example
   contentModel = 'This is some demo content being displayed'
+  query: any
+  cssClasses: any
 
   constructor(public PageScrollService:PageScrollService){}
 

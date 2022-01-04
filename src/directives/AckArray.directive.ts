@@ -1,13 +1,9 @@
-import { Subscription } from "rxjs/internal/Subscription"
-import { BehaviorSubject } from "rxjs/internal/BehaviorSubject"
+import { BehaviorSubject, Subscription } from "rxjs"
 import {
   EventEmitter, Output, Input,
-  ContentChildren, Directive,
-  IterableDiffers,
-  IterableDiffer
+  ContentChildren, Directive, IterableDiffers, IterableDiffer
 } from "@angular/core"
 import { AckAggregate } from "./AckAggregate.directive"
-//import { AckArrayJoin } from "./AckArrayJoin.directive"
 
 export interface sortDef{
   arrayKey : string | string[]
@@ -144,13 +140,7 @@ export interface loop{
       )
     }
   }
-/*
-  performJoins(){
-    this.AckArrayJoins.forEach(join=>
-      join.joinTo( this.array )
-    )
-  }
-*/
+
   pushAggregates( aggs:AckAggregate[] ){
     aggs.forEach(agg=>{
       let memory: any
@@ -280,12 +270,12 @@ export interface loop{
 
     return this.array || []
   }
-/*
-  selected(item){
+
+  selected(item: any): boolean {
     return this.itemIndex(item) >= 0 ? true : false
   }
-*/
-  itemIndex(item: any):number{
+
+  itemIndex(item: any):number {
     const array = this.getCompareArray()
 
     for(let x=array.length-1; x >= 0; --x){
@@ -330,8 +320,8 @@ export interface loop{
   }
 
   toggleSort(
-    arrayKey:string|string[],
-    sortType:"date"|"time"|"datetime"|"int"|"number"|string|number
+    arrayKey: string|string[],
+    sortType?: "date"|"time"|"datetime"|"int"|"number"|string|number
   ){
     if(this.inSort)return false
 

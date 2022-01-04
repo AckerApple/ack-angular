@@ -1,0 +1,121 @@
+<ng-container [(htmlWidthModel)]="screenWidthModel"></ng-container
+><route-reporter
+  (beforeChange)="panelAnim=$event.isBackMode?'slideInLeft':'slideInRight';isBackMode=$event.isBackMode;"
+  (onChange)="stateName=$event.current.config.name"
+></route-reporter
+><ack-fixed-element-stage></ack-fixed-element-stage>
+<div id="top"></div>
+<reader-header-body style="font-size: 16px"
+  ><ack-sections mode="clone"
+    ><ack-section-templates *ngIf="screenWidthModel &lt; 800"
+      ><ng-template #sectionFooter=""
+        ><absolute-overflow-x
+          class="bg-info text-center border-top border-grey-2x"
+          [@fadeInOutUp]="1"
+          ><div
+            class="flex child-hover-bg-warning child-pad-h-lg child-pad-v-sm"
+          >
+            <a
+              class="nowrap no-a-style flex-1 border-right border-white height-60 flex-valign-center"
+              *ngFor="let item of menu"
+              [ngClass]="{'strong bg-energized':stateName==item.path}"
+              [href]="'#/' + item.path"
+              >{{ item.data.title }}</a
+            >
+          </div></absolute-overflow-x
+        ></ng-template
+      ></ack-section-templates
+    >
+    <!--
+      <fx-tracker #fx="" [activatedRoute]="routerOutlet.activated ? routerOutlet.activatedRoute : null"></fx-tracker>
+    -->
+
+    <table
+      class="height-full width-full"
+      cellpadding="0"
+      cellspacing="0"
+      border="0"
+    >
+      <tbody>
+        <tr>
+          <td>
+            <div style="max-width: 1000px">
+              <div
+                class="bg-energized border-grey-3x border-left-1 border-right-1"
+              >
+                <div class="flex-valign-center flex-wrap">
+                  <strong
+                    class="margin-0"
+                    [ngClass]="screenWidthModel &gt; 800 ? 'pad-xs text-6x' : 'pad-xxs text-4x'"
+                    ><span class="text-sm">🚴</span>&nbsp;ack-angular</strong
+                  ><span class="text-right flex-1 text-white pad-right-xs"
+                    >v{{ version }}</span
+                  >
+                </div>
+              </div>
+              <div *ngIf="screenWidthModel &gt; 800" [@fadeInOutUp]="1">
+                <scroll-past-fixed
+                  ><div style="max-width: 1000px">
+                    <absolute-overflow-x
+                      class="bg-info text-center border-bottom border-grey-2x"
+                      ><div
+                        class="flex child-hover-bg-warning child-pad-sm text-2x"
+                      >
+                        <a
+                          class="no-a-style flex-1 border-right border-white"
+                          *ngFor="let item of menu"
+                          [ngClass]="{'strong bg-energized':stateName==item.path}"
+                          [href]="'#/' + item.path"
+                          >{{ item.data.title }}</a
+                        >
+                      </div></absolute-overflow-x
+                    >
+                  </div></scroll-past-fixed
+                >
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="width-full height-full bg-white border-grey-3x">
+            <table
+              class="width-full height-full"
+              cellpadding="0"
+              cellspacing="0"
+              border="0"
+            >
+              <tr>
+                <td
+                  [ngClass]="screenWidthModel&gt;=800 ? 'width-20' : 'width-10'"
+                ></td>
+                <td>
+                  <div
+                    class="text-left height-full pad-top-lg"
+                    [@slideInOutLeftKids]="{value:fx.id, params:{time:'500ms'}}"
+                    [@absoluteKids]="{value:fx.id, params:{time:'500ms'}}"
+                    (@absoluteKids.start)="inFx=true"
+                    (@absoluteKids.done)="inFx=false"
+                    [style.max-width.px]="screenWidthModel - (screenWidthModel&gt;=800 ? 40 : 20)"
+                    [ngStyle]="inFx ? {position:'relative',overflow:'hidden'} : null"
+                  >
+                    <router-outlet #routerOutlet="outlet"></router-outlet>
+                  </div>
+                </td>
+                <td
+                  [ngClass]="screenWidthModel&gt;=800 ? 'width-20' : 'width-10'"
+                ></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="text-center" *ngIf="!inFx">
+              <br /><a class="text-xs" href="#top" pageScroll="pageScroll"
+                >top</a
+              ><br /><br />
+            </div>
+          </td>
+        </tr>
+      </tbody></table></ack-sections
+></reader-header-body>

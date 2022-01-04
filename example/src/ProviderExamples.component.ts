@@ -19,16 +19,16 @@ import {
 } from "../../modules/offline"
 
 import { animations } from "ack-angular-fx"
-import { string as providerExamples } from "./templates/provider-examples.pug"
 
 const pathing = window.location.pathname.split("/").slice(0,-1).join("/")
 const defaultUrl = window.location.origin+pathing+"/test.json"
 
 @Component({
-  selector: "provider-examples"
-  ,template: providerExamples
-  ,animations: animations
+  selector: "provider-examples",
+  templateUrl: './provider-examples.html',
+  animations
 }) export class ProviderExamples {
+  newOfflineStorage: any
   views:any = {}
   statusOnlineModel:boolean
   queArray:any[] = []

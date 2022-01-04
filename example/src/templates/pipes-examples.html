@@ -178,7 +178,7 @@
     <div *ngIf="views.indexOf" [@fadeInOutUp]="1">
       <div class="pad-xs text-info text-sm">Simple arrays like ["a","b","c"] are hard to work with ngFor +
         ngModel</div><strong>With indexTrack</strong>
-      <div *ngFor="let item of simpleArray; let i=index; trackBy:0|indexTrack"><input class="width-full"
+      <div *ngFor="let item of simpleArray; let i=index; trackBy:(0|indexTrack)"><input class="width-full"
           [(ngModel)]="simpleArray[i]" /></div>
       <absolute-overflow-x>
         <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">&lt;div *ngFor="let item of simpleArray; let i=index; trackBy:0|indexTrack"&gt;
@@ -186,7 +186,7 @@
 &lt;/div&gt;</pre>
       </absolute-overflow-x><br /><strong class="text-warning">Without indexTrack</strong>
       <div class="text-xs text-grey-2x pad-left-xs">Inputs blur as you type in them</div>
-      <div *ngFor="let item of simpleArray; let i=index; trackBy:index"><input class="width-full"
+      <div *ngFor="let item of simpleArray; let i=index"><input class="width-full"
           [(ngModel)]="simpleArray[i]" /></div>
     </div>
   </div>
@@ -205,7 +205,7 @@
       </div>
       <div class="pad-xs text-info text-sm">Simple arrays like ["a","b","c"] are hard to work with ngFor +
         ngModel. This pipe can help with that (not as well as indexTrack pipe)</div><strong>With arrayOfObjects</strong>
-      <div *ngFor="let item of simpleArray|arrayOfObjects"><input class="width-full" [(ngModel)]="simpleArray[
+      <div *ngFor="let item of (simpleArray|arrayOfObjects)"><input class="width-full" [(ngModel)]="simpleArray[
           item.index ]" /></div>
       <absolute-overflow-x>
         <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">&lt;div *ngFor="let item of simpleArray|arrayOfObjects"&gt;
@@ -213,7 +213,7 @@
 &lt;/div&gt;</pre>
       </absolute-overflow-x><br /><strong class="text-warning">Without arrayOfObjects</strong>
       <div class="text-xs text-grey-2x pad-left-xs">Inputs blur as you type in them</div>
-      <div *ngFor="let item of simpleArray; let i=index; trackBy:index"><input class="width-full"
+      <div *ngFor="let item of simpleArray; let i=index"><input class="width-full"
           [(ngModel)]="simpleArray[i]" /></div>
     </div>
   </div>
@@ -227,7 +227,7 @@
       <absolute-overflow-x>
         <pre
           class="code-sample
-          margin-0"><span ngNonBindable="ngNonBindable">{{ 'a' | array }}</span><span class="pad-h">== {{ 'a' | array | stringify }}</span><br/><span ngNonBindable="ngNonBindable">{{ 'a' | array : 3 }}</span><span class="pad-h">== {{ 'a' | array : 3 | stringify }}</span><br/><span ngNonBindable="ngNonBindable">{{ ['a'] | array : 3 : 1 }}</span><span class="pad-h">== {{ ['a'] | array:3:1 | stringify }}</span><br/><span ngNonBindable="ngNonBindable">{{ 'a' | array : 3 : 1 }}</span><span class="pad-h">== {{ 'a' | array : 3 : 1 | stringify }}</span><br/><span ngNonBindable="ngNonBindable">{{ 0 | array : 3 : 'b' }}</span><span class="pad-h">== {{ 0 | array : 3 : 'b' | stringify }}</span><br/><span ngNonBindable="ngNonBindable">{{ 'c' | array : 3 }}</span><span class="pad-h">== {{ 'c' | array : 3 | stringify }}</span></pre>
+          margin-0"><span ngNonBindable="ngNonBindable">{{ 'a' | array }}</span><span class="pad-h">== {{ 'a' | array | stringify }}</span><br/><span ngNonBindable="ngNonBindable">{{ 'a' | array : 3 }}</span><span class="pad-h">== {{ 'a' | array : 3 | stringify }}</span><br/><span ngNonBindable="ngNonBindable">{{ ['a'] | array : 3 : 1 }}</span><span class="pad-h">== {{ ['a'] | array:3:1 | stringify }}</span><br/><span ngNonBindable="ngNonBindable">{{ 'a' | array : 3 : 1 }}</span><span class="pad-h">== {{ 'a' | array : 3 : 1 | stringify }}</span><br/><span ngNonBindable="ngNonBindable">{{ 0 | array : 3 : 'b' }}</span><span class="pad-h">== {{ (0 | array : 3 : 'b') | stringify }}</span><br/><span ngNonBindable="ngNonBindable">{{ 'c' | array : 3 }}</span><span class="pad-h">== {{ ('c' | array : 3) | stringify }}</span></pre>
       </absolute-overflow-x>
     </div>
   </div>

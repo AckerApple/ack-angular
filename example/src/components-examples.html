@@ -1,0 +1,2280 @@
+<h2 class="margin-top-0">Components</h2>
+<div class="margin-xxs">
+  <p class="margin-bottom-0">Import Example</p>
+  <div class="text-warning text-xs">
+    The following import code, is NOT needed if you used the AckModule import
+    <a class="text-calm" href="#/overview" (click)="scrollToModuleImport()"
+      >seen here</a
+    >
+  </div>
+  <pre class="code-sample" ngNonBindable="ngNonBindable">
+import &#123; declarations as ackDecs &#125; from "ack-angular/components"
+import &#123; NgModule &#125; from '@angular/core';
+
+@NgModule(&#123;
+  declarations:ackDecs
+&#125;)
+</pre
+  >
+</div>
+<br />
+<h4 class="margin-bottom-0">Table of Contents</h4>
+<ul>
+  <li><a href="#Tags" pageScroll="pageScroll">Tags</a></li>
+  <li>
+    <a href="#ExpressionBinds" pageScroll="pageScroll">Expression Binds</a>
+  </li>
+  <li><a href="#OneWayBinds" pageScroll="pageScroll">One Way Binds</a></li>
+  <li><a href="#TwoWayBinds" pageScroll="pageScroll">Two Way Binds</a></li>
+  <li>
+    <a href="#LayoutComponents" pageScroll="pageScroll">Layout Components</a>
+  </li>
+  <li>
+    <a href="#ComplexComponents" pageScroll="pageScroll">Complex Components </a>
+  </li>
+</ul>
+<br />
+<h2 class="margin-bottom-0" id="Tags">Tags</h2>
+<div class="flex-wrap child-margin-xxs">
+  <div class="flex-1" [class.width-full]="views.ackFixedElmStage">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>ack-fixed-element-stage</h3>
+        <div class="text-grey-2x max-width-400">
+          Required to use such components as &lt;ack-model&gt;,
+          &lt;ack-options-modal&gt;, and the Confirm provider
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.ackFixedElmStage=!views.ackFixedElmStage"
+        [ngClass]="views.ackFixedElmStage?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.ackFixedElmStage"
+      [@fadeInOutUp]="1"
+    >
+      <div class="pad">
+        Use ONLY ONE time. This is a display control component for other
+        components. It has no natural display until position fixed elements,
+        such as modals, need to be rendered to screen.
+      </div>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;ack-fixed-element-stage&gt;&lt;/ack-fixed-element-stage&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>debug-area</h3>
+        <div class="text-grey-2x max-width-400">
+          A super convenient way to debug and edit variables<ack-close-icon
+          ></ack-close-icon>
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.debugArea=!views.debugArea"
+        [ngClass]="views.debugArea?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.debugArea"
+      [@fadeInOutUp]="1"
+    >
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;debug-area&gt;
+  &lt;debug-item name="someArray" [value]="someArray" type="array"&gt;&lt;/debug-item&gt;
+&lt;/debug-area&gt;</pre
+        >
+      </absolute-overflow-x>
+      <h4 class="pad-sm margin-0">
+        Example Results<debug-area
+          ><debug-item
+            name="arrayOfObjects"
+            [value]="arrayOfObjects"
+            type="array"
+          ></debug-item
+          ><debug-item
+            name="selectedArray"
+            [value]="selectedArray"
+            type="array"
+          ></debug-item
+        ></debug-area>
+      </h4>
+    </div>
+  </div>
+  <div class="flex-1">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>ack-close-icon</h3>
+        <div class="text-grey-2x max-width-400">
+          A super convenient html based close icon. No img refs. No style sheet
+          refs<ack-close-icon></ack-close-icon>
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.ackCloseIcon=!views.ackCloseIcon"
+        [ngClass]="views.ackCloseIcon?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.ackCloseIcon"
+      [@fadeInOutUp]="1"
+    >
+      <div class="pad">
+        <ack-close-icon (click)="views.ackCloseIcon=false"></ack-close-icon>
+      </div>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;ack-close-icon (click)="views.ackCloseIcon=false"&gt;&lt;/ack-close-icon&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>ack-array</h3>
+        <div class="text-grey-2x">
+          Common array functionality available at a template level
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.ackArray=!views.ackArray"
+        [ngClass]="views.ackArray?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.ackArray"
+      [@fadeInOutUp]="1"
+    >
+      <ack-array
+        #Array="AckArray"
+        [(array)]="selectedArray"
+        idKey="letter"
+        [(pageAt)]="pageAt"
+        [(pages)]="arrayPages"
+        [(keyMap)]="arrayMap"
+        ><ack-aggregate
+          type="sum"
+          [keys]="['number']"
+          [(output)]="sumNumber"
+        ></ack-aggregate
+      ></ack-array>
+      <h4 class="pad-sm margin-0">Bind Documentation</h4>
+      <ul>
+        <li>[(array)] - main array to stem functionality from</li>
+        <li>[idKey] - pointer to each array node id field</li>
+        <li>[pageAt] - what number to break array into page buckets</li>
+        <li>([pages]) - buckets of arrays based on pageAt</li>
+      </ul>
+      <h4 class="pad-sm margin-0">API Documentation</h4>
+      <ul>
+        <li>toggle(item) - adds or removes item based on existence</li>
+        <li>push(item) - param and append item to array</li>
+        <li>unshift(item) - param and prepend item to array</li>
+        <li>splice(item) - remove item by index from array</li>
+        <li>param() - ensure array exists</li>
+        <li>only(item) - reduce array down to only item argument</li>
+      </ul>
+      <div class="pad-sm">
+        <h4 class="margin-0">Usage Example: Toggle Items</h4>
+        <div class="text-grey-2x">
+          Take an arbitrary array (arrayOfObjects in demo) and allow a system of
+          toggling selections
+        </div>
+      </div>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;ack-array #Array="AckArray" [(array)]="selectedArray" idKey="letter"&gt;&lt;/ack-array&gt;
+&lt;ng-container *ngIf="Array&gt;
+  &lt;div *ngFor="let item of arrayOfObjects"&gt;
+    &lt;input type="checkbox" [checked]="Array.selected(item)" (click)="Array.toggle(item)" /&gt;
+    &nbsp;&nbsp;{{ item | json }}
+  &lt;/div&gt;
+&lt;/ng-container&gt;
+</pre
+        >
+      </absolute-overflow-x>
+      <h5 class="pad-sm margin-0">Example Array Adjusters</h5>
+      <div class="pad-left text-grey-2x">
+        Use the checkboxes below to alter the original array
+      </div>
+      <div class="flex-wrap child-margin-xs">
+        <div *ngFor="let item of arrayOfObjects;let i=index">
+          <input
+            type="checkbox"
+            [checked]="Array?.selected(item)"
+            (click)="Array.toggle(item)"
+            name="ackArray"
+            id="ackArray{{i}}"
+          />&nbsp;{{ item | json }}
+        </div>
+      </div>
+      <div class="pad">
+        <a (click)="Array.toggleSort('letter')">toggle sort</a>
+      </div>
+      <h5 class="pad-sm margin-0">Example Selected Array</h5>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0">
+{{ selectedArray | json }}
+</pre
+        >
+      </absolute-overflow-x>
+      <div class="pad-sm">
+        <h4 class="margin-0">Usage Example: Map Items</h4>
+        <div class="text-grey-2x">
+          Take an arbitrary array and create an object map
+        </div>
+      </div>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;ack-array
+  [(array)]  = "selectedArray"
+  idKey      = "letter"
+  [(keyMap)] = "objectOfArrays"&gt;
+&lt;/ack-array&gt;
+&lt;pre&gt;
+  {{ objectOfArrays | json}}
+&lt;/pre&gt;
+</pre
+        >
+      </absolute-overflow-x>
+      <h5 class="pad-sm margin-0">Example Selected Map</h5>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0">
+{{ arrayMap | json }}
+</pre
+        >
+      </absolute-overflow-x>
+      <div class="pad-sm">
+        <h4 class="margin-0">Usage Example: Pages of Array</h4>
+        <div class="text-grey-2x">Break array into buckets of results</div>
+      </div>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;ack-array [(array)]="largeArray" [(pages)]="pages" pageAt="20"&gt;&lt;/ack-array&gt;
+Total Pages : {{ pages?.length }}
+&lt;div *ngFor="let page of pages;let page=index"&gt;
+  Page {{ page }} = {{ item | json }}
+&lt;/div&gt;
+</pre
+        >
+      </absolute-overflow-x>
+      <div class="text-center bg-grey-4x pad-xxs margin-xxs">
+        <strong>pageAt:</strong
+        ><select [(ngModel)]="pageAt">
+          <option *ngFor="let page of [0,1,2,4,6,8]" [value]="page">
+            {{page}}
+          </option>
+        </select>
+      </div>
+      <div class="flex-wrap child-margin-xxs">
+        <absolute-overflow-x
+          class="flex-1"
+          *ngFor="let page of arrayPages;let x=index"
+          ><h5 class="margin-0">Example pages[{{ x+1 }}]</h5>
+          <pre class="code-sample margin-0">
+{{ page | json }}
+</pre
+          >
+        </absolute-overflow-x>
+      </div>
+      <div class="pad-sm">
+        <h4 class="margin-0">Usage Example: Aggregates</h4>
+        <div class="text-grey-2x">Sum an array</div>
+      </div>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;ack-array [(array)]="[&#123;parentOb:&#123;childOb:&#123;value:33&#125;&#125;&#125;]"&gt;
+  &lt;ack-aggregate type="sum" [(output)]="sumAmount" keys="['parentOb','childOb','value']"&gt;&lt;/ack-aggregate&gt;
+&lt;/ack-array&gt;
+
+Your sum of &#123;&#123; sumAmount &#125;&#125; should be equal to 33</pre
+        >
+      </absolute-overflow-x>
+      <div class="pad-xxs">Your sum is {{ sumNumber }}</div>
+    </div>
+  </div>
+  <div class="flex-1">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>ack-options</h3>
+        <div class="text-grey-2x max-width-400">
+          Array of choosable options tied to a model
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.ackOptions=!views.ackOptions"
+        [ngClass]="views.ackOptions?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.ackOptions"
+      [@fadeInOutUp]="1"
+    >
+      <div class="pad-sm">
+        <h4 class="margin-0">Demo</h4>
+        <p class="text-grey-3x text-sm">
+          Each item in list the below is selectable
+        </p>
+        <div *ngIf="ackOptionString" [@fadeInOutUp]="1">
+          <strong>Selected Option:</strong>&nbsp;{{ ackOptionString }}
+        </div>
+        <ack-options
+          [array]="['x','y','z']"
+          [(model)]="ackOptionString"
+          toggleable="1"
+        ></ack-options>
+        <hr />
+        <strong>Multiple Example</strong>
+        <div *ngIf="ackOptionArray?.length" [@fadeInOutUp]="1">
+          <div><strong>Selected Options:</strong></div>
+          <absolute-overflow-x>
+            <pre class="code-sample">{{ ackOptionArray | json }}</pre>
+          </absolute-overflow-x>
+        </div>
+        <ack-options
+          [array]="[{name:'x'},{name:'y'},{name:'z'}]"
+          [(model)]="ackOptionArray"
+          multiple="1"
+          ><ng-template #option="" let-item="item"
+            ><div>&bull; name:{{ item.name }}</div></ng-template
+          ><ng-template #selected="" let-item="item"
+            ><div class="bold">&bull; name:{{ item.name }}</div></ng-template
+          ></ack-options
+        >
+      </div>
+      <h4 class="pad-sm margin-0">Properties</h4>
+      <ul>
+        <li>[array]</li>
+        <li>[stylize]:boolean = true</li>
+        <li>[multiple]:boolean</li>
+        <li>[modelAsArray]:boolean</li>
+        <li>[max]:number</li>
+        <li>[toggleable]:boolean</li>
+      </ul>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;div *ngIf="ackOptionString"&gt;
+  &lt;strong&gt; Selected Option: &lt;/strong&gt;
+  &#123;&#123; ackOptionString &#125;&#125;
+&lt;/div&gt;
+&lt;ack-options [array]="['x','y','z']" [(model)]="ackOptionString" toggleable&gt;&lt;/ack-options&gt;
+
+&lt;hr /&gt;
+
+&lt;div *ngIf="ackOptionArray?.length"&gt;
+  &lt;strong&gt; Selected Options: &lt;/strong&gt;
+  &lt;pre&gt; &#123;&#123; ackOptionArray | json &#125;&#125; &lt;/pre&gt;
+&lt;/div&gt;
+&lt;ack-options [array]="[&#123;name:'x'&#125;,&#123;name:'y'&#125;,&#123;name:'z'&#125;]" [(model)]="ackOptionArray" multiple&gt;
+  &lt;ng-template #option let-item="item"&gt;
+    &lt;div&gt; &amp;bull; name:&#123;&#123; item.name &#125;&#125; &lt;/div&gt;
+  &lt;/ng-template&gt;
+  &lt;ng-template #selected let-item="item"&gt;
+    &lt;div style="font-weight:bold"&gt; &amp;bull; name:&#123;&#123; item.name &#125;&#125; &lt;/div&gt;
+  &lt;/ng-template&gt;
+&lt;/ack-options&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>ack-modal</h3>
+        <div class="text-grey-2x max-width-400">Open simple dialog modal</div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.ackModal=!views.ackModal"
+        [ngClass]="views.ackModal?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.ackModal"
+      [@fadeInOutUp]="1"
+    >
+      <div class="bg-info pad text-info">
+        This component requires the element &lt;ack-fixed-element-stage&gt; to
+        be present somewhere in your app
+      </div>
+      <ack-modal
+        *ngIf="showAckModal"
+        (close)="showAckModal=false"
+        [(backgroundColor)]="modalBackgroundColor"
+        [(wrapStyle)]="modalWrapStyle"
+        ><div class="bg-white border border-grey-4x pad-4x radius-5">
+          Sample Modal Dialog Window
+          <div class="text-xs text-grey-2x pad-h">
+            *ngIf driven modal with animation provided by ack-angular-fx
+            [@fadeInOutUp]="1"
+          </div>
+        </div></ack-modal
+      ><ack-modal
+        [(showModel)]="showAckModalModel"
+        [(backgroundColor)]="modalBackgroundColor"
+        [(wrapStyle)]="modalWrapStyle"
+        ><div class="bg-white border border-grey-4x pad-4x radius-5">
+          Sample Modal Dialog Window
+          <div class="text-xs text-grey-2x pad-h">
+            model driven modal with animation provided by ack-angular-fx
+            [@fadeInOutUp]="1"
+          </div>
+        </div></ack-modal
+      >
+      <div class="pad text-center flex-wrap child-margin-xxs">
+        <button class="text-lg" (click)="showAckModal=1">
+          *ngIf show modal</button
+        ><button class="text-lg" (click)="showAckModalModel=1">
+          modal by [(showModel)]
+        </button>
+        <div class="flex-1 flex-valign-center">
+          <div
+            class="height-30 pad-h-sm bg-grey-5x border border-grey-4x border-right-0"
+          >
+            bg
+          </div>
+          <input class="height-30 flex-1" [(ngModel)]="modalBackgroundColor" />
+        </div>
+        <div class="flex-1 flex-valign-center">
+          <div
+            class="height-30 pad-h-sm bg-grey-5x border border-grey-4x border-right-0"
+          >
+            width
+          </div>
+          <input
+            class="height-30 flex-1"
+            (change)="setModalWrapStyle($event.target.value)"
+            placeholder="default width is content"
+          />
+        </div>
+      </div>
+      <div class="pad-sm">
+        <h4>Properties</h4>
+        <ul>
+          <li>(close)</li>
+          <li>[wrapStyle]</li>
+          <li>[wrapCellStyle]</li>
+          <li>[allowClose]:boolean = true</li>
+          <li>[backgroundColor]</li>
+          <li>[(showModel)]:boolean</li>
+        </ul>
+      </div>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;ack-modal *ngIf="showAckModal" (close)="showAckModal=false" backgroundColor="rgba(255,255,255,0.95)"&gt;
+  &lt;div style="background-color:white;padding:1em;"&gt;
+    Sample Modal Dialog Window
+  &lt;/div&gt;
+&lt;/ack-model&gt;
+&lt;button (click)="showAckModal=1"&gt; show modal &lt;/button&gt;
+</pre
+        >
+      </absolute-overflow-x>
+      <h4 class="pad-sm margin-0">Model Usage Example</h4>
+      <div class="text-grey-3x text-smx">
+        Control modal display by a variable model
+      </div>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;ack-modal [(showModel)]="showAckModal" backgroundColor="rgba(255,255,255,0.95)"&gt;
+  &lt;div style="background-color:white;padding:1em;"&gt;
+    Sample Modal Dialog Window
+  &lt;/div&gt;
+&lt;/ack-model&gt;
+&lt;button (click)="showAckModal=1"&gt; show modal &lt;/button&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>ack-options-modal</h3>
+        <div class="text-grey-2x max-width-400">
+          Array of choosable options, in a modal, tied to a model
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.ackOptionsModal=!views.ackOptionsModal"
+        [ngClass]="views.ackOptionsModal?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.ackOptionsModal"
+      [@fadeInOutUp]="1"
+    >
+      <div class="bg-info pad text-info">
+        This component requires the element &lt;ack-fixed-element-stage&gt; to
+        be present somewhere in your app
+      </div>
+      <div class="pad">
+        The ack-options-modal component extends ack-options and implements
+        ack-modal. All options in ack-modal are available in ack-options-modal.
+      </div>
+      <div class="pad-sm">
+        <h4 class="margin-0">Demo</h4>
+        <p class="text-grey-3x text-sm">
+          Each item in list the below is selectable
+        </p>
+        <div *ngIf="ackOptionStringModal" [@fadeInOutUp]="1">
+          <strong>Selected Option:</strong>&nbsp;{{ ackOptionStringModal }}
+        </div>
+        <ack-options-modal
+          [(showModel)]="showAckOptionsStringModal"
+          [allowClose]="0"
+          [array]="['option 0','option 1','option 2']"
+          [(model)]="ackOptionStringModal"
+          (modelChange)="showAckOptionsStringModal=0"
+          toggleable="1"
+          ><div class="pad-right-3x">
+            Select Something Below
+          </div></ack-options-modal
+        ><button (click)="showAckOptionsStringModal=!showAckOptionsStringModal">
+          select option
+        </button>
+        <hr />
+        <strong>Multiple Example</strong>
+        <div *ngIf="ackOptionArrayModal?.length" [@fadeInOutUp]="1">
+          <div><strong>Selected Options:</strong></div>
+          <absolute-overflow-x>
+            <pre class="code-sample">{{ ackOptionArrayModal | json }}</pre>
+          </absolute-overflow-x>
+        </div>
+        <ack-options-modal
+          [(showModel)]="showAckOptionsObjectModal"
+          [array]="[{name:'red',key:'r'},{name:'blue',key:'b'},{name:'green',key:'g'}]"
+          [(model)]="ackOptionArrayModal"
+          multiple="1"
+          arrayKey="key"
+          arrayToModelKey=""
+          modelKey="key"
+          ><div class="pad-right-3x text-grey">
+            Select Multiple Things Below
+          </div>
+          <ng-template #selected="" let-item="item"
+            ><div class="bold">&bull; name:{{ item.name }}</div></ng-template
+          ><ng-template #option="" let-item="item"
+            ><div>&bull; name:{{ item.name }}</div></ng-template
+          ></ack-options-modal
+        ><button (click)="showAckOptionsObjectModal=!showAckOptionsObjectModal">
+          select options
+        </button>
+      </div>
+      <h4 class="pad-sm margin-0">Properties</h4>
+      <ul>
+        <li>[array]</li>
+        <li>[stylize]:boolean = true</li>
+        <li>[multiple]:boolean</li>
+        <li>[modelAsArray]:boolean</li>
+        <li>[max]:number</li>
+        <li>[toggleable]:boolean</li>
+        <li>(close)</li>
+        <li>[wrapStyle]</li>
+        <li>[wrapCellStyle]</li>
+        <li>[allowClose]:boolean = true</li>
+        <li>[backgroundColor]</li>
+        <li>[(showModel)]:boolean</li>
+      </ul>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;div *ngIf="ackOptionStringModal"&gt;
+  &lt;strong&gt; Selected Option: &lt;/strong&gt;
+  &#123;&#123; ackOptionStringModal &#125;&#125;
+&lt;/div&gt;
+
+&lt;ack-options-modal
+  [(showModel)]= "showAckOptionsStringModal"
+  [allowClose] = "0"
+  [array]      = "['x','y','z']"
+  [(model)]    = "ackOptionStringModal"
+  (modelChange)= "showAckOptionsStringModal=0"
+  toggleable
+&gt;
+  &lt;div style="padding-right:30px;"&gt;Select Something Below&lt;/div&gt;
+&lt;/ack-options-modal&gt;
+&lt;button (click)="showAckOptionsStringModal=!showAckOptionsStringModal")&gt;
+  select option
+&lt;/button&gt;
+
+&lt;hr /&gt;
+
+&lt;div *ngIf="ackOptionArrayModal?.length"&gt;
+  &lt;strong&gt; Selected Options: &lt;/strong&gt;
+  &lt;pre&gt; &#123;&#123; ackOptionArrayModal | json &#125;&#125; &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ack-options-modal
+  [(showModel)]   = "showAckOptionsObjectModal"
+  [array]         = "[&#123;name:'red'&#125;,&#123;name:'blue'&#125;,&#123;name:'green'&#125;]"
+  [(model)]       = "ackOptionArrayModal"
+  arrayKey        = "name"
+  arrayToModelKey = "key"
+  multiple
+&gt;
+  &lt;div style="padding-right:30px;"&gt;
+    Select Multiple Things Below
+  &lt;/div&gt;
+  &lt;ng-template let-item="item"&gt;
+    &lt;div&gt; &amp;bull; name:&#123;&#123; item.name &#125;&#125; &lt;/div&gt;
+  &lt;/ng-template&gt;
+  &lt;ng-template #selected let-item="item"&gt;
+    &lt;div style="font-weight:bold"&gt; &amp;bull; name:&#123;&#123; item.name &#125;&#125; &lt;/div&gt;
+  &lt;/ng-template&gt;
+&lt;/ack-options-modal&gt;
+&lt;button (click)="showAckOptionsObjectModal=!showAckOptionsObjectModal")&gt;
+  select options
+&lt;/button&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+</div>
+<br />
+<h2 class="margin-bottom-0" id="ExpressionBinds">Expression Binds</h2>
+<div class="flex-wrap child-margin-xxs">
+  <div class="flex-1" [class.width-full]="views.init">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>(init)</h3>
+        <div class="text-grey-2x max-width-400">
+          execute expression at render
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.init=!views.init"
+        [ngClass]="views.init?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.init"
+      [@fadeInOutUp]="1"
+    >
+      <div
+        *ngFor="let item of initArray;let i=index"
+        (init)="item.name=item.name || 'no-name-'+(item.value+1)"
+      >
+        init val {{i}} {{ item.name }}
+      </div>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+@Component(&#123;
+  selector: 'example'
+  ,template: `
+    &lt;div
+      *ngFor="let item of initArray;let i=index"
+      (init)="item.name=item.name || 'no-name-'+(item.value+1)"
+    &gt;
+      init val &#123;&#123;i&#125;&#125; &#123;&#123; item.name &#125;&#125;
+    &lt;/div&gt;
+  `
+&#125;) export class Example &#123;
+  initArray = [&#123;value:0&#125;,&#123;value:1&#125;,&#123;value:2&#125;]
+&#125;
+
+
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.screenScroll">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div (screenScroll)="screenScrollCount=screenScrollCount+1"></div>
+      <div class="pad-h">
+        <h3>(screenScroll)</h3>
+        <div class="text-grey-2x">
+          Run expression on screen scroll. Scroll Event Count :
+          <div class="inline-block width-50">&nbsp;{{ screenScrollCount }}</div>
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.screenScroll=!views.screenScroll"
+        [ngClass]="views.screenScroll?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.screenScroll"
+      [@fadeInOutUp]="1"
+    >
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;div (screenScroll)="screenScrollCount=screenScrollCount?1:++screenScrollCount" &gt;
+&nbsp;&nbsp;screenScroll count : {{ screenScrollCount }}
+&lt;/div&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.formChanged">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>(formChanged)</h3>
+        <div class="text-grey-2x max-width-400">
+          Capture a form tag onchange event
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.formChanged=!views.formChanged"
+        [ngClass]="views.formChanged?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.formChanged"
+      [@fadeInOutUp]="1"
+    >
+      <h4 class="pad-sm margin-0">Example</h4>
+      <form
+        class="pad"
+        (formChanged)="formChanges=formChanges==null?1:formChanges+1"
+      >
+        <span>Change Count : {{formChanges || 0}} :</span>&nbsp;<input
+          type="radio"
+          name="fcTest"
+        />&nbsp;<input type="radio" name="fcTest" />&nbsp;<input
+          type="radio"
+          name="fcTest"
+        />
+      </form>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;form (formChanged)="formChanges=formChanges==null?1:formChanges+1" &gt;
+  &lt;span&gt; Change Count : {{formChanges || 0}} &lt;/span&gt;
+  &lt;input type="radio" name="fcTest" /&gt;
+  &lt;input type="radio" name="fcTest" /&gt;
+  &lt;input type="radio" name="fcTest" /&gt;
+&lt;/form&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.formAlter">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>(formAlter)</h3>
+        <div class="text-grey-2x max-width-400">
+          Capture a form tag oninput event
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.formAlter=!views.formAlter"
+        [ngClass]="views.formAlter?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.formAlter"
+      [@fadeInOutUp]="1"
+    >
+      <div class="pad text-info">
+        Fires for every form input alteration and NOT just after a change
+        occurred
+      </div>
+      <h4 class="pad-sm margin-0">Example</h4>
+      <form
+        class="pad"
+        (formAlter)="formAlters=formAlters==null?1:formAlters+1"
+      >
+        <span>Alter Count : {{formAlters || 0}} :</span><input type="text" />
+      </form>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;form (formAlter)="formAlters=formAlters==null?1:formAlters+1" &gt;
+  &lt;span&gt; Alter Count : {{formAlters || 0}} &lt;/span&gt;
+  &lt;input type="text" /&gt;
+&lt;/form&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.enterKey">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>(enterKey)</h3>
+        <div class="text-grey-2x max-width-400">
+          Capture keyUp events when enter key used
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.enterKey=!views.enterKey"
+        [ngClass]="views.enterKey?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.enterKey"
+      [@fadeInOutUp]="1"
+    >
+      <div class="pad text-info">
+        Fires for every onKeyUp event where enter key was pressed
+      </div>
+      <h4 class="pad-sm margin-0">Example</h4>
+      <div class="flex child-margin-xs pad-xs">
+        <span>Enter Count : {{enterCountKey || 0}}</span
+        ><input
+          class="flex-1"
+          type="text"
+          (enterKey)="enterCountKey=enterCountKey==null?1:enterCountKey+1"
+          placeholder="type here and use enter key"
+        />
+      </div>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;span&gt; Enter Count : {{enterCountKey || 0}} &lt;/span&gt;
+&lt;input type="text" (enterKey)="enterCountKey=enterCountKey==null?1:enterCountKey+1" placeholder="type here and use enter key" /&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.escapeKey">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>(escapeKey)</h3>
+        <div class="text-grey-2x max-width-400">
+          Capture keyUp events when escape key used
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.escapeKey=!views.escapeKey"
+        [ngClass]="views.escapeKey?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.escapeKey"
+      [@fadeInOutUp]="1"
+    >
+      <div class="pad text-info">
+        Fires for every onKeyUp event where enter key was pressed
+      </div>
+      <h4 class="pad-sm margin-0">Example</h4>
+      <div class="flex child-margin-xs pad-xs">
+        <span>Escape Count : {{escapeCountKey || 0}}</span
+        ><input
+          class="flex-1"
+          type="text"
+          (escapeKey)="escapeCountKey=escapeCountKey==null?1:escapeCountKey+1"
+          placeholder="type here and use escape key"
+        />
+      </div>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;span&gt; Escape Count : {{escapeCountKey || 0}} &lt;/span&gt;
+&lt;input type="text" (escapeKey)="escapeCountKey=escapeCountKey==null?1:escapeCountKey+1" placeholder="type here and use escape key" /&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.preventBackKey">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>(preventBackKey)</h3>
+        <div class="text-grey-2x max-width-400">
+          Prevent the use of the backspace key
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.preventBackKey=!views.preventBackKey"
+        [ngClass]="views.preventBackKey?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.preventBackKey"
+      [@fadeInOutUp]="1"
+    >
+      <div class="pad text-info">
+        Prevents and fires every onKeyUp event where backspace key was pressed
+      </div>
+      <h4 class="pad-sm margin-0">Example</h4>
+      <div class="flex child-margin-xs pad-xs">
+        <span>Backspace Count : {{backspaceCount || 0}}</span
+        ><input
+          class="flex-1"
+          type="text"
+          (preventBackKey)="backspaceCount=backspaceCount==null?1:backspaceCount+1"
+          placeholder="type here and use enter key"
+        />
+      </div>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;span&gt; Backspace Count : {{backspaceCount || 0}} &lt;/span&gt;
+&lt;input type="text" (preventBackKey)="backspaceCount=backspaceCount==null?1:backspaceCount+1" placeholder="type here and then use backspace key" /&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.preventEnterKey">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>(preventEnterKey)</h3>
+        <div class="text-grey-2x max-width-400">
+          Prevent the use of the enter keys
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.preventEnterKey=!views.preventEnterKey"
+        [ngClass]="views.preventEnterKey?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.preventEnterKey"
+      [@fadeInOutUp]="1"
+    >
+      <div class="pad text-info">
+        Prevents and fires every onKeyUp event where enter key was pressed
+      </div>
+      <h4 class="pad-sm margin-0">Example</h4>
+      <div class="flex child-margin-xs pad-xs">
+        <span>Enter Count : {{preventEnterCount || 0}}</span
+        ><input
+          class="flex-1"
+          type="text"
+          (preventEnterKey)="preventEnterCount=preventEnterCount==null?1:preventEnterCount+1"
+          placeholder="type here and use enter key"
+        />
+      </div>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;span&gt; Enter Count : {{preventEnterCount || 0}} &lt;/span&gt;
+&lt;input type="text" (preventEnterKey)="preventEnterCount=preventEnterCount==null?1:preventEnterCount+1" placeholder="type here and use enter key" /&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+</div>
+<br />
+<h2 class="margin-bottom-0" id="OneWayBinds">One Way Binds</h2>
+<div class="flex-wrap child-margin-xxs">
+  <div class="flex-1" [class.width-full]="views.Var">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>[var]</h3>
+        <div class="text-grey-2x max-width-400">
+          Create local template variables
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.Var=!views.Var"
+        [ngClass]="views.Var?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.Var"
+      [@fadeInOutUp]="1"
+    >
+      <div class="pad-sm">
+        <h4 class="margin-0">Demo</h4>
+        <p class="text-grey-3x text-sm">
+          Each item in list below, has a localized variable
+        </p>
+        <div class="flex-wrap child-margin-xxs" #myVar="var" [var]="0">
+          <button (click)="myVar.var=myVar.var+1">
+            outsize memory {{ myVar.var }}</button
+          ><button
+            *ngFor="let i of [0,1,2,3]"
+            #myVar="var"
+            [var]="i"
+            (click)="myVar.var=myVar.var+1"
+          >
+            click count + index {{ myVar.var }}
+          </button>
+        </div>
+      </div>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;div #myVar="var" [var]="0"&gt;
+  &lt;button (click)="myVar.var=myVar.var+1"&gt;
+    outsize memory &#123;&#123;&#123; myVar.var &#125;&#125;
+  &lt;/button&gt;
+  &lt;button *ngFor="let i of [0,1,2,3]" #myVar="var" [var]="i" (click)="myVar.var=myVar.var+1"&gt;
+    click count + index &#123;&#123; myVar.var &#125;&#125;
+  &lt;/button&gt;
+&lt;/div&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.focusOn">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>[focusOn]</h3>
+        <div class="text-grey-2x max-width-400">element focus on demand</div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.focusOn=!views.focusOn"
+        [ngClass]="views.focusOn?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.focusOn"
+      [@fadeInOutUp]="1"
+    >
+      <div class="pad text-center flex-wrap child-margin-xxs">
+        <div>
+          <button class="text-lg" (click)="focusOn=1">focus input</button>
+        </div>
+        <div class="flex-1">
+          <input
+            class="width-full text-lg"
+            [focusOn]="focusOn"
+            (focusThen)="focusOn=0"
+            [focusOnDelay]="focusOnDelay"
+            placeholder="focus target"
+          />
+        </div>
+        <div>
+          <input
+            class="text-lg width-100"
+            type="number"
+            [(ngModel)]="focusOnDelay"
+            placeholder="delay"
+          />ms
+        </div>
+      </div>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;button (click)="focusOn=1"&gt; focus input &lt;/button&gt;
+&lt;input [focusOn]="focusOn" (focusThen)="focusOn=0" [focusOnDelay]="focusOnDelay" placeholder="focus target" /&gt;
+&lt;input type="number" [(ngModel)]="focusOnDelay" placeholder="delay" /&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.selectOn">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>[selectOn]</h3>
+        <div class="text-grey-2x max-width-400">element select on demand</div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.selectOn=!views.selectOn"
+        [ngClass]="views.selectOn?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.selectOn"
+      [@fadeInOutUp]="1"
+    >
+      <div class="pad text-center flex-wrap child-margin-xxs">
+        <div>
+          <button class="text-lg" (click)="selectOn=1">select input</button>
+        </div>
+        <div class="flex-1">
+          <input
+            class="width-full text-lg"
+            [selectOn]="selectOn"
+            (selectThen)="selectOn=0"
+            [selectOnDelay]="selectOnDelay"
+            placeholder="select target"
+            value="test to select"
+          />
+        </div>
+        <div>
+          <input
+            class="text-lg width-100"
+            type="number"
+            [(ngModel)]="selectOnDelay"
+            placeholder="delay"
+          />ms
+        </div>
+      </div>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;button (click)="selectOn=1"&gt; select input &lt;/button&gt;
+&lt;input [selectOn]="selectOn" (selectThen)="selectOn=0" [selectOnDelay]="selectOnDelay" placeholder="select target" value="test to select" /&gt;
+&lt;input type="number" [(ngModel)]="selectOnDelay" placeholder="delay" /&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.fxOn">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>[fxOn]</h3>
+        <div class="text-grey-2x max-width-400">
+          Control css classes for periods of time
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.fxOn=!views.fxOn"
+        [ngClass]="views.fxOn ? 'border-energized bg-energized' : 'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.fxOn"
+      [@fadeInOutUp]="1"
+    >
+      <div class="pad">
+        <div class="pad-xs bg-warning border-warning text-warning border">
+          You will need to &lt;link&gt; one of two style sheets:
+          <ul>
+            <li>ack-angular/ack-angular.css</li>
+            <li>- or -</li>
+            <li>
+              <a href="https://github.com/daneden/animate.css">animate.css</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <h4 class="pad-h-sm margin-0">Example</h4>
+      <div class="flex-wrap child-pad-h-xs pad-h">
+        <div>
+          <label class="block">&nbsp;</label
+          ><label
+            #fxRef="FxOn"
+            [fxOn]="fxOn"
+            (fxThen)="fxOn=false"
+            [fxForMs]="fxForMs"
+            [fxClass]="'animated ' + fxClass"
+            >animate this text</label
+          >
+        </div>
+        <div class="width-100">
+          <label>&nbsp;</label
+          ><button class="width-full" (click)="fxOn=!fxOn">
+            fx:{{ fxOn || false }}
+          </button>
+        </div>
+        <div>
+          <label>&nbsp;</label
+          ><a
+            class="pad-h border border-positive text-positive block text-center hover-bg-positive hover-text-white"
+            (mouseover)="fxOn=true"
+            (mouseout)="fxOn=false"
+            >hover me</a
+          >
+        </div>
+        <div>
+          <label>fxType</label
+          ><select
+            class="width-full"
+            [(ngModel)]="fxClass"
+            (change)="fxOn=true"
+          >
+            <option
+              *ngFor="let item of (fxRef?fxRef.fxTypes:[])"
+              value="{{item}}"
+            >
+              {{item}}
+            </option>
+          </select>
+        </div>
+        <div>
+          <label>&nbsp;</label>
+          <div>
+            <input
+              type="checkbox"
+              id="fxConstant"
+              [(ngModel)]="fxConstant"
+              (change)="fxOn=$event.target.checked"
+            />&nbsp;<label for="fxConstant">fxConstant</label>
+          </div>
+        </div>
+        <div>
+          <label>fxForMs</label>
+          <div>
+            <input
+              class="width-100"
+              [(ngModel)]="fxForMs"
+              (change)="fxOn=true"
+            />
+          </div>
+        </div>
+      </div>
+      <strong>fxClass = "animated {{fxClass}}"</strong>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;label [fxOn]="fxOn" (fxThen)="fxOn=false" #fxRef="FxOn" [(fxForMs)]="fxForMs" [(fxType)]="fxClass"&gt;
+  animate this text :: {{ fxOn || false }}
+&lt;/label&gt;
+&lt;button (click)="fxOn=true"&gt; fx:{{fxOn||false}} &lt;/button&gt;
+&lt;a (mouseover)="fxOn=true" (mouseout)="fxOn=false"&gt;
+  hover me
+&lt;/a&gt;
+&lt;select [(ngModel)]="fxClass" (change)="fxOn=true"&gt;
+  &lt;option *ngFor="let item of (fxRef?fxRef.fxTypes:[])" value="{{item}}"&gt;{{item}}&lt;/option&gt;
+&lt;/select&gt;
+&lt;input type="checkbox" id="fxConstant" [(ngModel)]="fxConstant" (change)="fxOn=$event.target.checked" /&gt;
+&lt;input [(ngModel)]="fxForMs" (change)="fxOn=true" /&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.shakeOn">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>[shakeOn]</h3>
+        <div class="text-grey-2x max-width-400">
+          Control an animated shaking effect on demand
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.shakeOn=!views.shakeOn"
+        [ngClass]="views.shakeOn?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.shakeOn"
+      [@fadeInOutUp]="1"
+    >
+      <div class="pad">
+        <div class="pad-xs bg-warning border-warning text-warning border">
+          You will need to &lt;link&gt; one of two style sheets:
+          <ul>
+            <li>ack-angular/ack-angular.css</li>
+            <li>- or -</li>
+            <li>ack-angular/csshake.css</li>
+          </ul>
+        </div>
+      </div>
+      <h4 class="pad-h-sm margin-0">Example</h4>
+      <div class="flex-wrap child-pad-h-xs pad-h">
+        <div>
+          <label class="block">&nbsp;</label
+          ><label
+            #shakeRef="ShakeOn"
+            [shakeOn]="shakeOn"
+            (shakeThen)="shakeOn=false"
+            [shakeForMs]="shakeForMs"
+            [shakeType]="shakeOnType"
+            [shakeConstant]="shakeConstant"
+            >shake this text</label
+          >
+        </div>
+        <div class="width-100">
+          <label>&nbsp;</label
+          ><button class="width-full" (click)="shakeOn=!shakeOn">
+            shake:{{shakeOn||false}}
+          </button>
+        </div>
+        <div>
+          <label>&nbsp;</label
+          ><a
+            class="pad-h border border-positive text-positive block text-center hover-bg-positive hover-text-white"
+            (mouseover)="shakeOn=true"
+            (mouseout)="shakeOn=false"
+            >hover me</a
+          >
+        </div>
+        <div>
+          <label>shakeType</label
+          ><select
+            class="width-full"
+            [(ngModel)]="shakeOnType"
+            (change)="shakeOn=true"
+          >
+            <option
+              *ngFor="let item of (shakeRef?shakeRef.shakeTypes:[])"
+              value="{{item}}"
+            >
+              {{item}}
+            </option>
+          </select>
+        </div>
+        <div>
+          <label>&nbsp;</label>
+          <div>
+            <input
+              type="checkbox"
+              id="shakeConstant"
+              [(ngModel)]="shakeConstant"
+              (change)="shakeOn=$event.target.checked"
+            />&nbsp;<label for="shakeConstant">shakeConstant</label>
+          </div>
+        </div>
+        <div>
+          <label>shakeForMs</label>
+          <div>
+            <input
+              class="width-100"
+              [(ngModel)]="shakeForMs"
+              (change)="shakeOn=true"
+            />
+          </div>
+        </div>
+      </div>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;label [shakeOn]="shakeOn" (shakeThen)="shakeOn=false" #shakeRef="ShakeOn" [(shakeForMs)]="shakeForMs" [(shakeType)]="shakeOnType"&gt;
+  shake this text :: {{ shakeOn||false }}
+&lt;/label&gt;
+&lt;button (click)="shakeOn=true"&gt; shake:{{shakeOn||false}} &lt;/button&gt;
+&lt;a (mouseover)="shakeOn=true" (mouseout)="shakeOn=false"&gt;
+  hover me
+&lt;/a&gt;
+&lt;select [(ngModel)]="shakeOnType" (change)="shakeOn=true"&gt;
+  &lt;option *ngFor="let item of (shakeRef?shakeRef.shakeTypes:[])" value="{{item}}"&gt;{{item}}&lt;/option&gt;
+&lt;/select&gt;
+&lt;input type="checkbox" id="shakeConstant" [(ngModel)]="shakeConstant" (change)="shakeOn=$event.target.checked" /&gt;
+&lt;input [(ngModel)]="shakeForMs" (change)="shakeOn=true" /&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+</div>
+<br />
+<h2 class="margin-bottom-0" id="TwoWayBinds">Two Way Binds</h2>
+<div class="flex-wrap child-margin-xxs">
+  <div class="flex-1" [class.width-full]="views.statusOnlineModel">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div [(statusOnlineModel)]="statusOnlineModel"></div>
+      <div class="pad-h">
+        <h3>[(statusOnlineModel)]</h3>
+        <div class="text-grey-2x max-width-400">
+          Get browser internet status. <strong>IS ONLINE</strong> :
+          <div class="inline-block width-50">&nbsp;{{ statusOnlineModel }}</div>
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.statusOnlineModel=!views.statusOnlineModel"
+        [ngClass]="views.statusOnlineModel?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.statusOnlineModel"
+      [@fadeInOutUp]="1"
+    >
+      <div class="pad">
+        <div class="pad bg-warning border-warning border text-warning">
+          Completely turn off your internet and the online status will
+          change.<br />A delay is expected during transition from offline to
+          online
+        </div>
+      </div>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;div("[(statusOnlineModel)]"="statusOnlineModel")&gt;
+  |statusOnlineModel : {{ statusOnlineModel ? 'online' : 'offline'}}
+&lt;/div&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <!-- statusOfflineModel-->
+  <div class="flex-1" [class.width-full]="views.statusOfflineModel">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div [(statusOfflineModel)]="statusOfflineModel"></div>
+      <div class="pad-h">
+        <h3>[(statusOfflineModel)]</h3>
+        <div class="text-grey-2x max-width-400">
+          Get browser internet status. <strong>IS OFFLINE</strong> :
+          <div class="inline-block width-50">
+            &nbsp;{{ statusOfflineModel }}
+          </div>
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.statusOfflineModel=!views.statusOfflineModel"
+        [ngClass]="views.statusOfflineModel?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.statusOfflineModel"
+      [@fadeInOutUp]="1"
+    >
+      <div class="pad">
+        <div class="pad bg-warning border-warning border text-warning"></div>
+        Completely turn off your internet and the offline status will change<br />A
+        delay is expected during transition from offline to online
+      </div>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;div("[(statusOfflineModel)]"="statusOfflineModel")&gt;
+  |statusOfflineModel : {{ statusOfflineModel ? 'offline' : 'online'}}
+&lt;/div&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <!-- pxFromHtmlTop-->
+  <div class="flex-1" [class.width-full]="views.pxFromHtmlTop">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>[pxFromHtmlTop]</h3>
+        <div class="text-grey-2x">
+          Get element position from top of screen.
+          <div class="inline-block width-50" [(pxFromHtmlTop)]="pxFromHtmlTop">
+            Currently:&nbsp;{{pxFromHtmlTop}}
+          </div>
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.pxFromHtmlTop=!views.pxFromHtmlTop"
+        [ngClass]="views.pxFromHtmlTop ? 'border-energized bg-energized' : 'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.pxFromHtmlTop"
+      [@fadeInOutUp]="1"
+    >
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;div [(pxFromHtmlTop)]="pxFromHtmlTop" &gt;
+&nbsp;&nbsp;pxFromHtmlTop: {{ pxFromHtmlTop }}
+&lt;/div&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.screenScrollHeightDiff">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div [(screenScrollHeightDiff)]="screenScrollHeightDiff"></div>
+      <div class="pad-h">
+        <h3>[(screenScrollHeightDiff)]</h3>
+        <div class="text-grey-2x">
+          Model of how many pixels overflow past the screen height (screenHeight
+          - scrollHeight).
+          <div>
+            Currently :
+            <div class="inline-block width-50">
+              &nbsp;{{ screenScrollHeightDiff }}
+            </div>
+          </div>
+          <div class="pad text-grey-3x text-smx">
+            resize window height to see change
+          </div>
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.screenScrollHeightDiff=!views.screenScrollHeightDiff"
+        [ngClass]="views.screenScrollHeightDiff?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.screenScrollHeightDiff"
+      [@fadeInOutUp]="1"
+    >
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;div [(screenScrollHeightDiff)]="screenScrollHeightDiff" &gt;
+&nbsp;&nbsp;screenScrollHeightDiff : {{ screenScrollHeightDiff }}
+&lt;/div&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.screenScrollModelY">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div [(screenScrollModelY)]="screenScrollModelY"></div>
+      <div class="pad-h">
+        <h3>[(screenScrollModelY)]</h3>
+        <div class="text-grey-2x max-width-400">
+          Get browser height scrolled. Currently :
+          <div class="inline-block width-50">
+            &nbsp;{{screenScrollModelY}}px
+          </div>
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.screenScrollModelY=!views.screenScrollModelY"
+        [ngClass]="views.screenScrollModelY?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.screenScrollModelY"
+      [@fadeInOutUp]="1"
+    >
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;div [(screenScrollModelY)]="screenScrollModelY" &gt;
+&nbsp;&nbsp;screenScrollModelY : {{ screenScrollModelY }}px
+&lt;/div&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.htmlWidthModel">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div [(htmlWidthModel)]="htmlWidthModel"></div>
+      <div class="pad-h">
+        <h3>[(htmlWidthModel)]</h3>
+        <div class="text-grey-2x">
+          Get the browser document inner width. Currently : {{htmlWidthModel}}px
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.htmlWidthModel=!views.htmlWidthModel"
+        [ngClass]="views.htmlWidthModel?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.htmlWidthModel"
+      [@fadeInOutUp]="1"
+    >
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;div [(htmlWidthModel)]="htmlWidthModel"&gt;
+&nbsp;&nbsp;htmlWidthModel : {{ htmlWidthModel }}px
+&lt;/div&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.htmlHeightModel">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div [(htmlHeightModel)]="htmlHeightModel"></div>
+      <div class="pad-h">
+        <h3>[(htmlHeightModel)]</h3>
+        <div class="text-grey-2x">
+          Get the browser document inner height. Currently : {{ htmlHeightModel
+          }}px
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.htmlHeightModel=!views.htmlHeightModel"
+        [ngClass]="views.htmlHeightModel?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.htmlHeightModel"
+      [@fadeInOutUp]="1"
+    >
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;div [(htmlHeightModel)]="htmlHeightModel"&gt;
+&nbsp;&nbsp;htmlHeightModel : {{ htmlHeightModel }}px
+&lt;/div&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.screenWidthModel">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div [(screenWidthModel)]="screenWidthModel"></div>
+      <div class="pad-h">
+        <h3>[(screenWidthModel)]</h3>
+        <div class="text-grey-2x max-width-400">
+          Get the browser window inner width. Currently : {{ screenWidthModel
+          }}px
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="viewScreenWidthModel=!viewScreenWidthModel"
+        [ngClass]="viewScreenWidthModel?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="viewScreenWidthModel"
+      [@fadeInOutUp]="1"
+    >
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;div [(screenWidthModel)]="screenWidthModel"&gt;
+&nbsp;&nbsp;screenWidthModel : {{ screenWidthModel }}px
+&lt;/div&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.screenHeightModel">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div [(screenHeightModel)]="screenHeightModel"></div>
+      <div class="pad-h">
+        <h3>[(screenHeightModel)]</h3>
+        <div class="text-grey-2x max-width-400">
+          Get the browser window inner height. Currently :
+          {{screenHeightModel}}px
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="viewScreenHeightModel=!viewScreenHeightModel"
+        [ngClass]="viewScreenHeightModel?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="viewScreenHeightModel"
+      [@fadeInOutUp]="1"
+    >
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;div [(screenHeightModel)]="screenHeightModel"&gt;
+&nbsp;&nbsp;screenHeightModel : {{ screenHeightModel }}px
+&lt;/div&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.innerHtmlModel">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>[(innerHtmlModel)]</h3>
+        <div class="text-grey-2x max-width-400">
+          Capture an elements innerHTML into a model
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.innerHtmlModel=!views.innerHtmlModel"
+        [ngClass]="views.innerHtmlModel?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.innerHtmlModel"
+      [@fadeInOutUp]="1"
+    >
+      <h4 class="pad-sm margin-0">Example</h4>
+      <div [(innerHtmlModel)]="innerHtmlModel">
+        <button (click)="contentArray.push('')">add content</button
+        ><span *ngFor="let item of contentArray"
+          >&#10;<button (click)="contentArray.push('')">
+            add content
+          </button></span
+        >
+      </div>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0">{{ innerHtmlModel }}</pre>
+      </absolute-overflow-x>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;span&gt; Enter Count : {{preventEnterCount || 0}} &lt;/span&gt;
+&lt;input type="text" (enterKey)="preventEnterCount=preventEnterCount==null?1:preventEnterCount+1" placeholder="type here and use enter key" /&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.contentModel">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>[(contentModel)]</h3>
+        <div class="text-grey-2x max-width-400">
+          Capture an elements innerHTML into a model
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.contentModel=!views.contentModel"
+        [ngClass]="views.contentModel?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.contentModel"
+      [@fadeInOutUp]="1"
+    >
+      <h4 class="pad-sm margin-0">Example</h4>
+      <div>
+        Tap to edit:&nbsp;<span
+          [(contentModel)]="contentModel"
+          placeholder="tap to create text"
+        ></span>
+      </div>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0">{{ contentModel }}</pre>
+      </absolute-overflow-x>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;div [(contentModel)]="contentModel" placeholder="tap to create text"&gt;{{ contentModel }}&lt;/div&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div class="flex-1" [class.width-full]="views.absoluteOverflowX">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>absolute-overflow-x</h3>
+        <div class="text-grey-2x max-width-400">
+          Control pre and nowrap elements x-axis overflow
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.absoluteOverflowX=!views.absoluteOverflowX"
+        [ngClass]="views.absoluteOverflowX?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.absoluteOverflowX"
+      [@fadeInOutUp]="1"
+    >
+      <div class="pad">
+        <div class="pad bg-info text-info text-info">
+          Often, pre elements and nowrap styles, make it hard to contronl x-axis
+          overflow.
+          <p>
+            The following component, uses a relative and a absolute position
+            elements along with height monitoring to manage x-axis overflow.
+          </p>
+          <p>
+            A no-sroll-bar option is defaulted to remove overflow scroll bars.
+          </p>
+        </div>
+      </div>
+      <h4 class="pad-sm margin-0">Bindings</h4>
+      <li>[scrollBars]</li>
+      <li>[wrapClass]</li>
+      <li>[active] = true</li>
+      <li>[overflow]:'auto'|'none'|'hidden'|'scroll' = 'auto'</li>
+      <h4 class="pad-sm margin-0">Example</h4>
+      <div class="pad">
+        <absolute-overflow-x [active]="absoluteOverflowXActive"
+          ><div class="nowrap">
+            &nbsp;&nbsp;This content all runs on one line flat out for as long
+            as I can stand to stand typing at a Veridesk in Delray Beach, FL.
+            Not that long it turns out...
+          </div></absolute-overflow-x
+        ><label for="absoluteOverflowXActive"
+          ><input
+            type="checkbox"
+            [(ngModel)]="absoluteOverflowXActive"
+            id="absoluteOverflowXActive"
+          />&nbsp;&nbsp;Overflow On/Off "active" Toggle</label
+        >
+        <h4 class="pad-sm margin-0">Usage Example</h4>
+        <absolute-overflow-x>
+          <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;absolute-overflow-x&gt;
+&nbsp;&nbsp;&lt;div style="white-space:nowrap;"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;This content all runs on one line flat out for as long as I can stand to stand typing at a Veridesk in Delray Beach, FL. Not that long it turns out...
+&nbsp;&nbsp;&lt;/div&gt;
+&lt;/absolute-overflow-x&gt;
+</pre
+          >
+        </absolute-overflow-x>
+      </div>
+    </div>
+  </div>
+  <div
+    class="flex-1"
+    [class.width-full]="views.elementSizeModel"
+    [(elementSizeModel)]="elementSizeModel"
+  >
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>[(elementSizeModel)]</h3>
+        <div class="text-grey-2x max-width-400">
+          Get an elements size. Currently : {{ elementSizeModel?.width
+          }}x{{elementSizeModel?.height }}
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.elementSizeModel=!views.elementSizeModel"
+        [ngClass]="views.elementSizeModel?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.elementSizeModel"
+      [@fadeInOutUp]="1"
+    >
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;div [(elementSizeModel)]="elementSizeModel"&gt;
+&nbsp;&nbsp;elementSizeModel : {{ elementSizeModel?.width }}x{{ elementSizeModel?.height }}
+&lt;/div&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div
+    class="flex-1"
+    [class.width-full]="views.elementHeightModel"
+    [(elementHeightModel)]="elementHeightModel"
+  >
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>[(elementHeightModel)]</h3>
+        <div class="text-grey-2x max-width-400">
+          Get an elements height. Currently : {{elementHeightModel}}px
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.elementHeightModel=!views.elementHeightModel"
+        [ngClass]="views.elementHeightModel?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.elementHeightModel"
+      [@fadeInOutUp]="1"
+    >
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;div [(elementHeightModel)]="elementHeightModel"&gt;
+&nbsp;&nbsp;elementHeightModel : {{ elementHeightModel }}px
+&lt;/div&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+  <div
+    class="flex-1"
+    [class.width-full]="views.elementWidthModel"
+    [(elementWidthModel)]="elementWidthModel"
+  >
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>[(elementWidthModel)]</h3>
+        <div class="text-grey-2x max-width-400">
+          Get an elements width. Currently : {{elementWidthModel}}px
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.elementWidthModel=!views.elementWidthModel"
+        [ngClass]="views.elementWidthModel?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.elementWidthModel"
+      [@fadeInOutUp]="1"
+    >
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;div [(elementWidthModel)]="elementWidthModel"&gt;
+&nbsp;&nbsp;elementWidthModel : {{ elementWidthModel }}px
+&lt;/div&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+</div>
+<br />
+<h2 class="margin-bottom-0" id="LayoutComponents">Layout Components</h2>
+<div class="pad">
+  <div class="pad bg-warning border-warning text-warning border">
+    You will need to &lt;link&gt; one of two style sheets:
+    <ul>
+      <li>ack-angular/ack-angular.css</li>
+      <li>- or -</li>
+      <li>ack-angular/ack-css-boot.css</li>
+    </ul>
+  </div>
+</div>
+<div class="flex-wrap child-margin-xxs">
+  <div class="flex-1" [class.width-full]="views.errorWell">
+    <div class="border border-grey-4x border border-bottom-0">
+      <div class="pad-h">
+        <h3>error-well</h3>
+        <div class="text-grey-2x max-width-400">
+          a smart and simple place to display errors
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.errorWell=!views.errorWell"
+        [ngClass]="views.errorWell?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.errorWell"
+      [@fadeInOutUp]="1"
+    >
+      <h4 class="pad-sm margin-0">Example</h4>
+      <div class="pad">
+        <select name="cssClasses" [(ngModel)]="cssClasses">
+          <option value="bg-info border-info text-info">
+            bg-info border-info text-info
+          </option>
+          <option value="bg-warning border-warning text-warning">
+            bg-warning border-warning text-warning
+          </option>
+          <option value="bg-danger border-danger text-danger">
+            bg-danger border-danger text-danger
+          </option>
+          <option value="bg-energized border-energized text-energized">
+            bg-energized border-energized text-energized
+          </option>
+          <option value="bg-calm border-calm text-calm">
+            bg-calm border-calm text-calm
+          </option>
+          <option value="bg-assertive border-assertive text-assertive">
+            bg-assertive border-assertive text-assertive
+          </option>
+          <option value="bg-success border-success text-success">
+            bg-success border-success text-success
+          </option>
+          <option value="bg-positive border-positive text-positive">
+            bg-positive border-positive text-positive
+          </option>
+          <option value="bg-balanced border-balanced text-balanced">
+            bg-balanced border-balanced text-balanced
+          </option>
+          <option value="bg-stable border-stable text-stable">
+            bg-stable border-stable text-stable
+          </option>
+          <option value="bg-dark border-dark text-dark">
+            bg-dark border-dark text-dark
+          </option>
+          <option value="bg-royal border-royal text-royal">
+            bg-royal border-royal text-royal
+          </option></select
+        ><error-well
+          class="margin"
+          [error]="error"
+          [cssClasses]="cssClasses"
+        ></error-well
+        ><button (click)="causeError()">cause error</button>
+      </div>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;error-well [error]="error"&gt;&lt;/error-well&gt;</pre
+        >
+      </absolute-overflow-x>
+      <h4 class="pad-sm margin-0">Advanced Example</h4>
+      <absolute-overflow-x>
+        <pre class="code-sample margin-0" ngNonBindable="ngNonBindable">
+&lt;error-well [error]="error" [closable]="1" [allowDetails]="1"&gt;&lt;/error-well&gt;
+</pre
+        >
+      </absolute-overflow-x>
+    </div>
+  </div>
+</div>
+<br />
+<h3 id="ComplexComponents">Complex Components</h3>
+<div class="pad-h">
+  <p class="margin-bottom-0">
+    Components that have additional dependencies or restrictions
+  </p>
+</div>
+<div class="flex-wrap child-margin-xxs">
+  <div
+    class="flex-1 border border-grey-4x border"
+    [class.width-full]="views.routeReporter"
+  >
+    <div class="pad-h">
+      <h3>route-reporter</h3>
+      <div class="text-grey-2x max-width-400">
+        Get in tune with router states when using @angular/router
+      </div>
+      <br />
+    </div>
+    <div class="text-center">
+      <a
+        class="block border pad-xxs hover-bg-warning"
+        (click)="views.routeReporter=!views.routeReporter"
+        [ngClass]="views.routeReporter?'border-energized bg-energized':'border-info bg-info'"
+        >view details</a
+      >
+    </div>
+    <div
+      class="border border-top-0 border-grey-4x bg-stable"
+      *ngIf="views.routeReporter"
+      [@fadeInOutUp]="1"
+    >
+      <div class="pad">
+        Bindings
+        <table cellpadding="2" cellspacing="0" border="0">
+          <tr>
+            <td>[(state)]</td>
+            <td>Creates a reference to the current route</td>
+          </tr>
+          <tr>
+            <td>[(params)]</td>
+            <td>Creates a reference to the current route's params</td>
+          </tr>
+          <tr>
+            <td>[(query)]</td>
+            <td>Creates a reference to the current route's query params</td>
+          </tr>
+          <tr>
+            <td>(beforeChange)</td>
+            <td>Expression bind called before route changes</td>
+          </tr>
+          <tr>
+            <td>(onChange)</td>
+            <td>Expression bind called when route changes</td>
+          </tr>
+        </table>
+      </div>
+      <route-reporter
+        #routeState="RouteReporter"
+        [(query)]="query"
+      ></route-reporter>
+      <h4 class="pad-sm margin-0">Usage Example</h4>
+      <absolute-overflow-x>
+        <pre
+          class="code-sample margin-0"
+        ><div ngNonBindable="ngNonBindable">&lt;route-reporter
+  #routeState = "RouteReporter"
+  [(query)]     = "query"
+&gt;&lt;/route-reporter&gt;
+</div><div>
+  <span ngNonBindable="ngNonBindable">{{ routeState.current?.config.name }}</span>
+  <span>&nbsp;==&nbsp;</span><span>{{ routeState.current?.config.name }}</span></div>
+  <div><span ngNonBindable="ngNonBindable">{{ query | json }}</span><span>&nbsp;==&nbsp;</span><span>{{ query | json }}</span></div></pre>
+      </absolute-overflow-x>
+    </div>
+  </div>
+</div>

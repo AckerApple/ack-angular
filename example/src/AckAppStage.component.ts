@@ -1,22 +1,23 @@
 import { Component } from "@angular/core"
 import { animations } from "ack-angular-fx"
-import * as packJson from "../../package.json"
+// import * as packJson from "../../package.json"
 import { getServerTime } from "./functions"
 import { menu } from "./states.object"
-import { string } from './templates/ack-app-stage.pug'
+const packJson = require("../../package.json")
 
 @Component({
   selector: 'ack-app-stage'
-  ,template: string
-  ,animations:animations
+  ,templateUrl: './ack-app-stage.html'
+  ,animations
 }) export class AckAppStage {
+  inFx: any
   panelAnim = 'slideInRight'
-  version = packJson['version']
+  version = (packJson as any).version
   screenWidthModel:number
   stateName:string
   isSwaping:boolean
   isBackMode:boolean
-  
+  fx: any
   menu = menu
 
   ngAfterViewInit(){
