@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "2.0.13",
+  "version": "2.0.14",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -27,7 +27,8 @@
     "build": "npm-run-all build:universal build:dist compile:dist:package copy:scss build:js",
     "copy:scss": "ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss",
     "compile:dist:package": "node scripts/update-dist-package.js",
-    "save": "npm run build && npm run patch:version && git add . && git commit -m \"update\" && git push",
+    "save": "npm-run-all build patch:version save:git",
+    "save:git": "git add . && git commit -m \"update\" && git push",
     "patch:version": "npm --no-git-tag-version version patch",
     "deploy": "npm-run-all save deploy:gh-pages deploy:npm",
     "deploy:npm": "npm-run-all paste:master save:master",
