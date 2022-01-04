@@ -7,11 +7,12 @@ export declare class AckModal {
     layout: ElementRef;
     inline?: boolean;
     isModelMode?: boolean;
-    allowClose: boolean;
     zIndex: number;
+    valign: 'top' | 'center' | 'bottom';
     wrapStyle: any;
     wrapCellStyle: any;
     backgroundColor?: string;
+    allowClose: boolean;
     showModel?: boolean;
     showModelChange: EventEmitter<boolean>;
     close: EventEmitter<any>;
