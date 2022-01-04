@@ -1,4 +1,4 @@
-import { Subscription } from "rxjs/internal/Subscription";
+import { Subscription } from "rxjs";
 import { Router } from "@angular/router";
 export declare class RouteHistory {
     Router: Router;

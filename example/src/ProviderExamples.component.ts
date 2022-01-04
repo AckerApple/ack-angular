@@ -1,4 +1,4 @@
-import { Subscription } from "rxjs/internal/Subscription"
+import { Subscription } from "rxjs"
 import {
   Component//, EventEmitter
 } from "@angular/core"

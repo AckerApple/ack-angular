@@ -6,9 +6,9 @@ import { menu } from "./states.object"
 const packJson = require("../../package.json")
 
 @Component({
-  selector: 'ack-app-stage'
-  ,templateUrl: './ack-app-stage.html'
-  ,animations
+  selector: 'ack-app-stage',
+  templateUrl: './ack-app-stage.html',
+  animations
 }) export class AckAppStage {
   inFx: any
   panelAnim = 'slideInRight'

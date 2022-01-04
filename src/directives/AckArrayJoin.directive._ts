@@ -1,6 +1,5 @@
 /* NOT IN USE YET */
-//import { Subscription } from "rxjs/internal/Subscription"
-//import { BehaviorSubject } from "rxjs/internal/BehaviorSubject"
+
 import {
   //EventEmitter, Output, Input,
   //ContentChildren,

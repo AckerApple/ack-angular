@@ -1,5 +1,3 @@
-//import { Subscription } from "rxjs/internal/Subscription"
-
 import {
   Directive,
   Input,
