@@ -1,4 +1,4 @@
-import { Subscription } from "rxjs/internal/Subscription";
+import { Subscription } from "rxjs";
 import { EventEmitter } from "@angular/core";
 import { ActivatedRoute, Route, Router } from "@angular/router";
 import { currentRoute, RouteWatchReporter } from "./RouteWatchReporter";

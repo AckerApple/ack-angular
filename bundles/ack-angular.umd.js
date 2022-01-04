@@ -322,7 +322,6 @@
         return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
     }
 
-    //import { Subscription } from "rxjs/internal/Subscription"
     var HtmlSizeService = /** @class */ (function () {
         function HtmlSizeService() {
             var _this = this;

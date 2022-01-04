@@ -7,7 +7,6 @@ import { BehaviorSubject } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NavigationEnd, Router, ActivatedRoute, RouterModule } from '@angular/router';
 
-//import { Subscription } from "rxjs/internal/Subscription"
 class HtmlSizeService {
     constructor() {
         this.change = new EventEmitter();
@@ -2631,7 +2630,6 @@ HtmlWidthModel.propDecorators = {
     htmlWidthModelChange: [{ type: Output }]
 };
 
-//import { Subscription } from "rxjs/internal/Subscription"
 class HtmlHeightModel extends HtmlWidthModel {
     constructor(HtmlSizeService) {
         super(HtmlSizeService);
