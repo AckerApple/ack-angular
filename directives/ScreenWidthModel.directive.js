@@ -2,6 +2,8 @@ import { Directive, Input, Output, EventEmitter } from "@angular/core";
 import { 
 //htmlSize,
 HtmlSizeService } from "./HtmlSizeWatcher";
+import * as i0 from "@angular/core";
+import * as i1 from "./HtmlSizeWatcher";
 var ScreenWidthModel = /** @class */ (function () {
     function ScreenWidthModel(HtmlSizeService) {
         var _this = this;
@@ -26,21 +28,19 @@ var ScreenWidthModel = /** @class */ (function () {
         this.screenWidthModel = window.innerWidth;
         this.screenWidthModelChange.emit(this.screenWidthModel);
     };
-    ScreenWidthModel.decorators = [
-        { type: Directive, args: [{
-                    selector: '[screenWidthModel]'
-                },] }
-    ];
-    ScreenWidthModel.ctorParameters = function () { return [
-        { type: 
-            //htmlSize,
-            HtmlSizeService }
-    ]; };
-    ScreenWidthModel.propDecorators = {
-        screenWidthModel: [{ type: Input }],
-        screenWidthModelChange: [{ type: Output }]
-    };
+    ScreenWidthModel.ɵfac = function ScreenWidthModel_Factory(t) { return new (t || ScreenWidthModel)(i0.ɵɵdirectiveInject(i1.HtmlSizeService)); };
+    ScreenWidthModel.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: ScreenWidthModel, selectors: [["", "screenWidthModel", ""]], inputs: { screenWidthModel: "screenWidthModel" }, outputs: { screenWidthModelChange: "screenWidthModelChange" } });
     return ScreenWidthModel;
 }());
 export { ScreenWidthModel };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ScreenWidthModel, [{
+        type: Directive,
+        args: [{
+                selector: '[screenWidthModel]'
+            }]
+    }], function () { return [{ type: i1.HtmlSizeService }]; }, { screenWidthModel: [{
+            type: Input
+        }], screenWidthModelChange: [{
+            type: Output
+        }] }); })();
 //# sourceMappingURL=ScreenWidthModel.directive.js.map

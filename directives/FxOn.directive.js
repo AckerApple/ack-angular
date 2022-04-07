@@ -1,4 +1,5 @@
 import { Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
+import * as i0 from "@angular/core";
 /**
   Applies css class when condition returns a truthy value. Allows timed removal
   Html inline elms cannot be animated. They will be upgraded to display inline-block
@@ -72,24 +73,26 @@ var FxOn = /** @class */ (function () {
             }, this.fxForMs);
         }
     };
-    FxOn.decorators = [
-        { type: Directive, args: [{
-                    selector: "[fxOn]",
-                    exportAs: "FxOn"
-                },] }
-    ];
-    FxOn.ctorParameters = function () { return [
-        { type: ElementRef }
-    ]; };
-    FxOn.propDecorators = {
-        fxOn: [{ type: Input }],
-        fxClass: [{ type: Input }],
-        fxForMs: [{ type: Input }],
-        fxThen: [{ type: Output }]
-    };
+    FxOn.ɵfac = function FxOn_Factory(t) { return new (t || FxOn)(i0.ɵɵdirectiveInject(i0.ElementRef)); };
+    FxOn.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: FxOn, selectors: [["", "fxOn", ""]], inputs: { fxOn: "fxOn", fxClass: "fxClass", fxForMs: "fxForMs" }, outputs: { fxThen: "fxThen" }, exportAs: ["FxOn"], features: [i0.ɵɵNgOnChangesFeature] });
     return FxOn;
 }());
 export { FxOn };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(FxOn, [{
+        type: Directive,
+        args: [{
+                selector: "[fxOn]",
+                exportAs: "FxOn"
+            }]
+    }], function () { return [{ type: i0.ElementRef }]; }, { fxOn: [{
+            type: Input
+        }], fxClass: [{
+            type: Input
+        }], fxForMs: [{
+            type: Input
+        }], fxThen: [{
+            type: Output
+        }] }); })();
 export function hasClass(el, className) {
     var names = className.split(" ");
     for (var x = names.length - 1; x >= 0; --x) {

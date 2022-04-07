@@ -1,17 +1,6 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+import { __extends } from "tslib";
 import { Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
+import * as i0 from "@angular/core";
 var ElementSizeModel = /** @class */ (function () {
     function ElementSizeModel(element) {
         this.element = element;
@@ -59,22 +48,23 @@ var ElementSizeModel = /** @class */ (function () {
         this.observer.disconnect();
         window.removeEventListener('resize', this.onResize);
     };
-    ElementSizeModel.decorators = [
-        { type: Directive, args: [{
-                    selector: '[elementSizeModel]'
-                },] }
-    ];
-    ElementSizeModel.ctorParameters = function () { return [
-        { type: ElementRef }
-    ]; };
-    ElementSizeModel.propDecorators = {
-        elementSizeModelWatch: [{ type: Input }],
-        elementSizeModel: [{ type: Input }],
-        elementSizeModelChange: [{ type: Output }]
-    };
+    ElementSizeModel.ɵfac = function ElementSizeModel_Factory(t) { return new (t || ElementSizeModel)(i0.ɵɵdirectiveInject(i0.ElementRef)); };
+    ElementSizeModel.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: ElementSizeModel, selectors: [["", "elementSizeModel", ""]], inputs: { elementSizeModelWatch: "elementSizeModelWatch", elementSizeModel: "elementSizeModel" }, outputs: { elementSizeModelChange: "elementSizeModelChange" }, features: [i0.ɵɵNgOnChangesFeature] });
     return ElementSizeModel;
 }());
 export { ElementSizeModel };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ElementSizeModel, [{
+        type: Directive,
+        args: [{
+                selector: '[elementSizeModel]'
+            }]
+    }], function () { return [{ type: i0.ElementRef }]; }, { elementSizeModelWatch: [{
+            type: Input
+        }], elementSizeModel: [{
+            type: Input
+        }], elementSizeModelChange: [{
+            type: Output
+        }] }); })();
 var ElementHeightModel = /** @class */ (function (_super) {
     __extends(ElementHeightModel, _super);
     function ElementHeightModel(element) {
@@ -87,21 +77,21 @@ var ElementHeightModel = /** @class */ (function (_super) {
         this.elementHeightModel = this.element.nativeElement.offsetHeight;
         this.elementHeightModelChange.emit(this.elementHeightModel);
     };
-    ElementHeightModel.decorators = [
-        { type: Directive, args: [{
-                    selector: '[elementHeightModel]'
-                },] }
-    ];
-    ElementHeightModel.ctorParameters = function () { return [
-        { type: ElementRef }
-    ]; };
-    ElementHeightModel.propDecorators = {
-        elementHeightModel: [{ type: Input }],
-        elementHeightModelChange: [{ type: Output }]
-    };
+    ElementHeightModel.ɵfac = function ElementHeightModel_Factory(t) { return new (t || ElementHeightModel)(i0.ɵɵdirectiveInject(i0.ElementRef)); };
+    ElementHeightModel.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: ElementHeightModel, selectors: [["", "elementHeightModel", ""]], inputs: { elementHeightModel: "elementHeightModel" }, outputs: { elementHeightModelChange: "elementHeightModelChange" }, features: [i0.ɵɵInheritDefinitionFeature] });
     return ElementHeightModel;
 }(ElementSizeModel));
 export { ElementHeightModel };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ElementHeightModel, [{
+        type: Directive,
+        args: [{
+                selector: '[elementHeightModel]'
+            }]
+    }], function () { return [{ type: i0.ElementRef }]; }, { elementHeightModel: [{
+            type: Input
+        }], elementHeightModelChange: [{
+            type: Output
+        }] }); })();
 var ElementWidthModel = /** @class */ (function (_super) {
     __extends(ElementWidthModel, _super);
     function ElementWidthModel(element) {
@@ -114,20 +104,20 @@ var ElementWidthModel = /** @class */ (function (_super) {
         this.elementWidthModel = this.element.nativeElement.offsetWidth;
         this.elementWidthModelChange.emit(this.elementWidthModel);
     };
-    ElementWidthModel.decorators = [
-        { type: Directive, args: [{
-                    selector: '[elementWidthModel]',
-                    exportAs: 'ElementWidthModel'
-                },] }
-    ];
-    ElementWidthModel.ctorParameters = function () { return [
-        { type: ElementRef }
-    ]; };
-    ElementWidthModel.propDecorators = {
-        elementWidthModel: [{ type: Input }],
-        elementWidthModelChange: [{ type: Output }]
-    };
+    ElementWidthModel.ɵfac = function ElementWidthModel_Factory(t) { return new (t || ElementWidthModel)(i0.ɵɵdirectiveInject(i0.ElementRef)); };
+    ElementWidthModel.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: ElementWidthModel, selectors: [["", "elementWidthModel", ""]], inputs: { elementWidthModel: "elementWidthModel" }, outputs: { elementWidthModelChange: "elementWidthModelChange" }, exportAs: ["ElementWidthModel"], features: [i0.ɵɵInheritDefinitionFeature] });
     return ElementWidthModel;
 }(ElementSizeModel));
 export { ElementWidthModel };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ElementWidthModel, [{
+        type: Directive,
+        args: [{
+                selector: '[elementWidthModel]',
+                exportAs: 'ElementWidthModel'
+            }]
+    }], function () { return [{ type: i0.ElementRef }]; }, { elementWidthModel: [{
+            type: Input
+        }], elementWidthModelChange: [{
+            type: Output
+        }] }); })();
 //# sourceMappingURL=ElementSizeModel.directive.js.map

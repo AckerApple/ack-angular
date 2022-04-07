@@ -1,4 +1,5 @@
 import { Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
+import * as i0 from "@angular/core";
 var InnerHtmlModel = /** @class */ (function () {
     function InnerHtmlModel(element) {
         var _this = this;
@@ -26,19 +27,19 @@ var InnerHtmlModel = /** @class */ (function () {
     InnerHtmlModel.prototype.ngOnDestroy = function () {
         this.observer.disconnect();
     };
-    InnerHtmlModel.decorators = [
-        { type: Directive, args: [{
-                    selector: '[innerHtmlModel]'
-                },] }
-    ];
-    InnerHtmlModel.ctorParameters = function () { return [
-        { type: ElementRef }
-    ]; };
-    InnerHtmlModel.propDecorators = {
-        innerHtmlModel: [{ type: Input }],
-        innerHtmlModelChange: [{ type: Output }]
-    };
+    InnerHtmlModel.ɵfac = function InnerHtmlModel_Factory(t) { return new (t || InnerHtmlModel)(i0.ɵɵdirectiveInject(i0.ElementRef)); };
+    InnerHtmlModel.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: InnerHtmlModel, selectors: [["", "innerHtmlModel", ""]], inputs: { innerHtmlModel: "innerHtmlModel" }, outputs: { innerHtmlModelChange: "innerHtmlModelChange" }, features: [i0.ɵɵNgOnChangesFeature] });
     return InnerHtmlModel;
 }());
 export { InnerHtmlModel };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(InnerHtmlModel, [{
+        type: Directive,
+        args: [{
+                selector: '[innerHtmlModel]'
+            }]
+    }], function () { return [{ type: i0.ElementRef }]; }, { innerHtmlModel: [{
+            type: Input
+        }], innerHtmlModelChange: [{
+            type: Output
+        }] }); })();
 //# sourceMappingURL=InnerHtmlModel.directive.js.map

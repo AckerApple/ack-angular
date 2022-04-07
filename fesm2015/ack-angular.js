@@ -804,9 +804,9 @@ function capitalizeWords(input) {
 }
 /** each sentence word is capitalized */
 function capitalize(input) {
-    input = pipes.capitalizeOne(input);
+    input = pipes$1.capitalizeOne(input);
     var reg = /[.?!][\s\r\t]+\w/g;
-    return (!!input) ? input.replace(reg, pipes.capitalizeAfterSentence) : '';
+    return (!!input) ? input.replace(reg, pipes$1.capitalizeAfterSentence) : '';
 }
 function capitalizeAfterSentence(input) {
     var reg = /[\s\r\t]\w/g;
@@ -826,7 +826,7 @@ const aMath = invokeRotator(Math);
 const aString = invokeRotator(String);
 const ack = invokeRotator(ack$1);
 // maybe deprecated . Remove in future releases. Just an array ref of all pipes
-const pipes = {
+const pipes$1 = {
     ack,
     aDate,
     aMath,
@@ -1268,14 +1268,13 @@ class DebugArea {
 }
 DebugArea.decorators = [
     { type: Component, args: [{
-                selector: "debug-area",
-                template: string$1
+                selector: "debug-area", template: string$1
             },] }
 ];
 DebugArea.propDecorators = {
     DebugItems: [{ type: ContentChildren, args: [DebugItem,] }]
 };
-const declarations$3 = [
+const debugDeclarations = [
     DebugItem, DebugArea
 ];
 
@@ -2899,7 +2898,7 @@ const screenDirectives = [
     ScreenScrollHeightDiff,
     PxFromHtmlTop
 ];
-const declarations$2 = [
+const declarations$1 = [
     InitDirective,
     SelectOn,
     FocusOn,
@@ -2925,7 +2924,7 @@ const declarations$2 = [
     ElementHeightModel,
     InputHint,
     //components
-    ...declarations$3,
+    ...debugDeclarations,
     ErrorWell,
     AbsoluteOverflowX,
     //sorta ack-angular-templates
@@ -2945,7 +2944,6 @@ const declarations$2 = [
     AckFixedElement,
     AckFixedElementStage
 ];
-// export default declarations
 
 class KeysPipe {
     transform(input) {
@@ -3197,7 +3195,7 @@ class ConsolePipe {
 ConsolePipe.decorators = [
     { type: Pipe, args: [{ name: 'console' },] }
 ];
-const declarations$1 = [
+const pipes = [
     IndexTrack,
     Stringify,
     ForceArray,
@@ -3231,7 +3229,7 @@ const declarations$1 = [
     ReplaceMaxLength,
 ];
 
-const declarations = [...declarations$2, ...declarations$1];
+const declarations = [...declarations$1, ...pipes];
 class AckModule {
     static forRoot() {
         return {
@@ -3694,5 +3692,5 @@ AckRouterModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { ADate, AMath, AString, ATime, Ack, AckApp, AckArray, AckModule, AckRouterModule, ArrayOfObjects, Between, Bit, BooleanPipe, Capitalize, CapitalizeWords, ConsolePipe, DocumentService, EndNumberWord, ErrorLog, ForceArray, HtmlSizeService, IndexTrack, KeysPipe, Log, MarkdownAnchor, NumberSuffix, NumberToPhone, NumberWord, Numbers, Prompts, ReplaceMaxLength, RouteWatchReporter, SafeHtml, SafeStyle, SafeUrl, Stringify, TextDownload, TypeofPipe, UrlVars, WindowService, YesNo, Yesno, declarations$2 as components, declarations$1 as declarations, declarations$1 as pipes, providers$1 as providers, toNumber, providers as ɵa, screenDirectives as ɵb, ShakeOn as ɵba, FxOn as ɵbb, StatusOnlineModel as ɵbc, StatusOfflineModel as ɵbd, ElementSizeModel as ɵbe, ElementHeightModel as ɵbf, ElementWidthModel as ɵbg, DebugItem as ɵbh, DebugArea as ɵbi, declarations$3 as ɵbj, string$1 as ɵbk, ErrorWell as ɵbl, string$3 as ɵbm, AbsoluteOverflowX as ɵbn, string$4 as ɵbo, ReaderHeaderBody as ɵbp, ReaderHeader as ɵbq, ReaderBody as ɵbr, string$2 as ɵbs, AckCloseIcon as ɵbt, AckSections as ɵbu, string$8 as ɵbv, SectionProvider as ɵbw, AckSectionTemplates as ɵbx, AckOptions as ɵby, string$6 as ɵbz, InitDirective as ɵc, AckOptionsModal as ɵca, string$5 as ɵcb, AckModal as ɵcc, AckModalLayout as ɵcd, AckAggregate as ɵce, AckFixedElement as ɵcf, AckFixedElementStage as ɵcg, string$7 as ɵch, RouteReporter as ɵci, RouteHistory as ɵcj, SelectOn as ɵd, FocusOn as ɵe, VarDirective as ɵf, ContentModel as ɵg, InnerHtmlModel as ɵh, ReplaceModel as ɵi, EnterKey as ɵj, EscapeKey as ɵk, PreventBackKey as ɵl, PreventEnterKey as ɵm, InputHint as ɵn, FormChanged as ɵo, FormAlter as ɵp, ScreenScrollModelY as ɵq, ScreenWidthModel as ɵr, ScreenHeightModel as ɵs, ScreenScroll as ɵt, ScrollPastFixed as ɵu, string as ɵv, ScreenScrollHeightDiff as ɵw, PxFromHtmlTop as ɵx, HtmlWidthModel as ɵy, HtmlHeightModel as ɵz };
+export { ADate, AMath, AString, ATime, AbsoluteOverflowX, Ack, AckAggregate, AckApp, AckArray, AckCloseIcon, AckFixedElement, AckFixedElementStage, AckModal, AckModalLayout, AckModule, AckOptions, AckOptionsModal, AckRouterModule, AckSectionTemplates, AckSections, ArrayOfObjects, Between, Bit, BooleanPipe, Capitalize, CapitalizeWords, ConsolePipe, ContentModel, DebugArea, DebugItem, DocumentService, ElementHeightModel, ElementSizeModel, ElementWidthModel, EndNumberWord, EnterKey, ErrorLog, ErrorWell, EscapeKey, FocusOn, ForceArray, FormAlter, FormChanged, FxOn, HtmlHeightModel, HtmlSizeService, HtmlWidthModel, IndexTrack, InitDirective, InnerHtmlModel, InputHint, KeysPipe, Log, MarkdownAnchor, NumberSuffix, NumberToPhone, NumberWord, Numbers, PreventBackKey, PreventEnterKey, Prompts, PxFromHtmlTop, ReaderBody, ReaderHeader, ReaderHeaderBody, ReplaceMaxLength, ReplaceModel, RouteReporter, RouteWatchReporter, SafeHtml, SafeStyle, SafeUrl, ScreenHeightModel, ScreenScroll, ScreenScrollHeightDiff, ScreenScrollModelY, ScreenWidthModel, ScrollPastFixed, SelectOn, ShakeOn, StatusOfflineModel, StatusOnlineModel, Stringify, TextDownload, TypeofPipe, UrlVars, VarDirective, WindowService, YesNo, Yesno, debugDeclarations, declarations$1 as declarations, pipes, providers$1 as providers, screenDirectives, toNumber, string as ɵa, string$1 as ɵb, string$3 as ɵc, string$4 as ɵd, string$2 as ɵe, string$8 as ɵf, SectionProvider as ɵg, string$6 as ɵh, string$5 as ɵi, string$7 as ɵj, RouteHistory as ɵk };
 //# sourceMappingURL=ack-angular.js.map

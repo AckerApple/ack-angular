@@ -1,5 +1,11 @@
 import { Directive, TemplateRef, ContentChild } from "@angular/core";
 import { SectionProvider } from "../providers/AckSections.provider";
+import * as i0 from "@angular/core";
+import * as i1 from "../providers/AckSections.provider";
+var _c0 = ["sectionHeader"];
+var _c1 = ["sectionFooter"];
+var _c2 = ["sectionLeftBody"];
+var _c3 = ["sectionRightBody"];
 var AckSectionTemplates = /** @class */ (function () {
     function AckSectionTemplates(SectionProvider) {
         this.SectionProvider = SectionProvider;
@@ -44,21 +50,38 @@ var AckSectionTemplates = /** @class */ (function () {
         this.SectionProvider.unregisterTemplate(this.leftBody);
         this.SectionProvider.unregisterTemplate(this.rightBody);
     };
-    AckSectionTemplates.decorators = [
-        { type: Directive, args: [{
-                    selector: "ack-section-templates"
-                },] }
-    ];
-    AckSectionTemplates.ctorParameters = function () { return [
-        { type: SectionProvider }
-    ]; };
-    AckSectionTemplates.propDecorators = {
-        header: [{ type: ContentChild, args: ['sectionHeader',] }],
-        footer: [{ type: ContentChild, args: ['sectionFooter',] }],
-        leftBody: [{ type: ContentChild, args: ['sectionLeftBody',] }],
-        rightBody: [{ type: ContentChild, args: ['sectionRightBody',] }]
-    };
+    AckSectionTemplates.ɵfac = function AckSectionTemplates_Factory(t) { return new (t || AckSectionTemplates)(i0.ɵɵdirectiveInject(i1.SectionProvider)); };
+    AckSectionTemplates.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: AckSectionTemplates, selectors: [["ack-section-templates"]], contentQueries: function AckSectionTemplates_ContentQueries(rf, ctx, dirIndex) { if (rf & 1) {
+            i0.ɵɵcontentQuery(dirIndex, _c0, 5);
+            i0.ɵɵcontentQuery(dirIndex, _c1, 5);
+            i0.ɵɵcontentQuery(dirIndex, _c2, 5);
+            i0.ɵɵcontentQuery(dirIndex, _c3, 5);
+        } if (rf & 2) {
+            var _t = void 0;
+            i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.header = _t.first);
+            i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.footer = _t.first);
+            i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.leftBody = _t.first);
+            i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.rightBody = _t.first);
+        } }, features: [i0.ɵɵNgOnChangesFeature] });
     return AckSectionTemplates;
 }());
 export { AckSectionTemplates };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AckSectionTemplates, [{
+        type: Directive,
+        args: [{
+                selector: "ack-section-templates"
+            }]
+    }], function () { return [{ type: i1.SectionProvider }]; }, { header: [{
+            type: ContentChild,
+            args: ['sectionHeader']
+        }], footer: [{
+            type: ContentChild,
+            args: ['sectionFooter']
+        }], leftBody: [{
+            type: ContentChild,
+            args: ['sectionLeftBody']
+        }], rightBody: [{
+            type: ContentChild,
+            args: ['sectionRightBody']
+        }] }); })();
 //# sourceMappingURL=AckSectionTemplates.component.js.map

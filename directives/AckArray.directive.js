@@ -1,6 +1,7 @@
-import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
+import { BehaviorSubject } from "rxjs";
 import { EventEmitter, Output, Input, ContentChildren, Directive, IterableDiffers } from "@angular/core";
 import { AckAggregate } from "./AckAggregate.directive";
+import * as i0 from "@angular/core";
 var AckArray = /** @class */ (function () {
     function AckArray(_iterableDiffers) {
         this._iterableDiffers = _iterableDiffers;
@@ -93,13 +94,6 @@ var AckArray = /** @class */ (function () {
             });
         }
     };
-    /*
-      performJoins(){
-        this.AckArrayJoins.forEach(join=>
-          join.joinTo( this.array )
-        )
-      }
-    */
     AckArray.prototype.pushAggregates = function (aggs) {
         var _this = this;
         aggs.forEach(function (agg) {
@@ -207,11 +201,9 @@ var AckArray = /** @class */ (function () {
         }
         return this.array || [];
     };
-    /*
-      selected(item){
-        return this.itemIndex(item) >= 0 ? true : false
-      }
-    */
+    AckArray.prototype.selected = function (item) {
+        return this.itemIndex(item) >= 0 ? true : false;
+    };
     AckArray.prototype.itemIndex = function (item) {
         var array = this.getCompareArray();
         for (var x = array.length - 1; x >= 0; --x) {
@@ -322,33 +314,50 @@ var AckArray = /** @class */ (function () {
         this.inSort = false;
         this.loop(true); //cause pages to be updated
     };
-    AckArray.decorators = [
-        { type: Directive, args: [{
-                    selector: "ack-array",
-                    exportAs: "AckArray"
-                },] }
-    ];
-    AckArray.ctorParameters = function () { return [
-        { type: IterableDiffers }
-    ]; };
-    AckArray.propDecorators = {
-        pageAt: [{ type: Input }],
-        pages: [{ type: Input }],
-        pagesChange: [{ type: Output }],
-        page: [{ type: Input }],
-        pageChange: [{ type: Output }],
-        keyMap: [{ type: Input }],
-        keyMapChange: [{ type: Output }],
-        AckAggregates: [{ type: ContentChildren, args: [AckAggregate,] }],
-        idKeys: [{ type: Input }],
-        merge: [{ type: Input }],
-        array: [{ type: Input }],
-        arrayChange: [{ type: Output }],
-        array$: [{ type: Input }]
-    };
+    AckArray.ɵfac = function AckArray_Factory(t) { return new (t || AckArray)(i0.ɵɵdirectiveInject(i0.IterableDiffers)); };
+    AckArray.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: AckArray, selectors: [["ack-array"]], contentQueries: function AckArray_ContentQueries(rf, ctx, dirIndex) { if (rf & 1) {
+            i0.ɵɵcontentQuery(dirIndex, AckAggregate, 4);
+        } if (rf & 2) {
+            var _t = void 0;
+            i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.AckAggregates = _t);
+        } }, inputs: { pageAt: "pageAt", pages: "pages", page: "page", keyMap: "keyMap", idKeys: "idKeys", merge: "merge", array: "array", array$: "array$" }, outputs: { pagesChange: "pagesChange", pageChange: "pageChange", keyMapChange: "keyMapChange", arrayChange: "arrayChange" }, exportAs: ["AckArray"], features: [i0.ɵɵNgOnChangesFeature] });
     return AckArray;
 }());
 export { AckArray };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AckArray, [{
+        type: Directive,
+        args: [{
+                selector: "ack-array",
+                exportAs: "AckArray"
+            }]
+    }], function () { return [{ type: i0.IterableDiffers }]; }, { pageAt: [{
+            type: Input
+        }], pages: [{
+            type: Input
+        }], pagesChange: [{
+            type: Output
+        }], page: [{
+            type: Input
+        }], pageChange: [{
+            type: Output
+        }], keyMap: [{
+            type: Input
+        }], keyMapChange: [{
+            type: Output
+        }], AckAggregates: [{
+            type: ContentChildren,
+            args: [AckAggregate]
+        }], idKeys: [{
+            type: Input
+        }], merge: [{
+            type: Input
+        }], array: [{
+            type: Input
+        }], arrayChange: [{
+            type: Output
+        }], array$: [{
+            type: Input
+        }] }); })();
 export function dataKeysMatch(ao, an, idKeys) {
     for (var x = idKeys.length - 1; x >= 0; --x) {
         var idKey = idKeys[x];

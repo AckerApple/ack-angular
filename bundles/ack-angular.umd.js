@@ -1175,9 +1175,9 @@
     }
     /** each sentence word is capitalized */
     function capitalize(input) {
-        input = pipes.capitalizeOne(input);
+        input = pipes$1.capitalizeOne(input);
         var reg = /[.?!][\s\r\t]+\w/g;
-        return (!!input) ? input.replace(reg, pipes.capitalizeAfterSentence) : '';
+        return (!!input) ? input.replace(reg, pipes$1.capitalizeAfterSentence) : '';
     }
     function capitalizeAfterSentence(input) {
         var reg = /[\s\r\t]\w/g;
@@ -1197,7 +1197,7 @@
     var aString = invokeRotator(String);
     var ack = invokeRotator(indexBrowser.ack);
     // maybe deprecated . Remove in future releases. Just an array ref of all pipes
-    var pipes = {
+    var pipes$1 = {
         ack: ack,
         aDate: aDate,
         aMath: aMath,
@@ -1664,7 +1664,7 @@
     DebugArea.propDecorators = {
         DebugItems: [{ type: core.ContentChildren, args: [DebugItem,] }]
     };
-    var declarations$3 = [
+    var debugDeclarations = [
         DebugItem, DebugArea
     ];
 
@@ -3373,7 +3373,7 @@
         ScreenScrollHeightDiff,
         PxFromHtmlTop
     ];
-    var declarations$2 = __spreadArray(__spreadArray(__spreadArray(__spreadArray([
+    var declarations$1 = __spreadArray(__spreadArray(__spreadArray(__spreadArray([
         InitDirective,
         SelectOn,
         FocusOn,
@@ -3398,7 +3398,7 @@
         ElementWidthModel,
         ElementHeightModel,
         InputHint
-    ]), __read(declarations$3)), [
+    ]), __read(debugDeclarations)), [
         ErrorWell,
         AbsoluteOverflowX,
         //sorta ack-angular-templates
@@ -3418,7 +3418,6 @@
         AckFixedElement,
         AckFixedElementStage
     ]);
-    // export default declarations
 
     var KeysPipe = /** @class */ (function () {
         function KeysPipe() {
@@ -3786,7 +3785,7 @@
     ConsolePipe.decorators = [
         { type: core.Pipe, args: [{ name: 'console' },] }
     ];
-    var declarations$1 = [
+    var pipes = [
         IndexTrack,
         Stringify,
         ForceArray,
@@ -3820,7 +3819,7 @@
         ReplaceMaxLength,
     ];
 
-    var declarations = __spreadArray(__spreadArray([], __read(declarations$2)), __read(declarations$1));
+    var declarations = __spreadArray(__spreadArray([], __read(declarations$1)), __read(pipes));
     var AckModule = /** @class */ (function () {
         function AckModule() {
         }
@@ -3837,7 +3836,8 @@
                     imports: [
                         common.CommonModule
                     ],
-                    declarations: declarations, providers: providers$1,
+                    declarations: declarations,
+                    providers: providers$1,
                     exports: declarations
                 },] }
     ];
@@ -4305,11 +4305,22 @@
     exports.AMath = AMath;
     exports.AString = AString;
     exports.ATime = ATime;
+    exports.AbsoluteOverflowX = AbsoluteOverflowX;
     exports.Ack = Ack;
+    exports.AckAggregate = AckAggregate;
     exports.AckApp = AckApp;
     exports.AckArray = AckArray;
+    exports.AckCloseIcon = AckCloseIcon;
+    exports.AckFixedElement = AckFixedElement;
+    exports.AckFixedElementStage = AckFixedElementStage;
+    exports.AckModal = AckModal;
+    exports.AckModalLayout = AckModalLayout;
     exports.AckModule = AckModule;
+    exports.AckOptions = AckOptions;
+    exports.AckOptionsModal = AckOptionsModal;
     exports.AckRouterModule = AckRouterModule;
+    exports.AckSectionTemplates = AckSectionTemplates;
+    exports.AckSections = AckSections;
     exports.ArrayOfObjects = ArrayOfObjects;
     exports.Between = Between;
     exports.Bit = Bit;
@@ -4317,12 +4328,30 @@
     exports.Capitalize = Capitalize;
     exports.CapitalizeWords = CapitalizeWords;
     exports.ConsolePipe = ConsolePipe;
+    exports.ContentModel = ContentModel;
+    exports.DebugArea = DebugArea;
+    exports.DebugItem = DebugItem;
     exports.DocumentService = DocumentService;
+    exports.ElementHeightModel = ElementHeightModel;
+    exports.ElementSizeModel = ElementSizeModel;
+    exports.ElementWidthModel = ElementWidthModel;
     exports.EndNumberWord = EndNumberWord;
+    exports.EnterKey = EnterKey;
     exports.ErrorLog = ErrorLog;
+    exports.ErrorWell = ErrorWell;
+    exports.EscapeKey = EscapeKey;
+    exports.FocusOn = FocusOn;
     exports.ForceArray = ForceArray;
+    exports.FormAlter = FormAlter;
+    exports.FormChanged = FormChanged;
+    exports.FxOn = FxOn;
+    exports.HtmlHeightModel = HtmlHeightModel;
     exports.HtmlSizeService = HtmlSizeService;
+    exports.HtmlWidthModel = HtmlWidthModel;
     exports.IndexTrack = IndexTrack;
+    exports.InitDirective = InitDirective;
+    exports.InnerHtmlModel = InnerHtmlModel;
+    exports.InputHint = InputHint;
     exports.KeysPipe = KeysPipe;
     exports.Log = Log;
     exports.MarkdownAnchor = MarkdownAnchor;
@@ -4330,86 +4359,55 @@
     exports.NumberToPhone = NumberToPhone;
     exports.NumberWord = NumberWord;
     exports.Numbers = Numbers;
+    exports.PreventBackKey = PreventBackKey;
+    exports.PreventEnterKey = PreventEnterKey;
     exports.Prompts = Prompts;
+    exports.PxFromHtmlTop = PxFromHtmlTop;
+    exports.ReaderBody = ReaderBody;
+    exports.ReaderHeader = ReaderHeader;
+    exports.ReaderHeaderBody = ReaderHeaderBody;
     exports.ReplaceMaxLength = ReplaceMaxLength;
+    exports.ReplaceModel = ReplaceModel;
+    exports.RouteReporter = RouteReporter;
     exports.RouteWatchReporter = RouteWatchReporter;
     exports.SafeHtml = SafeHtml;
     exports.SafeStyle = SafeStyle;
     exports.SafeUrl = SafeUrl;
+    exports.ScreenHeightModel = ScreenHeightModel;
+    exports.ScreenScroll = ScreenScroll;
+    exports.ScreenScrollHeightDiff = ScreenScrollHeightDiff;
+    exports.ScreenScrollModelY = ScreenScrollModelY;
+    exports.ScreenWidthModel = ScreenWidthModel;
+    exports.ScrollPastFixed = ScrollPastFixed;
+    exports.SelectOn = SelectOn;
+    exports.ShakeOn = ShakeOn;
+    exports.StatusOfflineModel = StatusOfflineModel;
+    exports.StatusOnlineModel = StatusOnlineModel;
     exports.Stringify = Stringify;
     exports.TextDownload = TextDownload;
     exports.TypeofPipe = TypeofPipe;
     exports.UrlVars = UrlVars;
+    exports.VarDirective = VarDirective;
     exports.WindowService = WindowService;
     exports.YesNo = YesNo;
     exports.Yesno = Yesno;
-    exports.components = declarations$2;
+    exports.debugDeclarations = debugDeclarations;
     exports.declarations = declarations$1;
-    exports.pipes = declarations$1;
+    exports.pipes = pipes;
     exports.providers = providers$1;
+    exports.screenDirectives = screenDirectives;
     exports.toNumber = toNumber;
-    exports["ɵa"] = providers;
-    exports["ɵb"] = screenDirectives;
-    exports["ɵba"] = ShakeOn;
-    exports["ɵbb"] = FxOn;
-    exports["ɵbc"] = StatusOnlineModel;
-    exports["ɵbd"] = StatusOfflineModel;
-    exports["ɵbe"] = ElementSizeModel;
-    exports["ɵbf"] = ElementHeightModel;
-    exports["ɵbg"] = ElementWidthModel;
-    exports["ɵbh"] = DebugItem;
-    exports["ɵbi"] = DebugArea;
-    exports["ɵbj"] = declarations$3;
-    exports["ɵbk"] = string$1;
-    exports["ɵbl"] = ErrorWell;
-    exports["ɵbm"] = string$3;
-    exports["ɵbn"] = AbsoluteOverflowX;
-    exports["ɵbo"] = string$4;
-    exports["ɵbp"] = ReaderHeaderBody;
-    exports["ɵbq"] = ReaderHeader;
-    exports["ɵbr"] = ReaderBody;
-    exports["ɵbs"] = string$2;
-    exports["ɵbt"] = AckCloseIcon;
-    exports["ɵbu"] = AckSections;
-    exports["ɵbv"] = string$8;
-    exports["ɵbw"] = SectionProvider;
-    exports["ɵbx"] = AckSectionTemplates;
-    exports["ɵby"] = AckOptions;
-    exports["ɵbz"] = string$6;
-    exports["ɵc"] = InitDirective;
-    exports["ɵca"] = AckOptionsModal;
-    exports["ɵcb"] = string$5;
-    exports["ɵcc"] = AckModal;
-    exports["ɵcd"] = AckModalLayout;
-    exports["ɵce"] = AckAggregate;
-    exports["ɵcf"] = AckFixedElement;
-    exports["ɵcg"] = AckFixedElementStage;
-    exports["ɵch"] = string$7;
-    exports["ɵci"] = RouteReporter;
-    exports["ɵcj"] = RouteHistory;
-    exports["ɵd"] = SelectOn;
-    exports["ɵe"] = FocusOn;
-    exports["ɵf"] = VarDirective;
-    exports["ɵg"] = ContentModel;
-    exports["ɵh"] = InnerHtmlModel;
-    exports["ɵi"] = ReplaceModel;
-    exports["ɵj"] = EnterKey;
-    exports["ɵk"] = EscapeKey;
-    exports["ɵl"] = PreventBackKey;
-    exports["ɵm"] = PreventEnterKey;
-    exports["ɵn"] = InputHint;
-    exports["ɵo"] = FormChanged;
-    exports["ɵp"] = FormAlter;
-    exports["ɵq"] = ScreenScrollModelY;
-    exports["ɵr"] = ScreenWidthModel;
-    exports["ɵs"] = ScreenHeightModel;
-    exports["ɵt"] = ScreenScroll;
-    exports["ɵu"] = ScrollPastFixed;
-    exports["ɵv"] = string;
-    exports["ɵw"] = ScreenScrollHeightDiff;
-    exports["ɵx"] = PxFromHtmlTop;
-    exports["ɵy"] = HtmlWidthModel;
-    exports["ɵz"] = HtmlHeightModel;
+    exports["ɵa"] = string;
+    exports["ɵb"] = string$1;
+    exports["ɵc"] = string$3;
+    exports["ɵd"] = string$4;
+    exports["ɵe"] = string$2;
+    exports["ɵf"] = string$8;
+    exports["ɵg"] = SectionProvider;
+    exports["ɵh"] = string$6;
+    exports["ɵi"] = string$5;
+    exports["ɵj"] = string$7;
+    exports["ɵk"] = RouteHistory;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

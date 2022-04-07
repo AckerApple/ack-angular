@@ -1,6 +1,8 @@
 //import { StateService,TransitionService,Transition } from "ui-router-ng2";
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Injectable } from '@angular/core';
+import * as i0 from "@angular/core";
+import * as i1 from "@angular/router";
 /** A stateful connection to ui-router history
  - .stateChange() with arguments MUST be called at every state change
  - Has 99% accuracy of knowing if OS back or forward button has been used
@@ -149,16 +151,14 @@ var RouteWatchReporter = /** @class */ (function () {
         $document.removeEventListener('mouseover', callbacks.isNotBackButton);
         $document.removeEventListener('mousedown', callbacks.isNotBackButton);
     };
-    RouteWatchReporter.decorators = [
-        { type: Injectable }
-    ];
-    RouteWatchReporter.ctorParameters = function () { return [
-        { type: Router },
-        { type: ActivatedRoute }
-    ]; };
+    RouteWatchReporter.ɵfac = function RouteWatchReporter_Factory(t) { return new (t || RouteWatchReporter)(i0.ɵɵinject(i1.Router), i0.ɵɵinject(i1.ActivatedRoute)); };
+    RouteWatchReporter.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: RouteWatchReporter, factory: RouteWatchReporter.ɵfac });
     return RouteWatchReporter;
 }());
 export { RouteWatchReporter };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RouteWatchReporter, [{
+        type: Injectable
+    }], function () { return [{ type: i1.Router }, { type: i1.ActivatedRoute }]; }, null); })();
 export function getCurrentByActive(ActivatedRoute) {
     var parent = ActivatedRoute;
     var target = ActivatedRoute;

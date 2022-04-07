@@ -2,6 +2,8 @@ import { Directive, Input, Output, EventEmitter } from "@angular/core";
 import { 
 //htmlSize,
 HtmlSizeService } from "./HtmlSizeWatcher";
+import * as i0 from "@angular/core";
+import * as i1 from "./HtmlSizeWatcher";
 var ScreenHeightModel = /** @class */ (function () {
     function ScreenHeightModel(HtmlSizeService) {
         var _this = this;
@@ -35,22 +37,22 @@ var ScreenHeightModel = /** @class */ (function () {
         this.model = window.innerHeight;
         this.modelChange.emit(this.model);
     };
-    ScreenHeightModel.decorators = [
-        { type: Directive, args: [{
-                    selector: '[screenHeightModel]',
-                    exportAs: 'ScreenHeightModel'
-                },] }
-    ];
-    ScreenHeightModel.ctorParameters = function () { return [
-        { type: 
-            //htmlSize,
-            HtmlSizeService }
-    ]; };
-    ScreenHeightModel.propDecorators = {
-        model: [{ type: Input, args: ['screenHeightModel',] }],
-        modelChange: [{ type: Output, args: ['screenHeightModelChange',] }]
-    };
+    ScreenHeightModel.ɵfac = function ScreenHeightModel_Factory(t) { return new (t || ScreenHeightModel)(i0.ɵɵdirectiveInject(i1.HtmlSizeService)); };
+    ScreenHeightModel.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: ScreenHeightModel, selectors: [["", "screenHeightModel", ""]], inputs: { model: ["screenHeightModel", "model"] }, outputs: { modelChange: "screenHeightModelChange" }, exportAs: ["ScreenHeightModel"] });
     return ScreenHeightModel;
 }());
 export { ScreenHeightModel };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ScreenHeightModel, [{
+        type: Directive,
+        args: [{
+                selector: '[screenHeightModel]',
+                exportAs: 'ScreenHeightModel'
+            }]
+    }], function () { return [{ type: i1.HtmlSizeService }]; }, { model: [{
+            type: Input,
+            args: ['screenHeightModel']
+        }], modelChange: [{
+            type: Output,
+            args: ['screenHeightModelChange']
+        }] }); })();
 //# sourceMappingURL=ScreenHeightModel.directive.js.map

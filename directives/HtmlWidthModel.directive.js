@@ -1,5 +1,7 @@
 import { Directive, Input, Output, EventEmitter } from "@angular/core";
 import { HtmlSizeService } from "./HtmlSizeWatcher";
+import * as i0 from "@angular/core";
+import * as i1 from "./HtmlSizeWatcher";
 var HtmlWidthModel = /** @class */ (function () {
     function HtmlWidthModel(HtmlSizeService) {
         var _this = this;
@@ -31,19 +33,19 @@ var HtmlWidthModel = /** @class */ (function () {
         this.htmlWidthModel = htmlSize.width;
         this.htmlWidthModelChange.emit(this.htmlWidthModel);
     };
-    HtmlWidthModel.decorators = [
-        { type: Directive, args: [{
-                    selector: '[htmlWidthModel]'
-                },] }
-    ];
-    HtmlWidthModel.ctorParameters = function () { return [
-        { type: HtmlSizeService }
-    ]; };
-    HtmlWidthModel.propDecorators = {
-        htmlWidthModel: [{ type: Input }],
-        htmlWidthModelChange: [{ type: Output }]
-    };
+    HtmlWidthModel.ɵfac = function HtmlWidthModel_Factory(t) { return new (t || HtmlWidthModel)(i0.ɵɵdirectiveInject(i1.HtmlSizeService)); };
+    HtmlWidthModel.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: HtmlWidthModel, selectors: [["", "htmlWidthModel", ""]], inputs: { htmlWidthModel: "htmlWidthModel" }, outputs: { htmlWidthModelChange: "htmlWidthModelChange" } });
     return HtmlWidthModel;
 }());
 export { HtmlWidthModel };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(HtmlWidthModel, [{
+        type: Directive,
+        args: [{
+                selector: '[htmlWidthModel]'
+            }]
+    }], function () { return [{ type: i1.HtmlSizeService }]; }, { htmlWidthModel: [{
+            type: Input
+        }], htmlWidthModelChange: [{
+            type: Output
+        }] }); })();
 //# sourceMappingURL=HtmlWidthModel.directive.js.map

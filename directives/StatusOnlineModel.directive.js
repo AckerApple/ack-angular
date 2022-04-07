@@ -1,4 +1,5 @@
 import { Directive, Input, Output, EventEmitter } from "@angular/core";
+import * as i0 from "@angular/core";
 var StatusOnlineModel = /** @class */ (function () {
     function StatusOnlineModel() {
         var _this = this;
@@ -15,15 +16,17 @@ var StatusOnlineModel = /** @class */ (function () {
         window.removeEventListener("online", this.onChange);
         window.removeEventListener("offline", this.onChange);
     };
-    StatusOnlineModel.decorators = [
-        { type: Directive, args: [{ selector: '[statusOnlineModel]' },] }
-    ];
-    StatusOnlineModel.ctorParameters = function () { return []; };
-    StatusOnlineModel.propDecorators = {
-        statusOnlineModel: [{ type: Input }],
-        statusOnlineModelChange: [{ type: Output }]
-    };
+    StatusOnlineModel.ɵfac = function StatusOnlineModel_Factory(t) { return new (t || StatusOnlineModel)(); };
+    StatusOnlineModel.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: StatusOnlineModel, selectors: [["", "statusOnlineModel", ""]], inputs: { statusOnlineModel: "statusOnlineModel" }, outputs: { statusOnlineModelChange: "statusOnlineModelChange" } });
     return StatusOnlineModel;
 }());
 export { StatusOnlineModel };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(StatusOnlineModel, [{
+        type: Directive,
+        args: [{ selector: '[statusOnlineModel]' }]
+    }], function () { return []; }, { statusOnlineModel: [{
+            type: Input
+        }], statusOnlineModelChange: [{
+            type: Output
+        }] }); })();
 //# sourceMappingURL=StatusOnlineModel.directive.js.map

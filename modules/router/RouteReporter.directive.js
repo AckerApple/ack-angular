@@ -4,6 +4,9 @@ import { RouteWatchReporter, getCurrentByActive } from "./RouteWatchReporter";
 import { 
 //NavigationStart,
 NavigationEnd } from "@angular/router";
+import * as i0 from "@angular/core";
+import * as i1 from "@angular/router";
+import * as i2 from "./RouteWatchReporter";
 var RouteReporter = /** @class */ (function () {
     function RouteReporter(Router, RouteWatchReporter, ActivatedRoute) {
         this.Router = Router;
@@ -123,42 +126,62 @@ var RouteReporter = /** @class */ (function () {
     RouteReporter.prototype.tryBack = function (name, params) {
         this.RouteWatchReporter.tryBack(name, params);
     };
-    RouteReporter.decorators = [
-        { type: Directive, args: [{
-                    selector: "route-reporter",
-                    exportAs: "RouteReporter"
-                },] }
-    ];
-    RouteReporter.ctorParameters = function () { return [
-        { type: Router },
-        { type: RouteWatchReporter },
-        { type: ActivatedRoute }
-    ]; };
-    RouteReporter.propDecorators = {
-        onLoad: [{ type: Input }],
-        stateChanger: [{ type: Output, args: ["onChange",] }],
-        beforeChanger: [{ type: Output, args: ["beforeChange",] }],
-        activated: [{ type: Input }],
-        activatedChange: [{ type: Output }],
-        params: [{ type: Input }],
-        paramsChange: [{ type: Output }],
-        data: [{ type: Input }],
-        dataChange: [{ type: Output }],
-        query: [{ type: Input }],
-        queryChange: [{ type: Output }],
-        route: [{ type: Input }],
-        routeChange: [{ type: Output }],
-        parentRoute: [{ type: Input }],
-        parentRouteChange: [{ type: Output }],
-        parent: [{ type: Input }],
-        parentChange: [{ type: Output }],
-        parentData: [{ type: Input }],
-        parentDataChange: [{ type: Output }],
-        current: [{ type: Input }],
-        state: [{ type: Input }],
-        stateChange: [{ type: Output }]
-    };
+    RouteReporter.ɵfac = function RouteReporter_Factory(t) { return new (t || RouteReporter)(i0.ɵɵdirectiveInject(i1.Router), i0.ɵɵdirectiveInject(i2.RouteWatchReporter), i0.ɵɵdirectiveInject(i1.ActivatedRoute)); };
+    RouteReporter.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: RouteReporter, selectors: [["route-reporter"]], inputs: { onLoad: "onLoad", activated: "activated", params: "params", data: "data", query: "query", route: "route", parentRoute: "parentRoute", parent: "parent", parentData: "parentData", current: "current", state: "state" }, outputs: { stateChanger: "onChange", beforeChanger: "beforeChange", activatedChange: "activatedChange", paramsChange: "paramsChange", dataChange: "dataChange", queryChange: "queryChange", routeChange: "routeChange", parentRouteChange: "parentRouteChange", parentChange: "parentChange", parentDataChange: "parentDataChange", stateChange: "stateChange" }, exportAs: ["RouteReporter"] });
     return RouteReporter;
 }());
 export { RouteReporter };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RouteReporter, [{
+        type: Directive,
+        args: [{
+                selector: "route-reporter",
+                exportAs: "RouteReporter"
+            }]
+    }], function () { return [{ type: i1.Router }, { type: i2.RouteWatchReporter }, { type: i1.ActivatedRoute }]; }, { onLoad: [{
+            type: Input
+        }], stateChanger: [{
+            type: Output,
+            args: ["onChange"]
+        }], beforeChanger: [{
+            type: Output,
+            args: ["beforeChange"]
+        }], activated: [{
+            type: Input
+        }], activatedChange: [{
+            type: Output
+        }], params: [{
+            type: Input
+        }], paramsChange: [{
+            type: Output
+        }], data: [{
+            type: Input
+        }], dataChange: [{
+            type: Output
+        }], query: [{
+            type: Input
+        }], queryChange: [{
+            type: Output
+        }], route: [{
+            type: Input
+        }], routeChange: [{
+            type: Output
+        }], parentRoute: [{
+            type: Input
+        }], parentRouteChange: [{
+            type: Output
+        }], parent: [{
+            type: Input
+        }], parentChange: [{
+            type: Output
+        }], parentData: [{
+            type: Input
+        }], parentDataChange: [{
+            type: Output
+        }], current: [{
+            type: Input
+        }], state: [{
+            type: Input
+        }], stateChange: [{
+            type: Output
+        }] }); })();
 //# sourceMappingURL=RouteReporter.directive.js.map

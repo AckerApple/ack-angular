@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Router, NavigationEnd } from "@angular/router";
+import * as i0 from "@angular/core";
+import * as i1 from "@angular/router";
 var RouteHistory = /** @class */ (function () {
     function RouteHistory(Router) {
         this.Router = Router;
@@ -80,13 +82,12 @@ var RouteHistory = /** @class */ (function () {
         var rh = this.routeHistory[this.historyIndex - 1];
         this.Router.navigate([rh]);
     };
-    RouteHistory.decorators = [
-        { type: Injectable }
-    ];
-    RouteHistory.ctorParameters = function () { return [
-        { type: Router }
-    ]; };
+    RouteHistory.ɵfac = function RouteHistory_Factory(t) { return new (t || RouteHistory)(i0.ɵɵinject(i1.Router)); };
+    RouteHistory.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: RouteHistory, factory: RouteHistory.ɵfac });
     return RouteHistory;
 }());
 export { RouteHistory };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RouteHistory, [{
+        type: Injectable
+    }], function () { return [{ type: i1.Router }]; }, null); })();
 //# sourceMappingURL=RouteHistory.provider.js.map

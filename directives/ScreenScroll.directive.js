@@ -1,4 +1,5 @@
 import { Directive, Output, EventEmitter } from "@angular/core";
+import * as i0 from "@angular/core";
 var ScreenScroll = /** @class */ (function () {
     function ScreenScroll() {
         var _this = this;
@@ -16,16 +17,17 @@ var ScreenScroll = /** @class */ (function () {
     ScreenScroll.prototype.ngOnDestroy = function () {
         window.removeEventListener("scroll", this.onScroll);
     };
-    ScreenScroll.decorators = [
-        { type: Directive, args: [{
-                    selector: '[screenScroll]'
-                },] }
-    ];
-    ScreenScroll.ctorParameters = function () { return []; };
-    ScreenScroll.propDecorators = {
-        screenScroll: [{ type: Output }]
-    };
+    ScreenScroll.ɵfac = function ScreenScroll_Factory(t) { return new (t || ScreenScroll)(); };
+    ScreenScroll.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: ScreenScroll, selectors: [["", "screenScroll", ""]], outputs: { screenScroll: "screenScroll" } });
     return ScreenScroll;
 }());
 export { ScreenScroll };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ScreenScroll, [{
+        type: Directive,
+        args: [{
+                selector: '[screenScroll]'
+            }]
+    }], function () { return []; }, { screenScroll: [{
+            type: Output
+        }] }); })();
 //# sourceMappingURL=ScreenScroll.directive.js.map

@@ -1,4 +1,5 @@
 import { Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
+import * as i0 from "@angular/core";
 var FocusOn = /** @class */ (function () {
     function FocusOn(element) {
         this.element = element;
@@ -20,20 +21,21 @@ var FocusOn = /** @class */ (function () {
         this.element.nativeElement.focus();
         this.focusThen.emit();
     };
-    FocusOn.decorators = [
-        { type: Directive, args: [{
-                    selector: '[focusOn]'
-                },] }
-    ];
-    FocusOn.ctorParameters = function () { return [
-        { type: ElementRef }
-    ]; };
-    FocusOn.propDecorators = {
-        focusOn: [{ type: Input }],
-        focusOnDelay: [{ type: Input }],
-        focusThen: [{ type: Output }]
-    };
+    FocusOn.ɵfac = function FocusOn_Factory(t) { return new (t || FocusOn)(i0.ɵɵdirectiveInject(i0.ElementRef)); };
+    FocusOn.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: FocusOn, selectors: [["", "focusOn", ""]], inputs: { focusOn: "focusOn", focusOnDelay: "focusOnDelay" }, outputs: { focusThen: "focusThen" }, features: [i0.ɵɵNgOnChangesFeature] });
     return FocusOn;
 }());
 export { FocusOn };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(FocusOn, [{
+        type: Directive,
+        args: [{
+                selector: '[focusOn]'
+            }]
+    }], function () { return [{ type: i0.ElementRef }]; }, { focusOn: [{
+            type: Input
+        }], focusOnDelay: [{
+            type: Input
+        }], focusThen: [{
+            type: Output
+        }] }); })();
 //# sourceMappingURL=FocusOn.directive.js.map

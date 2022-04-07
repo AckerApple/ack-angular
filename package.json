@@ -1,9 +1,12 @@
 {
   "name": "ack-angular",
-  "version": "2.1.4",
+  "version": "3.0.0",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "bundles/ack-angular.umd.js",
   "typings": "ack-angular.d.ts",
+  "scripts:readme": {
+    "build": "Build with both ngc and ng-packagr so that varied approaches may work"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AckerApple/ack-angular.git"

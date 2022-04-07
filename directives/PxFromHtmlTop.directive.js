@@ -1,4 +1,5 @@
 import { Directive, ElementRef, Input, Output, EventEmitter } from "@angular/core";
+import * as i0 from "@angular/core";
 var PxFromHtmlTop = /** @class */ (function () {
     function PxFromHtmlTop(ElementRef) {
         var _this = this;
@@ -45,32 +46,24 @@ var PxFromHtmlTop = /** @class */ (function () {
         window.removeEventListener("scroll", this.onScroll);
         window.removeEventListener("resize", this.onScroll);
     };
-    PxFromHtmlTop.decorators = [
-        { type: Directive, args: [{
-                    selector: "[pxFromHtmlTop]",
-                    exportAs: "PxFromHtmlTop"
-                },] }
-    ];
-    PxFromHtmlTop.ctorParameters = function () { return [
-        { type: ElementRef }
-    ]; };
-    PxFromHtmlTop.propDecorators = {
-        number: [{ type: Input, args: ["pxFromHtmlTop",] }],
-        numberChange: [{ type: Output, args: ["pxFromHtmlTopChange",] }],
-        watch: [{ type: Input }]
-    };
+    PxFromHtmlTop.ɵfac = function PxFromHtmlTop_Factory(t) { return new (t || PxFromHtmlTop)(i0.ɵɵdirectiveInject(i0.ElementRef)); };
+    PxFromHtmlTop.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: PxFromHtmlTop, selectors: [["", "pxFromHtmlTop", ""]], inputs: { number: ["pxFromHtmlTop", "number"], watch: "watch" }, outputs: { numberChange: "pxFromHtmlTopChange" }, exportAs: ["PxFromHtmlTop"], features: [i0.ɵɵNgOnChangesFeature] });
     return PxFromHtmlTop;
 }());
 export { PxFromHtmlTop };
-/*
-export function getOffset( el ) {
-    var _x = 0;
-    var _y = 0;
-    while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
-        _x += el.offsetLeft - el.scrollLeft;
-        _y += el.offsetTop - el.scrollTop;
-        el = el.offsetParent;
-    }
-    return { top: _y, left: _x };
-}*/ 
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(PxFromHtmlTop, [{
+        type: Directive,
+        args: [{
+                selector: "[pxFromHtmlTop]",
+                exportAs: "PxFromHtmlTop"
+            }]
+    }], function () { return [{ type: i0.ElementRef }]; }, { number: [{
+            type: Input,
+            args: ["pxFromHtmlTop"]
+        }], numberChange: [{
+            type: Output,
+            args: ["pxFromHtmlTopChange"]
+        }], watch: [{
+            type: Input
+        }] }); })();
 //# sourceMappingURL=PxFromHtmlTop.directive.js.map

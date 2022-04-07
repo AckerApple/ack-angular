@@ -1,5 +1,5 @@
-//import { Subscription } from "rxjs/internal/Subscription"
 import { Injectable, Output, EventEmitter } from "@angular/core";
+import * as i0 from "@angular/core";
 var HtmlSizeService = /** @class */ (function () {
     function HtmlSizeService() {
         var _this = this;
@@ -23,14 +23,14 @@ var HtmlSizeService = /** @class */ (function () {
             //window.removeEventListener('scroll', this.onResize)
         }
     };
-    HtmlSizeService.decorators = [
-        { type: Injectable }
-    ];
-    HtmlSizeService.ctorParameters = function () { return []; };
-    HtmlSizeService.propDecorators = {
-        change: [{ type: Output }]
-    };
+    HtmlSizeService.ɵfac = function HtmlSizeService_Factory(t) { return new (t || HtmlSizeService)(); };
+    HtmlSizeService.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: HtmlSizeService, factory: HtmlSizeService.ɵfac });
     return HtmlSizeService;
 }());
 export { HtmlSizeService };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(HtmlSizeService, [{
+        type: Injectable
+    }], function () { return []; }, { change: [{
+            type: Output
+        }] }); })();
 //# sourceMappingURL=HtmlSizeWatcher.js.map

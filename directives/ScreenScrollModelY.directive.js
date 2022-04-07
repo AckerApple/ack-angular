@@ -1,4 +1,5 @@
 import { Directive, Input, Output, EventEmitter } from "@angular/core";
+import * as i0 from "@angular/core";
 var ScreenScrollModelY = /** @class */ (function () {
     function ScreenScrollModelY() {
         var _this = this;
@@ -17,18 +18,20 @@ var ScreenScrollModelY = /** @class */ (function () {
     ScreenScrollModelY.prototype.ngOnDestroy = function () {
         window.removeEventListener("scroll", this.onScroll);
     };
-    ScreenScrollModelY.decorators = [
-        { type: Directive, args: [{
-                    selector: '[screenScrollModelY]',
-                    exportAs: 'ScreenScrollModelY'
-                },] }
-    ];
-    ScreenScrollModelY.ctorParameters = function () { return []; };
-    ScreenScrollModelY.propDecorators = {
-        screenScrollModelY: [{ type: Input }],
-        screenScrollModelYChange: [{ type: Output }]
-    };
+    ScreenScrollModelY.ɵfac = function ScreenScrollModelY_Factory(t) { return new (t || ScreenScrollModelY)(); };
+    ScreenScrollModelY.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: ScreenScrollModelY, selectors: [["", "screenScrollModelY", ""]], inputs: { screenScrollModelY: "screenScrollModelY" }, outputs: { screenScrollModelYChange: "screenScrollModelYChange" }, exportAs: ["ScreenScrollModelY"] });
     return ScreenScrollModelY;
 }());
 export { ScreenScrollModelY };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ScreenScrollModelY, [{
+        type: Directive,
+        args: [{
+                selector: '[screenScrollModelY]',
+                exportAs: 'ScreenScrollModelY'
+            }]
+    }], function () { return []; }, { screenScrollModelY: [{
+            type: Input
+        }], screenScrollModelYChange: [{
+            type: Output
+        }] }); })();
 //# sourceMappingURL=ScreenScrollModelY.directive.js.map

@@ -1,20 +1,9 @@
-//import { Subscription } from "rxjs/internal/Subscription"
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+import { __extends } from "tslib";
 import { Directive, Input, Output, EventEmitter } from "@angular/core";
 import { HtmlSizeService } from "./HtmlSizeWatcher";
 import { HtmlWidthModel } from "./HtmlWidthModel.directive";
+import * as i0 from "@angular/core";
+import * as i1 from "./HtmlSizeWatcher";
 var HtmlHeightModel = /** @class */ (function (_super) {
     __extends(HtmlHeightModel, _super);
     function HtmlHeightModel(HtmlSizeService) {
@@ -30,19 +19,19 @@ var HtmlHeightModel = /** @class */ (function (_super) {
         this.htmlHeightModel = model.height;
         this.htmlHeightModelChange.emit(this.htmlHeightModel);
     };
-    HtmlHeightModel.decorators = [
-        { type: Directive, args: [{
-                    selector: '[htmlHeightModel]'
-                },] }
-    ];
-    HtmlHeightModel.ctorParameters = function () { return [
-        { type: HtmlSizeService }
-    ]; };
-    HtmlHeightModel.propDecorators = {
-        htmlHeightModel: [{ type: Input }],
-        htmlHeightModelChange: [{ type: Output }]
-    };
+    HtmlHeightModel.ɵfac = function HtmlHeightModel_Factory(t) { return new (t || HtmlHeightModel)(i0.ɵɵdirectiveInject(i1.HtmlSizeService)); };
+    HtmlHeightModel.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: HtmlHeightModel, selectors: [["", "htmlHeightModel", ""]], inputs: { htmlHeightModel: "htmlHeightModel" }, outputs: { htmlHeightModelChange: "htmlHeightModelChange" }, features: [i0.ɵɵInheritDefinitionFeature] });
     return HtmlHeightModel;
 }(HtmlWidthModel));
 export { HtmlHeightModel };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(HtmlHeightModel, [{
+        type: Directive,
+        args: [{
+                selector: '[htmlHeightModel]'
+            }]
+    }], function () { return [{ type: i1.HtmlSizeService }]; }, { htmlHeightModel: [{
+            type: Input
+        }], htmlHeightModelChange: [{
+            type: Output
+        }] }); })();
 //# sourceMappingURL=HtmlHeightModel.directive.js.map

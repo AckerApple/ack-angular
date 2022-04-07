@@ -2,6 +2,7 @@ import {
 //hasClass,
 addClass, removeClass } from "./FxOn.directive";
 import { Directive, Input, Output, EventEmitter, ElementRef } from "@angular/core";
+import * as i0 from "@angular/core";
 /** runs shake instructions when condition returns a truthy value */
 var ShakeOn = /** @class */ (function () {
     function ShakeOn(element) {
@@ -71,23 +72,26 @@ var ShakeOn = /** @class */ (function () {
             }, this.shakeForMs);
         }
     };
-    ShakeOn.decorators = [
-        { type: Directive, args: [{
-                    selector: "[shakeOn]",
-                    exportAs: "ShakeOn"
-                },] }
-    ];
-    ShakeOn.ctorParameters = function () { return [
-        { type: ElementRef }
-    ]; };
-    ShakeOn.propDecorators = {
-        shakeConstant: [{ type: Input }],
-        shakeOn: [{ type: Input }],
-        shakeForMs: [{ type: Input }],
-        shakeType: [{ type: Input }],
-        shakeThen: [{ type: Output }]
-    };
+    ShakeOn.ɵfac = function ShakeOn_Factory(t) { return new (t || ShakeOn)(i0.ɵɵdirectiveInject(i0.ElementRef)); };
+    ShakeOn.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: ShakeOn, selectors: [["", "shakeOn", ""]], inputs: { shakeConstant: "shakeConstant", shakeOn: "shakeOn", shakeForMs: "shakeForMs", shakeType: "shakeType" }, outputs: { shakeThen: "shakeThen" }, exportAs: ["ShakeOn"], features: [i0.ɵɵNgOnChangesFeature] });
     return ShakeOn;
 }());
 export { ShakeOn };
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ShakeOn, [{
+        type: Directive,
+        args: [{
+                selector: "[shakeOn]",
+                exportAs: "ShakeOn"
+            }]
+    }], function () { return [{ type: i0.ElementRef }]; }, { shakeConstant: [{
+            type: Input
+        }], shakeOn: [{
+            type: Input
+        }], shakeForMs: [{
+            type: Input
+        }], shakeType: [{
+            type: Input
+        }], shakeThen: [{
+            type: Output
+        }] }); })();
 //# sourceMappingURL=ShakeOn.directive.js.map

@@ -12,4 +12,4 @@ import { UrlVars } from "./providers/UrlVars";
 export { WindowService } from "./providers/WindowService";
 export { DocumentService } from "./providers/DocumentService";
 import { DocumentService } from "./providers/DocumentService";
-export declare const providers: (typeof HtmlSizeService | typeof Prompts | typeof AckApp | typeof Log | typeof UrlVars | typeof DocumentService)[];
+export declare const providers: (typeof HtmlSizeService | typeof Log | typeof Prompts | typeof AckApp | typeof UrlVars | typeof DocumentService)[];

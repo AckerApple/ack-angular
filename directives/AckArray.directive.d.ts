@@ -1,6 +1,7 @@
 import { BehaviorSubject, Subscription } from "rxjs";
 import { EventEmitter, IterableDiffers, IterableDiffer } from "@angular/core";
 import { AckAggregate } from "./AckAggregate.directive";
+import * as i0 from "@angular/core";
 export interface sortDef {
     arrayKey: string | string[];
     asc: boolean;
@@ -55,7 +56,9 @@ export declare class AckArray {
     unshift(item: any): this;
     splice(x: number, y?: number): this;
     param(): any[];
-    toggleSort(arrayKey: string | string[], sortType?: "date" | "time" | "datetime" | "int" | "number" | string | number): boolean;
+    toggleSort(arrayKey: string | string[], sortType?: "date" | "time" | "datetime" | "int" | "number" | string | number): false | undefined;
+    static ɵfac: i0.ɵɵFactoryDeclaration<AckArray, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<AckArray, "ack-array", ["AckArray"], { "pageAt": "pageAt"; "pages": "pages"; "page": "page"; "keyMap": "keyMap"; "idKeys": "idKeys"; "merge": "merge"; "array": "array"; "array$": "array$"; }, { "pagesChange": "pagesChange"; "pageChange": "pageChange"; "keyMapChange": "keyMapChange"; "arrayChange": "arrayChange"; }, ["AckAggregates"]>;
 }
 export declare function dataKeysMatch(ao: any, an: any, idKeys: string[]): boolean;
 export declare function mergeArrays(arrayOriginal: any[], arrayNew: any[], idKeys: string[]): void;
