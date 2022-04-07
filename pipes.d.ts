@@ -1,4 +1,5 @@
 import { DomSanitizer } from '@angular/platform-browser';
+export { KeysPipe } from './pipes/keys.pipe';
 export declare class IndexTrack {
     transform(_x: any): (index: any) => any;
 }

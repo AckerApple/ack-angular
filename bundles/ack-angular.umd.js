@@ -3420,10 +3420,10 @@
     ]);
     // export default declarations
 
-    var Keys = /** @class */ (function () {
-        function Keys() {
+    var KeysPipe = /** @class */ (function () {
+        function KeysPipe() {
         }
-        Keys.prototype.transform = function (input) {
+        KeysPipe.prototype.transform = function (input) {
             var type = typeof (input) == 'object';
             var isOb = input && type;
             var isArray = isOb && input.constructor == Array;
@@ -3432,9 +3432,9 @@
             }
             return input ? Object.keys(input) : [];
         };
-        return Keys;
+        return KeysPipe;
     }());
-    Keys.decorators = [
+    KeysPipe.decorators = [
         { type: core.Pipe, args: [{ name: 'keys' },] }
     ];
 
@@ -3800,7 +3800,7 @@
         CapitalizeWords,
         Yesno,
         YesNo,
-        Keys,
+        KeysPipe,
         TypeofPipe,
         ConsolePipe,
         ADate,
@@ -4301,114 +4301,115 @@
         enumerable: true,
         get: function () { return indexBrowser.ack; }
     });
+    exports.ADate = ADate;
+    exports.AMath = AMath;
+    exports.AString = AString;
+    exports.ATime = ATime;
+    exports.Ack = Ack;
     exports.AckApp = AckApp;
     exports.AckArray = AckArray;
     exports.AckModule = AckModule;
     exports.AckRouterModule = AckRouterModule;
+    exports.ArrayOfObjects = ArrayOfObjects;
+    exports.Between = Between;
+    exports.Bit = Bit;
+    exports.BooleanPipe = BooleanPipe;
+    exports.Capitalize = Capitalize;
+    exports.CapitalizeWords = CapitalizeWords;
+    exports.ConsolePipe = ConsolePipe;
     exports.DocumentService = DocumentService;
+    exports.EndNumberWord = EndNumberWord;
     exports.ErrorLog = ErrorLog;
+    exports.ForceArray = ForceArray;
     exports.HtmlSizeService = HtmlSizeService;
+    exports.IndexTrack = IndexTrack;
+    exports.KeysPipe = KeysPipe;
     exports.Log = Log;
+    exports.MarkdownAnchor = MarkdownAnchor;
+    exports.NumberSuffix = NumberSuffix;
+    exports.NumberToPhone = NumberToPhone;
+    exports.NumberWord = NumberWord;
+    exports.Numbers = Numbers;
     exports.Prompts = Prompts;
+    exports.ReplaceMaxLength = ReplaceMaxLength;
     exports.RouteWatchReporter = RouteWatchReporter;
+    exports.SafeHtml = SafeHtml;
+    exports.SafeStyle = SafeStyle;
+    exports.SafeUrl = SafeUrl;
+    exports.Stringify = Stringify;
+    exports.TextDownload = TextDownload;
+    exports.TypeofPipe = TypeofPipe;
     exports.UrlVars = UrlVars;
     exports.WindowService = WindowService;
+    exports.YesNo = YesNo;
+    exports.Yesno = Yesno;
     exports.components = declarations$2;
+    exports.declarations = declarations$1;
     exports.pipes = declarations$1;
     exports.providers = providers$1;
+    exports.toNumber = toNumber;
     exports["ɵa"] = providers;
     exports["ɵb"] = screenDirectives;
-    exports["ɵba"] = AMath;
-    exports["ɵbb"] = AString;
-    exports["ɵbc"] = ATime;
-    exports["ɵbd"] = Ack;
-    exports["ɵbe"] = TypeofPipe;
-    exports["ɵbf"] = ConsolePipe;
-    exports["ɵbg"] = InitDirective;
-    exports["ɵbh"] = SelectOn;
-    exports["ɵbi"] = FocusOn;
-    exports["ɵbj"] = VarDirective;
-    exports["ɵbk"] = ContentModel;
-    exports["ɵbl"] = InnerHtmlModel;
-    exports["ɵbm"] = ReplaceModel;
-    exports["ɵbn"] = EnterKey;
-    exports["ɵbo"] = EscapeKey;
-    exports["ɵbp"] = PreventBackKey;
-    exports["ɵbq"] = PreventEnterKey;
-    exports["ɵbr"] = InputHint;
-    exports["ɵbs"] = FormChanged;
-    exports["ɵbt"] = FormAlter;
-    exports["ɵbu"] = ScreenScrollModelY;
-    exports["ɵbv"] = ScreenWidthModel;
-    exports["ɵbw"] = ScreenHeightModel;
-    exports["ɵbx"] = ScreenScroll;
-    exports["ɵby"] = ScrollPastFixed;
-    exports["ɵbz"] = string;
-    exports["ɵc"] = IndexTrack;
-    exports["ɵca"] = ScreenScrollHeightDiff;
-    exports["ɵcb"] = PxFromHtmlTop;
-    exports["ɵcc"] = HtmlWidthModel;
-    exports["ɵcd"] = HtmlHeightModel;
-    exports["ɵce"] = ShakeOn;
-    exports["ɵcf"] = FxOn;
-    exports["ɵcg"] = StatusOnlineModel;
-    exports["ɵch"] = StatusOfflineModel;
-    exports["ɵci"] = ElementSizeModel;
-    exports["ɵcj"] = ElementHeightModel;
-    exports["ɵck"] = ElementWidthModel;
-    exports["ɵcl"] = DebugItem;
-    exports["ɵcm"] = DebugArea;
-    exports["ɵcn"] = declarations$3;
-    exports["ɵco"] = string$1;
-    exports["ɵcp"] = ErrorWell;
-    exports["ɵcq"] = string$3;
-    exports["ɵcr"] = AbsoluteOverflowX;
-    exports["ɵcs"] = string$4;
-    exports["ɵct"] = ReaderHeaderBody;
-    exports["ɵcu"] = ReaderHeader;
-    exports["ɵcv"] = ReaderBody;
-    exports["ɵcw"] = string$2;
-    exports["ɵcx"] = AckCloseIcon;
-    exports["ɵcy"] = AckSections;
-    exports["ɵcz"] = string$8;
-    exports["ɵd"] = Stringify;
-    exports["ɵda"] = SectionProvider;
-    exports["ɵdb"] = AckSectionTemplates;
-    exports["ɵdc"] = AckOptions;
-    exports["ɵdd"] = string$6;
-    exports["ɵde"] = AckOptionsModal;
-    exports["ɵdf"] = string$5;
-    exports["ɵdg"] = AckModal;
-    exports["ɵdh"] = AckModalLayout;
-    exports["ɵdi"] = AckAggregate;
-    exports["ɵdj"] = AckFixedElement;
-    exports["ɵdk"] = AckFixedElementStage;
-    exports["ɵdl"] = string$7;
-    exports["ɵdm"] = Keys;
-    exports["ɵdn"] = RouteReporter;
-    exports["ɵdo"] = RouteHistory;
-    exports["ɵe"] = ForceArray;
-    exports["ɵf"] = ArrayOfObjects;
-    exports["ɵg"] = SafeUrl;
-    exports["ɵh"] = NumberWord;
-    exports["ɵi"] = EndNumberWord;
-    exports["ɵj"] = SafeHtml;
-    exports["ɵk"] = SafeStyle;
-    exports["ɵl"] = Between;
-    exports["ɵm"] = ReplaceMaxLength;
-    exports["ɵn"] = TextDownload;
-    exports["ɵo"] = NumberToPhone;
-    exports["ɵp"] = toNumber;
-    exports["ɵq"] = NumberSuffix;
-    exports["ɵr"] = MarkdownAnchor;
-    exports["ɵs"] = Capitalize;
-    exports["ɵt"] = CapitalizeWords;
-    exports["ɵu"] = Yesno;
-    exports["ɵv"] = YesNo;
-    exports["ɵw"] = BooleanPipe;
-    exports["ɵx"] = Bit;
-    exports["ɵy"] = Numbers;
-    exports["ɵz"] = ADate;
+    exports["ɵba"] = ShakeOn;
+    exports["ɵbb"] = FxOn;
+    exports["ɵbc"] = StatusOnlineModel;
+    exports["ɵbd"] = StatusOfflineModel;
+    exports["ɵbe"] = ElementSizeModel;
+    exports["ɵbf"] = ElementHeightModel;
+    exports["ɵbg"] = ElementWidthModel;
+    exports["ɵbh"] = DebugItem;
+    exports["ɵbi"] = DebugArea;
+    exports["ɵbj"] = declarations$3;
+    exports["ɵbk"] = string$1;
+    exports["ɵbl"] = ErrorWell;
+    exports["ɵbm"] = string$3;
+    exports["ɵbn"] = AbsoluteOverflowX;
+    exports["ɵbo"] = string$4;
+    exports["ɵbp"] = ReaderHeaderBody;
+    exports["ɵbq"] = ReaderHeader;
+    exports["ɵbr"] = ReaderBody;
+    exports["ɵbs"] = string$2;
+    exports["ɵbt"] = AckCloseIcon;
+    exports["ɵbu"] = AckSections;
+    exports["ɵbv"] = string$8;
+    exports["ɵbw"] = SectionProvider;
+    exports["ɵbx"] = AckSectionTemplates;
+    exports["ɵby"] = AckOptions;
+    exports["ɵbz"] = string$6;
+    exports["ɵc"] = InitDirective;
+    exports["ɵca"] = AckOptionsModal;
+    exports["ɵcb"] = string$5;
+    exports["ɵcc"] = AckModal;
+    exports["ɵcd"] = AckModalLayout;
+    exports["ɵce"] = AckAggregate;
+    exports["ɵcf"] = AckFixedElement;
+    exports["ɵcg"] = AckFixedElementStage;
+    exports["ɵch"] = string$7;
+    exports["ɵci"] = RouteReporter;
+    exports["ɵcj"] = RouteHistory;
+    exports["ɵd"] = SelectOn;
+    exports["ɵe"] = FocusOn;
+    exports["ɵf"] = VarDirective;
+    exports["ɵg"] = ContentModel;
+    exports["ɵh"] = InnerHtmlModel;
+    exports["ɵi"] = ReplaceModel;
+    exports["ɵj"] = EnterKey;
+    exports["ɵk"] = EscapeKey;
+    exports["ɵl"] = PreventBackKey;
+    exports["ɵm"] = PreventEnterKey;
+    exports["ɵn"] = InputHint;
+    exports["ɵo"] = FormChanged;
+    exports["ɵp"] = FormAlter;
+    exports["ɵq"] = ScreenScrollModelY;
+    exports["ɵr"] = ScreenWidthModel;
+    exports["ɵs"] = ScreenHeightModel;
+    exports["ɵt"] = ScreenScroll;
+    exports["ɵu"] = ScrollPastFixed;
+    exports["ɵv"] = string;
+    exports["ɵw"] = ScreenScrollHeightDiff;
+    exports["ɵx"] = PxFromHtmlTop;
+    exports["ɵy"] = HtmlWidthModel;
+    exports["ɵz"] = HtmlHeightModel;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

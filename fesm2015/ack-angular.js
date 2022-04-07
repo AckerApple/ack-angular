@@ -2947,7 +2947,7 @@ const declarations$2 = [
 ];
 // export default declarations
 
-class Keys {
+class KeysPipe {
     transform(input) {
         const type = typeof (input) == 'object';
         const isOb = input && type;
@@ -2958,7 +2958,7 @@ class Keys {
         return input ? Object.keys(input) : [];
     }
 }
-Keys.decorators = [
+KeysPipe.decorators = [
     { type: Pipe, args: [{ name: 'keys' },] }
 ];
 
@@ -3211,7 +3211,7 @@ const declarations$1 = [
     CapitalizeWords,
     Yesno,
     YesNo,
-    Keys,
+    KeysPipe,
     TypeofPipe,
     ConsolePipe,
     ADate,
@@ -3694,5 +3694,5 @@ AckRouterModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { AckApp, AckArray, AckModule, AckRouterModule, DocumentService, ErrorLog, HtmlSizeService, Log, Prompts, RouteWatchReporter, UrlVars, WindowService, declarations$2 as components, declarations$1 as pipes, providers$1 as providers, providers as ɵa, screenDirectives as ɵb, AMath as ɵba, AString as ɵbb, ATime as ɵbc, Ack as ɵbd, TypeofPipe as ɵbe, ConsolePipe as ɵbf, InitDirective as ɵbg, SelectOn as ɵbh, FocusOn as ɵbi, VarDirective as ɵbj, ContentModel as ɵbk, InnerHtmlModel as ɵbl, ReplaceModel as ɵbm, EnterKey as ɵbn, EscapeKey as ɵbo, PreventBackKey as ɵbp, PreventEnterKey as ɵbq, InputHint as ɵbr, FormChanged as ɵbs, FormAlter as ɵbt, ScreenScrollModelY as ɵbu, ScreenWidthModel as ɵbv, ScreenHeightModel as ɵbw, ScreenScroll as ɵbx, ScrollPastFixed as ɵby, string as ɵbz, IndexTrack as ɵc, ScreenScrollHeightDiff as ɵca, PxFromHtmlTop as ɵcb, HtmlWidthModel as ɵcc, HtmlHeightModel as ɵcd, ShakeOn as ɵce, FxOn as ɵcf, StatusOnlineModel as ɵcg, StatusOfflineModel as ɵch, ElementSizeModel as ɵci, ElementHeightModel as ɵcj, ElementWidthModel as ɵck, DebugItem as ɵcl, DebugArea as ɵcm, declarations$3 as ɵcn, string$1 as ɵco, ErrorWell as ɵcp, string$3 as ɵcq, AbsoluteOverflowX as ɵcr, string$4 as ɵcs, ReaderHeaderBody as ɵct, ReaderHeader as ɵcu, ReaderBody as ɵcv, string$2 as ɵcw, AckCloseIcon as ɵcx, AckSections as ɵcy, string$8 as ɵcz, Stringify as ɵd, SectionProvider as ɵda, AckSectionTemplates as ɵdb, AckOptions as ɵdc, string$6 as ɵdd, AckOptionsModal as ɵde, string$5 as ɵdf, AckModal as ɵdg, AckModalLayout as ɵdh, AckAggregate as ɵdi, AckFixedElement as ɵdj, AckFixedElementStage as ɵdk, string$7 as ɵdl, Keys as ɵdm, RouteReporter as ɵdn, RouteHistory as ɵdo, ForceArray as ɵe, ArrayOfObjects as ɵf, SafeUrl as ɵg, NumberWord as ɵh, EndNumberWord as ɵi, SafeHtml as ɵj, SafeStyle as ɵk, Between as ɵl, ReplaceMaxLength as ɵm, TextDownload as ɵn, NumberToPhone as ɵo, toNumber as ɵp, NumberSuffix as ɵq, MarkdownAnchor as ɵr, Capitalize as ɵs, CapitalizeWords as ɵt, Yesno as ɵu, YesNo as ɵv, BooleanPipe as ɵw, Bit as ɵx, Numbers as ɵy, ADate as ɵz };
+export { ADate, AMath, AString, ATime, Ack, AckApp, AckArray, AckModule, AckRouterModule, ArrayOfObjects, Between, Bit, BooleanPipe, Capitalize, CapitalizeWords, ConsolePipe, DocumentService, EndNumberWord, ErrorLog, ForceArray, HtmlSizeService, IndexTrack, KeysPipe, Log, MarkdownAnchor, NumberSuffix, NumberToPhone, NumberWord, Numbers, Prompts, ReplaceMaxLength, RouteWatchReporter, SafeHtml, SafeStyle, SafeUrl, Stringify, TextDownload, TypeofPipe, UrlVars, WindowService, YesNo, Yesno, declarations$2 as components, declarations$1 as declarations, declarations$1 as pipes, providers$1 as providers, toNumber, providers as ɵa, screenDirectives as ɵb, ShakeOn as ɵba, FxOn as ɵbb, StatusOnlineModel as ɵbc, StatusOfflineModel as ɵbd, ElementSizeModel as ɵbe, ElementHeightModel as ɵbf, ElementWidthModel as ɵbg, DebugItem as ɵbh, DebugArea as ɵbi, declarations$3 as ɵbj, string$1 as ɵbk, ErrorWell as ɵbl, string$3 as ɵbm, AbsoluteOverflowX as ɵbn, string$4 as ɵbo, ReaderHeaderBody as ɵbp, ReaderHeader as ɵbq, ReaderBody as ɵbr, string$2 as ɵbs, AckCloseIcon as ɵbt, AckSections as ɵbu, string$8 as ɵbv, SectionProvider as ɵbw, AckSectionTemplates as ɵbx, AckOptions as ɵby, string$6 as ɵbz, InitDirective as ɵc, AckOptionsModal as ɵca, string$5 as ɵcb, AckModal as ɵcc, AckModalLayout as ɵcd, AckAggregate as ɵce, AckFixedElement as ɵcf, AckFixedElementStage as ɵcg, string$7 as ɵch, RouteReporter as ɵci, RouteHistory as ɵcj, SelectOn as ɵd, FocusOn as ɵe, VarDirective as ɵf, ContentModel as ɵg, InnerHtmlModel as ɵh, ReplaceModel as ɵi, EnterKey as ɵj, EscapeKey as ɵk, PreventBackKey as ɵl, PreventEnterKey as ɵm, InputHint as ɵn, FormChanged as ɵo, FormAlter as ɵp, ScreenScrollModelY as ɵq, ScreenWidthModel as ɵr, ScreenHeightModel as ɵs, ScreenScroll as ɵt, ScrollPastFixed as ɵu, string as ɵv, ScreenScrollHeightDiff as ɵw, PxFromHtmlTop as ɵx, HtmlWidthModel as ɵy, HtmlHeightModel as ɵz };
 //# sourceMappingURL=ack-angular.js.map
