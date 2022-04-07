@@ -4,9 +4,6 @@
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "scripts:readme": {
-    "build": "Build with both ngc and ng-packagr so that varied approaches may work"
-  },
   "scripts": {
     "start": "ng serve example --port 4201 --open",
     "build:index": "pug example/src/index.pug --out example/src",
@@ -27,7 +24,7 @@
     "watch:js": "ng serve example --port 4201 --open",
     "build:js": "ng build example --stats-json",
     "build:universal": "npm-run-all build:index build:assets",
-    "build": "npm-run-all build:universal build:dist build:dist:ng compile:dist:package copy:scss build:js",
+    "build": "npm-run-all build:universal build:dist compile:dist:package copy:scss build:js",
     "copy:scss": "ack-path copy ./src/ack-angular.scss ./dist/ack-angular.scss",
     "compile:dist:package": "node scripts/update-dist-package.js",
     "save": "npm-run-all build patch:version save:git",
@@ -63,9 +60,9 @@
     "ack-x": ">=2.1.1",
     "animate.css": ">=4.1.1",
     "csshake": ">=1.5.3",
-    "@angular/core": ">11",
-    "@angular/common": ">11",
-    "@angular/router": ">11"
+    "@angular/core": ">=12.2.11",
+    "@angular/common": ">=12.2.11",
+    "@angular/router": ">=12.2.11"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.11",

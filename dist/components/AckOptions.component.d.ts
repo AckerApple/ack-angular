@@ -1,9 +1,8 @@
 import { ElementRef, EventEmitter } from "@angular/core";
 import { TemplateReader } from "../TemplateReader.class";
-import * as i0 from "@angular/core";
 export declare class AckOptions {
     ElementRef: ElementRef;
-    array: never[];
+    array: any[];
     stylize: boolean;
     multiple: boolean;
     modelAsArray: boolean;
@@ -28,7 +27,5 @@ export declare class AckOptions {
     modelIndex(item: any): number;
     isItemSelected(item: any): boolean;
     getItemClass(item: any): string;
-    static ɵfac: i0.ɵɵFactoryDeclaration<AckOptions, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<AckOptions, "ack-options", never, { "array": "array"; "stylize": "stylize"; "multiple": "multiple"; "modelAsArray": "modelAsArray"; "max": "max"; "toggleable": "toggleable"; "inputTemplateRefs": "inputTemplateRefs"; "model": "model"; "arrayKey": "arrayKey"; "modelKey": "modelKey"; "arrayToModelKey": "arrayToModelKey"; }, { "modelChange": "modelChange"; }, ["templateRefs"], never>;
 }
 export declare function getParentByTagName(node: any, tagname: any): any;

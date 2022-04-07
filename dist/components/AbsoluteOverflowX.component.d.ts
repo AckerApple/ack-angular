@@ -1,5 +1,4 @@
 import { ElementRef } from "@angular/core";
-import * as i0 from "@angular/core";
 export declare class AbsoluteOverflowX {
     ElementRef: ElementRef;
     elementHeightModel: number;
@@ -12,6 +11,4 @@ export declare class AbsoluteOverflowX {
     ngOnChanges(changes: any): void;
     ngAfterViewInit(): void;
     checkDisplay(): void;
-    static ɵfac: i0.ɵɵFactoryDeclaration<AbsoluteOverflowX, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<AbsoluteOverflowX, "absolute-overflow-x", never, { "scrollBars": "scrollBars"; "wrapClass": "wrapClass"; "active": "active"; "overflow": "overflow"; }, {}, never, ["*"]>;
 }
