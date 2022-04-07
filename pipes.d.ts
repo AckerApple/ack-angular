@@ -93,9 +93,6 @@ export declare class ATime {
 export declare class Ack {
     transform(...args: any): any;
 }
-export declare class Keys {
-    transform(input: any): any;
-}
 export declare class TypeofPipe {
     transform(input: any): "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function";
 }

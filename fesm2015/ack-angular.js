@@ -2947,6 +2947,21 @@ const declarations$2 = [
 ];
 // export default declarations
 
+class Keys {
+    transform(input) {
+        const type = typeof (input) == 'object';
+        const isOb = input && type;
+        const isArray = isOb && input.constructor == Array;
+        if (isArray) {
+            return input.map((_value, index) => index);
+        }
+        return input ? Object.keys(input) : [];
+    }
+}
+Keys.decorators = [
+    { type: Pipe, args: [{ name: 'keys' },] }
+];
+
 /* ONLY THIS FILE */
 class IndexTrack {
     transform(_x) {
@@ -2992,11 +3007,7 @@ SafeUrl.decorators = [
     { type: Pipe, args: [{ name: 'safeUrl' },] }
 ];
 SafeUrl.ctorParameters = () => [
-    { type: 
-        //SafeHtml as SafeHtmler,//must be exported for AOT
-        //SafeStyle as SafeStyler,//must be exported for AOT
-        //SafeResourceUrl,
-        DomSanitizer }
+    { type: DomSanitizer }
 ];
 class NumberWord {
     constructor() { }
@@ -3030,11 +3041,7 @@ SafeHtml.decorators = [
     { type: Pipe, args: [{ name: 'safeHtml' },] }
 ];
 SafeHtml.ctorParameters = () => [
-    { type: 
-        //SafeHtml as SafeHtmler,//must be exported for AOT
-        //SafeStyle as SafeStyler,//must be exported for AOT
-        //SafeResourceUrl,
-        DomSanitizer }
+    { type: DomSanitizer }
 ];
 class SafeStyle {
     constructor(domSanitizer) {
@@ -3048,11 +3055,7 @@ SafeStyle.decorators = [
     { type: Pipe, args: [{ name: 'safeStyle' },] }
 ];
 SafeStyle.ctorParameters = () => [
-    { type: 
-        //SafeHtml as SafeHtmler,//must be exported for AOT
-        //SafeStyle as SafeStyler,//must be exported for AOT
-        //SafeResourceUrl,
-        DomSanitizer }
+    { type: DomSanitizer }
 ];
 /* end: only this file */
 /** (input>=a && input<=b) || (input>=b && input<=a) */
@@ -3179,20 +3182,6 @@ class Ack {
 }
 Ack.decorators = [
     { type: Pipe, args: [{ name: 'ack' },] }
-];
-class Keys {
-    transform(input) {
-        const type = typeof (input) == 'object';
-        const isOb = input && type;
-        const isArray = isOb && input.constructor == Array;
-        if (isArray) {
-            return input.map((_value, index) => index);
-        }
-        return input ? Object.keys(input) : [];
-    }
-}
-Keys.decorators = [
-    { type: Pipe, args: [{ name: 'keys' },] }
 ];
 class TypeofPipe {
     transform(input) { return typeof (input); }
@@ -3705,5 +3694,5 @@ AckRouterModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { AckApp, AckArray, AckModule, AckRouterModule, DocumentService, ErrorLog, HtmlSizeService, Log, Prompts, RouteWatchReporter, UrlVars, WindowService, declarations$2 as components, declarations$1 as pipes, providers$1 as providers, providers as ɵa, screenDirectives as ɵb, AMath as ɵba, AString as ɵbb, ATime as ɵbc, Ack as ɵbd, Keys as ɵbe, TypeofPipe as ɵbf, ConsolePipe as ɵbg, InitDirective as ɵbh, SelectOn as ɵbi, FocusOn as ɵbj, VarDirective as ɵbk, ContentModel as ɵbl, InnerHtmlModel as ɵbm, ReplaceModel as ɵbn, EnterKey as ɵbo, EscapeKey as ɵbp, PreventBackKey as ɵbq, PreventEnterKey as ɵbr, InputHint as ɵbs, FormChanged as ɵbt, FormAlter as ɵbu, ScreenScrollModelY as ɵbv, ScreenWidthModel as ɵbw, ScreenHeightModel as ɵbx, ScreenScroll as ɵby, ScrollPastFixed as ɵbz, IndexTrack as ɵc, string as ɵca, ScreenScrollHeightDiff as ɵcb, PxFromHtmlTop as ɵcc, HtmlWidthModel as ɵcd, HtmlHeightModel as ɵce, ShakeOn as ɵcf, FxOn as ɵcg, StatusOnlineModel as ɵch, StatusOfflineModel as ɵci, ElementSizeModel as ɵcj, ElementHeightModel as ɵck, ElementWidthModel as ɵcl, DebugItem as ɵcm, DebugArea as ɵcn, declarations$3 as ɵco, string$1 as ɵcp, ErrorWell as ɵcq, string$3 as ɵcr, AbsoluteOverflowX as ɵcs, string$4 as ɵct, ReaderHeaderBody as ɵcu, ReaderHeader as ɵcv, ReaderBody as ɵcw, string$2 as ɵcx, AckCloseIcon as ɵcy, AckSections as ɵcz, Stringify as ɵd, string$8 as ɵda, SectionProvider as ɵdb, AckSectionTemplates as ɵdc, AckOptions as ɵdd, string$6 as ɵde, AckOptionsModal as ɵdf, string$5 as ɵdg, AckModal as ɵdh, AckModalLayout as ɵdi, AckAggregate as ɵdj, AckFixedElement as ɵdk, AckFixedElementStage as ɵdl, string$7 as ɵdm, RouteReporter as ɵdn, RouteHistory as ɵdo, ForceArray as ɵe, ArrayOfObjects as ɵf, SafeUrl as ɵg, NumberWord as ɵh, EndNumberWord as ɵi, SafeHtml as ɵj, SafeStyle as ɵk, Between as ɵl, ReplaceMaxLength as ɵm, TextDownload as ɵn, NumberToPhone as ɵo, toNumber as ɵp, NumberSuffix as ɵq, MarkdownAnchor as ɵr, Capitalize as ɵs, CapitalizeWords as ɵt, Yesno as ɵu, YesNo as ɵv, BooleanPipe as ɵw, Bit as ɵx, Numbers as ɵy, ADate as ɵz };
+export { AckApp, AckArray, AckModule, AckRouterModule, DocumentService, ErrorLog, HtmlSizeService, Log, Prompts, RouteWatchReporter, UrlVars, WindowService, declarations$2 as components, declarations$1 as pipes, providers$1 as providers, providers as ɵa, screenDirectives as ɵb, AMath as ɵba, AString as ɵbb, ATime as ɵbc, Ack as ɵbd, TypeofPipe as ɵbe, ConsolePipe as ɵbf, InitDirective as ɵbg, SelectOn as ɵbh, FocusOn as ɵbi, VarDirective as ɵbj, ContentModel as ɵbk, InnerHtmlModel as ɵbl, ReplaceModel as ɵbm, EnterKey as ɵbn, EscapeKey as ɵbo, PreventBackKey as ɵbp, PreventEnterKey as ɵbq, InputHint as ɵbr, FormChanged as ɵbs, FormAlter as ɵbt, ScreenScrollModelY as ɵbu, ScreenWidthModel as ɵbv, ScreenHeightModel as ɵbw, ScreenScroll as ɵbx, ScrollPastFixed as ɵby, string as ɵbz, IndexTrack as ɵc, ScreenScrollHeightDiff as ɵca, PxFromHtmlTop as ɵcb, HtmlWidthModel as ɵcc, HtmlHeightModel as ɵcd, ShakeOn as ɵce, FxOn as ɵcf, StatusOnlineModel as ɵcg, StatusOfflineModel as ɵch, ElementSizeModel as ɵci, ElementHeightModel as ɵcj, ElementWidthModel as ɵck, DebugItem as ɵcl, DebugArea as ɵcm, declarations$3 as ɵcn, string$1 as ɵco, ErrorWell as ɵcp, string$3 as ɵcq, AbsoluteOverflowX as ɵcr, string$4 as ɵcs, ReaderHeaderBody as ɵct, ReaderHeader as ɵcu, ReaderBody as ɵcv, string$2 as ɵcw, AckCloseIcon as ɵcx, AckSections as ɵcy, string$8 as ɵcz, Stringify as ɵd, SectionProvider as ɵda, AckSectionTemplates as ɵdb, AckOptions as ɵdc, string$6 as ɵdd, AckOptionsModal as ɵde, string$5 as ɵdf, AckModal as ɵdg, AckModalLayout as ɵdh, AckAggregate as ɵdi, AckFixedElement as ɵdj, AckFixedElementStage as ɵdk, string$7 as ɵdl, Keys as ɵdm, RouteReporter as ɵdn, RouteHistory as ɵdo, ForceArray as ɵe, ArrayOfObjects as ɵf, SafeUrl as ɵg, NumberWord as ɵh, EndNumberWord as ɵi, SafeHtml as ɵj, SafeStyle as ɵk, Between as ɵl, ReplaceMaxLength as ɵm, TextDownload as ɵn, NumberToPhone as ɵo, toNumber as ɵp, NumberSuffix as ɵq, MarkdownAnchor as ɵr, Capitalize as ɵs, CapitalizeWords as ɵt, Yesno as ɵu, YesNo as ɵv, BooleanPipe as ɵw, Bit as ɵx, Numbers as ɵy, ADate as ɵz };
 //# sourceMappingURL=ack-angular.js.map

@@ -3420,6 +3420,24 @@
     ]);
     // export default declarations
 
+    var Keys = /** @class */ (function () {
+        function Keys() {
+        }
+        Keys.prototype.transform = function (input) {
+            var type = typeof (input) == 'object';
+            var isOb = input && type;
+            var isArray = isOb && input.constructor == Array;
+            if (isArray) {
+                return input.map(function (_value, index) { return index; });
+            }
+            return input ? Object.keys(input) : [];
+        };
+        return Keys;
+    }());
+    Keys.decorators = [
+        { type: core.Pipe, args: [{ name: 'keys' },] }
+    ];
+
     /* ONLY THIS FILE */
     var IndexTrack = /** @class */ (function () {
         function IndexTrack() {
@@ -3479,11 +3497,7 @@
         { type: core.Pipe, args: [{ name: 'safeUrl' },] }
     ];
     SafeUrl.ctorParameters = function () { return [
-        { type: 
-            //SafeHtml as SafeHtmler,//must be exported for AOT
-            //SafeStyle as SafeStyler,//must be exported for AOT
-            //SafeResourceUrl,
-            platformBrowser.DomSanitizer }
+        { type: platformBrowser.DomSanitizer }
     ]; };
     var NumberWord = /** @class */ (function () {
         function NumberWord() {
@@ -3522,11 +3536,7 @@
         { type: core.Pipe, args: [{ name: 'safeHtml' },] }
     ];
     SafeHtml.ctorParameters = function () { return [
-        { type: 
-            //SafeHtml as SafeHtmler,//must be exported for AOT
-            //SafeStyle as SafeStyler,//must be exported for AOT
-            //SafeResourceUrl,
-            platformBrowser.DomSanitizer }
+        { type: platformBrowser.DomSanitizer }
     ]; };
     var SafeStyle = /** @class */ (function () {
         function SafeStyle(domSanitizer) {
@@ -3541,11 +3551,7 @@
         { type: core.Pipe, args: [{ name: 'safeStyle' },] }
     ];
     SafeStyle.ctorParameters = function () { return [
-        { type: 
-            //SafeHtml as SafeHtmler,//must be exported for AOT
-            //SafeStyle as SafeStyler,//must be exported for AOT
-            //SafeResourceUrl,
-            platformBrowser.DomSanitizer }
+        { type: platformBrowser.DomSanitizer }
     ]; };
     /* end: only this file */
     /** (input>=a && input<=b) || (input>=b && input<=a) */
@@ -3759,23 +3765,6 @@
     }());
     Ack.decorators = [
         { type: core.Pipe, args: [{ name: 'ack' },] }
-    ];
-    var Keys = /** @class */ (function () {
-        function Keys() {
-        }
-        Keys.prototype.transform = function (input) {
-            var type = typeof (input) == 'object';
-            var isOb = input && type;
-            var isArray = isOb && input.constructor == Array;
-            if (isArray) {
-                return input.map(function (_value, index) { return index; });
-            }
-            return input ? Object.keys(input) : [];
-        };
-        return Keys;
-    }());
-    Keys.decorators = [
-        { type: core.Pipe, args: [{ name: 'keys' },] }
     ];
     var TypeofPipe = /** @class */ (function () {
         function TypeofPipe() {
@@ -4333,69 +4322,69 @@
     exports["ɵbb"] = AString;
     exports["ɵbc"] = ATime;
     exports["ɵbd"] = Ack;
-    exports["ɵbe"] = Keys;
-    exports["ɵbf"] = TypeofPipe;
-    exports["ɵbg"] = ConsolePipe;
-    exports["ɵbh"] = InitDirective;
-    exports["ɵbi"] = SelectOn;
-    exports["ɵbj"] = FocusOn;
-    exports["ɵbk"] = VarDirective;
-    exports["ɵbl"] = ContentModel;
-    exports["ɵbm"] = InnerHtmlModel;
-    exports["ɵbn"] = ReplaceModel;
-    exports["ɵbo"] = EnterKey;
-    exports["ɵbp"] = EscapeKey;
-    exports["ɵbq"] = PreventBackKey;
-    exports["ɵbr"] = PreventEnterKey;
-    exports["ɵbs"] = InputHint;
-    exports["ɵbt"] = FormChanged;
-    exports["ɵbu"] = FormAlter;
-    exports["ɵbv"] = ScreenScrollModelY;
-    exports["ɵbw"] = ScreenWidthModel;
-    exports["ɵbx"] = ScreenHeightModel;
-    exports["ɵby"] = ScreenScroll;
-    exports["ɵbz"] = ScrollPastFixed;
+    exports["ɵbe"] = TypeofPipe;
+    exports["ɵbf"] = ConsolePipe;
+    exports["ɵbg"] = InitDirective;
+    exports["ɵbh"] = SelectOn;
+    exports["ɵbi"] = FocusOn;
+    exports["ɵbj"] = VarDirective;
+    exports["ɵbk"] = ContentModel;
+    exports["ɵbl"] = InnerHtmlModel;
+    exports["ɵbm"] = ReplaceModel;
+    exports["ɵbn"] = EnterKey;
+    exports["ɵbo"] = EscapeKey;
+    exports["ɵbp"] = PreventBackKey;
+    exports["ɵbq"] = PreventEnterKey;
+    exports["ɵbr"] = InputHint;
+    exports["ɵbs"] = FormChanged;
+    exports["ɵbt"] = FormAlter;
+    exports["ɵbu"] = ScreenScrollModelY;
+    exports["ɵbv"] = ScreenWidthModel;
+    exports["ɵbw"] = ScreenHeightModel;
+    exports["ɵbx"] = ScreenScroll;
+    exports["ɵby"] = ScrollPastFixed;
+    exports["ɵbz"] = string;
     exports["ɵc"] = IndexTrack;
-    exports["ɵca"] = string;
-    exports["ɵcb"] = ScreenScrollHeightDiff;
-    exports["ɵcc"] = PxFromHtmlTop;
-    exports["ɵcd"] = HtmlWidthModel;
-    exports["ɵce"] = HtmlHeightModel;
-    exports["ɵcf"] = ShakeOn;
-    exports["ɵcg"] = FxOn;
-    exports["ɵch"] = StatusOnlineModel;
-    exports["ɵci"] = StatusOfflineModel;
-    exports["ɵcj"] = ElementSizeModel;
-    exports["ɵck"] = ElementHeightModel;
-    exports["ɵcl"] = ElementWidthModel;
-    exports["ɵcm"] = DebugItem;
-    exports["ɵcn"] = DebugArea;
-    exports["ɵco"] = declarations$3;
-    exports["ɵcp"] = string$1;
-    exports["ɵcq"] = ErrorWell;
-    exports["ɵcr"] = string$3;
-    exports["ɵcs"] = AbsoluteOverflowX;
-    exports["ɵct"] = string$4;
-    exports["ɵcu"] = ReaderHeaderBody;
-    exports["ɵcv"] = ReaderHeader;
-    exports["ɵcw"] = ReaderBody;
-    exports["ɵcx"] = string$2;
-    exports["ɵcy"] = AckCloseIcon;
-    exports["ɵcz"] = AckSections;
+    exports["ɵca"] = ScreenScrollHeightDiff;
+    exports["ɵcb"] = PxFromHtmlTop;
+    exports["ɵcc"] = HtmlWidthModel;
+    exports["ɵcd"] = HtmlHeightModel;
+    exports["ɵce"] = ShakeOn;
+    exports["ɵcf"] = FxOn;
+    exports["ɵcg"] = StatusOnlineModel;
+    exports["ɵch"] = StatusOfflineModel;
+    exports["ɵci"] = ElementSizeModel;
+    exports["ɵcj"] = ElementHeightModel;
+    exports["ɵck"] = ElementWidthModel;
+    exports["ɵcl"] = DebugItem;
+    exports["ɵcm"] = DebugArea;
+    exports["ɵcn"] = declarations$3;
+    exports["ɵco"] = string$1;
+    exports["ɵcp"] = ErrorWell;
+    exports["ɵcq"] = string$3;
+    exports["ɵcr"] = AbsoluteOverflowX;
+    exports["ɵcs"] = string$4;
+    exports["ɵct"] = ReaderHeaderBody;
+    exports["ɵcu"] = ReaderHeader;
+    exports["ɵcv"] = ReaderBody;
+    exports["ɵcw"] = string$2;
+    exports["ɵcx"] = AckCloseIcon;
+    exports["ɵcy"] = AckSections;
+    exports["ɵcz"] = string$8;
     exports["ɵd"] = Stringify;
-    exports["ɵda"] = string$8;
-    exports["ɵdb"] = SectionProvider;
-    exports["ɵdc"] = AckSectionTemplates;
-    exports["ɵdd"] = AckOptions;
-    exports["ɵde"] = string$6;
-    exports["ɵdf"] = AckOptionsModal;
-    exports["ɵdg"] = string$5;
-    exports["ɵdh"] = AckModal;
-    exports["ɵdi"] = AckModalLayout;
-    exports["ɵdj"] = AckAggregate;
-    exports["ɵdk"] = AckFixedElement;
-    exports["ɵdl"] = AckFixedElementStage;
-    exports["ɵdm"] = string$7;
+    exports["ɵda"] = SectionProvider;
+    exports["ɵdb"] = AckSectionTemplates;
+    exports["ɵdc"] = AckOptions;
+    exports["ɵdd"] = string$6;
+    exports["ɵde"] = AckOptionsModal;
+    exports["ɵdf"] = string$5;
+    exports["ɵdg"] = AckModal;
+    exports["ɵdh"] = AckModalLayout;
+    exports["ɵdi"] = AckAggregate;
+    exports["ɵdj"] = AckFixedElement;
+    exports["ɵdk"] = AckFixedElementStage;
+    exports["ɵdl"] = string$7;
+    exports["ɵdm"] = Keys;
     exports["ɵdn"] = RouteReporter;
     exports["ɵdo"] = RouteHistory;
     exports["ɵe"] = ForceArray;
