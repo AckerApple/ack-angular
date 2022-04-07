@@ -1,42 +1,31 @@
 import { EventEmitter, ElementRef } from "@angular/core";
-import * as i0 from "@angular/core";
 export declare class EnterKey {
     element: ElementRef;
     enterKey: EventEmitter<Event>;
     constructor(element: ElementRef);
-    static ɵfac: i0.ɵɵFactoryDeclaration<EnterKey, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<EnterKey, "[enterKey]", never, {}, { "enterKey": "enterKey"; }, never>;
 }
 export declare class EscapeKey {
     element: ElementRef;
     escapeKey: EventEmitter<Event>;
     constructor(element: ElementRef);
-    static ɵfac: i0.ɵɵFactoryDeclaration<EscapeKey, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<EscapeKey, "[escapeKey]", never, {}, { "escapeKey": "escapeKey"; }, never>;
 }
 /** Disallow keyboard access to the backspace key */
 export declare class PreventBackKey {
     element: ElementRef;
     preventBackKey: EventEmitter<any>;
     constructor(element: ElementRef);
-    static ɵfac: i0.ɵɵFactoryDeclaration<PreventBackKey, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<PreventBackKey, "[preventBackKey]", never, {}, { "preventBackKey": "preventBackKey"; }, never>;
 }
 /** Disallow keyboard access to the enter keys */
 export declare class PreventEnterKey {
     element: ElementRef;
     preventEnterKey: EventEmitter<any>;
     constructor(element: ElementRef);
-    static ɵfac: i0.ɵɵFactoryDeclaration<PreventEnterKey, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<PreventEnterKey, "[preventEnterKey]", never, {}, { "preventEnterKey": "preventEnterKey"; }, never>;
 }
 export declare class InputHint {
     hintStyle: {
         'font-size': string;
         color: string;
     };
-    static ɵfac: i0.ɵɵFactoryDeclaration<InputHint, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<InputHint, "input-hint", never, { "hintStyle": "hintStyle"; }, {}, never, ["*"]>;
 }
 /** adds form element onchange listener via addEventListener('change') that calls formChanged scope argument */
 export declare class FormChanged {
@@ -45,8 +34,6 @@ export declare class FormChanged {
     formChanged: EventEmitter<any>;
     constructor(element: ElementRef);
     ngOnDestroy(): void;
-    static ɵfac: i0.ɵɵFactoryDeclaration<FormChanged, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<FormChanged, "[formChanged]", never, {}, { "formChanged": "formChanged"; }, never>;
 }
 /** when ever change or input form event triggered, bindings are called */
 export declare class FormAlter {
@@ -55,6 +42,4 @@ export declare class FormAlter {
     formAlter: EventEmitter<Event>;
     constructor(element: ElementRef);
     ngOnDestroy(): void;
-    static ɵfac: i0.ɵɵFactoryDeclaration<FormAlter, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<FormAlter, "[formAlter]", never, {}, { "formAlter": "formAlter"; }, never>;
 }

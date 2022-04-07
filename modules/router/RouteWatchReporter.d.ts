@@ -1,5 +1,4 @@
 import { Route, Router, ActivatedRoute } from '@angular/router';
-import * as i0 from "@angular/core";
 export interface currentRoute {
     ActivatedRoute: ActivatedRoute;
     config: Route;
@@ -41,8 +40,6 @@ export declare class RouteWatchReporter {
     };
     watchDocByCallbacks($document: any, callbacks: any): void;
     unwatchDocByCallbacks($document: any, callbacks: any): void;
-    static ɵfac: i0.ɵɵFactoryDeclaration<RouteWatchReporter, never>;
-    static ɵprov: i0.ɵɵInjectableDeclaration<RouteWatchReporter>;
 }
 export declare function getCurrentByActive(ActivatedRoute: ActivatedRoute): {
     ActivatedRoute: ActivatedRoute;

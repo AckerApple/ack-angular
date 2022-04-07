@@ -1,4 +1,3 @@
-import * as i0 from "@angular/core";
 export declare class ErrorLog {
     log: any[];
     maxLog: number;
@@ -15,6 +14,4 @@ export declare class ErrorLog {
     };
     /** same as reject but uses native throw instead of native Promise.reject */
     rethrow(err: any): void;
-    static ɵfac: i0.ɵɵFactoryDeclaration<ErrorLog, never>;
-    static ɵprov: i0.ɵɵInjectableDeclaration<ErrorLog>;
 }
