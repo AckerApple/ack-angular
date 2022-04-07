@@ -1,13 +1,7 @@
-import { Pipe } from '@angular/core';
-
+import { DomSanitizer } from '@angular/platform-browser'
+import { Keys } from './pipes/keys.pipe'
 import * as pipes from "./pipes.class"
-
-import {
-  //SafeHtml as SafeHtmler,//must be exported for AOT
-  //SafeStyle as SafeStyler,//must be exported for AOT
-  //SafeResourceUrl,
-  DomSanitizer
-} from '@angular/platform-browser';
+import { Pipe } from '@angular/core'
 
 /* ONLY THIS FILE */
   @Pipe({name: 'indexTrack'}) export class IndexTrack {
@@ -158,20 +152,6 @@ import {
 
 @Pipe({name: 'ack'}) export class Ack {
   transform(...args: any){return pipes.ack.apply(pipes.ack, args)}
-}
-
-@Pipe({name: 'keys'}) export class Keys {
-  transform(input:any){
-    const type = typeof(input)=='object'
-    const isOb = input && type
-    const isArray = isOb && input.constructor == Array
-
-    if(isArray){
-      return input.map((_value: any, index: any)=>index)
-    }
-
-    return input ? Object.keys(input) : []
-  }
 }
 
 @Pipe({name: 'typeof'}) export class TypeofPipe {
