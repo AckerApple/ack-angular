@@ -2,6 +2,7 @@ import { Subscription } from "rxjs";
 import { EventEmitter } from "@angular/core";
 import { ActivatedRoute, Route, Router } from "@angular/router";
 import { currentRoute, RouteWatchReporter } from "./RouteWatchReporter";
+import * as i0 from "@angular/core";
 export declare class RouteReporter {
     Router: Router;
     RouteWatchReporter: RouteWatchReporter;
@@ -28,7 +29,7 @@ export declare class RouteReporter {
     current: currentRoute;
     state: currentRoute;
     stateChange: EventEmitter<currentRoute>;
-    $document: any;
+    $document: Document;
     $scope: any;
     docCallbacks: any;
     querySub: Subscription;
@@ -39,4 +40,6 @@ export declare class RouteReporter {
     emit(): void;
     goBackTo(name: string, params: any): void;
     tryBack(name: string, params: any): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<RouteReporter, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<RouteReporter, "route-reporter", ["RouteReporter"], { "onLoad": "onLoad"; "activated": "activated"; "params": "params"; "data": "data"; "query": "query"; "route": "route"; "parentRoute": "parentRoute"; "parent": "parent"; "parentData": "parentData"; "current": "current"; "state": "state"; }, { "stateChanger": "onChange"; "beforeChanger": "beforeChange"; "activatedChange": "activatedChange"; "paramsChange": "paramsChange"; "dataChange": "dataChange"; "queryChange": "queryChange"; "routeChange": "routeChange"; "parentRouteChange": "parentRouteChange"; "parentChange": "parentChange"; "parentDataChange": "parentDataChange"; "stateChange": "stateChange"; }, never>;
 }

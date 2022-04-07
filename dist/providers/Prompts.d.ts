@@ -1,4 +1,5 @@
 import { EventEmitter } from '@angular/core';
+import * as i0 from "@angular/core";
 export interface button {
     text: string;
     handler?: () => any;
@@ -21,4 +22,6 @@ export declare class Prompts {
     issuePrompt(prompt: prompt): EventEmitter<boolean>;
     alert(message: string, options?: promptOptions): EventEmitter<boolean>;
     confirm(message: string, options?: promptOptions): EventEmitter<boolean>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<Prompts, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<Prompts>;
 }

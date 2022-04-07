@@ -1,4 +1,5 @@
 import { EventEmitter, ElementRef } from "@angular/core";
+import * as i0 from "@angular/core";
 /** runs shake instructions when condition returns a truthy value */
 export declare class ShakeOn {
     element: ElementRef;
@@ -17,4 +18,6 @@ export declare class ShakeOn {
     removeType(): void;
     applyType(): void;
     onTrue(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<ShakeOn, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<ShakeOn, "[shakeOn]", ["ShakeOn"], { "shakeConstant": "shakeConstant"; "shakeOn": "shakeOn"; "shakeForMs": "shakeForMs"; "shakeType": "shakeType"; }, { "shakeThen": "shakeThen"; }, never>;
 }

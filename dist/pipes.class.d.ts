@@ -11,7 +11,7 @@ export declare function textDownload(input: any): any;
 export declare function yesno(input: any): any;
 export declare function yesNo(input: any): any;
 export declare function boolean(input: any): boolean;
-export declare function bit(input: any): 0 | 1;
+export declare function bit(input: any): 1 | 0;
 export declare function numbers(input: any, safeChars?: string): any;
 export declare function capitalizeWords(input: any): any;
 /** each sentence word is capitalized */
