@@ -1,7 +1,5 @@
 import { ModuleWithProviders } from '@angular/core';
-import { RouteWatchReporter } from "./RouteWatchReporter";
-import { RouteHistory } from "./RouteHistory.provider";
-export declare const providers: (typeof RouteWatchReporter | typeof RouteHistory)[];
+export { RouteReporter } from "./RouteReporter.directive";
 export declare class AckRouterModule {
     static forRoot(): ModuleWithProviders<any>;
 }

@@ -100,4 +100,4 @@ export declare class TypeofPipe {
 export declare class ConsolePipe {
     transform(): any;
 }
-export declare const declarations: (typeof SafeUrl | typeof SafeHtml | typeof SafeStyle | typeof ADate)[];
+export declare const pipes: (typeof SafeUrl | typeof SafeHtml | typeof SafeStyle | typeof ADate)[];

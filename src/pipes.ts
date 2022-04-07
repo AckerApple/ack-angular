@@ -1,6 +1,6 @@
 import { DomSanitizer } from '@angular/platform-browser'
 import { KeysPipe } from './pipes/keys.pipe'
-import * as pipes from "./pipes.class"
+import * as pipesUtils from "./pipes.class"
 import { Pipe } from '@angular/core'
 
 export { KeysPipe } from './pipes/keys.pipe'
@@ -20,13 +20,13 @@ export { KeysPipe } from './pipes/keys.pipe'
 
   @Pipe({name: 'array'}) export class ForceArray {
     transform(input: any, repeat?: any, repeatValue?: any) {
-      return pipes.array(input, repeat, repeatValue)
+      return pipesUtils.array(input, repeat, repeatValue)
     }
   }
 
   @Pipe({name: 'arrayOfObjects'}) export class ArrayOfObjects {
     transform(input: any, repeat?: number | undefined, repeatValue?: unknown) {
-      return pipes.arrayOfObjects(input, repeat, repeatValue)
+      return pipesUtils.arrayOfObjects(input, repeat, repeatValue)
     }
   }
 
@@ -70,7 +70,7 @@ export { KeysPipe } from './pipes/keys.pipe'
 /** (input>=a && input<=b) || (input>=b && input<=a) */
 @Pipe({name: 'between'}) export class Between {
   transform(input: any, a: any, b: any) {
-    return pipes.between(input, a, b)
+    return pipesUtils.between(input, a, b)
   }
 }
 
@@ -78,82 +78,82 @@ export { KeysPipe } from './pipes/keys.pipe'
   transform(
    input:string, max: number, replacement?: string
   ) {
-    return pipes.replaceMaxLength(input, max, replacement)
+    return pipesUtils.replaceMaxLength(input, max, replacement)
   }
 }
 
 /** use with bypassSecurityTrustResourceUrl for href */
 @Pipe({name: 'textDownload'}) export class TextDownload {
-  transform(input:string){return pipes.textDownload(input)}
+  transform(input:string){return pipesUtils.textDownload(input)}
 }
 
 @Pipe({name: 'numberToPhone'}) export class NumberToPhone {
   transform(input:string | number){
-    return pipes.numberToPhone(input)
+    return pipesUtils.numberToPhone(input)
   }
 }
 
 @Pipe({name: 'toNumber'}) export class toNumber {
-  transform(input:string){return pipes.toNumber(input)}
+  transform(input:string){return pipesUtils.toNumber(input)}
 }
 
 @Pipe({name: 'numberSuffix'}) export class NumberSuffix {
   transform(input: number | string, rtnInput?: any){
-    return pipes.numberSuffix(input, rtnInput)
+    return pipesUtils.numberSuffix(input, rtnInput)
   }
 }
 
 @Pipe({name: 'markdownAnchor'}) export class MarkdownAnchor {
-  transform(input:string){return pipes.markdownAnchor(input)}
+  transform(input:string){return pipesUtils.markdownAnchor(input)}
 }
 
 @Pipe({name: 'capitalize'}) export class Capitalize {
-  transform(input:any){return pipes.capitalize(input)}
+  transform(input:any){return pipesUtils.capitalize(input)}
 }
 
 @Pipe({name: 'capitalizeWords'}) export class CapitalizeWords {
-  transform(input:any){return pipes.capitalizeWords(input)}
+  transform(input:any){return pipesUtils.capitalizeWords(input)}
 }
 
 @Pipe({name: 'yesno'}) export class Yesno {
-  transform(input:any){return pipes.yesno(input)}
+  transform(input:any){return pipesUtils.yesno(input)}
 }
 
 @Pipe({name: 'YesNo'}) export class YesNo {
-  transform(input:any){return pipes.yesNo(input)}
+  transform(input:any){return pipesUtils.yesNo(input)}
 }
 
 @Pipe({name: 'boolean'}) export class BooleanPipe {
-  transform(input:any){return pipes.boolean(input)}
+  transform(input:any){return pipesUtils.boolean(input)}
 }
 
 @Pipe({name: 'bit'}) export class Bit {
-  transform(input:any){return pipes.bit(input)}
+  transform(input:any){return pipesUtils.bit(input)}
 }
 
 //get and return all numbers inside a string
 @Pipe({name: 'numbers'}) export class Numbers {
-  transform(input:any){return pipes.numbers(input)}
+  transform(input:any){return pipesUtils.numbers(input)}
 }
 
 @Pipe({name: 'aDate'}) export class ADate {
-  transform(...args: any){return pipes.aDate.apply(pipes.aDate, args)}
+  transform(...args: any){return pipesUtils.aDate.apply(pipesUtils.aDate, args)}
 }
 
 @Pipe({name: 'aMath'}) export class AMath {
-  transform(...args: any){return pipes.aMath.apply(pipes.aMath, args)}
+  transform(...args: any){return pipesUtils.aMath.apply(pipesUtils.aMath, args)}
 }
 
 @Pipe({name: 'aString'}) export class AString {
-  transform(...args: any){return pipes.aString.apply(pipes.aString, args)}
+  transform(...args: any){return pipesUtils.aString.apply(pipesUtils.aString, args)}
 }
 
 @Pipe({name: 'aTime'}) export class ATime {
-  transform(...args: any){return pipes.aTime.apply(pipes.aTime, args)}
+  transform(...args: any){return pipesUtils.aTime.apply(pipesUtils.aTime, args)}
 }
 
 @Pipe({name: 'ack'}) export class Ack {
-  transform(...args: any){return pipes.ack.apply(pipes.ack, args)}
+  transform(...args: any){return pipesUtils.ack.apply(pipesUtils.ack, args)}
 }
 
 @Pipe({name: 'typeof'}) export class TypeofPipe {
@@ -166,7 +166,7 @@ export { KeysPipe } from './pipes/keys.pipe'
   }
 }
 
-export const declarations = [
+export const pipes = [
   IndexTrack,
   Stringify,
   ForceArray,

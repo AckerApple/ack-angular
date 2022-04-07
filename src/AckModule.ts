@@ -9,7 +9,7 @@ export { CommonModule } from "@angular/common"
 
 import { providers } from "./providers"
 import { declarations as components } from "./declarations"
-import { declarations as pipes } from "./pipes"
+import { pipes } from "./pipes"
 
 const declarations = [...components, ...pipes]
 

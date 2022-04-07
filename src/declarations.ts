@@ -12,7 +12,7 @@ import { AckOptionsModal } from "./components/AckOptionsModal.component"
 import { AbsoluteOverflowX } from "./components/AbsoluteOverflowX.component"
 import { ErrorWell } from "./components/ErrorWell.component"
 import { ReaderHeaderBody, ReaderHeader, ReaderBody } from "./components/ReaderHeaderBody.component"
-import { declarations as debugDecs } from "./components/debug-area/DebugArea.component"
+import { debugDeclarations } from "./components/debug-area/DebugArea.component"
 
 //DIRECTIVES
 import { AckArray } from "./directives/AckArray.directive"
@@ -79,7 +79,7 @@ export const declarations = [
   InputHint,
 
   //components
-  ...debugDecs,
+  ...debugDeclarations,
   ErrorWell,
   AbsoluteOverflowX,
 
@@ -102,4 +102,43 @@ export const declarations = [
   AckFixedElementStage
 ]
 
-// export default declarations
+export * from "./declarations.short"
+export { AckSections } from "./components/AckSections.component"
+export { AckSectionTemplates } from "./components/AckSectionTemplates.component"
+export { AckModal } from "./components/AckModal.component"
+export { AckModalLayout } from "./components/AckModalLayout.component"
+export { AckFixedElementStage } from "./components/AckFixedElementStage.component"
+export { AckFixedElement } from "./components/AckFixedElement.component"
+export { AckCloseIcon } from "./components/AckCloseIcon.component"
+export { AckOptions } from "./components/AckOptions.component"
+export { AckOptionsModal } from "./components/AckOptionsModal.component"
+export { AbsoluteOverflowX } from "./components/AbsoluteOverflowX.component"
+export { ErrorWell } from "./components/ErrorWell.component"
+export { ReaderHeaderBody, ReaderHeader, ReaderBody } from "./components/ReaderHeaderBody.component"
+export * from "./components/debug-area/DebugArea.component"
+
+//DIRECTIVES
+export { AckArray } from "./directives/AckArray.directive"
+export { AckAggregate } from "./directives/AckAggregate.directive"
+export { ScrollPastFixed } from "./components/ScrollPastFixed.component"
+export { ShakeOn } from "./directives/ShakeOn.directive"
+export { FxOn } from "./directives/FxOn.directive"
+export { FocusOn } from "./directives/FocusOn.directive"
+export { InitDirective } from "./directives/Init.directive"
+export { ContentModel } from "./directives/ContentModel.directive"
+export { SelectOn } from "./directives/SelectOn.directive"
+export { InnerHtmlModel } from "./directives/InnerHtmlModel.directive"
+export { ReplaceModel } from "./directives/ReplaceModel.directive"
+export { ElementSizeModel, ElementHeightModel, ElementWidthModel } from "./directives/ElementSizeModel.directive"
+export { ScreenScrollHeightDiff } from "./directives/ScreenScrollHeightDiff.directive"
+export { ScreenScroll } from "./directives/ScreenScroll.directive"
+export { PxFromHtmlTop } from "./directives/PxFromHtmlTop.directive"
+export { ScreenScrollModelY } from "./directives/ScreenScrollModelY.directive"
+export { ScreenWidthModel } from "./directives/ScreenWidthModel.directive"
+export { ScreenHeightModel } from "./directives/ScreenHeightModel.directive"
+export { HtmlWidthModel } from "./directives/HtmlWidthModel.directive"
+export { HtmlHeightModel } from "./directives/HtmlHeightModel.directive"
+export { StatusOnlineModel } from "./directives/StatusOnlineModel.directive"
+export { StatusOfflineModel } from "./directives/StatusOfflineModel.directive"
+export { VarDirective } from "./directives/VarDirective.directive"
+export { EnterKey, EscapeKey, FormAlter, FormChanged, InputHint, PreventBackKey, PreventEnterKey } from "./declarations.short"

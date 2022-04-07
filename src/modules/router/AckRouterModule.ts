@@ -8,7 +8,9 @@ import { RouteWatchReporter } from "./RouteWatchReporter"
 import { RouteHistory } from "./RouteHistory.provider"
 import { RouteReporter } from "./RouteReporter.directive"
 
-export const providers = [ RouteWatchReporter, RouteHistory ]
+export { RouteReporter } from "./RouteReporter.directive"
+
+const providers = [ RouteWatchReporter, RouteHistory ]
 
 @NgModule({
   imports:[

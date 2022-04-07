@@ -16,4 +16,4 @@ export declare class DebugArea {
     updateDataByJsonString(item: any, string: string, debugItem: DebugItem): void;
     apply(item: any, json: string, debugItem: DebugItem): void;
 }
-export declare const declarations: (typeof DebugItem | typeof DebugArea)[];
+export declare const debugDeclarations: (typeof DebugItem | typeof DebugArea)[];

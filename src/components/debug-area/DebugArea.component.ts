@@ -16,8 +16,7 @@ import { string as template } from "./debug-area.template"
 }
 
 @Component({
-  selector:"debug-area",
-  template:template
+  selector:"debug-area", template
 }) export class DebugArea{
   edit!:boolean
   dataString!: string
@@ -52,6 +51,6 @@ import { string as template } from "./debug-area.template"
   }
 }
 
-export const declarations = [
+export const debugDeclarations = [
   DebugItem, DebugArea
 ]
