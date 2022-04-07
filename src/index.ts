@@ -14,3 +14,4 @@ export { AckArray } from "./directives/AckArray.directive"
 // export { AckOfflineModule } from "./modules/offline/module"; // no longer include by default
 
 export * from "./providers"
+export * from "./pipes"

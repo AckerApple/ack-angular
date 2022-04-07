@@ -1,7 +1,9 @@
 import { DomSanitizer } from '@angular/platform-browser'
-import { Keys } from './pipes/keys.pipe'
+import { KeysPipe } from './pipes/keys.pipe'
 import * as pipes from "./pipes.class"
 import { Pipe } from '@angular/core'
+
+export { KeysPipe } from './pipes/keys.pipe'
 
 /* ONLY THIS FILE */
   @Pipe({name: 'indexTrack'}) export class IndexTrack {
@@ -178,7 +180,7 @@ export const declarations = [
   CapitalizeWords,
   Yesno,
   YesNo,
-  Keys,
+  KeysPipe,
   TypeofPipe,
   ConsolePipe,
   ADate,

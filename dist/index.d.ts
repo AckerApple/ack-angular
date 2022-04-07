@@ -6,3 +6,4 @@ export { declarations as pipes } from "./pipes";
 export { ack } from "./ack";
 export { AckArray } from "./directives/AckArray.directive";
 export * from "./providers";
+export * from "./pipes";
