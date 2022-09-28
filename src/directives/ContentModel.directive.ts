@@ -8,7 +8,7 @@ import {
 }) export class ContentModel implements OnChanges, OnDestroy {
   @Output() changeDone: EventEmitter<string> = new EventEmitter();
 
-  @Input() contentModel!: string;
+  @Input() contentModel?: string;
   @Output() inputChange: EventEmitter<string> = new EventEmitter();
   // Below, avoid using (contentModelChange) ... use (inputChange) instead
   @Output() contentModelChange: EventEmitter<string> = new EventEmitter();
