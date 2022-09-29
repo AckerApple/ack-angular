@@ -1,4 +1,5 @@
 import { ElementRef, EventEmitter, OnChanges, OnDestroy } from '@angular/core';
+import * as i0 from "@angular/core";
 export declare class ContentModel implements OnChanges, OnDestroy {
     elm: ElementRef;
     changeDone: EventEmitter<string>;
@@ -24,4 +25,6 @@ export declare class ContentModel implements OnChanges, OnDestroy {
     onFocus(): void;
     checkPlaceholder(): void;
     onBlur(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<ContentModel, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<ContentModel, "[contentModel]", never, { "contentModel": "contentModel"; "placeholder": "placeholder"; "maxLength": "maxLength"; "enterEnds": "enterEnds"; "hasFocus": "hasFocus"; }, { "changeDone": "changeDone"; "inputChange": "inputChange"; "contentModelChange": "contentModelChange"; "enter": "enter"; "hasFocusChange": "hasFocusChange"; }, never, never, false>;
 }

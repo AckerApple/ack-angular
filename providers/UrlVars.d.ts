@@ -1,4 +1,5 @@
 import { WindowService } from "./WindowService";
+import * as i0 from "@angular/core";
 export declare class UrlVars {
     WindowService: WindowService;
     vars: any;
@@ -6,4 +7,6 @@ export declare class UrlVars {
     parse(): {};
     /** case in-sensative variable fetch */
     get(name: any, param?: any): any;
+    static ɵfac: i0.ɵɵFactoryDeclaration<UrlVars, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<UrlVars>;
 }
