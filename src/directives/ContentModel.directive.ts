@@ -22,8 +22,6 @@ import {
   @Input() hasFocus?: boolean
   @Output() hasFocusChange: EventEmitter<boolean> = new EventEmitter(); // fires when enter key used
 
-
-
   recentInputs = 0; // check in/out user input to prevent updating content right after user input
   lastValue?: string;
 
