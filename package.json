@@ -1,6 +1,6 @@
 {
   "name": "ack-angular",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
   "main": "dist/index.js",
   "typings": "index.d.ts",
@@ -32,8 +32,10 @@
     "animate.css": ">=4.1.1",
     "csshake": ">=1.7.0"
   },
+  "private": true,
   "dependencies": {
-    "@types/estree": "^0.0.47"
+    "@types/estree": "^0.0.47",
+    "tslib": "^2.3.0"
   },
   "module": "fesm2015/ack-angular.mjs",
   "es2020": "fesm2020/ack-angular.mjs",
