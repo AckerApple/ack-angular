@@ -1,11 +1,9 @@
 import { ElementRef, Component } from "@angular/core"
 import { AckApp } from "../providers/AckApp.provider"
 
-import { string } from "./templates/ack-fixed-element-stage.pug"
-
 @Component({
   selector:'ack-fixed-element-stage',
-  template:string
+  templateUrl: './ack-fixed-element-stage.html'
 }) export class AckFixedElementStage{
   constructor(
     public AckApp:AckApp,

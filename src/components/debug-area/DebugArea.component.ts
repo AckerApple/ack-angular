@@ -3,10 +3,9 @@ import {
   Input, ContentChildren, ContentChild,
   Directive, Component, QueryList
 } from "@angular/core"
-import { string as template } from "./debug-area.template"
 
 @Directive({
-  selector:"debug-item"
+  selector: "debug-item"
 }) export class DebugItem{
   @Input() name!: string
   @Input() value: any
@@ -16,7 +15,8 @@ import { string as template } from "./debug-area.template"
 }
 
 @Component({
-  selector:"debug-area", template
+  selector:"debug-area",
+  templateUrl: './debug-area.template.html',
 }) export class DebugArea{
   edit!:boolean
   dataString!: string

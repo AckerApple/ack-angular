@@ -12,21 +12,17 @@ import {
 } from "@angular/core"
 
 import { AckApp } from "../providers/AckApp.provider"
-// import { string } from "./templates/ack-modal.pug"
 
 @Component({
   selector:"ack-modal",
   templateUrl: './ack-modal.component.html',
-  // template:string
-  //,exportAs:"AckModal"
-  //,animations:animations
 }) export class AckModal{
   @ContentChild('body') body!:TemplateRef<any>
-  @ViewChild('placeholder') layout!: ElementRef
+  @ViewChild('placeholder') layout!: TemplateRef<any>
 
   //one way binds
   @Input() inline?:boolean
-  @Input() isModelMode?:boolean
+  @Input() isModelMode?: boolean | number
   @Input() zIndex:number = 20
   
   @Input() valign: 'top' | 'center' | 'bottom' = 'top'
@@ -49,10 +45,6 @@ import { AckApp } from "../providers/AckApp.provider"
   ){
     Promise.resolve().then(() => this.determineStage())
   }
-
-  /*ngOnInit(){
-    return this.determineStage() // causes race error ExpressionChangedAfterItHasBeenCheckedError
-  }*/
 
   determineStage():void{
     if(this.inline)return

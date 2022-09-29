@@ -1,5 +1,5 @@
 //import { StateService } from "ui-router-ng2";
-import { ExtraOptions, RouterModule } from '@angular/router';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { Component} from '@angular/core';
 import { ComponentsExamples } from './ComponentsExamples.component';
 import { OverviewExamples } from './OverviewExamples.component';
@@ -60,7 +60,7 @@ export const menu = [
   }
 ]
 
-export const routes = [
+export const routes: Routes = [
   ...menu,
   {path: '',   redirectTo: 'overview', pathMatch: 'full' },//default route
   {path: '**',   redirectTo: 'overview' }//404
@@ -68,7 +68,7 @@ export const routes = [
 
 export const routeConfig: ExtraOptions = {
   useHash:true,
-  initialNavigation: 'enabled',
+  initialNavigation: 'enabledNonBlocking',
   enableTracing:false
 }
 export const routing = RouterModule.forRoot(routes, routeConfig)

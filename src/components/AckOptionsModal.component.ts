@@ -6,10 +6,9 @@ import {
 } from "@angular/core"
 import { AckOptions } from "./AckOptions.component"
 
-import { string as ackOptionsModal } from "./templates/ack-options-modal.pug"
 @Component({
   selector:'ack-options-modal',
-  template:ackOptionsModal
+  templateUrl: './ack-options-modal.html'
 }) export class AckOptionsModal extends AckOptions{
   //ackModal
   ackOptions!: AckOptions

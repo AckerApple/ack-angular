@@ -1,5 +1,6 @@
 import { TemplateRef } from "@angular/core";
 import { SectionProvider } from "../providers/AckSections.provider";
+import * as i0 from "@angular/core";
 export declare class AckSectionTemplates {
     SectionProvider: SectionProvider;
     inited: boolean;
@@ -14,4 +15,6 @@ export declare class AckSectionTemplates {
     check(): void;
     ngOnDestroy(): void;
     unregister(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<AckSectionTemplates, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<AckSectionTemplates, "ack-section-templates", never, {}, {}, ["header", "footer", "leftBody", "rightBody"], never, false>;
 }

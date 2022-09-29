@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [4.0.0] - 2022-09-29
+- upgraded to Angular 14
+
 ## [2.0.12] - 2021-05-25
 - ContentModel [(hasFocus)]
 

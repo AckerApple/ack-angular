@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { AckOffline } from \"./AckOffline\";\nimport { AckCache } from \"./AckCache\";\nimport { AckQue } from \"./AckQue\";\nimport { AckApi } from \"./AckApi\";\nexport const providers = [AckApi, AckOffline, AckCache, AckQue];","map":null,"metadata":{},"sourceType":"module"}

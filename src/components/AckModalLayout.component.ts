@@ -6,33 +6,31 @@ import {
   ElementRef
 } from "@angular/core"
 
-import { AckApp } from "../providers/AckApp.provider"
+// import { AckApp } from "../providers/AckApp.provider"
 import { animations } from "ack-angular-fx"
-// import { string } from "./templates/ack-modal-layout.pug"
 
 @Component({
   selector:'ack-modal-layout',
-  // template:string,
   templateUrl: './ack-modal-layout.component.html',
   animations
-}) export class AckModalLayout{
-  @Input() zIndex: number = 20
+}) export class AckModalLayout {
+  @Input() zIndex: number | string = 20
   @Output() close: EventEmitter<AckModalLayout> = new EventEmitter()
-  @Input() allowClose: boolean = true
+  @Input() allowClose: boolean | number = true
 
   @Input() wrapStyle: any
   @Input() wrapCellStyle: any
   @Input() backgroundColor: any
   @Input() valign: 'top' | 'center' | 'bottom' = 'top'
   
-  @Input() isModelMode: boolean = false
+  @Input() isModelMode: boolean | number = false
   @Input() showModel: boolean = true // when using, do not allow to be undefined
   @Output() showModelChange: EventEmitter<boolean> = new EventEmitter()
   //@Input() template:ElementRef<any>
 
   constructor(
     public element:ElementRef,
-    public AckApp:AckApp
+    // public AckApp:AckApp
   ){
     //after possible double click, close on outside content click
     setTimeout(()=>this.clickListenForClose(), 400)

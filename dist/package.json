@@ -1,9 +1,9 @@
 {
   "name": "ack-angular",
-  "version": "3.0.4",
+  "version": "4.0.0",
   "description": "Extra special directives, components, providers and pipes to aide in tackling everyday interface development needs in Angular2",
-  "main": "bundles/ack-angular.umd.js",
-  "typings": "ack-angular.d.ts",
+  "main": "dist/index.js",
+  "typings": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AckerApple/ack-angular.git"
@@ -23,19 +23,35 @@
   },
   "homepage": "https://github.com/AckerApple/ack-angular#readme",
   "peerDependencies": {
-    "ack-angular-fx": ">=4.1.0",
-    "ack-css-boot": ">=3.0.9",
-    "ack-x": ">=2.1.1",
+    "@angular/common": ">=14.2.4",
+    "@angular/core": ">=14.2.4",
+    "@angular/router": ">=14.2.4",
+    "ack-angular-fx": ">=4.2.1",
+    "ack-css-boot": ">=3.0.10",
+    "ack-x": ">=3.0.2",
     "animate.css": ">=4.1.1",
-    "csshake": ">=1.5.3",
-    "@angular/core": ">=12.2.11",
-    "@angular/common": ">=12.2.11",
-    "@angular/router": ">=12.2.11"
+    "csshake": ">=1.7.0"
   },
-  "module": "fesm2015/ack-angular.js",
-  "es2015": "fesm2015/ack-angular.js",
-  "esm2015": "esm2015/ack-angular.js",
-  "fesm2015": "fesm2015/ack-angular.js",
-  "metadata": "ack-angular.metadata.json",
+  "dependencies": {
+    "@types/estree": "^0.0.47"
+  },
+  "module": "fesm2015/ack-angular.mjs",
+  "es2020": "fesm2020/ack-angular.mjs",
+  "esm2020": "esm2020/ack-angular.mjs",
+  "fesm2020": "fesm2020/ack-angular.mjs",
+  "fesm2015": "fesm2015/ack-angular.mjs",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "esm2020": "./esm2020/ack-angular.mjs",
+      "es2020": "./fesm2020/ack-angular.mjs",
+      "es2015": "./fesm2015/ack-angular.mjs",
+      "node": "./fesm2015/ack-angular.mjs",
+      "default": "./fesm2020/ack-angular.mjs"
+    }
+  },
   "sideEffects": false
 }
