@@ -1,10 +1,20 @@
-import { Route, Router, ActivatedRoute } from '@angular/router';
+import { Route, Router, ActivatedRoute, Data, Resolve, ResolveFn, Params } from '@angular/router';
+import { Type } from '@angular/core';
 import * as i0 from "@angular/core";
-export interface currentRoute {
-    ActivatedRoute: ActivatedRoute;
+export interface RouteInsight {
     config: Route;
-    params: any;
+    ActivatedRoute?: ActivatedRoute;
+}
+export interface currentRoute extends RouteInsight {
+    ActivatedRoute: ActivatedRoute;
+    params: Record<string, string>;
     parent?: currentRoute;
+}
+interface History {
+    name: string;
+    title?: string | Type<Resolve<string>> | ResolveFn<string>;
+    params?: any;
+    data?: Data;
 }
 /** A stateful connection to ui-router history
  - .stateChange() with arguments MUST be called at every state change
@@ -15,7 +25,7 @@ export declare class RouteWatchReporter {
     router: Router;
     activatedRoute: ActivatedRoute;
     current: any;
-    $history: any;
+    $history: History[];
     $state: any;
     historyPos: number;
     isBackMode: boolean;
@@ -26,12 +36,12 @@ export declare class RouteWatchReporter {
     $window(): Window & typeof globalThis;
     getCurrent(): currentRoute;
     getCurrentConfig(): Route;
-    getCurrentParams(): any;
+    getCurrentParams(): Params | undefined;
     isTrapHistory(toState: any, toParams: any): boolean;
     isBackHistory(toState: any, toParams: any): boolean;
     isForwardHistory(toState: any, toParams: any): boolean;
     isParamsMatch(toParams: any, otherParams: any): boolean;
-    recordStateChange(toState: any, toParams: any): void;
+    recordStateChange(toState: Route, toParams: any): void;
     goBackTo(name: any, params: any): void;
     tryBack(name: any, params: any): void;
     watchDocument($document: any): void;
@@ -44,13 +54,6 @@ export declare class RouteWatchReporter {
     static ɵfac: i0.ɵɵFactoryDeclaration<RouteWatchReporter, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<RouteWatchReporter>;
 }
-export declare function getCurrentByActive(ActivatedRoute: ActivatedRoute): {
-    ActivatedRoute: ActivatedRoute;
-    config: Route;
-    params: import("@angular/router").Params;
-    parent: {
-        ActivatedRoute: ActivatedRoute;
-        config: Route;
-        params: import("@angular/router").Params;
-    };
-};
+export declare function getCurrentByActive(ActivatedRoute: ActivatedRoute): currentRoute;
+export declare function getRouteByActive(ActivatedRoute: ActivatedRoute): ActivatedRoute;
+export {};

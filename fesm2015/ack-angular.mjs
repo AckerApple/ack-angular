@@ -3545,7 +3545,12 @@ class RouteWatchReporter {
         else {
             //const $state = this.$state()
             this.historyPos = 0;
-            const hist = { name: toState.name, params: toParams };
+            const hist = {
+                name: toState.name,
+                title: toState.title,
+                data: toState.data,
+                params: toParams
+            };
             if (!Object.keys(toParams).length) {
                 delete hist.params;
             }
@@ -3606,17 +3611,21 @@ function getCurrentByActive(ActivatedRoute) {
         parent = target;
         target = target.firstChild;
     }
+    return Object.assign(Object.assign({}, breakdownActivated(target)), { parent: breakdownActivated(parent) });
+}
+function getRouteByActive(ActivatedRoute) {
+    let target = ActivatedRoute;
+    while (target.firstChild) {
+        target = target.firstChild;
+    }
+    return target;
+}
+function breakdownActivated(target) {
     const snapshot = target.snapshot || {};
-    const parentSnap = parent.snapshot || {};
     return {
         ActivatedRoute: target,
-        config: (target.routeConfig || target["config"] || target),
+        config: (target.routeConfig || target['config'] || target),
         params: snapshot.params,
-        parent: {
-            ActivatedRoute: parent,
-            config: (parent.routeConfig || target["config"] || parent),
-            params: parentSnap.params
-        }
     };
 }
 
@@ -3722,6 +3731,7 @@ class RouteReporter {
         this.parentChange = new EventEmitter();
         this.parentDataChange = new EventEmitter();
         this.stateChange = new EventEmitter();
+        this.crumbArray = [];
         this.$document = document;
         this.apply();
     }
@@ -3790,14 +3800,52 @@ class RouteReporter {
         this.activated = current.ActivatedRoute;
         this.params = current.params || {};
         this.data = current.config.data || {};
+        this.attemptSetParentByCurrent(current);
+        this.updateCrumbArray();
+    }
+    updateCrumbArray() {
+        this.crumbArray = []; // reset the array
+        this.populateCrumbArray(this.crumbArray, getRouteByActive(this.ActivatedRoute));
+    }
+    populateCrumbArray(array, current) {
+        var _a;
         const parent = current.parent;
-        if (parent) {
-            const config = parent.config;
-            const ar = parent.ActivatedRoute;
-            this.parentRoute = config;
-            this.parent = ar;
-            this.parentData = config.data;
+        if (parent === null || parent === void 0 ? void 0 : parent.routeConfig) {
+            array.unshift({
+                config: parent.routeConfig,
+                ActivatedRoute: parent,
+            });
+            if ((_a = parent.parent) === null || _a === void 0 ? void 0 : _a.routeConfig) {
+                return this.populateCrumbArray(array, parent.parent);
+            }
         }
+        if (current.routeConfig) {
+            this.populateCrumbArrayLikes(array, current.routeConfig);
+        }
+    }
+    populateCrumbArrayLikes(array, current) {
+        var _a;
+        const parent = this.getLikeParent(current);
+        if (parent) {
+            array.unshift({
+                config: parent
+            });
+            if ((_a = parent.path) === null || _a === void 0 ? void 0 : _a.length) {
+                this.populateCrumbArrayLikes(array, parent);
+            }
+        }
+    }
+    attemptSetParentByCurrent(current) {
+        const parent = this.getCrumbParentFor(current);
+        if (parent) {
+            this.parentRoute = parent.config;
+            this.parent = parent.ActivatedRoute;
+            this.parentData = parent.config.data;
+            return;
+        }
+        delete this.parentRoute;
+        delete this.parent;
+        delete this.parentData;
     }
     emit() {
         this.stateChanger.emit(this.RouteWatchReporter);
@@ -3821,6 +3869,42 @@ class RouteReporter {
     }
     tryBack(name, params) {
         this.RouteWatchReporter.tryBack(name, params);
+    }
+    getCrumbParentFor(current) {
+        const parent = current.parent;
+        if (parent && parent.ActivatedRoute.routeConfig) {
+            return {
+                ActivatedRoute: parent.ActivatedRoute,
+                config: parent.config
+            };
+        }
+        const likeParent = this.getLikeParent(current.config);
+        if (likeParent) {
+            return {
+                config: likeParent
+            };
+        }
+    }
+    getLikeParent(route) {
+        var _a;
+        // try to find a related path at base
+        const currentPathing = ((_a = route.path) === null || _a === void 0 ? void 0 : _a.split('/')) || [];
+        let likeParent;
+        currentPathing.pop(); // remove the current
+        while (currentPathing.length) {
+            const targetPath = currentPathing.join('/');
+            // try to find parent by path matching
+            likeParent = this.Router.config.find(route => route.path === targetPath);
+            if (likeParent) {
+                return likeParent;
+            }
+            currentPathing.pop();
+        }
+        // look for a redirect parent but ensure it does not redirect to current route
+        const redirectRoot = this.Router.config.find(x => x.path === '' && x.redirectTo && x.redirectTo !== route.path);
+        if (redirectRoot) {
+            return this.Router.config.find(route => route.path === redirectRoot.redirectTo);
+        }
     }
 }
 RouteReporter.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.4", ngImport: i0, type: RouteReporter, deps: [{ token: i1$2.Router }, { token: RouteWatchReporter }, { token: i1$2.ActivatedRoute }], target: i0.ɵɵFactoryTarget.Directive });
@@ -3892,7 +3976,7 @@ AckRouterModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version:
 AckRouterModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "14.2.4", ngImport: i0, type: AckRouterModule, declarations: [RouteReporter], imports: [CommonModule,
         RouterModule], exports: [RouteReporter,
         RouterModule] });
-AckRouterModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "14.2.4", ngImport: i0, type: AckRouterModule, imports: [CommonModule,
+AckRouterModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "14.2.4", ngImport: i0, type: AckRouterModule, providers: providers, imports: [CommonModule,
         RouterModule, RouterModule] });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.4", ngImport: i0, type: AckRouterModule, decorators: [{
             type: NgModule,
@@ -3902,7 +3986,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.4", ngImpor
                         RouterModule
                     ],
                     declarations: [RouteReporter],
-                    // providers:providers,
+                    providers: providers,
                     exports: [
                         RouteReporter,
                         RouterModule
