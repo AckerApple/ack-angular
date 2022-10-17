@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [4.1.0] - 2022-10-17
+- route reporter changes
+
 ## [4.0.0] - 2022-09-29
 - upgraded to Angular 14
 
