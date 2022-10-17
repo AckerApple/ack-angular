@@ -1,15 +1,26 @@
 //import { StateService,TransitionService,Transition } from "ui-router-ng2";
 import {
   Route, Router, NavigationEnd,
-  ActivatedRoute, ActivatedRouteSnapshot
+  ActivatedRoute, ActivatedRouteSnapshot, Data, Resolve, ResolveFn, Params
 } from '@angular/router';
-import { Injectable } from '@angular/core';
+import { Injectable, Type } from '@angular/core';
 
-export interface currentRoute{
-  ActivatedRoute : ActivatedRoute
+export interface RouteInsight {
   config  : Route//|ActivatedRoute
-  params  : any
+  ActivatedRoute?: ActivatedRoute
+}
+
+export interface currentRoute extends RouteInsight {
+  ActivatedRoute : ActivatedRoute
+  params  : Record<string, string>
   parent? : currentRoute//|ActivatedRoute
+}
+
+interface History {
+  name: string
+  title?: string | Type<Resolve<string>> | ResolveFn<string>
+  params?: any
+  data?: Data
 }
 
 /** A stateful connection to ui-router history
@@ -19,7 +30,7 @@ export interface currentRoute{
 */
 @Injectable() export class RouteWatchReporter{
   current  : any = {}
-  $history : any = []
+  $history : History[] = []
   $state   : any
   //$window  : any
 
@@ -30,7 +41,7 @@ export interface currentRoute{
   isNextBackHistory : boolean = false
 
   constructor(
-    public router:Router,
+    public router: Router,
     public activatedRoute:ActivatedRoute
   ){
     this.activatedRoute = activatedRoute
@@ -53,7 +64,7 @@ export interface currentRoute{
     return window
   }
 
-  getCurrent():currentRoute{
+  getCurrent() : currentRoute{
     return getCurrentByActive( this.activatedRoute )
   }
 
@@ -63,7 +74,7 @@ export interface currentRoute{
     return <Route>(target.routeConfig || target["config"] || target)
   }
 
-  getCurrentParams():any{
+  getCurrentParams(): Params | undefined {
     let target = this.activatedRoute
     while(target.firstChild)target=target.firstChild
     return target.snapshot.params
@@ -101,7 +112,7 @@ export interface currentRoute{
     return true
   }
 
-  recordStateChange(toState: any, toParams: any){
+  recordStateChange(toState: Route, toParams: any){
     this.current = { params:toParams, config:toState }
     let isForward = this.isForwardHistory(toState, toParams)
     let isBackHistory = this.isNextBackHistory || this.isBackHistory(toState, toParams)
@@ -127,7 +138,12 @@ export interface currentRoute{
     }else{
       //const $state = this.$state()
       this.historyPos = 0
-      const hist = {name:toState.name, params:toParams}
+      const hist: History = {
+        name: (toState as any).name,
+        title: toState.title,
+        data: toState.data,
+        params:toParams
+      }
 
       if( !Object.keys(toParams).length ){
         delete hist.params
@@ -187,7 +203,7 @@ export interface currentRoute{
   }
 }
 
-export function getCurrentByActive( ActivatedRoute:ActivatedRoute ){
+export function getCurrentByActive( ActivatedRoute:ActivatedRoute ): currentRoute {
   let parent = ActivatedRoute
   let target = ActivatedRoute
   while(target.firstChild){
@@ -195,17 +211,26 @@ export function getCurrentByActive( ActivatedRoute:ActivatedRoute ){
     target = target.firstChild
   }
 
-  const snapshot = target.snapshot || <ActivatedRouteSnapshot>{}
-  const parentSnap = parent.snapshot || <ActivatedRouteSnapshot>{}
-
   return {
-    ActivatedRoute:target,
-    config:<Route>(target.routeConfig || target["config"] || target),
-    params:snapshot.params,
-    parent:{
-      ActivatedRoute:parent,
-      config:<Route>(parent.routeConfig || target["config"] || parent),
-      params:parentSnap.params
-    }
+    ...breakdownActivated(target),
+    parent: breakdownActivated(parent),
+  }
+}
+
+export function getRouteByActive( ActivatedRoute: ActivatedRoute ): ActivatedRoute {
+  let target = ActivatedRoute
+  while(target.firstChild){
+    target = target.firstChild
+  }
+
+  return target
+}
+
+function breakdownActivated(target: ActivatedRoute) {
+  const snapshot = target.snapshot || <ActivatedRouteSnapshot>{}
+  return {
+    ActivatedRoute: target,
+    config:<Route>(target.routeConfig || target['config'] || target),
+    params: snapshot.params,
   }
 }
