@@ -42,8 +42,10 @@ export declare class RouteWatchReporter {
     isForwardHistory(toState: any, toParams: any): boolean;
     isParamsMatch(toParams: any, otherParams: any): boolean;
     recordStateChange(toState: Route, toParams: any): void;
+    /** deprecated and most likely not working */
     goBackTo(name: any, params: any): void;
     tryBack(name: any, params: any): void;
+    goHistoryBack(): void;
     watchDocument($document: any): void;
     getDocumentCallbacks(): {
         isBackButton: () => void;

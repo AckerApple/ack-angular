@@ -3558,6 +3558,7 @@ class RouteWatchReporter {
         }
         this.isNextBackHistory = false;
     }
+    /** deprecated and most likely not working */
     goBackTo(name, params) {
         this.isNextBackMode = true;
         this.isNextBackHistory = true;
@@ -3565,13 +3566,16 @@ class RouteWatchReporter {
     }
     tryBack(name, params) {
         if (this.$history.length) {
-            this.isNextBackMode = true;
-            this.isNextBackHistory = true;
-            this.$window().history.back();
+            this.goHistoryBack();
         }
         else {
             this.goBackTo(name, params);
         }
+    }
+    goHistoryBack() {
+        this.isNextBackMode = true;
+        this.isNextBackHistory = true;
+        this.$window().history.back();
     }
     watchDocument($document) {
         this.watchDocByCallbacks($document, this.getDocumentCallbacks());
@@ -3627,7 +3631,7 @@ function breakdownActivated(target) {
     const snapshot = target.snapshot || {};
     return {
         ActivatedRoute: target,
-        config: (target.routeConfig || target['config'] || target),
+        config: (target.routeConfig || target['config']),
         params: snapshot.params,
     };
 }
@@ -3802,13 +3806,22 @@ class RouteReporter {
         this.state = current;
         this.activated = current.ActivatedRoute;
         this.params = current.params || {};
-        this.data = current.config.data || {};
+        this.data = current.config?.data || {};
         this.attemptSetParentByCurrent(current);
         this.updateCrumbArray();
     }
     updateCrumbArray() {
-        this.crumbArray = []; // reset the array
-        this.populateCrumbArray(this.crumbArray, getRouteByActive(this.ActivatedRoute));
+        const activeRoute = getRouteByActive(this.ActivatedRoute);
+        // reset the array
+        this.crumbArray = [];
+        // add current if it is not the root
+        if (activeRoute.routeConfig) {
+            this.crumbArray.push({
+                config: activeRoute.routeConfig,
+                ActivatedRoute: activeRoute,
+            });
+        }
+        this.populateCrumbArray(this.crumbArray, activeRoute);
     }
     populateCrumbArray(array, current) {
         const parent = current.parent;
@@ -3851,19 +3864,38 @@ class RouteReporter {
     emit() {
         this.stateChanger.emit(this.RouteWatchReporter);
         const current = this.RouteWatchReporter.getCurrent();
-        this.routeChange.emit(current.config);
         this.stateChange.emit(current);
         this.activatedChange.emit(current.ActivatedRoute);
         this.paramsChange.emit(current.params);
-        this.dataChange.emit(current.config.data);
+        if (current.config) {
+            this.routeChange.emit(current.config);
+            this.dataChange.emit(current.config.data);
+        }
         const parent = current.parent;
         if (parent) {
             const config = parent.config;
             const ar = parent.ActivatedRoute;
-            this.parentRouteChange.emit(config);
             this.parentChange.emit(ar);
-            this.parentDataChange.emit(config.data);
+            if (config) {
+                this.parentRouteChange.emit(config);
+                this.parentDataChange.emit(config.data);
+            }
         }
+    }
+    goBackOrUp() {
+        if (this.RouteWatchReporter.$history.length) {
+            this.RouteWatchReporter.goHistoryBack();
+            return;
+        }
+        this.goUp();
+    }
+    goUp() {
+        const target = this.crumbArray[this.crumbArray.length - 1];
+        const route = target.config;
+        if (!route) {
+            return;
+        }
+        this.Router.navigateByUrl(route.path);
     }
     goBackTo(name, params) {
         this.RouteWatchReporter.goBackTo(name, params);
@@ -3878,6 +3910,9 @@ class RouteReporter {
                 ActivatedRoute: parent.ActivatedRoute,
                 config: parent.config
             };
+        }
+        if (!current.config) {
+            return;
         }
         const likeParent = this.getLikeParent(current.config);
         if (likeParent) {
