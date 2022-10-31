@@ -43,6 +43,8 @@ export declare class RouteReporter {
     populateCrumbArrayLikes(array: RouteInsight[], current: Route): void;
     attemptSetParentByCurrent(current: currentRoute): void;
     emit(): void;
+    goBackOrUp(): void;
+    goUp(): void;
     goBackTo(name: string, params: any): void;
     tryBack(name: string, params: any): void;
     getCrumbParentFor(current: currentRoute): RouteInsight | undefined;

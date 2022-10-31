@@ -155,6 +155,7 @@ interface History {
     this.isNextBackHistory = false
   }
 
+  /** deprecated and most likely not working */
   goBackTo(name: any, params: any){
     this.isNextBackMode = true
     this.isNextBackHistory = true
@@ -163,12 +164,16 @@ interface History {
 
   tryBack(name: any, params: any){
     if(this.$history.length){
-      this.isNextBackMode = true
-      this.isNextBackHistory = true
-      this.$window().history.back()
+      this.goHistoryBack()
     }else{
       this.goBackTo(name, params)
     }
+  }
+
+  goHistoryBack() {
+    this.isNextBackMode = true
+    this.isNextBackHistory = true
+    this.$window().history.back()
   }
 
   watchDocument($document: any){
@@ -230,7 +235,7 @@ function breakdownActivated(target: ActivatedRoute) {
   const snapshot = target.snapshot || <ActivatedRouteSnapshot>{}
   return {
     ActivatedRoute: target,
-    config:<Route>(target.routeConfig || target['config'] || target),
+    config:<Route>(target.routeConfig || target['config']), //  || target
     params: snapshot.params,
   }
 }

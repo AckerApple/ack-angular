@@ -48,7 +48,7 @@ import {
   /* end: parent bindings */
 
 
-  //deprecated
+  // deprecated?
   @Input() current!: currentRoute
   @Input() state!: currentRoute//ignored in
   @Output() stateChange:EventEmitter<currentRoute> = new EventEmitter()
@@ -140,15 +140,27 @@ import {
     this.state = current
     this.activated = current.ActivatedRoute
     this.params = current.params || {}
-    this.data = current.config.data || {}
+    this.data = current.config?.data || {}
     this.attemptSetParentByCurrent(current)
     this.updateCrumbArray()
   }
 
   crumbArray: RouteInsight[] = []
   updateCrumbArray() {
-    this.crumbArray = [] // reset the array
-    this.populateCrumbArray(this.crumbArray, getRouteByActive(this.ActivatedRoute))
+    const activeRoute = getRouteByActive(this.ActivatedRoute)
+    
+    // reset the array
+    this.crumbArray = []
+
+    // add current if it is not the root
+    if ( activeRoute.routeConfig ) {
+        this.crumbArray.push({
+            config: activeRoute.routeConfig,
+            ActivatedRoute: activeRoute,
+        })
+    }
+
+    this.populateCrumbArray(this.crumbArray, activeRoute)
   }
 
   populateCrumbArray(array: RouteInsight[], current: ActivatedRoute): void {
@@ -162,6 +174,7 @@ import {
           return this.populateCrumbArray(array, parent.parent);
       }
     }
+    
     if ( current.routeConfig ) {
         this.populateCrumbArrayLikes(array, current.routeConfig);
     }
@@ -198,12 +211,13 @@ import {
     this.stateChanger.emit( this.RouteWatchReporter )
     const current = this.RouteWatchReporter.getCurrent()
 
-    this.routeChange.emit( current.config )
     this.stateChange.emit( current )
     this.activatedChange.emit( current.ActivatedRoute )
-
     this.paramsChange.emit( current.params )
-    this.dataChange.emit( current.config.data )
+    if ( current.config ) {
+      this.routeChange.emit( current.config )
+      this.dataChange.emit( current.config.data )
+    }
 
     const parent = current.parent
 
@@ -211,10 +225,32 @@ import {
       const config = parent.config
       const ar = parent.ActivatedRoute
 
-      this.parentRouteChange.emit( config )
       this.parentChange.emit( ar )
-      this.parentDataChange.emit( config.data )
+      if ( config ) {
+        this.parentRouteChange.emit( config )
+        this.parentDataChange.emit( config.data )
+      }
     }
+  }
+
+  goBackOrUp() {
+    if ( this.RouteWatchReporter.$history.length ) {
+      this.RouteWatchReporter.goHistoryBack()
+      return
+    }
+
+    this.goUp()
+  }
+
+  goUp() {
+    const target = this.crumbArray[ this.crumbArray.length - 1 ]
+    const route = target.config
+    
+    if ( !route ) {
+      return
+    }
+
+    this.Router.navigateByUrl( route.path as string )
   }
 
   goBackTo(name: string, params: any){
@@ -233,7 +269,11 @@ import {
         config: parent.config
       }
     }
-  
+
+    if ( !current.config ) {
+      return
+    }
+
     const likeParent = this.getLikeParent(current.config)
     if ( likeParent ) {
       return {
