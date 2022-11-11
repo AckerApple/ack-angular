@@ -28,12 +28,13 @@ import { AckApp } from "../providers/AckApp.provider"
   @Input() valign: 'top' | 'center' | 'bottom' = 'top'
   @Input() wrapStyle: any
   @Input() wrapCellStyle: any
+  @Input() wrapContentClass: any
   @Input() backgroundColor?: string
   
   @Input() allowClose:boolean = true
 
   //two way binds
-  @Input() showModel?: boolean
+  @Input() showModel?: boolean | number
   @Output() showModelChange:EventEmitter<boolean> = new EventEmitter()
 
   //one way expression binds

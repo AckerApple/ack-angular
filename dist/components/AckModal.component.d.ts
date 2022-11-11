@@ -12,14 +12,15 @@ export declare class AckModal {
     valign: 'top' | 'center' | 'bottom';
     wrapStyle: any;
     wrapCellStyle: any;
+    wrapContentClass: any;
     backgroundColor?: string;
     allowClose: boolean;
-    showModel?: boolean;
+    showModel?: boolean | number;
     showModelChange: EventEmitter<boolean>;
     close: EventEmitter<any>;
     constructor(element: ElementRef, AckApp: AckApp);
     determineStage(): void;
     ngOnDestroy(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<AckModal, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<AckModal, "ack-modal", never, { "inline": "inline"; "isModelMode": "isModelMode"; "zIndex": "zIndex"; "valign": "valign"; "wrapStyle": "wrapStyle"; "wrapCellStyle": "wrapCellStyle"; "backgroundColor": "backgroundColor"; "allowClose": "allowClose"; "showModel": "showModel"; }, { "showModelChange": "showModelChange"; "close": "close"; }, ["body"], ["*"], false>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<AckModal, "ack-modal", never, { "inline": "inline"; "isModelMode": "isModelMode"; "zIndex": "zIndex"; "valign": "valign"; "wrapStyle": "wrapStyle"; "wrapCellStyle": "wrapCellStyle"; "wrapContentClass": "wrapContentClass"; "backgroundColor": "backgroundColor"; "allowClose": "allowClose"; "showModel": "showModel"; }, { "showModelChange": "showModelChange"; "close": "close"; }, ["body"], ["*"], false>;
 }

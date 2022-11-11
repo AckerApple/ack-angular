@@ -15,28 +15,16 @@
     [ngStyle]="{ 'background-color': backgroundColor || 'rgba(0,0,0,.7)' }"
   >
     <table
-      style="height: 100%; margin: auto"
-      border="0"
-      cellpadding="0"
-      cellspacing="0"
+      style="height: 100%; margin: auto" border="0" cellpadding="0" cellspacing="0"
       [ngStyle]="wrapStyle"
     >
       <tr>
         <td (click)="allowClose ? fireClose() : 0"></td>
       </tr>
       <tr>
-        <td [attr.valign]="valign" [ngStyle]="wrapCellStyle">
+        <td [attr.valign]="valign" [ngStyle]="wrapCellStyle" [ngClass]="wrapContentClass">
           <div *ngIf="allowClose" style="position: relative">
-            <div
-              style="
-                position: absolute;
-                bottom: -17px;
-                right: -16px;
-                border: 1px solid #ddd;
-                border-radius: 50%;
-                z-index: 20;
-              "
-            >
+            <div style="position: absolute;bottom: -17px;right: -16px;z-index: 20;">
               <ack-close-icon (click)="fireClose()"></ack-close-icon>
             </div>
           </div>

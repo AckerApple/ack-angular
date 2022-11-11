@@ -6,16 +6,17 @@ export declare class AckModalLayout {
     close: EventEmitter<AckModalLayout>;
     allowClose: boolean | number;
     wrapStyle: any;
+    wrapContentClass: any;
     wrapCellStyle: any;
     backgroundColor: any;
     valign: 'top' | 'center' | 'bottom';
     isModelMode: boolean | number;
-    showModel: boolean;
+    showModel: boolean | number;
     showModelChange: EventEmitter<boolean>;
     constructor(element: ElementRef);
     clickListenForClose(): void;
     ngOnInit(): Promise<void>;
     fireClose(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<AckModalLayout, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<AckModalLayout, "ack-modal-layout", never, { "zIndex": "zIndex"; "allowClose": "allowClose"; "wrapStyle": "wrapStyle"; "wrapCellStyle": "wrapCellStyle"; "backgroundColor": "backgroundColor"; "valign": "valign"; "isModelMode": "isModelMode"; "showModel": "showModel"; }, { "close": "close"; "showModelChange": "showModelChange"; }, never, ["*"], false>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<AckModalLayout, "ack-modal-layout", never, { "zIndex": "zIndex"; "allowClose": "allowClose"; "wrapStyle": "wrapStyle"; "wrapContentClass": "wrapContentClass"; "wrapCellStyle": "wrapCellStyle"; "backgroundColor": "backgroundColor"; "valign": "valign"; "isModelMode": "isModelMode"; "showModel": "showModel"; }, { "close": "close"; "showModelChange": "showModelChange"; }, never, ["*"], false>;
 }

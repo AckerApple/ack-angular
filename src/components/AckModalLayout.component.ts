@@ -19,12 +19,15 @@ import { animations } from "ack-angular-fx"
   @Input() allowClose: boolean | number = true
 
   @Input() wrapStyle: any
+  
+  @Input() wrapContentClass: any
   @Input() wrapCellStyle: any
+  
   @Input() backgroundColor: any
   @Input() valign: 'top' | 'center' | 'bottom' = 'top'
   
   @Input() isModelMode: boolean | number = false
-  @Input() showModel: boolean = true // when using, do not allow to be undefined
+  @Input() showModel: boolean | number = true // when using, do not allow to be undefined
   @Output() showModelChange: EventEmitter<boolean> = new EventEmitter()
   //@Input() template:ElementRef<any>
 
