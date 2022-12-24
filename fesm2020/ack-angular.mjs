@@ -2674,8 +2674,8 @@ class ContentModel {
     constructor(elm) {
         this.elm = elm;
         this.changeDone = new EventEmitter();
-        this.inputChange = new EventEmitter();
-        // Below, avoid using (contentModelChange) ... use (inputChange) instead
+        this.change = new EventEmitter();
+        // Below, avoid using (contentModelChange) ... use (change) instead
         this.contentModelChange = new EventEmitter();
         this.enter = new EventEmitter(); // fires when enter key used
         this.hasFocusChange = new EventEmitter(); // fires when enter key used
@@ -2743,7 +2743,7 @@ class ContentModel {
         ++this.recentInputs;
         this.updateValue();
         // Below, caused focus loss blur because the model updates and causes redraw so now we use this.recentInputs
-        this.inputChange.emit(this.contentModel);
+        this.change.emit(this.contentModel);
     }
     updateValue() {
         this.contentModel = this.elm.nativeElement.textContent;
@@ -2775,7 +2775,7 @@ class ContentModel {
     }
 }
 ContentModel.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.4", ngImport: i0, type: ContentModel, deps: [{ token: i0.ElementRef }], target: i0.ɵɵFactoryTarget.Directive });
-ContentModel.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "14.2.4", type: ContentModel, selector: "[contentModel]", inputs: { contentModel: "contentModel", placeholder: "placeholder", maxLength: "maxLength", enterEnds: "enterEnds", hasFocus: "hasFocus" }, outputs: { changeDone: "changeDone", inputChange: "inputChange", contentModelChange: "contentModelChange", enter: "enter", hasFocusChange: "hasFocusChange" }, host: { listeners: { "keydown": "onKeyDown($event)", "input": "onInput()", "focus": "onFocus()", "blur": "onBlur()" } }, usesOnChanges: true, ngImport: i0 });
+ContentModel.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "14.2.4", type: ContentModel, selector: "[contentModel]", inputs: { contentModel: "contentModel", placeholder: "placeholder", maxLength: "maxLength", enterEnds: "enterEnds", hasFocus: "hasFocus" }, outputs: { changeDone: "changeDone", change: "change", contentModelChange: "contentModelChange", enter: "enter", hasFocusChange: "hasFocusChange" }, host: { listeners: { "keydown": "onKeyDown($event)", "input": "onInput()", "focus": "onFocus()", "blur": "onBlur()" } }, usesOnChanges: true, ngImport: i0 });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.4", ngImport: i0, type: ContentModel, decorators: [{
             type: Directive,
             args: [{
@@ -2785,7 +2785,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.4", ngImpor
                 type: Output
             }], contentModel: [{
                 type: Input
-            }], inputChange: [{
+            }], change: [{
                 type: Output
             }], contentModelChange: [{
                 type: Output

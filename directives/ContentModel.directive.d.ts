@@ -4,7 +4,7 @@ export declare class ContentModel implements OnChanges, OnDestroy {
     elm: ElementRef;
     changeDone: EventEmitter<string>;
     contentModel?: string;
-    inputChange: EventEmitter<string>;
+    change: EventEmitter<string>;
     contentModelChange: EventEmitter<string>;
     placeholder?: string;
     maxLength?: number;
@@ -26,5 +26,5 @@ export declare class ContentModel implements OnChanges, OnDestroy {
     checkPlaceholder(): void;
     onBlur(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<ContentModel, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<ContentModel, "[contentModel]", never, { "contentModel": "contentModel"; "placeholder": "placeholder"; "maxLength": "maxLength"; "enterEnds": "enterEnds"; "hasFocus": "hasFocus"; }, { "changeDone": "changeDone"; "inputChange": "inputChange"; "contentModelChange": "contentModelChange"; "enter": "enter"; "hasFocusChange": "hasFocusChange"; }, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<ContentModel, "[contentModel]", never, { "contentModel": "contentModel"; "placeholder": "placeholder"; "maxLength": "maxLength"; "enterEnds": "enterEnds"; "hasFocus": "hasFocus"; }, { "changeDone": "changeDone"; "change": "change"; "contentModelChange": "contentModelChange"; "enter": "enter"; "hasFocusChange": "hasFocusChange"; }, never, never, false>;
 }
