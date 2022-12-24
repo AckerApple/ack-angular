@@ -1,6 +1,9 @@
 # ack-angular - Change Log
 All notable changes to this project will be documented here.
 
+## [4.1.5] - 2022-12-23
+- contentModel (inputChange) is now (change)
+
 ## [4.1.0] - 2022-10-17
 - route reporter changes
 
