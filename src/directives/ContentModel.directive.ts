@@ -9,8 +9,8 @@ import {
   @Output() changeDone: EventEmitter<string> = new EventEmitter();
 
   @Input() contentModel?: string;
-  @Output() inputChange: EventEmitter<string> = new EventEmitter();
-  // Below, avoid using (contentModelChange) ... use (inputChange) instead
+  @Output() change: EventEmitter<string> = new EventEmitter();
+  // Below, avoid using (contentModelChange) ... use (change) instead
   @Output() contentModelChange: EventEmitter<string> = new EventEmitter();
 
   @Input() placeholder?: string;
@@ -106,7 +106,7 @@ import {
     ++this.recentInputs;
     this.updateValue()
     // Below, caused focus loss blur because the model updates and causes redraw so now we use this.recentInputs
-    this.inputChange.emit(this.contentModel);
+    this.change.emit(this.contentModel);
   }
 
   updateValue() {

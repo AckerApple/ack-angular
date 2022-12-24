@@ -15,7 +15,6 @@ const packJson = require("../../package.json")
   version = (packJson as any).version
   screenWidthModel:number
   stateName:string
-  isSwaping:boolean
   isBackMode:boolean
   fx: any
   menu = menu
