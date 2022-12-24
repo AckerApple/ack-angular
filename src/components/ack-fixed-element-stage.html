@@ -1,11 +1,11 @@
-<ng-container *ngFor="let fixedElm of AckApp.fixedElms"
-  ><ng-container
-    *ngTemplateOutlet="fixedElm.content"
-  ></ng-container></ng-container
-><ng-container *ngFor="let prompt of AckApp.prompts.prompts;let i=index"
-  ><ack-modal-layout zIndex="99" [allowClose]="0"
-    ><div
+<ng-container *ngFor="let fixedElm of AckApp.fixedElms">
+  <ng-container *ngTemplateOutlet="fixedElm.content"></ng-container>
+</ng-container>
+<ng-container *ngFor="let prompt of AckApp.prompts.prompts;let i=index">
+  <ack-modal-layout zIndex="99" [allowClose]="0">
+    <div
       style="
+        color:black;
         text-align: left;
         max-width: 900px;
         border: 1px solid #ddd;
